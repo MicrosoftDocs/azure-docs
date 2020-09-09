@@ -24,9 +24,13 @@ Metrics Advisor provides a web portal to help you onboard your data and begin us
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* A [Metrics Advisor instance](create-instance.md)
-  * You can access the web portal for your instance at: `https://<resource-name>.azurewebsites.net` where `<resource-name>` is the name for your Metrics Advisor resource.
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+    * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
+    * You will need the URL from the resource you create, to use the service.
+    
+> [!TIP]
+> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
+> * You can start using your Metrics Advisor instance using the web portal and REST API. You can find both URLs in the resource you created.
 
 This document uses a SQL Database as an example for creating your first monitor.
 
@@ -41,7 +45,7 @@ To get started, sign into your Metrics Advisor portal, with your Active Director
 ### Configure connection settings
 
 > [!TIP]
-> See [how to add data feeds](../how-tos/datafeeds.md) for details on the available parameters.
+> See [how to add data feeds](../how-tos/manage-data-feeds.md) for details on the available parameters.
 
 Add the data feed by connecting to your time-series data source. Start by selecting the following parameters:
 
@@ -122,7 +126,7 @@ After creating a web hook, an alert setting determines how and which alert notif
 
 ## Next Steps
 
-- [Onboard and manage data feeds](../how-tos/datafeeds.md)
+- [Onboard and manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Use the REST API or Client libraries](rest-api-and-client-library.md)
 - [Send anomaly feedback to your instance](../how-tos/anomaly-feedback.md)

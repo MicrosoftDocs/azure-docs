@@ -33,19 +33,15 @@ landingContent:
           url: quickstarts/web-portal.md
         - text: Use the REST API and Client libraries
           url: quickstarts/rest-api-and-client-library.md
-    - linkListType: how-to-guide
-      links:
-        - text: Add a data feed
-          url: how-tos/datafeeds.md    
 
 - title: How-to articles
   linkLists:
     - linkListType: how-to-guide
       links:
         - text: Onboard your data
-          url: onboard-your-data.md
+          url: how-tos/onboard-your-data.md
         - text: Manage data feeds
-          url: how-tos/datafeeds.md
+          url: how-tos/manage-data-feeds.md
         - text: Configure metrics and anomaly detection
           url: how-tos/configure-metrics.md
         - text: Create and send alerts

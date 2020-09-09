@@ -12,13 +12,10 @@ ms.date: 08/28/2020
 ms.author: aahi
 ---
 
-# How to: Manage the data feed
+# How to: Manage your data feeds
 
 Learn how to create and manage data feeds in Metrics Advisor. This article guides you through managing data feeds in Metrics Monitor.
 
-## Manage your data feed
-
-After creating your data feed, use these features to manage and customize it.
 ##  Backfill your data feed
 
 Select the  **Backfill** button to trigger an immediate ingestion on a time-stamp, to fix a failed ingestion or override the existing data.
@@ -127,7 +124,6 @@ To delete a datafeed:
 2. In the datafeed details page, click **Delete**.
 
 When changing the start time, you need to verify the schema again. You can change it by using **Edit parameters**.
-
 
 ## Next steps
 

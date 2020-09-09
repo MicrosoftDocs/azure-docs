@@ -16,10 +16,15 @@ ms.author: aahi
 
 Metrics Advisor provides several features for diagnostics, and gives an in-depth view of detected incidents, and provide root-cause analysis. When a group of anomalies detected on a metric, Metrics Advisor will group anomalies into a hierarchy and analyze on top of it.
 
-> [!Note]
-> As of now, Metrics Advisor supports incident diagnostics for metrics with **at least one dimension** and measure with **numeric type**. There also needs to have an aggregated dimension value, like SUM for each dimension, which is used to build the hierarchy. Metrics Advisor offers [Automatic roll up settings]() to help with generating aggregated value. 
+> [!NOTE]
+> Currently Metrics Advisor supports incident diagnostics for metrics with at least one dimension, and measure with the  **numeric** type. Your metric needs to have an aggregated dimension value like SUM for each dimension, which is used to build the diagnostics hierarchy. Metrics Advisor offers [Automatic roll up settings](onboard-your-data.md#automatic-roll-up-settings) to help with generating aggregated values. 
 
 Click on **Incident hub** in the left navigation window to see all incidents under a given metric. At the top of the page, you can select different metrics to see their detection configurations, and detection results, and change the time range.
+
+> [!TIP]
+> You can also get to the **Incident hub** by:
+> * Clicking on a data point in the visualization for your metric, and using the links at the bottom of the **Add feedback** window that appears.
+> * Clicking on one of the anomalies in the **incidents** tab for your metric. 
 
 The **overview** section contains detection results, including counts of the anomalies and alerts within in the selected time range.
 
@@ -35,7 +40,7 @@ The **Diagnostic** section lets you perform in-depth analysis on an incident, an
 
 ## Root cause advice
 
-When there's a group of anomalies detected on one metric which causes an incident, Metrics Advisor will try to analyze on the root cause. **Root cause advices** provides automatic suggestions for likely causes of an incident. This feature is only available if there is an aggregated value within dimension. If the metric has no dimension, the root cause will be itself. Root causes are listed at right side panel and there might be several reasons listed. If there is no data in the table, it means your dimension doesn't satisfy the requirements to perform the analysis.
+When a group of anomalies is detected in a metric and causes an incident, Metrics Advisor will try to analyze the root cause of the incident. **Root cause advices** provides automatic suggestions for likely causes of an incident. This feature is only available if there is an aggregated value within dimension. If the metric has no dimension, the root cause will be itself. Root causes are listed at right side panel and there might be several reasons listed. If there is no data in the table, it means your dimension doesn't satisfy the requirements to perform the analysis.
 
 ![Root Cause Advice](../media/diagnostics/root-cause-advice.png)
 
@@ -134,7 +139,7 @@ After selecting a shifted comparison, you can select whether you want to compare
 
 ## Next steps 
 
-- [Add and manage data feeds](datafeeds.md)
+- [Add and manage data feeds](manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Send anomaly feedback to your instance](anomaly-feedback.md)
 - [Configure metrics and anomaly detection](configure-metrics.md)

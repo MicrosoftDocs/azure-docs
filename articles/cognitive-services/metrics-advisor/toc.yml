@@ -9,7 +9,7 @@
   items:
   - name: Use the web portal
     href: quickstarts/web-portal.md
-  - name: Use the Client library or REST API
+  - name: Use the REST API
     href: quickstarts/rest-api-and-client-library.md
   - name: Explore the demo site
     href: quickstarts/explore-the-demo.md
@@ -18,10 +18,10 @@
   - name: Onboard your data
     href: how-tos/onboard-your-data.md
   - name: Manage data feeds
-    href: how-tos/datafeeds.md
+    href: how-tos/manage-data-feeds.md
   - name: Configure metrics and anomaly detection
     href: how-tos/configure-metrics.md
-  - name: Create and send alerts
+  - name: Configure alerts and web hooks
     href: How-tos/alerts.md
   - name: Diagnose an incident
     href: how-tos/diagnose-incident.md
@@ -29,6 +29,8 @@
     href: data-feeds-from-different-sources.md
   - name: Adjust anomaly detection using feedback
     href: how-tos/anomaly-feedback.md
+  - name: Build a metrics graph
+    href: how-tos/metrics-graph.md
 - name: Reference
   items:
   - name: Glossary

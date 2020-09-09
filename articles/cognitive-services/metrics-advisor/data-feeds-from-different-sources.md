@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 09/04/2020
 ms.author: aahi
 ---
 
 # Add data feeds from different data sources to Metrics Advisor
 
-Use this article to find the settings and requirements for connecting different types of data sources to Metrics Advisor. Please make sure to read through [onboard-your-data](how-tos/onboard-your-data.md) to understand the key concepts and common steps. 
+Use this article to find the settings and requirements for connecting different types of data sources to Metrics Advisor. Make sure to read how to [Onboard your data](how-tos/onboard-your-data.md) to learn about the key concepts for using your data with Metrics Advisor. 
 
-## Authentication types that supported
+## Supported authentication types
 
 | Authentication types | Description |
 | ---------------------|-------------|
-|**Basic** | Customer needs to input specific parameters that used for accessing to the data sources, like connection string, key... Admins of data feeds are able to view this credentials. |
-| **AzureManagedIdentity** | [Managed identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
-| **AzureSQLConnectionString**| Store your AzureSQL connection string as an **'Authentication entity'** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of **'Authentication entity'** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
-| **DataLakeGen2SharedKey**| Store your data lake account key as an **'Authentication entity'** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of **'Authentication entity'** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials.|
-| **ServicePrincipal**| Store your service principal as an **'Authentication entity'** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of **'Authentication entity'** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials.|
+|**Basic** | You will need to be able to provide basic parameters for accessing data sources. For example a connection string or key. Data feed admins are able to view these credentials. |
+| **AzureManagedIdentity** | [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
+| **AzureSQLConnectionString**| Store your AzureSQL connection string as an **Authentication entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the Authentication entity are able to view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
+| **DataLakeGen2SharedKey**| Store your data lake account key as an **Authentication entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Authentication entity are able to view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
+| **ServicePrincipal**| Store your service principal as an **Authentication entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Authentication entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
 | **ServicePrincipalInKeyVault**|Store your service principal in KeyVault as an **'Authentication entity'** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of **'Authentication entity'** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
-
 ## Data sources supported and corresponding authentication types
+
 
 | Data sources | Authentication Types |
 |-------------| ---------------------|
@@ -47,7 +47,7 @@ Use this article to find the settings and requirements for connecting different 
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-Create an 'Authentication Entity' and use it for authenticating to the data sources is pretty straight forward, in below section we'll focus on parameters that required by 'Basic' authentication type of different sources. 
+Create an **Authentication Entity** and use it for authenticating to your data sources. The following sections specify the parameters required by for *Basic* authentication. 
 
 ## <span id="appinsights">Azure Application Insights</span>
 
@@ -57,7 +57,7 @@ Create an 'Authentication Entity' and use it for authenticating to the data sour
 
     2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
     
-    For more detail, please refer to [this](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-resources-app-insights-keys?view=azure-bot-service-4.0#application-id).
+    For more detail, please refer to [this](https://docs.microsoft.com/azure/bot-service/bot-service-resources-app-insights-keys?view=azure-bot-service-4.0#application-id).
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 
@@ -185,7 +185,7 @@ The timestamp field must match one of these two formats:
 
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
-* **Connection String**: Metrics Advisor accepts an [ADO.NET Style Connection String](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
+* **Connection String**: Metrics Advisor accepts an [ADO.NET Style Connection String](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
 
     Sample connection string:
 
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
 
 ## <span id="table">Azure Table Storage</span>
 
-* **Connection String**: Please refer to [View and copy a connection string](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
+* **Connection String**: Please refer to [View and copy a connection string](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
 * **Table Name**: Specify a table to query against. This could be found in your Azure storage account instance, and click 'Tables' in 'Table Service' section.
 * **Query**
 You could leverage one variable @StartTime in your query:
