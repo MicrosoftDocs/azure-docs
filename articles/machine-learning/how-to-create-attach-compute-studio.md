@@ -114,6 +114,9 @@ During cluster creation or when editing compute cluster details, in the **Advanc
 
 ### Inference clusters
 
+> [!IMPORTANT]
+> Using Azure Kubernetes Service with Azure Machine Learning has multiple configuration options. Some scenarios, such as networking, require additional setup and configuration. For more information on using AKS with Azure ML, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
+
 Create or attach an Azure Kubernetes Service (AKS) cluster for large scale inferencing. Use the [steps above](#portal-create) to create the AKS cluster.  Then fill out the form as follows:
 
 
