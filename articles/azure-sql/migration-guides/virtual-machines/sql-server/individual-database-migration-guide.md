@@ -32,14 +32,9 @@ Migrating to SQL Server on Azure VMs requires the following:
 
 - [Database Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)
 - An [Azure Migrate project](../../../../migrate/create-manage-projects.md)
-- A prepared target [SQL Server on Azure VM](../../../virtual-machines/windows/create-sql-vm-portal.md)
+- A prepared target [SQL Server on Azure VM](../../../virtual-machines/windows/create-sql-vm-portal.md) that is the same or greater version than the source SQL Server
 - [Connectivity between Azure and on-premises](/architecture/reference-architectures/hybrid-networking)
-
-The Database Migration Assistant supports the following target and source SQL Server versions - the target must be the same or a greater version than the source: 
-
-|Supported sources   |Supported targets |
-|---------|---------|
-|SQL Server 2005 <br/> SQL Server 2008 R2 <br/> SQL Server 2008<br/>SQL Server 2012 <br/>SQL Server 2014 <br/>SQL Server 2016 <br/> SQL Server 2017 on Windows<br/> <br/> | SQL Server 2008 R2<br/>SQL Server 2012 <br/> SQL Server 2014<br/>SQL Server 2016 <br/>SQL Server 2017 on Windows and Linux <br/> SQL Server 2019 on Windows and Linux|
+- [Choosing an appropriate migration strategy](to-sql-server-on-azure-vm-overview.md#migrate)
 
 ## Pre-migration
 
@@ -47,7 +42,7 @@ Before you begin your migration, discover the topology of your SQL environment a
 
 ### Discover
 
-Azure Migrate assesses migration suitability of on-premises computers, performs performance-based sizing, and provides cost estimations for running on-premises. Use Azure Migrate to [identify existing data sources and details about the features](../../../../migrate/concepts-assessment-calculation.md) your SQL Server instances use to plan for the migration. This process involves scanning the network to identify all of your SQL Server instances in your organization with the version and features in use. 
+Azure Migrate assesses migration suitability of on-premises computers, performs performance-based sizing, and provides cost estimations for running on-premises. To plan for the migration, use Azure Migrate to [identify existing data sources and details about the features](../../../../migrate/concepts-assessment-calculation.md) your SQL Server instances use. This process involves scanning the network to identify all of your SQL Server instances in your organization with the version and features in use. 
 
 > [!IMPORTANT]
 > When choosing a target Azure virtual machine for your SQL Server instance, be sure to consider the [Performance guidelines for SQL Server on Azure VMs](../../../virtual-machines/windows/performance-guidelines-best-practices.md).
@@ -64,10 +59,9 @@ After you've discovered all of the data sources, use the [Data Migration Assista
 > If you're _not_ upgrading the version of SQL Server, skip this step and move to the [migrate](#migrate) section. 
 
 
-
 #### Assess user databases 
 
-The Data Migration Assistant (DMA) helps you upgrade to a modern data platform by detecting compatibility issues that can impact database functionality in your new version of SQL Server. DMA recommends performance and reliability improvements for your target environment and also allows you to move your schema, data, and login objects from your source server to your target server.
+The Data Migration Assistant (DMA) assists your migration to a modern data platform by detecting compatibility issues that can impact database functionality in your new version of SQL Server. DMA recommends performance and reliability improvements for your target environment and also allows you to move your schema, data, and login objects from your source server to your target server.
 
 See [assessment](/sql/dma/dma-migrateonpremsql) to learn more. 
 
@@ -137,7 +131,7 @@ To perform an online migration using backup and restore, follow these steps:
 1. Perform a full database backup to an on-premises location and modify any existing full database backups to use [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) keyword.
 1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10.md) (>1TB backups recommended).
 1. Restore Full Database backup(s) on the SQL Server on Azure VM.
-1. Setup [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialise the database(s) as this has already been completed in the previous steps.
+1. Setup [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialize the database(s) as this has already been completed in the previous steps.
 
 ### Cut-Over
 

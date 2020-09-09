@@ -31,7 +31,8 @@ Migrate to SQL Server on Azure VMs when you want to use the familiar SQL Server 
 
 Save on costs by bringing your own license with the [Azure Hybrid Benefit licensing model](../../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) or extend support for SQL Server 2008 and SQL Server 2008 R2 by getting [free security updates](../../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md). 
 
-There are two migration strategies to migrate your user databases to an instance of SQL Server on Azure VMs: **migrate**, and **lift and shift**. 
+There are two migration strategies to migrate your user databases to an instance of SQL Server on Azure VMs: 
+**migrate**, and **lift and shift**. 
 
 The appropriate approach for your business typically depends on the following factors: 
 
@@ -44,7 +45,7 @@ The appropriate approach for your business typically depends on the following fa
 The following table describes differences in the two migration strategies: 
 <br />
 
-| **Migration strategy** | **Description** | **When to use** | **Can operating system change?** | **Can SQL Server version change?** |
+| **Migration strategy** | **Description** | **When to use** | **Change OS?** | **Change SQL version?** |
 | --- | --- | --- | --- | --- |
 | **Lift & shift** | Use the lift and shift migration strategy to move the entire physical or virtual SQL Server from its current location onto an instance of SQL Server on Azure VM without any changes to the operating system, or SQL Server version. To complete a lift and shift migration, see [Azure Migrate](../../../../migrate/migrate-services-overview.md). <br /><br /> The source server remains online and services requests while the source and destination server synchronize data allowing for an almost seamless migration. | Use for single to very large-scale migrations, even applicable to scenarios such as data center exit. <br /><br /> Minimal to no code changes required to user SQL databases or applications, allowing for faster overall migrations. <br /><br />No additional steps required for migrating the Business Intelligence services such as  [SSIS](/sql/integration-services/sql-server-integration-services), [SSRS](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports), and [SSAS](/analysis-services/analysis-services-overview). | No | No| 
 |**Migrate** | Use a migrate strategy when you want to upgrade the target SQL Server and/or operating system version. <br /> <br /> Select an Azure VM from Azure Marketplace or a prepared SQL Server image that matches the source SQL Server version. | Use when there is a requirement or desire to use features available in newer versions of SQL Server, or if there is a requirement to upgrade legacy SQL Server and/or OS versions that are no longer in support.  <br /> <br /> May require some application or user database changes to support the SQL Server upgrade. <br /><br />There may be additional considerations for migrating [Business Intelligence](#business-intelligence) services if in the scope of migration. | Yes | Yes | 
@@ -62,7 +63,7 @@ The following table details the available method for the **lift and shift** migr
 
 ## Migrate  
 
-Due to the ease of setup, the recommended approach to migrate user databases is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method  supports larger databases (>1TB) for all versions of SQL Server starting from 2005 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?redirectedfrom=MSDN&view=sql-server-ver15) is the better approach. 
+Due to the ease of setup, the recommended approach to migrate user databases is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method  supports larger databases (>1TB) for all versions of SQL Server starting from 2005 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
 
 The following table details all available methods to migrate your SQL Server database to SQL Server on Azure VMs: 
 <br />
@@ -88,7 +89,8 @@ The following is a list of key points to consider when reviewing migration metho
 - If migrating from SQL Server 2014 or higher, consider [encrypting the backups](/sql/relational-databases/backup-restore/backup-encryption) to protect data during network transfer.
 - To minimize downtime during database migration, use the Always On availability group option. 
 - To minimize downtime without the overhead of configuring an availability group, use the log shipping option. 
-- For limited to no network options, use offline migration methods such as backup and restore, or [disk transfer services](../../../../storage/common/storage-solution-large-dataset-low-network.md) available in Azure.- To also change the version of SQL Server on a SQL Server on Azure VM, see [change SQL Server edition](../../../virtual-machines/windows/change-sql-server-edition.md).
+- For limited to no network options, use offline migration methods such as backup and restore, or [disk transfer services](../../../../storage/common/storage-solution-large-dataset-low-network.md) available in Azure.
+- To also change the version of SQL Server on a SQL Server on Azure VM, see [change SQL Server edition](../../../virtual-machines/windows/change-sql-server-edition.md).
 
 
 ## Business Intelligence 
@@ -107,21 +109,67 @@ As you prepare for migrating SQL Server databases to SQL Server on Azure VMs, be
 
 ## Partners
 
-The following table lists alternative partners that can help with migration as well:
+The following lists alternative partners that can help with migration as well:
 
 
-|  | |  |
-|---------|---------|---------|
-|**[:::image type="content" source="../../media/migration-partners/Blitzz_logo_84.png" alt-text="Blitzz":::](https://www.blitzz.io/product)**|[:::image type="content" source="../../media/migration-partners/blueprint_logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)|[:::image type="content" source="../../media/migration-partners/Cognizant-220.1.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)| 
-|**[:::image type="content" source="../../media/migration-partners/commvault-220.png" alt-text="Commvault":::](https://www.commvault.com/supported-technologies/microsoft)**|[:::image type="content" source="../../media/migration-partners/DataSunrise_database_security_logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)|[:::image type="content" source="../../media/migration-partners/DXC_logo_cropped.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)|
-|**[:::image type="content" source="../../media/migration-partners/fujitsu-logo-220.png" alt-text="Fujitsu":::](https://www.fujitsu.com/us/services/application-services/application-development-integration/legacy-modernization/capabilities/index.html)**|[:::image type="content" source="../../media/migration-partners/InfosysLogo.png" alt-text="Infosys":::](https://www.infosys.com/services/)|[:::image type="content" source="../../media/migration-partners/nayatech_migVisor_logo_small.png" alt-text="migVisor":::](https://www.migvisor.com/)|
-|**[:::image type="content" source="../../media/migration-partners/querysurge_logo-84.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)**|[:::image type="content" source="../../media/migration-partners/quest_logo_cropped1.png" alt-text="Quest":::](https://www.quest.com/products/shareplex/)|[:::image type="content" source="../../media/migration-partners/rhipe-logo-small_final1.png" alt-text="Rhipe":::](https://www.rhipe.com/services/azure-migration/)|
-|**[:::image type="content" source="../../media/migration-partners/scalability-experts-logo3.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)**|[:::image type="content" source="../../media/migration-partners/wipro-220.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)|[:::image type="content" source="../../media/migration-partners/Zen3-logo-220.png" alt-text="Zen3":::](https://zen3tech.com/)|
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="../../media/migration-partners/Blitzz_logo_84.png" alt-text="Blitzz":::](https://www.blitzz.io/product)  
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="../../media/migration-partners/blueprint_logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="../../media/migration-partners/Cognizant-220.1.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="../../media/migration-partners/commvault-220.png" alt-text="Commvault":::](https://www.commvault.com/supported-technologies/microsoft)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="../../media/migration-partners/DataSunrise_database_security_logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="../../media/migration-partners/DXC_logo_cropped.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+     [:::image type="content" source="../../media/migration-partners/fujitsu-logo-220.png" alt-text="Fujitsu":::](https://www.fujitsu.com/us/services/application-services/application-development-integration/legacy-modernization/capabilities/index.html)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="../../media/migration-partners/InfosysLogo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
+   :::column-end:::
+   :::column span="":::
+    [:::image type="content" source="../../media/migration-partners/nayatech_migVisor_logo_small.png" alt-text="migVisor":::](https://www.migvisor.com/)
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+     [:::image type="content" source="../../media/migration-partners/quest_logo_cropped1.png" alt-text="Quest":::](https://www.quest.com/products/shareplex/)
+   :::column-end:::
+   :::column span="":::
+     [:::image type="content" source="../../media/migration-partners/rhipe-logo-small_final1.png" alt-text="Rhipe":::](https://www.rhipe.com/services/azure-migration/)
+   :::column-end:::
+   :::column span="":::
+     [:::image type="content" source="../../media/migration-partners/scalability-experts-logo3.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+     [:::image type="content" source="../../media/migration-partners/wipro-220.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="../../media/migration-partners/Zen3-logo-220.png" alt-text="Zen3":::](https://zen3tech.com/)
+   :::column-end:::
+:::row-end:::
+
 
 
 ## Next steps
 
-To start migrating your SQL Server on SQL Server on Azure VMs, see the [Individual database migration guide](individual-database-migration-guide.md)
+To start migrating your SQL Server on SQL Server on Azure VMs, see the [Individual database migration guide](individual-database-migration-guide.md). 
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration.](../../../../dms/dms-tools-matrix.md)
 
