@@ -153,15 +153,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **User profile** from right top corner and then select **Settings**.
 
-	![Configure Single Sign-On](./media/elium-tutorial/elium-01.png)
+	![Configure Single Sign-On Elium 01](./media/elium-tutorial/elium-01.png)
 
 1. Select **Security** under **Advanced**.
 
-	![Configure Single Sign-On](./media/elium-tutorial/elium-02.png)
+	![Configure Single Sign-On Elium 02](./media/elium-tutorial/elium-02.png)
 
 1. Scroll down to the **Single sign-on (SSO)** section and perform the following steps:
 
-	![Configure Single Sign-On](./media/elium-tutorial/elium-03.png)
+	![Configure Single Sign-On Elium 03](./media/elium-tutorial/elium-03.png)
 
 	a. Copy the value of **Verify that SAML2 authentication works for your account** and paste it in the **Sign-on URL** textbox on the **Basic SAML Configuration** section in the Azure portal.
 
@@ -176,11 +176,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	e. Search for the **entityID** in the **SP Metadata** file, copy the **entityID** value and paste it in the **Identifier** textbox on the **Basic SAML Configuration** section in the Azure portal. 
 
-	![Configure Single Sign-On](./media/elium-tutorial/elium-04.png)
+	![Configure Single Sign-On Elium 04](./media/elium-tutorial/elium-04.png)
 
 	f. Search for the **AssertionConsumerService** in the **SP Metadata** file, copy the **Location** value and paste it in the **Reply URL** textbox on the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On](./media/elium-tutorial/elium-05.png)
+	![Configure Single Sign-On Elium 05](./media/elium-tutorial/elium-05.png)
 
 	g. Open the downloaded metadata file from Azure portal into notepad, copy the content and paste it into the **IdP Metadata** textbox.
 
