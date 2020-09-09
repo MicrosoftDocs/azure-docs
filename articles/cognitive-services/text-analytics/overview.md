@@ -30,7 +30,7 @@ Starting in the v3.1 preview, opinion mining is a feature of Sentiment Analysis.
 
 ## Key phrase extraction
 
-Use [key phrase extraction](how-tos/text-analytics-how-to-keyword-extraction.md) to quickly identify the main concepts in text. For example, in the text "The food was delicious and there were wonderful staff", Key Phrase Extraction will returns the main talking points: "food" and "wonderful staff".
+Use [key phrase extraction](how-tos/text-analytics-how-to-keyword-extraction.md) to quickly identify the main concepts in text. For example, in the text "The food was delicious and there were wonderful staff", Key Phrase Extraction will return the main talking points: "food" and "wonderful staff".
 
 ## Language detection
 
