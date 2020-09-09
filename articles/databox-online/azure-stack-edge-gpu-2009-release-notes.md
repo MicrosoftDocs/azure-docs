@@ -25,7 +25,7 @@ This article applies to the **Azure Stack Edge Pro 2009** software release.
 
 The following new features are available in the Azure Stack Edge 2009 release. 
 
-- **Storage classes** - In this release, Storage classes are available that let you dynamically provision storage. For more information, see [Kubernetes storage management on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-kubernetes-storage.md#dynamic-provisioning). 
+- **Storage classes** - In this release, Storage classes are available that let you dynamically provision storage. For more information, see [Kubernetes storage management on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
 - **Kubernetes dashboard with metrics server** - In this release, a Kubernetes Dashboard is added with a metrics server add-on. You can use the dashboard to get an overview of the applications running on your Azure Stack Edge Pro device, view status of Kubernetes cluster resources, and see any errors that have occurred on the device. The Metrics server aggregates the CPU and memory usage across Kubernetes resources on the device. For more information, see [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 - **Azure Arc for Azure Stack Edge Pro** - Beginning this release, you can deploy application workloads on your Azure Stack Edge Pro device via Azure Arc. Azure Arc is a hybrid management tool that allows you to deploy applications on your Kubernetes clusters. For more information, see [Deploy workloads via Azure Arc on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).  
 

@@ -106,7 +106,7 @@ landingContent:
           - text: Data Box Gateway
             url: data-box-gateway-troubleshoot.md
           - text: Edge compute modules
-            url: azure-stack-edge-gpu-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
+            url: azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge            
           - text: Return Azure Stack Edge GPU
             url: azure-stack-edge-return-device.md
           - text: Open Support ticket
