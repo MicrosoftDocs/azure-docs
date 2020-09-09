@@ -12,7 +12,7 @@ ms.date: 08/26/2020
 ms.author: aahi
 ---
 
-# Send anomaly feedback to your Metrics Advisor instance
+# Adjust anomaly detection using feedback
 
 If you aren't satisfied with some of the anomaly detection results provided by Metrics Monitor, you can manually add feedback that will affect the model applied to your data. 
 
@@ -22,9 +22,9 @@ Use the buttons on the top right corner of the page to activate Feedback annotat
 
 After feedback annotation mode is activated, you can give feedback for one point, or multiple continuous points.
 
-### Give feedback for one point 
+## Give feedback for one point 
 
-With feedback annotation mode activated, click on a point to open a **Add feedback** menu. You can set the type of feedback you want to apply. This feedback will be incorporated in the detection for future points.  
+With feedback annotation mode activated, click on a point to open a **Add feedback** panel. You can set the type of feedback you want to apply. This feedback will be incorporated in the detection for future points.  
 
 * Select **Anomaly** if you think the point was incorrectly labeled by Metrics Monitor. You can specify whether a point should or shouldn't be an anomaly. 
 * Select **ChangePoint** if you think the point indicates the start of a trend change.
@@ -34,17 +34,13 @@ Consider leaving a comment in the **Comment** text box at the same time, and cli
 
 ![Feedback menu](../media/feedback/feedback-menu.png)
 
-### Give feedback for multiple continuous points
+## Give feedback for multiple continuous points
 
 You can give feedback for multiple continuous points at once by clicking down and dragging your mouse on the points you want to annotate. You will see the same feedback menu as above. The same feedback will be applied to all chosen points after you click **Save**.
 
 ![Choose multiple points](../media/feedback/continuous-points.png "Choose multiple points")
 
 ## How to view my feedback
-
-When feedback annotation mode is off, click a point on the time series and a window will appear with information about the feedback.
-
-![View feedback for one point](../media/feedback/feedback-details.png "View feedback for one point")
 
 To see if a point's anomaly detection has changed, hover over the point. The tooltip will show **Affected by feedback: true** if the detection was changed. If it displays **False**, then feedback calculation was done on the point, but the anomaly detection result was not changed.
 
@@ -62,8 +58,6 @@ There are many reasons when you might consider an anomaly is a false alarm. Cons
 |There is a regular pattern to detected anomalies (for example on weekends) and they should not be anomalies.      |Use the feedback feature, or preset events.        |
 
 ## Next steps
-- [Add and manage data feeds](manage-data-feeds.md)
-    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Diagnose incidents](diagnose-incident.md).
-- [Configure metrics and anomaly detection](configure-metrics.md)
+- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
 - [Create alerts](../how-tos/alerts.md)

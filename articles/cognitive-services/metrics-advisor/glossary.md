@@ -59,7 +59,7 @@ Start time is the time that you want Metrics Advisor to begin ingesting data fro
 
 In Metrics Advisor, confidence boundaries represent the sensitivity of the algorithm used, and are used to filter out overly sensitive anomalies. On the web portal, confidence bounds appear as a transparent blue band. All the points within the band are treated as normal points.
 
-Metrics Advisor provides tools to adjust the sensitivity of the algorithms used. See [How to: configure metrics and anomaly detection](how-tos/configure-metrics.md) for more information.
+Metrics Advisor provides tools to adjust the sensitivity of the algorithms used. See [How to: Configure metrics and fine tune detecting configuration](how-tos/configure-metrics.md) for more information.
 
 ![Confidence bounds](media/confidence-bounds.png)
 

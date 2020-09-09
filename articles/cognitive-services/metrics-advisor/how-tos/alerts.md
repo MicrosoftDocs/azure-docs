@@ -12,7 +12,7 @@ ms.date: 08/19/2020
 ms.author: aahi
 ---
 
-# How-to: Configure alerts and get notifications using a web hook
+# How-to: Configure alerts and get notifications using a hook
 
 After an anomaly is detected by Metrics Advisor, an alert notification will be triggered based on alert settings, using a hook. An alert setting can be used with multiple detection configurations, various parameters are available to customize your alert rule.
 
@@ -37,10 +37,11 @@ An email hook is the channel for anomaly alerts to be sent to email addresses sp
 
 After you click **OK**, an email hook will be created. You can use it in any alert settings to receive anomaly alerts. 
 
-### Create a web hook
+### Web hook
 
-> [!TIP]
-> * Web hooks are only only supported for alerts.  
+A web hook is the entry point to get anomaly noticed by a programmatic way from the Metrics Advisor service, which calls a user-provided API when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts could be sent through web hooks.
+
+> [!Note]
 > * Use the **POST** request method.
 > * The request body wil be similar to:  
     `{"timestamp":"2019-09-11T00:00:00Z","alertSettingGuid":"49635104-1234-4c1c-b94a-744fc920a9eb"}`
@@ -49,7 +50,6 @@ After you click **OK**, an email hook will be created. You can use it in any ale
 A web hook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided api when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts are sent through web hooks only.
 
 To create a web hook, you will need to add the following information:
-
 
 |Parameter |Description  |
 |---------|---------|
@@ -80,7 +80,7 @@ To create a Azure DevOps hook, you will need to add the following information
 > You need to grant **write** permissions if you want Metrics Advisor to create work items based on anomaly alerts. 
 > After creating hooks, you can use them in any of your alert settings. Manage your hooks in the **hook settings** page.
 
-### Add or Edit alert settings
+## Add or Edit alert settings
 
 Go to metrics detail page, You can find the **Alert settings** section at the bottom left corner of metrics detail page. It lists all alert settings that works together with the selected detection configuration. When a new detection configuration is created, there's no alert setting, and no alerts will be sent.  
 You can use the **add**, **edit** and **delete** icons to modify alert settings.
@@ -133,18 +133,8 @@ The **Operator** selector is the logical relationship of each section, to determ
 
 :::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operator for multiple alert setting section":::
 
-### Get details for alert
-
-After setting **timestamp** and **alertSettingGuid** in your api service, you can get details of alert with the API:
-- `query_alert_result_anomalies`
-- `query_alert_result_incidents`
-
-You can manage all your hooks in the hook settings page. 
-
 ## Next Steps
 
-- [Add and manage data feeds](manage-data-feeds.md)
-    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Send anomaly feedback to your instance](anomaly-feedback.md)
+- [Adjust anomaly detection using feedback](anomaly-feedback.md)
 - [Diagnose incidents](diagnose-incident.md).
-- [Configure metrics and anomaly detection](configure-metrics.md)
+- [Configure metrics and fine tune detecting configuration](configure-metrics.md)

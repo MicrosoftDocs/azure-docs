@@ -12,7 +12,7 @@ ms.date: 08/19/2020
 ms.author: aahi
 ---
 
-# How to: configure metrics and anomaly detection using the web portal
+# How to: Configure metrics and fine tune detecting configuration
 
 Use this article to start configuring your Metrics Advisor instance using the web portal. To browse the metrics for a specific data feed, go to the **Data feeds** page and select one of the feeds. This will display a list of metrics associated with it.
 
@@ -28,24 +28,23 @@ You can also select time ranges, and change the layout of the page. Note the fol
 
 You can click the **Incidents** tab to view anomalies, and find a link to the [Incident hub](diagnose-incident.md).
 
-## Tune the anomaly detection configuration
+## Tune the detecting configuration
 
-A metric can apply one or more anomaly detection configurations. There is a default configuration for each metric, which you can edit or add to, according to your data needs.
+A metric can apply one or more detecting configurations. There is a default configuration for each metric, which you can edit or add to, according to your monitoring needs.
 
 ### Tune the configuration for all series in current metric
 
 This configuration will be applied to all the series in this metric, except for ones with a separate configuration. A metric level configuration is applied by default when data is onboarded, and is shown on the left panel. Users can directly edit metric level config on metric page. 
 
-There are additional parameters like **Direction**, and **valid anomaly** that can be used to further tune the configuration. You can combine different detection methods as well. 
+There are additional parameters like **Direction**, and **Valid anomaly** that can be used to further tune the configuration. You can combine different detection methods as well. 
 
 ![Configuration combination](../media/configuration-combination.png "Configuration combination")
 
 ### Tune the configuration for a specific series or group
 
-If you want to tune a group of series, you can specify the dimension value to select a group. The number of specified dimensions should be less than the total number of dimensions in the series. Using this configuration will be applied to the series instead of the metric level configuration. Whichever preset event is chosen, the result shows in "Browse series" tab at the same time with anomaly detection series charts.
+Click **Advanced configuration** below the metric level configuration options to see the group level configuration.You can add a configuration for an individual series, or group of series by clicking the **+** icon in this window. The parameters are similar to the metric-level configuration parameters, but you may need to specify at least one dimension value for a group-level configuration to identify a group of series. And specify all dimension values for series-level configuration to identify a specific series. 
 
-
-Click **Advanced Configuration** below the metric level configuration options to see the group level configuration.You can add a configuration for an individual series, or group of series by clicking the **+** icon in this window. The parameters are similar to the metric-level configuration parameters, but you may need to specify at least one dimension value for a group-level configuration to identify a group of series. And specify all dimension values for series-level configuration to identify a specific series. After setting the conditions for this group, save it.
+This configuration will be applied to the group of series or specific series instead of the metric level configuration. After setting the conditions for this group, save it.
 
 ![Advanced configuration](../media/advanced-configuration.png "Advanced configuration")
 
@@ -70,13 +69,6 @@ When the sensitivity is turned down, the expected value range will be wider, and
 
 ![Smart detection low sensitivity](../media/metrics/smart-detection-low-sensitivity.png)
 
-**Boundary version**
-
-Two versions of boundaries are provided by Metrics Advisor. tolerant disturbance has relative small or great magnitude compared with regular value magnitude
-
-Seasonal series:
-
-![Seasonal series boundary](../media/metrics/seasonal_series_v2.png)
 
 **Change threshold** 
 
@@ -108,7 +100,9 @@ Use the following steps to use this mode:
     * "Up" means to only detect anomalies when (current data point) - (comparing data point) > **+** threshold%.
     * "Down" means to only detect anomalies when (current data point) - (comparing data point) < **-** threshold%.
  
-- **Hard threshold** is a basic method for anomaly detection. You can set an upper and/or lower bound to determine the expected value range. Any points fall out of the boundary will be identified as an anomaly. 
+**Hard threshold**
+
+ Hard threshold is a basic method for anomaly detection. You can set an upper and/or lower bound to determine the expected value range. Any points fall out of the boundary will be identified as an anomaly. 
 
 
 ## Preset Events
@@ -170,14 +164,15 @@ Cycle event is used to reduce anomalies if they follow a cyclic pattern, but it 
 
 Metrics Advisor detects anomalies on all your time series data in near real-time. However, not all of these anomalies would be escalated to customers, because they might not critical enough to be noticed. Aggregation will be performed on anomalies to get related anomalies clustered for escalating a potential incident. You can view these incidents from the **Incident** tab in metrics details page. 
 
-Click on an incident and you will be taken to the **Anomaly Incidents** page where you can see more details about it. Click on **Manage incidents in a new Incident hub**, and you will be taken to the [Incident Hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
+Click on an incident and you will be taken to the **Incidents analysis** page where you can see more details about it. Click on **Manage incidents in new Incident hub**, and you will be taken to the [Incident hub](diagnose-incident.md) page where you can find all incidents under the specific metric. 
 
 ## Subscribe anomalies for notification
 
-If you'd like to get notified whenever an anomaly is detected, you can subscribe to alerts for the metric, using a web hook. See [How to: configure alerts](alerts.md) for more information.
+If you'd like to get notified whenever an anomaly is detected, you can subscribe to alerts for the metric, using a hook. See [Configure alerts and get notifications using a hook](alerts.md) for more information.
 
-- [Add and manage data feeds](manage-data-feeds.md)
-    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Send anomaly feedback to your instance](anomaly-feedback.md)
+
+## Next steps 
+- [Configure alerts](alerts.md)
+- [Adjust anomaly detection using feedback](anomaly-feedback.md)
 - [Diagnose incidents](diagnose-incident.md).
-- [Create alerts](alerts.md)
+
