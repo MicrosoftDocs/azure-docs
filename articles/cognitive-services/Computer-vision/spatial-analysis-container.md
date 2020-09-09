@@ -266,6 +266,8 @@ Deploy the spatial analysis container as an IoT Module on the host computer, eit
 
 Use the below steps to deploy the container using the Azure CLI.
 
+---
+
 ### IoT Deployment manifest
 
 To streamline container deployment on multiple host computers, you can create a deployment manifest file to specify the container creation options, and environment variables. You can find an example of a deployment manifest [on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files).
