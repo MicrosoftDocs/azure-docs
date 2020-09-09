@@ -18,6 +18,10 @@
   items:
   - name: Move overview
     href: about-move-process.md
+  - name: Support matrix for Azure VM region move
+    href: support-matrix-move-region-azure-vm.md
+  - name: Support matrix for Azure SQL region move
+    href: support-matrix-move-region-sql.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/0892020
+ms.date: 09/09/20
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
