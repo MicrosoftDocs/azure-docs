@@ -366,7 +366,7 @@ The following is an example of the SAML metadata KeyDescriptor with a use set to
 </KeyDescriptor>
 ```
 
-To enable Azure AD B2C to send encrypted assertions, set the **WantsEncryptedAssertion** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile). You can also configure the algorithm used to encrypt the SAML assertion. For more information, see [relying party technical profile metadata](relyingparty#metadata). 
+To enable Azure AD B2C to send encrypted assertions, set the **WantsEncryptedAssertion** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile). You can also configure the algorithm used to encrypt the SAML assertion. For more information, see [relying party technical profile metadata](relyingparty.md#metadata). 
 
 ```xml
 <RelyingParty>
