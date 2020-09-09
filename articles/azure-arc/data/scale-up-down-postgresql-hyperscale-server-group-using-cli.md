@@ -10,7 +10,7 @@ ms.reviewer: mikeray
 ms.date: 08/04/2020
 ms.topic: how-to
 ---
-# Scenario: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
+# Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
 
 
 
