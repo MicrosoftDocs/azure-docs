@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 # Change approval settings for an access package in Azure AD entitlement management
 
-As an access package manager, you can change the approval settings for an access package at any time by editing an existing policy or adding a new policy. 
+As an access package manager, you can change the approval settings for an access package at any time by editing an existing policy or adding a new policy. You can also change the approval settings.
 
 This article describes how to change the request and approval settings for an existing access package.
 
@@ -53,7 +53,7 @@ Follow these steps to specify the approval settings for requests for the access 
     
 1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
 
-    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
+    ![Access package - Requests - Approval settings](./media/entitlement-management-access-package-approval-policy/approval.png)
 
 Use the following steps to add approvers after selecting how many stages you require: 
 
@@ -63,11 +63,11 @@ Use the following steps to add approvers after selecting how many stages you req
     
     If the policy is set to govern access for users in your directory, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
     
-    ![Access package - Requests - For users in directory - First Approver](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
+    ![Access package - Requests - For users in directory - First Approver](./media/entitlement-management-access-package-approval-policy/approval-single-stage-first-approver-manager.png)
 
     If this policy is set to govern access for users not in your directory, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
     
-    ![Access package - Requests - For users out of directory - First Approver](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    ![Access package - Requests - For users out of directory - First Approver](./media/entitlement-management-access-package-approval-policy/out-directory-first-approver.png)
     
 1. If you selected **Manager** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
 
@@ -91,11 +91,11 @@ If you selected a 2-stage approval, you'll need to add a second approver.
     
     If the users are in your directory, add a specific user as the second approver by clicking **Add approvers** under Choose specific approvers.
 
-    ![Access package - Requests - For users in directory - Second Approver](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+    ![Access package - Requests - For users in directory - Second Approver](./media/entitlement-management-access-package-approval-policy/in-directory-second-approver.png)
 
     If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the second approver. After selecting the approver, add the fallback approvers.
 
-    ![Access package - Requests - For users out of directory - Second Approver](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+    ![Access package - Requests - For users out of directory - Second Approver](./media/entitlement-management-access-package-approval-policy/out-directory-second-approver.png) 
 
 1. Specify the number of days the second approver has to approve the request in the box under **Decision must be made in how many days?**. 
 
@@ -114,13 +114,13 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Under the First Approver, Second Approver, or both, click **Show advanced request settings**.
 
-    ![Access package - Policy - Show advanced request settings](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+    ![Access package - Policy - Show advanced request settings](./media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png)
 
 1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
 
 1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
 
-    ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+    ![Access package - Policy - Add Alternate Approvers](../media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
 
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
 
@@ -134,6 +134,6 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     If you selected **None (administrator direct assignments only)** and you set enable to **No**, then administrators can't directly assign this access package.
 
-    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
 1. Click **Next**.
