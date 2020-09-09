@@ -18,7 +18,7 @@ ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a approver, I want steps for how to approve requests for access packages so that I can unlock requestors who need to use the resoruces.
+#Customer intent: As a approver, I want steps for how to approve requests for access packages so that I can unlock requestors who need to use the resources.
 
 ---
 # Approve or deny access requests in Azure AD entitlement management
@@ -47,6 +47,18 @@ If you don't have the email, you can find the access requests pending your appro
 
 1. On the **Pending** tab, find the request.
 
+## View requestor's answers to questions (Preview)
+
+1. Navigate to the **Approvals** tab in My Access.
+
+1. Go to the request you'd like to approve and click **details**. You can also click **Approve** or **Deny** if you are ready to make a decision.
+
+1. Click on **Request details**.
+
+1. The information provided by the requestor will be at the bottom of the panel.
+
+1. Based on the information the requestor provided, you can then approve or deny the request. See the steps in Approve or deny request for guidance.
+
 ## Approve or deny request
 
 After you open an access request pending approval, you can see details that will help you make an approve or deny decision.
@@ -70,22 +82,6 @@ After you open an access request pending approval, you can see details that will
     If a policy is configured with multiple approvers, only one approver needs to make a decision about the pending approval. After an approver has submitted their decision to the access request, the request is completed and is no longer available for the other approvers to approve or deny the request. The other approvers can see the request decision and the decision maker in their My Access portal. At this time, only single-stage approval is supported.
 
     If none of the configured approvers are able to approve or deny the access request, the request expires after the configured request duration. The user gets notified that their access request has expired and that they need to resubmit the access request.
-
-## View which attributes are required for a package
-
-1. Go to any policy for the package
-
-1. Click on the **Requestor information** page
-
-1. Click on the **Attributes** sub-tab
-
-1. Here you will see all of the attributes required for all applications in this package
-
-    1. If a user does not have one of these attributes when requesting a package, they will be prompted to supply it. 
-    1. If they already have this attribute filled out, we will not ask them again.
-
-The approver of a request will see any attributes the requestor supplies when they are reviewing the request in Request details.
-
 
 ## Next steps
 

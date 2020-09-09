@@ -99,23 +99,6 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 1. Click **Remove** (or click the ellipsis (**...**) and then click **Remove resource**).
 
-## Add attributes to catalog (Preview)
-If guests or internal users are missing attributes when they request access to an access package, this blocks successful provisioning to apps. Requestors can now be prompted to self-provide any attributes they are missing that are required for the applications in the package at the time they request access. 
-
-To add attributes to the catalog, use the following steps:
-
-**Prerequisite role:**
-
-1. Select the catalog that you want to add attributes to an application in the catalog.
-
-1. Find the application you will add an attribute to, then click the three dots.
-
-1. After the three dots are selected, a small box appears with the option to require attributes.
-
-1. Select **require attributes**. 
-
-1. Click **Save**. Any package containing this app, will then require requestors to provide that attribute, if they do not already have it.
-
 
 ## Add additional catalog owners
 
