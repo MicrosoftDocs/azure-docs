@@ -1,6 +1,6 @@
 ---
 title: Quickly scale and protect a web application using Azure Front Door and Azure Web Application Firewall (WAF) | Microsoft Docs
-description: This article helps you understand how to use Web Application Firewall with your AAzure Front Door Service
+description: This article helps you understand how to use Web Application Firewall with your Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
 author: duongau

@@ -89,7 +89,7 @@ The studio supports reading data from the following datastore types in a virtual
 
 Add your workspace and storage account to the same virtual network so that they can access each other.
 
-1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md). This capability is currently in preview, and is available in the US East and US West 2 regions.
+1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md). This capability is currently in preview, and is available in US East, US West 2, US South Central regions.
 
 1. To connect your storage account to the virtual network, [configure the Firewalls and virtual networks settings](#use-a-storage-account-for-your-workspace).
 
@@ -614,7 +614,7 @@ The contents of the `body.json` file referenced by the command are similar to th
 
 When __attaching an existing cluster__ to your workspace, you must wait until after the attach operation to configure the load balancer.
 
-For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
+For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md#attach-an-existing-aks-cluster).
 
 After attaching the existing cluster, you can then update the cluster to use a private IP.
 
