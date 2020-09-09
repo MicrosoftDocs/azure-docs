@@ -614,7 +614,7 @@ The contents of the `body.json` file referenced by the command are similar to th
 
 When __attaching an existing cluster__ to your workspace, you must wait until after the attach operation to configure the load balancer.
 
-For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
+For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md#attach-an-existing-aks-cluster).
 
 After attaching the existing cluster, you can then update the cluster to use a private IP.
 
