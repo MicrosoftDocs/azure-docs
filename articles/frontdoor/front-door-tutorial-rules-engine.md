@@ -58,39 +58,39 @@ In this tutorial, you learn how to:
 
 1. Start by creating a Rules Engine - this example shows one rule with one header-based action and one match condition. 
 
-```azurecli-interactive
-az network front-door rules-engine rule create -f {front_door} -g {resource_group} --rules-engine-name {rules_engine} --name {rule1} --priority 1 --action-type RequestHeader --header-action Overwrite --header-name Rewrite --header-value True --match-variable RequestFilenameExtension --operator Contains --match-values jpg png --transforms Lowercase
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule create -f {front_door} -g {resource_group} --rules-engine-name {rules_engine} --name {rule1} --priority 1 --action-type RequestHeader --header-action Overwrite --header-name Rewrite --header-value True --match-variable RequestFilenameExtension --operator Contains --match-values jpg png --transforms Lowercase
+    ```
 
 1. List all the rules. 
 
-```azurecli-interactive
-az network front-door rules-engine rule list -f {front_door} -g {rg} --name {rules_engine}
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule list -f {front_door} -g {rg} --name {rules_engine}
+    ```
 
 1. Add a forwarding route override action. 
 
-```azurecli-interactive
-az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Disabled
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Disabled
+    ```
 
 1. List all the actions in a rule. 
 
-```azurecli-interactive
-az network front-door rules-engine rule action list -f {front_door} -g {rg} -r {rules_engine} --name {rule1}
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule action list -f {front_door} -g {rg} -r {rules_engine} --name {rule1}
+    ```
 
 1. Link a rules engine configuration to a routing rule.  
 
-```azurecli-interactive
-az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --rules-engine {rules_engine}
-```
+    ```azurecli-interactive
+    az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --rules-engine {rules_engine}
+    ```
 
 1. Unlink rules engine. 
 
-```azurecli-interactive
-az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
-```
+    ```azurecli-interactive
+    az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
+    ```
 
 For more information, a full list of AFD Rules Engine commands can be found [here](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true).   
 
