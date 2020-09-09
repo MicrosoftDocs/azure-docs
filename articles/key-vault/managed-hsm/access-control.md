@@ -1,5 +1,5 @@
 ---
-title: Secure access to a Managed HSM - Azure Key Vault Managed HSM| Microsoft Docs
+title: Managed HSM access control
 description: Manage access permissions for Managed HSM and keys. Covers the authentication and authorization model for Managed HSM, and how to secure your HSM pools.
 services: key-vault
 author: amitbapat
@@ -13,11 +13,11 @@ ms.date: 09/15/2020
 ms.author: ambapat
 # Customer intent: As an HSM pool administrator, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM pool.
 ---
-# Secure access to a Managed HSM pool
+# Managed HSM access control
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
 
-## Access control model overview
+## Access control model
 
 Access to a Managed HSM pool is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Managed HSM pool itself. Operations in this plane include creating and deleting HSM pools and retrieving HSM pool properties. The data plane is where you work with the data stored in an HSM pool -- that is HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the  keys, create a full HSM backup, restore full backup, and manage security domain from the data plane interface.
 
@@ -81,124 +81,14 @@ You grant a security principal access to execute specific key operations by assi
 - **"/keys/&lt;key-name&gt;"**: Key level scope. Security principals assigned a role at this scope can perform the operations defined in this role for all versions of the specified key only.
 
 
-## Example
-
-In this example, we're developing an application that uses an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Both the RSA key used for signing is stored in our managed HSM pool.
-
-We have identified following roles who manage, deploy, and audit our application:
-- **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of keys. The keys RSA or EC keys for signing, and RSA or AES keys for data encryption.
-- **Developers and operators**: The staff who develop the application and deploy it in Azure. The members of this team aren't part of the security staff. They shouldn't have access to sensitive data like RSA keys. Only the application that they deploy should have access to this sensitive data.
-- **Auditors**: This role is for contributors who aren't members of the development or general IT staff. They review the use and maintenance of certificates, keys, and secrets to ensure compliance with security standards.
-
-There's another role that's outside the scope of our application: the subscription (or resource group) administrator. The subscription admin sets up initial access permissions for the security team. They grant access to the security team by using a resource group that has the resources required by the application.
-
-We need to authorize the following operations for our roles:
-
-**Security team**
-- Create Managed HSM pool.
-- Download Managed HSM pool security domain (for disaster recovery)
-- Turn on logging.
-- Generate or import keys
-- Create HSM pool backups for disaster recovery.
-- Set Managed HSM local RBAC to grant permissions to users and applications for specific operations.
-- Roll the keys periodically.
-
-**Developers and operators**
-- Get reference (key URI) from the security team the RSA key used for signing.
-- Develop and deploy the application that accesses the key programmatically.
-
-**Auditors**
-- Review keys expiry dates to ensure keys are up-to-date
-- Monitor role assignments to ensure keys can only be accessed by authorized users/applications
-- Review the HSM pool logs to confirm proper use of keys in compliance with data security standards.
-
-The following table summarizes the role assignments to teams and resources to access the HSM pool.
-
-| Role | Management plane role | Data plane role |
-| --- | --- | --- |
-| Security team | Managed HSM Contributor | Managed HSM Administrator |
-| Developers and operators | None | None |
-| Auditors | None | Managed HSM Crypto Auditor |
-| Managed identify of the VM used by the Application| None | Managed HSM Crypto User |
-| Managed identity of the Storage account used by the Application| None| Managed HSM Service Encryption |
-
-
-The three team roles need access to other resources along with HSM pool permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need `Contributor` access to those resource types. Auditors need read access to the Storage account where the HSM pool logs are stored.
-
-To assign management plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign HSM pool data plane roles you must use Azure CLI.
-
-
-The Azure CLI snippets in this section are built with the following assumptions:
-- The Azure Active Directory administrator has created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin has added users to their respective groups.
-- All resources are located in the **ContosoAppRG** resource group.
-- The HSM pool logs are stored in the **contosologstorage** storage account.
-- The **ContosoMHSM** HSM pool and the **contosologstorage** storage account are in the same Azure location.
-
-The subscription admin assigns the `Managed HSM Contributor`role to the security team. This role allows the security team to manage existing HSM pools and create new ones. If there are existing Managed HSM pools, they will need to be assigned the "Managed HSM Administrator" role to be able to mange them.
-
-# [Azure CLI](#tab/azure-cli)
-
-```AzureCLI
-# This role assignment allows Contoso Security Team to create new Managed HSM pools
-az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
-
-# This role assignment allows Contoso Security Team to become administrator of existing Managed HSM pool
-az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --scope / --role "Managed HSM Administrator"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "Managed HSM Contributor" -ResourceGroupName ContosoAppRG
-```
-
----
-
-The security team sets up logging and assigns roles to auditors and the VM application.
-
-# [Azure CLI](#tab/azure-cli)
-
-```AzureCLI
-# Enable logging
-hsmresource=$(az keyvault show --hsm-name contosomhsm --query id -o tsv)
-storageresource=$(az storage account show --name contosologstorage --query id -o tsv)
-az monitor diagnostic-settings create --name MHSM-Diagnostics --resource $hsmresource --logs    '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
-
-# Grant the Contoso App Auditors group read permissions to MHSM
-az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az ad group show -g 'Contoso App Auditors' --query 'objectId' -o tsv) --scope / --role "Managed HSM Crypto Auditor"
-
-# Grant the Crypto User role to the VM's managed identity
-az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query objectId -o tsv) --scope / --role "Managed HSM Crypto Auditor"
-
-
-```
-
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```AzureCLI
-# Create a Managed HSM pool and enable logging
-$sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
-$kv = Get-AzKeyVault -HSMName ContosoMHSM
-Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
-```
-
-
-
-Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault. Give similar consideration when you secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../../storage/blobs/security-recommendations.md), and other Azure resources.
-
-
-## Resources
-
-* [Azure RBAC documentation](../../role-based-access-control/overview.md)
-* [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-* [Manage Azure RBAC with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
 
 
 
 ## Next steps
 
 For a getting-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
+
+For a role management tutorial, see [Managed HSM local RBAC](role-management.md)
 
 For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md).
 
