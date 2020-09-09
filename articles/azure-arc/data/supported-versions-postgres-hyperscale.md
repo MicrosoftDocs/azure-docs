@@ -31,12 +31,12 @@ If you do not indicate a version information, by default, a server group of Post
 ## How do be notified when other versions are available?
 Come back and read this article. It will be updated as appropriate. You can also list the kinds of custom resource definitions (CRD) in the Arc Data Controller in your Kubernetes cluster.
 Run the following command:
-```terminal
+```console
 kubectl get crds
 ```
 
 It will return an output like:
-```terminal
+```console
 NAME                                            CREATED AT
 datacontrollers.arcdata.microsoft.com           2020-08-31T20:15:16Z
 postgresql-11s.arcdata.microsoft.com            2020-08-31T20:15:16Z

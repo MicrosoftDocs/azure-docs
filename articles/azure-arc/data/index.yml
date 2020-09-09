@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Arc for data services?
+          - text: What is Azure Arc enabled data services (preview)?
             url: overview.md
       - linkListType: concept
         links:
@@ -43,7 +43,7 @@ landingContent:
             url: install-client-tools.md
 
   # Card (optional)
-  - title: Do with PostgreSQL
+  - title: Azure Arc enabled PostgreSQL Hyperscale
     linkLists:
       - linkListType: quickstart
         links:
@@ -51,7 +51,7 @@ landingContent:
             url: create-postgresql-hyperscale-server-group.md
 
   # Card (optional)
-  - title: Do with SQL Managed Instance
+  - title: Azure Arc enabled SQL Managed Instance
     linkLists:
       - linkListType: quickstart
         links:

@@ -23,23 +23,23 @@ This article explains how you can retrieve the connection endpoints for your ser
 #### 1. Connect to your Arc Data Controller:
 - If you already have a session opened on the host of the Arc Data Controller:
 Run the following command:
-```terminal
+```console
 azdata login
 ```
 
 - If you do not have a session opened on the host of the Arc Data Controller:
 run the following command 
-```terminal
+```console
 azdata login --endpoint https://<external IP address of host/data controller>:30080
 ```
 
 #### 2. Show the connection endpoints
 Run the following command:
-```terminal
+```console
 azdata arc postgres server endpoint list -n <server group name>
 ```
 It returns an output like:
-```terminal
+```console
 Description           Endpoint
 --------------------  ------------------------------------------------------------------------------------------------------------------------
 PostgreSQL Instance   postgresql://postgres:<replace with password>@<IPaddress>:<port number>
@@ -51,7 +51,7 @@ Use these end points to:
 - Access the Grafana and Kibana dashboards from your browser
 
 For example, you can use the end point named _PostgreSQL Instance_ to connect with psql to your server group. For example:
-```terminal
+```console
 psql postgresql://postgres:MyPassworkd@123.456.789.111:31066
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
@@ -73,94 +73,77 @@ postgres=#
 
 ## From CLI with kubectl
 - If your server group is of Postgres version 12 (default), then the following command:
-```terminal
+```console
 kubectl get postgresql-12/<server group name>
 ```
 - If your server group is of Postgres version 11, then the following command:
-```terminal
+```console
 kubectl get postgresql-11/<server group name>
 ```
 
 Those commands will produce output like the one below. You can use that information to form your connection strings:
-```terminal
+```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   3/3          123.456.789.4:31066      5d20h
-```` 
+``` 
 
 
 ## Form connection strings:
 Use the below table of templates of connections strings for your server group. You can then copy/paste and customize them as further needed:
-:::row:::
-   :::column span="":::
-**ADO.NET**
-   :::column-end:::
-Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={your_password_here};Ssl Mode=Require;
-:::row-end:::
-:::row:::
-   :::column span="":::
-**C++ (libpq)**
-   :::column-end:::
-   :::column span="":::
-host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-**JDBC**
-   :::column-end:::
-   :::column span="":::
-jdbc:postgresql://192.168.1.121:24276/postgres?user=postgres&password={your_password_here}&sslmode=require
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-**Node.js**
-   :::column-end:::
-   :::column span="":::
-host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-**PHP**
-   :::column-end:::
-   :::column span="":::
-host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-**psql**
-   :::column-end:::
-   :::column span="":::
-psql "host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require"
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-**Python**
-   :::column-end:::
-   :::column span="":::
-dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_here}' port='24276' sslmode='true'
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-**Ruby**
-   :::column-end:::
-   :::column span="":::
-host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-**Web App**
-   :::column-end:::
-   :::column span="":::
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
-   :::column-end:::
-:::row-end:::
 
+### ADO.NET
+
+```ado.net
+Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={your_password_here};Ssl Mode=Require;`
+```
+
+### C++ (libpq)
+
+```cpp
+host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
+```
+
+### JDBC
+
+```jdbc
+jdbc:postgresql://192.168.1.121:24276/postgres?user=postgres&password={your_password_here}&sslmode=require
+```
+
+### Node.js
+
+```node.js
+host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
+```
+
+### PHP
+
+```php
+host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
+```
+
+### psql
+
+```psql
+psql "host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require"
+```
+
+### Python
+
+```python
+dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_here}' port='24276' sslmode='true'
+```
+
+### Ruby
+
+```ruby
+host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
+```
+
+### Web App
+
+```webapp
+Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
+```
 
 ## Next steps
 - Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
