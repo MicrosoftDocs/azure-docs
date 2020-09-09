@@ -84,7 +84,7 @@ TabularDataset objects provide the ability to load the data in your TabularDatas
 
 A [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true) object is used to configure and submit the training run.
 
-This code creates a ScriptRunConfig object, `run_config`, that specifies
+This code creates a ScriptRunConfig object, `src`, that specifies
 
 * A script directory for your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
 * The training script, *train_titanic.py*.
