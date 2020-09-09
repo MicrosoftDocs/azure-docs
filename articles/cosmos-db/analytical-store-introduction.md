@@ -65,36 +65,88 @@ By using horizontal partitioning, Azure Cosmos DB transactional store can elasti
 
 #### <a id="analytical-schema"></a>Automatically handle schema updates
 
-Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With auto-sync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
+Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the auto-sync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
-In there is a schema evolution, where new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
+In the case of schema evolution, where new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
-If all the operational data in Azure Cosmos DB follows a well-defined schema for analytics, then the schema is automatically inferred and represented correctly in the analytical store. If the well-defined schema for analytics, as defined below, is violated by certain items, they will not be included in the analytical store. If you have scenarios blocked due to  well-defined schema for analytics definition, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
-A well-defined schema for analytics is defined with the following considerations:
+* You can have a maximum of 200 properties at any nesting level in the schema and a maximum nesting depth of 5
+  
+  * An item with 201 properties at the top level doesn’t satisfy this constraint and hence it will not be represented in the analytical store.
+  *	An item with more than 5 nested levels in the schema also doesn’t satisfy this constraint and hence it will not be represented in the analytical store. For example, the following item doesn't satisfy the requirement:
+
+  `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+
+* Property names should be unique when compared case insensitively. For example, the following items do not satisfy this constraint and hence will not be represented in the analytical store:
+
+  `{"Name": "fred"} {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner.
+
+There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
+
+* Well-defined schema representation
+* Full fidelity schema representation
+
+> [!NOTE]
+> For SQL (Core) API accounts, when analytical store is enabled, the default schema representation in the analytical store is well-defined.Whereas for Azure Cosmos DB API for MongoDB accounts, the default schema representation in the analytical store is a full fidelity schema representation. If you have scenarios requiring a different schema representation than the default offering for each of these APIs, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) to enable it.
+
+**Well-defined schema representation**
+
+The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
 * A property always has the same type across multiple items
 
-  * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. 
-  
-    In this case, the analytical store registers the data type of `“a”` as the data type of `“a”` in the first-occurring item     in the lifetime of the container. Items where the data type of `“a”` differs will not be included in the analytical store.
+  * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `“a”` as the data type of `“a”` in the first-occurring item in the lifetime of the container. Items where the data type of `“a”` differs will not be included in the analytical store.
   
     This condition does not apply for null properties. For example, `{"a":123} {"a":null}` is still well-defined.
 
 * Array types must contain a single repeated type
 
-  * For example, `{"a": ["str",12]}` is not a well-defined schema because the array contains a mix of integer and string types
+  * For example, `{"a": ["str",12]}` is not a well-defined schema because the array contains a mix of integer and string types.
 
-* There is a maximum of 200 properties at any nesting level of a schema and a maximum nesting depth of 5
+> [!NOTE]
+> If the Azure Cosmos DB analytical store follows the well-defined schema representation and the specification above is violated by certain items, those items will not be included in the analytical store.
 
-  * An item with 201 properties at the top level doesn't have a well-defined schema.
+**Full fidelity schema representation**
 
-  * An item with more than five nested levels in the schema also doesn't has a well-defined schema. For example, `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+The full fidelity schema representation is designed to handle the full breadth of polymorphic schemas in the schema-agnostic operational data. In this schema representation, no items are dropped from the analytical store even if the well-defined schema constraints (that is no mixed data type fields nor mixed data type arrays) are violated.
 
-* Property names are unique when compared in a case insensitive manner
+This is achieved by translating the leaf properties of the operational data into the analytical store with distinct columns based on the data type of values in the property. The leaf property names are extended with data types as a suffix in the analytical store schema such that they can be queries without ambiguity.
 
-  * For example, the following items do not have a well-defined schema
-`{"Name": "fred"} {"name": "john"}` – `"Name"` and `"name"` are the same when compared in a case insensitive manner
+For example, let’s take the following sample document in the transactional store:
+
+```json
+name: "John Doe",
+age: 32,
+profession: "Doctor",
+address: {
+  streetNo: 15850,
+  streetName: "NE 40th St.",
+  zip: 98052
+},
+salary: 1000000
+}
+```
+
+The leaf property `streetName` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetName.int32`. Note that the datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it’s a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetName.string` where this value of "123" is stored.
+
+Here is a map of all the property data types and their suffix representations in the analytical store:
+
+
+|Original data type  |Suffix  |Example  |
+|---------|---------|---------|
+| Double |	".float64" |	24.99|
+| Array	| ".array" |	["a", "b"]|
+|Binary	| ".binary"	|0|
+|Boolean	| ".bool"	|True|
+|Int32	| ".int32"	|123|
+|Int64	| ".int64"	|255486129307|
+|Null	| ".null"	| null|
+|String| 	".string" |	"ABC"|
+|Timestamp |	".timestamp" |	Timestamp(0, 0)|
+|DateTime	|".date"	| ISODate("2020-08-21T07:43:07.375Z")|
+|ObjectId	|".objectId"	| ObjectId("5f3f7b59330ec25c132623a2")|
+|Document	|".object" |	{"a": "a"}|
 
 ### Cost-effective archival of historical data
 
