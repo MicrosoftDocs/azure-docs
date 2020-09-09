@@ -440,8 +440,9 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate and expand upon concepts presented in this article.
+The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflows) demonstrate and expand upon concepts presented in this article.
 
 ## Next steps
+
 * [Manage your models](concept-model-management-and-deployment.md).
 * Monitor your production models for [data drift](how-to-monitor-data-drift.md).
