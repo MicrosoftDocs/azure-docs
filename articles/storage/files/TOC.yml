@@ -101,9 +101,9 @@
     items:
     - name: Mount SMB file share to Windows
       href: storage-how-to-use-files-windows.md
-    - name: Mount NFS file share to Linux
-      href: storage-how-to-use-files-linux.md
     - name: Mount SMB file share to Linux
+      href: storage-how-to-use-files-linux.md
+    - name: Mount NFS file share to Linux
       href: storage-files-how-to-mount-nfs-shares.md
     - name: Mount SMB file share to macOS
       href: storage-how-to-use-files-mac.md
