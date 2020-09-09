@@ -1,15 +1,16 @@
 ---
 title: Sign up for Azure with a Microsoft 365 account
-description: Learn how to create an Azure subscription by using a Microsoft 365 account
+description: Learn how to create an Azure subscription by using a Microsoft 365 account. You can also associate existing Azure and Microsoft 365 accounts with each other.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Sign up for an Azure subscription with your Microsoft 365 account
 
 If you have a Microsoft 365 subscription, you can use your Microsoft 365 account to create an Azure subscription. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft 365 user name and password. If you want to set up virtual machines or use other Azure services, you must sign up for an Azure subscription. You can share your Azure subscription with others and [use Role-Based Access Control to manage access to your Azure subscription and resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

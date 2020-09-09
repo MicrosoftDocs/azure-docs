@@ -68,6 +68,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 | `https://github.com`, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
 | `https://login.microsoftonline.com`                                                                            | Required to fetch and update Azure Resource Manager tokens                                                                                    |
 | `https://azurearcfork8s.azurecr.io`                                                                            | Required to pull container images for Azure Arc agents                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Required to pull system-assigned managed identity certificates                                                                  |
 
 ## Register the two providers for Azure Arc enabled Kubernetes:
 
@@ -87,7 +88,7 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## Create a Resource Group
+## Create a resource group
 
 Use a resource group to store metadata for your cluster.
 
@@ -168,6 +169,41 @@ You can also view this resource on the [Azure portal](https://portal.azure.com/)
 > [!NOTE]
 > After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes) to surface on the overview page of the Azure Arc enabled Kubernetes resource in Azure portal.
 
+## Connect using an outbound proxy server
+
+If your cluster is behind an outbound proxy server, Azure CLI and the Arc enabled Kubernetes agents need to route their requests via the outbound proxy server. The following configuration enables that:
+
+1. Check the version of `connectedk8s` extension installed on your machine by running this command:
+
+    ```bash
+    az -v
+    ```
+
+    You need `connectedk8s` extension version >= 0.2.3 to set up agents with outbound proxy. If you have version < 0.2.3 on your machine, follow the [update steps](#before-you-begin) to get the latest version of extension on your machine.
+
+2. Set the environment variables needed for Azure CLI:
+
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
+
+3. Run the connect command with proxy parameters specified:
+
+    ```bash
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
+    --proxy-https https://<proxy-server-ip-address>:<port> \
+    --proxy-http http://<proxy-server-ip-address>:<port> \
+    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```
+
+> [!NOTE]
+> 1. Specifying excludedCIDR under --proxy-skip-range is important to ensure in-cluster communication is not broken for the agents.
+> 2. The above proxy specification currently is applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
+
+## Azure Arc agents for Kubernetes
+
 Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namespace. You can view these deployments and pods here:
 
 ```console
@@ -195,8 +231,6 @@ pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
 pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
-
-## Azure Arc agents for Kubernetes
 
 Azure Arc enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
 

@@ -1,18 +1,21 @@
 ---
 title: "Quickstart: Recognize digital ink with the Ink Recognizer REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: This quickstart shows how to use the Ink Recognizer API to start recognizing digital ink strokes.
+description: This quickstart shows how to use the Ink Recognizer API and C# to start recognizing digital ink strokes.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Recognize digital ink with the Ink Recognizer REST API and C#
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Use this quickstart to begin sending digital ink strokes to the Ink Recognizer API. This C# application sends an API request containing JSON-formatted ink stroke data, and gets the response.
 

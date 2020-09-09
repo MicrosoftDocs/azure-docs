@@ -1,14 +1,14 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
 
 Resources that are non-compliant to a **deployIfNotExists** or **modify** policy can be put into a
 compliant state through **Remediation**. Remediation is accomplished by instructing Azure Policy to
-run the **deployIfNotExists** effect or the tag **operations** of the assigned policy on your
+run the **deployIfNotExists** effect or the **modify operations** of the assigned policy on your
 existing resources, whether that assignment is to a management group, a subscription, a resource
 group, or an individual resource. This article shows the steps needed to understand and accomplish
 remediation with Azure Policy.

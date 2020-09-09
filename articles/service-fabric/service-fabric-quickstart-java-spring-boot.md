@@ -6,7 +6,7 @@ author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 # Quickstart: Deploy a Java Spring Boot app on Azure Service Fabric
 

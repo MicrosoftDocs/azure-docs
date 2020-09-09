@@ -7,7 +7,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
-
+ms.custom: devx-track-java
 ---
 
 # Use Azure Cosmos DB change feed to visualize real-time data analytics

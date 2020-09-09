@@ -11,7 +11,7 @@ ms.author: daperlov
 ms.reviewer: jrasnick
 ---
 
-# Ingesting data into Azure Data Lake Storage Gen2 
+# Ingest data into Azure Data Lake Storage Gen2 
 
 In this article, you'll learn how to ingest data from one location to another in an Azure Data Lake Gen 2 (Azure Data Lake Gen 2) storage account using Azure Synapse Analytics.
 

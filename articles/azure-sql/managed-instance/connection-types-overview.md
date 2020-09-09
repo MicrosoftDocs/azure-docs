@@ -9,7 +9,8 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
-ms.date: 10/07/2019
+ms.date: 10/07/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure SQL Managed Instance connection types

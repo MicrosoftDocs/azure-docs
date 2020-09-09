@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/22/2020
+author: shganesh-dev
+ms.author: shganesh
 ---
 
 # Customer Dashboard in commercial marketplace analytics

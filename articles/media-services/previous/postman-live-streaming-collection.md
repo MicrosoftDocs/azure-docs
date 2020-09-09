@@ -17,7 +17,9 @@ ms.author: juliako
 
 ---
 
-# Import a Postman collection with Live Streaming operations 
+# Import a Postman collection with Live Streaming operations
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article contains a definition of the **Postman** collection that contains grouped HTTP requests that call **Live Streaming** Azure Media Services REST APIs. For information about how to configure **Postman** so it can be used to call Media Services REST APIs, see [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) tutorial.
 

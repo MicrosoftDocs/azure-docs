@@ -22,15 +22,15 @@ Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queri
 
 ## Concepts
 
-- [Analyze log data in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) gives a brief overview of log queries and describes how Azure Monitor log data is structured.
+- [Analyze log data in Azure Monitor](./log-query-overview.md) gives a brief overview of log queries and describes how Azure Monitor log data is structured.
 - [Viewing and analyzing log data in Azure Monitor](./log-query-overview.md) explains the portals where you create and run log queries.
 
 ## Reference
 
 - [Query language reference](/azure/kusto/query)  is the complete language reference for the Kusto query language.
 - [Azure Monitor log query language differences](data-explorer-difference.md) describes differences between versions of the Kusto query language.
-- [Standard properties in Azure Monitor log records](../../azure-monitor/platform/log-standard-properties.md) describes properties that are standard to all Azure Monitor log data.
-- [Perform cross-resource log queries in Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) describes how to write log queries that use data from multiple Log Analytics workspaces and Application Insights applications.
+- [Standard properties in Azure Monitor log records](../platform/log-standard-properties.md) describes properties that are standard to all Azure Monitor log data.
+- [Perform cross-resource log queries in Azure Monitor](./cross-workspace-query.md) describes how to write log queries that use data from multiple Log Analytics workspaces and Application Insights applications.
 
 ## Examples
 
@@ -54,3 +54,4 @@ Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queri
 ## Next steps
 
 - Access the complete [reference documentation for the Kusto query language](/azure/kusto/query/).
+

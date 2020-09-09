@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box self-managed shipping | Microsoft Docs in data 
 description: Describes self-managed shipping workflow for Azure Data Box devices
 services: databox
-author: priestlg
+author: alkohli
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
-ms.author: v-grpr
+ms.date: 08/12/2020
+ms.author: alkohli
 ---
 
 # Use self-managed shipping for Azure Data Box in the Azure portal
@@ -24,6 +24,8 @@ Self-managed shipping is available as an option when you [Order Azure Data Box](
 * Japan
 * Singapore
 * South Korea
+* India
+* South Africa
 
 ## Use self-managed shipping
 

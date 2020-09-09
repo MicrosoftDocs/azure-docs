@@ -23,7 +23,7 @@ Create a SQL Managed Instance with the **Enable public endpoint** option selecte
 ## Enable Azure SQL Managed Instance public endpoint
 You can also enable public endpoint on an existing SQL Managed Instance under **Security** > **Virtual network** > **Public endpoint** > **Enable**.
 
-   ![Enable public endpoint](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Enable public endpoint")
+   ![Enable public endpoint using managed instance VNET](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Enable public endpoint")
 
 ## Verify NSG rules
 Check the Network Security Group has the correct **Inbound security rules** that allow connections from Azure services.
@@ -34,7 +34,7 @@ Check the Network Security Group has the correct **Inbound security rules** that
 > Indexers still require that SQL Managed Instance be configured with a public endpoint in order to read data.
 > However, you can choose to restrict the inbound access to that public endpoint by replacing the current rule (`public_endpoint_inbound`) with the following 2 rules:
 >
-> * Allowing inbound access from the `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("SOURCE" = `AzureCognitiveSearch`, "NAME" = `cognitive_search_inbound`)
+> * Allowing inbound access from the `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) ("SOURCE" = `AzureCognitiveSearch`, "NAME" = `cognitive_search_inbound`)
 >
 > * Allowing inbound access from the IP address of the search service, which can be obtained by pinging its fully qualified domain name (eg., `<your-search-service-name>.search.windows.net`). ("SOURCE" = `IP address`, "NAME" = `search_service_inbound`)
 >

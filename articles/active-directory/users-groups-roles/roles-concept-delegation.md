@@ -35,7 +35,7 @@ As an organization grows, it can be difficult to keep track of which users have 
 
 In the Azure AD portal, you can [view all the members of any role](directory-manage-roles-portal.md), which can help you quickly check your deployment and delegate permissions.
 
-If you’re interested in delegating access to Azure resources instead of administrative access in Azure AD, see [Assign a Role-based access control (RBAC) role](../../role-based-access-control/role-assignments-portal.md).
+If you’re interested in delegating access to Azure resources instead of administrative access in Azure AD, see [Assign an Azure role](../../role-based-access-control/role-assignments-portal.md).
 
 ## Delegation planning
 
@@ -57,7 +57,7 @@ Determine the Active Directory tasks that are carried out by administrators and 
 Each task should be evaluated for frequency, importance, and difficulty. These criteria are vital aspects of task definition because they govern whether a permission should be delegated:
 
 * Tasks that you do routinely, have limited risk, and are trivial to complete are excellent candidates for delegation.
-* Tasks that you do rarely but have great impact across the organization and require high skill levels should be considered very carefully before delegating. Instead, you can [temporarily elevate an account to the required role](../active-directory-privileged-identity-management-configure.md) or reassign the task.
+* Tasks that you do rarely but have great impact across the organization and require high skill levels should be considered very carefully before delegating. Instead, you can [temporarily elevate an account to the required role](../privileged-identity-management/pim-configure.md) or reassign the task.
 
 ## Delegate app administration
 
@@ -107,7 +107,7 @@ Attackers who get control of privileged accounts can do tremendous damage, so pr
 
 ## Elevate privilege temporarily
 
-For most day-to-day activities, not all users need global administrator rights, and not all of them should be permanently assigned to the Global Administrator role. When users need the permissions of a Global Administrator, they should activate the role assignment in Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) on either their own account or an alternate administrative account.
+For most day-to-day activities, not all users need global administrator rights, and not all of them should be permanently assigned to the Global Administrator role. When users need the permissions of a Global Administrator, they should activate the role assignment in Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md) on either their own account or an alternate administrative account.
 
 ## Next steps
 

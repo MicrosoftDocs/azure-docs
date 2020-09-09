@@ -2,7 +2,8 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/15/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Move resources to a new resource group or subscription

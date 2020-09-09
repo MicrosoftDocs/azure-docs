@@ -49,6 +49,7 @@ The below table lists additional service dependencies, where the client apps mus
 |                     | SharePoint                                  | Early-bound |
 | Microsoft Teams     | Exchange                                    | Early-bound |
 |                     | MS Planner                                  | Late-bound  |
+|                     | Microsoft Stream                            | Late-bound  |
 |                     | SharePoint                                  | Early-bound |
 |                     | Skype for Business Online                   | Early-bound |
 | Office Portal       | Exchange                                    | Late-bound  |

@@ -6,7 +6,8 @@ author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: yegu
+ms.author: yegu 
+ms.custom: devx-track-azurecli
 
 ---
 # How to create and manage Azure Cache for Redis using the Azure classic CLI

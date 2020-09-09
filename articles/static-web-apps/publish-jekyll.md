@@ -46,7 +46,7 @@ Create a Jekyll app using the Jekyll Command Line Interface (CLI):
    cd static-app
    ```
 
-1. Initialize a new git repository.
+1. Initialize a new Git repository.
 
    ```bash
     git init
@@ -141,7 +141,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Open the Jekyll app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
-1. Replace the line `- uses: actions/checkout@v1` with the following configuration block.
+1. Add lines after the block `- uses: actions/checkout@v2` to the following configuration block.
 
     ```yml
     - uses: actions/checkout@v2
@@ -149,12 +149,12 @@ Next, you add configuration settings that the build process uses to build your a
         submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-        with:
+      with:
         ruby-version: 2.6
     - name: Install dependencies
-        run: bundle install
+      run: bundle install
     - name: Jekyll build
-        run: jekyll build
+      run: jekyll build
     ```
 
 1. Commit the updated workflow and push to GitHub.

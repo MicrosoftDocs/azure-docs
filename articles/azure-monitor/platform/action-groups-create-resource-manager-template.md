@@ -159,6 +159,7 @@ To create an action group using a Resource Manager template, you create a resour
 
 
 ## Next steps
-* Learn more about [action groups](../../azure-monitor/platform/action-groups.md).
+* Learn more about [action groups](./action-groups.md).
 * Learn more about [alerts](alerts-overview.md).
-* Learn how to add [alerts by using a Resource Manager template](../../azure-monitor/platform/alerts-activity-log.md).
+* Learn how to add [alerts by using a Resource Manager template](./alerts-activity-log.md).
+
