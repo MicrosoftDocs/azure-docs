@@ -30,7 +30,7 @@ Capacity is expressed in *search units* that can be allocated in combinations of
 |*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
 |*Shard* | A chunk of an index. Azure Cognitive Search divides each index into shards to make the process of adding partitions faster (by moving shards to new search units).|
 
-In the top-left quadrant, the first search unit is a combination of one replica and one partition, the minimum baseline for creating a service. An additional unit to the side or below adds a single replica or a single partition. If you want two of each, you will need four search units, as captured in the entirety of the following diagram.
+In the top-left quadrant, the first search unit is a combination of one replica and one partition, the minimum baseline for creating a service. An additional unit to the side or below adds a single replica or a single partition. If you want two of each, you will need four search units, as captured in the entirety of the following diagram. Combinations of up to 36 search units are possible.
 
 :::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Search indexes are sharded across partitions.":::
 
