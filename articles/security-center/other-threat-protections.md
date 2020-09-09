@@ -72,7 +72,7 @@ For a list of the Azure Resource Manager (Preview) alerts, see the [Reference ta
 
 1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
 
-1. Set the standard pricing tier, and select **Save**.
+1. Enable **Azure Defender**, and select **Save**.
 
 
 ## Threat protection for other Microsoft services <a name="alerts-other"></a>

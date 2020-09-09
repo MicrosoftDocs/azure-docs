@@ -399,7 +399,7 @@ Set up involves two steps:
 
 1. Enabling the optional bundle in Security Center's pricing and settings page.
 
-Learn more about [advanced data security for SQL machines](security-center-iaas-advanced-data.md).
+Learn more about [advanced data security for SQL machines](defender-for-sql-usage.md).
 
 
 

@@ -28,9 +28,9 @@ A Security Center solution is installed on the workspace selected in the Data Co
 > If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Log Analytics agent, and security monitoring is limited.
 
 ## Does Security Center install solutions on my existing Log Analytics workspaces? What are the billing implications?
-When Security Center identifies that a VM is already connected to a workspace you created, Security Center enables solutions on this workspace according to your pricing tier. The solutions are applied only to the relevant Azure VMs, via [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), so the billing remains the same.
+When Security Center identifies that a VM is already connected to a workspace you created, Security Center enables solutions on this workspace according to your pricing configuration. The solutions are applied only to the relevant Azure VMs, via [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), so the billing remains the same.
 
-- **Azure Defender off** – Security Center installs the 'SecurityCenterFree' solution on the workspace. You won't be billed for the Free tier.
+- **Azure Defender off** – Security Center installs the 'SecurityCenterFree' solution on the workspace. You won't be billed.
 - 
 - **Azure Defender on** – Security Center installs the 'Security' solution on the workspace.
 

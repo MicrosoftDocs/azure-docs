@@ -10,7 +10,7 @@ manager: rkarlin
 
 ---
 
-# Azure Defender for Key Vault
+# Introduction to Azure Defender for Key Vault
 
 > [!NOTE]
 > This service is not currently available in Azure government and sovereign cloud regions.

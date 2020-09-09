@@ -30,11 +30,9 @@
       href: security-center-data-security.md
     - name: Permissions
       href: security-center-permissions.md
-    - name: Pricing tiers explained
-      href: security-center-pricing.md
   - name: Azure Defender's advanced security
     items:
-    - name: Overview of Azure Defender and pricing
+    - name: Overview of Azure Defender
       href: azure-defender.md
     - name: Azure Defender for servers
       href: defender-for-servers-intro.md
@@ -59,6 +57,8 @@
       href: other-threat-protections.md
   - name: Container security features of Security Center
     href: container-security.md
+  - name: Pricing
+    href: security-center-pricing.md
 
 - name: Quickstarts
   items:
@@ -212,8 +212,6 @@
       href: defender-for-sql-usage.md
     - name: Customize the information protection policy
       href: security-center-info-protection-policy.md      
-  - name: Use Azure Defender for App Services
-    href: security-center-app-services.md
   - name: Use Azure Defender for container registries
     displayName: ACR, registry, images
     href: defender-for-container-registries-usage.md

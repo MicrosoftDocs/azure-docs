@@ -106,11 +106,11 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 1. To use the **Azure Defender** filter, select one or more options (Off, On, or Partial):
 
-    - **Off** - Resources that are on the free pricing tier and have no Azure Defender plans enabled
+    - **Off** - Resources that aren't protected by an Azure Defender plan
     - **On** - Resources that are protected by an Azure Defender plan
     - **Partial** - This applies to **subscriptions** that have some but not all of the Azure Defender plans disabled. For example, the following subscription has five Azure Defender plans disabled. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription on standard(partial) pricing tier":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription partially on Azure Defender":::
 
 1. To further examine the results of your query, select the resources that interest you.
 
