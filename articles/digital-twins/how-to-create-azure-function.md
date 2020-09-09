@@ -59,7 +59,7 @@ In order to use the SDK, you'll need to include the following packages into your
     
 You can do this by right-selecting on your project and select _Manage NuGet Packages_ from the list. Then, in the window that opens, select _Browse_ tab and search for the following packages. Select _Install_ and _accept_ the License agreement to install the packages.
 
-* `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
+* `Azure.DigitalTwins.Core`
 * `Azure.Identity` 
 
 For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need the following packages. Repeat the same process as above to install all the packages.
@@ -71,7 +71,7 @@ For configuration of the Azure SDK pipeline to set up properly for Azure Functio
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity --version 1.2.2
 dotnet add package System.Net.Http
 dotnet add package Azure.Core.Pipeline
 ```
