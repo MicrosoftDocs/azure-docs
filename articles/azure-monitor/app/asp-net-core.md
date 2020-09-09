@@ -118,6 +118,7 @@ For Visual Studio for Mac use the [manual guidance](#enable-application-insights
 ### User secrets and other configuration providers
 
 If you want to store the instrumentation key in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
+Starting from [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.15.0-beta3, calling `services.AddApplicationInsightsTelemetry()` will read instrumentation key from all [ASP.NET Core supported configuration providers](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#cp) and there is no need to pass `Microsoft.Extensions.Configuration.IConfiguration` parameter explicitly. 
 
 ## Run your application
 
@@ -220,6 +221,22 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 |EnableDiagnosticsTelemetryModule | Enable/Disable `DiagnosticsTelemetryModule`. Disabling this will cause the following settings to be ignored; `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` | true
 
 See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
+
+### Configuration Recommendation for [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.15.0-beta3 & above
+
+Starting from [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.15.0-beta3 we offer an additional option to modify all configuration updates through ASP.NET Core configuration. The recommended approach is to use `services.AddApplicationInsightsTelemetry()` and configure everything including instrumentation key using `Microsoft.Extensions.Configuration.IConfiguration`. All settings part of `ApplicationInsightsServiceOptions` is automatically read from users `Microsoft.Extensions.Configuration.IConfiguration`. For example, the following appsettings.json can be used to set instrumentation key, disable adaptive sampling and performance counter collection.
+
+```json
+{
+    "ApplicationInsights": {
+    "InstrumentationKey": "putinstrumentationkeyhere",
+    "EnableAdaptiveSampling": false,
+    "EnablePerformanceCounterCollectionModule": false
+    }
+}
+```
+
+If `services.AddApplicationInsightsTelemetry(aiOptions)` is used, this overrides the settings from `Microsoft.Extensions.Configuration.IConfiguration`.
 
 ### Sampling
 
