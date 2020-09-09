@@ -12,11 +12,11 @@ ms.date: 09/10/2020
 
 # Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job
 
-In this article, you learn how to create Azure DevOps [build](./devops/pipelines/get-started-designer.md) and [release](./devops/pipelines/release/define-multistage-release-process.md) pipelines using Azure Stream Analytics CI/CD tools.
+In this article, you learn how to create Azure DevOps [build](/devops/pipelines/get-started-designer) and [release](/devops/pipelines/release/define-multistage-release-process) pipelines using Azure Stream Analytics CI/CD tools.
 
 ## Commit your Stream Analytics project
 
-Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](./devops/user-guide/source-control.md) repository. You can reference this [sample repository](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure Pipelines.
+Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](/devops/user-guide/source-control) repository. You can reference this [sample repository](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure Pipelines.
 
 The steps in this article use a Stream Analytics Visual Studio Code project. If you're using a Visual Studio project, follow the steps in [Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md).
 
@@ -87,7 +87,8 @@ In this section, you learn how to create a build pipeline. You can reference thi
 2. On the **Tasks** page, select the plus sign next to **Agent job 1**. Search for **Command line**.
 
 3. Give the task a **Display name** and enter the following script. Modify the script with your project file name and the path to the test configuration file. 
-See [automated test instructions](./media/cicd/cicd-tools#automatedtest) for details on how to add and configure test cases.
+
+   See [automated test instructions](cicd-tools.md#automatedtest) for details on how to add and configure test cases.
 
    ```cmd
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 

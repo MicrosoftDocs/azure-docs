@@ -82,7 +82,7 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 |---|---|
 | -project | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
 | -outputPath | The path of the output folder. If it is not specified, the output result files will be placed in the current directory. |
-| -customCodeZipFilePath | The path of the zip file for C# custom code (UDF, deserializer, etc) if they are used. |
+| -customCodeZipFilePath | The path of the zip file for C# custom code (UDF, deserializer, etc) if they are used. Package the DLLs into a zip file and specify this path. |
 
 ### VS Code project example
 
@@ -99,7 +99,7 @@ azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/sa
 > [!Note] 
 > JavaScript UDF only works on Windows.
 
-## Automated tests
+## Automated test
 
 You can use the CI/CD npm package to configure and run automated tests for your Stream Analytics script.
 
@@ -161,7 +161,7 @@ If you want the test validation to ignore a certain output, set the **Required**
 }
 ```
 
-### Run unit tests
+### Run a unit test
 
 You can use the following command to run multiple test cases for your project. A summary of test results is gernerated in the output folder. The process exits with code **0** for all tests passed; **-1** for exception occurred; **-2** for tests failed.
 
@@ -234,10 +234,10 @@ When all tests are finished, a summary of the test results in JSON format is gen
 
 ## Deploy to Azure
 
-You can use the Azure Resource Manager template and parameter files generated from Build to [deploy your job to Azure](azure-resource-manager/templates/template-tutorial-use-parameter-file?tabs=azure-powershell#deploy-template).
+You can use the Azure Resource Manager template and parameter files generated from Build to [deploy your job to Azure](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md?tabs=azure-powershell#deploy-template).
 
 
 ## Next Steps
 
-* [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd/cicd-overview)
-* [Setup CI/CD pipeline for Stream Analytics job using Azure Pipelines](cicd/setup-cicd-pipeline)
+* [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd-overview.md)
+* [Setup CI/CD pipeline for Stream Analytics job using Azure Pipelines](setup-cicd-pipeline.md)
