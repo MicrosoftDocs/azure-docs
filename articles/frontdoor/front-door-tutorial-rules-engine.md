@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 ## Configure Rules Engine in Azure portal
 1. Within your Front door resource, go to **Settings** and select **Rule Engine configuration**. Click **Add**, give your configuration a name, and start creating your first Rules Engine configuration.
 
-    ![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
+    ![Front Door settings menu](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
 
 1. Click **Add Rule** to create your first rule. Then, by clicking **Add condition** or **Add action** you can define your rule.
     
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
     > - To create a rule that applies to all incoming traffic, do not specify any conditions.
     > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.  
 
-    ![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
+    ![Rules Engine configuration](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
 1. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
 
@@ -49,12 +49,12 @@ In this tutorial, you learn how to:
 
 1. Once you have created one or more configurations, associate a Rules Engine configuration with a Route Rule. While a single configuration can be applied to many route rules, a Route rule may only contain one Rules Engine configuration. To make the association, go to your **Front Door designer** > **Route rules**. Select the Route rule you'd like to add the Rules engine configuration to, go to **Route details** > **Rules engine configuration**, and select the configuration you'd like to associate.
 
-    ![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
+    ![Configure to a routing rule](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 
 
 ## Configure Rules Engine in Azure CLI
 
-1. If you haven't already, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Add “front-door” extension:- az extension add --name front-door. Then, login and switch to your subscription az account set --subscription <name_or_Id>.
+1. If you haven't already, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Add “front-door” extension:- az extension add --name front-door. Then, login and switch to your subscription az account set --subscription <name_or_Id>.
 
 1. Start by creating a Rules Engine - this example shows one rule with one header-based action and one match condition. 
 
@@ -92,7 +92,7 @@ az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_ru
 az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
 ```
 
-For more information, a full list of AFD Rules Engine commands can be found [here](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest).   
+For more information, a full list of AFD Rules Engine commands can be found [here](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true).   
 
 ## Clean up resources
 
