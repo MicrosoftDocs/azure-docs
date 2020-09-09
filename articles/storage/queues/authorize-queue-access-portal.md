@@ -92,7 +92,7 @@ Notice that no blobs appear in the list if you do not have access to the account
 
 ## Next steps
 
-- [Authenticate access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md)
-- [Grant access to Azure containers and queues with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
-- [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
-- [Grant access to Azure blob and queue data with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Authenticate access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md)
+- [Grant access to Azure containers and queues with RBAC in the Azure portal](../common/storage-auth-aad-rbac-portal.md)
+- [Grant access to Azure blob and queue data with RBAC using Azure CLI](../common/storage-auth-aad-rbac-cli.md)
+- [Grant access to Azure blob and queue data with RBAC using PowerShell](../common/storage-auth-aad-rbac-powershell.md)
