@@ -62,8 +62,8 @@ The Azure Sentinel output plugin for Logstash sends JSON-formatted data to your 
 
     | **Field name** | **Data type** | **Description** |
     |----------------|---------------|-----------------|
-    | `workspace_id` | string | Enter your workspace ID GUID<br>(explain how) |
-    | `workspace_key` | string | Enter your workspace primary key GUID<br>(explain how) |
+    | `workspace_id` | string | Enter your workspace ID GUID * |
+    | `workspace_key` | string | Enter your workspace primary key GUID * |
     | `custom_log_table_name` | string | Set the name of the table into which the logs will be ingested. Only one table name per output plugin can be configured. The log table will appear in Azure Sentinel under **Logs**, in **Tables** in the **Custom Logs** category, with a `_CL` suffix. |
     | `endpoint` | string | Optional field. By default, this is the Log Analytics endpoint. Use this field to set an alternative endpoint. |
     | `time_generated_field` | string | Optional field. This property overrides the default **TimeGenerated** field in Log Analytics. Enter the name of the timestamp field in the data source. The data in the field must conform to the ISO 8601 format (`YYYY-MM-DDThh:mm:ssZ`) |
@@ -72,33 +72,78 @@ The Azure Sentinel output plugin for Logstash sends JSON-formatted data to your 
     | `amount_resizing` | boolean | True/false. Enable or disable the automatic scaling mechanism, which adjusts the message buffer size according to the volume of log data received. |
     | `max_items` | number | Optional field. Applies only if `amount_resizing` set to "false." Use to set a cap on the message buffer size (in records). The default is 2000.  |
 
-    **Sample configuration**
+    * You can find the workspace ID and primary key in the workspace resource, under **Agents management**.
 
-        input {
-            tcp {
-                port => 514
-                type => syslog
-            }
+### Sample configurations
+
+Here are some sample configurations, using a few different options:
+
+Basic configuration
+- Using filebeat input pipe
+
+    ```ruby
+    input {
+        beats {
+            port => "5044"
         }
-
-        filter {
-            grok {
-                match => { "message" => "<%{NUMBER:PRI}>1 (?<TIME_TAG>[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}T[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2})[^ ]* (?<HOSTNAME>[^ ]*) %{GREEDYDATA:MSG}" }
-            }
+    }
+    filter {
+    }
+    output {
+        microsoft-logstash-output-azure-loganalytics {
+          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
+          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          custom_log_table_name => "tableName"
         }
+    }
+    ```
+- Or using the tcp input pipe
 
-        output {
-            logstash-output-azure-loganalytics {
-                workspace_id => "<WS_ID>"
-                workspace_key => "${WS_KEY}"
-                custom_log_table_name => "logstashCustomTable"
-                key_names => ['PRI','TIME_TAG','HOSTNAME','MSG']
-                plugin_flush_interval => 5
-            }
-        } 
+    ```ruby
+    input {
+        tcp {
+            port => "514"
+            type => syslog #optional, will effect log type in table
+        }
+    }
+    filter {
+    }
+    output {
+        microsoft-logstash-output-azure-loganalytics {
+          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
+          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          custom_log_table_name => "tableName"
+        }
+    }
+    ```
 
-    > [!NOTE]
-    > Visit the output plugin’s [GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics) to learn more about its inner workings, configuration, and performance settings.
+Advanced configuration
+
+    ```ruby    
+    input {
+        tcp {
+            port => 514
+            type => syslog
+        }
+    }
+    filter {
+        grok {
+            match => { "message" => "<%{NUMBER:PRI}>1 (?<TIME_TAG>[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}T[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2})[^ ]* (?<HOSTNAME>[^ ]*) %{GREEDYDATA:MSG}" }
+        }
+    }
+    output {
+        microsoft-logstash-output-azure-loganalytics {
+            workspace_id => "<WS_ID>"
+            workspace_key => "${WS_KEY}"
+            custom_log_table_name => "logstashCustomTable"
+            key_names => ['PRI','TIME_TAG','HOSTNAME','MSG']
+            plugin_flush_interval => 5
+        }
+    } 
+    ```
+
+   > [!NOTE]
+   > Visit the output plugin’s [GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics) to learn more about its inner workings, configuration, and performance settings.
 
 1. **Restart Logstash**
 
