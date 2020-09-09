@@ -14,13 +14,19 @@ To deliver this experience with your hybrid machines hosted outside of Azure, th
 
 ## Supported scenarios
 
-When you connect your machine to Azure Arc enabled servers, it enables the ability to perform the following configuration management tasks:
+When you connect your machine to Azure Arc enabled servers, it enables the ability to perform the following configuration management and monitoring tasks:
 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
 
+- Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking.md).
+
 - Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md).
 
-- Simplify deployment with other Azure services like Azure Automation State Configuration and Azure Monitor Log Analytics workspace using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machines. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
+- Simplify deployment with other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and Azure Monitor Log Analytics workspace using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
+
+- Use [Update Management](../../automation/update-management/update-mgmt-overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers. First deploy the [Hybrid Runbook worker](../../automation/automation-hybrid-runbook-worker.md) role and then follow the steps to [enable Update Management](../../automation/update-management/update-mgmt-enable-portal.md) on your non-Azure Windows or Linux machine.
+
+- Include your non-Azure servers for threat detection and proactively monitor for potential security threats using [Azure Security Center](../../security-center/security-center-intro.md). Integrate Security Center with [Azure Sentinel](../../sentinel/overview.md) to leverage a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
 Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
 
