@@ -133,6 +133,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "saket-ms",
+        "articles/automanage/*md": "daberry",
         "articles/azure-arc/servers/**/*.md": "mgoedtel",
         "articles/azure-arc/**/*.md": "mgoedtel",
         "articles/connectors/*.md": "ecfan",
@@ -403,6 +404,7 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
+        "articles/automanage/*md": "daberry",
         "articles/azure-sql/**/*.md": "jroth",
         "articles/synapse-analytics/**/*.md": "jroth",
         "articles/azure-sql-edge/**/*.md" : "jroth",
@@ -472,6 +474,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
+        "articles/automanage/*md": "daberry",
         "articles/azure-arc/servers/**/*.md": "magoedte",
         "articles/azure-arc/**/*.md": "magoedte",
         "articles/connectors/*.md": "estfan",
