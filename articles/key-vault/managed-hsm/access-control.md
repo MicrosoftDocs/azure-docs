@@ -1,5 +1,5 @@
 ---
-title: Secure access to a Managed HSM - Azure Key Vault Managed HSM| Microsoft Docs
+title: Managed HSM access control
 description: Manage access permissions for Managed HSM and keys. Covers the authentication and authorization model for Managed HSM, and how to secure your HSM pools.
 services: key-vault
 author: amitbapat
@@ -13,11 +13,11 @@ ms.date: 09/15/2020
 ms.author: ambapat
 # Customer intent: As an HSM pool administrator, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM pool.
 ---
-# Secure access to a Managed HSM pool
+# Managed HSM access control
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
 
-## Access control model overview
+## Access control model
 
 Access to a Managed HSM pool is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Managed HSM pool itself. Operations in this plane include creating and deleting HSM pools and retrieving HSM pool properties. The data plane is where you work with the data stored in an HSM pool -- that is HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the  keys, create a full HSM backup, restore full backup, and manage security domain from the data plane interface.
 
