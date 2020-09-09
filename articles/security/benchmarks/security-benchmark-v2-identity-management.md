@@ -4,7 +4,7 @@ description: Azure Security Control Identity Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,11 +14,11 @@ ms.custom: security-benchmark
 
 Identity and access management recommendations focus on addressing issues related to identity-based access control, locking down administrative access, alerting on identity-related events, abnormal account behavior, and role-based access control.
 
-## 3.1: Standardize Azure Active Directory as the central identity and authentication system
+## ID-1: Standardize Azure Active Directory as the central identity and authentication system
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| 3.1 | 16.1, 16.2, 16.4, 16.5, 16.6 | AC-3, IA-7, IA-8 |
+| ID-1 | 16.1, 16.2, 16.4, 16.5, 16.6 | AC-3, IA-7, IA-8 |
 
 Azure Active Directory (Azure AD) is Azure's default identity and access management service. Standardize Azure AD to govern your organization’s identity and access management in:
 
@@ -48,7 +48,7 @@ Azure AD provides an identity secure score to help you assess your identity secu
 
 **Responsibility**: Customer
 
-**Customer Security Functions**:
+**Customer Security Stakeholders**:
 
 - [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
@@ -58,11 +58,11 @@ Azure AD provides an identity secure score to help you assess your identity secu
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## 3.2: Manage application identities securely and automatically
+## ID-2: Manage application identities securely and automatically
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| 3.2 | N/A | AC-2, AC-3, IA-2, IA-4 |
+| ID-2 | N/A | AC-2, AC-3, IA-2, IA-4 |
 
 For application identities such as service accounts used by applications or automation tools, use Azure AD to create a service principal type identity that can set with restricted permissions at the resource level instead of using a more powerful human account to access or execute your resources. You can use Azure Key Vault to manage service principal secrets to avoid hard coding credentials in source or configuration file. 
 
@@ -78,17 +78,17 @@ In addition, Azure AD also supports a managed identity feature that can be enabl
 
 **Responsibility**: Customer
 
-**Customer Security Functions**:
+**Customer Security Stakeholders**:
 
 - [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## 3.3: Use Azure AD single sign-on (SSO) for application access
+## ID-3: Use Azure AD single sign-on (SSO) for application access
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| 3.3 | 4.4 | IA-2, IA-4 |
+| ID-3 | 4.4 | IA-2, IA-4 |
 
 Azure AD Business-to-Business (B2B): 
 Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Azure AD supports cloud and on-premises applications using Azure AD for authentication. Azure AD B2B allows guest users without a Microsoft account to sign in to Azure or non-Azure applications and resources with users’ external identities for cross-organization collaboration.
@@ -105,7 +105,7 @@ Azure AD B2C is a customer identity access management service. It supports local
 
 **Responsibility**: Customer
 
-**Customer Security Functions**:
+**Customer Security Stakeholders**:
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -113,11 +113,11 @@ Azure AD B2C is a customer identity access management service. It supports local
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## 3.4: Use strong authentication controls for all Azure Active Directory based access
+## ID-4: Use strong authentication controls for all Azure Active Directory based access
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| 3.4 | 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
+| ID-4 | 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
 
 Azure AD supports multi-factor authentication (MFA) or passwordlesss authentication as the strong authentication mechanism. 
 a) Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors. 
@@ -156,7 +156,7 @@ For managing on-premises/non-Azure password policy through Azure AD, there are m
 
 **Responsibility**: Customer
 
-**Customer Security Functions**:
+**Customer Security Stakeholders**:
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -164,11 +164,11 @@ For managing on-premises/non-Azure password policy through Azure AD, there are m
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## 3.5: Monitor and alert on account anomalies
+## ID-5: Monitor and alert on account anomalies
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| 3.5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AC-9, AU-6 |
+| ID-5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AC-9, AU-6 |
 
 Azure AD Identity Protection provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
@@ -197,17 +197,17 @@ Refer to ASB 2. Logging and Monitoring for more details about details in this ar
 
 **Responsibility**: Customer
 
-**Customer Security Functions**:
+**Customer Security Stakeholders**:
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## 3.6: Restrict Azure resource access based on conditions
+## ID-6: Restrict Azure resource access based on conditions
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| 3.6 | 11.7 | AC-2 |
+| ID-6 | 11.7 | AC-2 |
 
 Use Azure AD conditional access for a more granular access control based on user-defined conditions, such as users logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases. 
 
@@ -233,7 +233,7 @@ Intune and Cloud App Security can also be used for more complicated conditional 
 
 **Responsibility**: Customer
 
-**Customer Security Functions**:
+**Customer Security Stakeholders**:
 
 - [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -243,11 +243,11 @@ Intune and Cloud App Security can also be used for more complicated conditional 
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## 3.7: Mitigate token theft and re-use
+## ID-7: Mitigate token theft and re-use
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| 3.7 | N/A | AC-11, AC-12 |
+| ID-7 | N/A | AC-11, AC-12 |
 
 Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. You can specify the lifetime of a token issued by Azure AD. You can also set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. 
 
@@ -255,7 +255,7 @@ Reducing the Access Token Lifetime property mitigates the risk of an access toke
 
 **Responsibility**: Customer
 
-**Customer Security Functions**:
+**Customer Security Stakeholders**:
 
 - [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 

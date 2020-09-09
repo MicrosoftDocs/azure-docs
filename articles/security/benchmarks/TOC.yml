@@ -11,8 +11,18 @@
     href: security-benchmark-v2-network-security.md
   - name: Identity management 
     href: security-benchmark-v2-identity-management.md
+  - name: Privileged-access
+    href: security-benchmark-v2-privileged-access.md
   - name: Data protection
     href: security-benchmark-v2-data-protection.md
+  - name: Logging and threat protection
+    href: security-benchmark-v2-logging-threat-protection.md
+  - name: Incident response
+    href: security-benchmark-v2-incident-response.md
+  - name: Endpoint security
+    href: security-benchmark-v2-endpoint-security.md
+
+
 - name: Security Controls (previous)
   items:
   - name: Overview of Azure security controls (previous)

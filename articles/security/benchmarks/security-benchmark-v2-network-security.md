@@ -4,7 +4,7 @@ description: Azure Security Control Network Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -189,31 +189,4 @@ When Azure DNS is used as your authoritative DNS service, ensure DNS zones and r
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security)
 
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
-
-## NS-8: Monitor and log network traffic
-
-| Azure ID | CIS IDs | NIST IDs |
-|--|--|--|--|
-| NS-8 | 9.3, 12.2, 12.5, 12.8 | SI-4, AU-3 |
-
-Enable and collect network security group (NSG) resource logs, NSG flow logs, Azure Firewall logs, and Web Application Firewall (WAF) logs for security analysis to support incident investigations, threat hunting, and security alert generation. You can perform this analysis using a SIEM such as Azure Sentinel or you can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights. 
-- [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
-
-- [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics)
-
-- [How to enable and use Traffic Analytics](../../network-watcher/traffic-analytics.md)
-
-- [Monitoring with Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
-
-- [Azure networking monitoring solutions in Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md)
-
-**Responsibility**: Customer
-
-**Customer Security Stakeholders**:
-
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
-
-- [Security Operations Center (SOC)](/azure/cloud-adoption-framework/organize/cloud-security)
-
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security)
 
