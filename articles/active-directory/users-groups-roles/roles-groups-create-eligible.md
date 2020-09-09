@@ -84,7 +84,7 @@ $groupName = "Contoso_Bellevue_Admins"
 $groupDescription = "This group is assigned to Helpdesk Administrator built-in role in Azure AD."
 $mailNickname = "contosobellevueadmins"
 
-#Create new security group which is a role assignable group. For creating O365 group, set GroupTypes="Unified" and MailEnabled=$true
+#Create new security group which is a role assignable group. For creating a Microsoft 365 group, set GroupTypes="Unified" and MailEnabled=$true
 $roleAssignablegroup = New-AzureADMSGroup -DisplayName $groupName -Description $groupDescription -MailEnabled $false -MailNickname $mailNickname -SecurityEnabled $true -IsAssignableToRole $true
 
 #Get details of existing group
