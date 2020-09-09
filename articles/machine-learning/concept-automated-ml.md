@@ -203,7 +203,7 @@ For example, building a model __for each instance or individual__ in the followi
 
 ## AutoML in Azure Machine Learning
 
-Azure Machine Learning offers two experiences for working with automated ML
+Azure Machine Learning offers two experiences for working with automated ML?view=azure-ml-py&preserve-view=true)
 
 * For code experienced customers, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
 
@@ -288,7 +288,7 @@ How to articles provide additional detail into what functionality AutoML offers.
 
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
-### Python SDK reference 
+### Python SDK reference ?view=azure-ml-py&preserve-view=true)
 
 Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
 

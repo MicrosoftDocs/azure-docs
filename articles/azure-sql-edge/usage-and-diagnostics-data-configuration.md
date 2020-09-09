@@ -67,7 +67,7 @@ To disable Usage and Diagnostics data collection on Azure SQL Edge, add the foll
 
 ### Disable usage and diagnostics using mssql.conf file
 
-To disable Usage and Diagnostics data collection on Azure SQL Edge, add the following files in the mssql.conf file on the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. For more information on configuring Azure SQL Edge using mssql.conf file, refer [Configure using mssql.conf file](configure.md#configure-by-using-an-mssqlconf-file).
+To disable Usage and Diagnostics data collection on Azure SQL Edge, add the following lines in the mssql.conf file on the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. For more information on configuring Azure SQL Edge using mssql.conf file, refer [Configure using mssql.conf file](configure.md#configure-by-using-an-mssqlconf-file).
 
 ```ini
 [telemetry]
