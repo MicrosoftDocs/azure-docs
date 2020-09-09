@@ -4,7 +4,7 @@ description: Install azdata, kubectl, Azure CLI, psql, Azure Data Studio (Inside
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
+author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 08/04/2020
