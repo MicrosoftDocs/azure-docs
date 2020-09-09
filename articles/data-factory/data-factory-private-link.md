@@ -35,7 +35,6 @@ Several communication channels are required between Azure Data Factory and the c
 | `*.servicebus.windows.net` | 443 | Required by the self-hosted integration runtime for interactive authoring. |
 | `download.microsoft.com` | 443 | Required by the self-hosted integration runtime for downloading the updates. |
 
-
 With the support of Azure Private Link for Azure Data Factory, you can create a private endpoint in your virtual network and enable the private connection to a specific data factory instance. The communications to Azure Data Factory service go through Private Link and help provide secure private connectivity. You don’t need to configure the previously mentioned domain and port in virtual network or your corporate firewall to provide a more secure way to protect your resources.  
 
 ![Diagram of Private Link for Azure Data Factory architecture.](./media/data-factory-private-link/private-link-architecture.png)
