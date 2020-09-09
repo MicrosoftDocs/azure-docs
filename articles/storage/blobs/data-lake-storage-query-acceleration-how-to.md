@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp
@@ -308,16 +308,17 @@ You can use SQL to specify the row filter predicates and column projections in a
 ### [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$container = "data"
-
-$blob = "csv/csv-general/seattle-library.csv"
-Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Hemingway, Ernest, 1899-1961'" $false
-
 Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
     $tempfile = New-TemporaryFile
     $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
     Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
     Get-Content $tempfile.FullName
+}
+
+$container = "data"
+$blob = "csv/csv-general/seattle-library.csv"
+Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Hemingway, Ernest, 1899-1961'" $false
+
 ```
 
 ### [.NET](#tab/dotnet)
@@ -479,16 +480,16 @@ This code retrieves only the `BibNum` column for all books in the data set. It a
 ### [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$container = "data"
-
-$blob = "csv/csv-general/seattle-library-with-headers.csv"
-Get-QueryCsv $ctx $container $blob "SELECT BibNum FROM BlobStorage" $true
-
 Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
     $tempfile = New-TemporaryFile
     $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
     Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
     Get-Content $tempfile.FullName
+}
+
+$container = "data"
+$blob = "csv/csv-general/seattle-library-with-headers.csv"
+Get-QueryCsv $ctx $container $blob "SELECT BibNum FROM BlobStorage" $true
 
 ```
 
@@ -537,13 +538,6 @@ The following code combines row filtering and column projections into the same q
 ### [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$container = "data"
-
-$query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType 
-            FROM BlobStorage 
-            WHERE ItemType IN 
-                ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')"
-
 Get-QueryCsv $ctx $container $blob $query $true
 
 Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
@@ -551,6 +545,13 @@ Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
     $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
     Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
     Get-Content $tempfile.FullName
+}
+
+$container = "data"
+$query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType 
+            FROM BlobStorage 
+            WHERE ItemType IN 
+                ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')"
 
 ```
 
