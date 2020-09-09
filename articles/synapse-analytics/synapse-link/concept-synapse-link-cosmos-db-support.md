@@ -55,7 +55,7 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link, i
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Explore data** |Explore data from a container with familiar T-SQL syntax and automatic schema inference|X| ✓ |
 | **Create views and build BI reports** |Create a SQL view to directly have BI access to a container through Synapse SQL serverless |X| ✓ |
-| **Join disparate data sources along with Cosmos DB data** | Store results of query reading data from Cosmos DB containers along with data in Azure Blob Storage or Azure Data Lake Storage using CETAS
+| **Join disparate data sources along with Cosmos DB data** | Store results of query reading data from Cosmos DB containers along with data in Azure Blob Storage or Azure Data Lake Storage using CETAS |X| ✓ |
 
 ## Next steps
 
