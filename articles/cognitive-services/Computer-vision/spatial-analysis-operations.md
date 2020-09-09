@@ -21,8 +21,8 @@ The Spatial Analysis container implements the following operations:
 | Operation Identifier| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
-| cognitiveservices.vision.spatialanalysis-personcrossingline | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crossed the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crossed the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingline | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 cognitiveservices.vision.spatialanalysis-videorecorder | This operation enables recording of video streams as being processed into an Azure Blob Storage instance you can deploy on the edge or in the cloud. You are in control of where the data is being stored. The data is not transmitted to Microsoft. |
 
@@ -31,8 +31,8 @@ All above the operations except `cognitiveservices.vision.spatialanalysis-videor
 | Operation Identifier| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.debug | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
-| cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crossed the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crossed the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
 Spatial Analysis can also be run with [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) as their Video AI module. 
@@ -42,8 +42,8 @@ Spatial Analysis can also be run with [Live Video Analytics](https://azure.micro
 | Operation Identifier| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
-| cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crossed the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crossed the zone and provides directional info. |
+| cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.livevideoanalytics | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
 Live Video Analytics operations are also available in the `.debug` version (e.g. cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug) which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of the video frames and events
@@ -52,11 +52,12 @@ Live Video Analytics operations are also available in the `.debug` version (e.g.
 > The computer vision AI models detect and locate human presence in video footage and output by using a bounding box around a human body. The AI models do not attempt to detect faces or discover the identities or demographics of individuals.
 
 These are the parameters required by each of these Spatial Analysis operations.
+
 | Operation parameters| Description|
 |---------|---------|
 | Operation ID | The Operation Identifier from table above.|
 | enabled | Boolean: true or false|
-| VIDEO_URL| The RTSP url for the camera device(Example: `rtsp://username:password@url`). Spatial Analysis supports H.264 encoded stream either through RTSP or http and in case of file format(container format) should be mp4
+| VIDEO_URL| The RTSP url for the camera device(Example: `rtsp://username:password@url`). Spatial Analysis supports H.264 encoded stream either through RTSP or http and in case of file format(container format) should be mp4 |
 | VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
@@ -67,7 +68,7 @@ These are the parameters required by each of these Spatial Analysis operations.
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
 
- This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zone for this operation.
+ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
 
 ```json
 NEW-START
@@ -88,7 +89,7 @@ NEW-START
 
 | Name | Type| Description|
 |---------|---------|---------|
-| `zones` | list| List of zones|
+| `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of a polygon. The polygon represents the areas in which people are tracked or counted and polygon points are based on normalized coordinates (0-1), where the top left corner is (0.0, 0.0) and the bottom right corner is (1.0, 1.0).   
 | `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
@@ -152,7 +153,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 
 | Name | Type| Description|
 |---------|---------|---------|
-| `zones` | list| List of zones|
+| `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
 | `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
@@ -184,7 +185,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 
 | Name | Type| Description|
 |---------|---------|---------|
-| `zones` | list| List of zones|
+| `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are counted and the distance between people is measured. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
 | `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
@@ -427,7 +428,8 @@ Sample JSON for detections output by this operation.
 | `frameId` | int | Frame identifier|
 
 
-**IMPORTANT NOTE:**  The AI model detects a person irrespective whether the person is facing towards or away from the camera. The AI model doesn't run face detection or recognition and doesn't emit any biometric information. 
+> [!IMPORTANT]
+> The AI model detects a person irrespective of whether the person is facing towards or away from the camera. The AI model doesn't run face detection or recognition and doesn't emit any biometric information. 
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-personcrossingpolygon AI Insights
 

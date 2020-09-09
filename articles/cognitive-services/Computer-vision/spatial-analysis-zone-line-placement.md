@@ -33,7 +33,7 @@ The zone should be big enough to accommodate three people standing along each ed
 
 ### Examples of zones that aren't well-shaped
 
-The following examples show poorly shaped zones. In these examples, the area of interest is the space in from of the **It's Game Time** display.
+The following examples show poorly shaped zones. In these examples, the area of interest is the space in front of the *It's Game Time* display.
 
 **Zone is not on the floor.**
 

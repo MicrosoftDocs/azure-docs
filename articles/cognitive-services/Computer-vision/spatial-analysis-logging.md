@@ -1,7 +1,7 @@
 ---
 title: Telemetry and logging for Spatial Analysis containers
 titleSuffix: Azure Cognitive Services
-description: Spatial Analysis provides each container with a common configuration framework, so that you can easily configure and manage compute, AI insight egress, logging, telemetry, and security settings.
+description: Spatial Analysis provides each container with a common configuration framework insights, logging, and security settings.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -20,7 +20,7 @@ Spatial Analysis includes a set of features to monitor the health of the system 
 
 To enable a visualization of spatial events in a video frame, you need to use the `.Debug` version of a [Spatial Analysis Operation](spatial-analysis-operations.md). There are two Debug skills available: `Microsoft.ComputerVision.PersonCrossingLine.Debug` and `Microsoft.ComputerVision.PersonCrossingPolygon.Debug`.
 
-You must edit the deployment manifest to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, re-deploy the container.
+Edit the deployment manifest to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 
 After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container, and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
 
@@ -34,7 +34,7 @@ xhost +
 
 ## Collecting System Health Telemetry with Telegraf
 
-Telegraf is open source and the image built by the Spatial Analysis team takes the following inputs and uses the Azure Monitor service as the output sink. The telegraf module can be built with desired custom Inputs and Outputs by the end user. The Telegraf module in Spatial Analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is open source and the image built by the Spatial Analysis team takes the following inputs sends them to Azure Monitor. The telegraf module can be built with desired custom Inputs and Outputs by the end user. The Telegraf module in Spatial Analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
 1. Spatial Analysis Metrics
@@ -63,7 +63,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-In the deployment manifest, look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and re-deploy.
+In the deployment manifest, look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
 
 ```json
 "env": {
@@ -85,7 +85,7 @@ In the deployment manifest, look for the *telegraf* module, and replace the foll
 ...
 ```
 
-Once the telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal .
+Once the telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
 
 ![Azure Monitor telemetry report](./media/spatial-analytics/iot-hub-telemetry.png)
 
@@ -121,8 +121,6 @@ Spatial Analysis generates Docker debugging logs that you can use to diagnose ru
 
 To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we recommend maintaining a small file size. See the example below for the recommended Docker logs configuration.
 
-Adina: where does this go?
-
 ```json
 {
 	"HostConfig": {
@@ -135,7 +133,6 @@ Adina: where does this go?
 	}
 }
 ```
-
 
 ### Configure the log level
 
@@ -166,7 +163,7 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 ### Collecting Logs
 
 > [!NOTE]
-> the `penginelogs` module does not effect the logging content, it is only assists in collecting, filtering and uploading existing logs.
+> the `penginelogs` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
 > You must have Docker API version 1.40 or higher to use this module.`
 
 The sample deployment manifest file includes a module named `penginelogs` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
@@ -204,7 +201,7 @@ Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `peng
 1. Go to your IoT Hub portal page, select **Edge Devices**, then select your device and your penginelogs module. 
 2. Go to the details page of the module and click on the ***direct method*** tab.
 3. Type `getRTCVLogs` on Method Name, and a json format string in payload. You can enter `{}`, which is an empty payload. 
-4. Set the connection and method Timeouts, and click **Invoke Method**.
+4. Set the connection and method timeouts, and click **Invoke Method**.
 5. Select your target container, and build a payload json string using the parameters described in the **Logging syntax** section. Click **Invoke Method** to perform the request.
 
 >[!NOTE]
@@ -231,7 +228,7 @@ The following table lists the attributes in the query response.
 
 | Keyword | Description|
 |--|--|
-|DoPost|[true,false] Indicates if logs have been uploaded or not. When you choose not to upload logs, the api returns information ***synchronously***. When you choose to upload logs, the api returns 200, if the request is valid, and starts uploading logs ***asynchronously***.|
+|DoPost| Either *true* or *false*. Indicates if logs have been uploaded or not. When you choose not to upload logs, the api returns information ***synchronously***. When you choose to upload logs, the api returns 200, if the request is valid, and starts uploading logs ***asynchronously***.|
 |TimeFilter| Time filter applied to the logs.|
 |ValueFilters| Keywords filters applied to the logs. |
 |TimeStamp| Method execution start time. |
@@ -284,78 +281,100 @@ The following table lists the attributes in the query response.
 }
 ```
 
-Check fetch log's lines, times, and sizes, replace ***DoPost*** to `true`, then you can push logs with same filters to destinations. Adina: Do we want to add this internediate step? Why not satting DoPost to true from be very beginning?
+Check fetch log's lines, times, and sizes, replace ***DoPost*** to `true`, then you can push logs with same filters to destinations. 
 
- **4. Export the log file from Azure Blob Storage and send to Microsoft**
+**4. Export the log file from Azure Blob Storage and send to Microsoft**
 
- Follow these steps to export the log file from the Azure Blob Storage account. Shrey to add instructions.
-
- Once you create a Support Ticket, you will be in contact with a Microsoft support engineer who will collect the log file and investigate.
+ Follow these steps to export the log file from the Azure Blob Storage account.
 
 ## Troubleshooting the Azure Stack Edge device
 
 The following section is provided for help with debugging and verification of the status of your Azure Stack Edge device.
 
-1.	How to access the Kubernetes API Endpoint: Follow these steps to access the URL for the Kubernetes API endpoint. 
-	* In the local web UI of your device, go to Devices page. 
-	* Under the Device endpoints, copy the Kubernetes API service endpoint. This endpoint is a string in the following format: https://compute..[device-IP-address].
-	* Save the endpoint string. You will use this later when configuring a client to access the Kubernetes cluster via kubectl.
+### Access the Kubernetes API Endpoint. 
 
-2.	Connect to PowerShell interface<br> 
-		Remotely, connect from a Windows client. After the Kubernetes cluster is created, you can manage the applications via this cluster. This will require you to connect to the PowerShell interface of the device. Depending on the operating system of client, the procedures to remotely connect to the device are different.<br>Follow these steps on the Windows client running PowerShell.
-		Before you begin, make sure that your Windows client is running Windows PowerShell 5.0 or later. Follow these steps to remotely connect from a Windows client. 
-	* Run a Windows PowerShell session as an Administrator. 
-	* Make sure that the Windows Remote Management service is running on your client. At the command prompt, type: 
-		```winrm quickconfig```<br>
-	Note:If you see complaints about firewall exception, see this link https://4sysops.com/archives/enabling-powershell-remoting-fails-due-to-public-network-connection-type/
-	* Assign a variable to the device IP address. $ip = "" Replace with the IP address of your device. 
-	* To add the IP address of your device to the client’s trusted hosts list, type the following command: Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force 
-	* Start a Windows PowerShell session on the device: Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell 
-	* Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is Password1. 
-    <br><br>
-	##### PowerShell Setup for Linux
-	This step is only required if you do not have a Windows client. Install PowerShell from this location: https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6
-		
-	* Download the Microsoft repository GPG keys
-	wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
-	
-	* Register the Microsoft repository GPG keys
-	sudo dpkg -i packages-microsoft-prod.deb
-	
-	* Update the list of products
-	sudo apt-get update
-	
-	* Enable the "universe" repositories
-	sudo add-apt-repository universe
-	
-	* Install PowerShell
-	sudo apt-get install -y powershell
-	
-	* Start PowerShell
-	pwsh
+1. In the local UI of your device, go to the **Devices** page. 
+2. Under **Device endpoints**, copy the Kubernetes API service endpoint. This endpoint is a string in the following format: `https://compute..[device-IP-address]`.
+3. Save the endpoint string. You will use this later when configuring `kubectl` to access the Kubernetes cluster.
 
-3.	Useful Commands:
-	* ```Get-HcsKubernetesUserConfig -AseUser``` <br>
-			This will produce the Kubernetes config needed in step 3. Copy this and save it in a file named config. Do not save the config file as .txt file, save the file without any file extension.<br>
-	* ```Get-HcsApplianceInfo``` <br>
-			To get the info about your device.<br>
-	* ```Enable-HcsSupportAccess``` <br>
-			This generates access credentials to start a support session.<br>
-    <br><br>
-4.	Access the Kubernetes cluster<br>
-	After the Kubernetes cluster is created, you can use the ```kubectl``` via cmdline to access the cluster.
-	* Create a namespace.<br>
-	```New-HcsKubernetesNamespace -Namespace```<br> 
-	* Create a user and get a config file.<br> ```New-HcsKubernetesUser -UserName``` <br>
-	This will produce the Kubernetes config. Copy this and save it in a file named config. Do not save the config file as .txt file, save the file without any file extension.
-	* Use the config file retrieved in the previous step. The config file should live in the .kube folder of your user profile on the local machine. Copy the file to that folder in your user profile.	
-	*Associate the namespace with the user you created.<br> ```Grant-HcsKubernetesNamespaceAccess -Namespace -UserName```<br>
-	* You can now install kubectl on your Windows client using the following command:
-	```curl https://storage.googleapis.com/kubernetesrelease/release/v1.15.2/bin/windows/amd64/kubectl.exe -O kubectl.exe```
-	* Add a DNS entry to the hosts file on your system. 
-    	* Run Notepad as administrator and open the hosts file located at C:\windows\system32\drivers\etc\hosts . 
-      	* Use the information that you saved from the Device page in the local UI in the earlier step to create the entry in the hosts file. For example, copy this endpoint https://compute.asedevice.microsoftdatabox.com/[10.100.10.10] to create the following entry with device IP address and DNS domain: 10.100.10.10     compute.asedevice.microsoftdatabox.com
-		* To verify that you can connect to the Kubernetes pods, type:
-	kubectl get pods -n "iotedge"
-		* To get container logs a module, run the following command: <br>
-	```kubectl logs <pod-name> -n <namespace> --all-containers```
+### Connect to PowerShell interface
+
+Remotely, connect from a Windows client. After the Kubernetes cluster is created, you can manage the applications via this cluster. You will need to connect to the PowerShell interface of the device. Depending on the operating system of client, the procedures to remotely connect to the device may be different. The following steps are for a Windows client running PowerShell.
+
+> [!TIP]
+> * Before you begin, make sure that your Windows client is running Windows PowerShell 5.0 or later.
+> * PowerShell is also [available on Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6).
+
+1. Run a Windows PowerShell session as an Administrator. 
+    1. Make sure that the Windows Remote Management service is running on your client. At the command prompt, type `winrm quickconfig`.
+
+2. Assign a variable for the device IP address. For example, `$ip = "<device-ip-address>"`.
+
+3. Use the following command to add the IP address of your device to the client’s trusted hosts list. 
+
+    ```powershell
+    Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force
+    ```
+ 
+4. Start a Windows PowerShell session on the device. 
+
+    ```powershell
+    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell
+    ```
+
+5. Provide the password when prompted. Use the same password that is used to sign into the local web interface. The default local web interface password is `Password1`. 
+
+### Access the Kubernetes cluster
+
+After the Kubernetes cluster is created, you can use the `kubectl` command line tool to access the cluster.
+
+1. Create a new namespace. 
+
+    ```powershell
+    New-HcsKubernetesNamespace -Namespace
+    ```
+
+2. Create a user and get a config file. This command will output configuration information for the Kubernetes cluster. Copy this information and save it in a file named *config*. Do not save the file a file extension.
+    
+    ```powershell
+    New-HcsKubernetesUser -UserName
+    ```
+
+3. Add the *config* file to the *.kube* folder in your user profile on the local machine.	
+
+4. Associate the namespace with the user you created.
+
+    ```powershell
+    Grant-HcsKubernetesNamespaceAccess -Namespace -UserName
+    ```
+
+5. Install `kubectl` on your Windows client using the following command:
+	
+    ```powershell
+    curl https://storage.googleapis.com/kubernetesrelease/release/v1.15.2/bin/windows/amd64/kubectl.exe -O kubectl.exe
+    ```
+
+6. Add a DNS entry to the hosts file on your system. 
+	1. Run Notepad as administrator and open the *hosts* file located at `C:\windows\system32\drivers\etc\hosts`. 
+	2. Create an entry in the hosts file with the device IP address and DNS domain you got from the **Device** page in the local UI. The endpoint you should use will look similar to: `https://compute.asedevice.microsoftdatabox.com/10.100.10.10`.
+
+7. Verify you can connect to the Kubernetes pods.
+
+    ```powershell
+    kubectl get pods -n "iotedge"
+    ```
+
+To get container logs, run the following command:
+
+```powershell
+kubectl logs <pod-name> -n <namespace> --all-containers
+```
+
+### Useful commands
+
+
+|Command  |Description  |
+|---------|---------|
+|`Get-HcsKubernetesUserConfig -AseUser`     | Generates a Kubernetes configuration file. When using the command, copy the information into a file named *config*. Do not save the file with a file extension.        |
+| `Get-HcsApplianceInfo` | Returns information about your device. |
+| `Enable-HcsSupportAccess` | Generates access credentials to start a support session. |

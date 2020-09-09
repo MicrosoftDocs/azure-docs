@@ -1,7 +1,7 @@
 ---
 title: How to install and run the Spatial Analysis container - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: The Spatial Analysis container letes you can easily configure and manage compute, AI insight egress, logging, telemetry, and security settings.
+description: The Spatial Analysis container lets you can detect people and distances.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -60,7 +60,7 @@ In this article, you will download and install the following software packages. 
 
 | Requirement | Description |
 |--|--|
-| Camera | The Spatial Analysis container is not tied to a specific camera brand. The camera device needs to: support Real Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
+| Camera | The Spatial Analysis container is not tied to a specific camera brand. The camera device needs to: support Real-Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
 | Linux OS | [Ubuntu Desktop 18.04 LTS](https://ubuntu.com/download/desktop) must be installed on the host computer.  |
 
 ## Request access to the private container registry
@@ -72,7 +72,7 @@ Fill out and submit the [request form](https://aka.ms/cognitivegate) to request 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 
-## Setup the host computer
+## Set up the host computer
 
 It is recommended that you use an Azure Stack Edge device for your host computer. Click **Desktop Machine** if you're configuring a different device.
 
@@ -87,7 +87,7 @@ Spatial Analysis uses the compute features of the Azure Stack Edge to run an AI 
 * To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge device via the **Local UI** on the [Azure portal](https://portal.azure.com/): 
   1. Enable the compute feature on your Azure Stack Edge device. To enable compute, go to the **Compute** page in the web interface for your device. 
   2. Select a network interface that you want to enable for compute, then click **Enable**. This will create a virtual switch on your device, on that network interface.
-  3. Leave the Kubernetes test node IPs and the Kubernetes external services IPs blank.
+  3. Leave the Kubernetes test node IP addresses and the Kubernetes external services IP addresses blank.
   4. Click **Apply**. This operation may take about two minutes. 
 
 ![Configure compute](media/spatial-analytics/configure-compute.png)
@@ -98,7 +98,7 @@ In the [Azure portal](https://portal.azure.com/), navigate to your Azure Stack E
 
 ![Link](media/spatial-analytics/configure-edge-compute-tile.png)
 
-In the **Configure Edge compute** page, choose an existing IoT Hub or choose to create a new one. By default, a Standard (S1) pricing tier is used to create an IoT Hub resource. To use a free tier IoT Hub resource, create one and then select it. The IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource 
+In the **Configure Edge compute** page, choose an existing IoT Hub, or choose to create a new one. By default, a Standard (S1) pricing tier is used to create an IoT Hub resource. To use a free tier IoT Hub resource, create one and then select it. The IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource 
 
 Click **Create**. The IoT Hub resource creation may take a couple of minutes. After the IoT Hub resource is created, the **Configure Edge compute** tile will update to show the new configuration. To confirm that the Edge compute role has been configured, select **View config** on the **Configure compute** tile.
 
@@ -165,7 +165,7 @@ sudo systemctl restart docker
 > [!TIP]
 > Run the MPS instructions from a terminal window on the host computer. Not inside your Docker container instance.
 
-For best performance and utilization, configure the host computer's GPU(s) for [NVIDIA Multi Process Service (MPS)](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf). Run the MPS instructions from a terminal window on the host computer.
+For best performance and utilization, configure the host computer's GPU(s) for [NVIDIA Multiprocess Service (MPS)](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf). Run the MPS instructions from a terminal window on the host computer.
 
 ```bash
 # Set GPU(s) compute mode to EXCLUSIVE_PROCESS
@@ -228,7 +228,7 @@ Run this command to restart the IoT Edge service on the host computer.
 sudo systemctl restart iotedge
 ```
 
-Deploy the Project Archon container as an IoT Module on the host computer, either from the [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) or [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). If you're using the portal, Set the image URI to the location of your Azure Container Registry. 
+Deploy the Project Archon container as an IoT Module on the host computer, either from the [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) or [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). If you're using the portal, set the image URI to the location of your Azure Container Registry. 
 
 Use the below steps to deploy the container using the Azure CLI.
 
@@ -284,7 +284,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 
 | Setting Name | Value | Description|
 |---------|---------|---------|
-| ARCHON_LOG_LEVEL | Info; Verbose | Logging level, select one of the the two values|
+| ARCHON_LOG_LEVEL | Info; Verbose | Logging level, select one of the two values|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Do not modify|
 | ARCHON_PERF_MARKER| false| Set this to true for performance logging, otherwise this should be false| 
 | ARCHON_NODES_LOG_LEVEL | Info; Verbose | Logging level, select one of the two values|
@@ -292,7 +292,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 | QT_X11_NO_MITSHM | 1 | Do not modify|
 | API_KEY | your API Key| Collect this value from Azure portal from your **Project Archon** resource _Keys_ page|
 | BILLING_ENDPOINT | your Endpoint URI| Collect this value from Azure portal from your **Project Archon** resource _Overview_ page|
-| EULA | accept | This value needs to be **accept** for the container to run|
+| EULA | accept | This value needs to be set to *accept* for the container to run |
 | DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer|
 
 
@@ -322,10 +322,13 @@ You also need to provide credentials to the Azure Container Registry where the c
 },
 ```
 
-Once you update the `deployment.json` file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
-Change the following parameters:
+Once you update the `deploymentManifest.json` file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
 
-|Column1  |Column2  |
+```azurecli
+az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content deployment.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
+```
+
+|Parameter  |Description  |
 |---------|---------|
 | `--deployment-id` | A new name for the deployment. |
 | `--hub-name` | Your Azure IoT Hub name. |
@@ -335,14 +338,11 @@ Change the following parameters:
 
 This command will start the deployment. Navigate to the page of your Azure IoT Hub instance in the Azure portal to see the deployment status. The status may show as *417 – The device’s deployment configuration is not set* until the device finishes downloading the container images and starts running.
 
-
-```
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content deployment.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
-```
-
 ## Validate that the deployment is successful
 
 There are several ways to validate that the container is running. Locate the *Runtime Status* in the **IoT Edge Module Settings** for the Spatial Analysis module in your Azure IoT Hub instance on the Azure portal. Validate that the **Desired Value** and **Reported Value** for the *Runtime Status* is *Running*.
+
+![Example deployment verification](./media/spatial-analytics/deployment-verification.png)
 
 Once the deployment is complete and the container is running, the **host computer** will start sending events to the Azure IoT Hub. If you used the `.Debug` version of the operations, you’ll see a visualizer window for each camera you configured in the deployment manifest. You can now define the lines and zones you want to monitor in the deployment manifest and follow the instructions to deploy again. 
 
@@ -350,7 +350,7 @@ Once the deployment is complete and the container is running, the **host compute
 
 You will need to use [Spatial Analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, enable video recording, and more. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages, sent to your instance of Azure IoT Hub.
 
-## Re-deploy or delete the deployment
+## Redeploy or delete the deployment
 
 If you need to update the deployment, you need to make sure your previous deployments are successfully deployed, or you need to delete IoT Edge Device deployments that did not complete. Otherwise, those deployments will continue, leaving the system in a bad state. You can use the Azure portal, or the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest).
 
@@ -371,7 +371,7 @@ Navigate to the **Container** section, and either create a new container or use 
 
 Click on **Generate SAS Token and URL** and copy the Blob SAS URL. Replace the starting `https` with `http` and test the URL in a browser that supports video playback.
 
-Replace `VIDEO_URL` in the deployment manifest with URL you just created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and re-deploy the Spatial Analysis container with the updated manifest. See the example below.
+Replace `VIDEO_URL` in the deployment manifest with URL you created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and redeploy the Spatial Analysis container with the updated manifest. See the example below.
 
 The Spatial Analysis module will start consuming video file and will continuously auto replay as well.
 

@@ -64,7 +64,7 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 Deploy the Spatial Analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) on GitHub, which includes a basic deployment configuration for the *spatial-analysis* container. 
 
 > [!NOTE] 
-> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the DeploymentManifest.json file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) a article. 
+> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the DeploymentManifest.json file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. 
 
 ### Set environment variables
 
