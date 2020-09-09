@@ -234,6 +234,14 @@
       href: stream-analytics-cicd-api.md
     - name: Export and deploy with Azure Resource Manager
       href: resource-manager-export.md
+  - name: Continuous integration and deployment
+    items:
+    - name: Overview
+      href: cicd-overview.md
+    - name: Build, test, and deploy
+      href: cicd-tools.md
+    - name: Set up CI/CD pipeline
+      href: setup-cicd-pipeline.md
   - name: Visual Studio
     items:
     - name: Install tools
@@ -260,8 +268,6 @@
       href: visual-studio-code-local-run-live-input.md
     - name: Debug queries using job diagram 
       href: debug-locally-using-job-diagram-vs-code.md
-    - name: Set up CI/CD pipeline
-      href: setup-cicd-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
     - name: JobConfig.json fields

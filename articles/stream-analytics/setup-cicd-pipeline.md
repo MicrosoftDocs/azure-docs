@@ -1,8 +1,8 @@
 ---
-title: Setup a CI/CD pipeline for Stream Analytics job using Azure DevOps
-description: This article describes how to set up a CI/CD pipeline for an Azure Stream Analytics job in Azure DevOps
+title: Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job
+description: This article describes how to set up a continuous integration and deployment (CI/CD) pipeline for an Azure Stream Analytics job in Azure DevOps
 services: stream-analytics
-author: sujie
+author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
@@ -10,56 +10,53 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ---
 
-# Setup a CI/CD pipeline for Stream Analytics job using Azure Pipelines
+# Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job
 
-This article details how to create Azure DevOps [build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) and [release](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) pipelines using Stream Analytics CI/CD tools.
+In this article, you learn how to create Azure DevOps [build](./devops/pipelines/get-started-designer.md) and [release](./devops/pipelines/release/define-multistage-release-process.md) pipelines using Azure Stream Analytics CI/CD tools.
 
-You can find below for a sample of a CI/CD pipeline for doing auto build, test and deployment in Azure DevOps.
-* [Sample repository](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) in Azure Pipelines.  
-  * [Stream Analytics project source code](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject)
-  * [Build pipeline](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) (auto build, test)
-  * [Release pipeline](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) (auto deploy)
+## Commit your Stream Analytics project
 
-## Presequisites
-Stream Analytics Visual Studio Code or Visual Studio projects been developed and commited as source files in Azure DevOps.
+Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](./devops/user-guide/source-control.md) repository. You can reference this [sample repository](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure Pipelines.
 
-[!Note] The instructions below are using a Stream Analytics Visual Studio Code project as example. Please refer to [command lines](./media/setup-cicd/cicd-tools) for working with Stream Analytics Visual Studio projects. 
+The steps in this article use a Stream Analytics Visual Studio Code project. If you're using a Visual Studio project, follow the steps in [Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md).
 
 ## Create a build pipeline
 
-Open a web browser and navigate to your project.  
+In this section, you learn how to create a build pipeline. You can reference this sample [auto build and test pipeline](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure DevOps.
 
-1. Under **Pipelines** in the left navigation menu, select **Builds**. Then select **New pipeline**
+1. Open a web browser and navigate to your project in Azure DevOps.  
 
-   ![Create new Azure Pipeline](./media/setup-cicd/new-pipeline.png)
+1. Under **Pipelines** in the left navigation menu, select **Builds**. Then, select **New pipeline**.
 
-2. Select **Use the classic editor** to create a pipeline without YAML.
+   :::image type="content" source="media/setup-cicd-pipeline/new-pipeline.png" alt-text="Create new Azure Pipeline":::
 
-3. Select your source type, team project, and repository. Then select **Continue**.
+1. Select **Use the classic editor** to create a pipeline without YAML.
 
-   ![Select Azure Stream Analytics project](./media/setup-cicd/select-repo.png)
+1. Select your source type, team project, and repository. Then, select **Continue**.
 
-4. On the **Choose a template** page, select **Empty job**.
+   :::image type="content" source="media/setup-cicd-pipeline/select-repo.png" alt-text="Select Azure Stream Analytics project":::
+
+1. On the **Choose a template** page, select **Empty job**.
 
 ## Install npm package
 
-1. On the **Tasks** page, select the plus sign next to **Agent job 1**. Enter "npm" in the task search and select **npm**.
+1. On the **Tasks** page, select the plus sign next to **Agent job 1**. Enter *npm* in the task search and select **npm**.
 
-   ![Select npm task](./media/setup-cicd/search-npm.png)
+   :::image type="content" source="media/setup-cicd-pipeline/search-npm.png" alt-text="Select npm task":::
 
 2. Give the task a **Display name**. Change the **Command** option to *custom* and enter the following command in **Command and arguments**. Leave the remaining default options.
 
-   ```cmd
+   ```
    install -g azure-streamanalytics-cicd
    ```
 
-   ![Enter configurations for npm task](./media/setup-cicd/npm-config.png)
+   :::image type="content" source="media/setup-cicd-pipeline/npm-config.png" alt-text="Enter configurations for npm task":::
 
-## Add build task
+## Add a Build task
 
-1. On the **Variables** page, click **+ Add** in **Pipeline variables** pane. Add the following variables. Set the value according to your preference.
+1. On the **Variables** page, select **+ Add** in **Pipeline variables**. Add the following variables. Set the following values according to your preference:
 
-   |Name|Value|
+   |Variable name|Value|
    |-|-|
    |projectRootPath|[YourProjectName]|
    |outputPath|Output|
@@ -69,23 +66,23 @@ Open a web browser and navigate to your project.
 
 3. Give the task a **Display name** and enter the following script. Modify the script with your repository name and project name.
 
-   ```cmd
+   ```
    azure-streamanalytics-cicd build -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(deployPath)
    ```
 
-   The screenshot blow uses Stream Analytics Visual Studio Code project as an example.
+   The image below uses a Stream Analytics Visual Studio Code project as an example.
 
-   ![Enter configurations for command line task](./media/setup-cicd/commandline-config-build.png)
+   :::image type="content" source="media/setup-cicd-pipeline/commandline-config-build.png" alt-text="Enter configurations for command-line task":::
 
-## Add test task
+## Add a Test task
 
-1. On the **Variables** page, click **+ Add** in **Pipeline variables** pane. Add the following variables. Modify the values with your output path and repository name.
+1. On the **Variables** page, select **+ Add** in **Pipeline variables**. Add the following variables. Modify the values with your output path and repository name.
 
-   |Name|Value|
+   |Variable name|Value|
    |-|-|
    |testPath|Test|
 
-   ![Add pipeline variables](./media/setup-cicd/pipeline-variables-test.png)
+   :::image type="content" source="media/setup-cicd-pipeline/pipeline-variables-test.png" alt-text="Add pipeline variables":::
 
 2. On the **Tasks** page, select the plus sign next to **Agent job 1**. Search for **Command line**.
 
@@ -96,13 +93,13 @@ See [automated test instructions](./media/cicd/cicd-tools#automatedtest) for det
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   ![Enter configurations for command line task](./media/setup-cicd/commandline-config-test.png)
+   :::image type="content" source="media/setup-cicd-pipeline/commandline-config-test.png" alt-text="Enter configurations for command-line task":::
 
-## Add copy files task
+## Add a Copy files task
 
 You need to add a copy file task to copy the test summary file and Azure Resource Manager template files to the artifact folder. 
 
-1. On the **Tasks** page, select the **+** next to **Agent job 1**. Search for **Copy files**. Then enter the following configurations. By assigning `**` to **Contents**, all files of testing results are copied.
+1. On the **Tasks** page, select the **+** next to **Agent job 1**. Search for **Copy files**. Then enter the following configurations. By assigning `**` to **Contents**, all files of the test results are copied.
 
    |Parameter|Input|
    |-|-|
@@ -111,32 +108,33 @@ You need to add a copy file task to copy the test summary file and Azure Resourc
    |Contents| `**` |
    |Target Folder| `$(build.artifactstagingdirectory)`|
 
-2. Expand **Control Options". Select **Even if a previous task has failed, unless the build was canceled** in **Run this task**.
+2. Expand **Control Options**. Select **Even if a previous task has failed, unless the build was canceled** in **Run this task**.
 
-   ![Enter configurations for copy task](./media/setup-cicd/copy-config.png)
+   :::image type="content" source="media/setup-cicd-pipeline/copy-config.png" alt-text="Enter configurations for copy task":::
 
-
-## Add Publish build artifacts task
+## Add a Publish build artifacts task
 
 1. On the **Tasks** page, select the plus sign next to **Agent job 1**. Search for **Publish build artifacts** and select the option with the black arrow icon.
 
-2. Expand **Control Options". Select **Even if a previous task has failed, unless the build was canceled** in **Run this task**.
+2. Expand **Control Options**. Select **Even if a previous task has failed, unless the build was canceled** in **Run this task**.
 
-   ![Enter configurations for copy task](./media/setup-cicd/publish-config.png)
+   :::image type="content" source="media/setup-cicd-pipeline/publish-config.png" alt-text="Enter configurations for publish task":::
 
 ## Save and run
 
 Once you have finished adding the npm package, command line, copy files, and publish build artifacts tasks, select **Save & queue**. When you are prompted, enter a save comment and select **Save and run**. You can download the testing results from **Summary** page of the pipeline.
 
-## Check build and test result
+## Check the build and test results
 
 The test summary file and Azure Resource Manager Template files can be found in **Published** folder.
 
-   ![Check build and test result](./media/setup-cicd/check-build-test-result.png)
+   :::image type="content" source="media/setup-cicd-pipeline/check-build-test-result.png" alt-text="Check build and test result":::
 
-   ![Check build and test result](./media/setup-cicd/check-drop-folder.png)
+   :::image type="content" source="media/setup-cicd-pipeline/check-drop-folder.png" alt-text="Check artifacts":::
 
 ## Release with Azure Pipelines
+
+In this section, you learn how to create a release pipeline. You can reference this sample [release pipeline](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) in Azure DevOps.
 
 Open a web browser and navigate to your Azure Stream Analytics Visual Studio Code project.
 
@@ -144,9 +142,9 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 
 2. Select **start with an Empty job**.
 
-3. In the **Artifacts** box, select **+ Add an artifact**. Under **Source**, select the build pipeline you just created and select **Add**.
+3. In the **Artifacts** box, select **+ Add an artifact**. Under **Source**, select the build pipeline you created and select **Add**.
 
-   ![Enter build pipeline artifact](./media/setup-cicd/build-artifact.png)
+   :::image type="content" source="media/setup-cicd-pipeline/build-artifact.png" alt-text="Enter build pipeline artifact":::
 
 4. Change the name of **Stage 1** to **Deploy job to test environment**.
 
@@ -158,7 +156,7 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 
 2. Select the **+** next to **Agent job** and search for **ARM template deployment**. Enter the following parameters:
 
-   |Setting|Value|
+   |Parameter|Value|
    |-|-|
    |Display name| *Deploy myASAProject*|
    |Azure subscription| Choose your subscription.|
@@ -173,10 +171,9 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 
 3. From the tasks dropdown, select **Deploy job to production environment**.
 
-4. Select the **+** next to **Agent job** and search for *ARM template deployment
-*. Enter the following parameters:
+4. Select the **+** next to **Agent job** and search for *ARM template deployment*. Enter the following parameters:
 
-   |Setting|Value|
+   |Parameter|Value|
    |-|-|
    |Display name| *Deploy myASAProject*|
    |Azure subscription| Choose your subscription.|
@@ -189,14 +186,13 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
    |Override template parameters|-<arm_template_parameter> "your value"|
    |Deployment mode|Incremental|
 
-### Create release
+### Create a release
 
-To create a release, select **Create release** in the top right corner.
+To create a release, select **Create release** in the top-right corner.
 
-![Create a release using Azure Pipelines](./media/setup-cicd/create-release.png)
-
+:::image type="content" source="media/setup-cicd-pipeline/create-release.png" alt-text="Create a release using Azure Pipelines":::
 
 ## Next Steps
 
 * [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd/cicd-overview)
-* [Automate build, test and deployment of an Azure Stream Analytics job using CI/CD tools](cicd/cicd-tools)
+* [Automate build, test, and deployment of an Azure Stream Analytics job using CI/CD tools](cicd/cicd-tools)

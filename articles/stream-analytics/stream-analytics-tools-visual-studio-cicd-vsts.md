@@ -21,6 +21,9 @@ In this tutorial, you learn how to:
 > * Create a release pipeline in Azure Pipelines
 > * Automatically deploy and upgrade an application
 
+> [!NOTE]
+> The CI/CD NuGet is being deprecated. For information on how to migrate to the latest npm, see the [Continuous integration and deployment overview](cicd-overview.md)
+
 ## Prerequisites
 Before you start, make sure you have the following:
 
