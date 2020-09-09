@@ -44,8 +44,8 @@ You can attach query columns as user properties to your outgoing messages. These
 
 ## System properties
 
-You can attach query columns as [system properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) to your outgoing service bus Queue or Topic messages. 
-These columns don't go into the payload instead the corresponding BrokeredMessage [system property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) is populated with the query column values.
+You can attach query columns as [system properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) to your outgoing service bus Queue or Topic messages. 
+These columns don't go into the payload instead the corresponding BrokeredMessage [system property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) is populated with the query column values.
 These system properties are supported - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 String values of these columns are parsed as corresponding system property value type and any parsing failures are treated as data errors.
@@ -73,4 +73,4 @@ This sets the `MessageId` on service bus queue messages with `column1`'s values 
 * [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
 * [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)

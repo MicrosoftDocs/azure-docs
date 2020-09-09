@@ -24,12 +24,12 @@ Stream Analytics supports compression across all data stream input sources. Supp
 
 ## Create, edit, or test inputs
 
-You can use the [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-vs-code.md) to add and view or edit existing inputs on your streaming job. You can also test input connections and [test queries](stream-analytics-manage-job.md#test-your-query) from sample data from the Azure portal, [Visual Studio](stream-analytics-vs-tools-local-run.md), and [Visual Studio Code](visual-studio-code-local-run.md). When you write a query, you list the input in the FROM clause. You can get the list of available inputs from the **Query** page in the portal. If you wish to use multiple inputs, you can `JOIN` them or write multiple `SELECT` queries.
+You can use the [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-visual-studio-code.md) to add and view or edit existing inputs on your streaming job. You can also test input connections and [test queries](stream-analytics-manage-job.md#test-your-query) from sample data from the Azure portal, [Visual Studio](stream-analytics-vs-tools-local-run.md), and [Visual Studio Code](visual-studio-code-local-run.md). When you write a query, you list the input in the FROM clause. You can get the list of available inputs from the **Query** page in the portal. If you wish to use multiple inputs, you can `JOIN` them or write multiple `SELECT` queries.
 
 
 ## Stream data from Event Hubs
 
-Azure Event Hubs provides highly scalable publish-subscribe event ingestors. An event hub can collect millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Together, Event Hubs and Stream Analytics provide an end-to-end solution for real-time analytics. Event Hubs lets you feed events into Azure in real-time, and Stream Analytics jobs can process those events in real-time. For example, you can send web clicks, sensor readings, or online log events to Event Hubs. You can then create Stream Analytics jobs to use Event Hubs as the input data streams for real-time filtering, aggregating, and correlation.
+Azure Event Hubs provides highly scalable publish-subscribe event investors. An event hub can collect millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Together, Event Hubs and Stream Analytics provide an end-to-end solution for real-time analytics. Event Hubs lets you feed events into Azure in real-time, and Stream Analytics jobs can process those events in real-time. For example, you can send web clicks, sensor readings, or online log events to Event Hubs. You can then create Stream Analytics jobs to use Event Hubs as the input data streams for real-time filtering, aggregating, and correlation.
 
 `EventEnqueuedUtcTime` is the timestamp of an event's arrival in an event hub and is the default timestamp of events coming from Event Hubs to Stream Analytics. To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) keyword.
 
@@ -137,7 +137,7 @@ CSV-formatted inputs require a header row to define fields for the data set, and
 > [!NOTE]
 > Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 
-In scenarios where many blobs are continously added and Stream Analytics is processing the blobs as they are added, it's possible for some blobs to be skipped in rare cases due to the granularity of the `BlobLastModifiedTime`. You can mitigate this by uploading blobs at least two seconds apart. If this option is not feasible, you can use Event Hubs to stream large volumes of events.
+In scenarios where many blobs are continuously added and Stream Analytics is processing the blobs as they are added, it's possible for some blobs to be skipped in rare cases due to the granularity of the `BlobLastModifiedTime`. You can mitigate this by uploading blobs at least two seconds apart. If this option is not feasible, you can use Event Hubs to stream large volumes of events.
 
 ### Configure Blob storage as a stream input 
 

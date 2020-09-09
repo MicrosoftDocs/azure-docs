@@ -15,7 +15,7 @@ You can use [Power BI](https://powerbi.microsoft.com/) as an output for a Stream
 
 Power BI output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
 
-## Ouput configuration
+## Output configuration
 
 The following table lists property names and their descriptions to configure your Power BI output.
 
@@ -77,4 +77,4 @@ For output batch size, see [Power BI Rest API limits](https://msdn.microsoft.com
 * [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
 * [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)

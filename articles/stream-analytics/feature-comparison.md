@@ -10,7 +10,7 @@ ms.date: 06/27/2019
 
 # Azure Stream Analytics feature comparison
 
-With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-vs-code.md). The tables in this article show which features are supported by each platform for both job types.
+With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-visual-studio-code.md). The tables in this article show which features are supported by each platform for both job types.
 
 > [!NOTE]
 > Visual Studio and Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.

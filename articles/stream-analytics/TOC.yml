@@ -23,12 +23,11 @@
     - name: Visual Studio
       href: stream-analytics-quick-create-vs.md
     - name: Visual Studio Code
-      href: quick-create-vs-code.md
+      href: quick-create-visual-studio-code.md
   - name: Create a cluster
     items:
     - name: Azure portal
       href: create-cluster.md
-- name: Create a job
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
