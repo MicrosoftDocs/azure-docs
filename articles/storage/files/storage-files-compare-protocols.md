@@ -56,10 +56,6 @@ SMB with Azure Files is ideal for:
 
 Do not use SMB if you need Unix style permissions (UID/GID), case sensitivity, or POSIX delete behavior.
 
-### Security
-
-SMB offers etc. 
-
 ## NFS shares (preview)
 
 Mounting Azure file shares with NFS is our newer offering, and is currently in preview. It has fewer available Azure Files features but offers a tighter integration with Linux. Azure Files offers NFS v4.1 protocol that is fully managed, network-attached storage. It is highly scalable, highly durable, and highly available. This is a fully POSIX-compliant offer that is a standard across variants of Unix and other *nix based operating systems. This enterprise-grade file storage service scales up to meet your storage needs and can be accessed concurrently by thousands of compute instances. You can start with a file system that contains only 100 GiB data to 100 TiB per volume. Moreover, your data and metadata are protected with encryption at rest by default. NFS is currently in preview and should not be used for production data.
