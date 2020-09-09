@@ -253,7 +253,7 @@ Here are the ways that you can enable Update Management and select machines to b
 * [From an Azure virtual machine](update-mgmt-enable-vm.md)
 * [From browsing multiple Azure virtual machines](update-mgmt-enable-portal.md)
 * [From an Azure Automation account](update-mgmt-enable-automation-account.md)
-* For Arc enabled servers or non-Azure machines, install the [Log Analytics agent](azure-monitor/platform/log-analytics-agent.md) and then add [Enable machines in the workspace](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) to Update Management.
+* For Arc enabled servers or non-Azure machines, install the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) and then add [Enable machines in the workspace](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) to Update Management.
 
 ## Next steps
 
