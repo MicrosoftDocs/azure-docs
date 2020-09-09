@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Supported versions Postgres with Azure Arc enabled PostgreSQL Hyperscale
+# Supported versions of Postgres with Azure Arc enabled PostgreSQL Hyperscale
 
 This article explains what versions of Postgres are available with Azure Arc enabled PostgreSQL Hyperscale.
 The list of supported versions evolves over time. Today, the major versions that are supported are:
