@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/14/2020
+ms.date: 09/04/2020
 ---
 
 # Publishing guide by offer type
@@ -15,7 +15,7 @@ This article describes the offer types that are available in the commercial mark
 
 After you [decide on a publishing option](determine-your-listing-type.md), you must choose an offer type before you start creating your offer. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services.
 
-You can configure a single offer type in different ways to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
+You can configure a single offer type in different ways to enable different publishing options, listing option, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
 
 Be sure to review the online store and offer type eligibility requirements and the technical publishing requirements before creating your offer.
 
@@ -32,7 +32,7 @@ Azure Marketplace offer types are listed in the table below.
 | [**Container offers**](./marketplace-containers.md) | Use the Container offer type when your solution is a Docker container image provisioned as a Kubernetes-based Azure container service. |
 | [**Azure IoT Edge modules**](./iot-edge-module.md) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
 | [**Consulting services**](./consulting-services.md) | Consulting services help to connect customers with services to support and extend their use of Azure, Dynamics 365, or Power Suite services.|
-| [**Office 365, Dynamics 365, and Power BI**](./appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Dynamics 365, Office 365, Power BI, and Power Apps.|
+| [**Microsoft 365, Dynamics 365, and Power BI**](./appsource-offer-publishing-guide.md) | You can publish AppSource offers that build on or extend Dynamics 365, Microsoft 365, Power BI, and Power Apps.|
 | [**Integrated solutions**](./integrated-solutions-for-publishers.md) | You can publish integrated, industry-aligned solutions that combine technology and services as a single offer.|
 
 For information on single sign-on requirements by listing options and offer types, see [**Azure AD requirements**](./enable-appsource-marketplace-using-azure-ad.md).

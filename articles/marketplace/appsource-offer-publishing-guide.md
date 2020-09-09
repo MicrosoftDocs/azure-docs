@@ -1,19 +1,19 @@
 ---
 title: Offer publishing guide for Microsoft AppSource
-description: Step-by-step guide and publishing checklists for publishing apps to Microsoft AppSource for Office 365, Dynamics 365, Power Apps, and Power BI.
+description: Step-by-step guide and publishing checklists for publishing apps to Microsoft AppSource for Microsoft 365, Dynamics 365, Power Apps, and Power BI.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
+ms.date: 09/04/2020
 ---
 
-# Offer publishing guide for Office 365, Dynamics 365, Power Apps, and Power BI
+# Offer publishing guide for Microsoft 365, Dynamics 365, Power Apps, and Power BI
 
-Microsoft AppSource includes offers that build on or extend Office 365, Dynamics 365, Power Apps, and Power BI. Each of these products has specific documentation to guide you in the publishing process. 
+Microsoft AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, Power Apps, and Power BI. Each of these products has specific documentation to guide you in the publishing process. 
 
-AppSource has paid, list, and trial offers, with the calls to action *Get It Now*, *Contact Me*, and *Try It Now*.
+AppSource has paid, list, and trial offers, with the listing options *Get It Now*, *Contact Me*, and *Try It Now*.
 
 ## Product-specific guides
 
@@ -21,7 +21,7 @@ For links to publishing processes and guidelines for each offer type, see the fo
 
 | Product    | Publishing guidance  |
 | :------------------- | :-------------------|
-| Office 365 | Review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center). |
+| Microsoft 365 | Review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center). |
 | Dynamics 365 Business Central | To publish an offer in Partner Center, see [Create a new Dynamics 365 Business Central offer](./partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 for Finance and Operations | When you're building for Enterprise Edition, review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Operations offer](./partner-center-portal/create-new-operations-offer.md).  |
 | Dynamics 365 for Customer Engagement | Review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Customer Engagement & Power Apps offer](./partner-center-portal/create-new-customer-engagement-offer.md).  |
