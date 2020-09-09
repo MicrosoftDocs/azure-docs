@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
 ---
 
@@ -27,8 +27,8 @@ Azure Security Center for IoT stores security alerts, recommendations, and raw s
 To configure which Log Analytics workspace is used:
 
 1. Open your IoT hub.
-1. Click the **Overview** blade under the **Security** section
-1. Click **Settings**, and change your Log Analytics workspace configuration.
+1. Click the **Settings** blade under the **Security** section.
+1. Click **Data Collection**, and change your Log Analytics workspace configuration.
 
 To access your alerts and recommendations in your Log Analytics workspace after configuration:
 

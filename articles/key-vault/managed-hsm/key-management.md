@@ -15,7 +15,8 @@ ms.author: ambapat
 # Manage a Managed HSM using the Azure CLI 
 
 
-> [!NOTE] Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI ](../general/manage-with-cli2.md).
+> [!NOTE]
+> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI ](../general/manage-with-cli2.md).
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -98,6 +99,4 @@ az keyvault key show --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 - For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault).
 
-- For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md)
-
-- For information on Azure Key Vault and HSMs, see [How to use HSM-Protected Keys with Azure Key Vault](key-vault-hsm-protected-keys.md).
+- For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md)

@@ -14,37 +14,36 @@ ms.author: ambapat
 ---
 # Managed HSM disaster recovery
 
-In case your managed HSM is lost or unavailable due to any of the below reasons, 
-- it was deleted and then purged
-- a catastrophic failure in the region resulting in all member partitions being destroyed, , you can re-create the HSM instance in same or different region if you have following:
-- Security Domain
+You may wish to create an exact replica of your HSM if the original is lost or unavailable due to any of the below reasons:
+
+- It was deleted and then purged
+- A catastrophic failure in the region resulted in all member partitions being destroyed
+
+You can re-create the HSM instance in same or different region if you have following:
+- The [Security Domain](security-domain.md)
 - The private keys (at least quorum number) that encrypt the security domain
-- most recent full HSM backup
-or you want to create an exact replica of your HSM
+- The most recent full HSM [backup](backup-restore.md)
 
-
-Here is a quick outline of the disaster recovery procedure:
-1. Create a new HSM Instance
-2. When the HSM is in “Provisioned” state, activate “Security Domain restore mode”. A new RSA key pair (Security Domain Exchange Key) is generated for Security Domain transfer.
-3. Download a SecurityDomainExchangeKey (public key). This key can only be retrieved when “security domain restore mode” is activated
-4. Create a "Security Domain Transfer File" - you will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
-5. Upload security domain to activate the HSM
-6. Take a backup of the new HSM (a backup is required before any restore, even when the HSM is empty. This allows easy roll-back.) 
-7. Restore recent HSM backup from the source HSM
-
- 
+Here are the steps of the disaster recovery procedure:
+1. Create a new HSM Instance.
+1. When the HSM is in "Provisioned" state, activate "Security Domain restore mode". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer.
+1. Download a SecurityDomainExchangeKey (public key). This key can only be retrieved when "security domain restore mode" is activated.
+1. Create a "Security Domain Transfer File". You will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
+1. Upload the security domain to activate the HSM.
+1. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. This allows easy roll-back. 
+1. Restore the recent HSM backup from the source HSM
 
 The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 
-
 ### Create a new HSM
+
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an hsm name, and the geographic location.
 
 You need to provide following inputs to create a Managed HSM resource:
-- name for the HSM
-- resource group where it will be placed in your subscription
-- Azure location
-- a list of initial administrators
+- The name for the HSM
+- The resource group where it will be placed in your subscription
+- The Azure location
+- A list of initial administrators
  
 The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
 
@@ -55,7 +54,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 ```
 ---
 
-> [!NOTE] Create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
+> [!NOTE]
+> Create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
 
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
@@ -66,6 +66,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 
 ### Activate the security domain recovery mode
+
 In the normal create process we initialize and download a new Security Domain at this point. However, since we are executing a disaster recovery procedure, we request the HSM to enter Security Domain Recovery Mode and download a Security Domain Exchange Key. This is an RSA public key that will be used to encrypt the security domain before uploading it to the HSM. The corresponding private key is protected inside the HSM, to keep your Security Domain contents safe during the transfer.
 
 # [Azure CLI](#tab/azure-cli)
@@ -78,11 +79,12 @@ az keyvault security-domain init-recovery --hsm-name ContosoMHSM2 --sd-exchange-
 ### Upload source HSM's security domain
 
 For this step you will need following:
-- Security Domain Exchange Key you downloaded in previous step
-- Security Domain of the source HSM
-- At least quorum number of private keys that were used to encrypt the security domain
+- The Security Domain Exchange Key you downloaded in previous step.
+- The Security Domain of the source HSM.
+- At least quorum number of private keys that were used to encrypt the security domain.
 
 The `az keyvault security-domain upload` command performs following operations:
+
 - Decrypt the source HSM's Security Domain with the private keys you supply. 
 - create a Security Domain Upload blob encrypted with the Security Domain Exchange Key we downloaded in the previous step and then
 - Upload the Security Domain Upload blob to the HSM to complete security domain recovery
@@ -117,9 +119,7 @@ sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name Co
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 
 ```
----
 
- 
 ## Restore backup from source HSM
 
 For this step you need following:
@@ -139,5 +139,5 @@ az keyvault restore start --hsm-name ContosoMHSM2 --storage-account-name Contoso
 Now you have completed a full disaster recovery process. The conents of the source HSM when the backup was taken are copied to the destination HSM, including all the keys, versions, attributes, tags, and role assignments.
 
 ## Next Steps
-- Learn more about Security Domain see [About Managed HSM Security Domain](secuirity-domain.md)
+- Learn more about Security Domain see [About Managed HSM Security Domain](security-domain.md)
 - Follow [Managed HSM best practices](best-practices.md)
