@@ -25,17 +25,13 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 - Choose a tab to view any SDK-specific prerequisites.
 
-  ### [PowerShell](#tab/azure-powershell)
-
-  Not applicable
-
   ### [.NET](#tab/dotnet)
 
   The [.NET SDK](https://dotnet.microsoft.com/download) 
 
   ### [Java](#tab/java)
 
-  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above
+  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 
@@ -54,9 +50,9 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 ## Enable query acceleration
 
-To use query acceleration, you must register the feature, verify that the feature is registered, and then reregister. You can do this by using either PowerShell or Azure CLI.
+To use query acceleration, you must register the query acceleration feature with your subscription. Once you've verified that the feature is registered, you must register the Azure Storage resource provider. 
 
-### Step 1: Register the query acceleration feature with your subscription
+### Step 1: Register the query acceleration feature
 
 To use query acceleration, you must first register the query acceleration feature with your subscription. 
 
@@ -87,7 +83,7 @@ To use query acceleration, you must first register the query acceleration featur
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
 
@@ -106,8 +102,6 @@ To use query acceleration, you must first register the query acceleration featur
 ---
 
 ### Step 2: Verify that the feature is registered
-
-To verify that the registration is complete, use the following commands.
 
 #### [PowerShell](#tab/powershell)
 
@@ -133,7 +127,7 @@ After your registration is approved, you must re-register the Azure Storage reso
 
 #### [PowerShell](#tab/powershell)
 
-To re-register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
+To register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
@@ -141,7 +135,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 #### [Azure CLI](#tab/azure-cli)
 
-To re-register the resource provider, use the [az provider register](/cli/azure/provider#az-provider-register) command.
+To register the resource provider, use the [az provider register](/cli/azure/provider#az-provider-register) command.
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -324,7 +318,7 @@ Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
 
 ### [.NET](#tab/dotnet)
 
-The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) object.
+The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream) object.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
