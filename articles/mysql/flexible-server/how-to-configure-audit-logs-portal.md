@@ -11,7 +11,7 @@ ms.date: 9/21/2020
 # Configure and access audit logs for Azure Database for MySQL - Flexible Server using the Azure portal
 
 > [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can configure the Azure Database for MySQL Flexible Server [audit logs](concepts-audit-logs.md) and diagnostic settings from the Azure portal.
 

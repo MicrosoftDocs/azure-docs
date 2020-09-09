@@ -8,7 +8,11 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ---
 
-# Point-in-time restore of a Azure Database for MySQL Flexible Server (Preview)
+# Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview)
+
+
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 

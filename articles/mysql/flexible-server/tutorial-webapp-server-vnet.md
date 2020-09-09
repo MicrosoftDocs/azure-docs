@@ -3,14 +3,17 @@ title: 'Tutorial: Create Azure Database for MySQL Flexible Server (Preview) and 
 description: Quickstart guide to create Azure Database for MySQL Flexible Server (Preview) with Web App in a virtual network
 author: mksuni
 ms.author: sumuth
-ms.service: postgresql
+ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Create an Azure Database for MySQL Flexible Server (Preview) with App Services Web App in virtual network
+# Create an Azure Database for MySQL - Flexible Server (Preview) with App Services Web App in virtual network
+
+> [!IMPORTANT]
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This tutorial shows you how create a Azure App Service Web app with  MySQL Flexible Server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
@@ -20,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to login to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command. Note the **id** property from the command output for the corresponding subscription name.
+You'll need to login to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command. Note the **id** property from the command output for the corresponding subscription name.
 
 ```azurecli
 az login
@@ -47,11 +50,11 @@ This command performs the following actions, which may take a few minutes:
 - Creates an empty database called **flexibleserverdb**
 
 > [!NOTE]
-> Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
+> Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az mysql flexible-server update``` command
 
 ## Create a Web App
 
-In this section, you create app host in App Service app and connect this app to the Postgres database. Make sure you're in the repository root of your application code in the terminal.
+In this section, you create app host in App Service app and connect this app to the MySQL database. Make sure you're in the repository root of your application code in the terminal.
 
 Create an App Service app (the host process) with the az webapp up command
 
@@ -61,7 +64,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 
 > [!NOTE]
 > - For the --location argument, use the same location as you did for the database in the previous section.
-> - Replace <app-name> with a unique name across all Azure (the server endpoint is https://\<app-name>.azurewebsites.net). Allowed characters for <app-name> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
+> - Replace _&lt;app-name>_ with a unique name across all Azure (the server endpoint is https://\<app-name>.azurewebsites.net). Allowed characters for <app-name> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
 
 This command performs the following actions, which may take a few minutes:
 
@@ -73,7 +76,7 @@ This command performs the following actions, which may take a few minutes:
 
 ## Add the Web App to the virtual network
 
-Use **az webapp vnet-integration** command to add a regional virtual network integration to a webapp. Replace <vnet-name> and <subnet-name> with the virtual network and subnet name that the flexible server is using.
+Use **az webapp vnet-integration** command to add a regional virtual network integration to a webapp. Replace _&lt;vnet-name>_ and _&lt;subnet-name_ with the virtual network and subnet name that the flexible server is using.
 
 ```azurecli
 az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
@@ -87,8 +90,8 @@ With the code now deployed to App Service, the next step is to connect the app t
 az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.database.azure.com" DBNAME="flexibleserverdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Replace ```<postgres-server-name>```, ```<username>```, ```<password>``` for the newly created flexible server command.
-- Replace <username> and <password> with the credentials that the command also generated for you.
+- Replace _&lt;mysql-server-name>_, _&lt;username>_, and _&lt;password>_ for the newly created flexible server command.
+- Replace _&lt;username>_ and _&lt;password>_ with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named DBHOST, DBNAME, DBUSER, and DBPASS. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
 
@@ -101,4 +104,6 @@ az group delete -n myresourcegroup
 ```
 
 ## Next steps
-- [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+
+> [!div class="nextstepaction"]
+> [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)

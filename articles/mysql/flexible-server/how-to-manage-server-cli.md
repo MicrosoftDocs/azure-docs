@@ -8,20 +8,23 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-# Manage an Azure Database for MySQL Flexible Server (Preview) using the Azure CLI
+# Manage an Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI
+
+> [!IMPORTANT]
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article shows you how to manage your Flexible Server (Preview) deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Prerequisites
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin. This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -32,7 +35,7 @@ az account set --subscription <subscription id>
 
 ## Scale compute and storage
 
-You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server server overview](/cli/azure/mysql/server?view=azure-cli-latest)
+You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server server overview](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v4 --storage-size 6144
@@ -77,3 +80,9 @@ If you would just like to delete the MySQL Flexible server, you can run [az mysq
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver
 ```
+
+## Next Steps
+- [Learn how to start or stop a server](how-to-stop-start-server-portal.md)
+- [Learn how to manage a virtual network](how-to-manage-virtual-network-cli.md)
+- [Troubleshoot connection issues](how-to-troubleshoot-common-connection-issues.md)
+- [Create and manage firewall](how-to-manage-firewall-cli.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure DB for MySQL Flexible Server - ARM template'
-description: In this Quickstart, learn how to create an Azure Database for MySQL Flexible server using ARM template.
+title: 'Quickstart: Create an Azure DB for MySQL - Flexible Server - ARM template'
+description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server using ARM template.
 author: mksuni
 ms.service: mysql
 ms.topic: quickstart
@@ -9,9 +9,13 @@ ms.author: sumuth
 ms.date: 09/22/2020
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible server (Preview)
+# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible Server (Preview)
 
-Azure Database for MySQL Flexible server (Preview) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use ARM templates to provision a flexible server to deploy multiple servers or multiple databases on a server.
+
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview
+
+Azure Database for MySQL - Flexible Server (Preview) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use ARM templates to provision a flexible server to deploy multiple servers or multiple databases on a server.
 
 An [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it.
 
@@ -169,18 +173,18 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
----
+
 ## View the deployed resources
 
 Follow these steps to verify if your server was created in Azure.
 
-# [Portal](#tab/azure-portal)
+### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
 
 2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
 
-# [PowerShell](#tab/PowerShell)
+### PowerShell
 
 You'll have to enter the name of the new server to view the details of your Azure Database for MySQL Flexible server.
 
@@ -190,7 +194,7 @@ Get-AzResource -ResourceType "Microsoft.DBforMySQL/flexibleServers" -Name $serve
 Write-Host "Press [ENTER] to continue..."
 ```
 
-# [CLI](#tab/CLI)
+### CLI
 
 You'll have to enter the name and the resource group of the new server to view details about your Azure Database for MySQL Flexible server.
 
@@ -202,15 +206,13 @@ read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
 ```
 
----
-
 ## Clean up resources
 
 Keep this resource group, server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
 
 To delete the resource group:
 
-# [Portal](#tab/azure-portal)
+### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
 
@@ -220,7 +222,7 @@ To delete the resource group:
 
 4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
-# [PowerShell](#tab/PowerShell)
+### PowerShell
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -228,7 +230,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-# [CLI](#tab/CLI)
+### CLI
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -236,9 +238,16 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
+---
+
 ## Next steps
 
 For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
 
 > [!div class="nextstepaction"]
 > [ Tutorial: Create and deploy your first ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+
+For a step-by-step tutorial to build an app with App Service using MySQL, see:
+
+> [!div class="nextstepaction"]
+>[Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)

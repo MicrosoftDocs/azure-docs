@@ -10,6 +10,9 @@ ms.date: 09/21/2020
 
 # Backup and restore in Azure Database for MySQL Flexible Server (Preview)
 
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview.
+
 Azure Database for MySQL Flexible Server, automatically creates server backups and securely stores them in local redundant storage within the region. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 
 ## Backup overview
@@ -58,7 +61,7 @@ Point-in-time restore is useful in multiple scenarios. Some of the use cases tha
 -   User drops an important table or database
 -   User application accidentally overwrites good data with bad data due to an application defect.
 
-You can choose between a latest restore point and a custom restore point via [Azure portal](how-to-restore-mysql-server-portal.md).
+You can choose between a latest restore point and a custom restore point via [Azure portal](how-to-restore-server-portal.md).
 
 -   **Latest restore point**: The latest restore point helps you to restore the server to the last backup performed on the source server. The timestamp for restore will also displayed on the portal. This option is useful to quickly restore the server to the most updated state.
 -   **Custom restore point**: This will allow you to choose any point-in-time within the retention period defined for this flexible server. This option is useful to restore the server at the precise point in time to recover from a user error.
