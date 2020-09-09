@@ -92,8 +92,7 @@ After you sign in with GitHub, enter the repository information.
 1. Select **my-first-static-blazor-app** from the _Repository_ drop-down
 1. Select **main** from the _Branch_ drop-down
 
-> [!NOTE]
-> If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+    If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
 
 1. In the _Build Details_ section, add Blazor-specific configuration details.
 
@@ -102,9 +101,6 @@ After you sign in with GitHub, enter the repository information.
 1. Select **Review + create**.
 
     :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Review create button":::
-
-    > [!NOTE]
-    > You can edit the [workflow file](github-actions-workflow.md) to change these values after you create the app.
 
 1. Select **Create**.
 
