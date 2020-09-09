@@ -72,7 +72,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
    The image below uses a Stream Analytics Visual Studio Code project as an example.
 
-   :::image type="content" source="media/setup-cicd-pipeline/commandline-config-build.png" alt-text="Enter configurations for command-line task":::
+   :::image type="content" source="media/setup-cicd-pipeline/commandline-config-build.png" alt-text="Enter configurations for command-line task visual studio code":::
 
 ## Add a Test task
 
@@ -88,7 +88,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
 3. Give the task a **Display name** and enter the following script. Modify the script with your project file name and the path to the test configuration file. 
 
-   See [automated test instructions](cicd-tools.md#automatedtest) for details on how to add and configure test cases.
+   See [automated test instructions](cicd-tools.md#automated-test) for details on how to add and configure test cases.
 
    ```cmd
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
@@ -135,7 +135,7 @@ The test summary file and Azure Resource Manager Template files can be found in 
 
 ## Release with Azure Pipelines
 
-In this section, you learn how to create a release pipeline. You can reference this sample [release pipeline](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) in Azure DevOps.
+In this section, you learn how to create a release pipeline. You can reference this sample [release pipeline](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2&preserve-view=true) in Azure DevOps.
 
 Open a web browser and navigate to your Azure Stream Analytics Visual Studio Code project.
 
@@ -195,5 +195,5 @@ To create a release, select **Create release** in the top-right corner.
 
 ## Next Steps
 
-* [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd/cicd-overview)
-* [Automate build, test, and deployment of an Azure Stream Analytics job using CI/CD tools](cicd/cicd-tools)
+* [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd-overview.md)
+* [Automate build, test, and deployment of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md)
