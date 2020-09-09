@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/08/2020
+  ms.date: 09/09/2020
   featureFlags:
   - clicktale
 
@@ -883,14 +883,14 @@ productDirectory:
     # Card
     - title: Azure Stack Hub
       summary: Azure Stack Hub is sold as an integrated hardware system, with software pre-installed on validated hardware
-      imageSrc: ./media/index/azure-stack-hub.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/stack-hub.svg
       azureCategories:
         - hybrid
       url: https://docs.microsoft.com/azure-stack/operator/
     # Card
     - title: Azure Stack Edge
       summary: An Azure managed appliance that brings the compute, storage, and intelligence of Azure to the edge
-      imageSrc: ./media/index/azure-stack-edge.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/stack-edge.svg
       azureCategories:
         - hybrid
       url: https://docs.microsoft.com/azure/databox-online/
