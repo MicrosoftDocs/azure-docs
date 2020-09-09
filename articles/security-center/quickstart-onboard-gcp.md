@@ -113,9 +113,15 @@ When the connector is successfully created and GCP Security Command Center Hub h
 
 ## Monitoring your GCP resources
 
-(Description of using recs and a screenshot of some GCP flagged ones) 
+As shown above, Azure Security Center's security recommendations page displays your GCP resources together with your Azure and AWS resources for a true multi-cloud view.
+
+To view all the active recommendations for your resources by resource type, use Security Center's asset inventory page and filter to the GCP resource type in which you're interested:
+
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options"::: 
 
 
 ## Next steps
 
-More stuff
+Connecting your GCP account is part of the multi-cloud experience available in Azure Security Center. For related information, see the following page:
+
+- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)

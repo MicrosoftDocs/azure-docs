@@ -38,6 +38,20 @@ Updates in September include:
 - [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
 - [Recommendations now include a severity indicator and the freshness interval](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
 
+
+
+### Azure Defender for Key Vault is generally available
+
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
+
+**Azure Defender for Key Vault** provides Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence. The optional plan is now GA.
+
+This feature was in preview as "advanced threat protection for Azure Key Vault".
+
+Learn more in [Azure Defender for Key Vault](defender-for-key-vault-intro.md).
+
+
+
 ### Vulnerability assessment findings are now available in continuous export
 
 Use continuous export to stream your alerts and recommendations in real-time to Azure Event Hubs, Log Analytics workspaces, or Azure Monitor. From there, you can integrate this data with SIEMs (such as Azure Sentinel, Power BI, Azure Data Explorer, and more.

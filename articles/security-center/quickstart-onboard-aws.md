@@ -166,7 +166,11 @@ When the connector is successfully created and AWS Security Hub has been configu
 
 ## Monitoring your AWS resources
 
-(Description of using recs and a screenshot of some GCP flagged ones) 
+As shown above, Azure Security Center's security recommendations page displays your AWS resources together with your Azure and GCP resources for a true multi-cloud view.
+
+To view all the active recommendations for your resources by resource type, use Security Center's asset inventory page and filter to the AWS resource type in which you're interested:
+
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the AWS options"::: 
 
 
 ## AWS in Security Center FAQ
@@ -183,7 +187,8 @@ Supported OS for automatic onboarding to Azure Arc for AWS Machines
 - Red Hat Enterprise Linux (RHEL) 7 (x64) - SSM should be installed manually or onboarded separately
 
 
-
 ## Next steps
 
-This page provided the step-by-step process for connecting your AWS account to Azure Security Center. To connect a GCP account, see [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+Connecting your GCP account is part of the multi-cloud experience available in Azure Security Center. For related information, see the following page:
+
+- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
