@@ -76,3 +76,8 @@ The following examples show poorly defined lines.
 ![Line is too high and doesn't cover the entirety of the door](./media/spatial-analytics/zone-line-too-high.png)
 
 ## Next steps
+
+* [Deploy a People Counting web application](spatial-analysis-web-app.md)
+* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Logging and troubleshooting](spatial-analysis-logging.md)
+* [Camera placement guide](spatial-analysis-camera-placement.md)

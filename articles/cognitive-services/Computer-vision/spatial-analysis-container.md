@@ -391,3 +391,11 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Container images are downloaded from the Microsoft Container Registry.
 * Container images run as IoT Modules in Azure IoT Edge.
 * How to configure the container and deploy it on a host machine.
+
+## Next steps
+
+* [Deploy a People Counting web application](spatial-analysis-web-app.md)
+* [Configure spatial analysis operations](spatial-analysis-operations.md)
+* [Logging and troubleshooting](spatial-analysis-logging.md)
+* [Camera placement guide](spatial-analysis-camera-placement.md)
+* [Zone and line placement guide](spatial-analysis-zone-line-placement.md)

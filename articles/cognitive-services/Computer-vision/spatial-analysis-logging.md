@@ -377,3 +377,10 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 |`Get-HcsKubernetesUserConfig -AseUser`     | Generates a Kubernetes configuration file. When using the command, copy the information into a file named *config*. Do not save the file with a file extension.        |
 | `Get-HcsApplianceInfo` | Returns information about your device. |
 | `Enable-HcsSupportAccess` | Generates access credentials to start a support session. |
+
+## Next steps
+
+* [Deploy a People Counting web application](spatial-analysis-web-app.md)
+* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Camera placement guide](spatial-analysis-camera-placement.md)
+* [Zone and line placement guide](spatial-analysis-zone-line-placement.md)

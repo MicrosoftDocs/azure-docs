@@ -186,3 +186,8 @@ Go to the Azure Web App and verify the deployment was successful, and the web ap
 ![Test the deployment](./media/spatial-analytics/solution-app-output.png)
 
 ## Next steps
+
+* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Logging and troubleshooting](spatial-analysis-logging.md)
+* [Camera placement guide](spatial-analysis-camera-placement.md)
+* [Zone and line placement guide](spatial-analysis-zone-line-placement.md)

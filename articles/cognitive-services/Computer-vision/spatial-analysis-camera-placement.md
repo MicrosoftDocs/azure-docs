@@ -157,3 +157,8 @@ The following illustrations simulate the view from a camera placed in the ideal 
 Organic queue lines form organically. This style of queue is acceptable if queues don't form beyond 2-3 people and the line forms within the zone definition. If the queue length is typically more than 2-3 people, we recommend using a retractable belt barrier to help guide the queue direction and ensure the line forms within the zone definition.
 
 ## Next steps
+
+* [Deploy a People Counting web application](spatial-analysis-web-app.md)
+* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Logging and troubleshooting](spatial-analysis-logging.md)
+* [Zone and line placement guide](spatial-analysis-zone-line-placement.md)
