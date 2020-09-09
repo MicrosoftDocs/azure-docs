@@ -36,7 +36,7 @@ This article also assumes that you have basic knowledge of building pipelines in
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of [Sample 3: Income prediction](samples-designer.md#classification). The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
+The pipeline used in this article is an altered version of a sample pipeline [Income prediction](samples-designer.md#classification) in the designer homepage. The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
 
 ![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -96,9 +96,9 @@ Publish a pipeline to a pipeline endpoint to easily reuse your pipelines in the 
 
 Now that you have a published training pipeline, you can use it to retrain your model on new data. You can submit runs from a pipeline endpoint from the studio workspace or programmatically.
 
-### Submit runs by using the designer
+### Submit runs by using the studio portal
 
-Use the following steps to submit a parameterized pipeline endpoint run from the designer:
+Use the following steps to submit a parameterized pipeline endpoint run from the studio portal:
 
 1. Go to the **Endpoints** page in your studio workspace.
 1. Select the **Pipeline endpoints** tab. Then, select your pipeline endpoint.

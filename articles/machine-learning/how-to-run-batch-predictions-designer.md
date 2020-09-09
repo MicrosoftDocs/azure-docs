@@ -5,9 +5,9 @@ description: Learn how to train a model and set up a batch prediction pipeline u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ---
@@ -66,6 +66,8 @@ In this section, you create a dataset parameter to specify a different dataset t
    
     Enter a name for the parameter, or accept the default value.
 
+    ![Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
+
 ## Publish your batch inferencing pipeline
 
 Now you're ready to deploy the inferencing pipeline. This will deploy the pipeline and make it available for others to use.
@@ -121,9 +123,7 @@ You can find information on how to consume pipeline endpoints and published pipe
 
 You can find the REST endpoint of a pipeline endpoint in the run overview panel. By calling the endpoint, you are consuming its default published pipeline.
 
-You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and find the REST endpoint of it. 
-
-![Rest endpoint details](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and you can find the REST endpoint of it in the **Published pipeline overview** panel to the right of the graph. 
 
 To make a REST call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
