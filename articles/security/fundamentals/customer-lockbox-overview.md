@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/08/2020
+ms.date: 09/09/2020
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -45,6 +45,24 @@ The following services are now currently in preview for Customer Lockbox:
 - Azure subscription transfers
 
 To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
+
+## Supported services and scenarios in general availability
+
+The following services and scenarios are currently in general availability for Customer Lockbox.
+
+### Remote desktop access to virtual machines
+
+Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
+- Platform as a service (PaaS) - Azure Cloud Services (web role and worker role)
+- Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
+- Virtual machine scale set - Windows and Linux
+
+> [!NOTE]
+> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+
+#### Detailed audit logs
+
+For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ## Workflow
 
@@ -110,24 +128,6 @@ Customer Lockbox logs are stored in activity logs. In the Azure portal, select *
 As an example:
 
 ![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
-
-## Supported services and scenarios in general availability
-
-The following services and scenarios are currently in general availability for Customer Lockbox.
-
-### Remote desktop access to virtual machines
-
-Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
-- Platform as a service (PaaS) - Azure Cloud Services (web role and worker role)
-- Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
-- Virtual machine scale set - Windows and Linux
-
-> [!NOTE]
-> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
-
-#### Detailed audit logs
-
-For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ## Customer Lockbox integration with Azure Security Benchmark
 
