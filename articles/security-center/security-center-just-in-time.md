@@ -361,7 +361,7 @@ You can gain insights into VM activities using log search. To view the logs:
 
 ## Next steps
 
-In this article, you learned how to setup and use just-in-time VM access. To learn why JIT should be used, read the concept article explaining the threats it's defending against:
+In this article, you learned how to set up and use just-in-time VM access. To learn why JIT should be used, read the concept article explaining the threats it's defending against:
 
 > [!div class="nextstepaction"]
 > [JIT explained](just-in-time-explained.md)

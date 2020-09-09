@@ -380,7 +380,7 @@ Azure Security Center's advanced data security for SQL machines now protects SQL
 
 Advanced data security provides vulnerability assessment and advanced threat protection for your SQL machines wherever they're located.
 
-Setup involves two steps:
+Set up involves two steps:
 
 1. Deploying the Log Analytics agent to your SQL Server's host machine to provide the connection to Azure account.
 

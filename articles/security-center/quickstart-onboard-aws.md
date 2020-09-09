@@ -49,7 +49,7 @@ Connecting your AWS accounts requires [Azure Defender for servers](defender-for-
 
 ## Connect your AWS account
 
-### Step 1 - Setup AWS Security Hub:
+### Step 1 - Set up AWS Security Hub:
 
 1. To view security recommendations for multiple regions, repeat the following steps for each relevant region.
 
@@ -107,9 +107,7 @@ Connecting your AWS accounts requires [Azure Defender for servers](defender-for-
 
 ### Step 4 - Configure SSM
 
-AWS Systems Manager is required for automating tasks across your AWS resources. Ensure this is setup before configuring Security Center to monitor your EC2 instances. 
-
-If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
+AWS Systems Manager is required for automating tasks across your AWS resources. If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
 
 - [Installing and Configuring SSM Agent on Windows Instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-win.html)
 - [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
@@ -166,6 +164,10 @@ When the connector is successfully created and AWS Security Hub has been configu
 - The AWS CIS standard will be shown in the Security Center's regulatory compliance dashboard.
 
 
+
+## Monitoring your GCP resources
+
+(Description of using recs and a screenshot of some GCP flagged ones) 
 
 
 ## AWS in Security Center FAQ

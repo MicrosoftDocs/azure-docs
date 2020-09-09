@@ -85,7 +85,7 @@ The API provides additional functionality not available from the Azure portal, f
 * **More focused scope** - The API provides a more granular level for the scope of your export configurations. When defining an export with the API, you can do so at the resource group level. If you're using the **Continuous Export** page in Security Center's portal UI, you have to define it at the subscription level.
 
     > [!TIP]
-    > If you've setup multiple export configurations using the API, or if you've used API-only parameters, those extra features will not be displayed in the Security Center UI. Instead, there'll be a banner informing you that other configurations exist.
+    > If you've set up multiple export configurations using the API, or if you've used API-only parameters, those extra features will not be displayed in the Security Center UI. Instead, there'll be a banner informing you that other configurations exist.
 
 Learn more about the automations API in the [REST API documentation](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
@@ -119,7 +119,7 @@ Also, if you'd like to move the continuously exported data automatically from yo
 
 ## Continuous export to a Log Analytics workspace
 
-If you want to analyze Azure Security Center data inside a Log Analytics workspace or use Azure alerts together with Security Center, setup continuous export to your Log Analytics workspace.
+If you want to analyze Azure Security Center data inside a Log Analytics workspace or use Azure alerts together with Security Center, set up continuous export to your Log Analytics workspace.
 
 To export to a Log Analytics workspace, you must have Security Center's Log Analytics solutions enabled on your workspace. If you're using the Azure portal, Security Center's free solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually turn Azure Defender on or off from within the **Pricing & settings** page.
 

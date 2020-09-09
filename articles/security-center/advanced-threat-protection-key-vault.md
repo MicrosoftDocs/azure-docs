@@ -1,39 +1,40 @@
 ---
-title: Threat protection for Azure Key Vault
-description: This article explains how to set up advanced threat protection for Azure Key Vault in Azure Security Center
+title: Using Azure Defender for Key Vault
+description: Learn how to This article explains how to set up advanced threat protection for Azure Key Vault in Azure Security Center
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: how-to
+ms.date: 09/12/2020 
 ms.author: memildin
 
 ---
-# Threat protection for Azure Key Vault
+# Use Azure Defender for Key Vault to secure your vaults
 
-Advanced threat protection for Azure Key Vault provides an additional layer of security intelligence. This tool detects potentially harmful attempts to access or exploit Key Vault accounts. Using the native advanced threat protection in Azure Security Center, you can address threats without being a security expert, and without learning additional security monitoring systems.
+**Azure Defender for Key Vault** provides an additional layer of security intelligence for your vaults. 
 
-When Security Center detects anomalous activity, it displays alerts. It also emails the subscription administrator with details of the suspicious activity and recommendations for how to investigate and remediate the identified threats.
+This optional plan detects potentially harmful attempts to access or exploit Key Vault accounts. Using the native advanced threat protection in Azure Security Center, you can address threats without being a security expert, and without learning additional security monitoring systems.
 
-## Configure threat protection from Security Center
+When Azure Defender detects anomalous activity, it displays alerts. It also emails the subscription administrator with details of the suspicious activity and recommendations for how to investigate and remediate the identified threats.
+
+## Enable Azure Defender for Key Vault
 
 By default, advanced threat protection is enabled for all of your Key Vault accounts when you enable Azure Defender.
 
-To enable or disable the protection for a specific subscription:
+## Disable Azure Defender for Key Vault
 
-1. From the left pane in Security Center, select **Pricing & settings**.
+To disable the protection for a specific subscription:
 
-1. Select the subscription with the storage accounts for which you want to enable or disable threat protection.
+1. From Security Center's menu, select **Pricing & settings**.
 
-1. Select **Pricing tier**.
+1. Select the subscription with the storage accounts for which you want to enable or disable **Azure Defender for Key Vault**.
 
-1. From the **Select pricing tier by resource type** group, find the **Key Vaults** row and select **Enabled** or **Disabled**.
+1. In the **Azure Defender Plans** section, toggle the plan to **Off**
 
-    [![Enabling or disabling advanced threat protection for Key Vault in Azure Security Center](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png)](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png#lightbox)
+    :::image type="content" source="./media/advanced-threat-protection-key-vault/disable-defender-key-plan.png" alt-text="Disabling Azure Defender for Key Vault":::
 
 1. Select **Save**.
-
 
 ## Next steps
 

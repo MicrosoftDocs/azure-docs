@@ -26,7 +26,7 @@ Security Center offers more container security features if you enable Azure Defe
 > For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
 
 
-## Setup your workload protection
+## Set up your workload protection
 
 Azure Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
 
