@@ -88,7 +88,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Configure the banned password list
-            url: howto-password-ban-bad-configure.md
+            url: ./tutorial-configure-custom-password-protection.md
       - linkListType: how-to-guide
         links:
           - text: Deploy Azure AD password protection

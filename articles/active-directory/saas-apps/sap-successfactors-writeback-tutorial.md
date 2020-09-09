@@ -1,16 +1,12 @@
 ---
 title: 'Tutorial: Configure SAP SuccessFactors writeback in Azure Active Directory | Microsoft Docs'
-description: Learn how to configure attribute write-back to SAP SuccessFactors from Azure AD 
+description: Learn how to configure attribute write-back to SAP SuccessFactors from Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215868b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali

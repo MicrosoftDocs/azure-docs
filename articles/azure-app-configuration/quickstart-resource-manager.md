@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the templates
 
-The templates used in this quickstart are from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). The [first template](https://azure.microsoft.comresources/templates/101-app-configuration-store/) creates an App Configuration store:
+The templates used in this quickstart are from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). The [first template](https://azure.microsoft.com/resources/templates/101-app-configuration-store/) creates an App Configuration store:
 
 :::code language="json" source="~/quickstart-templates/101-app-configuration-store/azuredeploy.json" range="1-37" highlight="27-35":::
 

@@ -11,6 +11,7 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Upload and index your videos  
@@ -162,7 +163,7 @@ If the `videoUrl` is not specified, the Video Indexer expects you to pass the fi
 
 The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
-#### Instructions for running this code sample
+**Instructions for running the following code sample**
 
 After copying this code into your development platform you will need to provide two parameters: API Management authentication key and video URL.
 

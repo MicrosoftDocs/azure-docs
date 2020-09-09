@@ -23,13 +23,13 @@ In a similar way to a user, a device is another core identity you want to protec
 - Hybrid Azure AD join
 - Azure AD registration
 
-By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [Conditional Access](../active-directory-conditional-access-azure-portal.md).
+By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [Conditional Access](../conditional-access/overview.md).
 
 If you have an on-premises Active Directory (AD) environment and you want to join your AD domain-joined computers to Azure AD, you can accomplish this by doing hybrid Azure AD join. This article provides you with the related steps to implement a hybrid Azure AD join in your environment. 
 
 ## Prerequisites
 
-This article assumes that you are familiar with the [Introduction to device identity management in Azure Active Directory](../device-management-introduction.md).
+This article assumes that you are familiar with the [Introduction to device identity management in Azure Active Directory](./overview.md).
 
 > [!NOTE]
 > The minimum required domain controller version for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
@@ -97,7 +97,7 @@ If your Windows 10 domain joined devices are [Azure AD registered](overview.md#g
 > Even though Windows 10 automatically removes the Azure AD registered state locally, the device object in Azure AD is not immediately deleted if it is managed by Intune. You can validate the removal of Azure AD registered state by running dsregcmd /status and consider the device not to be Azure AD registered based on that.
 
 ### Additional considerations
-- If your environment uses virtual desktop infrastructure (VDI), see [Device identity and desktop virtualization](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- If your environment uses virtual desktop infrastructure (VDI), see [Device identity and desktop virtualization](./howto-device-identity-virtual-desktop-infrastructure.md).
 
 - Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. 
 
@@ -115,12 +115,12 @@ Hybrid Azure AD join works with both, managed and federated environments dependi
 
 ### Managed environment
 
-A managed environment can be deployed either through [Password Hash Sync (PHS)](/azure/active-directory/hybrid/whatis-phs) or [Pass Through Authentication (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) with [Seamless Single Sign On](/azure/active-directory/hybrid/how-to-connect-sso).
+A managed environment can be deployed either through [Password Hash Sync (PHS)](../hybrid/whatis-phs.md) or [Pass Through Authentication (PTA)](../hybrid/how-to-connect-pta.md) with [Seamless Single Sign On](../hybrid/how-to-connect-sso.md).
 
 These scenarios don't require you to configure a federation server for authentication.
 
 > [!NOTE]
-> [Cloud authentication using Staged rollout](/azure/active-directory/hybrid/how-to-connect-staged-rollout) is only supported starting Windows 10 1903 update
+> [Cloud authentication using Staged rollout](../hybrid/how-to-connect-staged-rollout.md) is only supported starting Windows 10 1903 update
 
 ### Federated environment
 
@@ -151,9 +151,9 @@ Based on the scenario that matches your identity infrastructure, see:
 
 ## Review on-premises AD users UPN support for Hybrid Azure AD join
 
-Sometimes, your on-premises AD users UPNs could be different from your Azure AD UPNs. In such cases, Windows 10 Hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](/azure/security/fundamentals/choose-ad-authn), domain type and Windows 10 version. There are two types of on-premises AD UPNs that can exist in your environment:
+Sometimes, your on-premises AD users UPNs could be different from your Azure AD UPNs. In such cases, Windows 10 Hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](../hybrid/choose-ad-authn.md), domain type and Windows 10 version. There are two types of on-premises AD UPNs that can exist in your environment:
 
-- Routable users UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
+- Routable users UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md)
 - Non-routable users UPN: A non-routable UPN does not have a verified domain. It is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD, contoso.local is the primary domain in on-premises AD but is not a verifiable domain in the internet and only used within Contoso's network.
 
 > [!NOTE]

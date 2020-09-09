@@ -1,16 +1,12 @@
 ---
 title: 'Tutorial: Configure SuccessFactors inbound provisioning in AD and Azure AD | Microsoft Docs'
-description: Learn how to configure inbound provisioning from SuccessFactors 
+description: Learn how to configure inbound provisioning from SuccessFactors
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: 1ff90231-1312-463e-8949-7d976e433fc3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Getabstract | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Getabstract.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Getabstract
 

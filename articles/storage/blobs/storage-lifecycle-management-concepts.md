@@ -8,7 +8,8 @@ ms.date: 04/24/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: yzheng
+ms.reviewer: yzheng 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage the Azure Blob storage lifecycle

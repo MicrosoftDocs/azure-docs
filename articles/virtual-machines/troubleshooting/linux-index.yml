@@ -104,13 +104,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text:  Virtual Disks FAQ
-            url: ../linux/faq-for-disks.md
+            url: ../faq-for-disks.md
           - text:  Troubleshoot allocation failures when resizing a VM
             url: ./allocation-failure.md
           - text:  Understanding the temporary drive on your VM
-            url: ../linux/managed-disks-overview.md#temporary-disk
+            url: ../managed-disks-overview.md#temporary-disk
           - text:  Overview of Azure Managed Disks
-            url: ../linux/managed-disks-overview.md
+            url: ../managed-disks-overview.md
           - text:  FAQ about Azure VM disks and managed and unmanaged premium disks
             url: ../linux/convert-unmanaged-to-managed-disks.md
 

@@ -60,4 +60,4 @@ To learn more about security alerts, see the following:
 
 * [Security alerts - a reference guide](alerts-reference.md) -- Learn about the security alerts you might see in Azure Security Center's Threat Protection module
 * [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts
-- [Workflow automation](workflow-automation.md) -- Automate responses to alerts with custom notification logic
+* [Workflow automation](workflow-automation.md) -- Automate responses to alerts with custom notification logic

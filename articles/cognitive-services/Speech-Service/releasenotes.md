@@ -8,7 +8,7 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
 ---
@@ -21,15 +21,15 @@ ms.custom: seodec18
 
 * **Neural TTS: new speaking style for `en-US` Aria voice**. AriaNeural can sound like a newscaster when reading news. The 'newscast-formal' style sounds more serious, while the 'newscast-casual' style is more relaxed and informal. See [how to use the speaking styles in SSML](speech-synthesis-markup.md).
 
-* **Custom Voice: a new feature is released to automatically check training data quality**. When you upload your data, the data checking capability will examine various aspects of your audio and the transcripts, and automatically fix or filter the data with issues so as to improve the quality of the voice model trained. This covers the volume of your audio, the noise level, the pronunciation accuracy of the speech, the alignment of speech with the normalized text, the silence in the audio, besides the audio and script format. 
+* **Custom Voice: a new feature is released to automatically check training data quality**. When you upload your data, the system will examine various aspects of your audio and transcript data, and automatically fix or filter issues to improve the quality of the voice model. This covers the volume of your audio, the noise level, the pronunciation accuracy of speech, the alignment of speech with the normalized text, silence in the audio, in addition to the audio and script format. 
 
 * **Audio Content Creation: a set of new features to enable more powerful voice tuning and audio management capabilities**.
 
     * Pronunciation:  the pronunciation tuning feature is updated to the latest phoneme set. You can pick the right phoneme element from the library and refine the pronunciation of the words you have selected. 
 
-    * Download: The audio "Download"/"Export" feature is enhanced to support generating audios by each paragraph. You can easily edit different content in the same file/SSML, while generating multiple audio outputs. The file structure of "Download" is refined as well. Now, you can easily get all audios in one folder. 
+    * Download: The audio "Download"/"Export" feature is enhanced to support generating audio by paragraph. You can edit content in the same file/SSML, while generating multiple audio outputs. The file structure of "Download" is refined as well. Now, you can easily get all audios in one folder. 
 
-    * Task status : Multi-file export experience is improved. When you export multiple files in the past, if one of the files has failed, the entire task will fail. But now, all other files will be successfully exported. The task report is enriched with more detailed and structured information. You can check the logs for all failed files and sentences now with the report. 
+    * Task status : The multi-file export experience is improved. When you export multiple files in the past, if one of the files has failed, the entire task will fail. But now, all other files will be successfully exported. The task report is enriched with more detailed and structured information. You can check the logs for all failed files and sentences now with the report. 
 
     * SSML documentation: linked to SSML document to help you check the rules for how to use all tuning features.
 
@@ -37,7 +37,7 @@ ms.custom: seodec18
 
 ### General TTS voice quality improvements
 
-* Reduced word-level pronunciation error % for `ru-RU` (error reduced by 56%) and `sv-SE` (error reduced by 49%)
+* Reduced word-level pronunciation error % for `ru-RU` (errors reduced by 56%) and `sv-SE` (errors reduced by 49%)
 
 * Improved polyphony word reading on `en-US` neural voices by 40%. Examples of polyphony words include "read", "live", "content", "record", "object", etc. 
 
@@ -57,9 +57,9 @@ ms.custom: seodec18
 ### Bug fixes
 
 * Fixed a number of bugs with the Audio Content Creation tool 
-    * Fixed the issue with auto refreshing. 
-    * Fixed issues with style voices in zh-CN in the South East Asia region
-    * Fixed the issue in stability, including the export error with the 'break' tag, errors in punctuations    
+    * Fixed issue with auto refreshing. 
+    * Fixed issues with voice styles in zh-CN in the South East Asia region.
+    * Fixed stability issue, including an export error with the 'break' tag, and errors in punctuations.    
 
 ## New speech-to-text locales: 2020-August Release
 Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. Please see the complete language list [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
@@ -247,7 +247,7 @@ Stay healthy!
 
 **Samples**
 - **Go**: Added quickstarts for [speech recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) and [custom voice assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Find sample code [here](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples). 
-- **JavaScript**: Added quickstarts for [Text-to-speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript), [Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?pivots=programming-language-javascript), and [Intent Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
+- **JavaScript**: Added quickstarts for [Text-to-speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript), [Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp), and [Intent Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
 - Keyword recognition samples for [C\#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **COVID-19 abridged testing:**

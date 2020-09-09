@@ -12,7 +12,7 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.custom: devx-track-python
+ms.custom: "devx-track-python, devx-track-csharp"
 ---
 # Quickstart: Use the Content Moderator client library
 

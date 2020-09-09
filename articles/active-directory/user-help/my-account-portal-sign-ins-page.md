@@ -68,7 +68,7 @@ Sign-ins that are flagged as unusual activity can be confirmed in the tile for t
 
 After viewing your recent sign-in activity, you can:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- View or manage your [security info](./security-info-setup-signin.md).
 
 - View or manage your connected [devices](my-account-portal-devices-page.md).
 

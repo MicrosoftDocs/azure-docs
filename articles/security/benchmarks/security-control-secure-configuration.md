@@ -106,13 +106,13 @@ Use Azure DevOps to securely store and manage your code like custom Azure polici
 |--|--|--|
 | 7.6 | 5.3 | Customer |
 
-If using custom images, use role-based access control (RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization.  For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.  
+If using custom images, use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization.  For container images, store them in Azure Container Registry and leverage Azure RBAC to ensure only authorized users may access the images.  
 
-- [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-- [Understand RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- [Understand Azure RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 - [Shared Image Gallery overview](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
 
@@ -170,7 +170,9 @@ Use Managed Service Identity in conjunction with Azure Key Vault to simplify and
 
 - [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-- [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](../../key-vault/general/authentication.md)
+
+- [How to assign a Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md)
 
 ## 7.12: Manage identities securely and automatically
 

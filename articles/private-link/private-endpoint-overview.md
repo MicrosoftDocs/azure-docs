@@ -43,6 +43,7 @@ Here are some key details about private endpoints:
  
 - Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
+- The subscription from the private link resource must also be registered with Micosoft.Network resource provider. For details, see [Azure Resource Providers](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
  
 ## Private link resource 

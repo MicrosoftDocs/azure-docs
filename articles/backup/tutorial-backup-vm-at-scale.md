@@ -48,7 +48,7 @@ The Recovery Services vault contains the backup data, and the backup policy appl
 
     ![Recovery Services vault values](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that is where *myVM* (the virtual machine created with the quickstart) was created.
+    A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that's where *myVM* (the virtual machine created with the quickstart) was created.
 
 1. When you're ready to create the Recovery Services vault, select **Create**.
 
@@ -109,7 +109,7 @@ After creating the Recovery Services vault, the next step is to configure the va
 
 ## Initial backup
 
-You have enabled backup for the Recovery Services vaults, but an initial backup hasn't been created. It's a disaster recovery best practice to trigger the first backup, so that your data is protected.
+You've enabled backup for the Recovery Services vaults, but an initial backup hasn't been created. It's a disaster recovery best practice to trigger the first backup, so that your data is protected.
 
 To run an on-demand backup job:
 
@@ -131,7 +131,7 @@ To run an on-demand backup job:
 
 1. On the Context menu, select **Backup now**.
 
-    ![Context menu](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Context menu - select Backup now](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     The Backup Now menu opens.
 
@@ -161,7 +161,7 @@ If you plan to continue on to work with subsequent tutorials, don't clean up the
 
 1. In the **Backup Items** menu, select the ellipsis to open the Context menu.
 
-    ![Context menu](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![In Backup Items menu, open Context menu](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. On the context menu, select **Stop backup** to open Stop Backup menu.
 

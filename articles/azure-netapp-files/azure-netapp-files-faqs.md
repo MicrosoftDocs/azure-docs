@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 09/08/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -44,12 +44,18 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 ### Can I set or select my own IP address for an Azure NetApp Files volume?  
 
 No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment is not supported. 
+
+### Does Azure NetApp Files support dual stack (IPv4 and IPv6) VNet?
+
+No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
  
 ## Security FAQs
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
 
-Data traffic (traffic from the NFSv3, NFSv4.1, or SMBv3 client to Azure NetApp Files volumes) is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details.   
+
+Data traffic between NFSv3 or SMBv3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
 
 ### Can the storage be encrypted at rest?
 
@@ -120,7 +126,7 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 
 ### How do I enable root squashing?
 
-Root squashing is currently not supported.
+You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
 
 ## SMB FAQs
 

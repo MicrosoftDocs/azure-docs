@@ -1,6 +1,6 @@
 ---
 title: Complete a disaster recovery of virtual machines
-description: This article shows how to complete a disaster recovery of virtual machines by using AVS
+description: This article shows how to complete a disaster recovery of virtual machines by using Azure VMware Solution
 ms.topic: how-to
 ms.date: 05/04/2020
 ---
@@ -42,7 +42,7 @@ Enter the **Disaster Recovery** area and click on **PROTECT VMS**.
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machine.png" alt-text="select protect vms" border="true":::
 
 In the window that opens, select the Source and the Remote sites, the Remote site in
-this case should be the AVS private cloud.
+this case should be the Azure VMware Solution private cloud.
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machines.png" alt-text="protect VMs window" border="true":::
 
@@ -52,7 +52,7 @@ If needed, select the Default replication options:
 
 - **Enable Quiescence:** Pauses the VM to ensure a consistent copy is synced to the remote site.
 
-- **Destination Storage:** Select the remote datastore for the protected VM(s). In an AVS private cloud, this selection should be the vSAN datastore.
+- **Destination Storage:** Select the remote datastore for the protected VM(s). In an Azure VMware Solution private cloud, this selection should be the vSAN datastore.
 
 - **Compute Container:** The remote vSphere Cluster or Resource Pool.
 
@@ -91,7 +91,7 @@ When the virtual machine is powered on, it will start the syncing up process to 
 
 ## Complete a test recover of virtual machines
 
-Log into **vSphere Client** on the remote site, which is the AVS private cloud. Within the **HCX plugin**, in the Disaster Recovery area, select the vertical ellipses on any VM to display the operations menu. Select **Test Recover VM**.
+Log into **vSphere Client** on the remote site, which is the Azure VMware Solution private cloud. Within the **HCX plugin**, in the Disaster Recovery area, select the vertical ellipses on any VM to display the operations menu. Select **Test Recover VM**.
 
 :::image type="content" source="./media/disaster-recovery/test-recover-virtual-machine.png" alt-text="Select Test Recover VM" border="true":::
 
@@ -102,7 +102,7 @@ test. Select the snapshot you want to use to test different states of the virtua
 
 After clicking on **Test**, the recovery operation will begin.
 
-When the Test Recovery operation is finished, the new VM can be checked in the AVS private cloud vCenter.
+When the Test Recovery operation is finished, the new VM can be checked in the Azure VMware Solution private cloud vCenter.
 
 :::image type="content" source="./media/disaster-recovery/verify-test-recovery.png" alt-text="check recovery operation" border="true":::
 
@@ -112,7 +112,7 @@ Finally after testing has been done on the VM or any application running on it d
 
 ## Recover virtual machines
 
-Log into **vSphere Client** on the remote site, which is the AVS private cloud, and access the **HCX plugin**.
+Log into **vSphere Client** on the remote site, which is the Azure VMware Solution private cloud, and access the **HCX plugin**.
 
 For the recovery scenario, a group of virtual machines used for this example.
 
@@ -128,7 +128,7 @@ After the recovery operation is completed, the new VMs will appear in the remote
 
 ## Complete a reverse replication on virtual machines
 
-Log into **vSphere Client** on your AVS private cloud, and access **HCX plugin**.
+Log into **vSphere Client** on your Azure VMware Solution private cloud, and access **HCX plugin**.
 It's required that the original virtual machines on the source site are powered off before you start the reverse replication. The operation fails if the virtual machines aren't powered off.
 
 Select the virtual machines to be replicated back to the source site

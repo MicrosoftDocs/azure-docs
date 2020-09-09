@@ -41,7 +41,7 @@ Azure Monitor for Key Vault combines both logs and metrics to provide a global m
 
 From Azure Monitor, you can view request, latency, and failure details from multiple key vaults in your subscription, and help identify performance problems and throttling scenarios.
 
-To view the utilization and operations of your storage accounts across all your subscriptions, perform the following steps:
+To view the utilization and operations of your key vaults across all your subscriptions, perform the following steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com/)
 

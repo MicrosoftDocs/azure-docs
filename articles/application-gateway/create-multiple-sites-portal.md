@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 08/21/2020
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
@@ -74,7 +74,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 2. Choose **Create new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Create VNet":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Create another VNet":::
 
 3. Select **Next: Backends**.
 
@@ -152,14 +152,14 @@ To add backend targets, you'll:
 
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *contosoVM* for the name of the virtual machine.
-    - **Username**: Enter *azureuser* for the administrator user name.
-    - **Password**: Enter *Azure123456!* for the administrator password.
-4. Accept the other defaults and then select **Next: Disks**.  
-5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
-7. On the **Management** tab, set **Boot diagnostics** to **Off**. Accept the other defaults and then select **Review + create**.
-8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
-9. Wait for the virtual machine creation to complete before continuing.
+    - **Username**: Enter a name for the administrator user name.
+    - **Password**: Enter a password for the administrator.
+1. Accept the other defaults and then select **Next: Disks**.  
+2. Accept the **Disks** tab defaults and then select **Next: Networking**.
+3. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
+4. On the **Management** tab, set **Boot diagnostics** to **Off**. Accept the other defaults and then select **Review + create**.
+5. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
+6. Wait for the virtual machine creation to complete before continuing.
 
 ### Install IIS for testing
 
@@ -169,7 +169,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
     ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Run the following command to install IIS on the virtual machine: 
+2. Run the following command to install IIS on the virtual machine, substituting your resource group region for <location\>: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -180,7 +180,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
       -ExtensionType CustomScriptExtension `
       -TypeHandlerVersion 1.4 `
       -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
+      -Location <location>
     ```
 
 3. Create a second virtual machine and install IIS using the steps that you previously completed. Use *fabrikamVM* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.

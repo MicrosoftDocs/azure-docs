@@ -478,7 +478,7 @@ While the planned outage window itself can be minimal, you should still plan on 
 
 Once deployment is complete, you can send communication informing the users of the successful deployment and remind them of any new steps that they need to take.
 
-* Instruct users to use the [Access Panel](https://myapps.microsoft.com) to access all the migrated applications. 
+* Instruct users to use [My Apps](https://myapps.microsoft.com) to access all the migrated applications. 
 
 * Remind users they might need to update their MFA settings. 
 

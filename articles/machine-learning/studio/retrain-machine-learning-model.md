@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model

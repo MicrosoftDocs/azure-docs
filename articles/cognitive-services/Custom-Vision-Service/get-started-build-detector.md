@@ -17,7 +17,7 @@ ms.author: pafarley
 
 In this quickstart, you'll learn how to build an object detector through the Custom Vision website. Once you build a detector model, you can use the Custom Vision service for object detection.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

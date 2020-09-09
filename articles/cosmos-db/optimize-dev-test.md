@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 08/19/2020
 ---
 
 # Optimize development and testing cost in Azure Cosmos DB
@@ -20,6 +20,9 @@ This article describes the different options to use Azure Cosmos DB for developm
 
 Azure Cosmos DB free tier makes it easy to get started, develop and test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 400 RU/s and 5 GB of storage in the account free. You can also create a shared throughput database with 25 containers that share 400 RU/s at the database level, all covered by free tier (limit 5 shared throughput databases in a free tier account). When using the free tier, if you provision a shared database with a minimum throughput of 400 RU/s, all the containers within that database can share the throughput. Any new databases with shared throughput or containers with dedicated throughput are billed at the regular pricing.
 
+> [!NOTE]
+> Free tier is only available in provisioned throughput mode.
+
 Free tier lasts indefinitely for the lifetime of the account and comes with all the [benefits and features](introduction.md#key-benefits) of a regular Azure Cosmos DB account, including unlimited storage and throughput (RU/s), SLAs, high availability, turnkey global distribution in all Azure regions, and more. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To get started, [create a new account in Azure portal with free tier enabled](create-cosmosdb-resources-portal.md) or use an [ARM Template](manage-sql-with-resource-manager.md#free-tier). See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for more details.
 
 ## Try Azure Cosmos DB for free
@@ -29,6 +32,10 @@ Free tier lasts indefinitely for the lifetime of the account and comes with all 
 ## Azure free account
 
 Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.com/free), which offers Azure credits and resources for free for a certain time period. Specifically for Azure Cosmos DB, this free account offers 5-GB storage and 400 RUs of provisioned throughput for the entire year. This experience enables any developer to easily test the features of Azure Cosmos DB or integrate it with other Azure services at zero cost. With Azure free account, you get a $200 credit to spend in the first 30 days. You won’t be charged, even if you start using the services until you choose to upgrade. To get started, visit [Azure free account](https://azure.microsoft.com/free) page.
+
+## Azure Cosmos DB serverless
+
+[Azure Cosmos DB serverless](serverless.md) lets you use your Azure Cosmos account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. There is no minimum charge involved when using Azure Cosmos DB in serverless mode. Because it eliminates the concept of provisioned capacity, it is best suited for development or testing activities specifically when your database is idle most of the time.
 
 ## Use shared throughput databases
 
@@ -40,8 +47,8 @@ For example, suppose your development or test account has four containers. If yo
 
 You can get started with using the emulator or the free Azure Cosmos DB accounts with the following articles:
 
-* Learn more about [Optimizing for development and testing](optimize-dev-test.md)
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
+* Learn more about [Azure Cosmos DB serverless](serverless.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)

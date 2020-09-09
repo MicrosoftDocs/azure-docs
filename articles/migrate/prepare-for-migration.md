@@ -125,6 +125,7 @@ For other versions, prepare machines as summarized in the table.
 
 The following table summarizes the steps performed automatically for the operating systems listed above.
 
+
 | Action                                      | Agent\-Based VMware Migration | Agentless VMware Migration | Hyper\-V   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Install Hyper\-V Linux Integration Services | Yes                           | Yes                        | Not needed |

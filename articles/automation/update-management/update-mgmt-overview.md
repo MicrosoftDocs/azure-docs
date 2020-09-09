@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/09/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -13,7 +13,7 @@ You can use Update Management in Azure Automation to manage operating system upd
 You can enable Update Management for VMs in the following ways:
 
 * From your [Azure Automation account](update-mgmt-enable-automation-account.md) for one or more Azure machines.
-* Manually for non-Azure machines.
+* Manually for non-Azure machines, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md) (preview).
 * For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
 * For [multiple Azure VMs](update-mgmt-enable-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
@@ -174,7 +174,7 @@ Update Management scans managed machines for data using the following rules. It 
 
 * Each Linux machine - Update Management does a scan every hour.
 
-The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 MB per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage. For more information to analyze data usage, see [Manage usage and cost](../../azure-monitor/platform/manage-cost-storage.md).
+The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 MB per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Manage usage and cost](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="ports"></a>Network planning
 
@@ -250,9 +250,10 @@ An Azure [Resource Manager template](update-mgmt-enable-template.md) is availabl
 
 Here are the ways that you can enable Update Management and select machines to be managed:
 
-* [From a virtual machine](update-mgmt-enable-vm.md)
-* [From browsing multiple machines](update-mgmt-enable-portal.md)
+* [From an Azure virtual machine](update-mgmt-enable-vm.md)
+* [From browsing multiple Azure virtual machines](update-mgmt-enable-portal.md)
 * [From an Azure Automation account](update-mgmt-enable-automation-account.md)
+* For Arc enabled servers (preview) or non-Azure machines, install the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) and then add [Enable machines in the workspace](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) to Update Management.
 
 ## Next steps
 
