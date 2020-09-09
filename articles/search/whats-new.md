@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/01/2020
+ms.date: 09/22/2020
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
@@ -15,6 +15,16 @@ ms.custom: references_regions
 Learn what's new in the service. Bookmark this page to keep up to date with the service.
 
 ## Feature announcements in 2020
+
+### September 2020
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|------------------------------|----------|-------------|---------------|
+| [Managed service identity](search-howto-managed-identities-data-sources.md) | Indexers, security| Register a search service with Azure Active Directory to make it a trusted service, and then use RBAC permissions on Azure data sources to allow read-only access by an indexer. Optionally, you can also choose the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) capability when configuring access. | Generally available. Access this capability when using the portal or [Create Data Source (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) with api-version=2020-06-30. |
+| [Outbound requests using a private link](search-indexer-howto-access-private.md) | Indexers, security | Create a shared private link resource that indexers can use when accessing Azure resources secured by Azure Private Link. | Generally available. Access this capability when using the portal or [Shared Private Link Resource](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) with api-version=2020-08-01. |
+| [Outbound requests over an IP range](search-indexer-howto-access-ip-restricted.md) | Indexers, security | For Azure resources that accept requests over an IP range.  | Generally available. Use the portal or a resource API that allows you manage firewall rules. |
+| [Management REST API (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | New stable REST API adds support for creating shared private link resources. | Generally available. |
+| [Management REST API (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Adds shared private link resource for Azure Functions and Azure SQL for MySQL Databases. | Public preview. |
 
 ### August 2020
 
