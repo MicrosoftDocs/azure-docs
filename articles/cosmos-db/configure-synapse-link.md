@@ -204,9 +204,18 @@ container.replace(containerProperties).block();
 
 Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) on how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
 
-## <a id="query-analytical-store"></a> Query using Synapse Spark
+## <a id="query-analytical-store-spark"></a> Query analytical store using Apache Spark for Azure Synapse Analytics
 
 Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
+
+## <a id="query-analytical-store-sql-on-demand"></a> Query analytical store using SQL on-demand
+
+SQL on-demand (preview) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using SQL on-demand]() article.
+
+## <a id="analyze-with-powerbi"></a>Use SQL on-demand analyze data and visualize in Power BI
+
+SQL on-demand (preview) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link.
+You can build a SQL on-demand database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. To learn more, see how to use [SQL on-demand to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
 
