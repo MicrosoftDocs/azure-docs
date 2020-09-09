@@ -82,10 +82,6 @@
       items:
         - name: What is Azure Arc enabled PostgreSQL Hyperscale (preview)
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
-    - name: Concepts
-      items:
-        - name: Distribute data
-          href: concepts-distributed-postgres-hyperscale.md
     - name: Quickstarts
       items:
         - name: Install
@@ -101,6 +97,10 @@
                   href: create-postgresql-hyperscale-server-group-azure-data-studio.md
         - name: Connect
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - name: Concepts
+      items:
+        - name: Distribute data
+          href: concepts-distributed-postgres-hyperscale.md
     - name: How-to
       items:
         - name: List server groups
