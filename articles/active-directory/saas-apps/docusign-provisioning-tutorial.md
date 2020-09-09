@@ -2,21 +2,14 @@
 title: 'Tutorial: Configure DocuSign for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and DocuSign.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure DocuSign for automatic user provisioning
 

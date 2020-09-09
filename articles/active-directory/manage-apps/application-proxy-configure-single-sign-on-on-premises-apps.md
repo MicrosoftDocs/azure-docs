@@ -43,7 +43,7 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 4. Select **SAML** as the single sign-on method.
 
-5. First set up SAML SSO to work while on the corporate network. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) to configure SAML-based authentication for the application.
+5. First set up SAML SSO to work while on the corporate network, see the basic SAML configuration section of [Configure SAML-based single sign-on](configure-saml-single-sign-on.md) to configure SAML-based authentication for the application.
 
 6. Add at least one user to the application and make sure the test account has access to the application. While connected to the corporate network, use the test account to see if you have single sign-on to the application. 
 
@@ -77,7 +77,7 @@ Before you can provide SSO for on-premises applications, you need to enable Appl
 
 4. Select the checkbox next to the updated **Reply URL** to mark it as the default.
 
-   * Aftering marking the required **Reply URL** as default, you can also delete the previously configured **Reply URL** that used the internal URL.
+   * After marking the required **Reply URL** as default, you can also delete the previously configured **Reply URL** that used the internal URL.
 
    * For an SP-initiated flow, make sure the back-end application specifies the correct **Reply URL** or Assertion Consumer Service URL for receiving the authentication token.
 

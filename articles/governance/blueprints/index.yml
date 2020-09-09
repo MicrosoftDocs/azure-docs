@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Blueprints documentation
-summary: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, role-based access controls, and policies, in a single blueprint definition.
+summary: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
 
 metadata:
   title: Azure Blueprints documentation
-  description: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, role-based access controls, and policies, in a single blueprint definition.
+  description: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
   ms.service: blueprints
   ms.topic: landing-page
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/29/2020
+  ms.date: 08/27/2020
 
 landingContent:
   - title: About Azure Blueprints

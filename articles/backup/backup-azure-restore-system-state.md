@@ -22,15 +22,15 @@ The following steps explain how to roll back your Windows Server configuration t
 
     The desktop app should appear in the search results.
 
-2. Click **Recover Data** to start the wizard.
+2. Select **Recover Data** to start the wizard.
 
     ![Recover Data](./media/backup-azure-restore-windows-server/recover.png)
 
-3. On the **Getting Started** pane, to restore the data to the same server or computer, select **This server (`<server name>`)** and click **Next**.
+3. On the **Getting Started** pane, to restore the data to the same server or computer, select **This server (`<server name>`)** and select **Next**.
 
     ![Choose this server option to restore the data to the same machine](./media/backup-azure-restore-system-state/samemachine.png)
 
-4. On the **Select Recovery Mode** pane, choose **System State** and then click **Next**.
+4. On the **Select Recovery Mode** pane, choose **System State** and then select **Next**.
 
     ![Browse files](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
@@ -40,17 +40,17 @@ The following steps explain how to roll back your Windows Server configuration t
 
     ![Volume and Date](./media/backup-azure-restore-system-state/select-date.png)
 
-6. Once you have chosen the recovery point to restore, click **Next**.
+6. Once you've chosen the recovery point to restore, select **Next**.
 
     Azure Backup mounts the local recovery point, and uses it as a recovery volume.
 
-7. On the next pane, specify the destination for the recovered System State files. Then click **Browse** to open Windows Explorer and find the files and folders you want. The option, **Create copies so that you have both versions**, creates copies of individual files in an existing System State file archive instead of creating the copy of the entire System State archive.
+7. On the next pane, specify the destination for the recovered System State files. Then select **Browse** to open Windows Explorer and find the files and folders you want. The option, **Create copies so that you have both versions**, creates copies of individual files in an existing System State file archive instead of creating the copy of the entire System State archive.
 
     ![Recovery options](./media/backup-azure-restore-system-state/recover-as-files.png)
 
-8. Verify the details of recovery on the **Confirmation** pane and click **Recover**.
+8. Verify the details of recovery on the **Confirmation** pane and select **Recover**.
 
-   ![click Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Select Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copy the *WindowsImageBackup* directory in the Recovery destination to a non-critical volume of the server. Usually, the Windows OS volume is the critical volume.
 
@@ -67,12 +67,12 @@ The terminology used in these steps includes:
 * *Sample vault* – The Recovery Services vault to which the *Source machine* and *Target machine* are registered.
 
 > [!NOTE]
-> Backups taken from one machine cannot be restored to a machine running an earlier version of the operating system. For example, backups taken from a Windows Server 2016 machine can't be restored to Windows Server 2012 R2. However, the inverse is possible. You can use backups from Windows Server 2012 R2 to restore Windows Server 2016.
+> Backups taken from one machine can't be restored to a machine running an earlier version of the operating system. For example, backups taken from a Windows Server 2016 machine can't be restored to Windows Server 2012 R2. However, the inverse is possible. You can use backups from Windows Server 2012 R2 to restore Windows Server 2016.
 >
 
 1. Open the **Microsoft Azure Backup** snap-in on the *Target machine*.
 2. Ensure that the *Target machine* and the *Source machine* are registered to the same Recovery Services vault.
-3. Click **Recover Data** to initiate the workflow.
+3. Select **Recover Data** to initiate the workflow.
 4. Select **Another server**
 
     ![Another Server](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -80,25 +80,25 @@ The terminology used in these steps includes:
 5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired), download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the Recovery Services vault associated with the vault credential file appears.
 
 6. On the Select Backup Server pane, select the *Source machine* from the list of displayed machines.
-7. On the Select Recovery Mode pane, choose **System State** and click **Next**.
+7. On the Select Recovery Mode pane, choose **System State** and select **Next**.
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. On the Calendar in the **Select Volume and Date** pane, select a recovery point. You can restore from any recovery point in time. Dates in **bold** indicate the availability of at least one recovery point. Once  you select a date, if multiple recovery points are available, choose the specific recovery point from the **Time** drop-down menu.
+8. On the Calendar in the **Select Volume and Date** pane, select a recovery point. You can restore from any recovery point in time. Dates in **bold** indicate the availability of at least one recovery point. Once you select a date, if multiple recovery points are available, choose the specific recovery point from the **Time** drop-down menu.
 
     ![Search items](./media/backup-azure-restore-system-state/select-date.png)
 
-9. Once you have chosen the recovery point to restore, click **Next**.
+9. Once you've chosen the recovery point to restore, select **Next**.
 
-10. On the **Select System State Recovery Mode** pane, specify the destination where you want System State files to be recovered, then click **Next**.
+10. On the **Select System State Recovery Mode** pane, specify the destination where you want System State files to be recovered, then select **Next**.
 
     ![Encryption](./media/backup-azure-restore-system-state/recover-as-files.png)
 
     The option, **Create copies so that you have both versions**, creates copies of individual files in an existing System State file archive instead of creating the copy of the entire System State archive.
 
-11. Verify the details of recovery on the Confirmation pane, and click **Recover**.
+11. Verify the details of recovery on the Confirmation pane, and select **Recover**.
 
-    ![click the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Select the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copy the *WindowsImageBackup* directory to a non-critical volume of the server (for example D:\). Usually the Windows OS volume is the critical volume.
 
@@ -106,7 +106,7 @@ The terminology used in these steps includes:
 
 ## Apply restored System State on a Windows Server
 
-Once you have recovered System State as files using Azure Recovery Services Agent, use the Windows Server Backup utility to apply the recovered System State to Windows Server. The Windows Server Backup utility is already available on the server. The following steps explain how to apply the recovered System State.
+Once you've recovered System State as files using Azure Recovery Services Agent, use the Windows Server Backup utility to apply the recovered System State to Windows Server. The Windows Server Backup utility is already available on the server. The following steps explain how to apply the recovered System State.
 
 1. Open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
 
@@ -116,9 +116,9 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
     ![select Local Backup to restore from there](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
 
-1. On the Local Backup console, in the **Actions Pane**, click **Recover** to open the Recovery Wizard.
+1. On the Local Backup console, in the **Actions Pane**, select **Recover** to open the Recovery Wizard.
 
-1. Select the option, **A backup stored in another location**, and click **Next**.
+1. Select the option, **A backup stored in another location**, and select **Next**.
 
    ![choose to recover to a different server](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
@@ -126,15 +126,15 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
     ![select whether to recovery from local server or another](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
-1. Enter the path to the *WindowsImageBackup* directory, or choose the local drive containing this directory (for example, D:\WindowsImageBackup), recovered as part of the System State files recovery using Azure Recovery Services Agent and click **Next**.
+1. Enter the path to the *WindowsImageBackup* directory, or choose the local drive containing this directory (for example, D:\WindowsImageBackup), recovered as part of the System State files recovery using Azure Recovery Services Agent and select **Next**.
 
     ![path to the shared file](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
 
-1. Select the System State version that you want to restore, and click **Next**.
+1. Select the System State version that you want to restore, and select **Next**.
 
-1. In the Select Recovery Type pane, select **System State** and click **Next**.
+1. In the Select Recovery Type pane, select **System State** and select **Next**.
 
-1. For the location of the System State Recovery, select **Original Location**, and click **Next**.
+1. For the location of the System State Recovery, select **Original Location**, and select **Next**.
 
     If you're restoring a domain controller, you'll see the following additional option:
 
@@ -143,12 +143,12 @@ Once you have recovered System State as files using Azure Recovery Services Agen
     >[!NOTE]
     >Only select “Perform an authoritative restore of Active Directory files” if you explicitly intend to do an authoritative restore of all Active Directory data.
 
-1. Review the confirmation details, verify the reboot settings, and click **Recover** to apply the restored System State files.
+1. Review the confirmation details, verify the reboot settings, select **Recover** to apply the restored System State files.
 
     ![launch the restore System State files](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 
     >[!NOTE]
-    >Do not select the **Automatically reboot the server** option if you are performing the restore in DSRM mode.
+    >Don't select the **Automatically reboot the server** option if you're performing the restore in DSRM mode.
 
 1. After you've successfully completed a restore,  you need to restart the server in normal mode. Open a command prompt and type the following: `bcdedit /deletevalue safeboot`
 1. Reboot the server.
@@ -175,7 +175,7 @@ This article will only be discussing the first scenario, which calls for a nonau
     * Follow the instructions above to [apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server) with the Windows Server Backup utility.
 
         >[!NOTE]
-        >If you are restoring all Active Directory data (and there are no functioning domain controllers left in the forest), in step 9 above make sure to select **Perform an authoritative restore of Active Directory files**.
+        >If you're restoring all Active Directory data (and there are no functioning domain controllers left in the forest), in step 9 above make sure to select **Perform an authoritative restore of Active Directory files**.
 
     * Use the [wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) utility to perform the restore from the command line.
 
@@ -204,15 +204,15 @@ If the previous process of applying System State doesn't complete successfully, 
 
 2. Select Troubleshoot from the three available options.
 
-    ![opening menu](./media/backup-azure-restore-system-state/winre-1.png)
+    ![Select Troubleshoot](./media/backup-azure-restore-system-state/winre-1.png)
 
 3. From the **Advanced Options** screen, select **Command Prompt** and provide the server administrator username and password.
 
-   ![opening menu](./media/backup-azure-restore-system-state/winre-2.png)
+   ![Select Command Prompt](./media/backup-azure-restore-system-state/winre-2.png)
 
 4. Provide the server administrator username and password.
 
-    ![opening menu](./media/backup-azure-restore-system-state/winre-3.png)
+    ![Enter password](./media/backup-azure-restore-system-state/winre-3.png)
 
 5. When you open the command prompt in administrator mode, run following command to get the System State backup versions.
 
@@ -220,7 +220,7 @@ If the previous process of applying System State doesn't complete successfully, 
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
 
-    ![get System State backup versions](./media/backup-azure-restore-system-state/winre-4.png)
+    ![Get System State backup versions](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Run the following command to get all volumes available in the backup.
 
@@ -228,7 +228,7 @@ If the previous process of applying System State doesn't complete successfully, 
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
-    ![get System State backup versions](./media/backup-azure-restore-system-state/winre-5.png)
+    ![Get all volumes available](./media/backup-azure-restore-system-state/winre-5.png)
 
 7. The following command recovers all volumes that are part of the System State Backup. Note that this step recovers only the critical volumes that are part of the System State. All non-System data is erased.
 
@@ -236,7 +236,7 @@ If the previous process of applying System State doesn't complete successfully, 
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
 
-     ![get System State backup versions](./media/backup-azure-restore-system-state/winre-6.png)
+     ![Recover all volumes](./media/backup-azure-restore-system-state/winre-6.png)
 
 ## Next steps
 

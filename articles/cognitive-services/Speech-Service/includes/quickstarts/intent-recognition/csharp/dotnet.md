@@ -5,6 +5,7 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
+ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -65,6 +66,8 @@ You need to associate a `LanguageUnderstandingModel` with the intent recognizer,
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
+
+This example uses the `AddIntent()` function to individually add intents. If you want to add all intents from a model, use `AddAllIntents(model)` and pass the model. 
 
 ## Recognize an intent
 

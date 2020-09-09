@@ -56,6 +56,9 @@ mlPipelineParameters | Key, Value pairs to be passed to the published Azure Mach
 mlParentRunId | The parent Azure Machine Learning pipeline run ID | String (or expression with resultType of string) | No
 continueOnStepFailure | Whether to continue execution of other steps in the Machine Learning pipeline run if a step fails | boolean | No
 
+> [!NOTE]
+> To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. ADF UX calls AzureMLService APIs directly using the logged in user's credentials.  
+
 ## Next steps
 See the following articles that explain how to transform data in other ways:
 

@@ -204,7 +204,7 @@ here:
 
 | **Error** | **Actions** |
 | --- | --- |
-| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication at this point. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
+| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
 | Probe status code mismatch: Received 403 | Access forbidden. Check whether access to the path is allowed on the backend server. | |
 | Probe status code mismatch: Received 404 | Page not found. Check whether the host name path is accessible on the backend server. Change the host name or path parameter to an accessible value. | |
 | Probe status code mismatch: Received 405 | The probe requests for Application Gateway use the HTTP GET method. Check whether your server allows this method. | |

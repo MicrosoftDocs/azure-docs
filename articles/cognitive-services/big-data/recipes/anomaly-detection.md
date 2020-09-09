@@ -10,7 +10,7 @@ ms.subservice: anomaly-detector
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Recipe: Predictive maintenance with the Cognitive Services for Big Data
@@ -25,7 +25,7 @@ There could be outliers in the data in random frequency. In those situations, RP
 
 ## Prerequisites
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Azure Synapse workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configured with a [Spark pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## Setup
@@ -146,4 +146,4 @@ If successful, your output will look like this:
 
 ## Next steps
 
-Learn how to do predictive maintenance at scale with Azure Cognitive Services, Azure Synapse Analytics, and Azure CosmosDB. For more information, see the full sample on [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT).
+Learn how to do predictive maintenance at scale with Azure Cognitive Services, Azure Synapse Analytics, and Azure CosmosDB. For more information, see the full sample on [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples).

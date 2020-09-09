@@ -109,7 +109,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 
 | Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos item | Document | Row | Document | Node or edge | Item |
+|Azure Cosmos item | Item | Row | Document | Node or edge | Item |
 
 ### Properties of an item
 

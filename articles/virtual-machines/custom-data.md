@@ -4,7 +4,7 @@
  services: virtual-machines
  author: mimckitt
  ms.service: virtual-machines
- ms.topic: article
+ ms.topic: how-to
  ms.date: 03/06/2020
  ms.author: mimckitt
 ---

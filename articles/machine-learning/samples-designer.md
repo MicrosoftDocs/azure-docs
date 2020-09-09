@@ -21,6 +21,8 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 * An Azure Machine Learning workspace with the Enterprise SKU.
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 ## Use sample pipelines
 
 The designer saves a copy of the sample pipelines to your studio workspace. You can edit the pipeline to adapt it to your needs and save it as your own. Use them as a starting point to jumpstart your projects.
@@ -48,9 +50,9 @@ Here's how to use a designer sample:
 
 1. After the pipeline finishes running, you can review the pipeline and view the output for each module to learn more. Use the following steps to view module outputs:
 
-   1. Select a module in the canvas.
+   1. Right-click the module in the canvas whose output you'd like to see.
+   1. Select **Visualize**.
 
-   1. In the module details pane to the right of the canvas, select **Outputs + logs**. Select the graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to see the results of each module. 
 
    Use the samples as starting points for some of the most common machine learning scenarios.
 

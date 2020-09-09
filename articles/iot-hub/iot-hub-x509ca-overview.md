@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
 # Device Authentication using X.509 CA Certificates
 

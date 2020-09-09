@@ -60,6 +60,6 @@ This script uses some of the following commands. For more information about used
 
 ## Next steps
 
-For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional PowerShell script samples for Azure SQL Managed Instance can be found in [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).

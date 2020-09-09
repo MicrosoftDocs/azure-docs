@@ -12,6 +12,7 @@ ms.workload: data-services
 
 ms.topic: conceptual
 ms.date: 01/22/2018
+ms.custom: devx-track-csharp
 ---
 
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK
@@ -30,7 +31,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.

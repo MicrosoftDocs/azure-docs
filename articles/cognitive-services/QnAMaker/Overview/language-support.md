@@ -3,13 +3,11 @@ title: Language support - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
-ms.author: diberry
 ---
 # Language support for a QnA Maker resource and knowledge bases
 

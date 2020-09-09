@@ -2,7 +2,7 @@
 title: Deployment plans - Azure Active Directory | Microsoft Docs
 description: End-to-end guidance about how to deploy many Azure Active Directory capabilities.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
@@ -77,7 +77,7 @@ Widening the rollout to larger groups of users should be carried out by increasi
 | -| -|
 | [ADFS to Password Hash Sync](../hybrid/plan-migrate-adfs-password-hash-sync.md)| With Password Hash Synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD, letting Azure AD authenticate users with no interaction with the on-premises Active Directory |
 | [ADFS to Pass Through Authentication](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| Azure AD Pass-through Authentication helps your users sign in to both on-premises and cloud-based applications using the same passwords. This feature provides users with a better experience - one less password to remember - and reduces IT helpdesk costs because users are less likely to forget how to sign in. When people sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory. |
-| [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs). |
+| [Azure AD Application Proxy](../manage-apps/application-proxy-deployment-plan.md) |Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs). |
 | [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. With this feature, users won't need to type in their passwords to sign in to Azure AD and usually won't need to enter their usernames. This feature provides authorized users with easy access to your cloud-based applications without needing any additional on-premises components. |
 
 ## Deploy user provisioning
@@ -93,3 +93,4 @@ Widening the rollout to larger groups of users should be carried out by increasi
 | -| -|
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) helps you manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. PIM provides solutions like just-in-time access, request approval workflows, and fully integrated access reviews so you can identify, uncover, and prevent malicious activities of privileged roles in real time. |
 | [Reporting and Monitoring](../reports-monitoring/plan-monitoring-and-reporting.md)| The design of your Azure AD reporting and monitoring solution depends on your legal, security, and operational requirements as well as your existing environment and processes. This article presents the various design options and guides you to the right deployment strategy. |
+| [Access Reviews](../governance/deploy-access-reviews.md) | Access Reviews are an important part of your governance strategy, enabling you to know and manage who has access, and to what they have access. This article helps you plan and deploy access reviews to achieve your desired security and collaboration postures. |

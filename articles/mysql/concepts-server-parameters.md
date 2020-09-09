@@ -192,6 +192,24 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|16|0|0|134217728|
 |Memory Optimized|32|0|0|134217728|
 
+### lower_case_table_names
+
+The lower_case_table_name is set to 1 by default and you can update this parameter in MySQL 5.6 and MySQL 5.7
+
+Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) to learn more about this parameter.
+
+> [!NOTE]
+> In MySQL 8.0, the lower_case_table_name is set to 1 by default and you cannot change it.
+
+### innodb_strict_mode
+
+If you receive an error similar to "Row size too large (> 8126)" then you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** is not allowed to be modified globally at the server level because if row data size is larger than 8k, the data will be truncated without an error leading to potential data loss. We recommend to modify the schema to fit the page size limit. 
+
+This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+
+> [!NOTE]
+> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a master server will break the replication. We suggest keeping the parameter set to OFF if you have read replicas.
+
 ### sort_buffer_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) to learn more about this parameter.

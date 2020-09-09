@@ -6,6 +6,7 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
+ms.custom: devx-track-csharp
 ---
 # Actor events
 Actor events provide a way to send best-effort notifications from the actor to the clients. Actor events are designed for actor-to-client communication and shouldn't be used for actor-to-actor communication.

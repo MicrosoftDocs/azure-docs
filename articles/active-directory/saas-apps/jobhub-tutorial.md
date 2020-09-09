@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with JOBHUB | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and JOBHUB.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d2162cab-c5d4-4207-ad59-b75b48c7f799
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate JOBHUB with Azure Active Directory
 

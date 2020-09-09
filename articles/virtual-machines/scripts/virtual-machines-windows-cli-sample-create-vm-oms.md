@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.custom: "mvc,seodec18"
+ms.custom: "mvc,seodec18, devx-track-azurecli"
 ---
 
 # Monitor a VM with Azure Monitor logs

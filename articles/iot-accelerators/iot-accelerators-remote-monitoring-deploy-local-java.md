@@ -3,6 +3,7 @@ title: Deploy Remote Monitoring solution locally - IntelliJ IDE - Azure | Micros
 description: This how-to guide shows you how to deploy the Remote Monitoring solution accelerator to your local machine by using IntelliJ for testing and development.
 author: v-krghan
 manager: dominicbetts
+ms.custom: devx-track-java
 ms.author: v-krghan
 ms.service: iot-accelerators
 services: iot-accelerators

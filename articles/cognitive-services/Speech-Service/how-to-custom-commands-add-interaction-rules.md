@@ -14,7 +14,7 @@ ms.author: sausin
 
 # Add interaction rules
 
-In this article, you learn about *interaction rules*. These additional rules handle more specific or complex situations. You can author your own custom interaction rules, but in this article you make use of interaction rules for the following targeted scenarios:
+In this article, you'll learn about **interaction rules**. These are additional rules to handle more specific or complex situations. While you're free to author your own custom interaction rules, in this article, you make use of interaction rules for the following targeted scenarios:
 
 * Confirming commands
 * Adding a one-step correction to commands
@@ -25,8 +25,8 @@ To learn more about interaction rules, go to the [references](./custom-commands-
 
 You must have finished the steps in the following articles:
 > [!div class="checklist"]
-> * [Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Add parameters to commands](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [How To: Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [How To: Add parameters to commands](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## Add confirmations to a command
 
@@ -35,7 +35,7 @@ To add a confirmation, use the **SetTemperature** command. To achieve confirmati
 1. Select the **SetTemperature** command in the left pane.
 1. Add interaction rules by selecting **Add** in the middle pane. Then select **Interaction rules** > **Confirm command**.
 
-    This action adds three interaction rules. This rule asks the user to confirm the date and time of the alarm and expects a confirmation (yes/no) for the next turn.
+    This action adds three interaction rules which will ask the user to confirm the date and time of the alarm and expects a confirmation (yes/no) for the next turn.
 
     1. Modify the **Confirm command** interaction rule as per the following configuration:
         1. Rename **Name** to **Confirm temperature**.
@@ -70,14 +70,14 @@ To add a confirmation, use the **SetTemperature** command. To achieve confirmati
 
 Select **Train**, wait for the training to finish, and select **Test**.
 
-- **Input**: Set temperature to 80 degrees.
-- **Output**: OK 80?
-- **Input**: No.
+- **Input**: Set temperature to 80 degrees
+- **Output**: are you sure you want to set the temperature as 80 degrees?
+- **Input**: No
 - **Output**: No problem. What temperature then?
-- **Input**: 83 degrees.
-- **Output**: OK 83?
-- **Input**: Yes.
-- **Output**: OK, setting temperature to 83 degrees.
+- **Input**: 72 degrees
+- **Output**: are you sure you want to set the temperature as 72 degrees?
+- **Input**: Yes
+- **Output**: OK, setting temperature to 83 degrees
 
 
 ## Implement corrections in a command

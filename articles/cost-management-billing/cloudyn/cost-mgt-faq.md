@@ -1,11 +1,12 @@
 ---
 title: Frequently asked questions for Cloudyn in Azure
-description: This article provides answers to some of the common questions about Cloudyn.
+description: Learn how to use the Cloudyn portal to resolve common indirect enterprise setup problems and answer other frequently asked questions.
 author: bandersmsft
 ms.author: banders
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX

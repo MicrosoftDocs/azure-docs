@@ -1,5 +1,5 @@
 ---
-title: T-SQL feature differences in Azure Synapse SQL
+title: T-SQL feature differences in Synapse SQL
 description: List of Transact-SQL features that are available in Synapse SQL.
 services: synapse analytics
 author: jovanpop-msft
@@ -49,7 +49,7 @@ Query languages used in Synapse SQL can have different supported features depend
 | **INSERT statement** | Yes | No |
 | **UPDATE statement** | Yes | No |
 | **DELETE statement** | Yes | No |
-| **MERGE statement** | Yes | No |
+| **MERGE statement** | No | No |
 | **[Transactions](develop-transactions.md)** | Yes | No |
 | **[Labels](develop-label.md)** | Yes | No |
 | **Data load** | Yes. Preferred utility is [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statement, but the system supports both BULK load (BCP) and [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) for data loading. | No |

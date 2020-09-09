@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
+ms.custom: devx-track-csharp
 ---
 
 # Shake, Shake for a Tweet -- Retrieve a Twitter message with Azure Functions

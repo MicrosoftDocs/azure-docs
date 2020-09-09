@@ -6,7 +6,7 @@ author: Deland-Han
 manager: dcscontentpm
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 07/28/2020
 ms.author: delhan
 ---
 
@@ -43,7 +43,7 @@ You must be assigned at least one role that grants access to read data from reso
 
 Azure Storage has two layers of access: _management_ and _data_. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
 
-RBAC roles can grant you permissions for management or data layer access. The Reader role, for example, grants read-only access to management layer resources.
+Azure roles can grant you permissions for management or data layer access. The Reader role, for example, grants read-only access to management layer resources.
 
 Strictly speaking, the Reader role provides no data layer permissions and isn't necessary for accessing the data layer.
 
@@ -62,9 +62,9 @@ If you want to access blob containers or queues, you can attach to those resourc
 
 For other resource types, we don't currently have an RBAC-related solution. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-### Recommended built-in RBAC roles
+### Recommended Azure built-in roles
 
-There are several built-in RBAC roles that can provide the permissions needed to use Storage Explorer. Some of those roles are:
+There are several Azure built-in roles that can provide the permissions needed to use Storage Explorer. Some of those roles are:
 - [Owner](/azure/role-based-access-control/built-in-roles#owner): Manage everything, including access to resources. **Note**: this role will give you key access.
 - [Contributor](/azure/role-based-access-control/built-in-roles#contributor): Manage everything, excluding access to resources. **Note**: this role will give you key access.
 - [Reader](/azure/role-based-access-control/built-in-roles#reader): Read and list resources.
@@ -330,7 +330,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
 2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     dpkg -i packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
@@ -343,7 +343,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
 2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     dpkg -i packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
@@ -356,7 +356,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
 2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     dpkg -i packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \

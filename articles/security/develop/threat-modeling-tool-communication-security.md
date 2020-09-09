@@ -1,7 +1,7 @@
 ---
 title: Communication security for the Microsoft Threat Modeling Tool 
 titleSuffix: Azure
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about mitigation for communication security threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,6 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
+ms.custom: devx-track-csharp
 
 ---
 

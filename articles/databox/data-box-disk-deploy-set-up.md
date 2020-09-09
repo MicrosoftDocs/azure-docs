@@ -1,6 +1,6 @@
 ---
 title: Tutorial to unpack, connect to, unlock Azure Data Box Disk| Microsoft Docs
-description: Use this tutorial to learn how to set up your Azure Data Box Disk
+description: In this tutorial, learn how to unpack your Azure Data Box Disk, connect to disks, get the passkey, and unlock disks on Windows and Linux clients.
 services: databox
 author: alkohli
 

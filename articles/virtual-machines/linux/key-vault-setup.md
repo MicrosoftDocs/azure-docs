@@ -5,9 +5,10 @@ author: mimckitt
 manager: vashan
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/24/2017
-ms.author: mimckitt
+ms.author: mimckitt 
+ms.custom: devx-track-azurecli
 
 ---
 # How to set up Key Vault for virtual machines with the Azure CLI

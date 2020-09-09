@@ -6,6 +6,7 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: amanbha
+ms.custom: devx-track-csharp
 ---
 # Delete Reliable Actors and their state
 Garbage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is reactivated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never reactivated, it may be necessary to clean up their data.

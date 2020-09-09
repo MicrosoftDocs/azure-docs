@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.custom: mqtt
+ms.custom: "mqtt, devx-track-csharp"
 ---
 
 # Upload files from your device to the cloud with IoT Hub (.NET)

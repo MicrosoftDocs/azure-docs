@@ -28,7 +28,7 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 ## Install tools and connect to Azure
 
-The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com).
+The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com).
 
 ### Connect to your Azure account
 

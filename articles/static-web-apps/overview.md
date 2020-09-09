@@ -28,10 +28,10 @@ With Static Web Apps, static assets are separated from a traditional web server 
 
 - **Web hosting** for static content like HTML, CSS, JavaScript, and images.
 - **Integrated API** support provided by Azure Functions.
-- **First-party GitHub integration** where repository changes trigger builds and deployments.
+- **First-class GitHub integration** where repository changes trigger builds and deployments.
 - **Globally distributed** static content, putting content closer to your users.
 - **Free SSL certificates**, which are automatically renewed.
-- **Custom domains**\* to provide branded customizations to your app.
+- **Custom domains** to provide branded customizations to your app.
 - **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
 - **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub, and Twitter.
 - **Customizable authorization role definition** and assignments.
@@ -40,11 +40,9 @@ With Static Web Apps, static assets are separated from a traditional web server 
 
 ## What you can do with Static Web Apps
 
-- **Build modern JavaScript applications** with frameworks and libraries like [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/) with an [Azure Functions](https://azure.microsoft.com/services/functions/) back-end.
+- **Build modern JavaScript applications** with frameworks and libraries like [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react) with an [Azure Functions](apis.md) back-end.
 - **Publish static sites** with frameworks like [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Deploy web applications** with frameworks like [Next.js](deploy-nextjs.md) and [Nuxt.js](deploy-nuxtjs.md).
-
-\* Apex domain registrations are not supported during preview.
 
 ## Next steps
 

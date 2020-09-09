@@ -144,9 +144,7 @@ In this part of the tutorial, you'll switch roles from the *project administrato
 
 1. In [Machine Learning studio](https://ml.azure.com), select **Data labeling** on the left-hand side to find your project.  
 
-1. Select the project name in the list.
-
-1. Below the project name, select **Label data**.
+1. Select **Label link** for the project.
 
 1. Read the instructions, then select **Tasks**.
 

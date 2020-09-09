@@ -6,14 +6,15 @@ ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to open ports and endpoints to a VM in Azure using PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
-To create a Network Security Group and ACL rules you need [the latest version of Azure PowerShell installed](/powershell/azureps-cmdlets-docs). You can also [perform these steps using the Azure portal](nsg-quickstart-portal.md).
+To create a Network Security Group and ACL rules you need [the latest version of Azure PowerShell installed](/powershell/azure/). You can also [perform these steps using the Azure portal](nsg-quickstart-portal.md).
 
 Log in to your Azure account:
 

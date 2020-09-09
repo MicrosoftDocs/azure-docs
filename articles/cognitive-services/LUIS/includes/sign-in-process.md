@@ -9,7 +9,6 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
-ms.custom: include file
 ms.author: diberry
 ---
 ## Sign in to LUIS portal
