@@ -42,7 +42,7 @@ The Azure Machine Learning SDK for Python allows you to build and run machine le
 
 ### Run configuration
 
-A generic training job with Azure Machine Learning can be defined using the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true). The run configuration is then used, along with your training script(s) to train a model on a compute target.
+A generic training job with Azure Machine Learning can be defined using the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true). The script run configuration is then used, along with your training script(s) to train a model on a compute target.
 
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
