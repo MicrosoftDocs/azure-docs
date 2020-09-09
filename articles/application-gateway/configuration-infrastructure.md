@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.author: surajmb
+ms.author: surmb
 ---
 
 # Application Gateway infrastructure configuration

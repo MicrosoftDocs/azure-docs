@@ -100,7 +100,7 @@ A single subnet can't support both v2 and v1 Application Gateway SKUs.
 
 ### Does Application Gateway v2 support user-defined routes (UDR)?
 
-Yes, but only specific scenarios. For more information, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+Yes, but only specific scenarios. For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### Does Application Gateway support x-forwarded-for headers?
 
@@ -131,7 +131,7 @@ No. Application Gateway V2 doesn't support proxying requests with NTLM authentic
 ### Does Application Gateway affinity cookie support SameSite attribute?
 Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-party context. 
 
-To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-overview.md#cookie-based-affinity) for more information.
+To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-http-settings.md#cookie-based-affinity) for more information.
 
 ## Performance
 
@@ -181,7 +181,7 @@ See [Network security groups in the Application Gateway subnet](https://docs.mic
 
 ### Does the application gateway subnet support user-defined routes?
 
-See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 

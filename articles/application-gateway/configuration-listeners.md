@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.author: surajmb
+ms.author: surmb
 ---
 
 # Application Gateway listener configuration
@@ -52,7 +52,7 @@ To configure TLS termination and end-to-end TLS encryption, you must add a certi
 
 ## Supported certificates
 
-See [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md#certificates-supported-for-ssl-termination)
+See [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md#certificates-supported-for-tls-termination)
 
 ## Additional protocol support
 
