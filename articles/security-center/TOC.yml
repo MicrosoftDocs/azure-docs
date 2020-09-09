@@ -206,8 +206,6 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Use Azure Defender for Key Vault
-    href: advanced-threat-protection-key-vault.md
   - name: Use Azure Defender for SQL
     items:
     - name: Configure Azure Defender for SQL on Azure VMs

@@ -29503,6 +29503,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/advanced-threat-protection-key-vault.md",
+      "redirect_url": "/azure/security-center/azure-defender-for-key-vault-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/monitor-container-security.md",
       "redirect_url": "/azure/security-center/container-security",
       "redirect_document_id": false
