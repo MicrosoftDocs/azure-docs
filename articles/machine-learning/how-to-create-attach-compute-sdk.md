@@ -474,7 +474,6 @@ except ComputeTargetException:
 ```
 
 For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) on GitHub.
-?view=azure-ml-py&preserve-view=true)
 > [!TIP]
 > Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) to copy the data before training.
 
