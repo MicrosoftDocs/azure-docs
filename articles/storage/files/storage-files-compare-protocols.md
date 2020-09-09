@@ -1,6 +1,6 @@
 ---
-title: Select a protocol
-description: Select a protocol before creating an Azure file share
+title: Available Azure Files protocols
+description: Learn about the available protocols before creating an Azure file share.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
