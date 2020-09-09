@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 # Security Control: Privileged Access
 
-Data protection recommendations focus on addressing issues related to encryption, access control lists, identity-based access control, and audit logging for data access.
+Privileged access focuses on the recommended security controls to manage the privileged access in Azure. This includes limiting privileged roles and accounts, emergency access setup, periodic review and reconciliation of user access, and use of specialized access workstation for privileged tasks.
 
 ## PA-1: Protect and limit the global administrators
 
