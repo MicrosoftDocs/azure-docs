@@ -14,7 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Sentinel
 
-This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Azure Sentinel. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Sentinel. **Controls** not applicable to Azure Sentinel have been excluded. To see how Azure Sentinel completely maps to the Azure Security Benchmark, see the [full Azure Sentinel security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md) to Azure Sentinel. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Sentinel. **Controls** not applicable to Azure Sentinel have been excluded. To see how Azure Sentinel completely maps to the Azure Security Benchmark, see the [full Azure Sentinel security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -22,6 +22,18 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 ## Network security
 
 *For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
+
+### 1.1: Protect Azure resources within virtual networks
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18695).
+
+**Guidance**: 
+You cannot associate a virtual network, subnet, or network security group directly with Azure Sentinel. However you can enable an Azure Private Endpoint for the Log Analytics workspace associated with Azure Sentinel to limit communication to and from your private networks.
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
@@ -120,26 +132,15 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: Maintain an inventory of the user accounts that have administrative access to the control plane (e.g. Azure portal) of your Azure Sentinel workspace. 
 
-You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.  Azure Sentinel also uses RBAC to provide built-in administrative roles, such as Azure Sentinel contributor, that can be assigned to users, groups, and services in Azure. 
+You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.  Azure Sentinel also uses Azure RBAC to provide built-in administrative roles, such as Azure Sentinel contributor, that can be assigned to users, groups, and services in Azure. 
 
 - [Understand custom roles](../role-based-access-control/custom-roles.md)
 
-- [Understand RBAC in Azure Sentinel](roles.md)
+- [Understand Azure RBAC in Azure Sentinel](roles.md)
 
-- [How to configure RBAC for workbooks](quickstart-get-visibility.md)
+- [How to configure Azure RBAC for workbooks](quickstart-get-visibility.md)
 
 **Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.2: Change default passwords where applicable
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18717).
-
-**Guidance**: Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
-
-**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -231,7 +232,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18723).
 
-**Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: Use Conditional Access named locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
 - [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
@@ -381,21 +382,21 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18734).
 
-**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. 
+**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in Azure roles or custom roles for individuals and groups. 
 
-Azure Sentinel uses RBAC to provide built-in roles that can be assigned to users, groups, and services in Azure. Using RBAC, you can use and create roles within your security operations team to grant appropriate access to Azure Sentinel. Based on the roles, you have fine-grained control over what users with access to Azure Sentinel can see. You can assign RBAC roles in the Azure Sentinel workspace directly, or to a subscription or resource group that the workspace belongs to. There are three specific built-in Azure Sentinel roles:
+Azure Sentinel uses Azure RBAC to provide built-in roles that can be assigned to users, groups, and services in Azure. Using Azure RBAC, you can use and create roles within your security operations team to grant appropriate access to Azure Sentinel. Based on the roles, you have fine-grained control over what users with access to Azure Sentinel can see. You can assign Azure roles in the Azure Sentinel workspace directly, or to a subscription or resource group that the workspace belongs to. There are three specific built-in Azure Sentinel roles:
 
 - Azure Sentinel reader
 - Azure Sentinel responder
 - Azure Sentinel contributor
 
-In addition to Azure Sentinel dedicated RBAC roles, there are Azure and Log Analytics RBAC roles that can grant a wider set of permissions that include access to your Azure Sentinel workspace and other resources:
+In addition to Azure Sentinel dedicated Azure roles, there are Azure and Log Analytics built-in Azure roles that can grant a wider set of permissions that include access to your Azure Sentinel workspace and other resources:
 
 Azure roles include Owner, Contributor, and Reader. Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
 
 Log Analytics roles include Log Analytics contributor and Log Analytics reader. Log Analytics roles grant access across all your Log Analytics workspaces.
 
-Additionally, each workbook is an Azure resource like any other, and you can assign it roles (RBAC) to define and limit who can access. 
+Additionally, each Sentinel workbook is an Azure resource, and you can assign roles to users for managing access.
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
 
@@ -403,7 +404,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 
 - [Understand roles in Sentinel and Log Analytics](roles.md)
 
-- [How to configure RBAC for workbooks](quickstart-get-visibility.md)
+- [How to configure Azure RBAC for workbooks](quickstart-get-visibility.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -414,13 +415,15 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18736).
 
-**Guidance**: Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created and owned by you. The Azure Sentinel solution uses several storage resources for log collection and features, including Log Analytics and others. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
+**Guidance**: Azure Sentinel and Azure Monitor Log Analytics workspaces currently use Microsoft managed keys for encrypting any contained data at rest. The ability to bring your own key is not yet fully supported for Sentinel, but will be in the near future.
 
-- [Understand customer-managed keys in Azure Sentinel](customer-managed-keys.md)
+- [Azure Monitor customer-managed key overview](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview)
+
+- [Understand customer-managed keys in Azure Sentinel (Preview)](customer-managed-keys.md)
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Customer
+**Responsibility**: Shared
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
@@ -621,9 +624,13 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18766).
 
-**Guidance**: Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you. The Azure Sentinel solution uses a several storage resources for log collection and features, these include Log Analytics and other storage resources. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
+**Guidance**: Azure Sentinel supports collecting logs from many sources using various connectors. Some of these connectors require setup with a Log Analytics workspace key. When setting these connectors up use Azure Key Vault to store your keys to simplify secret management and avoid accidental credential exposure.
 
-- [Understand customer-managed keys in Azure Sentinel](customer-managed-keys.md)
+- [Connect Sentinel to data sources](connect-data-sources.md)
+
+- [How to create a Key Vault](/azure/key-vault/quick-create-portal) 
+
+- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
 
 **Azure Security Center monitoring**: Yes
 
@@ -662,43 +669,6 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ## Data recovery
 
 *For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
-
-### 9.1: Ensure regular automated back-ups
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18772).
-
-**Guidance**: &lt;&lt; For service owner review &gt;&gt;
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### 9.2: Perform complete system backups and backup any customer-managed keys
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18773).
-
-**Guidance**: If you are using Key Vault to store your customer-managed keys, ensure regular automated backups of your keys.
-
-- [How to backup Key Vault Keys](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 9.3: Validate all backups including customer-managed keys
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18774).
-
-**Guidance**: Test restoration of backed up customer managed keys.
-
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
