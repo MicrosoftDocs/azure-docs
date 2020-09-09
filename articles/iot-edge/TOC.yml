@@ -64,6 +64,8 @@
       href: security.md
     - name: IoT Edge security manager
       href: iot-edge-security-manager.md
+    - name: Confidential computing
+      href: deploy-trusted-applications.md
   - name: Platform support
     href: support.md
   - name: IoT Edge glossary
