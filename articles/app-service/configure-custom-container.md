@@ -143,6 +143,7 @@ Multi-container is currently in preview. The following App Service platform feat
 
 - Authentication / Authorization
 - Managed Identities
+- CORS
 
 ### Docker Compose options
 

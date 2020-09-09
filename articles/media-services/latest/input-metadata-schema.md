@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services v3 input metadata schema 
 description: This article gives an overview of Azure Media Services v3 input metadata schema.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,12 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/14/2020
-ms.author: juliako
+ms.topic: reference
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
-# Input metadata 
+# Input metadata
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks.  Upon completion of a task, an output asset is produced. The output asset contains video, audio, thumbnails, manifest, and other files. 
 
