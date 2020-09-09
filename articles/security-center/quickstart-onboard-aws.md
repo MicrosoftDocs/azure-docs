@@ -165,7 +165,7 @@ When the connector is successfully created and AWS Security Hub has been configu
 
 
 
-## Monitoring your GCP resources
+## Monitoring your AWS resources
 
 (Description of using recs and a screenshot of some GCP flagged ones) 
 
