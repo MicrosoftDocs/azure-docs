@@ -90,7 +90,6 @@ Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
 ```
 
-
 ### Querying spatial bounds
 
 Bounds queries are asynchronous calls that operate on a full object hierarchy, using one entity as a root. See the dedicated chapter about [object bounds](object-bounds.md).
@@ -132,6 +131,13 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 ```
 
 The query will succeed even if the object does not hold any metadata.
+
+## API documentation
+
+* [C# Entity class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C# RemoteManager.CreateEntity()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C++ Entity class](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [C++ RemoteManager::CreateEntity()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## Next steps
 
