@@ -2,7 +2,7 @@
   href: index.yml
 - name: Introduction
   href: introduction.md
-- name: Security Controls (latest)
+- name: Security Controls (v2)
   expanded: true
   items:
   - name: Overview of Azure security controls
@@ -22,7 +22,7 @@
   - name: Endpoint security
     href: security-benchmark-v2-endpoint-security.md
 
-- name: Security Controls (previous)
+- name: Security Controls (v1)
   items:
   - name: Overview of Azure security controls (previous)
     href: overview-v1.md
