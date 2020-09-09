@@ -54,7 +54,7 @@ See [How to run and install Anomaly detector containers](../../anomaly-detector/
 **Speech Service**
 
 > [!NOTE]
-> To use Speech containers, you will need to complete an [online request form](aka.ms/csgate).
+> To use Speech containers, you will need to complete an [online request form](https://aka.ms/csgate).
 
 | Container | Container Registry / Repository / Image Name |
 |--|--|
