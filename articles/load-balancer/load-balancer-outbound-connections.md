@@ -21,6 +21,14 @@ Azure Load Balancer provides outbound connectivity through different mechanisms.
 
 ## <a name="scenarios"></a>Outbound connections scenario overview
 
+Terms used in these scenarios. For more information, see [Terminology](#terms):
+
+* [Source Network Address Translation (SNAT)](#snat)
+* [Port Masquerading (PAT)](#pat)
+* Transmission Control Protocol (TCP)
+* User Datagram Protocol (UDP)
+
+
 ### Scenario 1 - Virtual machine with public IP
 
 | Associations | Method | IP protocols |
@@ -285,7 +293,7 @@ When only inbound NAT rules are used, no outbound NAT is provided.
 3. Configure an outbound rule on the same load balancer. 
 4. Specify "protocol": "All" as part of the outbound rule
 
-## Terminology
+## <a name="terms"></a> Terminology
 
 Azure Load Balancer supports the following protocols:
 
@@ -308,7 +316,7 @@ After this mapping is created, return traffic for this outbound originated flow 
 
 Azure uses **source network address translation (SNAT)** to do this function.
 
-### <a name="PAT"></a>Port masquerading SNAT (PAT)
+### <a name="pat"></a>Port masquerading SNAT (PAT)
 
 | Applicable protocol(s) |
 |------------------------|
