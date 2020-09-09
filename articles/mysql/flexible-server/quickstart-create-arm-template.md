@@ -178,7 +178,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 Follow these steps to verify if your server was created in Azure.
 
-### Azure Portal
+### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
 
@@ -212,7 +212,7 @@ Keep this resource group, server, and single database if you want to go to the [
 
 To delete the resource group:
 
-### Azure Portal
+### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
 
