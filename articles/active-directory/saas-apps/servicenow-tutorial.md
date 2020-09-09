@@ -236,7 +236,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. Sign on to your ServiceNow application as an administrator.
 
-	   * In the automatic configuration, all the necessary settings are configured on the **ServiceNow** side, but the **X.509 Certificate** isn't enabled by default and **Single Sign-On Script** value should be **MultiSSOv2_SAML2_custom**. You have to map it manually to your identity provider in ServiceNow. Follow these steps:
+	   * In the automatic configuration, all the necessary settings are configured on the **ServiceNow** side, but the **X.509 Certificate** isn't enabled by default and give the **Single Sign-On Script** value as **MultiSSOv2_SAML2_custom**. You have to map it manually to your identity provider in ServiceNow. Follow these steps:
 
 	     1. In the left pane, search for the **Multi-Provider SSO** section from the search box, and select **Identity Providers**.
 
@@ -282,11 +282,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 		     > [!NOTE]
 		     > If the Test Connection is failing and you are not able to activate this connection then ServiceNow does offer the override switch. You have to enter **Sys_properties.LIST** in the **Search Navigation** and it will open the new page of System Properties. Here you have to create a new property with the name as **glide.authenticate.multisso.test.connection.mandatory** with **datatype** as **True/False** and then set the **value** as **False**.
 
-		     > ![Screenshot of Test Results page](./media/servicenow-tutorial/test-connection-fail.png "Configure single sign-on")
+		     > ![Screenshot of Test connection page](./media/servicenow-tutorial/test-connection-fail.png "Configure single sign-on")
 		
 	      1. When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
-		     ![Screenshot of Test Results page](./media/servicenow-tutorial/servicenow-activate.png "Configure single sign-on")
+		     ![Screenshot of credentials page](./media/servicenow-tutorial/servicenow-activate.png "Configure single sign-on")
   
 1. To configure **ServiceNow** manually, follow these steps:
 
@@ -322,8 +322,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		c. Copy the **ServiceNow Homepage** value. Paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
-			> [!NOTE]
-			> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
+		> [!NOTE]
+		> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
 		d. Copy the **Entity ID / Issuer** value. Paste it in **Identifier** in **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
@@ -339,11 +339,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 		> [!NOTE]
 		> If the Test Connection is failing and you are not able to activate this connection then ServiceNow does offer the override switch. You have to enter **Sys_properties.LIST** in the **Search Navigation** and it will open the new page of System Properties. Here you have to create a new property with the name as **glide.authenticate.multisso.test.connection.mandatory** with **datatype** as **True/False** and then set the **value** as **False**.
 
-		  > ![Screenshot of Test Results page](./media/servicenow-tutorial/test-connection-fail.png "Configure single sign-on")
+		  > ![Screenshot of Test connection](./media/servicenow-tutorial/test-connection-fail.png "Configure single sign-on")
 
 		h. When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
-		  ![Screenshot of Test Results page](./media/servicenow-tutorial/servicenow-activate.png "Configure single sign-on")
+		  ![credentials](./media/servicenow-tutorial/servicenow-activate.png "Configure single sign-on")
 
 ### Create ServiceNow test user
 
