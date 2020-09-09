@@ -1,6 +1,6 @@
 ---
 title: How to use Azure Defender for container registries
-description: Learn about using Azure Defender for container registries to scan your registrys' images
+description: Learn about using Azure Defender for container registries to scan images in your registries
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020

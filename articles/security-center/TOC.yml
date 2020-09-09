@@ -209,7 +209,7 @@
   - name: Use Azure Defender for SQL
     items:
     - name: Configure Azure Defender for SQL on Azure VMs
-      href: security-center-iaas-advanced-data.md
+      href: defender-for-sql-usage.md
     - name: Customize the information protection policy
       href: security-center-info-protection-policy.md      
   - name: Use Azure Defender for App Services

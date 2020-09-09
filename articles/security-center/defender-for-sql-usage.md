@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center's advanced data security for SQL machines (Preview)
-description: Learn how to enable advanced data security for SQL machines in Azure Security Center
+title: How to use Azure Defender for SQL
+description: Learn how to use Azure Security Center's optional Azure Defender for SQL plan
 services: security-center
 documentationcenter: na
 author: memildin
@@ -9,30 +9,30 @@ manager: rkarlin
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 09/12/2020
 ms.author: memildin
 ---
 
-# Advanced data security for SQL machines (Preview)
+# Azure Defender for SQL Server (Preview)
 
-Azure Security Center's advanced data security for SQL machines protects SQL Servers hosted in Azure, on other cloud environments, and even on-premises machines. This extends the protections for your Azure-native SQL Servers to fully support hybrid environments.
+**Azure Defender for SQL** protects SQL Servers hosted in Azure, on other cloud environments, and even on-premises machines. This extends the protections for your Azure-native SQL Servers to fully support hybrid environments.
 
 This preview feature includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your database: 
 
 * **Vulnerability assessment** - The scanning service to discover, track, and help you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
 
-* [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel.
+* [Advanced threat protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel.
 
 >[!TIP]
-> Advanced data security for SQL machines is an extension of Azure Security Center's [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), available for Azure SQL Database, Azure Synapse, and SQL Managed Instance.
+> Azure Defender for SQL is an extension of Azure Security Center's [data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), available for Azure SQL Database, Azure Synapse, and SQL Managed Instance.
 
 
-## Set up advanced data security for SQL machines 
+## Set up Azure Defender for SQL
 
-Setting up Azure Security Center's advanced data security for SQL machines involves two steps:
+To enable Azure Defender for SQL:
 
 * Provision the Log Analytics agent on your SQL server's host. This provides the connection to Azure.
 
@@ -53,22 +53,21 @@ Both of these are described below.
     - **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-### Step 2. Enable the optional bundle in Security Center's pricing and settings page:
+### Step 2. Enable the optional plan in Security Center's pricing and settings page:
 
-1. From Security Center's sidebar, open the **Pricing & settings** page.
+1. From Security Center's menu, open the **Pricing & settings** page.
 
     - If you're using **Azure Security Center's default workspace** (named “defaultworkspace-[your subscription id]-[region]”), select the relevant **subscription**.
 
     - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
 
-        ![title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
+        ![Finding your non-default workspace by title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
+1. Set the option for **Azure Defender for SQL** plan to **on**. 
 
-1. Toggle the option for **SQL servers on machines (Preview)** to enabled. 
+    ![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
-    [![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
-
-    Advanced Data Security for SQL servers on machines will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
+    Azure Defender for SQL will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
 
     >[!TIP] 
     > To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
@@ -89,12 +88,11 @@ You can view the vulnerability assessment results directly from Security Center.
 
 1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL servers on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
 
-
-    [![**Vulnerabilities on your SQL servers on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)":::
 
     The detailed view for this recommendation appears.
 
-    [![Detailed view for the **Vulnerabilities on your SQL servers on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Detailed view for the recommendation":::
 
 1. For more details, drill down:
 
@@ -104,14 +102,12 @@ You can view the vulnerability assessment results directly from Security Center.
 
     In each view, the security checks are sorted by **Severity**. Click a specific security check to see a details pane with a **Description**, how to **Remediate** it, and other related information such as **Impact** or **Benchmark**.
 
-## Advanced threat protection for SQL servers on machines alerts
+## Azure Defender for SQL alerts
 Alerts are generated by unusual and potentially harmful attempts to access or exploit SQL machines. These events can trigger alerts shown in the [Alerts for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) section of the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
-
-
 
 ## Explore and investigate security alerts
 
-Security alerts are available in Security Center's alerts page, the resource's security tab, or through the direct link in the alert emails.
+Azure Defender alerts are available in Security Center's alerts page, the resource's security tab, or through the direct link in the alert emails.
 
 1. To view alerts, select **Security alerts** from Security Center's sidebar and select an alert.
 
@@ -130,4 +126,4 @@ For related material, see the following article:
 - [Security alerts for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Set up email notifications for security alerts](security-center-provide-security-contact-details.md)
 - [Learn more about Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Azure Security Center's advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+- [Azure Security Center's data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

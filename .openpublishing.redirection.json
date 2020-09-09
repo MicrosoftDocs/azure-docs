@@ -29503,6 +29503,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-iaas-advanced-data.md",
+      "redirect_url": "/azure/security-center/defender-for-sql-usage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/advanced-threat-protection-key-vault.md",
       "redirect_url": "/azure/security-center/azure-defender-for-key-vault-intro",
       "redirect_document_id": false
