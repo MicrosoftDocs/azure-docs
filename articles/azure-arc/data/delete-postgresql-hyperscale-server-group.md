@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Delete an Azure Arc enabled PostgreSQL Hyperscale server group
 
-This document describes the steps to delete an Azure PostgreSQL server group from your Azure Arc setup.
+This document describes the steps to delete a server group from your Azure Arc setup.
 
 ## Delete the server group
 
