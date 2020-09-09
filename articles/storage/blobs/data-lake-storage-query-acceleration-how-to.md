@@ -178,7 +178,7 @@ Update-Module -Name Az
 2. Install the `12.5.0-preview.6` version of the Azure Blob storage client library for .NET package by using the `dotnet add package` command. 
 
    ```console
-   dotnet add package Azure.Storage.Blobs -v 12.5.0-preview.6
+   dotnet add package Azure.Storage.Blobs -v 12.6.0
    ```
 
 3. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library. To use that library, use the following command.
@@ -215,7 +215,7 @@ Update-Module -Name Az
 Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
 
 ```
-pip install azure-storage-blob==12.4.0b1
+pip install azure-storage-blob==12.4.0
 ```
 
 #### [Node.js](#tab/nodejs)
@@ -338,8 +338,8 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
     try
     {
         var options = new BlobQueryOptions() {
-            InputTextConfiguration = new BlobQueryCsvTextConfiguration() { HasHeaders = headers },
-            OutputTextConfiguration = new BlobQueryCsvTextConfiguration() { HasHeaders = true },
+            InputTextConfiguration = new BlobQueryCsvTextOptions() { HasHeaders = headers },
+            OutputTextConfiguration = new BlobQueryCsvTextOptions() { HasHeaders = true },
             ProgressHandler = new Progress<long>((finishedBytes) => Console.Error.WriteLine($"Data read: {finishedBytes}"))
         };
         options.ErrorHandler += (BlobQueryError err) => {
@@ -402,7 +402,7 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
             .setProgressConsumer(progressConsumer);            
 
         /* Open the query input stream. */
-        InputStream stream = blobClient.openQueryInputStream(queryOptions);
+        InputStream stream = blobClient.openQueryInputStream(queryOptions).getValue();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
             /* Read from stream like you normally would. */
             for (CSVRecord record : CSVParser.parse(reader, CSVFormat.EXCEL.withHeader())) {
