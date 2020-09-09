@@ -1,7 +1,7 @@
 ---
 title: Use Java to create a function in Azure to respond to HTTP
 description: Learn how to create a function from the command line using Java, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 09/02/2020
+ms.date: 09/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-java
 ---
@@ -25,11 +25,8 @@ Before you begin, you must have the following:
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
-
-    > [!IMPORTANT]
-    > + Functions support for Java 11 is currently in preview, and the Maven archetype creates a Java 8 deployment by default. If you want to instead run your function app on Java 11, you must manually update the pom.xml file with Java 11 values. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
-    > + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this quickstart.
++ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or 11.  
+  _Functions support for Java 11 is currently in preview._
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -45,7 +42,7 @@ Before you begin, you must have the following:
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` if you want to deploy a Java 11 functions.To learn more, see [Java versions](functions-reference-java.md#java-versions). 
+In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` if you want to run your functions in Azure on Java 11 instead of Java 8. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
 
 # [bash](#tab/bash)
 

@@ -13,40 +13,40 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create function
+    - name: Create your first function
       expanded: true
       items:
         - name: Visual Studio Code
           expanded: true
           items:
-          - name: Create your first function in VS Code (C#)
+          - name: C#
             href: create-first-function-vs-code-csharp.md
-          - name: Create your first function in VS Code (Java)
+          - name: Java
             href: create-first-function-vs-code-java.md
-          - name: Create your first function in VS Code (JavaScript)
+          - name: JavaScript
             href: create-first-function-vs-code-node.md
-          - name: Create your first function in VS Code (PowerShell)
+          - name: PowerShell
             href: create-first-function-vs-code-powershell.md
-          - name: Create your first function in VS Code (Python)
+          - name: Python
             href: create-first-function-vs-code-python.md
-          - name: Create your first function in VS Code (Typescript)
+          - name: Typescript
             href: create-first-function-vs-code-typescript.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Command line
-          expanded: true
+          expanded: false
           items:
-          - name: Create your first function (C#)
+          - name: C#
             href: create-first-function-cli-csharp.md
-          - name: Create your first function (Java)
+          - name: Java
             href: create-first-function-cli-java.md
-          - name: Create your first function (JavaScript)
+          - name: JavaScript
             href: create-first-function-cli-node.md
-          - name: Create your first function (PowerShell)
+          - name: PowerShell
             href: create-first-function-cli-powershell.md
-          - name: Create your first function (Python)
+          - name: Python
             href: create-first-function-cli-python.md
-          - name: Create your first function (TypeScript)
+          - name: TypeScript
             href: create-first-function-cli-typescript.md
         - name: ARM template
           displayName: Resource Manager

@@ -1,7 +1,7 @@
 ---
 title: Use JavaScript to create a function in Azure to respond to HTTP
 description: Learn how to create a function from the command line using JavaScript, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 09/02/2020
+ms.date: 09/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-javascript
 ---
@@ -20,15 +20,15 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
++ The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 3.x.
 
-+ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later. 
++ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
++ [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
 
 ### Prerequisite check
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
 
 + Run `az --version` to check that the Azure CLI version is 2.0.76 or later.
 

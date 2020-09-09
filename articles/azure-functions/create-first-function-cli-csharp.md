@@ -1,7 +1,7 @@
 ---
 title: Use C# to create a function in Azure to respond to HTTP
 description: Learn how to create a function from the command line using C#, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 09/02/2020
+ms.date: 09/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
@@ -145,6 +145,8 @@ az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption
 ```
 
 This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+
+## Deploy the function project to Azure
 
 With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
 
