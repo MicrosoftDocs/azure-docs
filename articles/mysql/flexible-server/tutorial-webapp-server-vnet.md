@@ -90,8 +90,8 @@ With the code now deployed to App Service, the next step is to connect the app t
 az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.database.azure.com" DBNAME="flexibleserverdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Replace ```<mysql-server-name>```, ```<username>```, ```<password>``` for the newly created flexible server command.
-- Replace <username> and <password> with the credentials that the command also generated for you.
+- Replace _&lt;mysql-server-name>_, _&lt;username>_, and _&lt;password>_ for the newly created flexible server command.
+- Replace _&lt;username>_ and _&lt;password>_ with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named DBHOST, DBNAME, DBUSER, and DBPASS. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
 
