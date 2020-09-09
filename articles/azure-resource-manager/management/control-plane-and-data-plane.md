@@ -2,7 +2,7 @@
 title: Control plane and data plane operations
 description: Describes the difference between control plane and data plane operations. Control plane operations are handled by Azure Resource Manager. Data plane operations are handled by a service.
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/09/2020
 ---
 # Azure control plane and data plane
 
@@ -26,9 +26,18 @@ All requests for control plane operations are sent to `https://management.azure.
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
 ```
 
-Azure Resource Manager handles control plane requests. It automatically applies [Azure Role-based Access Control (RBAC)](../../role-based-access-control/overview.md) for the user sending the request.
+Azure Resource Manager handles all control plane requests. It automatically applies the Azure features you've implemented to manage your resources, such as:
 
-[Azure Policies](../../governance/policy/overview.md) are applied for control plane operations but not for data plane operations.
+* [Azure Role-based Access Control (RBAC)](../../role-based-access-control/overview.md)
+* [Azure Policies](../../governance/policy/overview.md)
+* [Management Locks](lock-resources.md)
+* [Activity Logs](view-activity-logs.md)
+
+After authenticating the request, Azure Resource Manager sends it to the resource provider, which completes the operation.
+
+The control plane includes two scenarios for handling requests - "green field" and "brown field". Green field refers to new resources. Brown field refers to existing resources. As you deploy resources, Azure Resource Manager understands when to create new resources and when to update existing resources. You don't have to worry that identical resources will be created.
+
+As you apply Azure policies, you need to evaluate the effect of the policy on new resources and existing resources. For more information, see [Evaluate the impact of a new Azure Policy definition](../../governance/policy/concepts/evaluate-impact.md).
 
 ## Data plane
 
@@ -38,8 +47,10 @@ Requests for data plane operations are sent to an endpoint that is specific to y
 POST {Endpoint}/text/analytics/v2.0/languages
 ```
 
-Data plane operations aren't limited to REST API. It may require additional credentials such as logging in to a virtual machine through RDP.
+Data plane operations aren't limited to REST API. They may require additional credentials such as logging in to a virtual machine or database server.
+
+Features that enforce management and governance aren't applied to data plane operations. You need to consider the different ways users might interact with your solutions. For example, a lock that prevents users from deleting a database doesn't prevent users from deleting data through queries.
 
 ## Next steps
 
-* To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](../templates/deploy-powershell.md).
+* For an overview of Azure Resource Manager, see [What is Azure Resource Manager?](overview.md)
