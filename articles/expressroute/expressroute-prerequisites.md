@@ -17,8 +17,8 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Azure account
-* A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365.
-* An active Office 365 subscription (if using Office 365 services). For more information, see the Office 365 specific requirements section of this article.
+* A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Microsoft 365.
+* An active Microsoft 365 subscription (if using Microsoft 365 services). For more information, see the Microsoft 365 specific requirements section of this article.
 
 ## Connectivity provider
 
@@ -33,16 +33,16 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 * **QoS**: Skype for Business has various services (for example; voice, video, text) that require differentiated QoS treatment. You and your provider should follow the [QoS requirements](expressroute-qos.md).
 * **Network Security**: consider [network security](../best-practices-network-security.md) when connecting to the Microsoft Cloud via ExpressRoute.
 
-## Office 365
-If you plan to enable Office 365 on ExpressRoute, review the following documents for more information about Office 365 requirements.
+## Microsoft 365
+If you plan to enable Microsoft 365 on ExpressRoute, review the following documents for more information about Microsoft 365 requirements.
 
-* [Overview of ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
-* [Routing with ExpressRoute for Office 365](https://support.office.com/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
+* [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
+* [Routing with ExpressRoute for Microsoft 365](/microsoft-365/enterprise/routing-with-expressroute)
 * [High availability and failover with ExpressRoute](https://aka.ms/erhighavailability)
-* [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-* [Network planning and performance tuning for Office 365](https://support.office.com/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
-* [Network bandwidth calculators and tools](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
-* [Office 365 integration with on-premises environments](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges)
+* [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
+* [Network and migration planning for Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)
+* [Microsoft 365 integration with on-premises environments](/microsoft-365/enterprise/microsoft-365-integration)
 * [ExpressRoute on Office 365 advanced training videos](https://channel9.msdn.com/series/aer/)
 
 ## Next steps
