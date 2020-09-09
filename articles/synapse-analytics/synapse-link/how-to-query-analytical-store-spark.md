@@ -207,5 +207,6 @@ If you are looking to submit remote Spark job definitions to a Synapse Spark poo
 
 ## Next steps
 
+* [Samples to get started with Azure Synapse Link on GitHub](https://aka.ms/cosmosdb-synapselink-samples)
 * [Learn what is supported in Azure Synapse Link for Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
