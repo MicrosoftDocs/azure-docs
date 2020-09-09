@@ -58,6 +58,23 @@ Also, our global team of security researchers constantly monitor the threat land
 > You can simulate container alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
 
 
+
+## How does Security Center's Kubernetes protection work?
+
+Below is a high-level diagram of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy.
+
+You can see that the items received and analyzed by Security Center include:
+
+- audit logs from the API server
+- raw security events from the Log Analytics agent
+- cluster configuration information from the AKS cluster
+- workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**). [Learn more about workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+
+:::image type="content" source="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png":::
+
+
+
+
 ## Azure Defender for Kubernetes - FAQ
 
 ### Can I still get AKS protections without the Log Analytics agent?

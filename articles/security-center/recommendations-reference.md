@@ -180,6 +180,15 @@ Your Secure Score is based on the number of Security Center recommendations you'
 ||||||
 
 
+## <a name="recs-identity"></a>Identity and access recommendations
+
+|Recommendation|Description & related policy|Severity|Quick fix enabled?([Learn more](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resource type|
+|----|----|----|----|----|
+
+||||||
+
+
+
 ## Deprecated recommendations
 
 |Recommendation|Description & related policy|Severity|Quick fix enabled?([Learn more](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resource type|

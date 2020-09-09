@@ -30,6 +30,7 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 Updates in September include:
 
+- [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Network security group recommendations improved](#network-security-group-recommendations-improved)
@@ -39,17 +40,15 @@ Updates in September include:
 - [Recommendations now include a severity indicator and the freshness interval](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
 
 
-
 ### Azure Defender for Key Vault is generally available
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
 
-**Azure Defender for Key Vault** provides Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence. The optional plan is now GA.
+**Azure Defender for Key Vault** provides Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence. By extension, Azure Defender for Key Vault is consequently protecting many of the resources dependent upon your Key Vault accounts.
 
-This feature was in preview as "advanced threat protection for Azure Key Vault".
+The optional plan is now GA. This feature was in preview as "advanced threat protection for Azure Key Vault".
 
 Learn more in [Azure Defender for Key Vault](defender-for-key-vault-intro.md).
-
 
 
 ### Vulnerability assessment findings are now available in continuous export

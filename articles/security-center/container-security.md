@@ -19,14 +19,22 @@ ms.author: memildin
 
 Azure Security Center is the Azure-native solution for securing your containers. Security Center can protect the following container resource types:
 
-| Resource type | Details |
+| Resource type | Protections offered by Security Center |
 |:--------------------:|-----------|
-| ![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Azure Kubernetes Service (AKS) clusters** | Security Center continuously assesses your AKS clusters' configurations and gives you visibility into misconfigurations. Security Center provides guidelines to help you resolve any discovered issues.<br>[Learn more about environment hardening through security recommendations](#environment-hardening).<br><br>Security Center also provides threat protection for<br> - Linux AKS nodes with [Run-time protection for AKS nodes and clusters](#run-time-protection-for-aks-nodes-and-clusters)<br>- AKS clusters with the optional [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md).|
-| ![Container host](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Container hosts**<br>(VMs  running Docker) | Security Center continuously assesses your Docker configurations and gives you visibility into misconfigurations by providing a list of all failed rules that were assessed.<br>Security Center provides guidelines to help you resolve any discovered issues.<br>[Learn more about environment hardening through security recommendations](#environment-hardening).|
-| ![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Azure Container Registry (ACR) registries** | Gain deeper visibility into the vulnerabilities of the images in your ARM-based ACR registries with the vulnerability assessment and management tools in Security Center's optional [Azure Defender for container registries](defender-for-container-registries-intro.md).<br>[Learn more about scanning your container images for vulnerabilities](#vulnerability-management---scanning-container-images). |
+| ![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Azure Kubernetes Service (AKS) clusters** | - Continuous assessment of your AKS clusters' configurations to provide visibility into misconfigurations and guidelines to help you resolve any discovered issues.<br>[Learn more about environment hardening through security recommendations](#environment-hardening).<br><br>- Threat protection for AKS clusters and Linux nodes. Alerts for suspicious activities are provided by the optional  [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md).<br>[Learn more about run-time protection for AKS nodes and clusters](#run-time-protection-for-aks-nodes-and-clusters).|
+| ![Container host](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Container hosts**<br>(VMs  running Docker) | - Continuous assessment of your Docker configurations to provide visibility into misconfigurations and guidelines to help you resolve any discovered issues with the optional  [Azure Defender for servers](defender-for-servers-intro.md).<br>[Learn more about environment hardening through security recommendations](#environment-hardening).|
+| ![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Azure Container Registry (ACR) registries** | - Vulnerability assessment and management tools for the images in your ARM-based ACR registries with the optional  [Azure Defender for container registries](defender-for-container-registries-intro.md).<br>[Learn more about scanning your container images for vulnerabilities](#vulnerability-management---scanning-container-images). |
 |||
 
-This article describes how you can use Security Center, together with the optional Azure Defender plans for container registries and Kubernetes, to improve, monitor, and maintain the security of your containers and their apps.
+This article describes how you can use Security Center, together with the optional Azure Defender plans for container registries, severs, and Kubernetes, to improve, monitor, and maintain the security of your containers and their apps.
+
+You'll learn how Security Center helps with these core aspects of container security:
+
+- [Vulnerability management - scanning container images](#vulnerability-management---scanning-container-images)
+- [Environment hardening](#environment-hardening)
+- [Run-time protection for AKS nodes and clusters](#run-time-protection-for-aks-nodes-and-clusters)
+
+The following screenshot shows the asset inventory page and the various container resource types protected by Security Center.
 
 :::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Container-related resources in Security Center's asset inventory page" lightbox="./media/container-security/container-security-tab.png":::
 
@@ -44,14 +52,14 @@ Security Center filters and classifies findings from the scanner. When an image 
 
 Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
-Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. 
+Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. The CIS benchmark checks don't run on AKS-managed instances or Databricks-managed VMs.
 
 For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
 
 When you're exploring the security issues of a VM, Security Center provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host. 
 
->[!NOTE]
-> These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
+To monitor unmanaged containers hosted on IaaS Linux VMs, enable the optional [Azure Defender for servers](defender-for-servers-intro.md).
+
 
 ### Continuous monitoring of your Kubernetes clusters
 Security Center works together with Azure Kubernetes Service (AKS), Microsoft's managed container orchestration service for developing, deploying, and managing containerized applications.
@@ -81,24 +89,10 @@ Learn more in [Protect your Kubernetes workloads](kubernetes-workload-protection
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
-## How does Security Center's Kubernetes protection work?
-
-Below is a high-level diagram of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy.
-
-You can see that the items received and analyzed by Security Center include:
-
-- audit logs from the API server
-- raw security events from the Log Analytics agent
-- cluster configuration information from the AKS cluster
-- workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**). [Learn more about workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
-
-:::image type="content" source="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png":::
-
-
 
 ## Next steps
 
 In this overview, you learned about the core elements of container security in Azure Security Center. For related material see:
 
-= [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
+- [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
 - [Introduction to Azure Defender for container registries](defender-for-container-registries-intro.md)

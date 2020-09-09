@@ -26,6 +26,18 @@ Security Center offers more container security features if you enable Azure Defe
 > For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
 
 
+
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|Preview|
+|Pricing:|Free|
+|Supported clusters|Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
+
+
 ## Set up your workload protection
 
 Azure Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
