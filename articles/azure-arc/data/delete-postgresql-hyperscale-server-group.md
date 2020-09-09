@@ -27,11 +27,11 @@ postgres01  Ready    3
 ```
 
 The general format of the delete command is:
-```terminal
+```console
 azdata arc postgres server delete -n <server group name>
 ```
 For more details about the delete command, run:
-```terminal
+```console
 azdata arc postgres server delete --help
 ```
 
@@ -47,7 +47,7 @@ To reclaim the PVCs, take the following steps:
 
 ### 1. List the PVCs for the server group you deleted
 To list the PVCs, run this command:
-```terminal
+```console
 kubectl get pvc
 ```
 
@@ -74,7 +74,7 @@ kubectl delete pvc <name of pvc>
 ```
 
 For example:
-```terminal
+```console
 kubectl delete pvc data-postgres01-0
 kubectl delete pvc data-postgres01-1 
 kubectl delete pvc data-postgres01-2
@@ -86,7 +86,7 @@ kubectl delete pvc logs-postgres01-3
 ```
 
 Each of these kubectl commands will confirm the successful deleting of the PVC. For example:
-```terminal
+```console
 persistentvolumeclaim "data-postgres01-0" deleted
 ```
   

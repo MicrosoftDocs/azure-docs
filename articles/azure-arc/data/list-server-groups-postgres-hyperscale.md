@@ -19,19 +19,19 @@ To retrieve this list, use either of the following methods once you are connecte
 
 ## From CLI with azdata
 The general format of the command is:
-```terminal
+```console
 azdata arc postgres server list
 ```
 
 It will return an output like:
-```terminal
+```console
 Name        State    Workers
 ----------  -------  ---------
 postgres01  Ready    2
 postgres02  Ready    2
 ```
 For more details about the parameters available for this command, run:
-```terminal
+```console
 azdata arc postgres server list --help
 ```
 
@@ -39,18 +39,18 @@ azdata arc postgres server list --help
 Run either of the following commands.
 
 **To list the server groups irrespective of the version of Postgres, run:**
-```terminal
+```console
 kubectl get postgresqls
 ```
 It will return an output like:
-```terminal
+```console
 NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgresql-12.arcdata.microsoft.com/postgres01   Ready   3/3          10.0.0.4:30499      51s
 postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:31066      6d
 ```
 
 **To list the server groups of a specific version of Postgres, run:**
-```terminal
+```console
 kubectl get postgresql-12
 ```
 

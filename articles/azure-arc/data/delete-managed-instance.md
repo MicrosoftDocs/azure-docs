@@ -17,13 +17,13 @@ This article describes how you can delete a deployed Azure Arc enabled SQL Manag
 ## View Existing Azure Arc enabled SQL Managed Instances
 To view deployed SQL Managed Instances, run the following command:
 
-```terminal
+```console
 azdata arc sql mi list
 ```
 
 Output should look something like this:
 
-```terminal
+```console
 Name    Replicas    ServerEndpoint    State
 ------  ----------  ----------------  -------
 demo-mi 1/1         10.240.0.4:32023  Ready
@@ -32,13 +32,13 @@ demo-mi 1/1         10.240.0.4:32023  Ready
 ## Delete a Azure Arc enabled SQL Managed Instance
 To delete a SQL Managed Instance, run the following command:
 
-```terminal
+```console
 azdata arc sql mi delete -n <NAME_OF_INSTANCE>
 ```
 
 Output should look something like this:
 
-```terminal
+```console
 # azdata arc sql mi delete -n demo-mi
 Deleted demo-mi from namespace arc
 ```
@@ -49,7 +49,7 @@ Deleting a SQL Managed Instance does not remove its associated [PVCs](https://ku
 
 ### 1. List the PVCs for the server group you deleted
 To list the PVCs, run the following command:
-```terminal
+```console
 kubectl get pvc
 ```
 
@@ -70,13 +70,13 @@ kubectl delete pvc <name of pvc>
 ```
 
 For example:
-```terminal
+```console
 kubectl delete pvc data-demo-mi-0 -n arc
 kubectl delete pvc logs-demo-mi-0 -n arc
 ```
 
 Each of these kubectl commands will confirm the successful deleting of the PVC. For example:
-```terminal
+```console
 persistentvolumeclaim "data-demo-mi-0" deleted
 persistentvolumeclaim "logs-demo-mi-0" deleted
 ```
