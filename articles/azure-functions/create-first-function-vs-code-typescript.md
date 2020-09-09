@@ -3,7 +3,6 @@ title: Create a function in Azure with TypeScript using VS Code
 description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code by using TypeScript.
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.custom: devx-track-typescript
 ---
 
 # Quickstart: Create a function in Azure with TypeScript using Visual Studio Code

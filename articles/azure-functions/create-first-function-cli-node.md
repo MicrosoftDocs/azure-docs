@@ -3,7 +3,7 @@ title: Use JavaScript to create a function in Azure to respond to HTTP
 description: Learn how to create a function from the command line using JavaScript, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 09/14/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a function in Azure using JavaScript that responds to HTTP requests

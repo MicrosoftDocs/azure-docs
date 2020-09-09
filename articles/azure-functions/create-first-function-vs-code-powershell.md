@@ -3,7 +3,6 @@ title: Create a function in Azure with PowerShell using VS Code
 description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code using PowerShell. 
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.custom: devx-track-powershell
 ---
 
 # Quickstart: Create a function in Azure with PowerShell using Visual Studio Code
