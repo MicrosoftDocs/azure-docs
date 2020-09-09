@@ -93,7 +93,7 @@
     - name: Migrate to new knowledge base
       href: Tutorials/migrate-knowledge-base.md
       displayName: metadata, pair
-    - name: Test
+    - name: Test knowledge base
       href: How-To/test-knowledge-base.md
   - name: Manage QnA pairs
     items:
