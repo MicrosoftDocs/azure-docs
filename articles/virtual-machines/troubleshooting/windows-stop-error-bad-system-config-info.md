@@ -57,10 +57,10 @@ The **BAD_SYSTEM_CONFIG_INFO** stop code occurs if the **SYSTEM** registry hive 
 1. Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
 1. Check for hive corruption.
 1. Use Remote Desktop Connection to connect to the Repair VM.
-1. Copy the `\windows\system32\config` folder and save it in either your healthy disk partition, or in another safe location. Back up this folder as a precaution, since you will edit critical registry files.
+1. Copy the `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folder and save it in either your healthy disk partition, or in another safe location. Back up this folder as a precaution, since you will edit critical registry files. 
 
 > [!NOTE]
-> Make a copy of the `\windows\system32\config` folder as a backup in case you need to roll back any changes you make to the registry.
+> Make a copy of the `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folder as a backup in case you need to roll back any changes you make to the registry.
 
 ### Check for hive corruption
 
@@ -68,7 +68,7 @@ The instructions below will help you determine if the cause was due to hive corr
 
 1. On your repair VM, open the **Registry Editor** application. Type “REGEDIT” in the Windows search bar to find it.
 1. In Registry Editor, select **HKEY_LOCAL_MACHINE** to highlight it, then select **File > Load Hive…** from the menu.
-1. Browse to `\windows\system32\config\SYSTEM` and select **Open**.
+1. Browse to `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` and select **Open**.
 1. When prompted to enter a name, enter **BROKENSYSTEM**.
 
    1. If the hive fails to open, or if it is empty, then the hive is corrupted. If the hive has been corrupted, [open a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
