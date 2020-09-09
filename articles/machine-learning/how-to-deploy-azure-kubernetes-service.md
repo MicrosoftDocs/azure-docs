@@ -18,9 +18,13 @@ ms.date: 09/01/2020
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
 
-- __Fast response time__.
-- __Autoscaling__ of the deployed service.
-- __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
+- __Fast response time__
+- __Autoscaling__ of the deployed service
+- __Logging__
+- __Model data collection__
+- __Authentication__
+- __TLS termination__
+- __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA)
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. For information on connecting an AKS cluster to your workspace, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
 
