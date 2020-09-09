@@ -12,7 +12,7 @@ ms.date: 08/28/2020
 ms.author: aahi
 ---
 
-# How-to: Onboard your data
+# How-to: Onboard your metric data to Metrics Advisor
 
 Use this article to learn about onboarding your data to Metrics Advisor. 
 
@@ -22,9 +22,9 @@ Use this article to learn about onboarding your data to Metrics Advisor.
 
 ## Avoid loading partial data
 
-Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor pulls data from a given data source once.
+Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor only pulls data from a given data source once.
 
-For example, suppose you have two data sources. If the data for a given date is available in the first data source, but not the second, Metrics Advisor will only retrieve metrics from the first data source. If this data is later added to the second data source, Metrics Advisor won't retrieve it. 
+For example, if a metric has been onboarded to Metrics Advisor for monitoring. Metrics Advisor successfully grabs metric data at timestamp A and performs anomaly detection on it. However, if the metric data of that particular timestamp A has been refreshed after the data been ingested. New data value won't be retrieved.
 
 You can try to [backfill](manage-data-feeds.md#backfill-your-data-feed) historical data (described later) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
 
@@ -34,13 +34,13 @@ To avoid loading partial data, we recommend two approaches:
 
     Ensure the metric values for all dimension combinations at the same timestamp are stored to the data source in one transaction. In the above example, wait until data from all data sources is ready, and then load it into Metrics Advisor in one transaction. Metrics Advisor can poll the data feed regularly until data is successfully (or partially) retrieved.
 
-2. Set the ingestion time offset parameter:
+2. Set a proper value for 'Ingestion time offset' parameter:
 
-    Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](manage-data-feeds.md#advanced-settings) for details.
+    Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [advanced settings](manage-data-feeds.md#advanced-settings) for details.
 
-## Add a data feed using the web portal
+## Add a data feed using the web-based workspace
 
-After signing into your Metrics Advisor portal and choosing your workspace, click **Get started**. Then, on the main page of the portal, click **Add data feed** from the left menu.
+After signing into your Metrics Advisor portal and choosing your workspace, click **Get started**. Then, on the main page of the workspace, click **Add data feed** from the left menu.
 
 ### Add connection settings
 
@@ -51,8 +51,6 @@ Next you'll input a set of parameters to connect your time-series data source.
 * **Ingest data since (UTC)**: The baseline start time for data ingestion while startOffsetInSeconds is often used to add an offset to help with data consistency.
 
 Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
-
-### Verify and get the schema
 
 ### Verify and get schema
 After the connection string and query string are set, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
@@ -67,7 +65,7 @@ If the timestamp of a data point is omitted, Metrics Advisor will use the timest
 
 |Selection  |Description  |Notes  |
 |---------|---------|---------|
-| **Display Name** | Name to be displayed on the portal instead of the original column name. | |
+| **Display Name** | Name to be displayed in your workspace instead of the original column name. | |
 |**Timestamp**     | The timestamp of a data point. If omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column. If you get a **column cannot be specified as Timestamp** error, check your query or data source for duplicate timestamps.      |
 |**Measure**     |  The numeric values in the data feed. For each data feed, you can specify multiple measures but at least one column should be selected as measure.        | Should be specified with at least one column.        |
 |**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
@@ -88,8 +86,11 @@ If *Country* is a dimension and *Language* is set as *Ignored*, then the first a
 ### Automatic roll up settings
 
 > [!IMPORTANT]
-> Once enabled, the auto roll-up settings cannot be changed
-Metrics Advisor can automatically generate the data cube (sum) during ingestion, which can help when performing hierarchical analysis. There are three possibilities, depending on your scenario:
+> Root cause analysis and other diagnostic features are available if automatic roll up is enabled.  
+>Once enabled, the auto roll-up settings cannot be changed.
+Metrics Advisor can automatically generate the data cube (sum) during ingestion, which can help when performing hierarchical analysis. 
+
+There are three possibilities, depending on your scenario:
 
 1. *I do not need to include the roll-up analysis for my data.*
 
@@ -157,9 +158,13 @@ Metrics Advisor can automatically generate the data cube (sum) during ingestion,
       * Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
     * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is 1,000,000. If your data exceeds that limit, ingestion will fail for that timestamp.
 
+## Advanced settings
+
+There's bunch of advanced settings to enable data ingested in a customized way, like specifying ingestion offset, configure ma concurrency... For more detail, please refer to [advanced settings](manage-data-feeds.md#advanced-settings) in How to: manage data feeds.
+
 ## Specify a name for the data feed and check the ingestion progress
  
-Give a custom name for the data feed, which will be displayed on the portal. Then Click on **Submit**. In the data feed details page, you can use the ingestion progress bar to view status information.
+Give a custom name for the data feed, which will be displayed in your workspace. Then Click on **Submit**. In the data feed details page, you can use the ingestion progress bar to view status information.
 
 ![Ingestion Progress](../media/datafeeds/ingestion-progress.png)
 
@@ -174,11 +179,9 @@ To check ingestion failure details:
 A *failed* status indicates the ingestion for this data source will be retried later.
 An *Error* status indicates Metrics Advisor won't retry for the data source. To reload data, you need trigger a backfill/reload manually.
 
-You can also reload the progress of an ingestion by clicking **Refresh Progress**.
+You can also reload the progress of an ingestion by clicking **Refresh Progress**. After data ingestion complete, you're free to click into metrics and check anomaly detection results.
 
 ## Next steps
-- [Managing your data feed](manage-data-feeds.md)
+- [Manage your data feeds](manage-data-feeds.md)
 - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Send anomaly feedback to your instance](anomaly-feedback.md)
-- [Diagnose incidents](diagnose-incident.md).
-- [Configure metrics and anomaly detection](configure-metrics.md)
+- [Configure metrics and fine tune detecting configuration](configure-metrics.md)

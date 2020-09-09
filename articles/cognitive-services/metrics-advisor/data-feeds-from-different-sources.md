@@ -37,7 +37,6 @@ Use this article to find the settings and requirements for connecting different 
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Azure Event Hubs**](#eventhubs) | Basic | 
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
@@ -166,7 +165,7 @@ Currently Metrics Advisor supports the data schema in the JSON files as follow. 
   {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
 ]
 ```
-
+<!--
 ## <span id="eventhubs">Azure Event Hubs</span>
 
 * **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
@@ -182,7 +181,7 @@ The timestamp field must match one of these two formats:
     * Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
 
     No matter which timestamp field it left aligns to granularity.For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment.
-
+-->
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
 * **Connection String**: Metrics Advisor accepts an [ADO.NET Style Connection String](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
@@ -263,4 +262,4 @@ You could leverage one variable @StartTime in your query:
 
 * While waiting for your metric data to be ingested into the system, you can check about  [how to manage data feed configurations](how-tos/manage-data-feeds.md).
 
-* When the metric data is ingested, start your monitor from [configure metrics and anomaly detection](how-tos/configure-metrics.md).
+* When the metric data is ingested, start your monitor from [Configure metrics and fine tune detecting configuration](how-tos/configure-metrics.md).

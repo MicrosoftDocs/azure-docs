@@ -12,7 +12,7 @@ ms.date: 08/19/2020
 ms.author: aahi
 ---
 
-# Quickstart: Use the Metrics Advisor REST API
+# Quickstart: Use APIs to customize your own solution
 
 Get started with the the Metrics Advisor REST API. Follow these steps to install the package and try out the example code for basic tasks.
 
@@ -35,9 +35,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
+- [Use the web portal](web-portal.md)
 - [Onboard and manage data feeds](../how-tos/datafeeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Use the web portal](web-portal.md)
-- [Send anomaly feedback to your instance](../how-tos/anomaly-feedback.md)
+- [Configure metrics and fine tune detecting configurationn](configure-metrics.md)
+- [Adjust anomaly detection using feedback](../how-tos/anomaly-feedback.md)
 - [Diagnose incidents](../how-tos/diagnose-incident.md).
-- [Create alerts](../how-tos/alerts.md).

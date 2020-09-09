@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 # What is Metrics Advisor? 
 
-Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use Metrics Advisor to:
+Metrics Advisor is a time series monitoring platform that provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use Metrics Advisor to:
 
 * Analyze multi-dimensional data from multiple data sources 
 * Identify and correlate anomalies

@@ -49,16 +49,25 @@ Click into the *cost* metric in the *Sample - Cost/Revenue - City/Category* data
 
 The anomaly detection is configurable by tuning the **detecting configurations** on the left side of metric details page. Multiple anomaly detection methods are available and you can combine them. You can additionally try different sensitivities, detecting directions, and other configurations. The **Advanced configuration** link at the bottom of **detecting configurations** lets you create more complex and customized detection settings, which can be used on groups or individual series. 
 
-You can also tune anomaly detection by providing feedback to the detection algorithm. Click into an anomaly, and use the **Add feedback** menu that appears to configure its anomaly status, seasonality, and change point status. This feedback will be incorporated in the detection for future points.  
+You can also tune anomaly detection by providing feedback to the detection algorithm. Click into an anomaly, and use the **Add feedback** panel to configure its anomaly status, seasonality, and change point status. This feedback will be incorporated in the detection for future points.  
 
-At the bottom of the **Add feedback** menu, click the link for the **Incident hub**. If you closed the **Add feedback** window, you can click on an anomaly to make it appear. 
+At the bottom of the **Add feedback** panel, there's a link of **To incident hub**, which will direct you to incident analysis page and analyze root cause of the incident.  
 
 ![Incident link](../media/incident-link.png "Incident link")
 
 ## Explore anomaly detection results and perform root cause analysis
 
-When you click the **Incident hub** link from an anomaly, you will see an incident analysis page, containing diagnostics insights about the incident, such as Severity, the number of anomalies involved, and start/end time. The **Rootcause** section displays automated advice by analyzing the incident tree, taking into account: deviation, distribution and contribution to parent anomalies, which may be the root cause of the incident.
+When you click the **To incident hub** link from an anomaly, you will see an incident analysis page, containing diagnostics insights about the incident, such as Severity, the number of anomalies involved, and start/end time. The **Rootcause** section displays automated advice by analyzing the incident tree, taking into account: deviation, distribution and contribution to parent anomalies, which may be the root cause of the incident.
 
 The **Diagnostics** section shows a tree of the incident, along with several tabs for diagnosing the incident.
 
 ![Incident diagnostic](../media/incident-diagnostic.png "Incident diagnostic")
+
+By pinpointing root cause of the incident, customers are able to take actions as soon as possible to mitigate issue before the situation gets worse. Customers are also able to explore further insights by pivoting through other diagnostic features provided. 
+
+## Next Step
+
+- [Use the web portal](web-portal.md)
+- [Use the REST API](rest-api-and-client-library.md)
+- [Onboard and manage data feeds](../how-tos/manage-data-feeds.md)
+    - [Configurations for different data sources](../data-feeds-from-different-sources.md)

@@ -14,7 +14,33 @@ ms.author: aahi
 
 # How to: Manage your data feeds
 
-Learn how to create and manage data feeds in Metrics Advisor. This article guides you through managing data feeds in Metrics Monitor.
+Learn how to manage your onboarded data feeds in Metrics Advisor. This article guides you through managing data feeds in Metrics Monitor.
+
+## Edit a datafeed
+
+> [!NOTE]
+> The following details cannot be changed after a data feed has been created. 
+> * Data feed ID
+> * Created Time
+> * Dimension
+> * Source Type
+> * Granularity
+
+Only the administrator of a datafeed is allowed to make changes to it. 
+
+To pause or reactivate a datafeed:
+
+1. On the datafeed list page, click the operation you want to perform on the datafeed.
+
+2. On the datafeed details page, click the **Status** switch button.
+
+To delete a datafeed: 
+
+1. On the datafeed list page, click **Delete** on the datafeed.
+
+2. In the datafeed details page, click **Delete**.
+
+When changing the start time, you need to verify the schema again. You can change it by using **Edit parameters**.
 
 ##  Backfill your data feed
 
@@ -25,9 +51,18 @@ Select the  **Backfill** button to trigger an immediate ingestion on a time-stam
 
 ![Backfill Datafeed](../media/datafeeds/backfill-datafeed.png)
 
+## Manage permission of a data feed
+
+Identify who is able to access the workspace is controlled by the permission of the resourced, which uses Azure Active Directory for authentication. However, there's another layer of permission control in Metrics Advisor, which is applied on metric data. 
+
+You are able to grant permission for different groups of people on different data feeds created. Two types of roles are supported: 
+- Administrator: who has full permissions to manage a data feed, including modify and delete.
+- Viewer: who is read-only to the data feed. In the other parts of this service, wherever reading time-series from a metric, it will check whether the current user has read permission the data feed of this metric or not.
+ 
+
 ## Advanced settings
 
-There are several optional advanced settings when creating a new data feed. Most of them can be modified later in data feed detail page.
+There are several optional advanced settings when creating a new data feed, they can be modified in data feed detail page.
 
 ### Ingestion options
 
@@ -49,19 +84,19 @@ There are several optional advanced settings when creating a new data feed. Most
     | Daily, Custom (>= 1 Day), Weekly, Monthly     | 30 minutes          |
     | Hourly, Custom (< 1 Day)      | 10 minutes |
     | Yearly | 1 day          |
-    
-### "Data feed not available" alert settings
+ 
+### Fill gap when detecting: 
 
-A data feed is considered as not available if no data is ingested from the source within the grace period specified from the time the data feed starts ingestion. An alert is triggered in this case.
+> [!NOTE]
+> This setting won't affect your data source and will not affect the data charts displayed on the portal. The auto-filling only occurs during anomaly detection.
 
-To configure an alert, you need a [web hook](alerts.md#create-a-web-hook) first. Alerts will be sent to this hook.
+Some time series are not continuous. When there're missing data points, Metrics Advisor will use the specified value to fill them before anomaly detection for better accuracy.
+The options are: 
 
-* **Grace period**: The Grace Period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Advisor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
+* Using the value from the previous actual data point. This is used by default.
+* Using a specific value.
 
-* **Auto snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
-
-
-#### Action link template: 
+### Action link template: 
 
 Action link templates are used to predefine actionable HTTP urls, which consist of the placeholders `%datafeed`, `%metric`, `%timestamp`, `%detect_config`, and `%tagset`. You can use the template to redirect from an anomaly or an incident to a specific URL to drill down.
 
@@ -88,46 +123,18 @@ Examples :
 - If the action link template is `https://action-link?filter=[Name/Dim1 eq '%tagset.get('Dim1','')' and ][Name/Dim2 eq '%tagset.get('Dim2','')']`, 
     - The action link would be `https://action-link?filter=Name/Dim1 eq 'Val1' and Name/Dim2 eq 'Val2'` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`, 
     - The action link would be `https://action-link?filter=Name/Dim2 eq 'Val2'` when anomaly is `{ "Dim1": "", "Dim2": "Val2" }` since `[Name/Dim1 eq '***' and ]` is skipped for the dimension value empty string. 
+   
+### "Data feed not available" alert settings
 
-### Fill gap when detecting: 
+A data feed is considered as not available if no data is ingested from the source within the grace period specified from the time the data feed starts ingestion. An alert is triggered in this case.
 
-> [!NOTE]
-> This setting won't affect your data source and will not affect the data charts displayed on the portal. The auto-filling only occurs during anomaly detection.
+To configure an alert, you need to [create a hook](alerts.md#create-a-hook) first. Alerts will be sent through the hook configured.
 
-Some time series are not continuous. When there're missing data points, Metrics Advisor will use the specified value to fill them before anomaly detection for better accuracy.
-The options are: 
+* **Grace period**: The Grace period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Advisor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
 
-* Using the value from the previous actual data point. This is used by default.
-* Using a specific value.
-
-
-## Edit a datafeed
-
-> [!NOTE]
-> The following details cannot be changed after a data feed has been created. 
-> * Data feed ID
-> * Created Time
-> * Dimension
-> * Source Type
-> * Granularity
-
-Only the administrator of a datafeed is allowed to make changes to it. To pause or reactivate the datafeed
-
-1. On the datafeed list page, click the operation you want to perform on the datafeed.
-
-2. On the datafeed details page, click the **Status** switch button.
-
-To delete a datafeed: 
-
-1. On the datafeed list page, click **Delete** on the datafeed.
-
-2. In the datafeed details page, click **Delete**.
-
-When changing the start time, you need to verify the schema again. You can change it by using **Edit parameters**.
+* **Auto snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
 
 ## Next steps
-
-- [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Send anomaly feedback to your instance](anomaly-feedback.md)
+- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Adjust anomaly detection using feedback](anomaly-feedback.md)
 - [Diagnose incidents](diagnose-incident.md).
-- [Configure metrics and anomaly detection](configure-metrics.md)
