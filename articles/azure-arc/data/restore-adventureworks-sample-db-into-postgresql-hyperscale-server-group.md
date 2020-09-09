@@ -33,7 +33,7 @@ Run a command like this to download the files replace the value of the pod name 
 > [!NOTE]
 >  Use the pod name of the Coordinator node of the Postgres Hyperscale server group. Its name is <server group name>-0.  If you are not sure of the pod name run the command `kubectl get pod`
 
-```terminal
+```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 
 #Example:
@@ -46,7 +46,7 @@ Similarly, you can run a kubectl exec command to use the psql CLI tool that is i
 
 Run a command like this to create the empty database first substituting the value of the pod name and the namespace name before you run it.
 
-```terminal
+```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -c 'CREATE DATABASE "adventureworks";'
 
 #Example
@@ -55,7 +55,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 
 Then, run a command like this to restore the database substituting the value of the pod name and the namespace name before you run it.
 
-```terminal
+```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -d adventureworks -f /tmp/AdventureWorks.sql
 
 #Example

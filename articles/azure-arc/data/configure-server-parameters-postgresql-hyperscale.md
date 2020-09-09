@@ -19,23 +19,23 @@ This document describes the steps to set the database engine settings of your Po
 
 ## Syntax
 The general format of the command to configure the database engine settings is:
-```terminal
+```console
 azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
 ```
 
 ## Show the current custom values of the parameters settings
 
 ## With azdata CLI command
-```terminal
+```console
 azdata arc postgres server show -n <server group name>
 ```
 
 For example:
-```terminal
+```console
 azdata arc postgres server show -n postgres01
 ```
 This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
-```terminal
+```console
  "
 ...
 engine": {
@@ -52,11 +52,11 @@ engine": {
 Follow the below steps:
 ### 1. Retrieve the kind of custom resource definition for your server group:
 Run:
-```terminal
+```console
 azdata arc postgres server show -n <server group name>
 ```
 For example:
-```terminal
+```console
 azdata arc postgres server show -n postgres01
 ```
 This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
@@ -73,16 +73,16 @@ This command returns the spec of the server group in which you would see the par
 
 ### 2. Describe the Kubernetes custom resource corresponding to your server group: 
 The general format of the command is:
-```terminal
+```console
 kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
 ```
 For example:
-```terminal
+```console
 kubectl describe postgresql-12 postgres01
 ```
 If there are custom values set for the engine settings, it will return them. For example:
 
-```terminal
+```console
 Engine:
 ...
     Settings:
@@ -91,7 +91,7 @@ Engine:
 ```
 If you have not set custom values for any of the engine settings, the Engine Settings section of the resultset will be empty like:
 ```the result set is empty, it means you have not customized any of the engine settings.
-```terminal
+```console
 Engine:
 ...
     Settings:
@@ -102,54 +102,54 @@ Engine:
 The below commands set the parameters of the Coordinator node and the Worker nodes of your Postgres Hyperscale to the same values. It is not yet possible to set parameters per role in your server group. That is, it is not yet possible to configure a given parameter to a specific on the Coordinator node and to another value for the Worker nodes.
 
 ## Set a single parameter:
-```terminal
+```console
 azdata arc postgres server edit -n <server group name> -e <parameter name>=<parameter value>
 ```
 For example:
-```terminal
+```console
 azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
 ```
 
 ## Set multiple parameters with a single command:
-```terminal
+```console
 azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
 ```
 For example:
-```terminal
+```console
 azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
 ```
 
 ## Reset a parameter to its default value:
 To reset a parameter to its default value, set it without indicating a value. 
 For example:
-```terminal
+```console
 azdata arc postgres server edit -n postgres01 -e shared_buffers=
 ```
 
 ## Reset all parameters to their default values:
-```terminal
+```console
 azdata arc postgres server edit -n <server group name> -e '' -re
 ```
 For example:
-```terminal
+```console
 azdata arc postgres server edit -n postgres01 -e '' -re
 ```
 
 ## Special considerations:
 
 ### Set a parameter which value contains a comma, space, or special character:
-```terminal
+```console
 azdata arc postgres server edit -n <server group name> -e '<parameter name>="<parameter value>"'
 ```
 For example:
-```terminal
+```console
 azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plpgsql,plperl"'
 ```
 
 ### Pass an environment variable in a parameter value:
 The environment variable should be wrapped inside "''" so that it doesn't get resolved before it's set.
 For example: 
-```terminal
+```console
 azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
 

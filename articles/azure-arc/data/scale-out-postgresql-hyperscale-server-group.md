@@ -41,7 +41,7 @@ The general format of this command is
 azdata arc postgres server endpoint list -n <server name>
 ```
 For example:
-```terminal
+```console
 azdata arc postgres server endpoint list -n postgres01
 ```
 
@@ -137,7 +137,7 @@ azdata arc postgres server edit -n <server group name> -w <target number of work
 ```
 
 For example, increase the number of worker nodes from 2 to 4, by running the following command:
-```terminal
+```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
 
@@ -159,12 +159,12 @@ Use either of the methods below to verify that the server group is now using the
 
 #### With azdata:
 Run the command:
-```terminal
+```console
 azdata arc postgres server list
 ```
 
 It returns the list of server groups deployed in your namespace and indicates their number of worker nodes. For example:
-```terminal
+```console
 Name        State    Workers
 ----------  -------  ---------
 postgres01  Ready    4
@@ -172,12 +172,12 @@ postgres01  Ready    4
 
 #### With kubectl:
 Run the command:
-```terminal
+```console
 kubectl get postgresql-12
 ```
 
 It returns the list of server groups deployed in your namespace and indicates their number of worker nodes. For example:
-```terminal
+```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
