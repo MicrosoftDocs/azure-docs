@@ -133,4 +133,4 @@ After you choose these options, you should see a graph like the following screen
 
 ## Next steps
 
-* Use SQL on-demand to [analyze Azure Open Datasets and visualize the results in Azure Synapse Studio](../../synapse-analytics/sql/tutorial-data-analyst.md)
+* Use SQL on-demand to [analyze Azure Open Datasets and visualize the results in Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
