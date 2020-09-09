@@ -194,8 +194,6 @@ sudo apt-get install -y docker-ce nvidia-docker2
 sudo systemctl restart docker
 ```
 
----
-
 ## Enable NVIDIA MPS on the host computer
 
 > [!TIP]
@@ -232,6 +230,8 @@ sudo mv /tmp/nvidia-mps.service /etc/systemd/system/
 
 sudo systemctl --now enable nvidia-mps.service
 ```
+
+---
 
 ## Deploy the spatial analysis container using Azure IoT Hub and Azure IoT Edge
 
@@ -326,7 +326,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 | ARCHON_NODES_LOG_LEVEL | Info; Verbose | Logging level, select one of the two values|
 | OMP_WAIT_POLICY | PASSIVE | Do not modify|
 | QT_X11_NO_MITSHM | 1 | Do not modify|
-| API_KEY | your API Key| Collect this value from Azure portal from your **Project Archon** resource _Keys_ page|
+| API_KEY | your API Key| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource, in the Azure portal. |
 | BILLING_ENDPOINT | your Endpoint URI| Collect this value from Azure portal from your **Project Archon** resource _Overview_ page|
 | EULA | accept | This value needs to be set to *accept* for the container to run |
 | DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer|
