@@ -454,7 +454,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflows) demonstrate and expand upon concepts presented in this article.
+The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstrate and expand upon concepts presented in this article.
 
 ## Next steps
 
