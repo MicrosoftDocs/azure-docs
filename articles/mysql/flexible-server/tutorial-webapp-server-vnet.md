@@ -64,7 +64,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 
 > [!NOTE]
 > - For the --location argument, use the same location as you did for the database in the previous section.
-> - Replace <app-name> with a unique name across all Azure (the server endpoint is https://\<app-name>.azurewebsites.net). Allowed characters for <app-name> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
+> - Replace _&lt;app-name>_ with a unique name across all Azure (the server endpoint is https://\<app-name>.azurewebsites.net). Allowed characters for <app-name> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
 
 This command performs the following actions, which may take a few minutes:
 
@@ -76,7 +76,7 @@ This command performs the following actions, which may take a few minutes:
 
 ## Add the Web App to the virtual network
 
-Use **az webapp vnet-integration** command to add a regional virtual network integration to a webapp. Replace <vnet-name> and <subnet-name> with the virtual network and subnet name that the flexible server is using.
+Use **az webapp vnet-integration** command to add a regional virtual network integration to a webapp. Replace _&lt;vnet-name>_ and _&lt;subnet-name_ with the virtual network and subnet name that the flexible server is using.
 
 ```azurecli
 az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
