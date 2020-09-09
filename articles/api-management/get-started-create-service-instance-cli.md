@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure API Management instance using CLI (preview)
+title: Quickstart - Create Azure API Management instance using CLI (preview)
 description: Create a new Azure API Management service instance by using the Azure CLI.
 author: dlepow
 ms.service: api-management
@@ -42,7 +42,7 @@ az apim create --name myapim --resource-group myResourceGroup \
 ```
 
 > [!TIP]
-> It usually takes between 20 and 30 minutes to create and activate an API Management service. In the previous example, `az apim create` uses the `--no-wait` option so that the command returns immediately while the service is created.
+> It usually takes between 20 and 30 minutes to create and activate an API Management service. The previous example uses the `--no-wait` option so that the command returns immediately while the service is created.
 
 By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md). 
 
