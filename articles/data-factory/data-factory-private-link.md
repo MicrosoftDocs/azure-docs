@@ -28,7 +28,7 @@ There are several communication channels required between Data Factory and custo
 
 | **Domain** | **Port** | **Description** |
 | ---------- | -------- | --------------- |
-| `pe-adf.azure.com` | 443 | Control Plane. Required by Data Factory authoring and monitoring. |
+| `adf.azure.com` | 443 | Control Plane. Required by Data Factory authoring and monitoring. |
 | `*.{region}.datafactory.azure.net` | 443 | Required by the Self-hosted Integration Runtime to connect to the Data Factory service. |
 | `*.servicebus.windows.net` | 443 | Required by the Self-hosted Integration Runtime for Interactive Authoring. |
 | `download.microsoft.com` | 443 | Required by the Self-hosted Integration Runtime for downloading the updates. |
