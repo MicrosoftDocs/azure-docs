@@ -348,7 +348,7 @@ Once the deployment is complete and the container is running, the **host compute
 
 ## Configure the operations performed by Spatial Analysis
 
-You will need to use [Spatial Analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, enable video recording, and more. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages, sent to your instance of Azure IoT Hub.
+You will need to use [Spatial Analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, configure the operations, and more. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages, sent to your instance of Azure IoT Hub.
 
 ## Redeploy or delete the deployment
 
