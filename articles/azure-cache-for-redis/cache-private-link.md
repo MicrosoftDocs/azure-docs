@@ -5,17 +5,13 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/09/2020
 ---
 
 # Azure Cache for Redis with Azure Private Link (Public Preview)
 In this article, you'll learn how to create a virtual network and an Azure Cache for Redis instance with an Azure Private Endpoint using the Azure portal. You'll also learn how to add an Azure Private Endpoint to an existing Azure Cache for Redis instance.
 
 Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. 
-
-> [!IMPORTANT]
-> This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
-> 
 
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
@@ -36,8 +32,6 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
 
 2. On the **New** page, select **Networking** and then select **Virtual network**.
 
-    <!-- :::image type="content" source="media/cache-private-link/0-select-vnet.png" alt-text="Create a virtual net."::: -->
-
 3. Select **Add** to create a virtual network.
 
 4. In **Create virtual network**, enter or select this information in the **Basics** tab:
@@ -48,8 +42,8 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
     | Subscription     | Drop down and select your subscription.                                  |
     | Resource Group   | Drop down and select a resource group. |
     | **Instance details** |                                                                 |
-    | Name             | Enter your virtual network name                                   |
-    | Region           | Select the region name
+    | Name             | Enter your virtual network name.                                   |
+    | Region           | Select the region name.
 
 5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -57,7 +51,7 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter your IPv4 address space |
+    | IPv4 address space | Enter your IPv4 address space. |
 
 7. Under **Subnet name**, select the word **default**.
 
@@ -65,8 +59,8 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Subnet name | Enter your subnet name |
-    | Subnet address range | Enter the subnet address range**
+    | Subnet name | Enter your subnet name. |
+    | Subnet address range | Enter the subnet address range. **
 
 9. Select **Save**.
 
@@ -76,8 +70,6 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
 
 ### Create an Azure Cache for Redis Instance with a Private Endpoint
 1. To create a cache, go back to the Azure portal homepage or open the sidebar menu, then select **Create a resource**. 
-
-    <!-- :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Select Create a resource."::: -->
    
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
@@ -99,11 +91,9 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
 
 1. Select **Add** button to create your private endpoint.
 
-    :::image type="content" source="media/cache-private-link/4-add-private-endpoint.png" alt-text="In networking, add a private endpoint.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="In networking, add a private endpoint.":::
 
 1. On the **Create a private endpoint** page, configure the settings for your private endpoint with the virtual network and subnet you created in the last section and select **OK**. 
-
-    <!-- :::image type="content" source="media/cache-private-link/5-create-private-endpoint.png" alt-text="Create a private endpoint."::: -->
 
 1. Select the **Next: Advanced** tab or the **Next: Advanced** button on the bottom of the page.
 
@@ -111,7 +101,6 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
 
 1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence.
 
-    <!-- :::image type="content" source="media/cache-private-link/6-advanced.png" alt-text="Configure advanced Azure Cache for Redis instance settings."::: -->
 
 1. Select the **Next: Tags** tab or the **Next: Tags** button at the bottom of the page.
 
@@ -132,11 +121,7 @@ In this section, you'll add a Private Endpoint to an existing Azure Cache for Re
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and and select **Create a resource**.
 
-    <!-- :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Select Create a resource."::: -->
-
 2. On the **New** page, select **Networking** and then select **Virtual network**.
-
-    <!-- :::image type="content" source="media/cache-private-link/0-select-vnet.png" alt-text="Create a virtual net."::: -->
 
 3. Select **Add** to create a virtual network.
 
@@ -148,8 +133,8 @@ In this section, you'll add a Private Endpoint to an existing Azure Cache for Re
     | Subscription     | Drop down and select your subscription.                                  |
     | Resource Group   | Drop down and select a resource group. |
     | **Instance details** |                                                                 |
-    | Name             | Enter your virtual network name                                  |
-    | Region           | Select the region name |
+    | Name             | Enter your virtual network name.                                  |
+    | Region           | Select the region name. |
 
 5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -157,7 +142,7 @@ In this section, you'll add a Private Endpoint to an existing Azure Cache for Re
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter your IPv4 address space |
+    | IPv4 address space | Enter your IPv4 address space. |
 
 7. Under **Subnet name**, select the word **default**.
 
@@ -165,8 +150,8 @@ In this section, you'll add a Private Endpoint to an existing Azure Cache for Re
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Subnet name | Enter your subnet name |
-    | Subnet address range | Enter the subnet range**
+    | Subnet name | Enter your subnet name. |
+    | Subnet address range | Enter the subnet range. **
 
 9. Select **Save**.
 
@@ -179,19 +164,15 @@ In this section, you'll add a Private Endpoint to an existing Azure Cache for Re
 
 1. In the Azure Portal, search for **Azure Cache for Redis** and press enter or select it from the search suggestions.
 
-    :::image type="content" source="media/cache-private-link/8-search-for-cache.png" alt-text="Search for Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Search for Azure Cache for Redis.":::
 
 2. Select the cache instance you want to add a private endpoint to.
 
-    <!-- :::image type="content" source="media/cache-private-link/9-select-cache-instance.png" alt-text="Select cache instance."::: -->
-
 3. On the left side of the screen, select **(PREVIEW) Private Endpoint**.
-
-    <!-- :::image type="content" source="media/cache-private-link/10-select-private-endpoint.png" alt-text="Select private endpoint from list."::: -->
 
 4. Select the **Private Endpoint** button to create your private endpoint.
 
-    :::image type="content" source="media/cache-private-link/11-add-private-endpoint.png" alt-text="Add private endpoint.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Add private endpoint.":::
 
 5. On the **Create a private endpoint page**, configure the settings for your private endpoint.
 
@@ -209,19 +190,13 @@ In this section, you'll add a Private Endpoint to an existing Azure Cache for Re
 
 7. In the **Resource** tab, select your subscription, choose the resource type as `Microsoft.Cache/Redis`, and then select the cache you want to connect the private endpoint to.
 
-    <!-- :::image type="content" source="media/cache-private-link/12-resource-private-endpoint.png" alt-text="Resources for private link."::: -->
-
 8. Select the **Next: Configuration** button at the bottom of the page.
 
 9. In the **Configuration** tab, select the virtual network and subnet you created in the previous section.
 
-    <!-- :::image type="content" source="media/cache-private-link/13-configuration-private-endpoint.png" alt-text="Configuration for private link."::: -->
-
 10. Select the **Next: Tags** button at the bottom of the page.
 
 11. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
-
-    <!-- :::image type="content" source="media/cache-private-link/14-tags-private-endpoint.png" alt-text="Tags for private link."::: -->
 
 12. Select **Review + create**. You're taken to the **Review + create** tab where Azure validates your configuration.
 
