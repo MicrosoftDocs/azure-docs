@@ -179,7 +179,7 @@ For more information, see the [Node.js Developer Center].
 [Azure Websites, Cloud Services and Virtual Machines comparison]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [using a lightweight web app]: ../app-service/quickstart-nodejs.md
 [Azure Powershell]: /powershell/azure/
-[Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
+[Azure SDK for .NET 3.0]: https://www.microsoft.com/download/details.aspx?id=54917
 [Connect PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
