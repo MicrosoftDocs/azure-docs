@@ -27,7 +27,9 @@ Complete the following steps before you add a machine learning model as a functi
 
 ## Add a machine learning model to your job
 
-You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal.
+You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal or Visual Studio Code.
+
+#### Azure portal
 
 1. Navigate to your Stream Analytics job in the Azure portal, and select **Functions** under **Job topology**. Then, select **Azure ML Service** from the **+ Add** dropdown menu.
 
@@ -36,6 +38,20 @@ You can add Azure Machine Learning functions to your Stream Analytics job direct
 2. Fill in the **Azure Machine Learning Service function** form with the following property values:
 
    ![Configure Azure ML UDF](./media/machine-learning-udf/configure-azureml-udf.png)
+
+### Visual Studio Code
+
+1. Open your Stream Analytics project in Visual Studio Code and right-click the **Functions** folder. Then, choose **Add Function**. Select **Machine Learning UDF** from the dropdown list.
+
+   :::image type="content" source="media/machine-learning-udf/vs-code-ml-udf-add-function.png" alt-text="Add UDF in VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/vs-code-ml-udf-add-function2.png" alt-text="Add Azure ML UDF in VS Code":::
+
+2. Enter the function name and and fill in the settings in the configuration file by using **Select from your subscriptions** in CodeLens.
+
+   :::image type="content" source="media/machine-learning-udf/vs-code-ml-udf-function-name.png" alt-text="Select Azure ML UDF in VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/vs-code-ml-udf-configure-settings.png" alt-text="Configure Azure ML UDF in VS Code":::
 
 The following table describes each property of Azure ML Service functions in Stream Analytics.
 
@@ -162,4 +178,3 @@ To prevent such latency, ensure that your Azure Kubernetes Service (AKS) cluster
 
 * [Tutorial: Azure Stream Analytics JavaScript user-defined functions](stream-analytics-javascript-user-defined-functions.md)
 * [Scale your Stream Analytics job with Azure Machine Learning Studio (classic) function](stream-analytics-scale-with-machine-learning-functions.md)
-
