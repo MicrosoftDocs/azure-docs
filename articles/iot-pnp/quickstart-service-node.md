@@ -20,7 +20,7 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -40,6 +40,8 @@ git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
 
 ## Run the sample device
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
 In this quickstart, you can use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. To run the sample device:
 
 1. Open a terminal window and navigate to the local folder that contains the Microsoft Azure IoT SDK for Node.js repository you cloned from GitHub.
@@ -48,12 +50,6 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 
     ```cmd/sh
     npm install
-    ```
-
-1. Configure the _device connection string_:
-
-    ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Run the sample thermostat device with the following command:
@@ -65,6 +61,11 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 1. You see messages saying that the device has sent some information and reported itself online. These messages indicate that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you need it to confirm the service sample is working.
 
 ## Run the sample solution
+
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
+
+* **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
+* ***IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device you just set up.
 
@@ -78,13 +79,6 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
     ```cmd/sh
     npm install
-    ```
-
-1. Configure environment variables for your device ID and _IoT Hub connection string_:
-
-    ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
-    set IOTHUB_DEVICE_ID=<Your device ID>
     ```
 
 ### Read a property
