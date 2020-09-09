@@ -38,6 +38,12 @@ landingContent:
             url: quickstart-create-server-database-portal.md
           - text: Create a server using Azure CLI
             url: quickstart-create-server-database-azure-cli.md
+      - linkListType: concept
+        links:
+          - text: Server concepts
+            url: concepts-servers.md
+          - text: Limits
+            url: concepts-limits.md
       - linkListType: tutorial
         links:
           - text: Design a Database on Single Server
@@ -57,18 +63,21 @@ landingContent:
       - linkListType: concept
         links:
           - text: Server concepts
-            url: flexible-server/concept-servers.md
+            url: flexible-server/concepts-servers.md
           - text: Understand compute and storage
             url: flexible-server/concepts-compute-storage.md
           - text: Limitations
-            url: flexible-server/concepts-limitations.md
+            url: flexible-server/concepts-limits.md
       - linkListType: quickstart
         links:
           - text: Create a server using Portal
             url: flexible-server/quickstart-create-server-portal.md
-          - text: Create a server using CLI
-            url: flexible-server/quickstart-create-server-cli.md
-
+          - text: Create a server using ARM Template
+            url: flexible-server/quickstart-create-server-arm-template.md
+      - linkListType: tutorial
+        links:
+          - text: Create App and database server in virtual network
+            url: flexible-server/tutorial-webapp-server-vnet.md
 # Card
   - title: Hyperscale (Citus) cluster
     linkLists:
