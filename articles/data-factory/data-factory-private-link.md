@@ -32,14 +32,12 @@ You can also install a self-hosted integration runtime on an on-premises machine
 
 Several communication channels are required between Azure Data Factory and the customer virtual network, as shown in the following table:
 
-
 | Domain | Port | Description |
 | ---------- | -------- | --------------- |
 | `pe-adf.azure.com` | 443 | A control plane, required by Data Factory authoring and monitoring. |
 | `*.{region}.datafactory.azure.net` | 443 | Required by the self-hosted integration runtime to connect to the Data Factory service. |
 | `*.servicebus.windows.net` | 443 | Required by the self-hosted integration runtime for interactive authoring. |
 | `download.microsoft.com` | 443 | Required by the self-hosted integration runtime for downloading the updates. |
-
 
 With the support of Private Link for Azure Data Factory, you can:
 * Create a private endpoint in your virtual network.

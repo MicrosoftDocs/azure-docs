@@ -226,7 +226,9 @@
         - name: Use Python SDK
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
           href: how-to-create-attach-compute-sdk.md
-
+        - name: Azure Kubernetes Service
+          displayName: AKS, inference
+          href: how-to-create-attach-kubernetes.md
     - name: Set up your environment
       items: 
         - name: Set up dev environments
@@ -315,6 +317,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Train with custom Docker image
+          href: how-to-train-with-custom-image.md
         - name: Track & monitor training
           items: 
             - name: Start, monitor or cancel runs
