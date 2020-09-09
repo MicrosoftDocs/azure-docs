@@ -140,7 +140,7 @@
     - name: Overview
       items:
         - name: What is Azure Arc enabled SQL Managed Instance
-          name: managed-instance-overview.md
+          href: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md
     - name: How-to
