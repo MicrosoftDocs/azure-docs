@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 # Security Control: Logging and Threat Protection
 
-Logging and threat detection focuses on the recommended practices related to enabling, collecting, and storing audit logs for Azure services. This includes the use of Azure services’ native threat detection capability or use Azure Monitor, and Azure Sentinel to build a custom threat detection capability using logs collected from different sources.
+Logging and threat detection focuses on the recommended practices related to enabling, collecting, and storing audit logs for Azure services. This includes the use of Azure services, native threat detection capability or use Azure Monitor, and Azure Sentinel to build a custom threat detection capability using logs collected from different sources.
 
 ## LT-1: Enable threat detection for Azure resources
 
