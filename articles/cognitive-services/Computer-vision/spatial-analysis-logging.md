@@ -34,7 +34,7 @@ xhost +
 
 ## Collecting System Health Telemetry with Telegraf
 
-Telegraf is open source and the image built by the Spatial Analysis team takes the following inputs sends them to Azure Monitor. The telegraf module can be built with desired custom Inputs and Outputs by the end user. The Telegraf module in Spatial Analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is open source and the image built by the Spatial Analysis team takes the following inputs sends them to Azure Monitor. The spatial-analysis-telegraf module can be built with desired custom Inputs and Outputs by the end user. The spatial-analysis-telegraf module in Spatial Analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
 1. Spatial Analysis Metrics
