@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train your first Azure ML model in Python"
+title: "Tutorial: Hello Azure"
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.date: 08/25/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Train your first ML model
+# Tutorial: Hello Azure
 
 The new tutorial goes here...
 
