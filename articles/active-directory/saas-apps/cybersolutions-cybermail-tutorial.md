@@ -55,8 +55,8 @@ To configure and test Azure AD SSO with CyberSolutions CYBERMAILΣ, complete the
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure CyberSolutions CYBERMAILΣ SSO](#configure-cybersolutions-cybermailσ-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create CyberSolutions CYBERMAILΣ test user](#create-cybersolutions-cybermailσ-test-user)** - to have a counterpart of B.Simon in CyberSolutions CYBERMAILΣ that is linked to the Azure AD representation of user.
+1. **[Configure CyberSolutions CYBERMAIL SSO](#configure-cybersolutions-cybermail-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create CyberSolutions CYBERMAIL test user](#create-cybersolutions-cybermail-test-user)** - to have a counterpart of B.Simon in CyberSolutions CYBERMAILΣ that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -117,11 +117,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure CyberSolutions CYBERMAILΣ SSO
+## Configure CyberSolutions CYBERMAIL SSO
 
 To configure single sign-on on **CyberSolutions CYBERMAILΣ** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CyberSolutions CYBERMAILΣ support team](mailto:tech@cybersolutions.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create CyberSolutions CYBERMAILΣ test user
+### Create CyberSolutions CYBERMAIL test user
 
 In this section, you create a user called Britta Simon in CyberSolutions CYBERMAILΣ. Work with [CyberSolutions CYBERMAILΣ support team](mailto:tech@cybersolutions.co.jp) to add the users in the CyberSolutions CYBERMAILΣ platform. Users must be created and activated before you use single sign-on.
 
