@@ -576,7 +576,7 @@ Take the netmon trace and analyze further.
 
 ### How to collect netmon trace
 
-1.	Download the Netmon Tools from [this website](https://www.microsoft.com/en-sg/download/details.aspx?id=4865), and install it on your Server Machine (whatever server having the issue) and Client (such as Self-hosted IR).
+1.	Download the Netmon Tools from [this website](https://cnet-downloads.com/network-monitor), and install it on your Server Machine (whatever server having the issue) and Client (such as Self-hosted IR).
 
 2.	Create a folder, for example, in the following path: *D:\netmon*. Make sure that it has enough space to save the log.
 
