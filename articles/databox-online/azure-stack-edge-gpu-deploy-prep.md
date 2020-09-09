@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/08/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -100,21 +100,17 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. If you see any issues, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
+2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. 
 
 3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
 
     ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Select device type. Under **Azure Stack Edge Pro Commercial**, choose **Azure Stack Edge Pro with GPU** and select **Sign up**. 
+4. Select device type. Under **Azure Stack Edge Pro Commercial**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or do not the see the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Create a resource 2](media/azure-stack-edge-gpu-deploy-prep/create-resource-2.png)
 
-5. A short form is displayed. Fill out the form and select **Submit**. Microsoft will enable your subscription.
-
-    ![Create a resource 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
-
-5. After the subscription is enabled, you should be able to able to proceed with the resource creation. In the **Select device type** blade, choose **Select**.
+5. In the **Select device type** blade, choose **Select**.
 
     ![Create a resource 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 

@@ -21,8 +21,8 @@ Azure Stack Edge Pro with GPU is a Hardware-as-a-service solution. Microsoft shi
 
 Here are the various scenarios where Azure Stack Edge Pro can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
-- **Inference with Azure Machine Learning** - With Azure Stack Edge, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro device, see 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inference with Azure Machine Learning** - With Azure Stack Edge Pro, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro device, see 
+[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
 
@@ -63,7 +63,7 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 
 * **Azure Stack Edge Pro local web UI** - Use the local web UI to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).
 
 ## Region availability
 
@@ -77,4 +77,4 @@ Azure Stack Edge Pro physical device, Azure resource, and target storage account
 
 - Review the [Azure Stack Edge Pro system requirements](azure-stack-edge-gpu-system-requirements.md).
 - Understand the [Azure Stack Edge Pro limits](azure-stack-edge-limits.md).
-- Deploy [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
+- Deploy [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.

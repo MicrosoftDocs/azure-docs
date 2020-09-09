@@ -85,13 +85,13 @@
         items:
         - name: Stateless app
           href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
-      - name: Via Azure Arc 
+      - name: Via Azure Arc (Preview)
         items:
         - name: Enable Arc on Kubernetes cluster
           href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
         - name: Deploy stateless app via GitOps
           href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md              
-    - name: Configure Azure Resource Manager
+    - name: Configure Azure Resource Manager (Preview)
       items:
       - name: Connect via Azure PowerShell
         href: azure-stack-edge-j-series-connect-resource-manager.md 
@@ -164,6 +164,8 @@
   
   - name: Release notes
     items:
+    - name: 2009 - Release notes
+      href: azure-stack-edge-gpu-2009-release-notes.md 
     - name: 2008 - Release notes
       href: azure-stack-edge-gpu-2008-release-notes.md 
 
