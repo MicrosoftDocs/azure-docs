@@ -1,7 +1,7 @@
 ---
-title: Connect to Azure storage services
+title: Connect to data in Azure storage services
 titleSuffix: Azure Machine Learning
-description: Learn how to create datastores and datasets to securely connect to Azure storage services during training 
+description: Create datastores and datasets to securely connect to data in Azure storage services with the studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
-ms.date: 09/22/2020
-ms.custom: how-to, seodec18, devx-track-python
+ms.date: 09/14/2020
+ms.custom: how-to
 
 # Customer intent: As low code experience data scientist, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
 ---
@@ -103,13 +103,11 @@ With datasets you can,
 
 * Keep a single copy of data in your storage.
 * Share data and collaborate with other users.
-* Seamlessly access data during model training without worrying about connection strings or data paths.
+* Seamlessly access data during model training without worrying about connection strings or data paths. Learn more about [training ML models with datasets](#train-with-datasets).
 * Leverage open source libraries for data exploration like pandas.
 * Create references to single or multiple files or public URLs with [FileDatasets](how-to-create-register-datasetsmd#filedataset).
-     
-    **OR**
-* Represent your data in a tabular format with [TabularDatasets](how-to-create-register-datasets.md#tabulardataset).
 
+* Represent your data in a tabular format with [TabularDatasets](how-to-create-register-datasets.md#tabulardataset).
 
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
@@ -127,8 +125,46 @@ To create a dataset in the studio:
 1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset.
     1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio).
 1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
-1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
+1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](#profile).
 1. Select **Create** to complete your dataset creation.
+
+<a name="profile"></a>
+
+### Data profile and preview
+
+After you create your dataset, view the profile and preview in the studio with the following steps. 
+
+1. Sign in at https://ml.azure.com.
+1. Select **Datasets** in the **Assets** section of the left pane.
+1. Select the name of the dataset you want to view. 
+1. Select the **Explore** tab. 
+1. Select the **Preview** or **Profile** tab. 
+
+![View dataset profile and preview](./media/how-to-connect-data-ui/dataset-preview-profile.gif)
+
+You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. 
+
+Specifically, Azure Machine Learning dataset's data profile includes:
+
+>[!NOTE]
+> Blank entries appear for features with irrelevant types.
+
+Statistic|Description
+------|------
+Feature| Name of the column that is being summarized.
+Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
+Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
+Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
+Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
+Max| Maximum value of the column. 
+Count| Total number of missing and non-missing entries in the column.
+Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
+Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data.
+Mean| Arithmetic mean or average of the column.
+Standard deviation| Measure of the amount of dispersion or variation of this column's data.
+Variance| Measure of how far spread out this column's data is from its average value. 
+Skewness| Measure of how different this column's data is from a normal distribution.
+Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
 
 ## Train with datasets
 
@@ -136,6 +172,6 @@ Use your datasets in your machine learning experiments for training ML models. [
 
 ## Next steps
 
+* See a step by step example of  [training with TabularDatasets and automated machine learning](tutorial-first-experiment-automated-ml.md).
 * [Train a model](how-to-train-ml-models.md)
-* Use automated machine learning to [train with TabularDatasets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 * For more dataset training examples, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
