@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/06/2020
 
 ---
 
@@ -189,7 +189,7 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 
 ## Does AKS store any customer data outside of the cluster's region?
 
-No. All data created in an AKS cluster is maintained within the cluster's region.
+The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
 <!-- LINKS - internal -->
 

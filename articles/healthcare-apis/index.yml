@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: matjazl
   ms.author: matjazl
-  ms.date: 08/06/2020
+  ms.date: 08/13/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure API for FHIR?
             url: overview.md
+          - text: What is Azure IoT Connector for FHIR (preview)?
+            url: overview.md#azure-iot-connector-for-fhir-preview
       - linkListType: quickstart
         links:
           - text: Deploy API Server for FHIR
@@ -42,6 +44,8 @@ landingContent:
             url: access-fhir-postman-tutorial.md
           - text: SMART integration for third-party apps & medical records
             url: use-smart-on-fhir-proxy.md
+          - text: Receive device data through Azure IoT Hub
+            url: device-data-through-iot-hub.md
 
   - title: Register apps for AD authentication
     linkLists:

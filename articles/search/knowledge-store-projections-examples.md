@@ -202,7 +202,7 @@ Projecting to tables in Azure Storage is useful for reporting and analysis using
 Let's build a dashboard to visualize the key phrases extracted from documents as a word cloud. To create the right data structure, add a Shaper skill to the skillset to create a custom shape that has the document-specific details and key phrases. The custom shape will be called `pbiShape` on the `document` root node.
 
 > [!NOTE] 
-> Table projections are Azure Storage tables, governed by the storage limits imposed by Azure Storage. For more information, see [table storage limits](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.
+> Table projections are Azure Storage tables, governed by the storage limits imposed by Azure Storage. For more information, see [table storage limits](/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.
 
 ### Using a Shaper skill to create a custom shape
 
@@ -673,4 +673,3 @@ For an overview on projections, learn more about capabilities like groups and sl
 
 > [!div class="nextstepaction"]
 > [Projections in a knowledge store](knowledge-store-projection-overview.md)
-

@@ -31,14 +31,12 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ---
 
-# [Option 1 (default): Create a public load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. 
-
-You can create a public load balancer or an internal load balancer. 
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
 
@@ -225,6 +223,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Username | Enter a username |
     | Password | Enter a password |
     | Confirm password | Reenter password |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None** |
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
@@ -310,14 +310,12 @@ For more information on outbound connections, see [Outbound connections in Azure
 
 8. Select **Save**.
 
-# [Option 2: Create a public load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
+# [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. 
-
-You can create a public load balancer or an internal load balancer. 
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
 

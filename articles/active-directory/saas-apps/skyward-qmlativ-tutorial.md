@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Skyward Qmlativ | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Skyward Qmlativ.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f51ad077-b5d2-49b3-8d24-2e0c8708394a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Skyward Qmlativ
 

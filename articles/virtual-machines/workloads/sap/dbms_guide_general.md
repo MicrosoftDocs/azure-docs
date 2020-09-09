@@ -109,10 +109,7 @@ In general, the Windows, Linux, and DBMS installation and configuration are esse
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Storage structure of a VM for RDBMS deployments
 To follow this chapter, read and understand the information presented in [this chapter][deployment-guide-3] of the [Deployment Guide][deployment-guide]. You need to understand and know about the different VM-Series and the differences between standard and premium storage before you read this chapter. 
 
-To learn about Azure Storage for Azure VMs, see:
-
-- [Introduction to managed disks for Azure Windows VMs](../../windows/managed-disks-overview.md).
-- [Introduction to managed disks for Azure Linux VMs](../../linux/managed-disks-overview.md).
+To learn about Azure Storage for Azure VMs, see [Introduction to managed disks for Azure VMs](../../managed-disks-overview.md).
 
 In a basic configuration, we usually recommend a deployment structure where the operating system, DBMS, and eventual SAP binaries are separate from the database files. We recommend that SAP systems that run in Azure virtual machines have the base VHD, or disk, installed with the operating system, database management system executables, and SAP executables. 
 
@@ -219,7 +216,7 @@ For premium storage, the following caching options exist:
 
 For premium storage, we recommend that you use **Read caching for data files** of the SAP database and choose **No caching for the disks of log file(s)**.
 
-For M-Series deployments, we recommend that you use Azure Write Accelerator for your DBMS deployment. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../windows/how-to-enable-write-accelerator.md).
+For M-Series deployments, we recommend that you use Azure Write Accelerator for your DBMS deployment. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 
 ### Azure nonpersistent disks

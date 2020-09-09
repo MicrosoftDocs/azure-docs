@@ -24,7 +24,7 @@ Support for AMQP 1.0 in Azure Service Bus means that you can use the queuing and
 This guide assumes that you already have a Service Bus namespace containing a queue named `basicqueue`. If you don't, then you can [create the namespace and queue](service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
-> Partitioned queues and topics also support AMQP. For more information, see [Partitioned messaging entities](service-bus-partitioning.md) and [AMQP 1.0 support for Service Bus partitioned queues and topics](service-bus-partitioned-queues-and-topics-amqp-overview.md).
+> Partitioned queues and topics also support AMQP. For more information, see [Partitioned messaging entities](service-bus-partitioning.md) and [AMQP 1.0 support for Service Bus partitioned queues and topics](./service-bus-amqp-protocol-guide.md).
 > 
 > 
 
@@ -376,7 +376,7 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 
 ## Next steps
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
-* [How to use AMQP 1.0 with the Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
+* [How to use AMQP 1.0 with the Service Bus .NET API](./service-bus-amqp-dotnet.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Java Developer Center](https://azure.microsoft.com/develop/java/)

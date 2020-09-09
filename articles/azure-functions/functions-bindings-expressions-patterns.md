@@ -4,6 +4,7 @@ description: Learn to create different Azure Functions binding expressions based
 author: craigshoemaker
 
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ---

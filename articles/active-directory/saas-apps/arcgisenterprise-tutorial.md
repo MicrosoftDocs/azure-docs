@@ -1,23 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with ArcGIS Enterprise | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ArcGIS Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ArcGIS Enterprise
 
@@ -44,8 +37,6 @@ To configure Azure AD integration with ArcGIS Enterprise, you need the following
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
-
-
 
 * ArcGIS Enterprise supports **SP and IDP** initiated SSO
 * ArcGIS Enterprise supports **Just In Time** user provisioning
@@ -131,21 +122,30 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 ### Configure ArcGIS Enterprise Single Sign-On
 
-1. In a different web browser window, log in to your ArcGIS Enterprise company site as an administrator.
+1. To automate the configuration within ArcGIS Enterprise, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Select **Organization >EDIT SETTINGS**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up ArcGIS Enterprise** will direct you to the ArcGIS Enterprise application. From there, provide the admin credentials to sign into ArcGIS Enterprise. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup ArcGIS Enterprise manually, log in to your ArcGIS Enterprise company site as an administrator.
+
+
+1. Select **Organization >EDIT SETTINGS**.
 
 	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure1.png)
 
-3. Select **Security** tab.
+1. Select **Security** tab.
 
 	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure2.png)
 
-4. Scroll down to the **Enterprise Logins via SAML** section and select **SET ENTERPRISE LOGIN**.
+1. Scroll down to the **Enterprise Logins via SAML** section and select **SET ENTERPRISE LOGIN**.
 
 	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure3.png)
 
-5. On the **Set Identity Provider** section, perform the following steps:
+1. On the **Set Identity Provider** section, perform the following steps:
 
 	![ArcGIS Enterprise Configuration](./media/arcgisenterprise-tutorial/configure4.png)
 

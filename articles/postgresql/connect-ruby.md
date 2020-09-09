@@ -1,5 +1,5 @@
 ---
-title: Connect with Ruby - Azure Database for PostgreSQL - Single Server
+title: 'Quickstart: Connect with Ruby - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a Ruby code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
@@ -10,7 +10,8 @@ ms.topic: quickstart
 ms.date: 5/6/2019
 ---
 
-# Azure Database for PostgreSQL - Single Server: Use Ruby to connect and query data
+# Quickstart: Use Ruby to connect and query data in Azure Database for PostgreSQL - Single Server
+
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a [Ruby](https://www.ruby-lang.org) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Ruby, and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites

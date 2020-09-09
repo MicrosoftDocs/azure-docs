@@ -30,7 +30,7 @@ To achieve hybrid identity with Azure AD, one of three authentication methods ca
 
 These authentication methods also provide [single-sign on](how-to-connect-sso.md) capabilities.  Single-sign on automatically signs your users in when they are on their corporate devices, connected to your corporate network.
 
-For additional information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
+For additional information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](./choose-ad-authn.md). 
 
 ## Common scenarios and recommendations 
 
@@ -54,7 +54,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 > 
 > <sup>3</sup> Federated single sign-on with AD FS.  
 >  
-> <sup>4</sup> AD FS can be integrated with your enterprise PKI to allow sign-in using certificates. These certificates can be soft-certificates deployed via trusted provisioning channels such as MDM or GPO or smartcard certificates (including PIV/CAC cards) or Hello for Business (cert-trust). For more information about smartcard authentication support, see [this blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
+> <sup>4</sup> AD FS can be integrated with your enterprise PKI to allow sign-in using certificates. These certificates can be soft-certificates deployed via trusted provisioning channels such as MDM or GPO or smartcard certificates (including PIV/CAC cards) or Hello for Business (cert-trust). For more information about smartcard authentication support, see [this blog](/archive/blogs/samueld/adfs-certauth-aad-o365). 
 > 
 
 ## License requirements for using Azure AD Connect
@@ -67,5 +67,4 @@ Here are some common hybrid identity and access management scenarios with recomm
 - [What is password hash synchronization (PHS)?](whatis-phs.md) 
 - [What is pass-through authentication (PTA)?](how-to-connect-pta.md) 
 - [What is federation?](whatis-fed.md) 
-- [What is single-sign on?](how-to-connect-sso.md) 
-
+- [What is single-sign on?](how-to-connect-sso.md)

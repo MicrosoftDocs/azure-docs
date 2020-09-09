@@ -9,13 +9,13 @@ author: mingshen-ms
 ms.author: mingshen
 ---
 
-# SaaS fulfillment APIs version 2 in Microsoft commercial marketplace
+# SaaS fulfillment APIs version 2 in the commercial marketplace
 
 This article details the APIs that enable partners to sell their SaaS offers in Microsoft AppSource and Azure Marketplace. A publisher is required to implement integration with these APIs to publish a transactable SaaS offer in Partner Center.
 
 ## Managing the SaaS subscription life cycle
 
-Azure Marketplace manages the entire life cycle of a SaaS subscription following its purchase by the end customer.  It uses the Landing page, Fulfillment APIs, Operations APIs and the webhook as a mechanism to drive the actual SaaS subscription activation and usage, updates, and subscription's cancellation.  The end customer's bill is based on the state of the SaaS subscription that Microsoft maintains. 
+The commercial marketplace manages the entire life cycle of a SaaS subscription following its purchase by the end customer.  It uses the Landing page, Fulfillment APIs, Operations APIs and the webhook as a mechanism to drive the actual SaaS subscription activation and usage, updates, and subscription's cancellation.  The end customer's bill is based on the state of the SaaS subscription that Microsoft maintains. 
 
 ### States of a SaaS subscription
 
@@ -30,7 +30,7 @@ After an end customer (or CSP) purchases a SaaS offer in the marketplace, the pu
 For account creation to happen:
 
 1. The customer needs to click on the **Configure** button that is available for a SaaS offer after its successful purchase in Microsoft AppSource or Azure portal. Or in the email that the customer will receive shortly after the purchase.
-2. Then Microsoft notifies the partner about the purchase by opening in the new browser tab the landing page URL with the token parameter (the marketplace purchase identification token).
+2. Then Microsoft notifies the partner about the purchase by opening in the new browser tab the landing page URL with the token parameter (the commercial marketplace purchase identification token).
 
 An example of such call is `https://contoso.com/signup?token=<blob>`, whereas the Landing page URL for this SaaS offer in Partner Center is configured as `https://contoso.com/signup`. This token provides the publisher with an ID that uniquely identifies the SaaS purchase and the customer.
 
@@ -41,12 +41,12 @@ The landing page url must be up and running 24x7, and ready to receive new calls
 
 Then, the *token* must be passed back to Microsoft from the publisher by calling the [SaaS Resolve API](#resolve-a-purchased-subscription), as the value of the `x-ms-marketplace-token header` header parameter.  As the result of the Resolve API call, the token is exchanged for the details of the SaaS purchase such as unique ID of the purchase, purchased offer ID, purchased plan ID, etc.
 
-On the landing page, the customer should be logged on to the new or existing SaaS account via Azure Active Directory (AAD) Single Sign On (SSO).
+On the landing page, the customer should be logged on to the new or existing SaaS account via Azure Active Directory (Azure AD) Single Sign On (SSO).
 
 The publisher should implement SSO log in to provide the user experience required by Microsoft for this flow.  Make sure to use multi-tenant Azure AD application, allow both work and school accounts or personal Microsoft accounts, when configuring the SSO.  This requirement only applies to the landing page, and for users who are redirected to the SaaS service when already logged in with Microsoft credentials. It doesn't apply to all logins to the SaaS service.
 
 > [!NOTE]
->If SSO log in requires that an admin grant permission to an app, the description of the offer in Partner Center must disclose that admin-level access is required. This is to comply with [Marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>If SSO log in requires that an admin grant permission to an app, the description of the offer in Partner Center must disclose that admin-level access is required. This is to comply with [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
 
 Once logged in, the customer should complete the SaaS configuration on the publisher side. Then the publisher must call [Activate Subscription API](#activate-a-subscription) to send a signal to Marketplace that the provisioning of the SaaS account is complete.
 This will start the customer's billing cycle. If the Activate Subscription API call is not successful, the customer is not billed for the purchase.
@@ -62,18 +62,18 @@ When the SaaS subscription is already active, and the customer chooses to launch
 
 #### Being updated (Subscribed)
 
-This action means that an update to an existing active SaaS subscription is been processed by both Microsoft and the publisher. Such an update can be initiated by
+This action means that an update to an existing active SaaS subscription is been processed by both Microsoft and the publisher. Such an update can be initiated by:
 
-* the customer from the marketplace
-* the CSP from the marketplace
-* the customer from the publisher's SaaS site (doesn't apply to CSP made purchases)
+- the customer from the commercial marketplace.
+- the CSP from the commercial marketplace.
+- the customer from the publisher's SaaS site (doesn't apply to CSP made purchases).
 
 Two types of updates are available for a SaaS subscription:
 
-1. Update plan when the customer chooses another plan for the subscription.
-1. Update quantity when the customer changes the number of purchased seats for the subscription
+- Update plan when the customer chooses another plan for the subscription.
+- Update quantity when the customer changes the number of purchased seats for the subscription
 
-Only an active subscription can be updated. While the subscription is being updated, its state remains Active on Microsoft side.
+Only an active subscription can be updated. While the subscription is being updated, its state remains Active on the Microsoft side.
 
 ##### Update initiated from the marketplace
 
@@ -124,19 +124,19 @@ This action indicates the customer's payment instrument became valid again, and 
 1. The publisher makes sure this subscription is fully operational again on the publisher side.
 1. The publisher calls the [Patch Operation API](#update-the-status-of-an-operation) with success status.  
 1. Then the Reinstate will be successful and the customer will be billed again for the SaaS subscription. 
-1. If the Patch is sent with fail status, the reinstatement process will not be completed on Microsoft side. The subscription will remain Suspended.
+1. If the patch is sent with fail status, the reinstatement process will not be completed on Microsoft side. The subscription will remain Suspended.
 
-If the Patch is sent with fail status, the reinstatement process will not be completed on Microsoft side.  The subscription will remain Suspended.
+If the patch is sent with fail status, the reinstatement process will not be completed on Microsoft side.  The subscription will remain Suspended.
 
-Only a Suspended subscription can be reinstated.  While a SaaS subscription is being reinstated, its state remains Suspended.  Once this operation is completed, the subscription's status will become Active.
+Only a suspended subscription can be reinstated.  While a SaaS subscription is being reinstated, its state remains Suspended.  Once this operation is completed, the subscription's status will become Active.
 
 #### Renewed (*Subscribed*)
 
-At the end of subscription term (after a month or a year), the SaaS subscription is being automatically renewed by Microsoft.  The default for auto renewal setting is *true* for all SaaS subscriptions. Active SaaS subscriptions will continue to be renewed with regular cadence. Microsoft does not notify the publisher when a subscription is being renewed. A customer can turn off automatic renewal for a SaaS subscription via the M365 Admin Portal or via Azure portal.  In this case, the SaaS subscription will be automatically canceled at the end of the current billing term.  Customers can also cancel the SaaS subscription at any point in time.
+At the end of subscription term (after a month or a year), the SaaS subscription is being automatically renewed by Microsoft.  The default for auto-renewal setting is *true* for all SaaS subscriptions. Active SaaS subscriptions will continue to be renewed with regular cadence. Microsoft does not notify the publisher when a subscription is being renewed. A customer can turn off automatic renewal for a SaaS subscription via the M365 Admin Portal or via Azure portal.  In this case, the SaaS subscription will be automatically canceled at the end of the current billing term.  Customers can also cancel the SaaS subscription at any point in time.
 
 Only active subscriptions are automatically renewed.  Subscriptions stay active during the renewal process, and if automatic renewal succeeds.  After renewal, the start and end dates of the subscription term will be updated to new term's dates.
 
-If an auto renew fails because of an issue with payment, the subscription will become Suspended.  The publisher will be notified.
+If an auto-renew fails because of an issue with payment, the subscription will become Suspended.  The publisher will be notified.
 
 #### Canceled (*Unsubscribed*) 
 
@@ -1019,6 +1019,6 @@ See [Support for the commercial marketplace program in Partner Center](support.m
 
 ## Next steps
 
-See Marketplace [metering service APIs](marketplace-metering-service-apis.md) for more options for SaaS offers in marketplace.
+See the [commercial marketplace metering service APIs](marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
 
-Review and use [SaaS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) built on top of the APIs described in this document.
+Review and use the [SaaS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) built on top of the APIs described in this document.

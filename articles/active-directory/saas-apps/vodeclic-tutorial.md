@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Vodeclic | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Vodeclic.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Vodeclic
 

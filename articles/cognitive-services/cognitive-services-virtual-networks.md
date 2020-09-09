@@ -35,10 +35,9 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 
 ## Supported regions and service offerings
 
-The Cognitive Services listed below support virtual networks in Commercial Cloud and US Gov Cloud. If the service isn't listed here, it doesn't support virtual networks yet.
+Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). If the Cognitive Service isn't listed, it doesn't currently support virtual networks.
 
 > [!div class="checklist"]
-
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -50,12 +49,13 @@ The Cognitive Services listed below support virtual networks in Commercial Cloud
 > * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Immersive Reader](./immersive-reader/index.yml)
 
 ## Service Tags
 
 Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -68,6 +68,7 @@ Cognitive Services supports service tags for network rules configuration. The se
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Translator](./translator/index.yml)
 > * [Speech Service](./speech-service/index.yml)
+> * [Immersive Reader](./immersive-reader/index.yml)
 
 ## Change the default network access rule
 

@@ -38,7 +38,7 @@ This template is configured to create a:
 * Profile
 * Endpoint
 
-:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json" range="1-125" highlight="45-117":::
+:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json":::
 
 One Azure resource is defined in the template:
 

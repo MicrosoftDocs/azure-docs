@@ -9,6 +9,7 @@ ms.subservice: metadata
 ms.date: 05/01/2020 
 ms.author: mrys 
 ms.reviewer: jrasnick
+ms.custom: devx-track-csharp
 ---
 
 # Azure Synapse Analytics shared metadata tables

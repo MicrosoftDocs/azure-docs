@@ -4,16 +4,15 @@ description: 'This topic describes how to deal with delimited text format in Azu
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-
 ---
 
 # Delimited text format in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the delimited text files or write the data into delimited text format**. 
@@ -28,7 +27,7 @@ For a full list of sections and properties available for defining datasets, see 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | The type property of the dataset must be set to **DelimitedText**. | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`.  | Yes      |
-| columnDelimiter  | The character(s) used to separate columns in a file. <br>The default value is **comma  `,`**. When the column delimiter is defined as empty string which means no delimiter, the whole line is taken as a single column.<br>Currently, column delimiter as empty string or multi-char is only supported for mapping data flow but not Copy activity.  | No       |
+| columnDelimiter  | The character(s) used to separate columns in a file. <br>The default value is **comma  `,`**. When the column delimiter is defined as empty string, which means no delimiter, the whole line is taken as a single column.<br>Currently, column delimiter as empty string or multi-char is only supported for mapping data flow but not Copy activity.  | No       |
 | rowDelimiter     | The single character or "\r\n" used to separate rows in a file. <br>The default value is any of the following values **on read: ["\r\n", "\r",  "\n"]**, and **"\n" or “\r\n” on write** by mapping data flow and Copy activity respectively. <br>When the row delimiter is set to no delimiter (empty string), the column delimiter must be set as no delimiter (empty string) as well, which means to treat the entire content as a single value.<br>Currently, row delimiter as empty string is only supported for mapping data flow but not Copy activity. | No       |
 | quoteChar        | The single character to quote column values if it contains column delimiter. <br>The default value is **double quotes** `"`. <br>For mapping data flow, `quoteChar` cannot be an empty string. <br>For Copy activity, when `quoteChar` is defined as empty string, it means there is no quote char and column value is not quoted, and `escapeChar` is used to escape the column delimiter and itself. | No       |
 | escapeChar       | The single character to escape quotes inside a quoted value.<br>The default value is **backslash `\`**. <br>For mapping data flow, `escapeChar` cannot be an empty string. <br/>For Copy activity, when `escapeChar` is defined as empty string, the `quoteChar` must be set as empty string as well, in which case make sure all column values don’t contain delimiters. | No       |
@@ -87,7 +86,7 @@ Supported **delimited text read settings** under `formatSettings`:
 | type          | The type of formatSettings must be set to **DelimitedTextReadSettings**. | Yes      |
 | skipLineCount | Indicates the number of **non-empty** rows to skip when reading data from input files. <br>If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. | No       |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy. When set to true (default), Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`; when set to false, Data Factory writes unzipped files directly to `<path specified in dataset>`.  | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
 
 ```json
 "activities": [
@@ -132,7 +131,7 @@ Supported **delimited text write settings** under `formatSettings`:
 | Property      | Description                                                  | Required                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | The type of formatSettings must be set to **DelimitedTextWriteSettings**. | Yes                                                   |
-| fileExtension | The file extension used to name the output files, e.g. `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. When file name is configured in the output dataset, it will be used as the sink file name and the file extension setting will be ignored.  | Yes when file name is not specified in output dataset |
+| fileExtension | The file extension used to name the output files, for example, `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. When file name is configured in the output dataset, it will be used as the sink file name and the file extension setting will be ignored.  | Yes when file name is not specified in output dataset |
 
 ## Mapping data flow properties
 

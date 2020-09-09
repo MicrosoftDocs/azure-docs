@@ -27,7 +27,7 @@ In the [overview](./overview.md), you learned about what the Immersive Reader is
 > * Specify the language of the Immersive Reader interface
 > * Launch the Immersive Reader with math content
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
