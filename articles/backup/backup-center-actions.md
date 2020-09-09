@@ -34,7 +34,7 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
     ![Select datasource for backup](./media/backup-center-actions/backup-select-datasource-vm.png)
 
-3. Choose a Recovery Services vault and select **Proceed**. This leads you to the backup configuration experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how configure backup for Azure virtual machines with a Recovery Services vault](https://docs.microsoft.com/azure/backup/tutorial-backup-vm-at-scale).
+3. Choose a Recovery Services vault and select **Proceed**. This leads you to the backup configuration experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how configure backup for Azure virtual machines with a Recovery Services vault](tutorial-backup-vm-at-scale.md).
 
 ### Configure backup for Azure Database for Postgre SQL Server
 
@@ -43,7 +43,7 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
     ![Select datasource for backup](./media/backup-center-actions/backup-select-datasource-postgresql.png)
 
-3. Select **Proceed**. This leads you to the backup configuration experience that it identical to the one reachable from a Backup vault. [Learn more about how to configure backup for Azure Database for PostgreSQL Server with a Backup vault]().
+3. Select **Proceed**. This leads you to the backup configuration experience that it identical to the one reachable from a Backup vault. [Learn more about how to configure backup for Azure Database for PostgreSQL Server with a Backup vault](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).
 
 ## Restore a backup instance
 
@@ -59,7 +59,7 @@ Depending on the type of datasource you wish to restore, follow the appropriate 
 
     ![Select datasource for restore](./media/backup-center-actions/restore-select-datasource-vm.png)
 
-3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Virtual Machine with a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#before-you-start).
+3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Virtual Machine with a Recovery Services vault](backup-azure-arm-restore-vms.md#before-you-start).
 
 ### If you're restoring an Azure Database for Postgre SQL Server
 
@@ -68,7 +68,7 @@ Depending on the type of datasource you wish to restore, follow the appropriate 
 
     ![Select datasource for restore](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 
-3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Database for PostgreSQL Server with a Backup vault]().
+3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Database for PostgreSQL Server with a Backup vault](backup-azure-database-postgresql.md#restore).
 
 ## Create a new vault
 
@@ -76,8 +76,8 @@ You can create a new vault by navigating to Backup Center and selecting **+ Vaul
 
 ![Create vault](./media/backup-center-actions/backup-center-create-vault.png)
 
-* [Learn more about creating a Recovery services vault]()
-* [Learn more about creating a Backup vault](https://docs.microsoft.com/azure/backup/backup-create-rs-vault)
+* [Learn more about creating a Recovery services vault](backup-create-rs-vault.md)
+* [Learn more about creating a Backup vault](backup-vault-overview.md)
 
 ## Create a new backup policy
 
@@ -93,7 +93,7 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
     ![Select datasource for policy](./media/backup-center-actions/policy-select-datasource-vm.png)
 
-3. Choose a Recovery services vault and select **Proceed**. This leads you to the policy creation experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to create a new backup policy for Azure Virtual Machine with a Recovery services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#create-a-custom-policy).
+3. Choose a Recovery services vault and select **Proceed**. This leads you to the policy creation experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to create a new backup policy for Azure Virtual Machine with a Recovery services vault](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 ### If you're backing up an Azure Database for Postgre SQL Server
 
@@ -102,7 +102,7 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
     ![Select datasource for policy](./media/backup-center-actions/policy-select-datasource-postgresql.png)
 
-3. Select **Proceed**. This leads you to the policy creation experience that it identical to the one reachable from a Backup vault. [Learn more about how to create a new backup policy with a Backup vault]().
+3. Select **Proceed**. This leads you to the policy creation experience that it identical to the one reachable from a Backup vault. [Learn more about how to create a new backup policy with a Backup vault](backup-azure-database-postgresql.md#create-backup-policy).
 
 ## Execute an on-demand backup for a backup instance
 
@@ -112,9 +112,9 @@ To trigger an on-demand backup, navigate to Backup Center and select the **Backu
 
 ![On-demand backup](./media/backup-center-actions/backup-center-on-demand-backup.png)
 
-[Learn more about performing on-demand backups for Azure Virtual Machines](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#run-an-on-demand-backup).
+[Learn more about performing on-demand backups for Azure Virtual Machines](backup-azure-manage-vms.md#run-an-on-demand-backup).
 
-[Learn more about performing on-demand backups for Azure Database for PostgreSQL Server]().
+[Learn more about performing on-demand backups for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md#on-demand-backup).
 
 ## Stop backup for a backup instance
 
@@ -124,9 +124,9 @@ To trigger an on-demand backup, navigate to Backup Center and select the **Backu
 
 ![Stop protection](./media/backup-center-actions/backup-center-stop-protection.png)
 
-[Learn more about stopping backup for Azure Virtual Machines](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#stop-protecting-a-vm).
+[Learn more about stopping backup for Azure Virtual Machines](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
-[Learn more about stopping backup for Azure Database for PostgreSQL Server]().
+[Learn more about stopping backup for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md).
 
 ## Next Steps
 

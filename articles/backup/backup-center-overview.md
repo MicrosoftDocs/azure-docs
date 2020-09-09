@@ -11,9 +11,9 @@ Backup Center provides a **single unified management experience** in Azure for e
 
 Some of the key benefits of Backup Center include:
 
-* **Single pane of glass to manage backups** – You can use Backup Center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) tenants.
+* **Single pane of glass to manage backups** – Backup Center is designed to function well across a large and distributed Azure environment. You can use Backup Center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) tenants.
 * **Datasource-centric management** – Backup Center provides views and filters that are centered on the datasources that you're backing up (for example, VMs and databases). This allows a resource owner or a backup admin to monitor and operate backups of items without needing to focus on which vault an item is backed up to. A key feature of this design is the ability to filter views by datasource-specific properties, such as datasource subscription, datasource resource group, and datasource tags.
-* **Connected experiences** – Backup Center provides native integrations to existing Azure services that enable management at scale. For example, Backup Center uses the [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) experience to help you govern your backups. It also leverages [Azure workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) and [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) to help you view detailed reports on backups. So you don't need to learn any new principles to use the varied features that Backup Center offers.
+* **Connected experiences** – Backup Center provides native integrations to existing Azure services that enable management at scale. For example, Backup Center uses the [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) experience to help you govern your backups. It also leverages [Azure workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) and [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) to help you view detailed reports on backups. So you don't need to learn any new principles to use the varied features that Backup Center offers. For example, if your organization follows the practice of assigning different tags to VMs belonging to different departments, you can use Backup Center to filter backup information based on the tags of the underlying VMs being backed up without needing to focus on the tag of the vault.
 
 ## Supported scenarios
 
@@ -30,9 +30,9 @@ The first screen that you see is the **Overview**. It contains two tiles – **J
 
 ![Backup Center tiles](./media/backup-center-overview/backup-center-overview-widgets.png)
 
-In the **Jobs** tile, you get a summarized view of all backup and restore related jobs that were triggered across your backup estate in the last 24 hours. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
+In the **Jobs** tile, you get a summarized view of all backup and restore related jobs that were triggered across your backup estate in the last 24 hours. You can view information on the number of jobs that have completed, failed, and are in-progress. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
-In the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state.
+In the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. For example, you can see the number of backup instances that are in soft-deleted state compared to the number of instances that are still configured for protection. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state.
 
 Follow the steps below to understand the different capabilities that Backup Center provides, and how you can use these capabilities to manage your backup estate efficiently.
 

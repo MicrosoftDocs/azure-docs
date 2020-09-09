@@ -29,7 +29,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
    - We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
    - If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
-   - Learn more about [geo](../storage/common/#geo-redundant-storage and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
+   - Learn more about [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
    - If you need data availability without downtime in a region, guaranteeing data residency, then choose [zone-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
@@ -37,7 +37,15 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 ## Set Cross Region Restore
 
-The restore option **Cross Region Restore (CRR)** allows you to restore Azure VMs, or SQL and SAP HANA databases hosted on Azure VMs, in a secondary, [Azure paired region](../best-practices-availability-paired-regions.md). This option allows you to:
+The restore option **Cross Region Restore (CRR)** allows you to restore data in a secondary, [Azure paired region](../best-practices-availability-paired-regions.md).
+
+It supports the following datasources:
+
+- Azure VMs
+- SQL databases hosted on Azure VMs
+- SAP HANA databases hosted on Azure VMs
+
+Using Cross Region Restore allows you to:
 
 - conduct drills when there's an audit or compliance requirement
 - restore the data if there's a disaster in the primary region

@@ -35,7 +35,7 @@ Selecting the **Backup Instances** tab in Backup Center lets you view details of
 * Datasource location
 * Datasource type
 * Vault
-* Protection S=status
+* Protection status
 * Datasource tags
 
 Right-clicking on any of the items in the grid lets you perform actions on the given backup instance, such as navigating to the resource, triggering on-demand backups and restores, or stopping backup.
@@ -52,10 +52,10 @@ Selecting the **Backup jobs** menu item in Backup Center provides a view of all 
 * Datasource subscription
 * Datasource resource group
 * Datasource location
-* Job Operation
-* Job Status
-* Job Start time
-* Job Duration
+* Job operation
+* Job status
+* Job start time
+* Job duration
 
 Selecting an item in the grid allows you to view more details about the given job. Right-clicking on an item helps you navigate to the resource to take necessary action.
 
