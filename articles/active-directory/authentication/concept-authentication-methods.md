@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/09/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -27,13 +27,33 @@ Passwordless authentication methods such as Windows Hello, FIDO2 security keys, 
 
 Azure Multi-Factor Authentication adds additional security over only using a password when a user signs in. The user can be prompted for additional forms of authentication, such as to respond to a push notification, enter a code from a software or hardware token, or respond to an SMS or phone call.
 
-Many accounts in Azure AD are also enabled for self-service password reset (SSPR). Again, when a user tries to reset their password, they're prompted for an additional form of verification.
+To simplify the user on-boarding experience and register for both MFA and SSPR, we recommend you [enable combined security information registration](howto-registration-mfa-sspr-combined.md). For resiliency, we recommend that you require users to register multiple authentication methods. When one method isn't available for a user during sign-in or SSPR, they can choose to authenticate with another method.
 
-It's recommended that you require users to register multiple authentication methods. When one method isn't available for a user during sign-in or SSPR, they can choose to authenticate with another method.
+## Authentication method strength and security
 
-To simplify the user on-boarding experience and register for both MFA and SSPR, you can use [enable combined security information registration](howto-registration-mfa-sspr-combined.md).
+When you deploy features like Azure Multi-Factor Authentication in your organization, review the available authentication methods. Choose the methods that meet or exceed your requirements in terms of security, usability, and availability. Where possible, use authentication methods with the highest level of security.
 
-## Available authentication methods
+The following table outlines the security considerations for the available authentication methods:
+
+| Authentication method       | Authentication level | Security | Usability | Phisable? | Channel jackable? | Availability |
+|-----------------------------|----------------------|----------|-----------|-----------|-------------------|--------------|
+| FIDO2 security key          | Passwordless         | High     | High      | No        | No                | High         |
+| Microsoft Authenticator app | Passwordless or MFA <sup>1</sup>  | High     | High      | Yes       | No <sup>2</sup>     | High         |
+| Windows Hello for Business  | Passwordless         | High     | High      | No        | No                | High         |
+| Hardware OATH tokens        | MFA <sup>1</sup>     | Medium   | Medium    | Yes       | No                | High         |
+| Software OATH tokens        | MFA <sup>1</sup>     | Medium   | Medium    | Yes       | No <sup>3</sup>   | High         |
+| SMS                         | MFA <sup>1</sup>     | Medium   | High      | Yes       | Yes               | Medium       |
+| Voice                       | MFA <sup>1</sup>     | Medium   | Medium    | Yes       | Yes               | Medium       |
+| Password                    | Password             | Low      | High      | Yes       | Yes               | High         |
+
+<sup>1</sup> When used with a password<br />
+<sup>2</sup> In passwordless mode, when the app is registered to a specific device<br />
+<sup>3</sup> Assuming the app requires a device PIN to unlock
+
+> [!TIP]
+> For the best of usability and availability, we recommend that you use the Microsoft Authenticator app. This authentication method provides the best user experience and multiple modes, such as passwordless, MFA push notifications, and OATH codes.
+
+## How each authentication method works
 
 Some authentication methods can be used as the primary factor when you sign in to an application or device, such as using a FIDO2 security key or a password. Other authentication methods are only available as a secondary factor when you use Azure Multi-Factor Authentication or SSPR.
 
@@ -52,21 +72,6 @@ The following table outlines when an authentication method can be used during a 
 
 All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
-Each authentication method has different levels of security and convenience. Where possible, use authentication methods with the highest level of security. The following table outlines the security considerations for the available authentication methods:
-
-| Authentication method | Security | Convenience | Phisable? | Channel jackable? | Availability |
-|---------|---------|---------|---------|---------|---------|---------|
-| FIDO2 security key | High | High | No | No | High |
-| Microsoft Authenticator app | High | High | Yes | No  | High |
-| Windows Hello for Business | High | High | No | No | High |
-| Hardware OATH tokens | Medium | Medium | Yes | No | High |
-| Software OATH tokens | Medium | Medium | Yes | No | High |
-| SMS | Medium | High | Yes | Yes | Medium |
-| Voice | Medium | Medium | Yes | Yes | Medium |
-| Password | Low | High | Yes | Yes | High |
-
-## How each authentication method works
-
 To learn more about how each authentication method works, see the following separate conceptual articles:
 
 * [FIDO2 security keys (preview)](concept-authentication-passwordless.md#fido2-security-keys)
@@ -78,34 +83,14 @@ To learn more about how each authentication method works, see the following sepa
 * [Voice call](concept-authentication-phone-options.md)
 * Password
 
-In Azure AD, a password is often one of the primary authentication methods. You can't disable the password authentication method. Increase the security of sign-in events using Azure Multi-Factor Authentication.
+> [!NOTE]
+> In Azure AD, a password is often one of the primary authentication methods. You can't disable the password authentication method. Increase the security of sign-in events using Azure Multi-Factor Authentication.
 
-Even if you use an authentication method such as [SMS-based sign-in](howto-authentication-sms-signin.md) when the user doesn't use their password to sign, a password remains as an available authentication method.
+The following additional verification methods can be used in certain scenarios:
 
-If you have old applications and configure per-user Azure Multi-Factor Authentication, you can secure sign-in events using [app passwords](#app-passwords).
-
-For SSPR, the following methods can also be used to confirm your identity:
-
-* [Security questions](concept-authentication-security-questions.md)
-* [Email address](#email-address)
-
-### App passwords
-
-Certain older, non-browser apps don't understand pauses or breaks in the authentication process. If a user is enabled for multi-factor authentication and attempts to use one of these older, non-browser apps, they usually can't successfully authenticate. An app password allows users to continue to successfully authenticate with older, non-browser apps without interruption.
-
-By default, users can't create app passwords. If you need to allow users to create app passwords, select the **Allow users to create app passwords to sign into non-browser apps** under *Service settings* for user's Azure Multi-Factor Authentication properties.
-
-![Screenshot of the Azure portal that shows the service settings for multi-factor authentication to allow the user of app passwords](media/concept-authentication-methods/app-password-authentication-method.png)
-
-If you enforce Azure Multi-Factor Authentication using Conditional Access policies and not through per-user MFA, you can't create app passwords. Modern applications that use Conditional Access policies to control access don't need app passwords.
-
-For more information, see [Enable and use Azure Multi-Factor Authentication with legacy applications using app passwords](howto-mfa-app-passwords.md).
-
-### Email address
-
-An email address can't be used as a direct authentication method. Email address is only available as a verification option for self-service password reset (SSPR). When email address is selected during SSPR, an email is sent to the user to complete the authentication / verification process.
-
-During registration for SSPR, a user provides the email address to use. It's recommended that they use a different email account than their corporate account to make sure they can access it during SSPR.
+* [App passwords](howto-mfa-app-passwords.md) - used for old applications that don't support modern authentication and can be configured for per-user Azure Multi-Factor Authentication.
+* [Security questions](concept-authentication-security-questions.md) - only used for SSPR
+* [Email address](concept-sspr-howitworks.md#authentication-methods) - only used for SSPR
 
 ## Next steps
 
