@@ -47,7 +47,8 @@ arguments. Using arguments will allow you to easily compare different hyperparme
 
 Presently our training script is set to download the CIFAR10 dataset on each run. The python code below has been adjusted to read the data from a directory.
 
->[!NOTE] The use of `argparse` to parametize the script.
+>[!NOTE] 
+> The use of `argparse` to parametize the script.
 
 ```python
 # quickstart/src/train.py
@@ -181,7 +182,8 @@ _momentum_ hyperparameters without having to hard-code them in the training scri
 
 In order to run this script in AzureML we need to make your training data available in Azure. Your AzureML workspace comes equipped with a _default_ **Datastore** - an Azure Blob storage account - that you can use to store your training data.
 
->[!NOTE] Azure Machine Learning allows you to connect other cloud-based datastores that store your data. Please refer to the [datastores documentation](./concept-data.md) for more details.  
+>[!NOTE] 
+> Azure Machine Learning allows you to connect other cloud-based datastores that store your data. Please refer to the [datastores documentation](./concept-data.md) for more details.  
 
 Create a new (control-plane) python script called `05-upload-data.py` in the `quickstart` directory:
 
@@ -192,8 +194,8 @@ ws = Workspace.from_config()
 datastore = ws.get_default_datastore()
 datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=True)
 ```
-The `target_path` specifies the path on the datastore where the
-CIFAR10 data will be uploaded.
+
+The `target_path` specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
 >[!TIP] Whilst you are using AzureML to upload the data, you can use other methods such as `azcopy`, Azure Storage Explorer or Azure Data Factory to ingest your data into Azure.
 

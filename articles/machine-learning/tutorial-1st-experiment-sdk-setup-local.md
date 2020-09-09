@@ -40,7 +40,7 @@ In this tutorial, you:
 > - distributed (require many machines and processes) and/or
 > - repeatable (require reproducible, auditable, and portable environment)
 >
-> If your machine learning tasks do not fit this profile - for example, you tend to run ad-hoc analysis with python code in a Jupyter notebook, or R code in Rstudio - **we would recommend you use the [Jupyter or RStudio functionality on a AzureML compute instance](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks)**. This will be the fastest way for you to onboard to AzureML.
+> If your machine learning tasks do not fit this profile - for example, you tend to run ad-hoc analysis with python code in a Jupyter notebook, or R code in Rstudio - **we would recommend you use the [Jupyter or RStudio functionality on a AzureML compute instance](how-to-run-jupyter-notebooks.md)**. This will be the fastest way for you to onboard to AzureML.
 
 ## Introduction
 

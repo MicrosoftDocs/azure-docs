@@ -21,7 +21,8 @@ This tutorial shows you how to train a PyTorch model on the [CIFAR 10](https://w
 
 This example will help you understand how AzureML eases consistent behavior between local debugging and remote runs.
 
->[!NOTE] The concepts in this article apply to *any* ML Code and not just PyTorch.
+>[!NOTE] 
+> The concepts in this article apply to *any* ML Code and not just PyTorch.
 
 This article will demonstrate to you these AzureML concepts:
 - [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)
@@ -185,7 +186,8 @@ conda activate pytorch-env             # activate conda environment
 python src/train.py                    # train model
 ```
 
->[!NOTE] If you prefer to use an IDE, you can configure the IDE to use this environment.
+>[!NOTE] 
+> If you prefer to use an IDE, you can configure the IDE to use this environment.
 
 ## Create the control-plane script
 
@@ -233,7 +235,8 @@ In case you switched local environments, make sure you switch back to an environ
 python 04-run-pytorch.py
 ```
 
->[!NOTE] The first time you run this script, AzureML will build a new docker image from your PyTorch
+>[!NOTE] 
+> The first time you run this script, AzureML will build a new docker image from your PyTorch
 environment. The whole run could take 5-10 minutes to complete. You can see the docker build
 logs in the AzureML Studio: Follow the link to the ML Studio > Select "Outputs + logs" tab > Select `20_image_build_log.txt`.
 This image will be reused in future runs making them run much quicker.
