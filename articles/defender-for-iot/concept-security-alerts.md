@@ -1,6 +1,6 @@
 ---
 title: Built-in & custom alerts list
-description: Learn about security alerts and recommended remediation using Azure Security Center for IoT features and service.
+description: Learn about security alerts and recommended remediation using Defender for IoT features and service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2020
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Azure Security Center for IoT security alerts
+# Defender for IoT security alerts
 
-Azure Security Center for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
+Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 In addition, you can create custom alerts based on your knowledge of expected device behavior.
 An alert acts as an indicator of potential compromise, and should be investigated and remediated.
 
 In this article, you will find a list of built-in alerts which can be triggered on your IoT Hub and/or IoT devices.
-In addition to built-in alerts, Azure Security Center for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
+In addition to built-in alerts, Defender for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
 For more details, see [customizable alerts](concept-customizable-security-alerts.md).
 
 ## Built-in alerts for IoT devices
@@ -54,7 +54,7 @@ For more details, see [customizable alerts](concept-customizable-security-alerts
 |  File downloads from a known malicious source detected   | Medium  | Agent       |  Download of a file from a known malware source detected.|Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
 |   htaccess file access detected | Medium                       | Agent       | Analysis of host data detected possible manipulation of an htaccess file. Htaccess is a powerful configuration file that allows you to make multiple changes to a web server running Apache Web software, including basic redirect functionality, and more advanced functions, such as basic password protection. Malicious actors often modify htaccess files on compromised machines to gain persistence. |Confirm this is legitimate expected activity on the host. If not, escalate the alert to your information security team.|
 |  Known attack tool  | Medium                                   | Agent       | A tool often associated with malicious users attacking other machines in some way was detected. |Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.|
-|  IoT agent attempted and failed to parse the module twin configuration | Medium  | Agent       | The Azure Security Center for IoT security agent failed to parse the module twin configuration due to type mismatches in the configuration object|Validate your module twin configuration against the IoT agent configuration schema, fix all mismatches.
+|  IoT agent attempted and failed to parse the module twin configuration | Medium  | Agent       | The Defender for IoT security agent failed to parse the module twin configuration due to type mismatches in the configuration object|Validate your module twin configuration against the IoT agent configuration schema, fix all mismatches.
 |  Local host reconnaissance detected  | Medium | Agent       | Execution of a command normally associated with common Linux bot reconnaissance detected. |Review the suspicious command line to confirm that it was executed by a legitimate user. If not, escalate the alert to your information security team.
 |  Mismatch between script interpreter and file extension  | Medium | Agent       | Mismatch between the script interpreter and the extension of the script file provided as input detected. This type of mismatch is commonly associated with attacker script executions. |Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
 |  Possible backdoor detected  | Medium | Agent |A suspicious file was downloaded and then run on a host in your subscription. This type of activity is commonly associated with the installation of a backdoor. |Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
@@ -95,6 +95,6 @@ For more details, see [customizable alerts](concept-customizable-security-alerts
 
 ## Next steps
 
-- Azure Security Center for IoT service [Overview](overview.md)
+- Defender for IoT service [Overview](overview.md)
 - Learn how to [Access your security data](how-to-security-data-access.md)
 - Learn more about [Investigating a device](how-to-investigate-device.md)

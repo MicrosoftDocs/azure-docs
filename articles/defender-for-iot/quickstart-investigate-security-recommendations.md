@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Investigate security recommendations"
-description: Investigate security recommendations with the Azure Security Center for IoT security service.
+description: Investigate security recommendations with the Defender for IoT security service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/12/2020
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
 # Quickstart: Investigate security recommendations
 
 
-Timely analysis and mitigation of recommendations by Azure Security Center for IoT is the best way to improve security posture and reduce attack surface across your IoT solution.
+Timely analysis and mitigation of recommendations by Defender for IoT is the best way to improve security posture and reduce attack surface across your IoT solution.
 
 In this quickstart, we'll explore the information available in each IoT security recommendation, and explain how to drill down and use the details of each recommendation and related devices, to reduce risk.
 

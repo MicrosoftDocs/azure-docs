@@ -26,7 +26,7 @@ A Security Module for Azure RTOS alert acts as an indicator of potential comprom
 
 In this article, you'll find a list of built-in alerts and recommendations that are triggered based on the default ranges, and customizable with your own values, based on expected or baseline behavior. 
 
-For more information on how alert customization works in the Azure Security Center for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Security Module for Azure RTOS are detailed in the following tables. 
+For more information on how alert customization works in the Defender for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Security Module for Azure RTOS are detailed in the following tables. 
 
 ## Security Module for Azure RTOS supported security alerts
 
@@ -89,9 +89,9 @@ For more information on how alert customization works in the Azure Security Cent
 |IP filter rule| IP filter rule includes a large IP range|
 |Diagnostics logs|Suggestion to enable diagnostics logs in IoT Hub|
 
-### All Azure Security Center for IoT alerts and recommendations
+### All Defender for IoT alerts and recommendations
 
-For a complete list of all Azure Security Center for IoT service related alerts and recommendations, see IoT [security alerts](concept-security-alerts.md), IoT security [recommendations](concept-recommendations.md).
+For a complete list of all Defender for IoT service related alerts and recommendations, see IoT [security alerts](concept-security-alerts.md), IoT security [recommendations](concept-recommendations.md).
 
 ## Next steps
 

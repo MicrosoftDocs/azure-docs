@@ -1,6 +1,6 @@
 ---
-title: Security agent local configuration (C#)
-description: Learn more about the Azure Security Center for IoT security service, security agent local configuration file for C#.
+title: Defender for IoT security agent local configuration (C#)
+description: Learn more about the Defender for IoT security service, security agent local configuration file for C#.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -21,7 +21,7 @@ ms.author: mlottner
 
 # Understanding the local configuration file (C# agent)
 
-The Azure Security Center for IoT security agent uses configurations from a local configuration file.
+The Defender for IoT security agent uses configurations from a local configuration file.
 
 The security agent reads the configuration file once when the agent starts up. Configurations found in the local configuration file contains both authentication configuration and other agent related configurations.
 
@@ -128,10 +128,10 @@ For Windows:
 
 ## Next steps
 
-- Read the Azure Security Center for IoT service [Overview](overview.md)
-- Learn more about Azure Security Center for IoT [Architecture](architecture.md)
-- Enable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)
-- Read the Azure Security Center for IoT service [FAQ](resources-frequently-asked-questions.md)
+- Read the Defender for IoT service [Overview](overview.md)
+- Learn more about Defender for IoT [Architecture](architecture.md)
+- Enable the Defender for IoT [service](quickstart-onboard-iot-hub.md)
+- Read the Defender for IoT service [FAQ](resources-frequently-asked-questions.md)
 - Learn how to access [raw security data](how-to-security-data-access.md)
 - Understand [recommendations](concept-recommendations.md)
 - Understand security [alerts](concept-security-alerts.md)

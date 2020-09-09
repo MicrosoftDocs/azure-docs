@@ -1,6 +1,6 @@
 ---
 title: Security agent local configuration (C)
-description: Learn about Azure Security Center for agent local configurations for C.
+description: Learn about Defender  for agent local configurations for C.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -20,7 +20,7 @@ ms.author: mlottner
 
 # Understanding the LocalConfiguration.json file - C agent
 
-The Azure Security Center for IoT security agent uses configurations from a local configuration file.
+The Defender  for IoT security agent uses configurations from a local configuration file.
 The security agent reads the configuration once,  at agent start-up.
 The configuration found in the local configuration file contains authentication configuration and other agent related configurations.
 The file contains configurations in "Key-Value" pairs in JSON notation and the configurations get populated when the agent is installed.
@@ -78,10 +78,10 @@ Changes to the configuration file take place when the agent is restarted.
 
 ## Next steps
 
-- Read the Azure Security Center for IoT service [Overview](overview.md)
-- Learn more about Azure Security Center for IoT [Architecture](architecture.md)
-- Enable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)
-- Read the Azure Security Center for IoT service [FAQ](resources-frequently-asked-questions.md)
+- Read the Defender  for IoT service [Overview](overview.md)
+- Learn more about Defender  for IoT [Architecture](architecture.md)
+- Enable the Defender  for IoT [service](quickstart-onboard-iot-hub.md)
+- Read the Defender  for IoT service [FAQ](resources-frequently-asked-questions.md)
 - Learn how to access [raw security data](how-to-security-data-access.md)
 - Understand [recommendations](concept-recommendations.md)
 - Understand security [alerts](concept-security-alerts.md)

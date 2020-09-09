@@ -1,6 +1,6 @@
 ---
 title: Deploy IoT Edge security module
-description: Learn about how to deploy an Azure Security Center for IoT security agent on IoT Edge.
+description: Learn about how to deploy an Defender for IoT security agent on IoT Edge.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -20,7 +20,7 @@ ms.author: mlottner
 
 # Deploy a security module on your IoT Edge device
 
-**Azure Security Center for IoT** module provides a comprehensive security solution for your IoT Edge devices.
+**Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices.
 The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
 To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
@@ -28,13 +28,13 @@ In this article, you'll learn how to deploy a security module on your IoT Edge d
 
 ## Deploy security module
 
-Use the following steps to deploy an Azure Security Center for IoT security module for IoT Edge.
+Use the following steps to deploy an Defender for IoT security module for IoT Edge.
 
 ### Prerequisites
 
 1. In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-1. Azure Security Center for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
+1. Defender for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 
     - Install the framework by running the following command on your IoT Edge device:
 
@@ -49,9 +49,9 @@ Use the following steps to deploy an Azure Security Center for IoT security modu
 
 1. From the Azure portal, open **Marketplace**.
 
-1. Select **Internet of Things**, then search for **Azure Security Center for IoT** and select it.
+1. Select **Internet of Things**, then search for **Defender for IoT** and select it.
 
-   ![Select Azure Security Center for IoT](media/howto/edge-onboarding-8.png)
+   ![Select Defender for IoT](media/howto/edge-onboarding-8.png)
 
 1. Click **Create** to configure the deployment.
 
@@ -60,7 +60,7 @@ Use the following steps to deploy an Azure Security Center for IoT security modu
     >[!Note]
     >If you selected **Deploy at Scale**, add the device name and details before continuing to the **Add Modules** tab in the following instructions.
 
-Complete each step to complete your IoT Edge deployment for Azure Security Center for IoT.
+Complete each step to complete your IoT Edge deployment for Defender for IoT.
 
 #### Step 1: Modules
 

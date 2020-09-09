@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot security agent start-up (Linux)
-description: Troubleshoot working with Azure Security Center for IoT security agents for Linux.
+description: Troubleshoot working with Defender for IoT security agents for Linux.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
@@ -22,7 +22,7 @@ ms.author: mlottner
 
 This article explains how to solve potential problems in the security agent start-up process.
 
-Azure Security Center for IoT agent self-starts immediately after installation. The agent start up process includes reading local configuration, connecting to Azure IoT Hub, and retrieving the remote twin configuration. Failure in any one of these steps may cause the security agent to fail.
+Defender for IoT agent self-starts immediately after installation. The agent start up process includes reading local configuration, connecting to Azure IoT Hub, and retrieving the remote twin configuration. Failure in any one of these steps may cause the security agent to fail.
 
 In this troubleshooting guide you'll learn how to:
 
@@ -66,7 +66,7 @@ systemctl stop ASCIoTAgent.service
     grep ASCIoTAgent /var/log/syslog
     ```
 
-1. The get security agent error command retrieves all logs created by the Azure Security Center for IoT agent. Use the following table to understand the errors and take the correct steps for remediation.
+1. The get security agent error command retrieves all logs created by the Defender for IoT agent. Use the following table to understand the errors and take the correct steps for remediation.
 
 > [!Note]
 > Error logs are shown in chronological order. Make sure to note the timestamp of each error to help your remediation.
@@ -86,7 +86,7 @@ systemctl stop ASCIoTAgent.service
 Most of the Security agent errors are displayed in the following format:
 
 ```
-Azure Security Center for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
+Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
 ```
 
 | Error Code | Error sub code | Error details | Remediate C | Remediate C# |
@@ -106,10 +106,10 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
 
 ## Next steps
 
-- Read the Azure Security Center for IoT service [Overview](overview.md)
-- Learn more about Azure Security Center for IoT [Architecture](architecture.md)
-- Enable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)
-- Read the Azure Security Center for IoT service [FAQ](resources-frequently-asked-questions.md)
+- Read the Defender for IoT service [Overview](overview.md)
+- Learn more about Defender for IoT [Architecture](architecture.md)
+- Enable the Defender for IoT [service](quickstart-onboard-iot-hub.md)
+- Read the Defender for IoT service [FAQ](resources-frequently-asked-questions.md)
 - Learn how to access [raw security data](how-to-security-data-access.md)
 - Understand [recommendations](concept-recommendations.md)
 - Understand security [alerts](concept-security-alerts.md)

@@ -1,6 +1,6 @@
 ---
 title: Customizable security alerts
-description: Learn about customizable security alerts and recommended remediation using Azure Security Center for IoT features and service.
+description: Learn about customizable security alerts and recommended remediation using Defender for IoT features and service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -17,13 +17,13 @@ ms.date: 03/04/2020
 ms.author: mlottner
 ---
 
-# Azure Security Center for IoT customizable security alerts
+# Defender for IoT customizable security alerts
 
-Azure Security Center for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
+Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 
 We encourage you to create custom alerts based on your knowledge of expected device behavior to ensure alerts act as the most efficient indicators of potential compromise in your unique organizational deployment and landscape.
 
-The following list of Azure Security Center for IoT alerts are definable by you based on your expected IoT Hub and/or device behavior. For more details about how to customize each alert, see [create custom alerts](quickstart-create-custom-alerts.md).
+The following list of Defender for IoT alerts are definable by you based on your expected IoT Hub and/or device behavior. For more details about how to customize each alert, see [create custom alerts](quickstart-create-custom-alerts.md).
 
 ## IoT Hub alerts available for customization
 
@@ -59,6 +59,6 @@ The following list of Azure Security Center for IoT alerts are definable by you 
 ## Next steps
 
 - Learn how to [customize an alert](quickstart-create-custom-alerts.md)
-- Azure Security Center for IoT service [Overview](overview.md)
+- Defender for IoT service [Overview](overview.md)
 - Learn how to [Access your security data](how-to-security-data-access.md)
 - Learn more about [Investigating a device](how-to-investigate-device.md)

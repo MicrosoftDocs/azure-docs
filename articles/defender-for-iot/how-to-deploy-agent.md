@@ -1,6 +1,6 @@
 ---
 title: Select and deploy security agents
-description: Learn about how select and deploy Azure Security Center for IoT security agents on IoT devices.
+description: Learn about how select and deploy Defender for IoT security agents on IoT devices.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -20,7 +20,7 @@ ms.author: mlottner
 
 # Select and deploy a security agent on your IoT device
 
-Azure Security Center for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
+Defender for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
 To learn more, see [Security agent reference architecture](security-agent-architecture.md).
 
 Agents are developed as open-source projects, and are available in two flavors: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
@@ -34,7 +34,7 @@ In this article, you learn how to:
 
 ## Understand security agent options
 
-Every Azure Security Center for IoT security agent flavor offers the same set of features, and supports similar configuration options.
+Every Defender for IoT security agent flavor offers the same set of features, and supports similar configuration options.
 
 The C-based security agent has a lower memory footprint, and is the ideal choice for devices with fewer available resources.
 
@@ -86,7 +86,7 @@ See [Security agent comparison](how-to-deploy-agent.md#understand-security-agent
 
 The following list includes all currently supported platforms.
 
-|Azure Security Center for IoT agent |Operating System |Architecture |
+|Defender for IoT agent |Operating System |Architecture |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |    x64|
 |C|Ubuntu 18.04 |    x64, ARMv7|

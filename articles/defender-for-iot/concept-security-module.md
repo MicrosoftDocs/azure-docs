@@ -1,6 +1,6 @@
 ---
 title: Security module and device twins
-description: Learn about the concept of security module twins and how they are used in Azure Security Center for IoT.
+description: Learn about the concept of security module twins and how they are used in Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -20,19 +20,19 @@ ms.author: mlottner
 
 # Security module
 
-This article explains how Azure Security Center for IoT uses device twins and modules.
+This article explains how Defender for IoT uses device twins and modules.
 
 ## Device twins
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation.
 
-Azure Security Center for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities. Integration is achieved by making use of the IoT Hub twin mechanism.
+Defender for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities. Integration is achieved by making use of the IoT Hub twin mechanism.
 
 Learn more about the concept of [device twins](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub.
 
 ## Security module twins
 
-Azure Security Center for IoT maintains a security module twin for each device in the service.
+Defender for IoT maintains a security module twin for each device in the service.
 The security module twin holds all the information relevant to device security for each specific device in your solution.
 Device security properties are maintained in a dedicated security module twin for safer communication and for enabling updates and maintenance that requires fewer resources.
 
@@ -40,6 +40,6 @@ See [Create security module twin](quickstart-create-security-twin.md) and [Confi
 
 ## See also
 
-- [Azure Security Center for IoT overview](overview.md)
+- [Defender for IoT overview](overview.md)
 - [Deploy security agents](how-to-deploy-agent.md)
 - [Security agent authentication methods](concept-security-agent-authentication-methods.md)

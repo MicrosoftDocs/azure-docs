@@ -1,6 +1,6 @@
 ---
 title: Investigate a suspicious device
-description: This how to guide explains how to use Azure Security Center for IoT to investigate a suspicious IoT device using Log Analytics.
+description: This how to guide explains how to use Defender for IoT to investigate a suspicious IoT device using Log Analytics.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -20,7 +20,7 @@ ms.author: mlottner
 
 # Investigate a suspicious IoT device
 
-Azure Security Center for IoT service alerts provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised.
+Defender for IoT service alerts provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised.
 
 In this guide, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.
 
@@ -30,7 +30,7 @@ In this guide, use the investigation suggestions provided to help determine the 
 
 ## How can I access my data?
 
-By default, Azure Security Center for IoT stores your security alerts and recommendations in your Log Analytics workspace. You can also choose to store your raw security data.
+By default, Defender for IoT stores your security alerts and recommendations in your Log Analytics workspace. You can also choose to store your raw security data.
 
 To locate your Log Analytics workspace for data storage:
 
@@ -41,7 +41,7 @@ To locate your Log Analytics workspace for data storage:
 
 Following configuration, do the following to access data stored in your Log Analytics workspace:
 
-1. Select and click on an Azure Security Center for IoT alert in your IoT Hub.
+1. Select and click on an Defender for IoT alert in your IoT Hub.
 1. Click **Further investigation**.
 1. Select **To see which devices have this alert click here and view the DeviceId column**.
 

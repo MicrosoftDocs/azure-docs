@@ -1,6 +1,6 @@
 ---
 title: Baseline and custom checks
-description: Learn about the concept of Azure Security Center for IoT baseline.
+description: Learn about the concept of Defender for IoT baseline.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -18,9 +18,9 @@ ms.date: 10/07/2019
 ms.author: mlottner
 ---
 
-# Azure Security Center for IoT baseline and custom checks
+# Defender for IoT baseline and custom checks
 
-This article explains Azure Security Center for IoT baseline, and summarizes all associated properties of baseline custom checks.
+This article explains Defender for IoT baseline, and summarizes all associated properties of baseline custom checks.
 
 ## Baseline
 

@@ -1,6 +1,6 @@
 ---
-title: Service without security agents
-description: Get started with the built in workflow of Azure Security Center for IoT service.
+title: Defender for IoT service without security agents
+description: Get started with the built-in workflow of the Defender for IoT service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
 # Get started with Built-in IoT Hub integration
 
-This option enables you to use the service without using Azure Security Center for IoT security agents.
+This option enables you to use the service without using Defender for IoT security agents.
 
 ## Enable Built-in IoT Hub integration
 
@@ -30,7 +30,7 @@ To enable monitoring your device identity management, device to cloud, and cloud
 1. Select the **Security overview** menu.
 1. Click **Secure your IoT solution** and complete the onboarding form.
 
-Congratulations! You've completed enabling the Azure Security Center for IoT service on your IoT Hub.
+Congratulations! You've completed enabling the Defender for IoT service on your IoT Hub.
 
 ## Next steps
 

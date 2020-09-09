@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Investigate security alerts"
-description: Understand, drill down, and investigate Azure Security Center for IoT security alerts on your IoT devices.
+description: Understand, drill down, and investigate Defender for IoT security alerts on your IoT devices.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: mlottner
 
 # Quickstart: Investigate security alerts
 
-Scheduled investigation and remediation of the alerts issued by Azure Security Center for IoT is the best way to ensure compliance and protection across your IoT solution.
+Scheduled investigation and remediation of the alerts issued by Defender for IoT is the best way to ensure compliance and protection across your IoT solution.
 
 In this quickstart, we'll explore the information available in each IoT security alert, and explain how to drill down and use the details of each alert and related device, to respond and remediate. 
 
@@ -50,7 +50,7 @@ Opening each aggregated alert displays the detailed alert description, remediati
 
 ## Next steps
 
-Advance to the next article to learn more about Azure Security Center alert types and possible customizations...
+Advance to the next article to learn more about Defender alert types and possible customizations...
 
 > [!div class="nextstepaction"]
 > [Understanding IoT security alerts](concept-security-alerts.md)

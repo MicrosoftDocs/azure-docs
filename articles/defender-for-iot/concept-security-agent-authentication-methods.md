@@ -1,6 +1,6 @@
 ---
 title: Security agent authentication methods
-description: Learn about the different authentication methods available when using the Azure Security Center for IoT service.
+description: Learn about the different authentication methods available when using the Defender for IoT service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
@@ -22,7 +22,7 @@ ms.author: mlottner
 
 This article explains the different authentication methods you can use with the AzureIoTSecurity agent to authenticate with the IoT Hub.
 
-For each device onboarded to Azure Security Center for IoT in the IoT Hub, a security module is required. To authenticate the device, Azure Security Center for IoT can use one of two methods. Choose the method that works best for your existing IoT solution.
+For each device onboarded to Defender for IoT in the IoT Hub, a security module is required. To authenticate the device, Defender for IoT can use one of two methods. Choose the method that works best for your existing IoT solution.
 
 > [!div class="checklist"]
 > * SecurityModule option
@@ -37,7 +37,7 @@ The agent is authenticated using the security module identity independently of t
 Use this authentication type if you would like the security agent to use a dedicated authentication method through security module (symmetric key only).
 
 - **Device** authentication mode<br>
-In this method, the security agent first authenticates with the device identity. After the initial authentication, the Azure Security Center for IoT agent performs a **REST** call to the IoT Hub using the REST API with the authentication data of the device. The Azure Security Center for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the Azure Security Center for IoT agent performs an authentication against the Azure Security Center for IoT module.
+In this method, the security agent first authenticates with the device identity. After the initial authentication, the Defender for IoT agent performs a **REST** call to the IoT Hub using the REST API with the authentication data of the device. The Defender for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the Defender for IoT agent performs an authentication against the Defender for IoT module.
 
 Use this authentication type if you would like the security agent to reuse an existing device authentication method (self-signed certificate or symmetric key).
 

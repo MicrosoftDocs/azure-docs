@@ -1,6 +1,6 @@
 ---
-title: Send device security messages
-description: Learn how to send your security messages using Azure Security Center for IoT.
+title: Send Defender for IoT device security messages
+description: Learn how to send your security messages using Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -11,10 +11,10 @@ editor: ''
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
 ms.subservice: defender-for-iot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2020
+ms.date: 09/09/2020
 ms.author: mlottner
 ms.custom: devx-track-javascript
 
@@ -22,7 +22,7 @@ ms.custom: devx-track-javascript
 
 # Send security messages SDK
 
-This how-to guide explains the Azure Security Center for IoT service capabilities when you choose to collect and send your device security messages without using an Azure Security Center for IoT agent, and explains how to do so.
+This how-to guide explains the Defender for IoT service capabilities when you choose to collect and send your device security messages without using an Defender for IoT agent, and explains how to do so.
 
 In this guide, you learn how to:
 
@@ -33,13 +33,13 @@ In this guide, you learn how to:
 > * Send security messages using the Azure IoT Node.js SDK
 > * Send security messages using the Azure IoT Java SDK
 
-## Azure Security Center for IoT capabilities
+## Defender for IoT capabilities
 
-Azure Security Center for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [Azure Security Center for IoT schema](https://aka.ms/iot-security-schemas) and the message is set as a security message.
+Defender for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [Defender for IoT schema](https://aka.ms/iot-security-schemas) and the message is set as a security message.
 
 ## Security message
 
-Azure Security Center for IoT defines a security message using the following criteria:
+Defender for IoT defines a security message using the following criteria:
 
 - If the message was sent with Azure IoT SDK
 - If the message conforms to the [security message schema](https://aka.ms/iot-security-schemas)
@@ -52,13 +52,13 @@ The schema defines the valid and required properties of the security message inc
 > Messages sent that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored.
 
 > [!NOTE]
-> Messages sent that were not set as a security message using the Azure IoT SDK will not be routed to the Azure Security Center for IoT pipeline.
+> Messages sent that were not set as a security message using the Azure IoT SDK will not be routed to the Defender for IoT pipeline.
 
 ## Valid message example
 
 The example below shows a valid security message object. The example contains the message metadata and one `ProcessCreate` security event.
 
-Once set as a security message and sent, this message will be processed by Azure Security Center for IoT.
+Once set as a security message and sent, this message will be processed by Defender for IoT.
 
 ```json
 "AgentVersion": "0.0.1",
@@ -90,11 +90,11 @@ Once set as a security message and sent, this message will be processed by Azure
 
 ## Send security messages
 
-Send security messages *without* using Azure Security Center for IoT agent, by using the [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), , [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python), or [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
+Send security messages *without* using Defender for IoT agent, by using the [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), , [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python), or [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
 
-To send the device data from your devices for processing by Azure Security Center for IoT, use one of the following APIs to mark messages for correct routing to Azure Security Center for IoT processing pipeline.
+To send the device data from your devices for processing by Defender for IoT, use one of the following APIs to mark messages for correct routing to Defender for IoT processing pipeline.
 
-All data that is sent, even if marked with the correct header, must also comply with the [Azure Security Center for IoT message schema](https://aka.ms/iot-security-schemas).
+All data that is sent, even if marked with the correct header, must also comply with the [Defender for IoT message schema](https://aka.ms/iot-security-schemas).
 
 ### Send security message API
 
@@ -227,8 +227,8 @@ public void SendSecurityMessage(string message)
 
 ## Next steps
 
-- Read the Azure Security Center for IoT service [Overview](overview.md)
-- Learn more about Azure Security Center for IoT [Architecture](architecture.md)
+- Read the Defender for IoT service [Overview](overview.md)
+- Learn more about Defender for IoT [Architecture](architecture.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
 - Read the [FAQ](resources-frequently-asked-questions.md)
 - Learn how to access [raw security data](how-to-security-data-access.md)

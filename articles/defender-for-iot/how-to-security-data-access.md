@@ -1,6 +1,6 @@
 ---
 title: Access security & recommendation data
-description: Learn about how to access your security alert and recommendation data when using Azure Security Center for IoT.
+description: Learn about how to access your security alert and recommendation data when using Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -20,7 +20,7 @@ ms.author: mlottner
 
 # Access your security data
 
-Azure Security Center for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
+Defender for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
 
 ## Log Analytics
 
@@ -32,14 +32,14 @@ To configure which Log Analytics workspace is used:
 
 To access your alerts and recommendations in your Log Analytics workspace after configuration:
 
-1. Choose an alert or recommendation in Azure Security Center for IoT.
+1. Choose an alert or recommendation in Defender for IoT.
 1. Click **further investigation**, then click **To see which devices have this alert click here and view the DeviceId column**.
 
 For details on querying data from Log Analytics, see [Get started with queries in Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
 
 ## Security alerts
 
-Security alerts are stored in _AzureSecurityOfThings.SecurityAlert_ table in the Log Analytics workspace configured for the Azure Security Center for IoT solution.
+Security alerts are stored in _AzureSecurityOfThings.SecurityAlert_ table in the Log Analytics workspace configured for the Defender for IoT solution.
 
 We've provided a number of useful queries to help you get started exploring security alerts.
 
@@ -118,7 +118,7 @@ SecurityAlert
 
 ## Security recommendations
 
-Security recommendations are stored in _AzureSecurityOfThings.SecurityRecommendation_ table in the Log Analytics workspace configured for the Azure Security Center for IoT solution.
+Security recommendations are stored in _AzureSecurityOfThings.SecurityRecommendation_ table in the Log Analytics workspace configured for the Defender for IoT solution.
 
 We've provided a number of useful queries to help you get start exploring security recommendations.
 
@@ -171,7 +171,7 @@ SecurityRecommendation
 
 ## Next steps
 
-- Read the Azure Security Center for IoT [Overview](overview.md)
-- Learn about Azure Security Center for IoT [Architecture](architecture.md)
-- Understand and explore [Azure Security Center for IoT alerts](concept-security-alerts.md)
-- Understand and explore [Azure Security Center for IoT recommendation](concept-recommendations.md)
+- Read the Defender for IoT [Overview](overview.md)
+- Learn about Defender for IoT [Architecture](architecture.md)
+- Understand and explore [Defender for IoT alerts](concept-security-alerts.md)
+- Understand and explore [Defender for IoT recommendations](concept-recommendations.md)

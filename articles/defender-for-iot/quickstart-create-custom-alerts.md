@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create custom alerts"
-description: Understand, create and assign custom device alerts for the Azure Security Center for IoT security service.
+description: Understand, create and assign custom device alerts for the Defender for IoT security service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -26,7 +26,7 @@ Using custom security groups and alerts, takes full advantage of the end-to-end 
 
 You know your IoT devices best.
 
-For customers who fully understand their expected device behavior, Azure Security Center for IoT allows you to translate this understanding into a device behavior policy and alert on any deviation from expected, normal behavior.
+For customers who fully understand their expected device behavior, Defender for IoT allows you to translate this understanding into a device behavior policy and alert on any deviation from expected, normal behavior.
 
 ## Security groups
 
@@ -73,7 +73,7 @@ Use security groups to group your devices into logical categories. After creatin
 
 ## Alerts available for customization
 
-Azure Security Center for IoT offers a large number of alerts which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description and our suggested remediation steps if and when each alert is received.
+Defender for IoT offers a large number of alerts which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description and our suggested remediation steps if and when each alert is received.
 
 ## Next steps
 

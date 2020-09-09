@@ -53,7 +53,7 @@ The Security Module for Azure RTOS uses Azure IoT Middleware connections based o
 
 ### Log Analytics workspace
 
-Log Analytics ingestion in IoT Hub is off by default Azure Security Center for IoT solution. To enable it for working with Security Module for Azure RTOS, do the following: 
+Log Analytics ingestion in IoT Hub is off by default Defender for IoT solution. To enable it for working with Security Module for Azure RTOS, do the following: 
 1. In the Azure portal, go to your IoT Hub.
 1. Select **Settings** under the **Security** menu.
    :::image type="content" source="media/quickstart/azure-rtos-hub-settings.png" alt-text="Access data collection option for Azure RTOS"::: 

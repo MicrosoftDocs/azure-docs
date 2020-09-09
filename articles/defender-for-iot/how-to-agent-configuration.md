@@ -1,6 +1,6 @@
 ---
 title: Configure security agents
-description: Learn how to configure Azure Security Center for IoT security agents for use with the Azure Security Center for IoT security service.
+description: Learn how to configure Defender for IoT security agents for use with the Defender for IoT security service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -11,16 +11,16 @@ editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
 ms.subservice: defender-for-iot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2020
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
 # Tutorial: Configure security agents
 
-This article explains Azure Security Center for IoT security agents, and details how to change and configure them.
+This article explains Defender for IoT security agents, and details how to change and configure them.
 
 > [!div class="checklist"]
 > * Configure security agents
@@ -29,17 +29,17 @@ This article explains Azure Security Center for IoT security agents, and details
 
 ## Agents
 
-Azure Security Center for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.
+Defender for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.
 
-Azure Security Center for IoT's security agent twin configuration object is a JSON format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent.
+Defender for IoT's security agent twin configuration object is a JSON format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent.
 
 These configurations help you customize the agent for each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.
 
-Use the Azure Security Center for IoT security agent configuration [schema](https://aka.ms/iot-security-github-module-schema) to make changes.
+Use the Defender for IoT security agent configuration [schema](https://aka.ms/iot-security-github-module-schema) to make changes.
 
 ## Configuration objects
 
-Properties related to every Azure Security Center for IoT security agent are located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module.
+Properties related to every Defender for IoT security agent are located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module.
 
 To modify the configuration, create and modify this object inside the **azureiotsecurity** module twin identity.
 
@@ -60,7 +60,7 @@ If, while the agent is running, the configuration object is changed to a non-val
 
 ### Configuration validation
 
-Azure Security Center for IoT security agent reports its current configuration inside the reported properties section of the **azureiotsecurity** module twin identity.
+Defender for IoT security agent reports its current configuration inside the reported properties section of the **azureiotsecurity** module twin identity.
 The agent reports all the available properties, if a property was not set by the user, the agent reports the default configuration.
 
 In order to validate your configuration, compare the values set on the desired section with the values reported in the reported section.
@@ -111,7 +111,7 @@ To use a default property value, remove the property from the configuration obje
 
 ## Default properties
 
-The following table contains the controllable properties of Azure Security Center for IoT security agents.
+The following table contains the controllable properties of Defender for IoT security agents.
 
 Default values are available in the proper schema in [GitHub](https\://aka.ms/iot-security-module-default).
 
@@ -145,6 +145,6 @@ Default values are available in the proper schema in [GitHub](https\://aka.ms/io
 
 ## Next steps
 
-- [Understand Azure Security Center for IoT recommendations](concept-recommendations.md)
-- [Explore Azure Security Center for IoT alerts](concept-security-alerts.md)
+- [Understand Defender for IoT recommendations](concept-recommendations.md)
+- [Explore Defender for IoT alerts](concept-security-alerts.md)
 - [Access raw security data](how-to-security-data-access.md)

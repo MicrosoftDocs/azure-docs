@@ -1,6 +1,6 @@
 ---
 title: Install C# agent on Windows device 
-description: Learn about how to install Azure Security Center for IoT agent on 32-bit or 64-bit Windows devices.
+description: Learn about how to install Defender for IoT agent on 32-bit or 64-bit Windows devices.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Deploy an Azure Security Center for IoT C#-based security agent for Windows
+# Deploy an Defender for IoT C#-based security agent for Windows
 
-This guide explains how to install the Azure Security Center for IoT C#-based security agent on Windows.
+This guide explains how to install the Defender for IoT C#-based security agent on Windows.
 
 In this guide, you learn how to:
 
@@ -43,7 +43,7 @@ For other platforms and agent flavors, see [Choose the right security agent](how
 
 To install the security agent, use the following workflow:
 
-1. Install the Azure Security Center for IoT Windows C# agent on the device. Download the most recent version to your machine from the Azure Security Center for IoT [GitHub repository](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
+1. Install the Defender for IoT Windows C# agent on the device. Download the most recent version to your machine from the Defender for IoT [GitHub repository](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
 
 1. Extract the contents of the package, and navigate to the /Install folder.
 
@@ -138,8 +138,8 @@ To turn on logging:
 
 ## Next steps
 
-* Read the Azure Security Center for IoT service [Overview](overview.md)
-* Learn more about Azure Security Center for IoT [Architecture](architecture.md)
+* Read the Defender for IoT service [Overview](overview.md)
+* Learn more about Defender for IoT [Architecture](architecture.md)
 * Enable the [service](quickstart-onboard-iot-hub.md)
 * Read the [FAQ](resources-frequently-asked-questions.md)
 * Understand [alerts](concept-security-alerts.md)

@@ -1,6 +1,6 @@
 ---
 title: Pricing and associated costs
-description: Learn about the costs associated with Azure Security Center for IoT, and how to control them.
+description: Learn about the costs associated with Defender for IoT, and how to control them.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -20,11 +20,11 @@ ms.author: mlottner
 
 # Pricing and associated costs
 
-This article explains Azure Security Center for IoT pricing model, summarizes all associated costs and explains how to manage them.
+This article explains Defender for IoT pricing model, summarizes all associated costs and explains how to manage them.
 
 ## Pricing
 
-The Azure Security Center for IoT pricing model is comprised of two parts, and is billed once an IoT Hub is [enabled](quickstart-onboard-iot-hub.md) in Azure Security Center for IoT:
+The Defender for IoT pricing model is comprised of two parts, and is billed once an IoT Hub is [enabled](quickstart-onboard-iot-hub.md) in Defender for IoT:
 
 - Cost by device - built-in security capabilities based on analysis of IoT Hub logs.
 
@@ -34,7 +34,7 @@ For more information, see [Security Center pricing](https://azure.microsoft.com/
 
 ## Associated costs
 
-Azure Security Center for IoT has associated costs, which are not part of the direct pricing:
+Defender for IoT has associated costs, which are not part of the direct pricing:
 
 - Log Analytics storage costs
 
@@ -58,7 +58,7 @@ The following table provides a summary of associated costs and implications of e
 |
 
 >[!Important]
-> Opting out has severe implications to Azure Security Center for IoT security feature availability.
+> Opting out has severe implications to Defender for IoT security feature availability.
 
 | Opt out | Implications |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
 title: Security recommendations 
-description: Learn about the concept of security recommendations and how they are used in Azure Security Center for IoT.
+description: Learn about the concept of security recommendations and how they are used in Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2019
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
 # Security recommendations
 
-Azure Security Center for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface.
+Defender for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface.
 Security recommendations are actionable and aim to aid customers in complying to security best practices.
 
 In this article, you will find a list of recommendations which can be triggered on your IoT Hub and/or IoT devices.
@@ -62,6 +62,6 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 
 ## Next steps
 
-- Azure Security Center for IoT service [Overview](overview.md)
+- Defender for IoT service [Overview](overview.md)
 - Learn how to [Access your security data](how-to-security-data-access.md)
 - Learn more about [Investigating a device](how-to-investigate-device.md)

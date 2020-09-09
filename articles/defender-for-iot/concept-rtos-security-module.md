@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2020
+ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
@@ -59,7 +59,7 @@ The Security Module for Azure RTOS supports specific security alerts and recomme
 
 ## Ready to begin?
 
-Security Module for Azure RTOS is provided as a free download for your IoT devices. The Azure Security Center for IoT cloud service is available with a 30-day trial per Azure subscription. [Download the security module now](https://github.com/azure-rtos/azure-iot-preview/releases) and let's get started. 
+Security Module for Azure RTOS is provided as a free download for your IoT devices. The Defender for IoT cloud service is available with a 30-day trial per Azure subscription. [Download the security module now](https://github.com/azure-rtos/azure-iot-preview/releases) and let's get started. 
 
 ## Next steps
 

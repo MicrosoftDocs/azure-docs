@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create a security module twin"
-description: In this quickstart, learn how to create a Azure Security Center for IoT module twin for use with Azure Security Center for IoT.
+description: In this quickstart, learn how to create a Defender for IoT module twin for use with Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -26,16 +26,16 @@ This quickstart explains how to create individual _azureiotsecurity_ module twin
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation.
 
-Azure Security Center for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities.
-Azure Security Center for IoT integration is achieved by making use of the IoT Hub twin mechanism.
+Defender for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities.
+Defender for IoT integration is achieved by making use of the IoT Hub twin mechanism.
 
 See [IoT Hub module twins](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) to learn more about the general concept of module twins in Azure IoT Hub.
 
-Azure Security Center for IoT makes use of the module twin mechanism and maintains a security module twin named _azureiotsecurity_ for each of your devices.
+Defender for IoT makes use of the module twin mechanism and maintains a security module twin named _azureiotsecurity_ for each of your devices.
 
 The security module twin holds all the information relevant to device security for each of your devices.
 
-To make full use of Azure Security Center for IoT features, you'll need to create, configure and use these security module twins for every device in the service.
+To make full use of Defender for IoT features, you'll need to create, configure and use these security module twins for every device in the service.
 
 ## Create azureiotsecurity module twin
 
@@ -68,7 +68,7 @@ To verify if a security module twin exists for a specific device:
 1. Select the **Module identities** menu, and confirm existence of the **azureiotsecurity** module in the list of module identities associated with the device.
     ![Modules associated with a device](./media/quickstart/verify-security-module-twin-3.png)
 
-To learn more about customizing properties of Azure Security Center for IoT module twins, see [Agent configuration](how-to-agent-configuration.md).
+To learn more about customizing properties of Defender for IoT module twins, see [Agent configuration](how-to-agent-configuration.md).
 
 ## Next steps
 
