@@ -107,6 +107,42 @@ When the Edge compute role is set up on the Edge device, it creates two devices:
 > [!NOTE]
 > Currently only the Linux platform is available for IoT Edge devices. For help troubleshooting the Azure Stack Edge device, see the [logging and troubleshooting](spatial-analysis-logging.md) article.
 
+###  Enable MPS on Azure Stack Edge 
+
+1. Run a Windows PowerShell session as an Administrator. 
+
+2. Make sure that the Windows Remote Management service is running on your client. In the Powershell terminal, use the following command 
+    
+    ```powershell
+    winrm quickconfig`.
+    ```
+    
+    If you see warnings about a firewall exception, check your network connection type, and see the [Windows Remote Management](https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) documentation.
+
+3. Assign a variable to the device IP address. 
+    
+    ``powershell
+    $ip = "" Replace with the IP address of your device. 
+    ```
+    
+4. To add the IP address of your device to the client’s trusted hosts list, use the following command: 
+    
+    ```powershell
+    Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force 
+    ```
+
+5. Start a Windows PowerShell session on the device. 
+
+    ```powershell
+    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell 
+    ```
+
+6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is `Password1`.
+
+Type `Start-HcsGpuMPS` to start the cmdlet. 
+
+For help troubleshooting the Azure Stack Edge device, see [Troubleshooting the Azure Stack Edge device](spatial-analysis-logging.md#troubleshooting-the-azure-stack-edge-device) 
+
 #### [Desktop machine](#tab/desktop-machine)
 
 Follow these instructions if your host computer isn't an Azure Stack Edge device.
