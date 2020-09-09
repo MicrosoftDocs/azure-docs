@@ -11,7 +11,7 @@ ms.subservice: files
 
 # How to create an NFS share
 
-Azure file shares using NFS are currently only available on premium file shares.
+Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block protocol or the Network File System (NFS) protocol. This article covers creating a file share that uses the NFS protocol. For more information on both protocols, see [Azure file share protocols](storage-files-compare-protocols.md).
 
 ## Limitations
 

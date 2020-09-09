@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# How to mount an NFS share
+# How to mount an NFS file share
 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using either the server message block protocol (SMB) or the network file system (NFS) protocol. This article is focused on mounting with NFS, for details on mounting with SMB, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md).
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using either the Server Message Block protocol (SMB) or the Network File System (NFS) protocol. This article is focused on mounting with NFS, for details on mounting with SMB, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-compare-protocols.md).
 
 ## Limitations
 

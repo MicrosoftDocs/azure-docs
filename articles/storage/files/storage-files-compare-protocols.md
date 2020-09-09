@@ -53,7 +53,7 @@ NFS with Azure Files is ideal for:
 
 ### Security
 
-File shares using the NFS protocol currently only have encryption-at-rest, not encryption-in-transit. Due to this, to ensure only secure connections are established to your storage account, you must use one of the following supported network connections:
+Azure provides a layer of encryption for all data in transit between Azure Datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure datacenters. However, Azure file shares using the NFS protocol do not currently encrypt data when it is transferred within the datacenter it already resides in, whereas Azure file shares using SMB do provide this encryption. Due to this, to ensure only secure connections are established to your NFS share, you must use one of the following supported network connections:
 
 - [A private endpoint](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
