@@ -56,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
-1. Review the properties of your service on the overview page.
+Review the properties of your service on the **Overview** page.
 
    :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created.png" alt-text="API Management instance":::
 
@@ -68,11 +68,11 @@ When no longer needed, you can remove the resource group and all related resourc
 
 1. In the Azure portal, search for and select **Resource groups**. You can also select **Resource groups** on the **Home** page. 
 
-   ![Resource groups navigation](./media/get-started-create-service-instance/00-DeleteResource-01.png)
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Resource group navigation":::
 
 1. On the **Resource groups** page, select your resource group.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Resource groups navigation":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Select resource group":::
 
 1. On the resource group page, select **Delete resource group**. 
    
