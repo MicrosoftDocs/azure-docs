@@ -86,7 +86,7 @@ Select resources you want to move.
     ![Page to select VMs to move](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  In **Resources to move**, click **Next**.
-9. In **Review + Add**, check the source and destination settings.
+9. In **Review + Add**, check the source and destination settings. Verify that you understand that metadata about the move will be stored in a resource group created for this purpose in the metadata region.
 
     ![Page to review settings and proceed with move](./media/tutorial-move-region-virtual-machines/review.png)
 10. Click **Proceed**, to begin adding the resources.
@@ -112,6 +112,8 @@ Select resources you want to move.
 
     ![Page showing resources in prepare pending state](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
 
+> [!NOTE]
+> If you want to edit target settings before beginning the move, select the link in the **Destination configuration** column for the resource, and edit the settings. If you edit the target VM settings, the target VM size shouldn't be smaller than the source VM size.  
 
 ## Move the source resource group 
 

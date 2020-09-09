@@ -84,7 +84,8 @@ Select resources you want to move.
 
 8. In **Resources to move**, click **Next**.
 
-9. In **Review + Add**, check the source and destination settings.
+9. In **Review + Add**, check the source and destination settings. Verify that you understand that metadata about the move will be stored in a resource group created for this purpose in the metadata region.
+
 
     ![Page to review settings and proceed with move](./media/tutorial-move-region-sql/review.png)
 

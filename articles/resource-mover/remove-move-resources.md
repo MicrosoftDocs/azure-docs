@@ -14,8 +14,19 @@ ms.author: raynew
 
 This article describes how to remove resources from a move collection in [Azure Resource Mover](overview.md). Move collections are used when moving Azure resources between Azure regions.
 
+## Remove a resource (portal)
 
-## Remove a resource from a collection (PowerShell)
+Remove in the Resource Mover portal as follows:
+
+1. In **Across regions**, select the resources you want to remove from the collection > **Remove**.
+
+    ![Button to select to remove](./media/remove-move-resources/portal-select-resources.png)
+
+1. In **Remove resources**, click **Remove**.
+
+    ![Button to select to remove resources from a move collection](./media/remove-move-resources/remove-portal.png)
+
+## Remove a resource (PowerShell)
 
 Remove a resource (in our example the PSDemoVM machines) from a collection using PowerShell, as follows:
 
