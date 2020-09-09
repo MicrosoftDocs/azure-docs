@@ -193,7 +193,10 @@ dependencies:
     - mlflow
     - azureml-mlflow
 ```
-Submit it the local run and ensure you set the parameter `backend = "azureml" `. View your runs and metrics in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
+Submit the local run and ensure you set the parameter `backend = "azureml" `. With this setting, you can submit runs locally and get the added support of automatic output tracking, log files, snapshots, and printed errors in your workspace. 
+
+View your runs and metrics in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
+
 
 ```python
 local_env_run = mlflow.projects.run(uri=".", 
