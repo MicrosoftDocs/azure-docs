@@ -28,7 +28,7 @@ Azure Stack Edge Mini R has the following capabilities:
 |Rugged hardware| Rugged hardware designed for harsh environmental conditions.|
 |Portable| Portable, battery-operated form factor.|
 |Cloud-managed|Device and service are managed via the Azure portal.|
-|Edge compute workloads|Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
+|Edge compute workloads|Allows analysis, processing, filtering of data.<br>Supports VMs and Kubernetes clusters.|
 |Accelerated AI inferencing| Enabled by the Intel Movidius Myriad X VPU.|
 |Wired and wireless | Allows wired and wireless data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|

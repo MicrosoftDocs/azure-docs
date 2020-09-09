@@ -14,9 +14,10 @@ ms.author: alkohli
 
 # What is the Azure Stack Edge Pro R?
 
-The Azure Stack Edge Pro R is a Hardware-as-a-service solution. Microsoft ships you a durable, rugged, server class edge device for over the network data transfer to Azure. Equipped with a Graphical Processing Unit (GPU), these devices are optimized for AI, analytics, and serverless computing. The rugged devices are appropriate for use in harsh environmental or field conditions, such as in defense, disaster relief, geological surveys, and energy.
+The Azure Stack Edge Pro R is a Hardware-as-a-service solution. Microsoft ships you a durable, rugged, server class edge device for over the network data transfer to Azure. Equipped with a Graphical Processing Unit (GPU), these devices are optimized for AI, analytics, and serverless computing. The rugged devices are appropriate for use in harsh environmental or field conditions and target defense, disaster relief, energy and geological surveys.
 
 This article provides you an overview of the Azure Stack Edge Pro R solution, key capabilities, and the scenarios where you can deploy this device.
+
 
 ## Key capabilities
 
@@ -71,7 +72,7 @@ The Azure Stack Edge Pro R solution comprises of an Azure Stack Edge resource, A
 
 Azure Stack Edge Pro R physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
-- **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). <!--Azure Stack Edge Pro R can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).-->
+- **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro R data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
