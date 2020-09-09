@@ -17,7 +17,7 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 ## Customer-managed key (CMK) overview
 
-[Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage Encryption at Rest, while you have various options to closely manage encryption or encryption keys.
+[Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage Encryption at Rest, while you have various options to closely manage encryption or encryption keys.
 
 Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your [Azure Key Vault](../../key-vault/general/overview.md) and accessed by storage using system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) authentication. This key (CMK) can be either [software or hardware-HSM protected](../../key-vault/general/overview.md).
 
