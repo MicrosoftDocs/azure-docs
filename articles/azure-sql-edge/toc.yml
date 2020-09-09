@@ -81,6 +81,8 @@
         href: sys-external-streams.md
   - name: Processing time series data
     items:
+    - name: Time gaps and missing values
+      href: imputing-missing-values.md
     - name: Date_Bucket (Transact-SQL)
       href: date-bucket-tsql.md
     - name: Date retention and cleanup
