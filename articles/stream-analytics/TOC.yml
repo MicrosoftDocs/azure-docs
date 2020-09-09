@@ -157,7 +157,7 @@
     items:
     - name: Clusters
       items:
-      - name: Create and delete Private endpoints
+      - name: Create and delete private endpoints
         href: private-endpoints.md
       - name: Add and remove jobs
         href: manage-jobs-cluster.md

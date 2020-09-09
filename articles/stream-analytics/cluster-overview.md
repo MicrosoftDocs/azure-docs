@@ -1,5 +1,5 @@
 ---
-title: Overview of Stream Analytics Clusters (Preview)
+title: Overview of Azure Stream Analytics Clusters (Preview)
 description: Learn about single tenant dedicated offering of Stream Analytics Cluster.
 author: sidramadoss
 ms.author: sidram
@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 09/22/2020
 ---
 
-# Overview of Stream Analytics Cluster (Preview)
+# Overview of Azure Stream Analytics Cluster (Preview)
 
 Azure Stream Analytics Cluster offers a single-tenant deployment for complex and demanding streaming scenarios. At full scale, Stream Analytics clusters can process more than 200 MB/second in real time. Stream Analytics jobs running on dedicated clusters can leverage all the features in the Standard offering and includes support for private link connectivity to your inputs and outputs.
 
@@ -44,9 +44,9 @@ The easiest way to get started is to create and develop a Stream Analytics job t
 
 Stream Analytics jobs alone don't support VNets. If your inputs or outputs are secured behind a firewall or an Azure Virtual Network, you have the following two options:
 
-1. If your local machine has access to the input and output resources secured by a VNet (for example, Azure Event Hubs or Azure SQL Database), you can [install Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) on your local machine. You can develop and [test Stream Analytics jobs locally](stream-analytics-live-data-local-testing.md) on your device without incurring any cost. Once you are ready to use Stream Analytics in your architecture, you can then create a Stream Analytics cluster, configure private endpoints, and run your jobs at scale.
+* If your local machine has access to the input and output resources secured by a VNet (for example, Azure Event Hubs or Azure SQL Database), you can [install Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) on your local machine. You can develop and [test Stream Analytics jobs locally](stream-analytics-live-data-local-testing.md) on your device without incurring any cost. Once you are ready to use Stream Analytics in your architecture, you can then create a Stream Analytics cluster, configure private endpoints, and run your jobs at scale.
 
-2. You can create a Stream Analytics cluster, configure the cluster with the private endpoints needed for your pipeline, and run your Stream Analytics jobs on the cluster.
+* You can create a Stream Analytics cluster, configure the cluster with the private endpoints needed for your pipeline, and run your Stream Analytics jobs on the cluster.
 
 ### What performance can I expect?
 

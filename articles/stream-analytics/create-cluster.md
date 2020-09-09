@@ -1,5 +1,5 @@
 ---
-title: Create a Stream Analytics Cluster quickstart
+title: Create an Azure Stream Analytics Cluster quickstart
 description: Learn how to create an Azure Stream Analytics cluster.
 author: sidramadoss
 ms.author: sidram
@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 09/22/2020
 ---
 
-# Quickstart: Create a dedicated Stream Analytics cluster using Azure portal
+# Quickstart: Create a dedicated Azure Stream Analytics cluster using Azure portal
 
 Use the Azure portal to create an Azure Stream Analytics cluster. A [Stream Analytics cluster](cluster-overview.md) is a single-tenant deployment that can be used for complex and demanding streaming use cases. You can run multiple Stream Analytics jobs on a Stream Analytics cluster.
 
