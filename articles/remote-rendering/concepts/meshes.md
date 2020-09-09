@@ -35,7 +35,7 @@ The `MeshComponent` class is used to place an instance of a mesh resource. Each 
 
 ### Sharing of meshes
 
-A `Mesh` resource can be shared across multiple instances of mesh components. Furthermore, the `Mesh` resource that is assigned to a mesh component can be changed programmatically any time. Here is some sample code to clone a mesh in the scene:
+A `Mesh` resource can be shared across multiple instances of mesh components. Furthermore, the `Mesh` resource that is assigned to a mesh component can be changed programmatically at any time. The code below demonstrates how to clone a mesh:
 
 ```cs
 Entity CloneEntityWithModel(RemoteManager manager, Entity sourceEntity)
