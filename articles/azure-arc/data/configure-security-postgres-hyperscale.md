@@ -24,7 +24,7 @@ There are two ways you can implement encryption at rest for your server group. Y
 
 ### Hardware: Linux host volume encryption
 Implement system data encryption to secure any data that resides on the disks used by your Azure Arc enabled Data Services setup. You can read more about this topic:
-- [Data encryption at rest](https://wiki.archlinux.org/index.php/Data-at-rest_encryption)
+- [Data encryption at rest](https://wiki.archlinux.org/index.php/Data-at-rest_encryption) on Linux in general 
 - Disk encryption with LUKS cryptsetup encrypt command (Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) specifically Since Azure Arc enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
 
 ### Software: Use the PostgreSQL `pgcrypto` extension in your server group
