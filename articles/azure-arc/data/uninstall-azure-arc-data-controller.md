@@ -51,7 +51,12 @@ After all the SQL managed instances and PostgreSQL Hyperscale instances have bee
 azdata arc dc delete -n <name> -ns <namespace>
 # for example: azdata arc dc delete -ns arc -n arcdc
 ```
+### Remove SCCs (Red Hat OpenShift only)
 
+```console
+oc adm policy remove-scc-from-user privileged -z default -n arc
+oc adm policy remove-scc-from-user anyuid     -z default -n arc
+```
 
 ### Optionally, delete the Azure Arc data controller namespace
 
@@ -61,9 +66,4 @@ kubectl delete ns <nameSpecifiedDuringCreation>
 # for example kubectl delete ns arc
 ```
 
-### Remove SCCs (Red Hat OpenShift only)
 
-```console
-oc adm policy remove-scc-from-user privileged -z default -n arc
-oc adm policy remove-scc-from-user anyuid     -z default -n arc
-```
