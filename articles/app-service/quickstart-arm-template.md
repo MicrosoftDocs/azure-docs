@@ -1,5 +1,5 @@
 ---
-title: 'Create an App Service web app using an Azure Resource Manager template'
+title: 'Create an App Service app using an Azure Resource Manager template'
 description: Create your first app to Azure App Service in seconds using an Azure Resource Manager Template, which is one of many ways to deploy to App Service.
 author: msangapu-msft
 ms.author: msangapu
@@ -9,9 +9,9 @@ ms.date: 05/25/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ---
-# Create App Service web app using an Azure Resource Manager template
+# Create App Service app using an Azure Resource Manager template
 
-Get started with [Azure App Service](overview.md) by deploying a web app to the cloud using an Azure Resource Manager template and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
+Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an Azure Resource Manager template and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -19,47 +19,47 @@ Get started with [Azure App Service](overview.md) by deploying a web app to the 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create an Azure App Service web app
+## Create an Azure App Service app
 
 ### Review the template
 
 ::: zone pivot="platform-windows"
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service Plan and an App Service web app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](app-service-web-get-started-java.md). 
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](app-service-web-get-started-java.md). 
 
 [!code-json[<Azure Resource Manager template App Service Windows app>](~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json)]
 
 Two Azure resources are defined in the template:
 
-* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an Azure App Service Plan.
-* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an Azure App Service web app.
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
 
 This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | Web app name |
-| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region |
+| webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | App name |
+| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | App region |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
 | language   | string  | ".net"                       | Programming language stack (.net, php, node, html) |
 | helloWorld | boolean | False                        | True = Deploy "Hello World" app |
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service Plan and an App Service web app on Linux. It's compatible with all supported programming languages on App Service.
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service plan and an App Service app on Linux. It's compatible with all supported programming languages on App Service.
 
 [!code-json[<Azure Resource Manager template App Service Linux app>](~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json)]
 
 Two Azure resources are defined in the template:
 
-* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an Azure App Service Plan.
-* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an Azure App Service web app.
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
 
 This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | Web app name |
-| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region |
+| webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | App name |
+| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | App region |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
 | linuxFxVersion   | string  | "DOTNETCORE&#124;3.0        | "Programming language stack &#124; Version" |
 | repoUrl    | string  | " "                          | External Git repo (optional) |
@@ -70,7 +70,7 @@ This template contains several parameters that are predefined for your convenien
 
 ### Deploy the template
 
-The following code creates a resource group, an App Service Plan, and a web app. A default resource group, App Service Plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+The following code creates a resource group, an App Service plan, and a app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
 Run the code below to deploy a .NET framework app on Windows.
@@ -82,7 +82,7 @@ az deployment group create --resource-group myResourceGroup \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
-Run the code below to create a Python web app on Linux. 
+Run the code below to create a Python app on Linux. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -90,7 +90,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-linux/azuredeploy.json"
 ```
 
-To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below.
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Language    | Example                                              |
 |-------------|------------------------------------------------------|
