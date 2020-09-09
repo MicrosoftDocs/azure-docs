@@ -110,7 +110,7 @@ For these two automatically generated certificates, you have the option of setti
 
 To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the **config.yaml** file.
 
-Upon expiry of the certificate after the specified days, the IoT Edge security daemon has to be restarted to regenerate the device CA, it won't be renewed automatically.
+Upon expiry after the specified number of days, the IoT Edge security daemon has to be restarted to regenerate the Device CA certificate, it won't be renewed automatically.
 
 ```yaml
 certificates:
