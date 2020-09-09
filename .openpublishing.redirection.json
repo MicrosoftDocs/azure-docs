@@ -56896,6 +56896,11 @@
       "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
       "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/database/advanced-data-security.md",
+      "redirect_url": "/azure/azure-sql/database/azure-defender-for-sql",
+      "redirect_document_id": false
     }
 
   ]

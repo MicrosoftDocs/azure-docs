@@ -55,8 +55,8 @@
         href: database/security-baseline.md
       - name: Security attributes
         href: database/security-controls.md
-      - name: Advanced Data Security
-        href: database/advanced-data-security.md
+      - name: Azure Defender for SQL
+        href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
       - name: Data discovery and classification
