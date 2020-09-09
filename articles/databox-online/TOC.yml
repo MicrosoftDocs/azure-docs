@@ -278,7 +278,7 @@
   items:
   - name: Overview
     items:
-    - name: What is Azure Stack Edge Mini?
+    - name: What is Azure Stack Edge Mini R?
       href: azure-stack-edge-k-series-overview.md
 
 - name: Data Box Gateway
