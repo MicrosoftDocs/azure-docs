@@ -21,7 +21,7 @@ ms.author: aahi
 
 > [!TIP]
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
-> You can start using your Metrics Advisor instance with the web portal, and through the REST API. You can find both URLs in the resource you created.
+> * You can start using your Metrics Advisor instance with the web portal, and through the REST API. You can find both URLs in the resource you created.
 > * You will need the key and endpoint from the resource you create to start using the service, which can be found in **Keys and Endpoint**, in your resource. You'll paste your key and endpoint into the code below later in the quickstart.
 
 > [!CAUTION]
