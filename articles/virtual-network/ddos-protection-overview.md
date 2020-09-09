@@ -36,6 +36,8 @@ Azure DDoS protection, combined with application design best practices, provide 
 |SLA                                             |Azure Region                          |Application guarantee & cost protection       |
 |Pricing                                         |Free                                  |Monthly & usage based                         |
 
+Azure DDoS protection does not store customer data.
+
 ## Types of DDoS attacks that DDoS Protection Standard mitigates
 
 DDoS Protection Standard can mitigate the following types of attacks:
@@ -58,7 +60,7 @@ DDoS Protection Standard features include:
 - **Adaptive tuning:** Intelligent traffic profiling learns your application's traffic over time, and selects and updates the profile that is the most suitable for your service. The profile adjusts as traffic changes over time.
 - **Multi-Layered protection:** Provides full stack DDoS protection, when used with a web application firewall.
 - **Extensive mitigation scale:** Over 60 different attack types can be mitigated, with global capacity, to protect against the largest known DDoS attacks.
-- **Attack analytics:** Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to an offline security information and event management (SIEM) system for near real-time monitoring during an attack.
+- **Attack analytics:** Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack.
 - **Attack metrics:** Summarized metrics from each attack are accessible through Azure Monitor.
 - **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.
 - **Cost guarantee:** Data-transfer and application scale-out service credits for documented DDoS attacks.

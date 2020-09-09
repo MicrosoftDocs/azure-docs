@@ -31,6 +31,7 @@ This page is updated regularly, so revisit it often. If you're looking for items
 Updates in September include:
 
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Network security group recommendations improved](#network-security-group-recommendations-improved)
 - [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
 - [Email notifications from Azure Security Center improved](#email-notifications-from-azure-security-center-improved)
@@ -53,6 +54,22 @@ Related pages:
 - [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](monitor-container-security.md)
 - [Continuous export](continuous-export.md)
 
+### Prevent security misconfigurations by enforcing recommendations when creating new resources
+
+Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regards to specific recommendations. 
+
+This feature can help keep your workloads secure and stabilize your secure score.
+
+Enforcing a secure configuration, based on a specific recommendation, is offered in two modes:
+
+- Using the **Deny** effect of Azure Policy, you can stop unhealthy resources from being created
+
+- Using the **Enforce** option, you can take advantage of Azure policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation
+ 
+This is available for selected security recommendations and can be found at the top of the resource details page.
+
+Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
+
 ###  Network security group recommendations improved
 
 The following security recommendations related to network security groups have been improved to reduce some instances of false positives.
@@ -74,7 +91,7 @@ After pod security policy (preview) is deprecated, you must disable the feature 
 
 ### Email notifications from Azure Security Center improved
 
-The following areas of the emails regarding security alerts hae been improved: 
+The following areas of the emails regarding security alerts have been improved: 
 
 - Added the ability to send email notifications about alerts for all severity levels
 - Added the ability to notify users with different RBAC roles on the subscription
@@ -103,7 +120,7 @@ An example of a preview recommendation:
 
 The details page for recommendations now includes a freshness interval indicator (whenever relevant) and a clear display of the severity of the recommendation.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Recommendation page showin freshness and severity":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Recommendation page showing freshness and severity":::
 
 
 
