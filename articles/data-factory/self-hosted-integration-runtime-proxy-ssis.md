@@ -11,7 +11,7 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/06/2020
+ms.date: 09/09/2020
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
@@ -38,13 +38,13 @@ You then set up your self-hosted IR in the same data factory where your Azure-SS
 
 Finally, you download and install the latest version of the self-hosted IR, as well as the additional drivers and runtime, on your on-premises machine or Azure virtual machine (VM), as follows:
 - Download and install the latest version of the [self-hosted IR](https://www.microsoft.com/download/details.aspx?id=39717).
-- If you use Object Linking and Embedding Database (OLEDB), Open Database Connectivity (ODBC), or ADO.NET connectors in your packages, download and install the relevant drivers on the same machine where your self-hosted IR is installed, if you haven't done so already.  
+- If you use Object Linking and Embedding Database (OLEDB)/Open Database Connectivity (ODBC) connectors in your packages, download and install the relevant drivers on the same machine where your self-hosted IR is installed, if you haven't done so already.  
 
   If you use the earlier version of the OLEDB driver for SQL Server (SQL Server Native Client [SQLNCLI]), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=50402).  
 
   If you use the latest version of OLEDB driver for SQL Server (MSOLEDBSQL), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=56730).  
   
-  If you use OLEDB/ODBC/ADO.NET drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
+  If you use OLEDB/ODBC drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
 - If you haven't done so already, [download and install the 64-bit version of Visual C++ (VC) runtime](https://www.microsoft.com/download/details.aspx?id=40784) on the same machine where your self-hosted IR is installed.
 
 ## Prepare the Azure Blob storage-linked service for staging
@@ -170,11 +170,8 @@ If you need to use strong cryptography/more secure network protocol (TLS 1.2) an
 
 ## Current limitations
 
-- Only data flow components that are built-in/preinstalled on Azure-SSIS IR Standard Edition, except Hadoop/HDFS/DQS components, are currently supported, see [all built-in/preinstalled components on Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
-- Only custom/3rd party data flow components that are written in managed code (.NET Framework) are currently supported.
+- Only data flow tasks with OLEDB/ODBC/Flat File sources or OLEDB destination are currently supported.
 - Only Azure Blob storage-linked services that are configured with *Account key*, *Shared Access Signature (SAS) URI*, or *Service Principal* authentication are currently supported.
-- Changing variable values in both on-premises and cloud staging tasks is currently unsupported.
-- Changing variable values of type object in on-premises staging tasks won't be reflected in other tasks.
 - *ParameterMapping* in OLEDB Source is currently unsupported. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. As an illustration, see the *ParameterMappingSample.dtsx* package that can be found in the *SelfHostedIRProxy/Limitations* folder of our public preview container. Using Azure Storage Explorer, you can connect to our public preview container by entering the above SAS URI.
 
 ## Next steps
