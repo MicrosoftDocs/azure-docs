@@ -23,38 +23,137 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 - A **general-purpose v2** storage account. see [Create a storage account](../common/storage-quickstart-create-account.md).
 
-Choose a tab to view any SDK-specific prerequisites.
+- Choose a tab to view any SDK-specific prerequisites.
 
-### [PowerShell](#tab/azure-powershell)
+  ### [PowerShell](#tab/azure-powershell)
 
-Not applicable
+  Not applicable
 
-### [.NET](#tab/dotnet)
+  ### [.NET](#tab/dotnet)
 
-The [.NET SDK](https://dotnet.microsoft.com/download) 
+  The [.NET SDK](https://dotnet.microsoft.com/download) 
 
-### [Java](#tab/java)
+  ### [Java](#tab/java)
 
-- [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above
+  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above
 
-- [Apache Maven](https://maven.apache.org/download.cgi) 
+  - [Apache Maven](https://maven.apache.org/download.cgi) 
 
-  > [!NOTE] 
-  > This article assumes that you've created a Java project by using Apache Maven. For an example of how to create a project by using Apache Maven, see [Setting up](storage-quickstart-blobs-java.md#setting-up).
+    > [!NOTE] 
+    > This article assumes that you've created a Java project by using Apache Maven. For an example of how to create a project by using Apache Maven, see [Setting up](storage-quickstart-blobs-java.md#setting-up).
   
-### [Python](#tab/python)
+  ### [Python](#tab/python)
 
-[Python](https://www.python.org/downloads/) 3.8 or greater.
+  [Python](https://www.python.org/downloads/) 3.8 or greater.
 
-### [Node.js](#tab/nodejs)
+  ### [Node.js](#tab/nodejs)
 
-There are no additional prerequisites required to use the Node.js SDK.
+  There are no additional prerequisites required to use the Node.js SDK.
 
 ---
 
-## Install packages 
+## Enable query acceleration
 
-### [PowerShell](#tab/azure-powershell)
+To use query acceleration, you must register the feature, verify that the feature is registered, and then reregister. You can do this by using either PowerShell or Azure CLI.
+
+### Step 1: Register the query acceleration feature with your subscription
+
+To use query acceleration, you must first register the query acceleration feature with your subscription. 
+
+#### [PowerShell](#tab/powershell)
+
+1. Open a Windows PowerShell command window.
+
+1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. If your identity is associated with more than one subscription, then set your active subscription.
+
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+3. Register the query acceleration feature by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
+
+   ```powershell
+   Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
+   ```
+
+#### [Azure CLI](#tab/azure-cli)
+
+1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+3. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
+
+   ```azurecli
+   az feature register --namespace Microsoft.Storage --name BlobQuery
+   ```
+
+---
+
+### Step 2: Verify that the feature is registered
+
+To verify that the registration is complete, use the following commands.
+
+#### [PowerShell](#tab/powershell)
+
+To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
+
+```azurecli
+az feature show --namespace Microsoft.Storage --name BlobQuery
+```
+
+---
+
+### Step 3: Register the Azure Storage resource provider
+
+After your registration is approved, you must re-register the Azure Storage resource provider. 
+
+#### [PowerShell](#tab/powershell)
+
+To re-register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To re-register the resource provider, use the [az provider register](/cli/azure/provider#az-provider-register) command.
+
+```azurecli
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
+
+## Set up your environment
+
+### Step 1: Install packages 
+
+#### [PowerShell](#tab/azure-powershell)
 
 Install the Az module version 4.6.0 or higher.
 
@@ -68,7 +167,7 @@ To update from an older version of Az, run the following command:
 Update-Module -Name Az
 ```
 
-### [.NET](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 
 1. Open a command prompt and change directory (`cd`) into your project folder For example:
 
@@ -88,7 +187,7 @@ Update-Module -Name Az
    dotnet add package CsvHelper
    ```
 
-### [Java](#tab/java)
+#### [Java](#tab/java)
 
 1. Open the *pom.xml* file of your project in a text editor. Add the following dependency elements to the group of dependencies. 
 
@@ -111,7 +210,7 @@ Update-Module -Name Az
     </dependency>
    ```
 
-### [Python](#tab/python)
+#### [Python](#tab/python)
 
 Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
 
@@ -119,7 +218,7 @@ Install the Azure Data Lake Storage client library for Python by using [pip](htt
 pip install azure-storage-blob==12.4.0b1
 ```
 
-### [Node.js](#tab/nodejs)
+#### [Node.js](#tab/nodejs)
 
 Install Data Lake client library for JavaScript by opening a terminal window, and then typing the following command.
 
@@ -130,13 +229,13 @@ Install Data Lake client library for JavaScript by opening a terminal window, an
 
 ---
 
-## Add statements
+### Step 2: Add statements
 
-### [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 Not applicable
 
-### [.NET](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 
 Add these `using` statements to the top of your code file.
 
@@ -161,7 +260,7 @@ using System.IO;
 using System.Globalization;
 ```
 
-### [Java](#tab/java)
+#### [Java](#tab/java)
 
 Add these `import` statements to the top of your code file.
 
@@ -175,7 +274,7 @@ import java.util.function.Consumer;
 import org.apache.commons.csv.*;
 ```
 
-### [Python](#tab/python)
+#### [Python](#tab/python)
 
 Add these import statements to the top of your code file.
 
