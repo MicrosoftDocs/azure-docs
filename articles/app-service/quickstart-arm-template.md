@@ -28,7 +28,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 ::: zone pivot="platform-windows"
 This template deploys an App Service Plan and an App Service App on Windows.
 
-[!code-json[<Azure Resource Manager template basic web app>](~/quickstart-templates/101-webapp-basic-windows/azuredeploy.json)]
+[!code-json[<Azure Resource Manager template App Service Windows app>](~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json)]
 
 Two Azure resources are defined in the template:
 
@@ -40,27 +40,27 @@ This template contains several parameters that are predefined for your convenien
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | Web app name |
-| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region           |
-| sku        | string  | "F1"                         | Instance size (F1 = Free Tier)           |
-| language   | string  | ".NET"                       | Programming language stack (.NET, PHP, Node, HTML)            |
-| helloWorld | boolean | False                        | True = Deploy "Hello World" app             |
-| repoUrl    | string  | " "                          | External Git repo (optional)            |
+| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region |
+| sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
+| language   | string  | ".net"                       | Programming language stack (.net, php, node, html) |
+| helloWorld | boolean | False                        | True = Deploy "Hello World" app |
+| repoUrl    | string  | " "                          | External Git repo (optional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
 This template deploys an App Service Plan and an App Service App on Linux.
 
-[!code-json[<Azure Resource Manager template basic web app>](~/quickstart-templates/101-webapp-basic-linux/azuredeploy.json)]
+[!code-json[<Azure Resource Manager template App Service Linux app>](~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json)]
 
 This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | Web app name |
-| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region           |
-| sku        | string  | "F1"                         | Instance size (F1 = Free Tier)           |
-| language   | string  | ".NET"                       | Programming language stack (.NET, PHP, Node, HTML)            |
-| helloWorld | boolean | False                        | True = Deploy "Hello World" app             |
-| repoUrl    | string  | " "                          | External Git repo (optional)            |
+| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region |
+| sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
+| language   | string  | ".net"                       | Programming language stack (.net, php, node, html) |
+| helloWorld | boolean | False                        | True = Deploy "Hello World" app |
+| repoUrl    | string  | " "                          | External Git repo (optional) |
 
 ---
 ::: zone-end
@@ -77,7 +77,7 @@ The template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Sta
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".NET" sample="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-webapp-basic-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
 The template is compatible with all supported programming languages on App Service. Run the code below to create a Python web app on Linux. 
@@ -85,7 +85,7 @@ The template is compatible with all supported programming languages on App Servi
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.7" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-webapp-basic-linux/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-linux/azuredeploy.json"
 ```
 
 To deploy a different language, update `linuxFxVersion` with appropriate values. Samples are shown below.
@@ -114,8 +114,7 @@ Browse to `http://<app_name>.azurewebsites.net/` and verify it's been created.
 
 ## Clean up resources
 
-When no longer needed, [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
-).
+When no longer needed, [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
 ## Next steps
 
