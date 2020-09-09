@@ -14,17 +14,17 @@ ms.author: aahi
 
 # Install and run the Spatial Analysis container (Preview)
 
-The Spatial Analysis container enables you to analyze real-time streaming video to understand spatial relationships between people, their identities, activities, and interactions with objects in your own environment. Containers are great for specific security and data governance requirements.
+The spatial analysis container enables you to analyze real-time streaming video to understand spatial relationships between people, their identities, activities, and interactions with objects in your own environment. Containers are great for specific security and data governance requirements.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
+    * You will need the key and endpoint from the resource you create to run the spatial analysis container. You'll use your key and endpoint later.
 
 ### Spatial Analysis container requirements
 
-To run the Spatial Analysis container, you need a compute device (referred to here as a host computer) with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We will refer to this device as the host computer.
+To run the spatial analysis container, you need a compute device (referred to here as a host computer) with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We will refer to this device as the host computer.
 
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
@@ -60,7 +60,7 @@ In this article, you will download and install the following software packages. 
 
 | Requirement | Description |
 |--|--|
-| Camera | The Spatial Analysis container is not tied to a specific camera brand. The camera device needs to: support Real-Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
+| Camera | The spatial analysis container is not tied to a specific camera brand. The camera device needs to: support Real-Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
 | Linux OS | [Ubuntu Desktop 18.04 LTS](https://ubuntu.com/download/desktop) must be installed on the host computer.  |
 
 ## Request access to the private container registry
@@ -80,7 +80,7 @@ It is recommended that you use an Azure Stack Edge device for your host computer
 
 ### Configure compute on the Azure Stack Edge portal 
  
-Spatial Analysis uses the compute features of the Azure Stack Edge to run an AI solution. To enable the compute features, make sure that: 
+spatial analysis uses the compute features of the Azure Stack Edge to run an AI solution. To enable the compute features, make sure that: 
 
 * You've [connected and activated](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) your Azure Stack Edge device. 
 * You have a Windows client system running PowerShell 5.0 or later, to access the device.  
@@ -197,9 +197,9 @@ sudo mv /tmp/nvidia-mps.service /etc/systemd/system/
 sudo systemctl --now enable nvidia-mps.service
 ```
 
-## Deploy the Spatial Analysis container using Azure IoT Hub and Azure IoT Edge
+## Deploy the spatial analysis container using Azure IoT Hub and Azure IoT Edge
 
-To deploy the Spatial Analysis container on the host computer, create an instance of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) service using the Standard (S1) or Free (F0) pricing tier. If your host computer is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
+To deploy the spatial analysis container on the host computer, create an instance of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) service using the Standard (S1) or Free (F0) pricing tier. If your host computer is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
 
 Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters where appropriate. Alternatively, you can create the Azure IoT Hub on the [Azure portal](https://portal.azure.com/).
 
@@ -299,29 +299,6 @@ The following table shows the various Environment Variables used by the IoT Edge
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-You also need to provide credentials to the Azure Container Registry where the container is stored.
-
-```json
- "runtime": {
-    "settings": {
-        "minDockerVersion": "v1.25",
-        "registryCredentials": {
-            "offlinepreviewprojectarchon": {
-                "address": "offlinepreviewprojectarchon.azurecr.io",
-                "password": "<Service Principal Password>",
-                "username": "<Service Principal Id>"
-            },
-            "rtvsofficial": {
-                "address": "rtvsofficial.azurecr.io",
-                "password": "<Service Principal Password>",
-                "username": "<Service Principal Id>"
-            }
-        }
-    },
-    "type": "docker"
-},
-```
-
 Once you update the `deploymentManifest.json` file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
 
 ```azurecli
@@ -340,30 +317,30 @@ This command will start the deployment. Navigate to the page of your Azure IoT H
 
 ## Validate that the deployment is successful
 
-There are several ways to validate that the container is running. Locate the *Runtime Status* in the **IoT Edge Module Settings** for the Spatial Analysis module in your Azure IoT Hub instance on the Azure portal. Validate that the **Desired Value** and **Reported Value** for the *Runtime Status* is *Running*.
+There are several ways to validate that the container is running. Locate the *Runtime Status* in the **IoT Edge Module Settings** for the spatial analysis module in your Azure IoT Hub instance on the Azure portal. Validate that the **Desired Value** and **Reported Value** for the *Runtime Status* is *Running*.
 
 ![Example deployment verification](./media/spatial-analytics/deployment-verification.png)
 
 Once the deployment is complete and the container is running, the **host computer** will start sending events to the Azure IoT Hub. If you used the `.Debug` version of the operations, you’ll see a visualizer window for each camera you configured in the deployment manifest. You can now define the lines and zones you want to monitor in the deployment manifest and follow the instructions to deploy again. 
 
-## Configure the operations performed by Spatial Analysis
+## Configure the operations performed by spatial analysis
 
-You will need to use [Spatial Analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, enable video recording, and more. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages, sent to your instance of Azure IoT Hub.
+You will need to use [spatial analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, enable video recording, and more. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages, sent to your instance of Azure IoT Hub.
 
 ## Redeploy or delete the deployment
 
 If you need to update the deployment, you need to make sure your previous deployments are successfully deployed, or you need to delete IoT Edge Device deployments that did not complete. Otherwise, those deployments will continue, leaving the system in a bad state. You can use the Azure portal, or the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest).
 
-## How to consume output generated by the Spatial Analysis container
+## How to consume output generated by the spatial analysis container
 
 If you want to start consuming the output generated by the container, see the following articles:
 
 *	Use the Azure Event Hub SDK for your chosen programming language to connect to the Azure IoT Hub endpoint and receive the events. See [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for more information. 
 *	Set up Message Routing on your Azure IoT Hub to send the events to other endpoints or save the events to Azure Blob Storage, etc. See [IoT Hub Message Routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) for more information. 
 
-## Running Spatial Analysis with a recorded video file
+## Running spatial analysis with a recorded video file
 
-To start using Spatial Analysis, try recording a video file from a H.264 encoded camera stream, and save it as an mp4 file. Create a blob storage account in Azure, or use an existing one. Then update the following blob storage settings in the Azure portal:
+To start using spatial analysis, try recording a video file from a H.264 encoded camera stream, and save it as an mp4 file. Create a blob storage account in Azure, or use an existing one. Then update the following blob storage settings in the Azure portal:
 	1. Change **Secure transfer required** to **Disabled**
 	2. Change **Allow Blob public access** to **Enabled**
 
@@ -371,9 +348,9 @@ Navigate to the **Container** section, and either create a new container or use 
 
 Click on **Generate SAS Token and URL** and copy the Blob SAS URL. Replace the starting `https` with `http` and test the URL in a browser that supports video playback.
 
-Replace `VIDEO_URL` in the deployment manifest with URL you created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and redeploy the Spatial Analysis container with the updated manifest. See the example below.
+Replace `VIDEO_URL` in the deployment manifest with URL you created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and redeploy the spatial analysis container with the updated manifest. See the example below.
 
-The Spatial Analysis module will start consuming video file and will continuously auto replay as well.
+The spatial analysis module will start consuming video file and will continuously auto replay as well.
 
 
 ```json
@@ -401,16 +378,16 @@ If you encounter issues when starting or running the container, see [telemetry a
 
 ## Billing
 
-The Spatial Analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account.
+The spatial analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account.
 
 Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Cognitive Services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running the Project Archon  container for Spatial Analysis. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running the Project Archon  container for spatial analysis. In summary:
 
-* Spatial Analysis is a Linux container for Docker.
+* The spatial analysis container is a Linux container for Docker.
 * Container images are downloaded from the container registry in Azure.
 * Container images run as IoT Modules in Azure IoT Edge.
 * How to configure the container and deploy it on a host machine.
