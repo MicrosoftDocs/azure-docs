@@ -11,11 +11,9 @@ ms.author: jovanpop
 ms.reviewer: jrasnick
 ---
 
-# Query Azure Cosmos DB data using SQL on-demand (preview) with Azure Synapse Link for Azure Cosmos DB
+# Query Azure Cosmos DB data using SQL on-demand with Azure Synapse Link (preview)
 
-SQL on-demand (preview) support for Azure Cosmos DB analytical store in [Synapse Link](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) enables you to perform no-ETL analytical processing on operational data in Azure Cosmos DB without impacting the performance of your transactional workloads. 
-
-SQL on-demand enables you to access data in your Azure Cosmos DB containers that are enabled with Synapse Link by offering a familiar T-SQL syntax to query data and an integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. 
+SQL on-demand (preview) allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and an integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. 
 
 > [!NOTE]
 > SQL on-demand does not support querying Azure Cosmos DB transactional store.
