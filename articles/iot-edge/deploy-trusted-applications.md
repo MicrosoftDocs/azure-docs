@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/09/2020
 ms.author: kgremban
 ---
 
@@ -23,9 +23,9 @@ Another aspect of confidential computing is protecting the data in use at the ed
 
 Trusted applications are encrypted in transit and at rest, and only decrypted to run inside a trusted execution environment. This standard holds true for trusted applications deployed as IoT Edge modules.
 
-The developer creates the trusted application and packages it as an IoT Edge module. The application is encrypted before being pushed to the container registry. The application remains encrypted throughout the IoT Edge deployment process until the module is started on the IoT Edge device. Once the trusted application is within the device's TEE, it is decrypted and begins executing.
+The developer creates the trusted application and packages it as an IoT Edge module. The application is encrypted before being pushed to the container registry. The application remains encrypted throughout the IoT Edge deployment process until the module is started on the IoT Edge device. Once the trusted application is within the device's TEE, it is decrypted and can begin executing.
 
-<!-- TODO add conceptual art -->
+![Diagram - Trusted applications are encrypted within IoT Edge modules until deployed into the secure enclave](./media/deploy-trusted-applications/trusted-applications-encrypted.png)
 
 Trusted applications on IoT Edge are a logical extension of [Azure confidential computing](../confidential-computing/overview.md). Workloads that run within secure enclaves in the cloud can also be deployed to run within secure enclaves at the edge.
 
