@@ -7,7 +7,7 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/16/2020
+ms.date: 09/08/2020
 ---
 # Troubleshoot data flows in Azure Data Factory
 
@@ -39,6 +39,8 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 - **Message**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs
 - **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. Stream chosen for broadcast seems to large to produce data within this limit.
 - **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If this is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR.
+
+If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300 secs timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
 
 ### Error code: DF-Executor-Conversion
 
