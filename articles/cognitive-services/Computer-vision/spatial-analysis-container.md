@@ -401,7 +401,7 @@ If you encounter issues when starting or running the container, see [telemetry a
 
 ## Billing
 
-The Spatial Analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account.
+The spatial analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account. The use of spatial analysis in public preview is free of charge. 
 
 Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Cognitive Services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
@@ -411,6 +411,6 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 In this article, you learned concepts and workflow for downloading, installing, and running the Project Archon  container for Spatial Analysis. In summary:
 
 * Spatial Analysis is a Linux container for Docker.
-* Container images are downloaded from the container registry in Azure.
+* Container images are downloaded from the Microsoft Container Registry.
 * Container images run as IoT Modules in Azure IoT Edge.
 * How to configure the container and deploy it on a host machine.
