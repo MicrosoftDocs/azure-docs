@@ -15,7 +15,7 @@ ms.author: allensu
 
 # Azure Load Balancer portal settings
 
-As you create Azure Load Balancer, information in this article will help you learn more about the individual settings and what the right configuration for you is.
+As you create Azure Load Balancer, information in this article will help you learn more about the individual settings and what the right configuration is for you.
 
 ## Create load balancer
 
@@ -109,11 +109,11 @@ If you want to add a health probe to your load balancer, go to your load balance
 
 :::image type="content" source="./media/manage/health-probe.png" alt-text="Add health probe." border="true":::
 
-## Load balancing rules
+## Load-balancing rules
 
 Defines how incoming traffic is distributed to all the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports.
 
-If you want to add a load balancer rule to your load balancer, go to your load balancer in the Azure portal, select **Load balancing rules**, and then select **+Add**.
+If you want to add a load balancer rule to your load balancer, go to your load balancer in the Azure portal, select **Load-balancing rules**, and then select **+Add**.
     
 | Setting | Details |
 | ---------- | ---------- |
@@ -125,13 +125,13 @@ If you want to add a load balancer rule to your load balancer, go to your load b
 | Backend port | This setting is the port on the instances in the backend pool you would like the load balancer to send traffic to. This setting can be the same as the frontend port or different if you need the flexibility for your application. |
 | Backend pool | The backend pool you would like this load balancer rule to be applied on. |
 | Health probe | The health probe you created to check the status of the instances in the backend pool. </br> Only healthy instances will receive new traffic. |
-| Session persistence |  Your options are: </br> **None** </br> **Client IP** </br> **Client IP and protocol**</br> </br> Maintain traffic from a client to the same virtual machine in the backend pool with session persistence. This traffic will be maintained for the duration of the session. </br> **None** specifies that successive requests from the same client may be handled by any virtual machine. </br> **Client IP** specifies that successive requests from the same client IP address will be handled by the same virtual machine. </br> **Client IP and protocol** ensure that successive requests from the same client IP address and protocol will be handled by the same virtual machine. </br> Learn more about [distribution modes](load-balancer-distribution-mode.md). |
+| Session persistence |  Your options are: </br> **None** </br> **Client IP** </br> **Client IP and protocol**</br> </br> Maintain traffic from a client to the same virtual machine in the backend pool. This traffic will be maintained for the duration of the session. </br> **None** specifies that successive requests from the same client may be handled by any virtual machine. </br> **Client IP** specifies that successive requests from the same client IP address will be handled by the same virtual machine. </br> **Client IP and protocol** ensure that successive requests from the same client IP address and protocol will be handled by the same virtual machine. </br> Learn more about [distribution modes](load-balancer-distribution-mode.md). |
 | Idle timeout (minutes) | Keep a **TCP** or **HTTP** connection open without relying on clients to send keep-alive messages |  
 | TCP reset | Load balancer can send **TCP resets** to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md)|
 | Floating IP | Floating IP is Azure's terminology for a portion of what is known as **Direct Server Return (DSR)**. </br> DSR consists of two parts: <br> 1. Flow topology </br> 2. An IP address-mapping scheme at a platform level. </br></br> Azure Load Balancer always operates in a DSR flow topology whether floating IP is enabled or not. </br> This operation means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. </br> Without floating IP, Azure exposes a traditional load-balancing IP address-mapping scheme, the VM instances' IP. </br> Enabling floating IP changes the IP address mapping to the frontend IP of the load Balancer to allow for additional flexibility. </br> For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).|
 | Create implicit outbound rules | Select **No**. </br> Default: **disableOutboundSnat = false**  </br> In this case outbound occurs via same frontend IP. </br></br> **disableOutboundSnat = true** </br>In this case, outbound rules are needed for outbound. |
 
-:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Add load balancing rule." border="true":::
+:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Add load-balancing rule." border="true":::
 
 ## Inbound NAT rules
 
@@ -194,5 +194,5 @@ If you want to add an outbound rule to your load balancer, go to your load balan
 
 In this article, you learned about the different terms and settings in the Azure portal for Azure Load Balancer.
 
-* [Learn](overview.md) more about Azure Load Balancer.
-* [FAQs](faqs.md) for Azure Load Balancer.
+* [Learn](./load-balancer-overview.md) more about Azure Load Balancer.
+* [FAQs](./load-balancer-faqs.md) for Azure Load Balancer.
