@@ -7,7 +7,7 @@ author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 08/09/2020
 ms.author: twooley
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -265,7 +265,18 @@ Do the following steps in the Azure portal to order a device.
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-    Select **Next: Contact details** to continue.
+    Select **Next: Security** to continue.
+
+1. In **Security**, if you want to enable software-based double encryption, select **Enable double encryption for the order**. 
+
+   The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the data box.
+
+   > [!NOTE]
+   > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
+
+   :::image type="content" source="media/data-box-deploy-ordered/select-data-box-import-07c.png" alt-text="Security option for managed disk":::
+
+   Select **Next: Contact details** to continue.
 
 8. In **Contact details**, select **+ Add Shipping Address**.
 
