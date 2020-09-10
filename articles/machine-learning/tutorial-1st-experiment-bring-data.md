@@ -197,7 +197,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 The `target_path` specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
 >[!TIP] 
-> Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) to ingest your data into Azure.
+> Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) to ingest your data into Azure.
 
 Run the Python file to upload the data (Note: The run should be quick, less than 15 seconds.)
 
@@ -253,10 +253,10 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
-### Understanding the code changes
+### Understand the code changes
 
-1. **`dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))`** Here a Dataset is used to reference the data you uploaded to the Azure Blob Store. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
-1. **`config = ScriptRunConfig(...)`** We modified the `ScriptRunConfig` to include a list of arguments that will be passed into `train.py`. Also we specified `dataset.as_named_input('input').as_mount()`. This means the directory specified will be _mounted_ to the compute target.
+- **`dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))`**: A Dataset is used to reference the data you uploaded to the Azure Blob Store. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
+- **`config = ScriptRunConfig(...)`**: We modified the `ScriptRunConfig` to include a list of arguments that will be passed into `train.py`. We also specified `dataset.as_named_input('input').as_mount()`, which means the directory specified will be _mounted_ to the compute target.
 
 ## Submit run to Azure Machine Learning compute cluster
 
