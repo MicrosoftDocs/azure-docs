@@ -10,26 +10,26 @@ author: palma21
 
 # Use Azure Files Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS) (preview)
 
-The Azure Files Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure file shares.
+The Azure Files Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares.
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
-To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure disks and Azure files on AKS](csi-storage-drivers.md).
+To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure disks and Azure Files on AKS](csi-storage-drivers.md).
 
 >[!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
-## Use a persistent volume with Azure files
+## Use a persistent volume with Azure Files
 
-A [persistent volume (PV)](concepts-storage.md#persistent-volumes) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure file share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure file share](azure-files-volume.md).
+A [persistent volume (PV)](concepts-storage.md#persistent-volumes) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share](azure-files-volume.md).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Dynamically create Azure files PVs by using the built-in storage classes
+## Dynamically create Azure Files PVs by using the built-in storage classes
 
-A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure file shares. Choose one of the following [Azure storage redundancy SKUs][storage-skus] for *skuName*:
+A storage class is used to define how an Azure Files share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure Files shares. Choose one of the following [Azure storage redundancy SKUs][storage-skus] for *skuName*:
 
 * **Standard_LRS**: Standard locally redundant storage
 * **Standard_GRS**: Standard geo-redundant storage
@@ -38,16 +38,16 @@ A storage class is used to define how an Azure file share is created. A storage 
 * **Premium_LRS**: Premium locally redundant storage
 
 > [!NOTE]
-> Azure files support Azure Premium Storage. The minimum premium file share is 100 GB.
+> Azure Files supports Azure Premium Storage. The minimum premium file share is 100 GB.
 
 When you use storage CSI drivers on AKS, there are two additional built-in `StorageClasses` that use the Azure Files CSI storage drivers. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
-- `azurefile-csi`: Uses Azure Standard Storage to create an Azure file share.
-- `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure file share.
+- `azurefile-csi`: Uses Azure Standard Storage to create an Azure Files share.
+- `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure Files share.
 
-The reclaim policy on both storage classes ensures that the underlying Azure file share is deleted when the respective PV is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the persistent volume claim (PVC) with the new size.
+The reclaim policy on both storage classes ensures that the underlying Azure Files share is deleted when the respective PV is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the persistent volume claim (PVC) with the new size.
 
-To use these storage classes, create a [PVC](concepts-storage.md#persistent-volume-claims) and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure file share for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
+To use these storage classes, create a [PVC](concepts-storage.md#persistent-volume-claims) and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
 
 Create an [example PVC and pod that prints the current date into an `outfile`](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) with the [kubectl apply][kubectl-apply] command:
 

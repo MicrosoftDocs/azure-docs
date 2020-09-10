@@ -13,7 +13,7 @@ The Azure disk Container Storage Interface (CSI) driver is a [CSI specification]
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
-To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure disks and Azure files on AKS](csi-storage-drivers.md).
+To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure disks and Azure Files on AKS](csi-storage-drivers.md).
 
 >[!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
@@ -390,7 +390,7 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 
 ## Next steps
 
-- To learn how to use CSI drivers for Azure files, see [Use Azure files with CSI drivers](azure-files-csi.md).
+- To learn how to use CSI drivers for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
 - For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 

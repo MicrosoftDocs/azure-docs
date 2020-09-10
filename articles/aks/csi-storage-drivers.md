@@ -1,6 +1,6 @@
 ---
 title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
-description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure files in an Azure Kubernetes Service (AKS) cluster.
+description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
 ms.date: 08/27/2020
@@ -8,13 +8,13 @@ author: palma21
 
 ---
 
-# Enable Container Storage Interface (CSI) drivers for Azure disks and Azure files on Azure Kubernetes Service (AKS) (preview)
+# Enable Container Storage Interface (CSI) drivers for Azure disks and Azure Files on Azure Kubernetes Service (AKS) (preview)
 
 The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
 The CSI storage driver support on AKS allows you to natively use:
-- [*Azure disks*](azure-disk-csi.md), which can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as *ReadWriteOnce*, so are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure files.
-- [*Azure files*](azure-files-csi.md), which can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Files can use Azure Standard Storage backed by regular HDDs or Azure Premium Storage backed by high-performance SSDs.
+- [*Azure disks*](azure-disk-csi.md), which can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as *ReadWriteOnce*, so are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
+- [*Azure Files*](azure-files-csi.md), which can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure Standard Storage backed by regular HDDs or Azure Premium Storage backed by high-performance SSDs.
 
 > [!IMPORTANT]
 > Starting in Kubernetes version 1.21, Kubernetes will use CSI drivers only and by default. These drivers are the future of storage support in Kubernetes.
@@ -32,7 +32,7 @@ The CSI storage driver support on AKS allows you to natively use:
 
 ### Register the `EnableAzureDiskFileCSIDriver` preview feature
 
-To create an AKS cluster that can use CSI drivers for Azure disks and Azure files, you must enable the `EnableAzureDiskFileCSIDriver` feature flag on your subscription.
+To create an AKS cluster that can use CSI drivers for Azure disks and Azure Files, you must enable the `EnableAzureDiskFileCSIDriver` feature flag on your subscription.
 
 Register the `EnableAzureDiskFileCSIDriver` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -69,7 +69,7 @@ az extension update --name aks-preview
 
 ## Create a new cluster that can use CSI storage drivers
 
-Create a new cluster that can use CSI storage drivers for Azure disks and Azure files by using the following CLI commands. Use the `--aks-custom-headers` flag to set the `EnableAzureDiskFileCSIDriver` feature.
+Create a new cluster that can use CSI storage drivers for Azure disks and Azure Files by using the following CLI commands. Use the `--aks-custom-headers` flag to set the `EnableAzureDiskFileCSIDriver` feature.
 
 Create an Azure resource group:
 
@@ -103,7 +103,7 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 ## Next steps
 
 - To use the CSI drive for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
-- To use the CSI drive for Azure files, see [Use Azure files with CSI drivers](azure-files-csi.md).
+- To use the CSI drive for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
