@@ -29,6 +29,8 @@
     href: fusion.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
+  - name: Normalize your data across tables
+    href: normalization.md
 - name: How-to guides
   items:
   - name: Connect data sources
@@ -181,6 +183,8 @@
   items:
   - name: REST APIs
     href: https://docs.microsoft.com/rest/api/securityinsights/
+  - name: Network normalization schema
+    href: normalization-schema.md
 - name: Resources
   items:
   - name: Useful resources
