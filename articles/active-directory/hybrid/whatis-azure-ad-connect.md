@@ -1,6 +1,6 @@
 ---
 title: 'What is Azure AD Connect and Connect Health. | Microsoft Docs'
-description: Describes the tools used to synchronize and monitor your on-premises environment with Azure AD.
+description: Learn about the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
 manager: daveba
@@ -30,7 +30,7 @@ Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybr
 
 ## What is Azure AD Connect Health?
 
-Azure Active Directory (Azure AD) Connect Health provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Office 365 and Microsoft Online Services.  This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
+Azure Active Directory (Azure AD) Connect Health provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services.  This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
 
 The information is presented in the [Azure AD Connect Health portal](https://aka.ms/aadconnecthealth). Use the Azure AD Connect Health portal to view alerts, performance monitoring, usage analytics, and other information. Azure AD Connect Health enables the single lens of health for your key identity components in one place.
 
@@ -39,7 +39,7 @@ The information is presented in the [Azure AD Connect Health portal](https://aka
 ## Why use Azure AD Connect?
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. Users and organizations can take advantage of:
 
-* Users can use a single identity to access on-premises applications and cloud services such as Office 365.
+* Users can use a single identity to access on-premises applications and cloud services such as Microsoft 365.
 * Single tool to provide an easy deployment experience for synchronization and sign-in.
 * Provides the newest capabilities for your scenarios. Azure AD Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Hybrid Identity directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md).
 
