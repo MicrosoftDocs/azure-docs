@@ -297,7 +297,7 @@ After granting consent you can navigate to the “Fetch Data” page to read som
 
 ## Notes
 
-Unlike normal web apps that can support dynamic/incremental consent, in Blazor you need to request all the scopes necessary for your application up front. Failing to do so will cause an error as the TokenAcquisition method will be unable to validate the token against the new permissions. This is part of the Blazor mechanics so something that keen in mind when creating your apps.
+Unlike normal web apps that can support dynamic/incremental consent, in Blazor you need to request all the scopes necessary for your application up front. Failing to do so will cause an error as the TokenAcquisition method will be unable to validate the token against the new permissions. This is part of the Blazor mechanics so something to keep in mind when creating your apps.
 
 Instead of hand rolling your Microsoft Graph HTTP requests, you should leverage the Microsoft Graph SDK which simplifies the interaction with Microsoft Graph and provides all the data objects you’ll need to serialize and deserialize from. However, in this instance you went with option 1 because you only make one call to Microsoft Graph. 
 
