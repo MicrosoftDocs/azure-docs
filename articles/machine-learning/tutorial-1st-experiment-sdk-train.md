@@ -179,13 +179,13 @@ SDK.
 Test your script runs locally using this environment with:
 
 ```bash
-conda env create -f pytorch-env.yml    # create conda environment
+conda env create -f .azureml/pytorch-env.yml    # create conda environment
 conda activate pytorch-env             # activate conda environment
 python src/train.py                    # train model
 ```
 
 >[!NOTE] 
-> If you prefer to use an IDE, you can configure the IDE to use this environment.
+> You should notice that the script has downloaded the data into a directory called `tutorial/data`.
 
 ## Create the control-plane script
 

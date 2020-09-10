@@ -77,10 +77,14 @@ A workspace is a top-level resource for Azure Machine Learning and is a centrali
 - Store assets like Notebooks, Environments, Datasets, Pipelines, Models, Endpoints, and so on
 - Collaborate with other team members
 
-In the top-parent directory - `tutorial` - add a new Python file called `01-create-workspace.py` with the code below. Adapt the parameters (name, subscription ID, resource group, and location) with your preferences. You can run the code in an interactive session, or as a python file.
+In the top-parent directory - `tutorial` - add a new Python file called `01-create-workspace.py` with the code below. Adapt the parameters (name, subscription ID, resource group, and location) with your preferences. Valid locations include:
+
+`eastasia`;`southeastasia`;`australiaeast`;`brazilsouth`;`canadacentral`;`northeurope`;`westeurope`;`francecentral`;`japaneast`;`koreacentral`;`uksouth`;`centralus`;`eastus`;`eastus2`;`westus`;`northcentralus`;`southcentralus`;`westcentralus`;`westus2`.
+
+You can run the code in an interactive session, or as a python file.
 
 >[!NOTE]
-> When using a local (e.g. laptop) development environment you will be asked to authenticate to your workspace using a *device code* the first time you execute the code below. Follow the on-screen instructions.
+> When using a local development environment (e.g. laptop) you will be asked to authenticate to your workspace using a *device code* the first time you execute the code below. Follow the on-screen instructions.
 
 ```python
 # tutorial/01-create-workspace.py
@@ -90,7 +94,7 @@ ws = Workspace.create(name='<my_workspace_name>', # provide a name for your work
                       subscription_id='<azure-subscription-id>', # provide your subscription ID
                       resource_group='<myresourcegroup>', # provide a resource group name
                       create_resource_group=True,
-                      location='<azure-region>' # provide an azure region)
+                      location='<NAME_OF_REGION>') # provide an azure region
 
 # write out the workspace details to a configuration file: .azureml/config.json
 ws.write_config(path='.azureml')
