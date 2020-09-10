@@ -11,6 +11,8 @@ ms.custom: subject-policy-reference, devx-track-java
 
 # Azure Policy built-in definitions for Azure Spring Cloud
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Spring Cloud. For additional Azure Policy built-ins for other services, see
 [Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).

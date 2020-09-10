@@ -4,9 +4,10 @@ description: This article answers frequently asked questions about Azure Spring 
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
+zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Azure Spring Cloud FAQ
@@ -56,9 +57,11 @@ If you encounter any issues with Azure Spring Cloud, create an [Azure Support Re
 
 For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](spring-cloud-quickstart.md).
 
+::: zone pivot="programming-language-java"
 ### What Java runtime does Azure Spring Cloud support?
 
 Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#java-runtime-and-os-versions)
+::: zone-end
 
 ### Where can I view my Spring Cloud application logs and metrics?
 
@@ -70,12 +73,14 @@ Azure Spring Cloud supports exporting Spring Cloud application logs and metrics 
 
 Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md).
 
+::: zone pivot="programming-language-java"
 ### What resource types does Service Binding support?
 
 Three services are currently supported:
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Azure Cache for Redis.
+::: zone-end
 
 ### Can I view, add, or move persistent volumes from inside my applications?
 
@@ -91,6 +96,7 @@ You can delete Spring Cloud's diagnostic settings by using Azure CLI:
  az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
 ```
 
+::: zone pivot="programming-language-java"
 ## Java runtime and OS versions
 
 ### Which versions of Java runtime are supported in Azure Spring Cloud?
@@ -131,10 +137,11 @@ You can open a support ticket with Azure Support.  See [How to create an Azure s
 
 The most recent Ubuntu LTS version is used, currently [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/focal/) is the default OS.
 
-### How often will OS security patches be applied?
+### How often are OS security patches applied?
 
-Security patches applicable to Azure Spring Cloud will be rolled out to production at monthly basis.
-Critical security patches (CVE score >= 9) applicable to Azure Spring Cloud will be rolled out as soon as possible.
+Security patches applicable to Azure Spring Cloud are rolled out to production on a monthly basis.
+Critical security patches (CVE score >= 9) applicable to Azure Spring Cloud are rolled out as soon as possible.
+::: zone-end
 
 ## Deployment
 
@@ -153,6 +160,7 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 No.
 
+::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
 
 As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, it's a good idea to observe the following best practices:
@@ -163,8 +171,22 @@ As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, i
 * We recommend that you use official, stable Pivotal Spring libraries. Unofficial, beta, or forked versions of Pivotal Spring libraries have no service-level agreement (SLA) support.
 
 After the migration, monitor your CPU/RAM metrics and network traffic to ensure that the application instances are scaled appropriately.
+::: zone-end
 
-## Trouble Shooting
+::: zone pivot="programming-language-csharp"
+## .NET Core versions
+
+### Which .NET Core versions are supported?
+
+.NET Core 3.1 and later versions.
+
+### How long will .NET Core 3.1 be supported?
+
+Until Dec 3, 2022. See [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+::: zone-end
+
+
+## Troubleshooting
 
 ### What are the impacts of service registry rarely unavailable?
 
