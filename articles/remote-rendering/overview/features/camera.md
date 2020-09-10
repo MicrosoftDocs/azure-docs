@@ -11,7 +11,7 @@ ms.topic: article
 
 To make sure that locally and remotely rendered content can be composited seamlessly, various camera properties need to remain in sync on both sides. Most notably the camera transform and projection. For example, the locally rendered content must use the same camera transform and projection that the latest remote frame was rendered with.
 
-![Local and remote camera](./media/camera.svg)
+![Local and remote camera](./media/camera.png)
 
 In the above image, the local camera has moved compared to the remote frame sent by the server. As a result, local content needs to be rendered from the same perspective as the remote frame and finally the resulting image is reprojected into the local camera space, which is further explained in [late stage reprojection](late-stage-reprojection.md).
 

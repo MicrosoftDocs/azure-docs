@@ -148,7 +148,7 @@ The setup is a bit more involved and works as follows:
 Remote and local content needs to be rendered to an offscreen color / depth render target called 'proxy' using
 the proxy camera data provided by the `GraphicsBindingSimD3d11.Update` function.
 
-The proxy must match the resolution of the back buffer and should be . Once a session is ready, `GraphicsBindingSimD3d11.InitSimulation` needs to be called before connecting to it:
+The proxy must match the resolution of the back buffer and should be int the *DXGI_FORMAT_R8G8B8A8_UNORM* or *DXGI_FORMAT_B8G8R8A8_UNORM* format. Once a session is ready, `GraphicsBindingSimD3d11.InitSimulation` needs to be called before connecting to it:
 
 ```cs
 AzureSession currentSession = ...;
