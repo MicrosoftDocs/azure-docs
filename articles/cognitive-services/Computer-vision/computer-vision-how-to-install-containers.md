@@ -50,6 +50,7 @@ The **host** computer is the computer that runs the docker container. The host *
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
 > [!WARNING]
 > The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
@@ -63,14 +64,14 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read container
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -181,13 +182,16 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
+> [!IMPORTANT]
+> If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+
 ### Synchronous read
 
 You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
 
 ```json
 {
-    status: "Failed"
+    "status": "Failed"
 }
 ```
 
@@ -278,7 +282,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
-* Review [Computer Vision overview](Home.md) to learn more about recognizing printed and handwritten text
+* Review [Computer Vision overview](overview.md) to learn more about recognizing printed and handwritten text
 * Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

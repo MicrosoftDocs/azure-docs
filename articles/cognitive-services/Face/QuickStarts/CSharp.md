@@ -67,7 +67,7 @@ namespace DetectFace
 
         // replace <myresourcename> with the string found in your endpoint URL
         const string uriBase =
-            "https://<myresourcename>.cognitive.microsoft.com/face/v1.0/detect";
+            "https://<myresourcename>.cognitiveservices.azure.com/face/v1.0/detect";
 ```
 
 ### Receive image input

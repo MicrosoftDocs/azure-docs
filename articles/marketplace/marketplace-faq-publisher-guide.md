@@ -41,7 +41,7 @@ To learn more, view the video at [Why sell through marketplace](https://partner.
 
 ### Is there a listing fee for the Microsoft commercial marketplace?
 
-No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations. This transaction fee is reduced for [Azure IP Co-sell](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized offers.
+No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations. This transaction fee is reduced for [Azure IP Co-sell](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized offers and for paid SaaS offers on AppSource that are associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint).
 
 ### How do I sign up to be a publisher in the Microsoft commercial marketplace?
 
@@ -315,7 +315,7 @@ Here are some resources to get you started:
 We recommend these resources:
 
 - To join the Microsoft Partner Community, see [Microsoft AppSource and Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222).
-- Learn about and join the [Microsoft Commercial Marketplace Insiders Program](https://crmnamvoc1runtime.crm.dynamics.com/cbdbd59b-ab3d-47bf-8a1c-7452f8e49970/marketplaceinsiders).
+- Learn about and join the [Microsoft Commercial Marketplace Insiders Program](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/Commercial-Marketplace-Insiders-Program/td-p/13743).
 
 ### Where can I learn more about Partner Center?
 

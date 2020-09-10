@@ -34,7 +34,7 @@ You can configure the SAP SuccessFactors Writeback app to write specific attribu
 
 This SuccessFactors Writeback user provisioning solution is ideally suited for:
 
-* Organizations using Office 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
+* Organizations using Microsoft 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
 
 ## Configuring SuccessFactors for the integration
 
@@ -175,7 +175,7 @@ The SuccessFactors Writeback provisioning app uses certain *code* values for set
 
 1. The "Authorization" tab will inherit the auth configured for the collection. 
 1. Click on "Send" to invoke the API call. 
-1. In the Response body, view the JSON result set and look for the *id* corresponding to the `externalCode = B` and `externalCode = C`. 
+1. In the Response body, view the JSON result set and look for the *ID* corresponding to the `externalCode = B` and `externalCode = C`. 
 
    > [!div class="mx-imgBorder"]
    > ![Postman-Phone](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)

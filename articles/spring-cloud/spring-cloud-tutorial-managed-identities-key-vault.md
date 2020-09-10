@@ -76,7 +76,7 @@ This app will have access to get secrets from Azure Key Vault. Use the starter a
 
 1. Generate a sample project from start.spring.io with Azure Key Vault Spring Starter. 
     ```azurecli
-    curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault-secrets -d baseDir=springapp -d bootVersion=2.3.1.RELEASE | tar -xzvf -
+    curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault-secrets -d baseDir=springapp -d bootVersion=2.3.1.RELEASE -d javaVersion=1.8 | tar -xzvf -
     ```
 
 2. Specify your Key Vault in your app. 

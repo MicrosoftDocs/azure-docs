@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 09/04/2020
 ---
 
 # Build the landing page for your free or trial SaaS offer in the commercial marketplace
@@ -16,13 +16,13 @@ This article guides you through the process of building a landing page for a fre
 
 ## Overview
 
-You can think of the landing page as the “lobby” for your software as a service (SaaS) offer. After the customer chooses to get your app, the commercial marketplace directs them to the landing page to activate and configure their subscription to your SaaS application. When you create a software as a service (SaaS) offer, in Partner Center, you can choose whether or not to [sell through Microsoft](partner-center-portal/create-new-saas-offer.md). If you want to only list your offer in the Microsoft commercial marketplace and not sell through Microsoft, you can specify how potential customers can interact with the offer. When you enable the **Get it now (Free)** or **Free trial** listing option, you must specify a landing page URL to which the user can go to access the free subscription or trial.
+You can think of the landing page as the “lobby” for your software as a service (SaaS) offer. After the customer chooses to get your app, the commercial marketplace directs them to the landing page to activate and configure their subscription to your SaaS application. When you create a software as a service (SaaS) offer, in Partner Center, you can choose whether or not to [sell through Microsoft](plan-saas-offer.md#listing-options). If you want to only list your offer in the Microsoft commercial marketplace and not sell through Microsoft, you can specify how potential customers can interact with the offer. When you enable the **Get it now (Free)** or **Free trial** listing option, you must specify a landing page URL to which the user can go to access the free subscription or trial.
 
 The purpose of the landing page is simply to receive the user so they can activate the free trial or free subscription. Using Azure Active Directory (Azure AD) and Microsoft Graph, you will enable single sign-on (SSO) for the user and get important details about the user that you can use to activate their free trial or free subscription, including their name, email address, and organization.
 
 Because the information needed to activate the subscription is limited and provided by Azure AD and Microsoft Graph, there should be no need to request information that requires more than basic consent. If you need user details that require additional consent for your application, you should request this information after subscription activation is complete. This enables frictionless subscription activation for the user and decreases the risk of abandonment.
 
-The landing page typically includes the following information and calls to action:
+The landing page typically includes the following information and listing options:
 
 - Present the name and details of the free trial or free subscription. For example, specify the usage limits or duration of a trial.
 - Present the user's account details, including first and last name, organization, and email.
@@ -33,12 +33,12 @@ The following sections in this article will guide you through the process of bui
 
 1. [Create an Azure AD app registration](#create-an-azure-ad-app-registration) for the landing page.
 2. [Use a code sample as a starting point](#use-a-code-sample-as-a-starting-point) for your app.
-3. [Read information from claims encoded in the ID token](#read-information-from-claims-encoded-in-the-id-token), received from Azure AD after logon, that was sent with the request.
+3. [Read information from claims encoded in the ID token](#read-information-from-claims-encoded-in-the-id-token), received from Azure AD after sign in, that was sent with the request.
 4. [Use the Microsoft Graph API](#use-the-microsoft-graph-api) to gather additional information, as required.
 
 ## Create an Azure AD app registration
 
-The commercial marketplace is fully integrated with Azure AD. Users arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). After acquiring a free or free trial subscription through your list-only offer, the user goes from the commercial marketplace to your landing page URL to activate and manage their subscription to your SaaS application. You must let the user sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer’s [Technical configuration page](partner-center-portal/offer-creation-checklist.md#technical-configuration-page)).
+The commercial marketplace is fully integrated with Azure AD. Users arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). After acquiring a free or free trial subscription through your list-only offer, the user goes from the commercial marketplace to your landing page URL to activate and manage their subscription to your SaaS application. You must let the user sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer’s [Technical configuration](plan-saas-offer.md#technical-information) page.
 
 The first step to using the identity is to make sure your landing page is registered as an Azure AD application. Registering the application lets you use Azure AD to authenticate users and request access to user resources. It can be considered the application’s definition, which lets the service know how to issue tokens to the app based on the app's settings.
 
@@ -98,4 +98,4 @@ Most apps that are registered with Azure AD grant delegated permissions to read 
 > Accounts from the MSA tenant (with tenant ID `9188040d-6c67-4c5b-b112-36a304b66dad`) will not return more information than has already been collected with the ID token. So you can skip this call to the Graph API for these accounts.
 
 ## Next steps
-- [Create a SaaS offer in the commercial marketplace](./partner-center-portal/create-new-saas-offer.md)
+- [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)

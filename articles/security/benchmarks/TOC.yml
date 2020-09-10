@@ -66,12 +66,18 @@
     href: ../../firewall/security-baseline.md
   - name: Azure Functions security baseline
     href: ../../azure-functions/security-baseline.md
+  - name: Azure IoT Hub security baseline
+    href: ../../iot-hub/security-baseline.md
+  - name: Azure Monitor security baseline
+    href: ../../azure-monitor/security-baseline.md
   - name: Azure Machine Learning security baseline
     href: ../../machine-learning/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Azure Resource Graph security baseline
     href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+  - name: Azure Sentinel security baseline
+    href: ../../sentinel/security-baseline.md
   - name: Azure SQL Database security baseline
     href: ../../sql-database/security-baseline.md
   - name: Azure Storage security baseline
