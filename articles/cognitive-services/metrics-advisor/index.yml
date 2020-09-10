@@ -11,7 +11,7 @@ metadata:
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
-  ms.subservice: 
+  ms.subservice: metrics-advisor
   ms.topic: landing-page
   ms.date: 08/13/2020
   ms.author: aahi
@@ -42,7 +42,7 @@ landingContent:
           url: how-tos/onboard-your-data.md
         - text: Manage data feeds
           url: how-tos/manage-data-feeds.md
-        - text: Configure metrics and anomaly detection
+        - text: Configure metrics and fine tune detecting configuration
           url: how-tos/configure-metrics.md
         - text: Create and send alerts
           url: how-tos/alerts.md

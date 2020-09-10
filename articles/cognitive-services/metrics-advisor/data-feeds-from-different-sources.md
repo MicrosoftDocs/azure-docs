@@ -25,7 +25,7 @@ Use this article to find the settings and requirements for connecting different 
 | **AzureSQLConnectionString**| Store your AzureSQL connection string as an **Authentication entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the Authentication entity are able to view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
 | **DataLakeGen2SharedKey**| Store your data lake account key as an **Authentication entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Authentication entity are able to view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
 | **ServicePrincipal**| Store your service principal as an **Authentication entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Authentication entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
-| **ServicePrincipalInKeyVault**|Store your service principal in KeyVault as an **'Authentication entity'** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of **'Authentication entity'** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
+| **ServicePrincipalInKeyVault**|Store your service principal in KeyVault as an **Authentication entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of **Authentication entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
 ## Data sources supported and corresponding authentication types
 
@@ -37,7 +37,6 @@ Use this article to find the settings and requirements for connecting different 
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Azure Event Hubs**](#eventhubs) | Basic | 
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
@@ -57,7 +56,7 @@ Create an **Authentication Entity** and use it for authenticating to your data s
 
     2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
     
-    For more detail, please refer to [this](https://docs.microsoft.com/azure/bot-service/bot-service-resources-app-insights-keys?view=azure-bot-service-4.0#application-id).
+    See the [Azure Bot Service documentation](https://docs.microsoft.com/azure/bot-service/bot-service-resources-app-insights-keys#application-id) for more information.
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 
@@ -78,41 +77,42 @@ Create an **Authentication Entity** and use it for authenticating to your data s
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
-* **Blob Template**: This is the template of the Blob file names. For example: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. The following placeholders are supported:
-  * %Y=year in format yyyy
-  * %m=month in format MM
-  * %d=day in format dd
-  * %h=hour in format HH
-  * %M=minute in format mm
+* **Blob Template**: This is the template of the Blob file names. For example: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. The following parameters are supported:
+  * `%Y` is the year formatted as `yyyy`
+  * `%m` is the month formatted as `MM`
+  * `%d` is the day formatted as `dd`
+  * `%h` is the hour formatted as `HH`
+  * `%M` is the minute formatted as `mm`
 
 * **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Advisor supports two versions:
+  
   * v1 (Default value)
-  Only the metrics *Name* and *Value* are accepted. For example:
 
-  ``` JSON
-  {"count":11, "revenue":1.23}
-  ```
+      Only the metrics *Name* and *Value* are accepted. For example:
+    
+      ``` JSON
+      {"count":11, "revenue":1.23}
+      ```
 
   * v2
-  The metrics *Dimensions* and *timestamp* are also accepted. For example:
-  
-  ``` JSON
-  [
-    {"date": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23},
-    {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
-  ]
-  ```
 
-Please note that only one timestamp is allowed per JSON file. 
+      The metrics *Dimensions* and *timestamp* are also accepted. For example:
+      
+      ``` JSON
+      [
+        {"date": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23},
+        {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
+      ]
+      ```
+
+Only one timestamp is allowed per JSON file. 
 
 ## <span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Connection String**: Please specify the connection string to access your Azure Cosmos DB. This could be found in Cosmos DB resource at 'Keys' setting. 
-* **Database**: Please specify the database to query against. This could be found in 'Browse' blade in 'Containers' section.
-* **Collection Id**: Please specify the collection id to query against. This could be found in 'Browse' blade in 'Containers' section.
-* **SQL Query**: A SQL query to get and formulate data into multi-dimensional time series data. You could leverage following variables in your query.
-
-  * @StartTime / @EndTime: datetime in format `yyyy-MM-dd HH:mm:ss`
+* **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource, in **Keys**. 
+* **Database**: The database to query against. This can be found in the **Browse** page under **Containers** section.
+* **Collection Id**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section.
+* **SQL Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@StartTime` and `@EndTime` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
 
     Sample query:
     
@@ -120,7 +120,7 @@ Please note that only one timestamp is allowed per JSON file.
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = @StartTime
     ```
     
-    Actual query for data slice of 2019/12/12:
+    Sample query for a data slice from 2019/12/12:
     
     ``` mssql
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
@@ -128,35 +128,33 @@ Please note that only one timestamp is allowed per JSON file.
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Connection String**: Please refer to [View and copy a connection string](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) for information on how to retrieve the connection string from Azure Data Explorer (Kusto).
+* **Connection String**: See [View and copy a connection string](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) for information on how to retrieve the connection string from Azure Data Explorer (Kusto).
 
-* **Query**: Please refer to [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You could leverage following variables in your query.
-
-  * @StartTime / @EndTime: datetime in format `yyyy-MM-dd HH:mm:ss`
+* **Query**: See [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@StartTime` and `@EndTime` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
-* **Account Name**: Please specify the account name of your Azure Data Lake Storage Gen2. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource at 'Access keys' setting.
+* **Account Name**: The account name of your Azure Data Lake Storage Gen2. This can be found in your Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys**.
 
-* **Account Key**: Please specify the account name to access your Azure Data Lake Storage Gen2. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource at 'Access keys' setting.
+* **Account Key**: Please specify the account name to access your Azure Data Lake Storage Gen2. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting.
 
-* **File System Name(Container)**: Metrics Advisor will expect your time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field. This could be found in your Azure storage account (Azure Data Lake Storage Gen2)  instance, and click 'Containers' in 'Blob Service' section.
+* **File System Name (Container)**: Metrics Advisor will expect your time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field. This can be found in your Azure storage account (Azure Data Lake Storage Gen2)  instance, and click 'Containers' in 'Blob Service' section.
 
 * **Directory Template**:
-This is the directory template of the Blob file. For example: */%Y/%m/%d*. The following placeholders are supported:
-  * %Y=year in format yyyy
-  * %m=month in format MM
-  * %d=day in format dd
-  * %h=hour in format HH
-  * %M=minute in format mm
+This is the directory template of the Blob file. For example: */%Y/%m/%d*. The following parameters are supported:
+  * `%Y` is the year formatted as `yyyy`
+  * `%m` is the month formatted as `MM`
+  * `%d` is the day formatted as `dd`
+  * `%h` is the hour formatted as `HH`
+  * `%M` is the minute formatted as `mm`
 
 * **File Template**:
-This is the file template of the Blob file. For example: *X_%Y-%m-%d-%h-%M.json*. The following placeholders are supported:
-  * %Y=year in format yyyy
-  * %m=month in format MM
-  * %d=day in format dd
-  * %h=hour in format HH
-  * %M=minute in format mm
+This is the file template of the Blob file. For example: *X_%Y-%m-%d-%h-%M.json*. The following parameters are supported:
+  * `%Y` is the year formatted as `yyyy`
+  * `%m` is the month formatted as `MM`
+  * `%d` is the day formatted as `dd`
+  * `%h` is the hour formatted as `HH`
+  * `%M` is the minute formatted as `mm`
 
 Currently Metrics Advisor supports the data schema in the JSON files as follow. For example:
 
@@ -166,7 +164,7 @@ Currently Metrics Advisor supports the data schema in the JSON files as follow. 
   {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
 ]
 ```
-
+<!--
 ## <span id="eventhubs">Azure Event Hubs</span>
 
 * **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
@@ -182,19 +180,20 @@ The timestamp field must match one of these two formats:
     * Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
 
     No matter which timestamp field it left aligns to granularity.For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment.
-
+-->
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
 * **Connection String**: Metrics Advisor accepts an [ADO.NET Style Connection String](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
 
     Sample connection string:
 
-    ```text
+    ```
     Data Source=db-server.database.windows.net:[port];initial catalog=[database];User ID=[username];Password=[password];Connection Timeout=10ms;
     ```
-* **Query**: A SQL query to get and formulate data into multi-dimensional time series data. You could leverage a @StartTime variable in your query to help with getting expected metrics value.
 
-  * @StartTime : datetime in format `yyyy-MM-dd HH:mm:ss`
+* **Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use a `@StartTime` variable in your query to help with getting expected metrics value.
+
+  * `@StartTime`: a datetime in the format of `yyyy-MM-dd HH:mm:ss`
 
     Sample query:
     
@@ -211,10 +210,11 @@ The timestamp field must match one of these two formats:
 ## <span id="table">Azure Table Storage</span>
 
 * **Connection String**: Please refer to [View and copy a connection string](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
-* **Table Name**: Specify a table to query against. This could be found in your Azure storage account instance, and click 'Tables' in 'Table Service' section.
+
+* **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
+
 * **Query**
-You could leverage one variable @StartTime in your query:
-@StartTime is replaced with a yyyy-MM-ddTHH:mm:ss format string in script.
+You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy-MM-ddTHH:mm:ss format string in script.
 
     ``` mssql
     let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
@@ -230,37 +230,36 @@ You could leverage one variable @StartTime in your query:
 
 ## <span id="http">Http Request</span>
 
-* **Request URL**: A HTTP url which can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M.
+* **Request URL**: A HTTP url which can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Request HTTP method**: Use GET or POST.
 * **Request header**: Could add basic authentication. 
 * **Request payload**: Only JSON payload is supported. Placeholder @StartTime is supported in the payload. The response should be in the following JSON format: [{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}].(e.g. when data of 2020-06-21T00:00:00Z is ingested, @StartTime = 2020-06-21T00:00:00.0000000+00:00)
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
-* **Connection String**: Please specify the connection string to access your InfluxDB.
-* **Database**: Please specify the database to query against.
+* **Connection String**: The connection string to access your InfluxDB.
+* **Database**: The database to query against.
 * **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
 * **User name**: This is optional for authentication. 
 * **Password**: This is optional for authentication. 
 
 ## <span id="mongodb">MongoDB</span>
 
-* **Connection String**: Please specify the connection string to access your MongoDB.
-* **Database**: Please specify the database to query against.
+* **Connection String**: The connection string to access your MongoDB.
+* **Database**: The database to query against.
 * **Command**: A command to get and formulate data into multi-dimensional time series data for ingestion.
 
 ## <span id="mysql">MySQL</span>
 
-* **Connection String**: Please specify the connection string to access your MySQL DB.
+* **Connection String**: The connection string to access your MySQL DB.
 * **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
 
 ## <span id="pgsql">PostgreSQL</span>
 
-* **Connection String**: Please specify the connection string to access your PostgreSQL DB.
+* **Connection String**: The connection string to access your PostgreSQL DB.
 * **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
 
 ## Next steps
 
-* While waiting for your metric data to be ingested into the system, you can check about  [how to manage data feed configurations](how-tos/manage-data-feeds.md).
-
-* When the metric data is ingested, start your monitor from [configure metrics and anomaly detection](how-tos/configure-metrics.md).
+* While waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).
+* When your metric data is ingested, you can [Configure metrics and fine tune detecting configuration](how-tos/configure-metrics.md).

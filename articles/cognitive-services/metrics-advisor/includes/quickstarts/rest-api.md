@@ -9,23 +9,19 @@ ms.topic: include
 ms.date: 09/04/2020
 ms.author: aahi
 ---
-
-> [!TIP] 
-> Looking for example code that uses the REST API? You can find a Python sample on [GitHub](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/).
-
+ 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
+* Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in this article, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
+    * The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
 
 > [!TIP]
+> * You can find a Python sample that uses the REST API on [GitHub](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/).
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
-> You can start using your Metrics Advisor instance with the web portal, and through the REST API. You can find both URLs in the resource you created.
+> * After deployment, you can start using your Metrics Advisor instance with the web portal and REST API. You can find both URLs in the resource you created.
 > * You will need the key and endpoint from the resource you create to start using the service, which can be found in **Keys and Endpoint**, in your resource. You'll paste your key and endpoint into the code below later in the quickstart.
-
-> [!CAUTION]
-> The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
 
 ## Add a data feed from a sample or data source
 

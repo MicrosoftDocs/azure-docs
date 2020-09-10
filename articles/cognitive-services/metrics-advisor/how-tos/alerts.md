@@ -6,24 +6,25 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 09/09/2020
 ms.author: aahi
 ---
 
-# How-to: Configure alerts and get notifications using a web hook
+# How-to: Configure alerts and get notifications using a hook
 
 After an anomaly is detected by Metrics Advisor, an alert notification will be triggered based on alert settings, using a hook. An alert setting can be used with multiple detection configurations, various parameters are available to customize your alert rule.
 
 ## Create a hook
 
-Metrics Advisor supports three different types of hooks: email hook, web hook and Azure DevOps. You can choose the one that works in your specific scenario. 
+Metrics Advisor supports three different types of hooks: email hook, web hook and Azure DevOps. You can choose the one that works for your specific scenario. 
 
 ### Email hook
 
 > [!Note]
 > The Metrics Advisor resource administrators need to configure the **Email settings**, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent.
+
 To create a email hook, following parameters are available: 
 
 An email hook is the channel for anomaly alerts to be sent to email addresses specified in the **Email to** section. Two types of alert emails will be sent: *Data feed not available* alerts, and *Incident reports* which contain one or multiple anomalies. 
@@ -37,19 +38,19 @@ An email hook is the channel for anomaly alerts to be sent to email addresses sp
 
 After you click **OK**, an email hook will be created. You can use it in any alert settings to receive anomaly alerts. 
 
-### Create a web hook
+### Web hook
 
-> [!TIP]
-> * Web hooks are only only supported for alerts.  
+A web hook is the entry point to get anomaly noticed by a programmatic way from the Metrics Advisor service, which calls a user-provided API when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts could be sent through web hooks.
+
+> [!Note]
 > * Use the **POST** request method.
 > * The request body wil be similar to:  
     `{"timestamp":"2019-09-11T00:00:00Z","alertSettingGuid":"49635104-1234-4c1c-b94a-744fc920a9eb"}`
 > * When a web hook is created or modified, the API will be called as a test with an empty request body. Your API needs to return a 200 HTTP code.
 
-A web hook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided api when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts are sent through web hooks only.
+A web hook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided api when an alert is triggered. All alerts can be sent through a web hook.
 
 To create a web hook, you will need to add the following information:
-
 
 |Parameter |Description  |
 |---------|---------|
@@ -59,7 +60,7 @@ To create a web hook, you will need to add the following information:
 
 :::image type="content" source="../media/alerts/create_web_hook.png" alt-text="web hook creation window.":::
 
-When a notification is pushed through a web hook, you can use the following APIs to get details of the alert. Set **timestamp** and **alertSettingGuid** in your API service, which is being pushed to, then use the following queries: 
+When a notification is pushed through a web hook, you can use the following APIs to get details of the alert. Set the *timestamp* and *alertSettingGuid* in your API service, which is being pushed to, then use the following queries: 
 - `query_alert_result_anomalies`
 - `query_alert_result_incidents`
 
@@ -77,12 +78,12 @@ To create a Azure DevOps hook, you will need to add the following information
 | Access Token |  A token for authenticating to DevOps. | 
 
 > [!Note]
-> You need to grant **write** permissions if you want Metrics Advisor to create work items based on anomaly alerts. 
+> You need to grant write permissions if you want Metrics Advisor to create work items based on anomaly alerts. 
 > After creating hooks, you can use them in any of your alert settings. Manage your hooks in the **hook settings** page.
 
-### Add or Edit alert settings
+## Add or Edit alert settings
 
-Go to metrics detail page, You can find the **Alert settings** section at the bottom left corner of metrics detail page. It lists all alert settings that works together with the selected detection configuration. When a new detection configuration is created, there's no alert setting, and no alerts will be sent.  
+Go to metrics detail page to find the **Alert settings** section, in the bottom left corner of metrics detail page. It lists all alert settings that apply to the selected detection configuration. When a new detection configuration is created, there's no alert setting, and no alerts will be sent.  
 You can use the **add**, **edit** and **delete** icons to modify alert settings.
 
 ![Entrance For Alert Setting](../media/alerts/alert-setting.png)
@@ -106,7 +107,7 @@ The following are filter settings for one detection configuration.
 * **Anomalies in all series**: All anomalies will be included in the alert.         
 * **Anomalies in the series group**: Filter series by dimension values. Set specific values for some dimensions. Anomalies will only be included in the alert when the series matches the specified value.       
 * **Anomalies in favorite series**: Only the series marked as favorite will be included in the alert.        |
-* **Anomalies in top N of all series**: This filter is for the case that you only care about the series whose value is in top n. We will look back some timestamps, and check if value of the series at these timestamp are in top n. If the "in top n" count is larger than one given number, the anomaly will be taken in for alert.        |
+* **Anomalies in top N of all series**: This filter is for the case that you only care about the series whose value is in the top N. We will look back some timestamps, and check if value of the series at these timestamp are in top N. If the "in top n" count is larger than the specified number, the anomaly will be included in an alert.        |
 
 **Filter anomaly options** is an additional filter with the following options:
 
@@ -115,7 +116,7 @@ The following are filter settings for one detection configuration.
     - **snooze type** : When set to **Series**, a triggered anomaly will only snooze its series. For **Metric**, one triggered anomaly will snooze all the series in this metric.
     - **snooze number** : the number of points (period) to snooze.
     - **reset for non-successive** : When selected, a triggered anomaly will only snooze the next n successive anomalies. If one of the following data points isn't an anomaly, the snooze will be reset from that point; When unselected, one triggered anomaly will snooze next n points (period), even if successive data points aren't anomalies.
-- **value** (*optional*) : Filter by value. Only point values that meet the condition, anomaly will be included. If you use the corresponding value of another metric, the dimension names of the two metrics should be consistent.
+- **value** (optional) : Filter by value. Only point values that meet the condition, anomaly will be included. If you use the corresponding value of another metric, the dimension names of the two metrics should be consistent.
 
 Anomalies not filtered out will be sent in an alert.
 
@@ -133,18 +134,8 @@ The **Operator** selector is the logical relationship of each section, to determ
 
 :::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operator for multiple alert setting section":::
 
-### Get details for alert
-
-After setting **timestamp** and **alertSettingGuid** in your api service, you can get details of alert with the API:
-- `query_alert_result_anomalies`
-- `query_alert_result_incidents`
-
-You can manage all your hooks in the hook settings page. 
-
 ## Next Steps
 
-- [Add and manage data feeds](manage-data-feeds.md)
-    - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Send anomaly feedback to your instance](anomaly-feedback.md)
+- [Adjust anomaly detection using feedback](anomaly-feedback.md)
 - [Diagnose incidents](diagnose-incident.md).
-- [Configure metrics and anomaly detection](configure-metrics.md)
+- [Configure metrics and fine tune detecting configuration](configure-metrics.md)

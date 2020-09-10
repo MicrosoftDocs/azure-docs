@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 # What is Metrics Advisor? 
 
-Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use Metrics Advisor to:
+Metrics Advisor is a time series monitoring platform that provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use Metrics Advisor to:
 
 * Analyze multi-dimensional data from multiple data sources 
 * Identify and correlate anomalies
@@ -47,7 +47,7 @@ Metrics Advisor lets you connect to a variety of different sources and databases
 
 The workflow is simple: after onboarding your data, you can fine-tune the anomaly detection, and create configurations to fit your scenario.
 
-1. [Create an Azure resource](../cognitive-services-apis-create-account.md) for Metrics Advisor. Afterwards, [get the key](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generated for you to authenticate your requests.
+1. [Create an Azure resource](../cognitive-services-apis-create-account.md) for Metrics Advisor. 
 2. Try the demo site to see an example Metrics Advisor instance with pre-configured sample data. 
 3. Build your first monitor using the web portal.
     1. Onboard your data

@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: aahi
@@ -49,8 +49,6 @@ Click into an incident within the graph and scroll down to **cross metrics analy
 
 ## Next steps
 
-- [Managing your data feed](manage-data-feeds.md)
-- [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Send anomaly feedback to your instance](anomaly-feedback.md)
+- [Adjust anomaly detection using feedback](anomaly-feedback.md)
 - [Diagnose incidents](diagnose-incident.md).
-- [Configure metrics and anomaly detection](configure-metrics.md)
+- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
