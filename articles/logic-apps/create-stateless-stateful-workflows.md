@@ -376,7 +376,7 @@ To add your own code that you can directly call and run from your workflow app, 
 
 1. Return to the Logic App Designer and your workflow app.
 
-1. Under the **Send an email action**, select **New step**.
+1. Under the **Send an email** action, select **New step**.
 
    The **Choose an operation** prompt appears on the designer, and the **Add an action pane** reopens so that you can select the next action.
 
@@ -395,7 +395,7 @@ To add your own code that you can directly call and run from your workflow app, 
 
    ![Screenshot that shows Logic App Designer with the "Invoke a function in this function app" action details pane open and the "Function Name" property set to the function name](./media/create-stateless-stateful-workflows/invoke-function-details.png)
 
-1. When you're done, select **Save**.
+1. When you're done, on the designer, select **Save**.
 
 <a name="return-response"></a>
 
@@ -403,7 +403,7 @@ To add your own code that you can directly call and run from your workflow app, 
 
 To send a reply and return data back to the caller of your workflow app, add the built-in [Response action](../connectors/connectors-native-reqres.md).
 
-1. On the Logic App Designer, under the **Send an email action**, select **New step**.
+1. On the Logic App Designer, under the **Send an email** action, select **New step**.
 
 1. 
 
