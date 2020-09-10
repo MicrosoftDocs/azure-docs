@@ -1132,8 +1132,8 @@ Jump to a resource provider namespace:
 > | managedinstances | Yes [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving managed instances across regions. | 
 > | managedinstances / databases | Yes | 
 > | servers | Yes | 
-> | servers / databases | Yes <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving databases across regions.<br/><br/> [Learn more](../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover.  | 
-> | servers / elasticpools | Yes br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving elastic pools across regions.<br/><br/> [Learn more](../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover.  | 
+> | servers / databases | Yes <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving databases across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover.  | 
+> | servers / elasticpools | Yes br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover.  | 
 > | virtualclusters | Yes | 
 
 ## Microsoft.SqlVirtualMachine

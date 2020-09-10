@@ -26,7 +26,7 @@ After deploying resources in specific Azure region, there are a number of reason
 
 ## Move resources with Resource Mover
 
-You can move resources to a different region with [Azure Resource Mover](../resource-mover/overview.md). Resource Mover provides:
+You can move resources to a different region with [Azure Resource Mover](../../resource-mover/overview.md). Resource Mover provides:
 
 - A single hub for moving resources across regions.
 - Reduced move time and complexity. Everything you need is in a single location.
@@ -37,8 +37,8 @@ You can move resources to a different region with [Azure Resource Mover](../reso
 
 You can move resources to another region using a couple of different methods:
 
-- **Start moving resources from a resource group**: With this method you kick off the region move from within a resource group. After selecting the resources you want to move, the process continues in the Resource Mover hub, to check resources dependencies, and orchestrate the move process. [Learn more](../resource-mover/move-region-within-resource-group.md).
-- **Start moving resources directly from the Resource Mover hub**: With this method you kick off the region move process directly in the hub. [Learn more](../resource-mover/tutorial-move-region-virtual-machines.md).
+- **Start moving resources from a resource group**: With this method you kick off the region move from within a resource group. After selecting the resources you want to move, the process continues in the Resource Mover hub, to check resources dependencies, and orchestrate the move process. [Learn more](../../resource-mover/move-region-within-resource-group.md).
+- **Start moving resources directly from the Resource Mover hub**: With this method you kick off the region move process directly in the hub. [Learn more](../../resource-mover/tutorial-move-region-virtual-machines.md).
 
 
 ## Support for region move
@@ -70,4 +70,4 @@ The actual process for moving resources across regions depends on the resources 
 
 ## Next steps
 
-[Learn more](r../resource-mover/about-move-process.md) about the move process in Resource Mover.
+[Learn more](../../resource-mover/about-move-process.md) about the move process in Resource Mover.
