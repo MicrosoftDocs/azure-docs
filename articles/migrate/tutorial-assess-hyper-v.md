@@ -253,7 +253,7 @@ Run an assessment as follows:
 1. Review the [best practices](best-practices-assessment.md) for creating assessments.
 2. In **Servers** > **Azure Migrate: Server Assessment**, click **Assess**.
 
-    ![Assess](./media/tutorial-assess-hyper-v/assess.png)
+    ![Screenshot shows the Azure Migrate Server Assessment tool with Assess selected.](./media/tutorial-assess-hyper-v/assess.png)
 
 3. In **Assess Servers**, specify a name for the assessment.
 4. Click **View all** to review the assessment properties.

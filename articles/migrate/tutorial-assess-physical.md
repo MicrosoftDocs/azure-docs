@@ -230,7 +230,7 @@ Run an assessment as follows:
 1. Review the [best practices](best-practices-assessment.md) for creating assessments.
 2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
 
-    ![Assess](./media/tutorial-assess-physical/assess.png)
+    ![Screenshot shows the Azure Migrate Server Assessment tool with Assess selected.](./media/tutorial-assess-physical/assess.png)
 
 2. In **Assess servers**, specify a name for the assessment.
 3. Click **View all** to review the assessment properties.

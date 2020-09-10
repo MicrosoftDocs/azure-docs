@@ -131,7 +131,7 @@ After you have a Stream Analytics job setup to read an incoming data stream, the
 3. Replace `[YourInputAlias]` with the input alias you created earlier. 
 4. Select **Save** on the toolbar. 
 
-    ![Query](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Screen capture shows the query window with values for input and output variables.](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### Run the Stream Analytics job

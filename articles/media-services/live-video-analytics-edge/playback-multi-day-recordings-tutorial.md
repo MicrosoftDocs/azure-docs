@@ -68,11 +68,11 @@ Next, in Visual Studio code, open src/ams-asset-player. This folder contains the
 
 In Visual Studio Code, you can click the Run icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
 
-![Run](./media/playback-multi-day-recordings-tutorial/run.png)
+![Screenshot shows a menu in Visual Studio Code with the run item selected.](./media/playback-multi-day-recordings-tutorial/run.png)
  
 Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
 
-![Debug](./media/playback-multi-day-recordings-tutorial/debug.png)
+![Screenshot show a menu in Visual Studio Code with AMS Asset Player selected.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 The sample application will build and launch your default browser app, and open up the AMS Asset Player page.
 
