@@ -1,16 +1,16 @@
 ---
 title: Quickly scale and protect a web application using Azure Front Door and Azure Web Application Firewall (WAF) | Microsoft Docs
-description: This article helps you understand how to use Web Application Firewall with your AAzure Front Door Service
+description: This article helps you understand how to use Web Application Firewall with your Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
-author: tremansdoerfer
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/06/2020
-ms.author: rimansdo
+ms.author: duau
 ---
 
 # Quickly scale and protect a web application using Azure Front Door and Azure Web Application Firewall (WAF)
@@ -114,7 +114,7 @@ Initially the custom domain name of your web application (the one that customers
 
 Specific steps to update your DNS records will depend on your DNS service provider, but if you are using Azure DNS to host your DNS name, you can refer to the documentation for [steps do update a DNS record](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) and point to the AFD hostName. 
 
-One key thing to note here is that, if you need your users to navigate to your website using the zone apex, for exmaple, contoso.com, you have to use Azure DNS and it's [ALIAS record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
+One key thing to note here is that, if you need your users to navigate to your website using the zone apex, for example, contoso.com, you have to use Azure DNS and it's [ALIAS record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
 
 In addition, you also need to update your AFD configuration to [add this custom domain](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) to it so that AFD understands this mapping.
 

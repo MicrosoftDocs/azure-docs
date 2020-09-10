@@ -36,6 +36,9 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **September 5, 2020**
+The August Guest OS has released. 
+
 ###### **August 17, 2020**
 The July Guest OS has released. 
 
@@ -354,7 +357,7 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[restarts]: https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md

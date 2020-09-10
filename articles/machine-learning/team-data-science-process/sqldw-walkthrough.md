@@ -85,14 +85,14 @@ To set up your Azure Data Science environment, follow these steps.
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
 
 **Provision your Azure Synapse Analytics instance.**
-Follow the documentation at [Create and query an Azure SQL Data Warehouse in the Azure portal](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
+Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
 
 * **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
 * **Username**
 * **Password**
 
-**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Getting started with Visual Studio 2019 for SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Getting started with Visual Studio 2019 for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Connect to your Azure Synapse Analytics with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to SQL Analytics in Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 

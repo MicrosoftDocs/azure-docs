@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /DocsLegal/
+  topicHref: /azure/index
+  items:
+  - name: Computer Vision                  # Original doc set name
+    tocHref: /DocsLegal/computer-vision    # Destination doc set route
+    topicHref: /azure/cognitive-services/Computer-vision/index      # Original doc set route
+    items:
+    - name: Computer Vision spatial analysis               # Destination doc set name
+      tocHref: /DocsLegal/cognitive-services/computer-vision/      # Destination doc set route
+      topicHref: /azure/cognitive-services/Computer-vision/index    # Original doc set route

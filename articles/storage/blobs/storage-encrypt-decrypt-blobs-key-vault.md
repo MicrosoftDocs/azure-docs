@@ -11,6 +11,7 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial - Encrypt and decrypt blobs using Azure Key Vault
@@ -235,4 +236,4 @@ For more information about using Microsoft Azure Storage with C#, see [Microsoft
 
 For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).
+For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).

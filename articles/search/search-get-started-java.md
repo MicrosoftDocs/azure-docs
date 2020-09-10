@@ -369,7 +369,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. Verify that your project has the following structure.
 
-    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![Project directory structure plus classes](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 ![Execute maven goal: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)

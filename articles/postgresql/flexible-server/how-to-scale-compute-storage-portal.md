@@ -5,10 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ---
 
-# Scale operations in Flexible Server (Preview)
+# Scale operations in Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
 
 This article provides steps to perform scaling operations for compute and storage. You will be able to change your compute tiers between burstable, general purpose, and memory optimized SKUs, including choosing the number of vCores that is suitable to run your application. You can also scale up your storage. Expected IOPS are shown based on the compute tier, vCores and the storage capacity. The cost estimate is also shown based on your selection.
 
@@ -19,7 +22,7 @@ This article provides steps to perform scaling operations for compute and storag
 
 To complete this how-to guide, you need:
 
--   You must have an Azure Database for PostgreSQL flexible server. The same procedure is also applicable for flexible server configured with zone redundancy.
+-   You must have an Azure Database for PostgreSQL - Flexible Server. The same procedure is also applicable for flexible server configured with zone redundancy.
 > [!IMPORTANT]
 > When configured with high availability, you cannot chose burstable SKU. During scaling operation, the standby is first scaled to the desired size, the primary server is failed over, and the primary is scaled. 
 

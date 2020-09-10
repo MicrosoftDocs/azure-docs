@@ -22,9 +22,10 @@ This tutorial introduces a sample application that implements a command-line cli
 You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the code of the sample to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you would like.
 
 In this tutorial, you will...
-1. Set up an Azure Digital Twins instance
-2. Configure the sample command-line app to interact with the instance
-3. Use the command-line app to explore Azure Digital Twins, including **models**, **digital twins**, **relationships**, and **queries**
+> [!div class="checklist"]
+> * Set up an Azure Digital Twins instance
+> * Configure the sample command-line app to interact with the instance
+> * Use the command-line app to explore Azure Digital Twins, including **models**, **digital twins**, **relationships**, and **queries**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 

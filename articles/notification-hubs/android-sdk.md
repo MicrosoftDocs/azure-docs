@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Send push notifications to Android devices using Firebase SDK version 1.0.0-preview1

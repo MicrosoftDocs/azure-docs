@@ -1,6 +1,6 @@
 ---
-title: 'Manage Azure Database for PostgreSQL Flexible Server (Preview) - Azure portal'
-description: Learn how to manage an Azure Database for PostgreSQL Flexible server from the Azure portal.
+title: 'Manage server - Azure portal - Azure Database for PostgreSQL - Flexible Server'
+description: Learn how to manage an Azure Database for PostgreSQL - Flexible Server from the Azure portal.
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
@@ -9,9 +9,12 @@ ms.date: 9/22/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Manage an Azure Database for PostgreSQL Flexible Server (Preview) using the Azure portal
+# Manage an Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
-This article shows you how to manage your Azure Database for PostgreSQL Flexible Server (Preview). Management tasks include compute and storage scaling, admin password reset, and viewing server details.
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
+This article shows you how to manage your Azure Database for PostgreSQL - Flexible Server. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Sign in
 
@@ -19,7 +22,7 @@ Sign in to the [Azure portal](https://portal.azure.com). Go to your flexible ser
 
 ## Scale compute and storage
 
-After server creation you can scale between the various [pricing tiers](https://azure.microsoft.com/pricing/details/mysql/) as your needs change. You can also scale up or down your compute and memory by increasing or decreasing vCores.
+After server creation you can scale between the various [pricing tiers](https://azure.microsoft.com/pricing/details/postgresql/) as your needs change. You can also scale up or down your compute and memory by increasing or decreasing vCores.
 
 > [!NOTE]
 > Storage cannot be scaled down to lower value.
@@ -55,15 +58,17 @@ You can delete your server if you no longer need it.
 1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
 2. Type the name of the server into the input box to confirm that you want to delete the server.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="delete the flexible server":::
-     
-   > [!NOTE]
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="delete the flexible server":::
+
+   > [!IMPORTANT]
    > Deleting a server is irreversible.
+
+  > [!div class="mx-imgBorder"]
+  > ![delete the flexible server](./media/howto-manage-server-portal/delete-server.png)  
 
 3. Select **Delete**.
 
 ## Next steps
 
-- Understand backup and restore concepts
-- Tune and monitor the server
+- [Understand backup and restore concepts](concepts-backup-restore.md)
+- [Tune and monitor the server](concepts-monitoring.md)

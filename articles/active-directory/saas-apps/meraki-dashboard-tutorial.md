@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/20/2020
 ms.author: jeedes
 ---
 
@@ -35,7 +35,10 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Meraki Dashboard supports **IDP** initiated SSO
-* Once you configure Meraki Dashboard you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Meraki Dashboard you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Meraki Dashboard from the gallery
 
@@ -48,7 +51,7 @@ To configure the integration of Meraki Dashboard into Azure AD, you need to add 
 1. In the **Add from the gallery** section, type **Meraki Dashboard** in the search box.
 1. Select **Meraki Dashboard** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Meraki Dashboard
+## Configure and test Azure AD SSO for Meraki Dashboard
 
 Configure and test Azure AD SSO with Meraki Dashboard using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Meraki Dashboard.
 
@@ -143,15 +146,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **Organization** -> **Settings**.
 
-    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure1.png)
+    ![Meraki Dashboard Settings tab](./media/meraki-dashboard-tutorial/configure1.png)
 
 1. Under Authentication, change **SAML SSO** to **SAML SSO enabled**.
 
-    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure2.png)
+    ![Meraki Dashboard Authentication](./media/meraki-dashboard-tutorial/configure2.png)
 
 1. Click **Add a SAML IdP**.
 
-    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure3.png)
+    ![Meraki Dashboard Add a SAML IdP](./media/meraki-dashboard-tutorial/configure3.png)
 
 1. Paste the **Thumbprint** Value, which you have copied from the Azure portal into **X.590 cert SHA1 fingerprint** textbox. Then click **Save**. After saving, the Consumer URL will show up. Copy Consumer URL value and paste this into **Reply URL** textbox in the **Basic SAML Configuration Section** in the Azure portal.
 
@@ -163,15 +166,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **Organization** -> **Administrators**.
 
-    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/user1.png)
+    ![Meraki Dashboard Administrators](./media/meraki-dashboard-tutorial/user1.png)
 
 1. In the SAML administrator roles section, click the **Add SAML role** button.
 
-    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/user2.png)
+    ![Meraki Dashboard Add SAML role button](./media/meraki-dashboard-tutorial/user2.png)
 
 1. Enter the Role **meraki_full_admin**, mark **Organization access** as **Full** and click **Create role**. Repeat the process for **meraki_readonly_admin**, this time mark **Organization access** as **Read-only** box.
  
-    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/user3.png)
+    ![Meraki Dashboard create user](./media/meraki-dashboard-tutorial/user3.png)
 
 ## Test SSO 
 
@@ -190,6 +193,3 @@ When you click the Meraki Dashboard tile in the Access Panel, you should be auto
 - [Try Meraki Dashboard with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Meraki Dashboard with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

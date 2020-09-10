@@ -21,6 +21,14 @@ Customers will be notified via email and in the Azure portal well in advance of 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+### October 2020
+
+New SQL Gateways are being added to the following regions:
+
+- Germany West Central : 51.116.240.0, 51.116.248.0
+
+These SQL Gateways shall start accepting customer traffic on 12 October 2020. 
+
 ### September 2020
 New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on **15 September 2020**:
 

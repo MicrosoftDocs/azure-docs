@@ -2,7 +2,7 @@
 title: Template specs overview
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/31/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -73,7 +73,7 @@ New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpe
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az template-specs create \
+az ts create \
   --name storageSpec \
   --version "1.0" \
   --resource-group templateSpecRG \
@@ -94,7 +94,7 @@ Get-AzTemplateSpec
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az template-specs list
+az ts list
 ```
 
 ---
@@ -110,7 +110,7 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az template-specs show \
+az ts show \
     --name storageSpec \
     --resource-group templateSpecRG \
     --version "1.0"
@@ -169,7 +169,7 @@ New-AzResourceGroupDeployment `
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
 
 az deployment group create \
   --resource-group demoRG \

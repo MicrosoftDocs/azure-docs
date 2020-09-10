@@ -6,10 +6,11 @@ ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
-ms.date: 09/22/2020
+ms.date: 09/21/2020
 ---
 
 # Connect and query overview for Azure database for PostgreSQL- Single Server
+
 The following document includes links to examples showing how to connect and query with Azure Database for PostgreSQL Single Server. This guide also includes TLS recommendations and extension that you can use to connect to the server in supported languages below.
 
 ## Quickstarts
@@ -44,5 +45,6 @@ PostgreSQL provides the ability to extend the functionality of your database usi
 Fore more details, see [How to use PostgreSQL extensions on Single server](concepts-extensions.md).
 
 ## Next Steps 
+
 - [Migrate data using dump and restore](howto-migrate-using-dump-and-restore.md)
 - [Migrate data using import and export](howto-migrate-using-export-and-import.md)

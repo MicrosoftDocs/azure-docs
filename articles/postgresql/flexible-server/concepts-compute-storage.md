@@ -10,6 +10,9 @@ ms.date: 9/22/2020
 
 # Compute and Storage options in Azure Database for PostgreSQL - Flexible Server
 
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
 You can create an Azure Database for PostgreSQL server in one of three different pricing tiers: Burstable, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the PostgreSQL server level. A server can have one or many databases.
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
@@ -83,7 +86,7 @@ You can add additional storage capacity during and after the creation of the ser
 >[!NOTE]
 > Storage can only be scaled up, not down.
 
-<!--You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).-->
+You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
 ### Maximum IOPS for your configuration
 
@@ -118,7 +121,6 @@ When marked with a \*, IOPS are limited by the VM type you selected. Otherwise I
 |--------------------|----------------------------------------------|---|---|----|----|-----|-----|-----|-----|------|------|
 |                    |**Storage Bandwidth, MiB/sec**                |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
 |**Burstable**       |                                              |   |   |    |    |     |     |     |     |      |      |
-|SKU                 |                                              |   |   |    |    |     |     |     |     |      |      |
 |B1ms                |10 MiB/sec                                    |10*|10*|10* |10* |10*  |10*  |10*  |10*  |10*   |10*   |
 |B2s                 |15 MiB/sec                                    |15*|15*|15* |15* |15*  |15*  |15*  |15*  |15*   |15*   |
 |**General Purpose** |                                              |   |   |    |    |     |     |     |     |      |      |
@@ -152,11 +154,11 @@ Storage auto-grow is not yet available for Flexible Server.
 
 ## Backup
 
-The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days.<!-- Learn more about backups in the [concepts article](concepts-backup.md).-->
+The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days. Learn more about backups in the [concepts article](concepts-backup-restore.md).
 
 ## Scale resources
 
-After you create your server, you can independently change the vCores, the compute tier, the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI.<!-- For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).-->
+After you create your server, you can independently change the vCores, the compute tier, the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI.
 
 > [!NOTE]
 > The storage size can only be increased. You cannot go back to a smaller storage size after the increase.

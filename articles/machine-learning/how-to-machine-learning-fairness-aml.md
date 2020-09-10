@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 07/09/2020
+ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
@@ -138,7 +138,7 @@ The following example shows how to use the fairness package to upload model fair
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
+    lr_reg_id = register_model("fairness_logistic_regression", lr_predictor)
     ```
 
 3. Precompute fairness metrics.
@@ -231,7 +231,7 @@ If you are interested in comparing multiple models and seeing how their fairness
     ```python
     model_dict = {}
 
-    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
+    lr_reg_id = register_model("fairness_logistic_regression", lr_predictor)
     model_dict[lr_reg_id] = lr_predictor
 
     svm_reg_id = register_model("fairness_svm", svm_predictor)
