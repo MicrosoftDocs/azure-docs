@@ -49,12 +49,12 @@ landingContent:
         links:
           - text: Create PostgreSQL Hyperscale server group
             url: create-postgresql-hyperscale-server-group.md
+          - text: Connect to Azure Arc enabled PostgreSQL Hyperscale
+            url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
           - text: Migrate to Azure Arc enabled PostgreSQL Hyperscale
             url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
           - text: Restore sample database
             url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
-          - text: Connect to Azure Arc enabled PostgreSQL Hyperscale
-            url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
 
 
   # Card (optional)
