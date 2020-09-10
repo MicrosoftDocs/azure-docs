@@ -5,10 +5,11 @@ description: Azure Cognitive Services are APIs, SDKs, and services that you can 
 services: cognitive-services
 author: nitinme
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice:
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 08/28/2020
 ms.author: nitinme
 ---
 
@@ -26,7 +27,7 @@ Want to see what's new and updated Cognitive Services documentation? Check out, 
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|The Custom Vision Service allows you to build custom image classifiers.|
 |[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.|
 |[Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Form Recognizer") (Preview)|Form Recognizer identifies and extracts key-value pairs and table data from form documents; then outputs structured data including the relationships in the original file.|
-|[Ink Recognizer](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Ink Recognizer") (Preview)|Ink Recognizer allows you to recognize and analyze digital ink stroke data, shapes and handwritten content, and output a document structure with all recognized entities.|
+|[Ink Recognizer](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Ink Recognizer") (Retiring)|Ink Recognizer allows you to recognize and analyze digital ink stroke data, shapes and handwritten content, and output a document structure with all recognized entities.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer enables you to extract insights from your video.|
 
 ## Speech APIs
@@ -74,7 +75,6 @@ Want to see what's new and updated Cognitive Services documentation? Check out, 
 |[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") (Preview)|Anomaly Detector allows you to monitor and detect abnormalities in your time series data.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content.|
 |[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
-|[Metrics Advisor](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/) | |
 
 ## Subscription management
 
