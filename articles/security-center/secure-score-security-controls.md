@@ -92,12 +92,11 @@ The maximum score for this control, Apply system updates, is always 6. In this e
 
 Only built-in recommendations have an impact on the secure score.
 
-Also, recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+Recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 
 An example of a preview recommendation:
 
 :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
-
 
 ## Improve your secure score
 

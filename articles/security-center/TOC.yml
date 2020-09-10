@@ -144,7 +144,7 @@
       - name: Export recommendations
         href: continuous-export.md
       - name: Exempt a resource from a recommendation
-        href: exempt-a-resource.md
+        href: exempt-resource.md
   - name: Azure Defender alerts
     items:
     - name: Azure Defender alerts overview

@@ -16,6 +16,7 @@ This page explains how to use the built-in vulnerability scanner to scan the con
 
 When **Azure Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned. 
 
+When the scanner reports vulnerabilities to Security Center, Security Center presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
 
 ## Availability
 

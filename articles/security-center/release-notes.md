@@ -103,7 +103,7 @@ Learn more in [Explore and manage your resources with asset inventory and manage
 
 ### Disable a specific vulnerability finding for scans of container registries and virtual machines
 
-The vulnerability scanners included with Azure Defender scan images in your Azure Container Registry as well as you virtual machines. 
+Azure Defender includes vulnerability scanners to scan images in your Azure Container Registry and your virtual machines.
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
@@ -115,6 +115,16 @@ This option is available from the recommendations details pages for:
 - **Vulnerabilities in your virtual machines should be remediated**
 
 Learn more in [Disable specific findings for your container images](defender-for-container-registries-usage.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
+
+
+### Exempt a resource from a recommendation
+
+Occasionally, a resource will be listed as unhealthy regarding a specific recommendation even though you feel it shouldn't be. It might have been remediated by a process not tracked by Security Center. Or perhaps your organization has decided to accept the risk for that specific resource. 
+
+In such cases, you can create an exemption rule and ensure that resource isn't listed amongst the unhealthy resources in the future. These rules can include documented justifications as described below.
+
+Learn more in [Exempt a resource from recommendations and secure score](exempt-resource.md).
+
 
 ### AWS and GCP connectors in Security Center bring a multi-cloud experience
 
