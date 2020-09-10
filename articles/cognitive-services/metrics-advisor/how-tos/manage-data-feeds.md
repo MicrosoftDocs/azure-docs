@@ -16,7 +16,7 @@ ms.author: aahi
 
 Learn how to manage your onboarded data feeds in Metrics Advisor. This article guides you through managing data feeds in Metrics Monitor.
 
-## Edit a datafeed
+## Edit a data feed
 
 > [!NOTE]
 > The following details cannot be changed after a data feed has been created. 
@@ -26,19 +26,19 @@ Learn how to manage your onboarded data feeds in Metrics Advisor. This article g
 > * Source Type
 > * Granularity
 
-Only the administrator of a datafeed is allowed to make changes to it. 
+Only the administrator of a data feed is allowed to make changes to it. 
 
-To pause or reactivate a datafeed:
+To pause or reactivate a data feed:
 
-1. On the datafeed list page, click the operation you want to perform on the datafeed.
+1. On the data feed list page, click the operation you want to perform on the data feed.
 
-2. On the datafeed details page, click the **Status** switch button.
+2. On the data feed details page, click the **Status** switch button.
 
-To delete a datafeed: 
+To delete a data feed: 
 
-1. On the datafeed list page, click **Delete** on the datafeed.
+1. On the data feed list page, click **Delete** on the data feed.
 
-2. In the datafeed details page, click **Delete**.
+2. In the data feed details page, click **Delete**.
 
 When changing the start time, you need to verify the schema again. You can change it by using **Edit parameters**.
 

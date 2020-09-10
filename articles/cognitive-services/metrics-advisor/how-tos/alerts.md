@@ -25,7 +25,7 @@ Metrics Advisor supports three different types of hooks: email hook, web hook an
 > [!Note]
 > The Metrics Advisor resource administrators need to configure the **Email settings**, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent.
 
-To create a email hook, following parameters are available: 
+To create an email hook, the following parameters are available: 
 
 An email hook is the channel for anomaly alerts to be sent to email addresses specified in the **Email to** section. Two types of alert emails will be sent: *Data feed not available* alerts, and *Incident reports* which contain one or multiple anomalies. 
 
@@ -33,7 +33,7 @@ An email hook is the channel for anomaly alerts to be sent to email addresses sp
 |---------|---------|
 | Name | Name of the email hook |
 | Email to| Email addresses that would send alert to|
-| External link | Optional field which enables customized redirect, like troubleshooting note, etc|
+| External link | Optional field which enables a customized redirect, such as for troubleshooting notes. |
 | Customized anomaly alert title | Title template supports `${severity}`, `${alertSettingName}`, `${datafeedName}`, `${metricName}`, `${detectConfigName}`, `${timestamp}`, `${topDimension}`, `${incidentCount}`, `${anomalyCount}`
 
 After you click **OK**, an email hook will be created. You can use it in any alert settings to receive anomaly alerts. 
@@ -66,7 +66,7 @@ When a notification is pushed through a web hook, you can use the following APIs
 
 Metrics Advisor also supports automatically creating a work item in Azure DevOps to track issues/bugs when any anomaly detected. All alerts can be sent through Azure DevOps hooks.
 
-To create a Azure DevOps hook, you will need to add the following information
+To create an Azure DevOps hook, you will need to add the following information
 
 |Parameter |Description  |
 |---------|---------|

@@ -55,7 +55,7 @@ At the bottom of the **Add feedback** panel, there's a link of **To incident hub
 
 ## Explore anomaly detection results and perform root cause analysis
 
-When you click the **To incident hub** link from an anomaly, you will see an incident analysis page, containing diagnostics insights about the incident, such as Severity, the number of anomalies involved, and start/end time. The **Rootcause** section displays automated advice by analyzing the incident tree, taking into account: deviation, distribution and contribution to parent anomalies, which may be the root cause of the incident.
+When you click the **To incident hub** link from an anomaly, you will see an incident analysis page, containing diagnostics insights about the incident, such as Severity, the number of anomalies involved, and start/end time. The **Root cause** section displays automated advice by analyzing the incident tree, taking into account: deviation, distribution and contribution to parent anomalies, which may be the root cause of the incident.
 
 The **Diagnostics** section shows a tree of the incident, along with several tabs for diagnosing the incident.
 

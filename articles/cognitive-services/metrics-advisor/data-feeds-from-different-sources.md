@@ -111,7 +111,7 @@ Only one timestamp is allowed per JSON file.
 
 * **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource, in **Keys**. 
 * **Database**: The database to query against. This can be found in the **Browse** page under **Containers** section.
-* **Collection Id**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section.
+* **Collection ID**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section.
 * **SQL Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@StartTime` and `@EndTime` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
 
     Sample query:
