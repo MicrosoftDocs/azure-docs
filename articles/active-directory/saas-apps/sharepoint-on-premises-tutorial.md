@@ -200,7 +200,7 @@ To fix this scenario with the people picker, an open-source solution called [Azu
   > [!NOTE]
   > Without AzureCP, you can add groups by adding the Azure AD group's ID, but this method isn't user friendly and reliable. Here's how it looks:
   > 
-  >![Add an Azure AD group to a SharePoint group](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  >![Add an Azure AD group to a SharePoint group by ID](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
   
 ### Grant permissions to an Azure AD group in SharePoint on-premises
 
