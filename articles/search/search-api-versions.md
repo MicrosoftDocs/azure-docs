@@ -93,7 +93,7 @@ The following  table provides links to more recent SDK versions.
 | SDK version | Status | Description  |
 |-------------|--------|------------------------------|
 | [Java azure-search-documents 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
-| [Java Management Client 1.35.0](/java/api/overview/azure/search/management?view=azure-java-stable) | Stable | Targets the Management REST api-version=2015-08-19. |
+| [Java Management Client 1.35.0](/java/api/overview/azure/search/management) | Stable | Targets the Management REST api-version=2015-08-19. |
 
 ## Azure SDK for JavaScript
 
