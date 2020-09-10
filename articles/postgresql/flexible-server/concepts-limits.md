@@ -80,7 +80,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### Postgres engine, extensions, and pgBouncer
 
-- Postgres 10 and older are not supported.
+- Postgres 10 and older are not supported. We recommend using the [Single Server](../overview-single-server.md) option if you require older Postgres versions.
 - Extension support is currently limited to the Postgres `contrib` extensions.
 - Built-in pgBouncer connection pooler is currently not available for database servers within a VNET, or for Burstable servers.
 
@@ -90,13 +90,12 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### Scheduled maintenance
 
-- Changing the maintenance window less than 5 days before an already planned upgrade, will not affect that upgrade. Changes only take effect with the next scheduled maintenance.
+- Changing the maintenance window less than five days before an already planned upgrade, will not affect that upgrade. Changes only take effect with the next scheduled maintenance.
 
 ### Backing up a server
 
-- Backups are managed by the system, there is currently no way to do physical backups.
-- Backups are always snapshot-based full backups (not differential backups), and this may lead to higher backup storage utilization.
-- Long-term-retention backups are not supported currently.
+- Backups are managed by the system, there is currently no way to run these backups manually. We recommend using `pg_dump` instead.
+- Backups are always snapshot-based full backups (not differential backups), possibly leading to higher backup storage utilization.
 
 ### Restoring a server
 
