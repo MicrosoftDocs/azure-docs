@@ -51,16 +51,6 @@
     href: deploy-dacpac.md
 - name: Concepts
   items:
-  - name: Security
-    items:
-    - name: Security overview
-      href: security-overview.md
-    - name: Security features
-      href: https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json
-    - name: Encrypting connections
-      href: https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json
-    - name: Azure security center for IoT
-      href: https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json
   - name: Machine learning and AI with ONNX
     href: onnx-overview.md
   - name: Backup and restore
@@ -107,3 +97,17 @@
         href: data-retention-cleanup.md
       - name: sys.sp_cleanup_data_retention (Transact-SQL)
         href: sys-sp-cleanup-data-retention.md
+  - name: Security
+    items:
+    - name: Security overview
+      href: security-overview.md
+    - name: Security features
+      href: https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json
+    - name: Encrypting connections
+      href: https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json
+    - name: Azure security center for IoT
+      href: https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json
+- name: resources
+  items:
+  - name: Transact-SQL (T-SQL) Reference
+    href: https://docs.microsoft.com/sql/t-sql/language-reference
