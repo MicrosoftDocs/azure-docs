@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 09/04/2020
 ---
 
-# Data retention policy overview
+# Data retention overview
 
 Collection and storage of data from connected IoT devices is important to drive and gain operational and business insights. However given the volume of data originating from these devices, it becomes important for organizations to carefully plan the amount of data they want to retain and at what granularity. While retaining all data at all granularity is desirable, it's not always practical. Additionally, the volume of data that can be retained is constrained by the amount of storage available on the IoT or Edge devices. 
 
