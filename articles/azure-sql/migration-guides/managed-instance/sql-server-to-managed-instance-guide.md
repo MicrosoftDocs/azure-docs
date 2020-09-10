@@ -14,106 +14,143 @@ ms.date: 08/25/2020
 # Migration guide: SQL Server to SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
+This guide helps you migrate your SQL Server instance to Azure SQL Managed Instance. 
+
+You can migrate SQL Server running on-premises or on: 
+
+- SQL Server on Virtual Machines  
+- Amazon Web Services (AWS) EC2 
+- Amazon Relational Database Service (AWS RDS) 
+- Compute Engine (Google Cloud Platform - GCP)  
+- Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
+
+For more migration information see the [migration overview](sql-server-to-managed-instance-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+
 ## Prerequisites 
 
-- You have chosen a [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
+To migrate your SQL Server to Azure SQL Managed Instance, make sure: 
+
+- You've chosen a [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
+- You've assessed a [performance baseline](sql-server-to-managed-instance-performance-baseline.md), if necessary. 
 
 
 ## Pre-migration
 
-After verifying that your source environment is supported and ensuring that you have addressed any prerequisites, you are ready to start the Pre-migration stage. This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for compatibility with Azure SQL Managed Instance, and then ensuring that there are no blocking issues that can prevent your migrations.  
-
-As part of the assessment process, you can also create a performance baseline to determine resource usage on your source SQL Server. This performance baseline creation step is optional if you want to deploy a properly sized Managed Instance and to validate the captured baseline with the post migration performance on the Managed Instance.  
+After verifying that your source environment is supported and ensuring that you have addressed any prerequisites, you are ready to start the Pre-migration stage.
+Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your migration. 
 
 ### Discover
 
-The goal of the Discover phase is to identify existing data sources and details about the features that are being used to get a better understanding of and plan for the migration. This process involves scanning the network to identify all your organization’s SQL Server instances together with the version and features in use. 
+In the Discover phase, scan the network to identify all SQL Server instances and features used by your organization. 
 
-You can use the [Azure Migrate](../../../migrate/migrate-services-overview) service to assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises servers, performs performance-based sizing, and provides cost estimations for running them in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. 
+Use the [Azure Migrate](../../../migrate/migrate-services-overview) service to assesses the migration suitability of on-premises servers, perform performance-based sizing, and provides cost estimations for running them in Azure. 
 
-You can also use the [Microsoft Assessment and Planning Toolkit (the "MAP Toolkit")](https://www.microsoft.com/download/details.aspx?id=7826) to assess your current IT infrastructure for a variety of technology migration projects. This Solution Accelerator provides a powerful inventory, assessment, and reporting tool to simplify the migration planning process. 
+Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP Toolkit")](https://www.microsoft.com/download/details.aspx?id=7826) to assess your current IT infrastructure. THe toolkit provides a powerful inventory, assessment, and reporting tool to simplify the migration planning process. 
 
-For more information about the tools available for use during the Discover phase, see the article [Services and tools available for data migration scenarios](../../../dms/dms-tools-matrix.md)
+For more information about tools available to use for the Discover phase, see the article [Services and tools available for data migration scenarios](../../../dms/dms-tools-matrix.md)
 
 ### Assess 
 
-When the data sources have been identified, the next step is to assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Database Managed Instance and to understand any migration blockers or compatibility issues. 
+After data sources have been identified, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Database Managed Instance to identify migration blockers or compatibility issues. 
 
->[!NOTE]
-> Data Migration Assistant (DMA) support for migrations to Azure SQL Database managed instance is available in version 4.1 and later.
+You can use Data Migration Assistant (version 4.1 and later) to assess databases to get: 
 
-You can use Data Migration Assistant to assess databases to get: 
+- [Azure target recommendations](/sql/dma/dma-assess-sql-data-estate-to-sqldb)
+- [Azure SKU recommendations](/sql/dma/dma-sku-recommend-sql-db)
 
-- Azure target recommendations, find the relative readiness of the SQL Server instances and databases migrating to Azure SQL Database managed instance. For more information, see the article [here](https://docs.microsoft.com/en-us/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-ver15)
-- Azure SQL Database managed instance SKU recommendations. For more information, see the article [here](https://docs.microsoft.com/en-us/sql/dma/dma-sku-recommend-sql-db?view=sql-server-ver15).
 
-It is also important to note that if there are potential migration blockers to migrate your SQL Servers or databases to Azure SQL Managed Instance, Azure SQL Virtual Machines(VM)  would be the next best alternative target to consider. Below are some example requirements to consider Azure SQL VM instead of Azure SQL Managed Instance: 
+If SQL Managed Instance is not a suitable target for your workload, SQL Server on Azure VMs might be a better alternative target for your business. 
 
-- If you require direct access to the operating system or file system, for instance to install third-party or custom agents on the same virtual machine with SQL Server. 
-- If you have strict dependency on features that are still not supported, such as FileStream/FileTable, PolyBase, and cross-instance transactions. 
-- If you absolutely need to stay at a specific version of SQL Server (2012, for instance). 
-- If your compute requirements are much lower than managed instance offers (one vCore, for instance), and database consolidation is not an acceptable option. 
+To assess your environment using the Database Migration Assessment, follow these steps: 
 
-> [!NOTE]
-> Azure SQL Managed Instance guarantees 99.99% availability even in critical scenarios, so overhead caused by some features in SQL MI cannot be disabled. For more information, see the [root causes that might cause different performance on SQL Server and Azure SQL Managed Instance](https://azure.microsoft.com/en-us/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). 
-
-### Assessment steps
-
-An overview of the steps associated with using DMA to create an assessment follows. 
-
-1. Open the Data Migration Assistant (DMA), and then begin creating a new assessment project. 
-1. Specify a project name, select SQL Server as the source server type, and then select Azure SQL Database Managed Instance as the target server type. 
-1. Select the type(s) of assessment reports (database compatibility and feature parity) that you want to generate. 
-    - The SQL Server feature parity category provides a comprehensive set of recommendations, alternative approaches available in Azure, and mitigating steps to help you plan the effort into your migration projects. 
-    - The Compatibility issues category identifies partially supported or unsupported features that reflect compatibility issues that might block migrating on-premises SQL Server database(s) to Azure SQL Managed Instance. Recommendations are also provided to help you address those issues. 
-1. Specify the source connection details for your SQL Server, connect to the source database, and then start the assessment. 
-1. When the process is complete, review the assessment reports for migration blocking issues and feature parity issues by selecting the specific options. The assessment report can also be exported to a file that can be shared with other teams or personnel in your organization. 
-1. Determine the database compatibility level that you want to minimize your efforts after migrating to Azure SQL Database. 
+1. Open the [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595). 
+1. Select **File** and then choose **New assessment**. 
+1. Specify a project name, select SQL Server as the source server type, and then select Azure SQL Managed Instance as the target server type. 
+1. Select the type(s) of assessment reports that you want to generate. For example, database compatibility and feature parity. 
+    - The **feature parity** category provides a comprehensive set of recommendations, alternatives available in Azure, and mitigating steps to help you plan your migration project. 
+    - The **compatibility issues** category identifies partially supported or unsupported feature compatibility issues that might block migration as well as recommendations to address them. 
+1. Specify the source connection details for your SQL Server and connect to the source database.
+1. Select **Start assessment**. 
+1. When the process is complete, select and review the assessment reports for migration blocking and feature parity issues. The assessment report can also be exported to a file that can be shared with other teams or personnel in your organization. 
+1. Determine the database compatibility level that minimizes post-migration efforts.  
 1. Identify the best Azure SQL Managed Instance SKU for your on-premises workload. 
 
-
-For additional detail on this process, see the article [Perform a SQL Server migration assessment with Data Migration Assistant](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem?view=sql-server-2017).
+To learn more, see [Perform a SQL Server migration assessment with Data Migration Assistant](/sql/dma/dma-assesssqlonprem?view=sql-server-2017).
 
 ### Create a performance baseline
 
 If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. See [performance baseline](sql-server-to-managed-instance-perforamnce-baseline.md) to learn more. 
 
+## Create SQL Managed Instance 
+
+Based on the information in the discover and assess phase, create your target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [ARM Template](/../../managed-instance/create-template-quickstart.md). 
+
 
 ## Migrate
 
-After you have completed the tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. Before proceeding to the migration stage, you will need to provision an appropriately sized Azure SQL Managed Instance as the target of your migration process. 
+After you have completed the tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
 
 Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
 
-> [!IMPORTANT]
-> -   When you're migrating a database protected by [**Transparent Data Encryption**](/azure/azure-sql/database/transparent-data-encryption-tde-overview) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see [**Migrate a TDE cert to a managed instance**](/azure/azure-sql/managed-instance/tde-certificate-migrate).
-> -   Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
-	
+
 ## Data sync and cutover
 
-When using online migration options (DMS online mode, Transactional Replication), the source you are migrating from would continue to change and drift from the target in terms of data and schema. During the Data sync phase, you need to ensure that all changes in the source are captured and applied to the target during the online migration process. After you verify that all changes in source have been applied to the target, you can cutover from the source to the target environment. It is important to plan the cutover process with the business / application teams to ensure the minimal interruption during the cutover does not affect the business continuity. 
+During offline migrations, the data on the source and target is static so skip data sync for these scenarios. 
 
-   > [!IMPORTANT]
-   > For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see the information [here](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-managed-instance-online#performing-migration-cutover).
+However, when using online migration options (DMS, transactional replication), the source data and schema continues to change and drift from the target. During data sync, ensure that all changes on the source are captured and applied to the target during the online migration process. 
+
+After you verify that data is the same at both source and target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
+
+> [!IMPORTANT]
+> For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see the information [here](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-managed-instance-online#performing-migration-cutover).
 
 
 ## Post-migration
-After you have successfully completed the Migration stage, you need to go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible. After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications. 
 
-The post-migration phase is also crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload. Optimizing your Managed Instance also includes leveraging the best of Azure SQL PaaS features that you can now benefit from after the migration to enable your databases adapt to newer and modern applications.
+After you have successfully completed the migration stage, go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently. 
+
+The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload. 
+
+### Remediate applications 
+
+After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications.
+
+### Perform tests
+
+The test approach for database migration consists of the following activities:
+
+1. **Develop validation tests**: To test database migration, you need to use SQL queries. You must create the validation queries to run against both the source and the target databases. Your validation queries should cover the scope you have defined.
+1. **Set up test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
+1. **Run validation tests**: Run the validation tests against the source and the target, and then analyze the results.
+1. **Run performance tests**: Run performance test against the source and the target, and then analyze and compare the results.
+
+   > [!NOTE]
+   > For assistance developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
+
 
 
 ## Leverage advanced features 
 
-Even if you performed a lift-and-shift type migration without fully leveraging the features of Managed Instance, there are high chances that you would turn on some of the new features while you are operating your instance to take advantage of the latest database engine improvements. Some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/en-us/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database?view=sql-server-ver15). 
+Be sure to take advantage of the advanced cloud-based features offered by SQL Managed Instance, such as [built-in high availability](../../database/high-availability-sla.md), [threat detection](../../database/advanced-data-security.md), and [monitoring and tuning your workload](../../database/monitor-tune-overview.md). 
 
-For instance, you don’t have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. SQL Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups?branch=pr-en-us-122187#point-in-time-restore). Additionally, you do not need to worry about setting up high availability, as [high availability is built in](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla?branch=pr-en-us-122187). 
+[Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized manner.
 
-To strengthen security, consider using [Azure Active Directory Authentication](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview?branch=pr-en-us-122187), [auditing](https://review.docs.microsoft.com/en-us/azure/azure-sql/managed-instance/auditing-configure?branch=pr-en-us-122187), [threat detection](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/advanced-data-security?branch=pr-en-us-122187), [row-level security](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver15), and [dynamic data masking](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver15).
-
-In addition to advanced management and security features, a managed instance provides a set of advanced tools that can help you to [monitor and tune your workload](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview?branch=pr-en-us-122187).[Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql) enables you to monitor a large set of managed instances in a centralized manner. [Automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues. 
-
-For additional detail about these issues and specific steps to mitigate them, see the [Post-migration Validation and Optimization Guide].
+Some SQL Server features are only available once the [database compatibility level](sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 
 
 ## Next steps
+
+- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
+
+- To learn more about Azure SQL Managed Instance see:
+   - [Service Tiers in Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/sql-managed-instance-paas-overview#service-tiers)
+   - [Differences between SQL Server and Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server)
+   - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
+
+
+- To learn more about the framework and adoption cycle for Cloud migrations, see
+   -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+
+- To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
+- For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
