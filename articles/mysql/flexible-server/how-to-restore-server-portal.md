@@ -22,7 +22,7 @@ To complete this how-to guide, you need:
 
 -   You must have an Azure Database for MySQL Flexible Server.
 
-## Restoring to the latest restore point
+## Restore to the latest restore point
 
 Follow these steps to restore your flexible server using an earliest existing backup.
 
