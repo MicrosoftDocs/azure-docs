@@ -202,7 +202,7 @@ When you select the Run As account, the account properties pane displays the fol
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-You can quickly resolve these Run As account issues by deleting and re-creating the account.
+You can quickly resolve these Run As account issues by deleting and re-creating the Run As account.
 
 ## Next steps
 
