@@ -50,10 +50,14 @@ Next you will create a Managed HSM in the resource group created in the previous
 - The location **East US 2**.
 - **Object IDs of the administrators** of Managed HSM. We assume that currently logged in user (using the az login command above) will be the administrator.
 
+Optional parameter `--enable-purge-protection` will allow you to enable purge protection that will prevent permanently deleting a key for 7 days, as defined by the `--retention-days` parameter. You must set these two parameters at the time of creating the HSM. These attributes cannot be changed after the HSM is created.
+
 ```azurecli
 adminoid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus2 --administrators $adminoid
+az keyvault create --hsm-name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus2 --administrators $adminoid --enable-purge-protection true --retention-days 7
 ```
+
+
 
 The output of this cmdlet shows properties of the newly created managed HSM. Take note of the two properties listed below:
 
