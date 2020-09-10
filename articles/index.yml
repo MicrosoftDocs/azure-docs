@@ -1095,10 +1095,10 @@ productDirectory:
     # Card
     - title: Azure Resource Mover
       summary: Move Azure resources across resources groups and subscriptions, or between Azure regions.
-      imageSrc: ./media/index/resource-mover.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
       azureCategories:
         - management-and-governance
-      url: azure-resource-manager/index.yml
+      url: resource-mover/index.yml
     # Card
     - title: ARM templates
       summary: Deliver infrastructure as code for all your Azure resources using Resource Manager
