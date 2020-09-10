@@ -339,7 +339,7 @@ To start using spatial analysis, try recording a video file and save it as an mp
 Navigate to the **Container** section, and either create a new container or use an existing one. Then upload the video file to the container. Expand the file settings for the uploaded file, and select **Generate SAS**. Be sure to set the **Expiry Date** long enough to cover the testing period. Set **Allowed Protocols** to *HTTP* (*HTTPS* is not supported).
 
 Click on **Generate SAS Token and URL** and copy the Blob SAS URL. Replace the starting `https` with `http` and test the URL in a browser that supports video playback.
-You can find an example of a deployment manifest [on GitHub](https://go.microsoft.com/fwlink/?linkid=2142179).
+
 Replace `VIDEO_URL` in the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) with URL you created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and redeploy the spatial analysis container with the updated manifest. See the example below.
 
 The spatial analysis module will start consuming video file and will continuously auto replay as well.
