@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ---
 
-# Create a new Azure API Management service instance using Visual Studio Code
+# Quickstart: Create a new Azure API Management service instance using Visual Studio Code
 
 Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM  enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md) topic.
 
@@ -41,25 +41,22 @@ Right-click on the subscription you'd like to use, and select **Create API Manag
 
 ![Create API Management wizard in VS Code](./media/vscode-create-service-instance/vscode-apim-create.png)
 
-A pane will open to walk you through a series of configuration questions:
+In the pane that opens, supply a name for the new API Management instance. It must be globally unique within Azure and consist of 1-50 alphanumeric characters and/or hyphens, and start with a letter and end with an alphanumeric.
 
-1. Enter a globally unique [**name**](../azure-resource-manager/management/resource-name-rules.md#microsoftapimanagement) for the API Management instance. (*1-50 alphanumeric characters and/or hyphens; must start with a letter and end with alphanumeric.*)
-2. Select an [**API Management SKU**](https://azure.microsoft.com/pricing/details/api-management/) (*Consumption, Developer, Standard, Basic, Premium*).
-3. Select an [**Azure region**](https://status.azure.com/en-us/status).
-4. Select a [**resource group**](../azure-resource-manager/management/overview.md) (or create a new one) to contain the new API Management resource.
+A new API Management instance (and parent resource group) will be created with the specified name. By default, the instance is created in the *West US* region with *Consumption* SKU.
 
-A new API Management instance will be created using the specified values.
-
-> [!NOTE]
-> It can take between 20 and 30 minutes to create and activate an API Management instance. Once ready, the new instance will appear in the API Management extension pane.
-
-![Newly created API Management instance in VS Code API Management extension pane](./media/vscode-create-service-instance/vscode-apim-instance.png)
+> [!TIP]
+> If you enable **Advanced Creation** in the *Azure API Management Extension Settings*, you can also specify an [API Management SKU](https://azure.microsoft.com/pricing/details/api-management/), [Azure region](https://status.azure.com/en-us/status), and a [resource group](../azure-resource-manager/management/overview.md) to deploy your API Management instance.
+>
+> While the *Consumption* SKU takes less than a minute to provision, other SKUs typically take 30-40 minutes to create.
 
 At this point, you're ready to import and publish your first API. You can do that and also perform common API Management operations within the extension for Visual Studio Code. See the [API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) documentation for more.
 
+![Newly created API Management instance in VS Code API Management extension pane](./media/vscode-create-service-instance/vscode-apim-instance.png)
+
 ## Clean up resources
 
-When no longer needed, remove the API Management instance by right-clicking and selecting **Open in Portal** to [delete the API Management service](get-started-create-service-instance.md#clean-up-resources)  and its resource group.
+When no longer needed, remove the API Management instance by right-clicking and selecting **Open in Portal** to [delete the API Management service](get-started-create-service-instance.md#clean-up-resources) and its resource group.
 
 Alternately, you can select **Delete API Management** to only delete the API Management instance (this operation doesn't delete its resource group).
 
