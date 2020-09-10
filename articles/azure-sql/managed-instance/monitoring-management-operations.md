@@ -93,3 +93,10 @@ az sql mi op list -g yourResourceGroupName --mi yourInstanceName
 For detailed commands explanation, see [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
 
 ---
+
+## Next steps
+- To learn how to create your first managed instance, see [Quickstart guide](instance-create-quickstart.md).
+- For a features and comparison list, see [SQL common features](../database/features-comparison.md).
+- For more information about VNet configuration, see [SQL Managed Instance VNet configuration](connectivity-architecture-overview.md).
+- For a quickstart that creates a managed instance and restores a database from a backup file, see [Create a managed instance](instance-create-quickstart.md).
+- For a tutorial about using Azure Database Migration Service for migration, see [SQL Managed Instance migration using Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
