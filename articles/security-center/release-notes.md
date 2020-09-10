@@ -30,6 +30,8 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 Updates in September include:
 
+- [Security Center gets a new look!](#security-center-gets-a-new-look)
+- [Azure Defender released](#azure-defender-released)
 - [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
@@ -39,6 +41,36 @@ Updates in September include:
 - [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
 - [Recommendations now include a severity indicator and the freshness interval](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
 
+
+### Security Center gets a new look!
+
+We've released a refreshed UI for Security Center's portal pages. The new pages include dashboards for secure score, regulatory compliance and Azure Defender.
+
+The redesigned overview page now has a tile for each of these elements as well as a link to the asset inventory page dashboard.
+
+Learn more about the [Azure Security Center's overview page](overview-page.md).
+
+
+### Azure Defender released
+
+**Azure Defender** is the cloud workload protection platform (CWPP) integrated within Security Center for advanced, intelligent, protection of your Azure and hybrid workloads. It replaces Security Center's standard pricing tier option. 
+
+When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
+
+- [Azure Defender for servers](defender-for-servers-intro.md)
+- [Azure Defender for App Service](defender-for-app-service-intro.md)
+- [Azure Defender for Storage](defender-for-storage-intro.md)
+- [Azure Defender for SQL](defender-for-sql-intro.md)
+- [Azure Defender for IoT](defender-for-iot-intro.md)
+- [Azure Defender for Key Vault](defender-for-key-vault-intro.md)
+- [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
+- [Azure Defender for container registries](defender-for-container-registries-intro.md)
+
+Each of these plans is explained separately in the Security Center documentation.
+
+With its dedicated dashboard, Azure Defender provides security alerts and advanced threat protection for virtual machines, SQL databases, containers, web applications, your network, and more.
+
+[Learn more about Azure Defender](azure-defender.md)
 
 ### Azure Defender for Key Vault is generally available
 

@@ -7,7 +7,7 @@ services: security-center
 ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Explore and manage your resources with asset inventory and management tools

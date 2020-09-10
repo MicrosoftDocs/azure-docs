@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2020
+ms.date: 09/12/2020
 ms.author: memildin
 
 ---
 
-# Enhanced secure score in Azure Security Center
+# Secure score in Azure Security Center
 
 ## Introduction to secure score
 
