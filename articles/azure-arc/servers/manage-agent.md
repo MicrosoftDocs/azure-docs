@@ -218,7 +218,7 @@ To reconnect with your elevated logged-on credentials (interactive), run the fol
 
 ## Remove the agent
 
-Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. These are separate process you perform when you no longer need to manage the machine in Azure, and they should be completed prior to uninstalling the agent.
+Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. You need to perform those steps separately when you no longer need to manage the machine in Azure, and they should be completed prior to uninstalling the agent.
 
 ### Windows agent
 
