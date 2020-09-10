@@ -12,7 +12,7 @@ ms.date: 05/07/2020
 ms.author: aahi
 ---
 
-# Install and run Anomaly Detector containers (Preview)
+# Install and run Anomaly Detector containers
 
 The Anomaly Detector has the following container feature functionality:
 
@@ -172,7 +172,7 @@ For more information about these options, see [Configure containers](anomaly-det
 In this article, you learned concepts and workflow for downloading, installing, and running Anomaly Detector containers. In summary:
 
 * Anomaly Detector provides one Linux container for Docker, encapsulating anomaly detection with batch vs streaming, expected range inference, and sensitivity tuning.
-* Container images are downloaded from a private Azure Container Registry dedicated for containers preview.
+* Container images are downloaded from a private Azure Container Registry dedicated for containers.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Anomaly Detector containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.

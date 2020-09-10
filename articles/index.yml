@@ -40,7 +40,7 @@ productDirectory:
   title: Browse Azure products
   items:
     # Card
-    - title: Anomaly Detector (Preview)
+    - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
       imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
       azureCategories:
