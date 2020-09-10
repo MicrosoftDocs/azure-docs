@@ -15,27 +15,27 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Python SDK
+    - name: "Python: Get started (day 1)"
+      items:
+        - name: 1. Set up local computer
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: 2. Hello world
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Train a model
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Bring your own data
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Jupyter Notebooks
       expanded: true
       items:
-        - name: Get started (day 1)
-          items:
-            - name: "1a. Setup: Use your computer"
-              href: tutorial-1st-experiment-sdk-setup-local.md         
-            - name: "1b. Setup: Use a remote VM"
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Hello Azure
-              href: tutorial-1st-experiment-hello-azure.md
-            - name: 3. Train a model
-              href: tutorial-1st-experiment-sdk-train.md
-            - name: 4. Bring your own data
-              href: tutorial-1st-experiment-bring-data.md
         - name: Image classification (MNIST data)
           items: 
-            - name: 1. Train a model
+            - name: 1. Set up compute instance
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Train a model
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. Deploy a model
+            - name: 3. Deploy a model
               href: tutorial-deploy-models-with-aml.md
         - name: Regression with Automated ML (NYC Taxi data)
           items: 

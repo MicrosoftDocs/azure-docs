@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Hello Azure"
+title: "Tutorial: Hello world"
 titleSuffix: Azure Machine Learning
 description: Part 1 of the Azure ML Get Started series shows how to  submit a trivial "hello world" python script to the cloud.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 09/09/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Hello Azure
+# Tutorial: Hello world
 
 In this tutorial, you will see how to submit a trivial "hello world" python script to the cloud. By the end of this tutorial you can:
 
@@ -35,7 +35,7 @@ This tutorial introduces you to the core AzureML concepts needed to run your cod
 
 - Complete the setup on your [local computer](tutorial-1st-experiment-sdk-setup-local.md) or to use a [compute instance](tutorial-1st-experiment-sdk-setup-local.md).
 - Familiarity with Python and Machine Learning concepts.
-- If using your local computer, a local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
+- A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
 
 ## Create `hello.py`
 

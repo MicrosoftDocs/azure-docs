@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Experiment in Jupyter notebooks (Python)"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you'll to create an Azure Machine Learning workspace, 
+description: Setup for Jupyter Notebook tutorials.  Create an Azure Machine Learning workspace, clone Jupyter Notebooks into the workspace, and create a compute instance where you run the notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,8 @@ ms.custom: devx-track-python
 
 # Tutorial: Use a compute instance to run Azure Machine Learning
 
-In this tutorial, you complete the steps to get started with the Azure Machine Learning Python SDK on a [compute instance](concept-compute-instance.md). This tutorial is a precursor to all other Python tutorials that you want to perform on a compute instance.
+In this tutorial, you complete the steps to get started with the Azure Machine Learning Python SDK on a [compute instance](concept-compute-instance.md). This tutorial is a precursor to all other Jupyter Notebook tutorials running on a compute instance.
 
-You could instead run the tutorials on your own local computer.  Use [Tutorial:  Set up your local computer for Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md) if you wish to use your local computer.
 
 In this tutorial, you:
 
@@ -75,7 +74,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you cannot run a notebook from there.  In order to run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
-1. Select the **tutorial-hello-azure.ipynb** file in your **tutorials/create-first-ml-experiment** folder.
+1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/image-classification-mnist-data** folder.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Open tutorials folder":::
 
@@ -99,16 +98,12 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 If you have custom widgets or prefer using Jupyter/JupyterLab select the **Jupyter** drop down on the far right, then select **Jupyter** or **JupyterLab**. The new browser window will be opened.
 
-## Run Python scripts
-
-If you prefer to run Python scripts instead of using the notebooks, open the **Terminal** window for the compute instance.
-
 ## Next steps
 
-Now that you have a development environment set up, continue on to learn more about Azure Machine Learning:
+Now that you have a development environment set up, continue on to train a model in a Jupyter Notebook:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Hello Azure](tutorial-1st-experiment-hello-azure.md)
+> [Tutorial: Train image classification models with MNIST data and scikit-learn](tutorial-train-models-with-aml.md)
 
 <a name="stop-compute-instance"></a>
 If you do not plan on following any other tutorials now, you should stop the cloud notebook server VM when you are not using it to reduce cost:

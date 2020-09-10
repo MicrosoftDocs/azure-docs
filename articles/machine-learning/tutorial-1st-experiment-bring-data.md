@@ -35,11 +35,10 @@ The Azure Machine Learning concepts covered in this article are:
 
 - You have completed:
   - Setup on your [local computer](tutorial-1st-experiment-sdk-setup-local.md) or setup to use a [compute instance](tutorial-1st-experiment-sdk-setup-local.md)
-  - [Tutorial: Hello Azure](tutorial-1st-experiment-hello-azure.md)
+  - [Tutorial: Hello Azure](tutorial-1st-experiment-hello-world.md)
   - [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
 - Familiarity with Python and Machine Learning concepts
-- If using your local computer, a local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on)
-
+- A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
 
 ## Adjust the training script
 
