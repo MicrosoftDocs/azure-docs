@@ -86,7 +86,7 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
 There are several sample datasets included in the designer for you to experiment with. For this tutorial, use **Automobile price data (Raw)**. 
 
-1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets**, and then view the **Samples** section to view the available sample datasets.
+1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Sample datasets** to view the available sample datasets.
 
 1. Select the dataset **Automobile price data (Raw)**, and drag it onto the canvas.
 
