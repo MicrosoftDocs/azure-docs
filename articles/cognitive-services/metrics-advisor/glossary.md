@@ -36,7 +36,7 @@ A dimension is one or more categorical values. The combination of those values i
 
 ## Multi-dimensional metric
 
-Let's use two examples. 
+What is a multi-dimension metric? Let's use two examples. 
 
 **Revenue of a business**
 

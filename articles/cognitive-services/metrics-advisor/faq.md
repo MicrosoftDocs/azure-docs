@@ -38,32 +38,7 @@ If you have already deleted the existing instance but still meet the error, plea
 
 ### What is multi-dimensional time-series data?
 
-Let's use two examples.
-
-* Revenue of an e-business
-
-Your time series data would look like this:
-
-| Timestamp | Category | Market | Revenue |
-| ----------|----------|--------|----- |
-| 2020-6-1 | Food | US | 1000 |
-| 2020-6-1 | Apparel | US | 2000 |
-| 2020-6-2 | Food | UK | 800 | 
-…
-
-"Category" and "Market" are dimensions. "Revenue" is the KPI which could be sliced into different categories and/or markets and could also be aggregated, e.g. revenue of "food" for all markets.
-
-* Error count of a complex application
-
-| Timestamp	| Application component | Region | Error count |
-| ----------|----------|--------|----- |
-| 2020-6-1 | Employee database | WEST EU | 9000 |
-| 2020-6-1 | Message queue | EAST US | 1000 |
-| 2020-6-2 | Message queue | EAST US | 8000| 
-…
-
-"Application component" and "Region" are dimensions. "Error count" is the KPI which could be sliced into different components and/or regions and could also be aggregated, e.g. error count of "message queue" in all regions.
-
+See the [Multi-dimensional metric](glossary.md#multi-dimensional-metric)  definition in the glossary.
 
 ### How much data is needed for Metrics Advisor to start anomaly detection?
 
