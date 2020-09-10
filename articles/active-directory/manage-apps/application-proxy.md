@@ -53,6 +53,11 @@ The following diagram shows how Azure AD and Application Proxy work together to 
 5. The connector sends the request to the on-premises application.
 6. The response is sent through the connector and Application Proxy service to the user.
 
+> [!NOTE]
+> Like most Azure AD hybrid agents, the Application Proxy Connector doesn't require you to open inbound connections through your firewall. User traffic in step 3 terminates at the Application Proxy Service (in Azure AD). The Application Proxy Connector (on-premises) is responsible for the rest of the communication.
+>
+
+
 | Component | Description |
 | --------- | ----------- |
 | Endpoint  | The endpoint is a URL or an [end-user portal](end-user-experiences.md). Users can reach applications while outside of your network by accessing an external URL. Users within your network can access the application through a URL or an end-user portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.|

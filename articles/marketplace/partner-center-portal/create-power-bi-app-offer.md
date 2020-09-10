@@ -5,7 +5,7 @@ author: navits09
 ms.author: navits
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/22/2020
 ---
 

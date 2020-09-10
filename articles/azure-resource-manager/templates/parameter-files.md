@@ -2,7 +2,7 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ---
 # Create Resource Manager parameter file
 
@@ -141,6 +141,8 @@ Finally, look at the allowed values and any restrictions like max length. They t
   }
 }
 ```
+
+Your parameter file can only contain values for parameters that are defined in the template. If your parameter file contains extra parameters that don't match parameters in the template, you receive an error.
 
 ## Parameter type formats
 

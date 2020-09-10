@@ -183,6 +183,8 @@ Here are the supported route filters. Use the detail in the *Filter text schema*
 
 Endpoints and routes can also be managed using the Azure Digital Twins CLI. For more information about using the CLI and what commands are available, see [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 
 ## Next steps

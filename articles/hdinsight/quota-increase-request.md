@@ -59,7 +59,7 @@ To request a quota increase, do the following steps:
 1. On the **Review + create** tab, select **Create**.
 
 > [!NOTE]  
-> If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
+> If you need to increase the HDInsight core quota in a private region, [submit a approved list request](https://aka.ms/canaryintwhitelist).
 
 You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 

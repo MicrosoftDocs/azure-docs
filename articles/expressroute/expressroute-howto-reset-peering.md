@@ -7,7 +7,7 @@ author:  charwen
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/13/2018
-ms.author: charwen
+ms.author: duau
 ---
 
 # Reset ExpressRoute circuit peerings

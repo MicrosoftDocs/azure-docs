@@ -11,7 +11,7 @@ editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: overview
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: "seodec18, devx-track-csharp"
