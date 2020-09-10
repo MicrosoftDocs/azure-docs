@@ -23,9 +23,9 @@ In this article, use the Azure Machine Learning Python SDK to create and manage 
 
 
 ## Prerequisites
-?view=azure-ml-py&preserve-view=true)
+
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
 
 ## Limitations
@@ -457,9 +457,9 @@ except ComputeTargetException:
 ```
 
 For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) on GitHub.
-?view=azure-ml-py&preserve-view=true)
+
 > [!TIP]
-> Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) to copy the data before training.
+> Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) to copy the data before training.
 
 ## Notebook examples
 
