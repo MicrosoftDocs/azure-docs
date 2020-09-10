@@ -88,7 +88,7 @@ The advantage of prefetching container images is that when tasks first start run
 
 ### Pool without prefetched container images
 
-To configure a container-enabled pool without prefetched container images, define `ContainerConfiguration` and `VirtualMachineConfiguration` objects as shown in the following examples. This example uses the Ubuntu Server for Azure Batch container pools image from the Marketplace.
+To configure a container-enabled pool without prefetched container images, define `ContainerConfiguration` and `VirtualMachineConfiguration` objects as shown in the following examples. These example use the Ubuntu Server for Azure Batch container pools image from the Marketplace.
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
@@ -210,7 +210,7 @@ pool.StartTask = startTaskContainer;
 
 ### Prefetch images from a private container registry
 
-You can also prefetch container images by authenticating to a private container registry server. In the following example, the `ContainerConfiguration` and `VirtualMachineConfiguration` objects prefetch a private TensorFlow image from a private Azure container registry. The image reference is the same as in the previous example.
+You can also prefetch container images by authenticating to a private container registry server. In the following examples, the `ContainerConfiguration` and `VirtualMachineConfiguration` objects prefetch a private TensorFlow image from a private Azure container registry. The image reference is the same as in the previous example.
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
