@@ -56,7 +56,7 @@ To use the data plane APIs:
    - you can view the [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true).
    - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can use the **JavaScript** SDK. To use the JavaScript SDK...
-   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins)
+   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](how-to-use-cli.md).

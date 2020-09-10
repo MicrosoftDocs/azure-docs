@@ -50,17 +50,17 @@
         href: connect-azure-ad-identity-protection.md
       - name: Azure Information Protection
         href: connect-azure-information-protection.md
-      - name: Microsoft Defender ATP
+      - name: Microsoft Defender for Endpoint
         href: connect-microsoft-defender-advanced-threat-protection.md
-      - name: Azure ATP
+      - name: Microsoft Defender for Identity (formerly Azure ATP)
         href: connect-azure-atp.md
       - name: Azure DDoS Protection
         href: connect-azure-ddos-protection.md
       - name: Azure Firewall
         href: connect-azure-firewall.md
-      - name: Azure Security Center
+      - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
-      - name: Azure Security Center for IoT
+      - name: Azure Defender (formerly ASC) for IoT
         href: connect-asc-iot.md
       - name: Azure Web Application Firewall (WAF)
         href: connect-azure-waf.md
@@ -114,6 +114,8 @@
         href: connect-vmware-carbon-black.md
       - name: Zimperium Mobile Threat Defense
         href: connect-zimperium-mtd.md
+      - name: Connect using Logstash
+        href: connect-logstash.md
       - name: CEF-based solutions
         href: connect-common-event-format.md
         items:  
