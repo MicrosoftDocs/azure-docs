@@ -56912,11 +56912,40 @@
       "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
       "redirect_document_id": false
     },
-
-	{
-	  "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
-	  "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
-	  "redirect_document_id": false 	
-	}
+    {
+      "source_path": "articles/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-transliterate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Translator/quickstart-transliterate.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-detect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Translator/quickstart-transliterate.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-dictionary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Translator/quickstart-transliterate.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-languages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Translator/quickstart-transliterate.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-sentences",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
+      "redirect_document_id": false 	
+    }
   ]
 }
