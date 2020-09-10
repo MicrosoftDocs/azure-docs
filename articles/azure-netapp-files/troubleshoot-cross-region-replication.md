@@ -46,7 +46,7 @@ This article describes error messages and resolutions that can help you troubles
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Validate that   either replication has been broken or it is uninitialized and idle (failed   initialization).    |
 |     `Cannot delete   source replication`    |     Deleting the   replication from the source side is not allowed. Make sure that you are   deleting the replication from the destination side.    |
 
-## Errors re-syncing volume
+## Errors resyncing volume
 
 |     Error Message    |     Resolution    |
 |-|-|
