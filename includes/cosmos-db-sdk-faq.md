@@ -25,7 +25,7 @@ New features and updates will be added only to the latest minor version of the l
 
 We recommend that you upgrade to the latest SDK as early as possible. After an SDK is tagged for retirement, you'll have 12 months to update your application. If you're not able to update by the retirement date, requests sent from the retired versions of the SDK will continue to be served by Azure Cosmos DB, so your running applications will continue to function. But Azure Cosmos DB will no longer make bug fixes, add new features, or provide support to the retired SDK versions. 
 
-If you have a support plan and require technical support, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) by filing a support ticket.
+If you have a support plan and require technical support, [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) by filing a support ticket.
     
 
 

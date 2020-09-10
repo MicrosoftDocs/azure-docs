@@ -33,7 +33,7 @@ ms.custom: devx-track-java
 
  Spring Data Azure Cosmos DB version 2 for Core (SQL) allows developers to use Azure Cosmos DB in Spring applications. Spring Data Azure Cosmos DB exposes the Spring Data interface for manipulating databases and collections, working with documents, and issuing queries. Both Sync and Async (Reactive) APIs are supported in the same Maven artifact. 
 
-The [Spring Framework](https://spring.io/projects/spring-framework) is a programming and configuration model that streamlines Java application development. Spring streamlines the "plumbing" of applications by using dependency injection. Many developers like Spring because it makes building and testing applications more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this handling of the plumbing with an eye towards web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model for accessing datastores like Azure Cosmos DB from the context of a Spring or Spring Boot application. 
+The [Spring Framework](https://spring.io/projects/spring-framework) is a programming and configuration model that streamlines Java application development. Spring streamlines the "plumbing" of applications by using dependency injection. Many developers like Spring because it makes building and testing applications more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this handling of the plumbing with an eye toward web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model for accessing datastores like Azure Cosmos DB from the context of a Spring or Spring Boot application. 
 
 You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) applications.
 
@@ -180,7 +180,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 * Adds keywords `exists` and `startsWith`.
 * Updates Readme.
 #### Key bug fixes
-* Fixes "Cant call self href directly for Entity."
+* Fixes "Can't call self href directly for Entity."
 * Fixes "findAll will fail if collection is not created."
 
 ### 2.0.4 (Prerelease) (August 23, 2018)
