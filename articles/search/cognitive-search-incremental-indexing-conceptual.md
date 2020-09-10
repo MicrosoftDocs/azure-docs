@@ -163,7 +163,7 @@ REST API version `2020-06-30-Preview` provides incremental enrichment through ad
 
 ## Next steps
 
-Incremental enrichment is a powerful feature that extends change tracking to skillsets and AI enrichment. AIncremental enrichment enables reuse of existing processed content as you iterate over skillset design.
+Incremental enrichment is a powerful feature that extends change tracking to skillsets and AI enrichment. Incremental enrichment enables reuse of existing processed content as you iterate over skillset design.
 
 As a next step, enable caching on an existing indexer or add a cache when defining a new indexer.
 
