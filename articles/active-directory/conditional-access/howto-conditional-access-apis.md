@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 09/10/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,59 +33,61 @@ Many of the following examples use tools like [Managed Identities](../managed-id
 
 For many administrators, PowerShell is already an understood scripting tool. The following example shows how to use the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD) to manage Conditional Access policies.
 
-https://github.com/videor/AutoPilotConditionalAccess/blob/master/AutoPilotConditionalAccess/azure-quickstart-templates/101-conditionalaccess-apis-tutorial/readme-powershell.md
+- [Configure Conditional Access policies with Azure AD PowerShell commands](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/01-configure/powershell)
 
 ### Graph API
 
-This example shows the basic Create, Read, Update, and Delete (CRUD) options available in the Conditional Access Graph APIs. The example also includes some JSON templates you can use to create some sample policies. 
+This example shows the basic Create, Read, Update, and Delete (CRUD) options available in the Conditional Access Graph APIs. The example also includes some JSON templates you can use to create some sample policies.
 
-https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/101-conditionalaccess-apis-tutorial
+- [Configure Conditional Access policies with Microsoft Graph API calls](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/01-configure/graphapi)
 
 ### Configure using templates
 
 Use Conditional Access APIs to deploy Conditional Access policies in your pre-production environment using a template.
 
-https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-template-automation
+- [Configure Conditional Access policies with Microsoft Graph API templates](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/01-configure/templates)
 
 ## Test
 
 This example models safer deployment practices with approval workflows that can copy Conditional Access policies from one environment, like pre-production, to another, like your production environment.
 
-https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-copy-paste-automation
+- [Promote Conditional Access policies from test environments](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/02-test)
 
 ## Deploy
 
 This example provides a mechanism to perform a staged deployment Conditional Access policies gradually to your user population, allowing you to manage support impact and spot issues early.
 
-https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-blueprint-automation
+- [Deploy Conditional Access policies to production environments with approval workflows](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
 ## Monitor
 
-This example provides a mechanism to monitor Conditional Access policy changes over time and can trigger alerts when key policies are changed. 
+This example provides a mechanism to monitor Conditional Access policy changes over time and can trigger alerts when key policies are changed.
 
-https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-alert-automation
+- [Monitor deployed Conditional Access policies for changes and trigger alerts](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/04-monitor)
 
 ## Manage
 
 ### Backup and restore
 
-Automate the backup and restoration of Conditional Access policies with approvals in Teams using this example. 
+Automate the backup and restoration of Conditional Access policies with approvals in Teams using this example.
 
-https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-backup-restore-automation
+- [Manage the backup and restore process of Conditional Access policies using Microsoft Graph API calls](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/01-backup-restore)
+
+### Emergency access accounts
+
+Multiple administrators may create Conditional Access policies and may forget to add your [emergency access accounts](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) as an exclusion to those policies. This example ensures that all policies are updated to include your designated emergency access accounts.
+
+- [Manage the assignment of emergency access accounts to Conditional Access policies using Microsoft Graph API calls](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 
 ### Contingency planning
 
-When something happens and you lose access ensure you are able to recover using [emergency access accounts](../users-groups-roles/directory-emergency-access.md), or [fall back to a contingency policy](../authentication/concept-resilient-controls.md) using the following examples. 
+Things don't always work the way you want, when that happens you need a way to get back to a state where work can continue. The following example provides you a way to revert your policies to a known good contingency plan and disable other Conditional Access policies.
 
-Multiple administrators may create Conditional Access policies and may forget to add your emergency access accounts as an exclusion to those policies. This example ensures that all policies are updated to include your designated emergency access accounts.
+- [Manage the activation of Conditional Access contingency policies using Microsoft Graph API calls](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/03-contingency)
 
-https://github.com/videor/AutoPilotConditionalAccess/tree/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-policy-emergency-account-automation
+## Community contribution
 
-
-Things don't always work the way you want, when that happens you need a way to get back to a state where work can continue. The following example provides you a way to revert your policies to a known good contingency plan and disable other Conditional Access policies. 
-
-https://github.com/videor/AutoPilotConditionalAccess/blob/master/AutoPilotConditionalAccess/azure-quickstart-templates/301-conditionalaccess-contingency-policies-automation/readme.md
-
+These samples are available in our [GitHub repository](https://github.com/Azure-Samples/azure-ad-conditional-access-apis). We are happy to support community contributions thorough GitHub Issues and Pull Requests.
 
 ## Next steps
 
