@@ -3,9 +3,5 @@
   topicHref: /azure/index
   items:
   - name: Azure SQL Edge
-    tocHref: /azure/azure-sql-edge/
+    tocHref: /azure/iot-edge/
     topicHref: /azure/azure-sql-edge/index
-    items:
-    - name: Azure SQL Edge
-      tocHref: /azure/asc-for-iot/
-      topicHref: /azure/azure-sql-edge/index
