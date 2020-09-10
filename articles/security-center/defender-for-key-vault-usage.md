@@ -10,7 +10,7 @@ manager: rkarlin
 
 ---
 
-# Respond to Azure Defender for Key Vault
+# Respond to Azure Defender for Key Vault alerts
 When you receive an alert from Azure Defender for Key Vault, we recommend you investigate and respond to the alert as described below. Azure Defender for Key Vault protects applications and credentials, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
 
 
