@@ -16,7 +16,7 @@ You can perform MySQL migrations to Azure Database for MySQL with minimal downti
 ## Overview
 Azure DMS performs an initial load of your on-premises to Azure Database for MySQL, and then continuously syncs any new transactions to Azure while the application remains running. After the data catches up on the target Azure side, you stop the application for a brief moment (minimum downtime), wait for the last batch of data (from the time you stop the application until the application is effectively unavailable to take any new traffic) to catch up in the target, and then update your connection string to point to Azure. When you are finished, your application will be live on Azure!
 
-![Continuous sync with the Azure Database Migration Service](./media/howto-migrate-online/ContinuousSync.png)
+:::image type="content" source="./media/howto-migrate-online/ContinuousSync.png" alt-text="Continuous sync with the Azure Database Migration Service":::
 
 ## Next steps
 - View the video [Easily migrate MySQL/PostgreSQL apps to Azure managed service](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), which contains a demo showing how to migrate MySQL apps to Azure Database for MySQL.

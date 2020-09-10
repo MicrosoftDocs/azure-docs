@@ -58,11 +58,11 @@ Create an empty database on the target Azure Database for MySQL server where you
 
 To get connected, locate the connection information in the **Overview** of your Azure Database for MySQL.
 
-![Find the connection information in the Azure portal](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
+:::image type="content" source="./media/concepts-migrate-dump-restore/1_server-overview-name-login.png" alt-text="Find the connection information in the Azure portal":::
 
 Add the connection information into your MySQL Workbench.
 
-![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="MySQL Workbench Connection String":::
 
 ## Preparing the target Azure Database for MySQL server for fast data loads
 To prepare the target Azure Database for MySQL server for faster data loads, the following server parameters and configuration needs to be changed.
