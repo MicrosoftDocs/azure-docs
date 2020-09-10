@@ -1,5 +1,5 @@
 ---
-title: Monitoring, log analytics, Azure Portal (SQL Managed Instance)
+title: Monitoring, log analytics, Azure portal (SQL Managed Instance)
 description: Monitor Azure Arc enabled data services for SQL Managed Instance.
 services: azure-arc
 ms.service: azure-arc
