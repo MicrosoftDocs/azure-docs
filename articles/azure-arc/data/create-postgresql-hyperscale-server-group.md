@@ -56,6 +56,7 @@ Implement this step before moving to the next step. To deploy PostgreSQL Hypersc
 ```console
 oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
 ```
+
 _**Server-group-name** is the name of the server group you will deploy during the next step._
    
 For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
@@ -71,6 +72,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
+
 > [!NOTE]
 > - **There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.**
 > - In Preview, you must indicate a storage class for backups (_--storage-class-backups -scb_) at the time you create a server group in order to be able to backup and restore.
@@ -86,7 +88,8 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 >   kubectl get sc
 >   ```
 >
->If there is storage class configured as default storage class you will see **(default)** appended to the name of the storage class. For example:
+> - If there is storage class configured as default storage class you will see **(default)** appended to the name of the storage class. For example:
+>
 >   ```output
 >   NAME                       PROVISIONER                        AGE
 >   local-storage (default)    kubernetes.io/no-provisioner       4d18h
@@ -99,6 +102,8 @@ To view the PostgreSQL Hyperscale server groups on Azure Arc, use the following 
 
 ```console
 azdata arc postgres server list
+```
+
 
 ```output
 Name        State     Workers
@@ -156,7 +161,8 @@ az network nsg rule create -n db_port --destination-port-ranges 30655 --source-a
 
 Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above, and the password you specified at the time you created the instance.  If PostgreSQL isn't available in the *Connection type* dropdown, you can install the PostgreSQL extension by searching for PostgreSQL in the extensions tab.
 
-> *NOTE:* You will need to click the [Advanced] button in the connection panel to enter the port number.
+> [!NOTE]
+> You will need to click the [Advanced] button in the connection panel to enter the port number.
 
 Remember, if you are using an Azure VM you will need the _public_ IP address which is accessible via the following command:
 
