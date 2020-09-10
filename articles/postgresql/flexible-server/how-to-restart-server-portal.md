@@ -32,13 +32,13 @@ Follow these steps to restart your flexible server.
 
 2.  Click **Overview** from the left panel and click **Restart**.
    
-   ![Restart selection](./media/how-to-restart-server-portal/restart-base-page.png)
+     :::image type="content" source="./media/how-to-restart-server-portal/restart-base-page.png" alt-text="Restart selection":::
 
 3.  A pop-up confirmation message will appear.
 
 4.  Click **Yes** if you want to continue.
    
-   ![Restart confirm](./media/how-to-restart-server-portal/restart-pop-up.png)
+     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Restart confirm":::
  
 6.  A notification will be shown that the restart operation has been
     initiated.

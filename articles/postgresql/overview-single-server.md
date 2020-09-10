@@ -35,7 +35,7 @@ During planned or unplanned failover events, if the server goes down, the servic
 3. PostgreSQL database engine is brought online on the new compute container.
 4. Gateway service ensures transparent failover ensuring no application side changes requires.
    
- ![Azure Database for PostgreSQL Single Server](./media/overview/overview-azure-postgres-single-server.png)
+ :::image type="content" source="./media/overview/overview-azure-postgres-single-server.png" alt-text="Azure Database for PostgreSQL Single Server":::
 
 The typical failover time ranges from 60-120 seconds. The cloud native design of the single server service allows it to support 99.99% of availability eliminating the cost of passive hot standby.
 

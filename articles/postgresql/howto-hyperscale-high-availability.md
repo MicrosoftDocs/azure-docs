@@ -24,7 +24,7 @@ Enabling HA is possible during server group creation, or afterward in the
 **Configure** tab for your server group in the Azure portal. The user interface
 looks similar in either case. Drag the slider for **High availability** to YES:
 
-![ha slider](./media/howto-hyperscale-high-availability/01-ha-slider.png)
+:::image type="content" source="./media/howto-hyperscale-high-availability/01-ha-slider.png" alt-text="ha slider":::
 
 Click the **Save** button to apply your selection. Enabling HA can take some
 time as the server group provisions standbys and streams data to them.
@@ -33,7 +33,7 @@ The **Overview** tab for the server group will list all nodes and their
 standbys, along with a **High availability** column indicating whether HA is
 successfully enabled for each node.
 
-![the ha column in server group overview](./media/howto-hyperscale-high-availability/02-ha-column.png)
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="the ha column in server group overview":::
 
 ### Next steps
 
