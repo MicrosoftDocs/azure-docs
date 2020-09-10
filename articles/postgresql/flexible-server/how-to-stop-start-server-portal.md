@@ -11,9 +11,9 @@ ms.date: 09/22/2020
 # Stop/Start an Azure Database for PostgreSQL - Flexible Server (Preview)
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is currently in public preview.
+> Azure Database for PostgreSQL - Flexible Server is currently in preview.
 
-This article provides step-by-step procedure to perform Stop and Start of the flexible server.
+This article provides step-by-step instructions to stop and start a flexible server.
 
 ## Pre-requisites
 
@@ -23,18 +23,20 @@ To complete this how-to guide, you need:
 
 ## Stop a running server
 
-1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to stop.
+1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to stop.
 
 2.  From the **Overview** page, click the **Stop** button in the toolbar.
 
 > [!NOTE]
-> Once the server is stopped, the other management operations are not available for the flexible server.
+> Once the server is stopped, other management operations are not available for the flexible server.
+
+Please note that stopped servers will automatically start again after seven days. Any pending maintenance updates will be applied when the server is started the next time.
 
 ## Start a stopped server
 
-1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to start.
+1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to start.
 
-2.  From the **Overview** page, click the **Stop** button in the toolbar.
+2.  From the **Overview** page, click the **Start** button in the toolbar.
 
 > [!NOTE]
 > Once the server is started, all management operations are now available for the flexible server.
