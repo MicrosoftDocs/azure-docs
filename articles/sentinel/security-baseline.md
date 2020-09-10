@@ -2,7 +2,8 @@
 title: Azure security baseline for Azure Sentinel
 description: The Azure Sentinel security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
