@@ -222,9 +222,9 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 
 See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
-### Configuration Recommendation for [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.15.0-beta3 & above
+### Configuration Recommendation for Microsoft.ApplicationInsights.AspNet SDK 2.15.0-beta3 & above
 
-Starting from [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.15.0-beta3 we offer an additional option to modify all configuration updates through ASP.NET Core configuration. The recommended approach is to use `services.AddApplicationInsightsTelemetry()` and configure everything including instrumentation key using `Microsoft.Extensions.Configuration.IConfiguration`. All settings part of `ApplicationInsightsServiceOptions` is automatically read from users `Microsoft.Extensions.Configuration.IConfiguration`. For example, the following appsettings.json can be used to set instrumentation key, disable adaptive sampling and performance counter collection.
+Starting from [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) version 2.15.0-beta3 we offer an additional option to modify all configuration updates through ASP.NET Core configuration. The recommended approach is to use `services.AddApplicationInsightsTelemetry()` and configure everything including instrumentation key using `Microsoft.Extensions.Configuration.IConfiguration`. All settings part of `ApplicationInsightsServiceOptions` is automatically read from users `Microsoft.Extensions.Configuration.IConfiguration`. For example, the following appsettings.json can be used to set instrumentation key, disable adaptive sampling and performance counter collection.
 
 ```json
 {
