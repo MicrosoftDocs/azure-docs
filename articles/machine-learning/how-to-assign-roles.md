@@ -419,6 +419,6 @@ You need subscription level permissions to perform any quota-related operation i
 ## Next steps
 
 - [Enterprise security overview](concept-enterprise-security.md)
-- [Securely run experiments and inference/score inside a virtual network](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 - [Tutorial: Train models](tutorial-train-models-with-aml.md)
 - [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

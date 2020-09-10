@@ -164,9 +164,21 @@
               href: how-to-use-azure-ad-identity.md
         - name: Network security
           items:
-            - name: Use virtual networks
+            - name: Virtual network overview
               displayName: vnet, blob
-              href: how-to-enable-virtual-network.md
+              href: how-to-network-security-overview.md
+            - name: Secure workspace resources
+              displayName: vnet, workspace, container instance, container registry
+              href: how-to-secure-workspace-vnet.md
+            - name: Secure training environment
+              displayName: vnet
+              href: how-to-secure-training-vnet.md
+            - name: Secure inferencing environment
+              displayName: vnet
+              href: how-to-secure-inferencing-vnet.md
+            - name: Use studio in a virtual network
+              displayName: vnet
+              href: how-to-enable-studio-virtual-network.md
             - name: Use Private Link	
               displayName: private endpoint	
               href: how-to-configure-private-link.md
@@ -307,6 +319,9 @@
             - name: Tune hyperparameters
               displayName: parameter
               href: how-to-tune-hyperparameters.md
+        - name: Work with MLflow
+          displayName: log, monitor, deploy, metrics, Databricks, model registry, register
+          href: how-to-use-mlflow.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -328,9 +343,6 @@
             - name: View logs
               displayName: troubleshoot, log, files, tracing
               href: how-to-monitor-view-training-logs.md
-            - name: Track experiments with MLflow
-              displayName: log, monitor, metrics, Databricks
-              href: how-to-use-mlflow.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md

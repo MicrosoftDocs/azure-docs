@@ -23,7 +23,7 @@ during the assignment of the policy or an initiative. When using the portal, Azu
 automatically grants the managed identity the listed roles once assignment starts. The _location_ of
 the managed identity doesn't impact its operation with Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Managed identity - missing roley" border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot of of a deployIfNotExists policy that is missing a defined permission on the managed identity." border="false":::
 
 > [!IMPORTANT]
 > If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
@@ -115,17 +115,17 @@ if ($roleDefinitionIds.Count -gt 0)
 ### Grant defined roles through portal
 
 There are two ways to grant an assignment's managed identity the defined roles using the portal, by
-using **Access control (IAM)** or by editing the policy or initiative assignment and clicking
+using **Access control (IAM)** or by editing the policy or initiative assignment and selecting
 **Save**.
 
 To add a role to the assignment's managed identity, follow these steps:
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
+1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
    for and selecting **Policy**.
 
 1. Select **Assignments** on the left side of the Azure Policy page.
 
-1. Locate the assignment that has a managed identity and click on the name.
+1. Locate the assignment that has a managed identity and select the name.
 
 1. Find the **Assignment ID** property on the edit page. The assignment ID will be something like:
 
@@ -139,13 +139,13 @@ To add a role to the assignment's managed identity, follow these steps:
 1. Navigate to the resource or the resources parent container (resource group, subscription,
    management group) that needs the role definition manually added.
 
-1. Click the **Access control (IAM)** link in the resources page and click **+ Add role assignment**
-   at the top of the access control page.
+1. Select the **Access control (IAM)** link in the resources page and then select **+ Add role
+   assignment** at the top of the access control page.
 
 1. Select the appropriate role that matches a **roleDefinitionIds** from the policy definition.
    Leave **Assign access to** set to the default of 'Azure AD user, group, or application'. In the
    **Select** box, paste or type the portion of the assignment resource ID located earlier. Once the
-   search completes, click the object with the same name to select ID and click **Save**.
+   search completes, select the object with the same name to select ID and select **Save**.
 
 ## Create a remediation task
 
@@ -159,45 +159,45 @@ from the **deployIfNotExists** template or the **modify** operations.
 
 To create a **remediation task**, follow these steps:
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
+1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
    for and selecting **Policy**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Screenshot of searching for Policy in All Services." border="false":::
 
 1. Select **Remediation** on the left side of the Azure Policy page.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Select Remediation on the Policy page" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Screenshot of the Remediation node on the Policy page." border="false":::
 
 1. All **deployIfNotExists** and **modify** policy assignments with non-compliant resources are
-   included on the **Policies to remediate** tab and data table. Click on a policy with resources
+   included on the **Policies to remediate** tab and data table. Select on a policy with resources
    that are non-compliant. The **New remediation task** page opens.
 
    > [!NOTE]
-   > An alternate way to open the **remediation task** page is to find and click on the policy from
-   > the **Compliance** page, then click the **Create Remediation Task** button.
+   > An alternate way to open the **remediation task** page is to find and select the policy from
+   > the **Compliance** page, then select the **Create Remediation Task** button.
 
 1. On the **New remediation task** page, filter the resources to remediate by using the **Scope**
    ellipses to pick child resources from where the policy is assigned (including down to the
    individual resource objects). Additionally, use the **Locations** drop-down to further filter the
    resources. Only resources listed in the table will be remediated.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Remediate - select which resources to remediate" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Screenshot of the Remediate node and the grid of resources to remediate." border="false":::
 
-1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The
+1. Begin the remediation task once the resources have been filtered by selecting **Remediate**. The
    policy compliance page opens to the **Remediation tasks** tab to show the state of the tasks
    progress. Deployments created by the remediation task begin right away.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Remediate - progress of remediation tasks" border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Screenshot of the Remediation tasks tab and progress of existing remediation tasks." border="false":::
 
-1. Click on the **remediation task** from the policy compliance page to get details about the
+1. Select on the **remediation task** from the policy compliance page to get details about the
    progress. The filtering used for the task is shown along with a list of the resources being
    remediated.
 
-1. From the **remediation task** page, right-click on a resource to view either the remediation
-   task's deployment or the resource. At the end of the row, click on **Related events** to see
+1. From the **Remediation task** page, right-click on a resource to view either the remediation
+   task's deployment or the resource. At the end of the row, select on **Related events** to see
    details such as an error message.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Remediate - resource task context menu" border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Screenshot of the context menu for a resource on the Remediate task tab." border="false":::
 
 Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the
 policy compliance page.

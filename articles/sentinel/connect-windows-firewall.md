@@ -27,7 +27,7 @@ The solution collects Windows firewall events from the Windows machines on which
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 >
-> - If Azure Sentinel and Azure Security Center are collected to the same workspace, there is no need to enable the Windows Firewall solution through this connector. If you enabled it anyway, it will not cause duplicated data. 
+> - If Azure Sentinel and Azure Defender (formerly Azure Security Center) are collected to the same workspace, there is no need to enable the Windows Firewall solution through this connector. If you enabled it anyway, it will not cause duplicated data. 
 
 ## Prerequisites
 
@@ -43,37 +43,40 @@ The solution collects Windows firewall events from the Windows machines on which
 
 ### Instructions tab
 
-- **If your Windows machines are in Azure:**
+Complete the following steps on the **Instructions** tab.
 
-    1. Select **Install agent on Azure Windows Virtual Machine**.
+- **If your Windows machines are in Azure, complete these steps:**
 
-    1. Click the **Download & install agent for Azure Windows Virtual machines >** link that appears.
+   1. Select **Install agent on Azure Windows Virtual Machine**.
+   
+   1. Click the **Download & install agent for Azure Windows Virtual machines >** link that appears.
+   
+   1. In the **Virtual machines** list, select the Windows machine you want to stream into Azure Sentinel. (You can select **Windows** in the OS column filter to ensure that only Windows VMs are displayed).
+   
+   1. In the window that opens for that VM, click **Connect**.
+   
+   1. Return to the **Virtual Machines** pane and repeat the previous two steps for any other VMs you want to connect. When you're done, return to the **Windows Firewall** pane.
 
-    1. In the **Virtual machines** list, select the Windows machine you want to stream into Azure Sentinel. (You can select **Windows** in the OS column filter to ensure that only Windows VMs are displayed).
+- **If your Windows machine is not an Azure VM, complete these steps:**
+   
+   1. Select **Install agent on non-Azure Windows Machine**.
+   
+   1. Click the **Download & install agent for non-Azure Windows machines >** link that appears.
+   
+   1. In the **Agents management** pane, select either **Download Windows Agent (64 bit)** or **Download Windows Agent (32 bit)**, as needed.
+   
+   1. Copy the **Workspace ID**, **Primary key**, and **Secondary key** strings to a text file. Copy that file and the downloaded installation file to your Windows machine. Run the installation file, and when prompted, enter the ID and key strings in the text file during the installation.
+   
+   1. Return to the **Windows Firewall** pane.
 
-    1. In the window that opens for that VM, click **Connect**.
-
-    1. Return to the **Virtual Machines** pane and repeat the previous two steps for any other VMs you want to connect. When you're done, return to the **Windows Firewall** pane.
-
-- **If your Windows machine is not an Azure VM:**
-
-    1. Select **Install agent on non-Azure Windows Machine**.
-
-    1. Click the **Download & install agent for non-Azure Windows machines >** link that appears.
-
-    1. In the **Agents management** pane, select either **Download Windows Agent (64 bit)** or **Download Windows Agent (32 bit)**, as needed.
-
-    1. Copy the **Workspace ID**, **Primary key**, and **Secondary key** strings to a text file. Copy that file and the downloaded installation file to your Windows machine. Run the installation file, and when prompted, enter the ID and key strings in the text file during the installation.
-
-    1. Return to the **Windows Firewall** pane.
-
-1. Click **Install solution**.
+After you complete the steps on the **Instructions** tab, click **Install solution**.
 
 ### Next steps tab
 
-- See the available recommended workbooks and query samples bundled with the **Windows Firewall** data connector to get insight into your Windows Firewall log data.
+- To get insight into your Windows Firewall log data, see the available recommended workbooks and query samples bundled with the **Windows Firewall** data connector.
 
 - To query Windows firewall data in **Logs**, type **WindowsFirewall** in the query window.
+
 
 ## Validate connectivity
  
