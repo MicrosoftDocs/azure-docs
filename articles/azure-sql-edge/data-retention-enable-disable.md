@@ -56,7 +56,7 @@ The `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD 
     - DateTime
     - DateTime2
     - DateTimeOffset
-- RETENTION_PERIOD - An integer value followed by a unit descriptor. The allowed units are DAY, WEEK, MONTH, and YEAR.
+- RETENTION_PERIOD - An integer value followed by a unit descriptor. The allowed units are DAY, DAYS, WEEK, WEEKS, MONTH, MONTHS, YEAR and YEARS.
 
 The following example shows how to enable data retention for table by using [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
 
