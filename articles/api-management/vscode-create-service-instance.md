@@ -29,7 +29,7 @@ Additionally, ensure you have installed the following:
 
 Launch Visual Studio Code and open the Azure extension. (If you don't see the Azure icon on the Activity Bar, make sure the *Azure API Management* extension is enabled.)
 
-Click on **Sign in to Azure...** to launch a browser window and sign in to your Microsoft account.
+Select **Sign in to Azure...** to launch a browser window and sign in to your Microsoft account.
 
 ![Sign in to Azure from the API Management extension for VS Code](./media/vscode-create-service-instance/vscode-apim-login.png)
 
@@ -43,10 +43,10 @@ Right-click on the subscription you'd like to use, and select **Create API Manag
 
 A pane will open to walk you through a series of configuration questions:
 
-1. Enter a globally unique [**name**](../azure-resource-manager/management/resource-name-rules#microsoftapimanagement) for the API Management instance. (*1-50 alphanumeric characters and/or hyphens; must start with a letter and end with alphanumeric.*)
+1. Enter a globally unique [**name**](../azure-resource-manager/management/resource-name-rules.md#microsoftapimanagement) for the API Management instance. (*1-50 alphanumeric characters and/or hyphens; must start with a letter and end with alphanumeric.*)
 2. Select an [**API Management SKU**](https://azure.microsoft.com/pricing/details/api-management/) (*Consumption, Developer, Standard, Basic, Premium*).
 3. Select an [**Azure region**](https://status.azure.com/en-us/status).
-4. Select a [**resource group**](../azure-resource-manager/management/overview) (or create a new one) to contain the new API Management resource.
+4. Select a [**resource group**](../azure-resource-manager/management/overview.md) (or create a new one) to contain the new API Management resource.
 
 A new API Management instance will be created using the specified values.
 
@@ -59,12 +59,11 @@ At this point, you're ready to import and publish your first API. You can do tha
 
 ## Clean up resources
 
-When no longer needed, remove the API Management instance by right-clicking and selecting **Delete API Management**.
+When no longer needed, remove the API Management instance by right-clicking and selecting **Open in Portal** to [delete the API Management service](get-started-create-service-instance.md#clean-up-resources)  and its resource group.
+
+Alternately, you can select **Delete API Management** to only delete the API Management instance (this operation doesn't delete its resource group).
 
 ![Delete API Management instance from VS Code](./media/vscode-create-service-instance/vscode-apim-delete.png)
-
-> [!IMPORTANT]
-> This only deletes the API Management service, and not its parent resource group (or any other resources within it). To [delete the entire resource group](get-started-create-service-instance.md#clean-up-resources), open it in Azure portal and delete from there.
 
 ## Next steps
 
