@@ -37,6 +37,9 @@ To complete this tutorial, you must have the following:
 * An existing storage account where you want to store Managed HSM logs. If you don't have one see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli)
 * Sufficient storage on Azure for your Managed HSM logs.
 
+> [!NOTE]
+> The storage account must be in the same Azure location as the managed HSM.
+
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -69,19 +72,6 @@ For more information on login options via the CLI take a look at [sign in with A
 
 You might have to specify the subscription that you used to create your Managed HSM. Enter the following command to see the subscriptions for your account:
 
-## <a id="storage"></a>Create a storage account for your logs
-
-Although you can use an existing storage account for your logs, we'll create a storage account that will be dedicated to Key Vault logs. For convenience for when we have to specify this later, we'll store the details in a variable named **sa**.
-
-For additional ease of management, we'll also use the same resource group as the one that contains the key vault. This resource group is named **ContosoResourceGroup**, and we'll continue to use the East Asia location. Replace these values with your own, as applicable:
-
-```azurecli
-```
-
-> [!NOTE]
-> If you decide to use an existing storage account, it must use the same subscription as your key vault. And it must use the Azure Resource Manager deployment model, rather than the classic deployment model.
->
->
 
 
 ## Identify the managed HSM and storage account
