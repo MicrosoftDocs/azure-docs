@@ -29,7 +29,7 @@ InfiniBand (IB) can be configured on the SR-IOV enabled VM sizes with the OFED d
 
 There is a known issue with cloud-init on Ubuntu VM images as it tries to bring up the IB interface. This can happen either on VM reboot or when trying to create a VM image after generalization. The VM boot logs may show an error like so: “Starting Network Service...RuntimeError: duplicate mac found! both 'eth1' and 'ib0' have mac”.
 
-This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. In the meantime, there is a workaround which is basically:
+This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. The workaround is:
 1) Deploy the (Ubuntu 18.04) marketplace VM image
 2) Install the necessary software packages to enable IB ([instruction here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351))
 3) Edit waagent.conf to change EnableRDMA=y
@@ -54,7 +54,7 @@ HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is d
 
 ## Accelerated Networking
 
-Azure Accelerated Networking on IB-enabled HPC and GPU VMs is not enabled at this time, but will as we progress through the Preview period. We will notify customers when this feature is supported.
+Azure Accelerated Networking on IB-enabled HPC and GPU VMs is not enabled at this time. We will notify customers when this feature is supported.
 
 ## qp0 Access Restriction
 
@@ -111,4 +111,4 @@ You may ignore the following kernel warning messages when booting an HB-series V
 
 - Review the [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
 - Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+- For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
