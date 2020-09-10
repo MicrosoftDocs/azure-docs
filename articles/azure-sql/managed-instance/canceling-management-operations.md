@@ -75,7 +75,7 @@ For detailed commands explanation, see [Get-AzSqlInstanceOperation](https://docs
 
 # [Azure CLI](#tab/azure-cli)
 
-If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 To cancel management operation, you need to specify management operation name. Therefore, first use get command for retrieving operation list, and then cancel specific operation.
 
@@ -86,7 +86,7 @@ while read -r operationName; do
 done
 ```
 
-For detailed commands explanation, see [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op?view=azure-cli-latest).
+For detailed commands explanation, see [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
 
 ---
 
