@@ -1,37 +1,38 @@
 ---
-title: Upgrade your Mongo version on Azure Cosmos DB's API for MongoDB
-description: How to upgrade the MongoDB wire-protocol version for your existing Azure Cosmos DB's API for MongoDB seamlessly
+title: Upgrade the Mongo version of your Azure Cosmos DB's API for MongoDB account
+description: How to upgrade the MongoDB wire-protocol version for your existing Azure Cosmos DB's API for MongoDB accounts seamlessly
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: guide
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: lbosq
 
 ---
 
-# Upgrade the version of your Azure Cosmos DB's API for MongoDB account
+# Upgrade the MongoDB wire protocol version of your Azure Cosmos DB's API for MongoDB account
 
-This article describes how to upgrade the wire protocol version of your Azure Cosmos DB's API for MongoDB account. Upgrading the wire protocol version provides the latest functionality in Azure Cosmos DB's API for MongoDB. The upgrade process doesn't interrupt the availability of your account and it doesn't consume RU/s or decrease the capacity of the database at any point. No existing data or indexes will be affected by this process.
+This article describes how to upgrade the wire protocol version of your Azure Cosmos DB's API for MongoDB account. After you upgrade the wire protocol version, you can use the latest functionality in Azure Cosmos DB's API for MongoDB. The upgrade process doesn't interrupt the availability of your account and it doesn't consume RU/s or decrease the capacity of the database at any point. No existing data or indexes will be affected by this process.
 
 >[!Note]
-> At this moment, only qualifying accounts using the server version 3.2 can be upgraded to version 3.6. If your account doesn't show the upgrade option, please file a support ticket.
+> At this moment, only qualifying accounts using the server version 3.2 can be upgraded to version 3.6. If your account doesn't show the upgrade option, please [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Upgrading from version 3.2 to 3.6
 
 ### Benefits of upgrading to version 3.6
-The following is the new functionality included in version 3.6:
+
+The following are the new features included in version 3.6:
 - Enhanced performance and stability
 - Support for new database commands
 - Support for aggregation pipeline by default and new aggregation stages
 - Support for Change Streams
-- Support for Compound Indexes
+- Support for compound Indexes
 - Cross-partition support for the following operations: update, delete, count and sort
 - Improved performance for the following aggregate operations: $count, $skip, $limit and $group
 - Wildcard indexing is now supported
 
 ### Changes from version 3.2
-- **RequestRateIsLarge errors have been removed**. The client application will not get 16500 errors, instead requests will resume until they complete or timeout.
+- **RequestRateIsLarge errors have been removed**. Requests from the client application will not return 16500 errors anymore. Instead requests will resume until they complete or fulfill the timeout.
 - Per request timeout is set to 60 seconds.
 - MongoDB collections created on the new wire protocol version will only have the `_id` property indexed by default.
 
@@ -42,10 +43,10 @@ For the upgrade to version 3.6, the database account endpoint suffix will be upd
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-This new endpoint will need to be replace the existing one in the applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the MongoDB version 3.6.**
+You need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the MongoDB version 3.6.**. The previous endpoint should have the suffix `.documents.azure.com`.
 
 >[!Note]
-> You need to update the endpoint in your application to use the newest version of the server.
+> This endpoint might have slight differences if your account was created in a Sovereign, Government or Restricted Azure Cloud.
 
 ### How to upgrade
 
@@ -57,7 +58,7 @@ This new endpoint will need to be replace the existing one in the applications a
 
     :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure portal with MongoDB account overview with Features blade highlighted" border="false":::
 
-3. Click on the `Upgrade to Mongo server version 3.6` row. If you don't see this option, your account might not be eligible for this upgrade. Please file [a support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) if that is the case.
+3. Click on the `Upgrade to Mongo server version 3.6` row. If you don't see this option, your account might not be eligible for this upgrade. Please file [a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if that is the case.
 
     :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Features blade with options." border="false":::
 
