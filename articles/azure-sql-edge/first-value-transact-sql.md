@@ -40,10 +40,10 @@ FIRST_VALUE ( [scalar_expression ] )  [ IGNORE NULLS | RESPECT NULLS ]
  OVER **(** [ *partition_by_clause* ] *order_by_clause* [ *rows_range_clause* ] **)**  
  *partition_by_clause* divides the result set produced by the FROM clause into partitions to which the function is applied. If not specified, the function treats all rows of the query result set as a single group. *order_by_clause* determines the logical order in which the operation is performed. *order_by_clause* is required. *rows_range_clause* further limits the rows within the partition by specifying start and end points. For more information, see [OVER Clause &#40;Transact-SQL&#41;](/sql/t-sql/queries/select-over-clause-transact-sql/).
   
-## Return Types  
+## Return types  
  Is the same type as *scalar_expression*.
   
-## General Remarks  
+## General remarks  
  FIRST_VALUE is nondeterministic. For more information, see [Deterministic and Nondeterministic Functions](/sql/relational-databases/user-defined-functions/deterministic-and-nondeterministic-functions/).  
   
 ## Examples  
@@ -113,7 +113,7 @@ Accounts Receivable Specialist      Spoon                     61            Poe
 Accounts Receivable Specialist      Walton                    62            Poe  
 ```  
   
-## See also
+## Next steps
 
 [Filling time gaps and imputing missing values](imputing-missing-values.md)
 [LAST_VALUE (Transact-SQL)](last-value-transact-sql.md)

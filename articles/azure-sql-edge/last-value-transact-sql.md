@@ -42,10 +42,10 @@ LAST_VALUE ( [ scalar_expression ] )  [ IGNORE NULLS | RESPECT NULLS ]
   
  *order_by_clause* determines the order of the data before the function is applied. The *order_by_clause* is required. *rows_range_clause* further limits the rows within the partition by specifying start and end points. For more information, see [OVER Clause &#40;Transact-SQL&#41;](/sql/t-sql/queries/select-over-clause-transact-sql/).  
   
-## Return Types  
+## Return types  
  Is the same type as *scalar_expression*.  
   
-## General Remarks  
+## General remarks  
  LAST_VALUE is nondeterministic. For more information, see [Deterministic and Nondeterministic Functions](/sql/relational-databases/user-defined-functions/deterministic-and-nondeterministic-functions/).  
   
 ## Examples  

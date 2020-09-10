@@ -20,21 +20,21 @@ Azure SQL Edge offers several features and capabilities that can be used to impr
 
 Azure SQL Edge by default creates only one tempdb data file as part of the container initialization. We recommend that you consider creating multiple tempdb data files post deployment. For more information, see the guidance in the article, [Recommendations to reduce allocation contention in SQL Server tempdb database](https://support.microsoft.com/help/2154845/recommendations-to-reduce-allocation-contention-in-sql-server-tempdb-d).
 
-### Use Clustered Columnstore Indexes where possible
+### Use Clustered columnstore indexes where possible
 
 IoT and Edge devices tend to generate high volume of data that is typically aggregated over some time window for analysis. Individual data rows are rarely used for any analysis. Columnstore indexes are ideal for storing and querying such large datasets. This index uses column-based data storage and query processing to achieve gains up to 10 times the query performance over traditional row-oriented storage. You can also achieve gains up to 10 times the data compression over the uncompressed data size. For more information, see [Columnstore Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)
 
 Additionally, other Azure SQL Edge features like data streaming and Data retention benefit from the columnstore optimizations around data insertion and data removal. 
 
-### Simple Recovery Model
+### Simple recovery model
 
 Since storage can be constrained on edge devices, all user databases in Azure SQL Edge use the Simple Recovery model by default. Simple recovery model automatically reclaims log space to keep space requirements small, essentially eliminating the need to manage the transaction log space. On edge devices with limited storage available, this can be helpful. For more information on the simple recovery model and other recovery models available, see [Recovery Models](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)
 
 Operations like Log Shipping and Point-In-time-restores, that require transaction log backups are not supported by the simple recovery model.  
 
-## Advanced Configuration 
+## Advanced configuration 
 
-### Setting Memory Limits
+### Setting memory limits
 
 Azure SQL Edge supports up to 64 GB of memory for the buffer pool, while additional memory may be required by satellite processes running within the SQL Edge container. On smaller edge devices with limited memory, it is advisable to limit the memory available to SQL Edge containers, such that the docker host and other edge processes or modules can function properly. The total memory available for SQL Edge can be controlled using the following mechanisms. 
 
@@ -44,7 +44,7 @@ Azure SQL Edge supports up to 64 GB of memory for the buffer pool, while additio
 
 When setting the memory limits, be careful to not set this value too low. If you do not set enough memory for the SQL process, it can severely impact SQL performance.
 
-### Delayed Durability
+### Delayed durability
 
 Transactions in Azure SQL Edge can be either fully durable, the SQL Server default, or delayed durable (also known as lazy commit).
 
@@ -53,7 +53,7 @@ Fully durable transaction commits are synchronous and report a commit as success
 In deployments where **some data loss** can be tolerated or on edge devices with slow storage, delayed durability can be used to optimize data ingestion and data retention-based cleanup. For more information, see [Control Transaction Durability](https://docs.microsoft.com/sql/relational-databases/logs/control-transaction-durability).
 
 
-### Linux OS Configurations 
+### Linux OS configurations 
 
 Consider using the following [Linux Operating System configuration](https://docs.microsoft.com/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) settings to experience the best performance for a SQL Installation.
 

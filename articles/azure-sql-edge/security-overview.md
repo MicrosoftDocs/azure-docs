@@ -19,7 +19,7 @@ Azure SQL Edge offers multiple features and capabilities that make it relatively
 
 Just like Microsoft SQL Server and Azure SQL, securing Azure SQL Edge deployments can be viewed as a series of steps involving four areas: the platform, authentication, objects (including data) and applications that access the system. 
 
-## Platform and System Security
+## Platform and system security
 
 The platform for Azure SQL Edge includes the physical docker host on which Azure SQL Edge is running, the operating system on the docker host and the networking systems connecting the physical device to applications and clients. 
 
@@ -31,7 +31,7 @@ Implementing platform security starts with keeping unauthorized users off the ne
 
 For more information on Azure SQL Edge network protocols and TDS endpoints refer, [Network Protocols and TDS Endpoints](https://docs.microsoft.com//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
-## Authentication and Authorization 
+## Authentication and authorization 
 
 ### Authentication  
 Authentication is the process of proving the user is who they claim to be. Azure SQL Edge currently only supports the `SQL Authentication` mechanism.
@@ -48,7 +48,7 @@ Authorization refers to the permissions assigned to a user within a database in 
 
 As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. For applications, use the [EXECUTE AS](https://docs.microsoft.com/sql/t-sql/statements/execute-as-clause-transact-sql) to specify the execution context of the called module or use [Application Roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This practice ensures that the application that connects to the database has the least privileges needed by the application. Following these best practices also fosters separation of duties.
 
-## Database Object Security
+## Database object security
 
 Principals are the individuals, groups, and processes granted access to SQL Edge. "Securables" are the server, database, and objects the database contains. Each has a set of permissions that can be configured to help reduce the surface area. The following table contains information about principals and securables.
 
@@ -58,7 +58,7 @@ Principals are the individuals, groups, and processes granted access to SQL Edge
 |Server and database objects security|[Securables](https://docs.microsoft.com/sql/relational-databases/security/securables)|
 | &nbsp; | &nbsp; |
 
-### Encryption and Certificates  
+### Encryption and certificates  
  
 Encryption does not solve access control problems. However, it enhances security by limiting data loss even in the rare occurrence that access controls are bypassed. For example, if the database host computer is misconfigured and a malicious user obtains sensitive data, such as credit card numbers, that stolen information might be useless if it is encrypted. The following table contains more information about encryption in Azure SQL Edge.  
   
@@ -81,13 +81,13 @@ Encryption does not solve access control problems. However, it enhances security
 Similar to Azure SQL and Microsoft SQL Server, Azure SQL Edge provides the same mechanism to create and use certificates to enhance object and connection security. For more information, see, [CREATE CERTIFICATE (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql).
 
 
-## Application Security
+## Application security
 
 ### Client programs
 
 Azure SQL Edge security best practices include writing secure client applications. For more information about how to help secure client applications at the networking layer, see [Client Network Configuration](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration).
 
-### SQL Server Security Catalog Views and Functions  
+### SQL Server security catalog views and functions  
  Security information is exposed in several views and functions that are optimized for performance and utility. The following table contains information about security views and functions.  
   
 |Functions and views|Links|  
@@ -102,7 +102,7 @@ Azure SQL Edge security best practices include writing secure client application
 Azure SQL Edge provides the same Auditing mechanisms as SQL Server. For more information, see [SQL Server Audit (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
 
 
-## Next Steps
+## Next steps
 
 [Getting Started with security features](https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started)
 [Running Azure SQL Edge as a non-root user](configure.md#run-azure-sql-edge-as-non-root-user) 
