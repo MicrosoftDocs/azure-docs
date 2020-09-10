@@ -96,7 +96,7 @@ Security Center periodically analyzes the security state of your Azure resources
 
 When any resource has outstanding recommendations, they'll appear in the inventory.
 
-[Learn more about asset inventory](asset-inventory).
+[Learn more about asset inventory](asset-inventory.md).
 
 
 ### AWS and GCP connectors in Security Center bring a multi-cloud experience
@@ -112,9 +112,9 @@ Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-on
 
 ### Kubernetes workload protection recommendation bundle
 
-Azure Security Center includes a bundle of recommendations that are available when you've installed the Azure Policy add-on for Kubernetes.
+To ensure that Kubernetes workloads are secure by default, Security Center is adding Kubernetes level hardening recommendations, including enforcement options with Kubernetes admission control.
 
-When you've installed the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
+When you've installed the Azure Policy add-on for Kubernetes on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
