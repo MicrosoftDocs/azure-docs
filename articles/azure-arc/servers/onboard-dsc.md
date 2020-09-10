@@ -78,10 +78,10 @@ After you install the agent and configure it to connect to Azure Arc enabled ser
 
 This resource can be added to existing DSC configurations to represent an end-to-end configuration for a machine. For example, you might wish to add this resource to a configuration that sets secure operating system settings.
 
-The [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) module from the PowerShell Gallery can be used to create a [composite resource](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) of the example configuration, to further simplify combining configurations.
+The [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) module from the PowerShell Gallery can be used to create a [composite resource](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) of the example configuration, to further simplify combining configurations.
 
 ## Next steps
 
 - Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
 
-- Learn more about [the [Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
+- Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
