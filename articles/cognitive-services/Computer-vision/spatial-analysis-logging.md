@@ -199,7 +199,7 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 
 1. Create your own Azure Blob Storage account, if you haven't already.
 2. Get the **Connection String** for your storage account from the Azure portal. It will be located in **Access Keys**.
-3. spatial analysis logs will be automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
+3. Spatial analysis logs will be automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
 
 ```json
 {
