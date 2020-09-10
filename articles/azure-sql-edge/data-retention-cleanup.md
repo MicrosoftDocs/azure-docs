@@ -15,11 +15,10 @@ ms.date: 09/04/2020
 
 Data Retention can enabled on the database and any of the underlying tables individually, allowing users to create flexible aging policies for their tables and databases. Applying data retention is simple: it requires only one parameter to be set during table creation or as part of an alter table operation. 
 
-After data retention policy is defiend for a database and the underlying table, a background time timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task that is scheduled and run by the system. Age condition for the table rows is checked based on the column used as the `filter_column` in the table definition. If retention period, for example, is set to one week, table rows eligible for cleanup satisfy the following condition: 
+After data retention policy is defiend for a database and the underlying table, a background time timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task that is scheduled and run by the system. Age condition for the table rows is checked based on the column used as the `filter_column` in the table definition. If retention period, for example, is set to one week, table rows eligible for cleanup satisfy either of the following condition: 
 
-```sql
-filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
-```
+- If the filter column uses DATETIMEOFFSET data type then the condition is `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- Else then the condition is `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## Data retention cleanup phases
 
