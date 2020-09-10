@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Stack Edge Pro and Azure Data Box Gateway documentation - Online transfer # < 60 chars
-summary: Use Azure Stack Edge Pro and Azure Data Box Gateway devices for over-the-network high performance data transfers. Use compute acceleration hardware equipped Azure Stack Edge Pro devices to filter, analyze, and transform your data before it moves to Azure. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. # < 160 chars
+title: Azure Stack Edge and Azure Data Box Gateway documentation - Online transfer # < 60 chars
+summary: Use Azure Stack Edge and Azure Data Box Gateway devices for over-the-network high performance data transfers. Use compute acceleration hardware equipped Azure Stack Edge Pro devices to filter, analyze, and transform your data before it moves to Azure. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. # < 160 chars
 
 metadata:
-  title: Azure Stack Edge Pro and Azure Data Box Gateway documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Data Box Gateway, Azure Stack Edge Pro Documentation for high performance over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Stack Edge and Azure Data Box Gateway documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Data Box Gateway, Azure Stack Edge Documentation for high performance over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
   services: databox
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: edge
@@ -21,14 +21,18 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Stack Edge Pro and Data Box Gateway
+  - title: About Azure Stack Edge and Data Box Gateway
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Stack Edge Pro GPU?
             url: azure-stack-edge-gpu-overview.md  
           - text: What is Azure Stack Edge Pro FPGA?
-            url: azure-stack-edge-overview.md  
+            url: azure-stack-edge-overview.md
+          - text: What is Azure Stack Edge R?
+            url: azure-stack-edge-j-series-overview.md 
+          - text: What is Azure Stack Edge Mini?
+            url: azure-stack-edge-k-series-overview.md   
           - text: What is Data Box Gateway?
             url: data-box-gateway-overview.md
 
@@ -65,6 +69,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: View pre-deployment checklist
+            url: azure-stack-edge-gpu-deploy-checklist.md        
           - text: Azure Stack Edge Pro GPU
             url: azure-stack-edge-gpu-deploy-prep.md
           - text: Data Box Gateway

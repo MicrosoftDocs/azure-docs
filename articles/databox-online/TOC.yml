@@ -138,7 +138,7 @@
     - name: Manage device
       items:
       - name: Power, access, connectivity
-        href: azure-stack-edge-manage-access-power-connectivity-mode.md 
+        href: azure-stack-edge-gpu-manage-access-power-connectivity-mode.md 
       - name: Via PowerShell
         href: azure-stack-edge-gpu-connect-powershell-interface.md 
       - name: Apply updates
@@ -266,6 +266,20 @@
       href: https://docs.microsoft.com/rest/api/databoxedgegateway
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
+
+- name: Azure Stack Edge Pro R
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Pro R?
+      href: azure-stack-edge-j-series-overview.md
+
+- name: Azure Stack Edge Mini R
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Mini R?
+      href: azure-stack-edge-k-series-overview.md
 
 - name: Data Box Gateway
   items:

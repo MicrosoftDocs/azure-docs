@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/09/2020
 ms.author: alkohli
 ---
 
@@ -47,9 +47,9 @@ There are three primary ways of deploying your workloads. Each of these deployme
 
 - **IoT Edge deployment**: This is through IoT Edge, which connects to the Azure IoT Hub. You connect to the Kubernetes cluster on your Azure Stack Edge Pro device via the `iotedge` namespace. The IoT Edge agents deployed in this namespace are responsible for connectivity to Azure. You apply the `IoT Edge deployment.json` configuration using Azure DevOps CI/CD. Namespace and IoT Edge management is done through cloud operator.
 
-- **Azure/Arc deployment**: Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. You connect to the Kubernetes cluster on your Azure Stack Edge Pro device via the `azure-arc namespace`. The agents deployed in this namespace are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. 
+- **Azure Arc enabled Kubernetes deployment**: Azure Arc enabled Kubernetes is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. You connect to the Kubernetes cluster on your Azure Stack Edge Pro device via the `azure-arc namespace`. The agents deployed in this namespace are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. 
     
-    Azure Arc will also allow you to use Azure Monitor for containers to view and monitor your cluster. For more information, go to [What is Azure-Arc enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+    Azure Arc enabled Kubernetes will also allow you to use Azure Monitor for containers to view and monitor your cluster. For more information, go to [What is Azure Arc enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## Choose the deployment type
 
