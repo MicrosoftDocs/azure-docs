@@ -19,6 +19,7 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Manage device access
+> * Manage resource access
 > * Manage connectivity mode
 > * Manage power
 
