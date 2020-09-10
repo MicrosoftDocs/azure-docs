@@ -66,6 +66,8 @@ After you have created an encryption scope, you can specify that encryption scop
 > [!NOTE]
 > Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS) accounts during preview.
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 > [!IMPORTANT]
 > The encryption scopes preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 >

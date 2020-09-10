@@ -1,16 +1,20 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL - Flexible Server (Preview)
+title: Backup and restore in Azure Database for PostgreSQL - Flexible Server
 description: Learn about the concepts of backup and restore with Azure Database for PostgreSQL - Flexible Server
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ---
-# Backup and restore in Azure Database for PostgreSQL - Flexible Server (Preview)
- 
- ## Overview
- Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL Flexible Server automatically backs up your server and retains the backups for the duration of up to 35 days. During the restore process, you can specify the date and time to which you want to restore within the retention period The overall time to restore and recover depends on the size of the database files and the amount of recovery. 
+
+# Backup and restore in Azure Database for PostgreSQL - Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
+## Overview
+Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL - Flexible Server automatically backs up your server and retains the backups for the duration of up to 35 days. During the restore process, you can specify the date and time to which you want to restore within the retention period The overall time to restore and recover depends on the size of the database files and the amount of recovery. 
 
 ### Backup process in flexible server
 The first snapshot backup is scheduled immediately after the flexible server is created. Subsequently, a daily snapshot backup of data files is performed. Backups are stored in a zone redundant storage within a region. Transaction logs (write ahead logs - WAL) are also archived continuously, so that you will be able to restore to the last committed transaction. These data and logs backups allow you to restore a server to any point-in-time within your configured backup retention period. All backups are encrypted using AES 256-bit encryption.
@@ -45,6 +49,9 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 In Flexible server, performing a point-in-time restore creates a new server from the flexible server\'s backups in the same region as your source server, and restores all  databases in the server. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server. 
 
+ > [!IMPORTANT]
+> If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured without high availability, and in the same region as your primary server. 
+
  ### Restore process
 
 The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. Once the data files are restored, a recovery process is initiated to bring the database to a consistent state by rolling forward to a desired point-in-time using the transaction logs that happened after the restored time. 
@@ -55,7 +62,7 @@ The physical database files are first restored from the snapshot backups to the 
 
 > [!IMPORTANT]
 > Restore operations in flexible server creates a new database server and does not overwrite the existing database server.
-> 
+
 Point-in-time restore is useful in multiple scenarios. For example, when a user accidentally deletes data, drops an important table or database, or if an application accidentally overwrites good data with bad data due to an application defect. You will be able to restore to the last transaction due to continuous backup of transaction logs.
 
 You can choose between an earliest restore point and a custom restore point.
@@ -66,18 +73,19 @@ You can choose between an earliest restore point and a custom restore point.
 
 The estimated time to recover depends on several factors including database size, volume of transaction logs to process, the network bandwidth, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to few hours.
 
- If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured in the same region as your primary server, and deployed as a single flexible server. 
 
 > [!IMPORTANT]
 > Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ## Perform post-restore tasks
 
-After restoring the database, you should perform the following tasks to get your users and applications back up and running:
+After restoring the database, you can perform the following tasks to get your users and applications back up and running:
 
 -   If the new server is meant to replace the original server, redirect clients and client applications to the new server.
 
 -   Ensure appropriate server-level firewall and VNet rules are in place for users to connect. These rules are not copied over from the original server.
+  
+-   The restored server's compute can be scaled up / down as needed.
 
 -   Ensure appropriate logins and database level permissions are in place.
 

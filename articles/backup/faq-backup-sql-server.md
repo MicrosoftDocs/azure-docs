@@ -46,7 +46,7 @@ The default value of DefaultBackupTasksThreshold is **20**.
  While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
 
 > [!NOTE]
-> In the UX you can still go ahead and schedule as many backups at any given time. However they will processed in a sliding window of say, 5, according to the above example.
+> In the UX you can still go ahead and schedule as many backups at any given time. However they'll be processed in a sliding window of say, 5, according to the above example.
 
 ## Can I run a full backup from a secondary replica?
 
@@ -66,7 +66,7 @@ No. Successful backup jobs don't generate alerts. Alerts are sent only for backu
 
 ## Can I see scheduled backup jobs in the Backup Jobs menu?
 
-The **Backup Job** menu will only show on-demand backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+The **Backup Job** menu shows all scheduled and on-demand operations, except the scheduled log backups since they can be very frequent. For scheduled log jobs, use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Are future databases automatically added for backup?
 

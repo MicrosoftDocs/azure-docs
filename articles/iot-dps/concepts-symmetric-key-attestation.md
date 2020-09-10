@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
 manager: philmea
+ms.custom: devx-track-csharp
 ---
 
 # Symmetric key attestation

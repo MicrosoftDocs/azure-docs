@@ -19,7 +19,7 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: dms, data migration service
-- name: Single server
+- name: Single Server
   items:
   - name: Documentation
     href: single-server/index.yml
@@ -157,7 +157,7 @@
         displayName: backup, restore, backups, restores, georestore, geo-restore, outage
         href: concepts-business-continuity.md
       - name: High availability
-        href: concepts-high-availability.md   
+        href: concepts-high-availability.md
       - name: Backup and restore
         href: concepts-backup.md
         displayName: backup ,restore, georestore, geo-restore, outage
@@ -212,7 +212,7 @@
         href: howto-create-manage-server-portal.md
         displayName: scale server, reset password
       - name: Azure CLI
-        href: how-to-manage-cli.md
+        href: how-to-manage-server-cli.md
         displayName: scale server, reset password
     - name: Restart server
       items:
@@ -374,7 +374,7 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-- name: Flexible server (Preview)
+- name: Flexible Server (Preview)
   items:
   - name: Documentation
     href: flexible-server/index.yml
@@ -386,8 +386,14 @@
       items:
       - name: Azure portal
         href: flexible-server/quickstart-create-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/quickstart-create-server-cli.md
       - name: ARM template
         href: flexible-server/quickstart-create-server-arm-template.md
+    - name: Connect and query
+      items:
+        - name: Python
+          href: flexible-server/connect-python.md
   - name: Tutorials
     items:
     - name: Configure web app and database server in virtual network
@@ -409,6 +415,8 @@
       href: flexible-server/concepts-limits.md
     - name: Extensions
       href: flexible-server/concepts-extensions.md
+    - name: Scheduled maintenance
+      href: flexible-server/concept-maintenance.md
     - name: Business continuity
       items:
       - name: Overview
@@ -425,6 +433,11 @@
       - name: Logs
         href: flexible-server/concepts-logging.md
         displayName: monitor, server logs
+      - name: Audit logs
+        href: flexible-server/concepts-audit.md
+    - name: Replication
+      href: flexible-server/concepts-logical.md
+      displayName: logical decoding
   - name: How-to guides
     items:
     - name: Manage a server
@@ -433,6 +446,36 @@
         href: flexible-server/how-to-manage-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-server-cli.md
+    - name: Scheduled maintenance
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-maintenance-portal.md
+    - name: Networking
+      items:
+      - name: Private access (VNet Integration)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-virtual-network-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-virtual-network-cli.md
+      - name: Public access (allowed IP addresses)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-firewall-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-firewall-cli.md
+      - name: TLS/SSL
+        items:
+        - name: Connect using TLS/SSL
+          href: flexible-server/how-to-connect-tls-ssl.md
+    - name: Configure server parameters
+      items:
+      - name: Azure portal
+        href: flexible-server/howto-configure-server-parameters-using-portal.md
+        displayName: application development, server parameters
+      - name: Azure CLI
+        href: flexible-server/howto-configure-server-parameters-using-cli.md
+        displayName: application development, server parameters
     - name: Scale a server
       items:
       - name: Azure portal
@@ -445,6 +488,10 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-restore-server-portal.md
+    - name: Stop/start a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-stop-start-server-portal.md
     - name: Manage high availability
       items:
       - name: Azure portal

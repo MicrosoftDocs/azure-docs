@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Object bounds
@@ -52,6 +53,11 @@ void GetBounds(ApiHandle<Entity> entity)
     });
 }
 ```
+
+## API documentation
+
+* [C# Entity.QueryLocalBoundsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
+* [C++ Entity::QueryLocalBoundsAsync](https://docs.microsoft.com/cpp/api/remote-rendering/entity#querylocalboundsasync)
 
 ## Next steps
 

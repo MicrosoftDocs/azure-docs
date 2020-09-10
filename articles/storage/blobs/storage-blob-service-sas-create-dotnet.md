@@ -11,6 +11,7 @@ ms.date: 08/07/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Create a service SAS for a container or blob with .NET

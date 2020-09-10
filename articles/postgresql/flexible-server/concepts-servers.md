@@ -1,5 +1,5 @@
 ---
-title: Servers - Azure Database for PostgreSQL - Flexible Server
+title: Servers in Azure Database for PostgreSQL - Flexible Server (Preview)
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Flexible Server.
 author: lfittl-msft
 ms.author: lufittl
@@ -8,7 +8,10 @@ ms.topic: conceptual
 ms.date: 9/22/2020
 ---
 
-# Azure Database for PostgreSQL - Flexible Server
+# Servers - Azure Database for PostgreSQL - Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
 
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL - Flexible Server.
 
@@ -26,7 +29,7 @@ An Azure Database for PostgreSQL server:
 - Provides a connection endpoint for server and database access
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
 - Is available in multiple versions. For more information, see [supported PostgreSQL database versions](concepts-supported-versions.md).
-<!--- Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).-->
+- Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).
 
 Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Compute and Storage options](concepts-compute-storage.md).
 
@@ -39,7 +42,7 @@ The following elements help ensure safe access to your database:
 | **Authentication and authorization** | Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login. |
 | **Protocol** | The service supports a message-based protocol used by PostgreSQL. |
 | **TCP/IP** | The protocol is supported over TCP/IP, and over Unix-domain sockets. |
-| **Firewall** | To help protect your data, a firewall rule prevents all access to your server and to its databases, until you specify which computers have permission. <!--See [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md).--> |
+| **Firewall** | To help protect your data, a firewall rule prevents all access to your server and to its databases, until you specify which computers have permission. See [Azure Database for PostgreSQL Server firewall rules](how-to-manage-firewall-portal.md). |
 
 ## Managing your server
 
@@ -62,9 +65,6 @@ As a managed service for Postgres, the configurable parameters in Azure Database
 
 ## Next steps
 
-<!-- - For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).-->
+- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
 - For information about specific resource quotas and limitations based on your **configuration**, see [Compute and Storage options](concepts-compute-storage.md).
-<!--
-- For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
-- View and edit server parameters through [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md)
--->.
+- View and edit server parameters through [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).

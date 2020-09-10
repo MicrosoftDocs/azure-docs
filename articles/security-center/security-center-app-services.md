@@ -28,7 +28,7 @@ With the App Service plan enabled, Security Center assesses the resources covere
 Security Center leverages the scale of the cloud, and the visibility that Azure has as a cloud provider, to monitor for common web app attacks. Security Center can discover attacks on your applications and identify emerging attacks - even while attackers are in the reconnaissance phase, scanning to identify vulnerabilities across multiple Azure-hosted applications. As an Azure-native service, Security Center is also in a unique position to offer host-based security analytics covering the underlying compute nodes for this PaaS, enabling Security Center to detect attacks against web applications that were already exploited. For more details, see [Threat protection for Azure App Service](threat-protection.md#app-services).
 
 
-## Enabling monitoring and protection of App Service
+## Enable monitoring and protection of App Service
 
 1. In the Azure portal, choose Security Center.
 2. Go to **Pricing & settings** and choose a subscription.
@@ -60,4 +60,4 @@ In this article, you learned how to use monitoring capabilities in Azure Securit
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
 * [App services](security-center-virtual-machine-protection.md#app-services):  View a list of your App service environments with health summaries.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+* [Azure Security Blog](https://docs.microsoft.com/archive/blogs/azuresecurity/): Find blog posts about Azure security and compliance.

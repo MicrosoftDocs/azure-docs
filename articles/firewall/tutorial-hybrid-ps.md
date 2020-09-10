@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -25,17 +25,16 @@ For this article, you create three virtual networks:
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Declare the variables
-> * Create the firewall hub virtual network
-> * Create the spoke virtual network
-> * Create the on-premises virtual network
-> * Configure and deploy the firewall
-> * Create and connect the VPN gateways
-> * Peer the hub and spoke virtual networks
-> * Create the routes
-> * Create the virtual machines
-> * Test the firewall
+* Declare the variables
+* Create the firewall hub virtual network
+* Create the spoke virtual network
+* Create the on-premises virtual network
+* Configure and deploy the firewall
+* Create and connect the VPN gateways
+* Peer the hub and spoke virtual networks
+* Create the routes
+* Create the virtual machines
+* Test the firewall
 
 If you want to use Azure portal instead to complete this tutorial, see [Tutorial: Deploy and configure Azure Firewall in a hybrid network using the Azure portal](tutorial-hybrid-portal.md).
 

@@ -3,6 +3,7 @@ title: .NET Programming guide - Azure Event Hubs (legacy) | Microsoft Docs
 description: This article provides information on how to Write code for Azure Event Hubs using the Azure .NET SDK.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # .NET Programming guide for Azure Event Hubs (legacy Microsoft.Azure.EventHubs package)

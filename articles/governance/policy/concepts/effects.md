@@ -208,8 +208,8 @@ related resources to match.
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific
     resource instead of all resources of the specified type.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
-    becomes _required_ and must be `[field('name')]`. However, an [audit](#audit) effect should be
-    considered instead.
+    becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
+    However, an [audit](#audit) effect should be considered instead.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -361,7 +361,7 @@ related resources to match and the template deployment to execute.
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific
     resource instead of all resources of the specified type.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
-    becomes _required_ and must be `[field('name')]`.
+    becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -619,7 +619,7 @@ The following operations are supported by Modify:
 - Add or replace the values of certain aliases (preview).
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
-    in Azure PowerShell to get a list of aliases that can be used with Modify.
+    in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with Modify.
 
 > [!IMPORTANT]
 > If you're managing tags, it's recommended to use Modify instead of Append as Modify provides
