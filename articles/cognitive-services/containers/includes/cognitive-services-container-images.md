@@ -82,8 +82,8 @@ Previously, gated preview containers were hosted on the `containerpreview.azurec
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 | [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Spatial Analysis | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=lid) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |

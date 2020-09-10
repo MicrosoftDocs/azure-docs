@@ -77,6 +77,22 @@ We don't test containers with OpenShift, but generally, Cognitive Services conta
 
 **A:** Customers are encouraged to [voice their concerns](https://cognitive.uservoice.com/) publicly, and up-vote others who have done the same where potential issues overlap. The user voice tool can be used for both product feedback and feature recommendations.
 
+**Q: What status messages and errors are returned by Cognitive Services containers?**
+
+**A:** See the following table for a list of status messages and errors.
+
+|Status  | Description  |
+|---------|---------|
+| `Valid` |	Your API key is valid, no action is needed. |
+| `Invalid` |	Your API key is invalid. You must provide an valid API key to run the container. Find your API key and service region in the **Keys and Endpoint** section for your Azure Cognitive Services resource, in the Azure portal. |
+| `Mismatch` | You have provided an API Key or endpoint for a different kind of cognitive services resource. Find your API key and service region in the **Keys and Endpoint** section for your Azure Cognitive Services resource. |
+| `CouldNotConnect` | The container couldn't connect to the billing endpoint. Check the `Retry-After` value and wait for this period to end before making additional requests. |
+| `OutOfQuota` | The API key is out of quota. You can either upgrade your pricing tier, or wait for additional quota to be made available. Find your tier in the **Pricing Tier** section of your Azure Cognitive Service resource, in the Azure portal. |
+| `BillingEndpointBusy` | The billing endpoint is currently busy. Check the `Retry-After` value and wait for this period to end before making additional requests. |
+| `ContainerUseUnauthorized` | The API key provided is not authorized for use with this container. You are likely using a gated container, so make sure your Azure Subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
+| `Unknown` | The server is currently unable to process billing requests. |
+
+
 **Q: Who do I contact for support?**
 
 **A:** Customer support channels are the same as the Cognitive Services cloud offering. All Cognitive Services containers include logging features that will help us and the community support customers. For additional support, see the following options.
