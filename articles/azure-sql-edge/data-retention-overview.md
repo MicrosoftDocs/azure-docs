@@ -1,6 +1,6 @@
 ---
-title: Data retention policy overview - Azure SQL Edge (Preview)
-description: Learn about the data retention policy in Azure SQL Edge (Preview)
+title: Data retention policy overview - Azure SQL Edge
+description: Learn about the data retention policy in Azure SQL Edge
 keywords: SQL Edge, data retention
 services: sql-edge
 ms.service: sql-edge

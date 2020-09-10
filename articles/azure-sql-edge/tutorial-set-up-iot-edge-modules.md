@@ -49,7 +49,7 @@ Once the Azure Stream Analytics job is created with the hosting environment set 
 
    `SELECT * INTO <name_of_your_output_stream> FROM <name_of_your_input_stream>`
    
-4. Under **Configure**, select **Publish**, and then select the **Publish** button. Save the SAS URI for use with the SQL Database Edge module.
+4. Under **Configure**, select **Publish**, and then select the **Publish** button. Save the SAS URI for use with the SQL Edge module.
 
 ## Specify container registry credentials
 
@@ -92,7 +92,7 @@ Now, specify the container credentials in the IoT Edge module.
    ASEdemocontregistry.azurecr.io/silicaprediction:amd64
    ```
 
-3. CLick **Add**.
+3. Click **Add**.
 
 ## Deploy the Azure SQL Edge module
 

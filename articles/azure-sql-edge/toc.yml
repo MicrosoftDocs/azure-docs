@@ -67,6 +67,8 @@
     href: backup-restore.md
   - name: High availability for containers
     href: high-availability-sql-edge-containers.md
+  - name: Performance guidelines
+    href: performance-best-practices.md
   - name: Data Streaming in SQL Edge
     items:
     - name: Stream data

@@ -1,5 +1,5 @@
 ---
-title: DROP EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge (Peview)
+title: DROP EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
 description: Learn about the DROP EXTERNAL STREAM statement in Azure SQL Edge 
 keywords: 
 services: sql-edge
