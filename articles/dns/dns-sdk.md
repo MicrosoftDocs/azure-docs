@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
+ms.custom: devx-track-csharp
 ---
 
 # Create DNS zones and record sets using the .NET SDK

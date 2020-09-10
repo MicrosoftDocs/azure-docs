@@ -20,7 +20,7 @@ ms.custom: mvc, seo-javascript-october2019
 
 [Azure Monitor](../overview.md) can collect data directly from your your physical or virtual Windows computers in your environment into a Log Analytics workspace for detailed analysis and correlation. Installing the [Log Analytics agent](../platform/log-analytics-agent.md) allows Azure Monitor to collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Windows computer with a few easy steps. For information about Azure Windows VMs, see [Collect data about Azure virtual machines](./quick-collect-azurevm.md).  
 
-To understand the supported configuration, see [Supported Windows operating systems](../platform/log-analytics-agent.md#supported-windows-operating-systems) and [Network firewall configuration](../platform/log-analytics-agent.md#network-requirements).
+To understand the supported configuration, see [Supported operating systems](../platform/agents-overview.md#supported-operating-systems) and [Network firewall configuration](../platform/log-analytics-agent.md#network-requirements).
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

@@ -47,7 +47,7 @@ To learn how to restore a SharePoint item from a disk with DPM, see [Restore Sha
    > Because the SharePoint farm is protected for long-term retention in Azure, no catalog information (metadata) is available on the DPM server. As a result, whenever a point-in-time SharePoint content database needs to be recovered, you need to catalog the SharePoint farm again.
    >
    >
-3. Click **Re-catalog**.
+3. Select **Re-catalog**.
 
     ![DPM SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -55,10 +55,10 @@ To learn how to restore a SharePoint item from a disk with DPM, see [Restore Sha
 
     ![DPM SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    After cataloging is finished, the status changes to *Success*. Click **Close**.
+    After cataloging is finished, the status changes to *Success*. Select **Close**.
 
     ![DPM SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Click the SharePoint object shown in the DPM **Recovery** tab to get the content database structure. Right-click the item, and then click **Recover**.
+4. Select the SharePoint object shown in the DPM **Recovery** tab to get the content database structure. Right-click the item, and then select **Recover**.
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.

@@ -1,11 +1,11 @@
 ---
 title: Network File System 3.0 support in Azure Blob storage (preview) | Microsoft Docs
-description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises.
+description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Windows and Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer that runs on-premises.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
@@ -13,10 +13,10 @@ ms.custom: references_regions
 
 # Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)
 
-Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
+Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Windows or Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, and Canada Central.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central.
 
 ## General workflow: Mounting a storage account container
 
@@ -36,7 +36,7 @@ To mount a storage account container, you'll have to do these things.
 
 7. Mount the container.
 
-For step-by-step guidance, see [Mount Blob storage on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+For step-by-step guidance, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > It's important to complete these tasks in order. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account. Also, after you've enabled the NFS 3.0 protocol on your account, you can't disable it.
@@ -108,7 +108,7 @@ A transaction is not charged during the preview. Pricing for transactions is sub
 
 ## Next steps
 
-To get started, see [Mount Blob storage on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
 
 

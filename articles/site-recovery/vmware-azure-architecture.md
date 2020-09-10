@@ -25,9 +25,7 @@ The following table and graphic provide a high-level view of the components used
 **VMware servers** | VMware VMs are hosted on on-premises vSphere ESXi servers. We recommend a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
 **Replicated machines** | Mobility Service is installed on each VMware VM that you replicate. | We recommend that you allow automatic installation from the process server. Alternatively, you can install the service manually or use an automated deployment method, such as Configuration Manager.
 
-**VMware to Azure architecture**
-
-![Components](./media/vmware-azure-architecture/arch-enhanced.png)
+![Diagram showing VMware to Azure replication architecture relationships.](./media/vmware-azure-architecture/arch-enhanced.png)
 
 ## Set up outbound network connectivity
 
@@ -66,9 +64,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as asr seed disk). The recovery points are created on this disk.
 
-**VMware to Azure replication process**
-
-![Replication process](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![Diagram showing the VMware to Azure replication process.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## Resynchronization process
 
@@ -103,9 +99,8 @@ After replication is set up and you run a disaster recovery drill (test failover
     - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
     
  
-**VMware failback from Azure**
 
-![Failback](./media/vmware-azure-architecture/enhanced-failback.png)
+![Diagram showing VMware failback from Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## Next steps

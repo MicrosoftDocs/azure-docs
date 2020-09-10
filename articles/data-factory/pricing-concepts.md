@@ -162,6 +162,48 @@ To accomplish the scenario, you need to create a pipeline with the following ite
   - Activity Runs = 001\*2 = 0.002 [1 run = $1/1000 = 0.001]
   - Data Flow Activities = $1.461 prorated for 20 minutes (10 mins execution time + 10 mins TTL). $0.274/hour on Azure Integration Runtime with 16 cores general compute
 
+## Data integration in Azure Data Factory Managed VNET
+In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage. You will do this execution twice on different pipelines. The execution time of these two pipelines is overlapping.
+![Scenario4](media/pricing-concepts/scenario-4.png)
+To accomplish the scenario, you need to create two pipelines with the following items:
+  - A pipeline activity – Delete Activity.
+  - A copy activity with an input dataset for the data to be copied from Azure Blob storage.
+  - An output dataset for the data on Azure SQL Database.
+  - A schedule triggers to execute the pipeline.
+
+
+| **Operations** | **Types and Units** |
+| --- | --- |
+| Create Linked Service | 4 Read/Write entity |
+| Create Datasets | 8 Read/Write entities (4 for dataset creation, 4 for linked service references) |
+| Create Pipeline | 6 Read/Write entities (2 for pipeline creation, 4 for dataset references) |
+| Get Pipeline | 2 Read/Write entity |
+| Run Pipeline | 6 Activity runs (2 for trigger run, 4 for activity runs) |
+| Execute Delete Activity: each execution time = 5 min. The Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC. The Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. |
+| Copy Data Assumption: each execution time = 10 min. The Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC. The Delete Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
+| Monitor Pipeline Assumption: Only 2 runs occurred | 6 Monitoring run records retried (2 for pipeline run, 4 for activity run) |
+
+
+**Total Scenario pricing: $0.45523**
+
+- Data Factory Operations = $0.00023
+  - Read/Write = 20*00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
+  - Monitoring = 6*000005 = $0.00003 [1 Monitoring = $0.25/50000 = 0.000005]
+- Pipeline Orchestration & Execution = $0.455
+  - Activity Runs = 0.001*6 = 0.006 [1 run = $1/1000 = 0.001]
+  - Data Movement Activities = $0.333 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
+  - Pipeline Activity = $0.116 (Prorated for 7 minutes of execution time. $1/hour on Azure Integration Runtime)
+
+> [!NOTE]
+> These prices are for example purposes only.
+
+**FAQ**
+
+Q: If I would like to run more than 50 pipeline activities, can these activities be executed simultaneously?
+
+A: Max 50 concurrent pipeline activities will be allowed.  The 51th pipeline activity will be queued until a “free slot” is opened up. 
+Same for external activity. Max 800 concurrent external activities will be allowed.
+
 ## Next steps
 
 Now that you understand the pricing for Azure Data Factory, you can get started!

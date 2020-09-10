@@ -261,7 +261,7 @@ Document ID: 3 , Language: Chinese_Simplified
 #### [Version 3.0](#tab/version-3)
 
 > [!NOTE]
-> In version `3.0-preview`:
+> In version `3.0`:
 > * Entity linking is a separate request than NER.
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.

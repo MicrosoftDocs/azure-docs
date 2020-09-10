@@ -5,7 +5,8 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Create an Azure Cosmos container
@@ -114,17 +115,17 @@ For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [Azu
 * [Create a Gremlin graph with Azure CLI](./scripts/cli/gremlin/create.md)
 * [Create a Table API table with Azure CLI](./scripts/cli/table/create.md)
 
-## Create a container using PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
+## Create a container using PowerShell
 
 The links below show how to create container resources for Azure Cosmos DB using PowerShell.
 
-For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [SQL API](powershell-samples-sql.md), [Cassandra API](powershell-samples-cassandra.md), [MongoDB API](powershell-samples-mongodb.md), [Gremlin API](powershell-samples-gremlin.md), and [Table API](powershell-samples-table.md)
+For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [PowerShell Samples](powershell-samples.md)
 
 * [Create a container with PowerShell](manage-with-powershell.md#create-container)
-* [Create a collection for Azure Cosmos DB for MongoDB API with PowerShell](./scripts/powershell/mongodb/ps-mongodb-create.md)
-* [Create a Cassandra table with PowerShell](./scripts/powershell/cassandra/ps-cassandra-create.md)
-* [Create a Gremlin graph with PowerShell](./scripts/powershell/gremlin/ps-gremlin-create.md)
-* [Create a Table API table with PowerShell](./scripts/powershell/table/ps-table-create.md)
+* [Create a collection for Azure Cosmos DB for MongoDB API with PowerShell](./scripts/powershell/mongodb/create.md)
+* [Create a Cassandra table with PowerShell](./scripts/powershell/cassandra/create.md)
+* [Create a Gremlin graph with PowerShell](./scripts/powershell/gremlin/create.md)
+* [Create a Table API table with PowerShell](./scripts/powershell/table/create.md)
 
 ## Create a container using .NET SDK
 

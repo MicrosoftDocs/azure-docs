@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Oracle Cloud Infrastructure Console | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Oracle Cloud Infrastructure Console.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: f045fe19-11f8-4ccf-a3eb-8495fdc8716f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Oracle Cloud Infrastructure Console with Azure Active Directory

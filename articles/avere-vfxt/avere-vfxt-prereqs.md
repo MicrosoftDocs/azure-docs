@@ -1,6 +1,6 @@
 ---
 title: Avere vFXT prerequisites - Azure
-description: Prerequisites for Avere vFXT for Azure
+description: Learn about tasks to perform before you create a cluster in Avere vFXT for Azure, including dealing with subscriptions, quotas, and storage service endpoints.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
@@ -27,7 +27,7 @@ To create a new Azure subscription in the Azure portal:
 
 A user with owner permissions for the subscription should create the vFXT cluster. Cluster creation requires an owner to accept the software terms of service and to authorize changes to network and storage resources.
 
-There are some workarounds to allow a non-owner to create an Avere vFXT for Azure cluster. These scenarios involve restricting resources and assigning additional role-based access control (RBAC) roles to the creator. In all of these cases, a subscription owner also must [accept the Avere vFXT software terms](#accept-software-terms) ahead of time.
+There are some workarounds to allow a non-owner to create an Avere vFXT for Azure cluster. These scenarios involve restricting resources and assigning additional Azure roles to the creator. In all of these cases, a subscription owner also must [accept the Avere vFXT software terms](#accept-software-terms) ahead of time.
 
 | Scenario | Restrictions | Access roles required to create the Avere vFXT cluster |
 |----------|--------|-------|

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with MyWorkDrive | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and MyWorkDrive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 4d049778-3c7b-46c0-92a4-f2633a32334b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Integrate MyWorkDrive with Azure Active Directory
 

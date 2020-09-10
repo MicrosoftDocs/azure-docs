@@ -42,7 +42,7 @@ MSAL.js for Node is currently in development. For more information, see the [roa
 
 ### Step 1: Register your application
 
-To protect your web API with Azure AD B2C, you first need to register it. See [Register your application](../../active-directory-b2c/add-web-application.md) for detailed steps.
+To protect your web API with Azure AD B2C, you first need to register it. See [Register your application](../../active-directory-b2c/add-web-api-application.md) for detailed steps.
 
 ### Step 2: Download the sample application
 

@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Create a trigger that runs a pipeline on a schedule

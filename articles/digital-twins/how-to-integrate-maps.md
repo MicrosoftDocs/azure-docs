@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins to update an Azure Maps indoor map
+title: Integrate with Azure Maps
 titleSuffix: Azure Digital Twins
-description: See how to create an Azure function that can use the twin graph and Azure Digital Twins notifications to update information shown in Azure Maps.
+description: See how to create an Azure function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
 ms.date: 6/3/2020
@@ -60,6 +60,12 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
     ```
 
 3. Create a route in Azure Digital Twins to send twin update events to your endpoint.
+
+    >[!NOTE]
+    >There is currently a **known issue** in Cloud Shell affecting these command groups: `az dt route`, `az dt model`, `az dt twin`.
+    >
+    >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instead of Cloud Shell. For more detail on this, see [*Troubleshooting: Known issues in Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```

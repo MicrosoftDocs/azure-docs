@@ -1,6 +1,6 @@
 ---
 title: Change blob path from the default
-description: Learn how to set up an Azure function to rename a blob file path
+description: Learn how to set up an Azure function to rename a default blob file path and move the blobs to a different location.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to

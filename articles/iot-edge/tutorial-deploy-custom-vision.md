@@ -429,9 +429,9 @@ From your device, view the logs of the cameraCapture module to see the messages 
 From Visual Studio Code, right-click on the name of your IoT Edge device and select **Start Monitoring Built-in Event Endpoint**. 
 
 > [!NOTE]
-> You may initially see some connection errors in the output from the cameraCapture module. This is due to the delay between modules being deployed and starting.
+> Initially, you may see connection errors in the output from the cameraCapture module. This is due to the delay between modules being deployed and starting.
 >
-> The cameraCapture module will automatically reattempt connection until successful. Afterwards, you should begin to see the expected image classification messages described below.
+> The cameraCapture module automatically reattempts connection until successful. After successful connection, you will see the expected image classification messages described below.
 
 The results from the Custom Vision module, which are sent as messages from the cameraCapture module, include the probability that the image is of either a hemlock or cherry tree. Since the image is hemlock, you should see the probability as 1.0.
 

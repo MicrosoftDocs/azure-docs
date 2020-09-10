@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop (classic) host pool service updates - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
@@ -55,12 +52,12 @@ Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 The results from the cmdlet should look similar to this output:
 
 ```
-    TenantName          : contoso 
+    TenantName          : contoso
     TenantGroupName     : Default Tenant Group
     HostPoolName        : contosoHostPool
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty    : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
@@ -74,7 +71,7 @@ Service updates happen monthly. If there are major issues, critical updates will
 
 ## Next steps
 
-Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Windows Virtual Desktop deployment. 
+Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Windows Virtual Desktop deployment.
 
 > [!div class="nextstepaction"]
 > [Set up service alerts](set-up-service-alerts-2019.md)

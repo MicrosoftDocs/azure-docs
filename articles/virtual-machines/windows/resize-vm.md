@@ -12,7 +12,7 @@ ms.author: cynthn
 ---
 # Resize a Windows VM
 
-This article shows you how to move a VM to a different [VM size](sizes.md).
+This article shows you how to move a VM to a different [VM size](../sizes.md).
 
 After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM.
 

@@ -1,11 +1,19 @@
-- name: Azure Data Share Documentation
+- name: Azure Data Share documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Data Share?
     href: overview.md
-  - name: Supported data stores 
+  - name: Supported data stores
     href: supported-data-stores.md
+- name: Quickstarts
+  items:
+  - name: Share data - Azure portal
+    href: share-your-data-portal.md
+  - name: Share data - ARM template
+    displayName: Resource Manager
+    href: share-your-data-arm.md
 - name: Tutorials
   expanded: true
   items:
@@ -15,10 +23,12 @@
       href: subscribe-to-data-share.md
 - name: Concepts
   items:
-  - name: Azure Data Share terminology 
+  - name: Azure Data Share terminology
     href: terminology.md
-  - name: Roles and requirements 
+  - name: Roles and requirements
     href: concepts-roles-permissions.md
+  - name: Understand pricing
+    href: concepts-pricing.md
 - name: Samples
   items:
   - name: Code samples
@@ -27,14 +37,23 @@
     href: samples-powershell.md
 - name: How-to guides
   items:
+  - name: Share and receive data by source
+    items:
+    - name: Share from Azure Storage
+      href: how-to-share-from-storage.md
+    - name: Share from Azure SQL Database or Synapse Analytics
+      href: how-to-share-from-sql.md
+    - name: Share from Azure Data Explorer
+      href: /azure/data-explorer/data-share
+      maintainContext: true
   - name: Monitor
     href: how-to-monitor.md
-  - name: Configure dataset mappings
-    href: how-to-configure-mapping.md
-  - name: Troubleshoot 
+  - name: Troubleshoot
     href: data-share-troubleshoot.md
   - name: Add datasets
     href: how-to-add-datasets.md
+  - name: Configure dataset mappings
+    href: how-to-configure-mapping.md
   - name: Add recipients
     href: how-to-add-recipients.md
   - name: Delete an invitation
@@ -45,6 +64,7 @@
     href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
+
 - name: Reference
   items:
   - name: .NET
@@ -59,7 +79,7 @@
   items:
   - name: Microsoft Q&A question page
     href: https://docs.microsoft.com/answers/topics/azure-data-share.html
-  - name: Stack Overflow 
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-share
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/Azure-Data-Share/bg-p/AzureDataShareBlog

@@ -8,6 +8,7 @@ keywords: azure functions, functions, event processing, warmup, cold start, prem
 
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
 ---

@@ -32,6 +32,8 @@ landingContent:
           url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
         - text: Azure App Configuration on Cloud Native Show
           url: https://www.youtube.com/watch?v=DJqmA5PcfzE
+        - text: Rolling out new features 
+          url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553 
       - linkListType: whats-new
         links:
         - text: Follow our announcements
@@ -123,14 +125,14 @@ landingContent:
         links:
         - text: Azure CLI
           url: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
+        - text: PowerShell
+          url: https://docs.microsoft.com/powershell/module/az.appconfiguration/
+        - text: Terraform
+          url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html          
         - text: .NET Core provider
           url: https://go.microsoft.com/fwlink/?linkid=2074664
-        - text: .NET Framework builder
-          url: https://go.microsoft.com/fwlink/?linkid=2074663
-        - text: Azure SDK for .Net
-          url: https://go.microsoft.com/fwlink/?linkid=2092056
         - text: Spring Boot provider
-          url: https://go.microsoft.com/fwlink/?linkid=2074659
+          url: https://github.com/microsoft/spring-cloud-azure/tree/master/
         - text: Azure SDK for Java
           url: https://go.microsoft.com/fwlink/?linkid=2098196
         - text: Azure SDK for Python
