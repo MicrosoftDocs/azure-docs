@@ -112,7 +112,7 @@ The host name **www<span>.2lwynbseszpam.azurequickstart.</span>org** resolves to
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the ExpressRoute circuit, delete the resource group. This removes the ExpressRoute circuit and all the related resources.
+When you no longer need the resources that you created with the DNS zone, delete the resource group. This removes the DNS zone and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
