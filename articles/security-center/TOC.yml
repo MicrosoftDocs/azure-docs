@@ -64,7 +64,7 @@
   items:
   - name: Connect your machines to Security Center
     href: quickstart-onboard-machines.md
-  - name: Onboard your Azure subscriptions
+  - name: Quickstart - Get started
     href: security-center-get-started.md
   - name: Connect your AWS and GCP clouds
     items:

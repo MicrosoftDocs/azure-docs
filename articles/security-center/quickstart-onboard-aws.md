@@ -16,11 +16,9 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-When you onboard your AWS account into Security Center you'll benefit from having a single security solution that provides visibility and protection across all major cloud environments.
+Onboarding your AWS account into Security Center, integrates AWS Security Hub and Azure Security Center. Security Center thus provides visibility and protection across both of these cloud environments to provide:
 
-**Azure Defender for servers** deploys the Log Analytics agent to your AWS instances. With the help of [Azure Arc](../azure-arc/servers/overview.md), this provides Security Center features such as:
-
-- Automatic agent provisioning
+- Automatic agent provisioning (Security Center uses [Azure Arc](../azure-arc/servers/overview.md) to deploy the Log Analytics agent to your AWS instances)
 - Policy management
 - Vulnerability management
 - Embedded Endpoint Detection and Response (EDR)
@@ -47,12 +45,12 @@ In the screenshot below you can see AWS projects displayed in Security Center's 
 
 ## Connect your AWS account
 
-### Step 1 - Set up AWS Security Hub:
+### Step 1. Set up AWS Security Hub:
 
 1. To view security recommendations for multiple regions, repeat the following steps for each relevant region.
 
     > [!IMPORTANT]
-    > If you're using a master account, repeat the following three steps to configure the master account and all connected member accounts across all relevant regions
+    > If you're using an AWS master account, repeat the following three steps to configure the master account and all connected member accounts across all relevant regions
 
     1. Enable [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html).
     1. Enable [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html).
@@ -60,16 +58,19 @@ In the screenshot below you can see AWS projects displayed in Security Center's 
 
         When you first enable Security Hub, it may take several hours for data to be available.
 
-### Step 2 - Create an IAM role for Security Center:
+### Step 2. Set up authentication for Security Center in AWS
 
+There are two ways to allow Security Center to authenticate to AWS:
+
+- **Create an IAM role for Security Center** - This is the most secure method and is recommended
+- **AWS user for Security Center** - A less secure option if you don't have IAM enabled
+
+#### Create an IAM role for Security Center
 1. From your Amazon Web Services console, under **Security, Identity & Compliance**, select **IAM**.
-
     :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="AWS services":::
 
 1. Select **Roles** and **Create role**.
-
 1. Select **Another AWS account**.
-
 1. Enter the following details:
 
     - **Account ID** - enter the Microsoft Account ID (**158177204117**) as shown in the AWS connector page in Security Center.
@@ -77,7 +78,6 @@ In the screenshot below you can see AWS projects displayed in Security Center's 
     - **External ID** - enter the subscription ID as shown in the AWS connector page in Security Center 
 
 1. Select **Next**.
-
 1. In the **Attach permission policies** section, select the following policies:
 
     - SecurityAudit
@@ -85,12 +85,10 @@ In the screenshot below you can see AWS projects displayed in Security Center's 
     - AWSSecurityHubReadOnlyAccess
 
 1. Optionally add tags. Adding Tags to the user doesn't affect the connection.
-
 1. Select **Next**.
-
 1. Save the Amazon Resource Name (ARN) for later. 
 
-### Step 3 - Create AWS user for Security Center 
+#### Create an AWS user for Security Center 
 1. Open the **Users** tab and select **Add user**.
 1. In the **Details** step, enter a username for Security Center and ensure that you select **Programmatic access** for the AWS Access Type. 
 1. Select **Next Permissions**.
@@ -103,7 +101,7 @@ In the screenshot below you can see AWS projects displayed in Security Center's 
 1. Review the summary and click **Create user**.
 
 
-### Step 4 - Configure the SSM Agent
+### Step 3. Configure the SSM Agent
 
 AWS Systems Manager is required for automating tasks across your AWS resources. If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
 
@@ -111,29 +109,27 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 - [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### Step 5 - Create a Service Principal for onboarding at scale
+### Step 4. Create a Service Principal for onboarding at scale
 
 As an **Owner** on the subscription you want to use for the onboarding, create a a service principal for Azure Arc onboarding as described in [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
 
 
-### Step 6 - Connect AWS to Security Center
+### Step 5. Connect AWS to Security Center
 
 1. From Security Center's menu, select **Multi cloud connectors**.
-
 1. Select **Add AWS account**.
-
     :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi cloud connectors page":::
-
 1. Configure the options in the **AWS authentication** tab:
-
     1. Enter a **Display name** for the connector.
     1. Confirm that the subscription is correct. It is the subscription that will include the connector and AWS Security Hub recommendations.
-    1. Select the authentication method **Assume Role** and paste the ARN from [Step 2 - Create an IAM role for Security Center:](#step-2---create-an-iam-role-for-security-center).
+    1. Depending on the authentication option you chose in [Step 2. Set up authentication for Security Center in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
+        - Select  **Assume Role** and paste the ARN from [Create an IAM role for Security Center](#create-an-iam-role-for-security-center)
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pasting the ARN file in the relevant field of the AWS connection wizard in the Azure Portal":::
 
-        :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pasting the ARN file in the relevant field of the AWS connection wizard in the Azure Portal":::
-    1. Select **Credentials** and paste the **access key** and **secret key** from the .csv file you saved in [Step 3 - Create AWS user for Security Center](#step-3---create-aws-user-for-security-center).
-    1. Select **Next**.
+            OR
 
+        - Select **Credentials** and paste the **access key** and **secret key** from the .csv file you saved in [Step 3 - Create AWS user for Security Center](#step-3---create-aws-user-for-security-center).
+1. Select **Next**.
 1. Configure the options in the **Azure Arc Configuration** tab:
 
     Security Center discovers the EC2 instances in the connected AWS account and uses SSM to onboard them to Azure Arc. 
@@ -152,7 +148,7 @@ As an **Owner** on the subscription you want to use for the onboarding, create a
 
         Learn more about Azure Tags in [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
-### Step 7 - Confirmation
+### Step 7. Confirmation
 
 When the connector is successfully created and AWS Security Hub has been configured properly:
 

@@ -17,7 +17,7 @@ ms.author: memildin
 
 ---
 
-# Quickstart: Upgrade your Azure subscription to Azure Defender
+# Quickstart: Setting up Azure Security Center
 
 Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the free features offers limited security for your Azure resources only, enabling Azure Defender extends these capabilities to on-premises and other clouds. Azure Defender helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -35,7 +35,7 @@ To enable Azure Defender on a subscription, you must be assigned the role of Sub
 
 1. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
-   ![Security Center overview][2]
+
 
 **Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
 
