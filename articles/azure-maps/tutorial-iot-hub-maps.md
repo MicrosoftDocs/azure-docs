@@ -20,7 +20,7 @@ In an IoT scenario, it's common to capture and track relevant events that occur 
 In this tutorial you will:
 
 > [!div class="checklist"]
-> * Create an Azure Storage account to log car tracking data.
+> * Create an Azure storage account to log car tracking data.
 > * Upload a geofence to the Azure Maps Data service by using the Data Upload API.
 > * Create a hub in Azure IoT Hub, and register a device.
 > * Create a function in Azure Functions, implementing business logic based on Azure Maps spatial analytics.
@@ -37,7 +37,7 @@ In this tutorial you will:
 
 4. [Create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*, but you can choose whatever name you like.
 
-5. Download the [rentalCarSimulation C# project ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
+5. Download the [rentalCarSimulation C# project](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you can choose a different API development environment.
 
@@ -90,7 +90,7 @@ The following figure highlights the geofence area in blue. The rental car's rout
 
    :::image type="content" source="./media/tutorial-iot-hub-maps/geofence-route.png" border="false" alt-text="Figure showing geofence route.":::
 
-## Create an Azure Storage account
+## Create an Azure storage account
 
 To store car violation tracking data, create a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview#general-purpose-v2-accounts) in your resource group. If you haven't created a resource group, follow the directions in [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, you'll name your resource group *ContosoRental*.
 
@@ -167,7 +167,7 @@ Devices can't connect to the IoT hub unless they're registered in the IoT hub id
 
 Azure Functions is a serverless compute service that allows you to run small pieces of code ("functions"), without the need to explicitly provision or manage compute infrastructure. To learn more, see [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
 
-A function is triggered by a certain event. Here, you'll create a function that is triggered by an Event Grid trigger. Create the relationship between trigger and function by creating an event subscription for IoT hub device telemetry events. When a device telemetry event occurs, your function is called as an endpoint, and receives the relevant data for the device you previously registered in IoT hub.
+A function is triggered by a certain event. Here, you'll create a function that is triggered by an Event Grid trigger. Create the relationship between trigger and function by creating an event subscription for IoT Hub device telemetry events. When a device telemetry event occurs, your function is called as an endpoint, and receives the relevant data for the device you previously registered in IoT Hub.
 
 Here's the [C# script code that your function will contain](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx).
 
@@ -179,7 +179,7 @@ Now, set up your Azure function.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Screenshot of create a function app.":::
 
-1. For **Storage account**, select the storage account you created in [Create an Azure Storage account](#create-an-azure-storage-account). Select **Review + create**.
+1. For **Storage account**, select the storage account you created in [Create an Azure storage account](#create-an-azure-storage-account). Select **Review + create**.
 
 1. Review the function app details, and select **Create**.
 
@@ -199,7 +199,7 @@ Now, set up your Azure function.
 1. In the C# code, replace the following parameters:
     * Replace **SUBSCRIPTION_KEY** with your Azure Maps account primary subscription key.
     * Replace **UDID** with the `udid` of the geofence you uploaded in [Upload a geofence](#upload-a-geofence).
-    * The `CreateBlobAsync` function in the script creates a blob per event in the data storage account. Replace the **ACCESS_KEY**, **ACCOUNT_NAME**, and **STORAGE_CONTAINER_NAME** with your storage account's access key, account name, and data storage container. These values were generated when you created your storage account in [Create an Azure Storage account](#create-an-azure-storage-account).
+    * The `CreateBlobAsync` function in the script creates a blob per event in the data storage account. Replace the **ACCESS_KEY**, **ACCOUNT_NAME**, and **STORAGE_CONTAINER_NAME** with your storage account's access key, account name, and data storage container. These values were generated when you created your storage account in [Create an Azure storage account](#create-an-azure-storage-account).
 
 1. In the left menu, select the **Integration** pane. Select **Event Grid Trigger** in the diagram. Type in a name for the trigger, *eventGridEvent*, and select **Create Event Grid subscription**.
 

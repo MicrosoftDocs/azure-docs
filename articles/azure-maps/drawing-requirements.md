@@ -70,7 +70,7 @@ DWG layers must also follow the following criteria:
 * Each level must be in the same orientation as the other levels.
 * Self-intersecting polygons are automatically repaired, and the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) raises a warning. You should manually inspect the repaired results, because they might not match the expected results.
 
-All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types are ignored.
+All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, or Text (single line). Any other entity types are ignored.
 
 The following table outlines the supported entity types and supported features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) ignores these entities.  
 
@@ -92,7 +92,7 @@ The DWG file for each level must contain a layer to define that level's perimete
 
 No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-indoor-maps.md#create-a-feature-stateset) will contain only one level feature for each DWG file. Additionally:
 
-* Exteriors must be drawn as Polygon, PolyLine (closed), Circle.
+* Exteriors must be drawn as Polygon, PolyLine (closed), or Circle.
 * Exteriors can overlap, but are dissolved into one geometry.
 
 If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Alternatively, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
@@ -103,23 +103,23 @@ You can see an example of the Exterior layer as the outline layer in the [sample
 
 The DWG file for each level defines a layer containing units. Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. The Units layer should adhere to the following requirements:
 
-* Units must be drawn as Polygon, PolyLine (closed), Circle.
+* Units must be drawn as Polygon, PolyLine (closed), or Circle.
 * Units must fall inside the bounds of the facility exterior perimeter.
 * Units must not partially overlap.
 * Units must not contain any self-intersecting geometry.
 
 Name a unit by creating a text object in the UnitLabel layer, and then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
-You can see an example of the Units layer as the units layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Units layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Wall layer
 
 The DWG file for each level can contain a layer that defines the physical extents of walls, columns, and other building structure.
 
-* Walls must be drawn as Polygon, PolyLine (closed), Circle.
+* Walls must be drawn as Polygon, PolyLine (closed), or Circle.
 * The wall layer or layers should only contain geometry that's interpreted as building structure.
 
-You can see an example of the Walls layer as the walls layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Walls layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Door layer
 
@@ -133,13 +133,13 @@ Door openings in an Azure Maps dataset are represented as a single-line segment 
 
 The DWG file for each level can contain a Zone layer that defines the physical extents of zones. A zone can be an indoor empty space or a back yard.
 
-* Zones must be drawn as Polygon, PolyLine (closed), Circle.
+* Zones must be drawn as Polygon, PolyLine (closed), or Circle.
 * Zones can overlap.
 * Zones can fall inside or outside the facility's exterior perimeter.
 
 Name a zone by creating a text object in the ZoneLabel layer, and placing the text object inside the bounds of the zone. For more information, see [ZoneLabel layer](#zonelabel-layer).
 
-You can see an example of the Zone layer as the zone layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the Zone layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### UnitLabel layer
 
@@ -149,17 +149,17 @@ The DWG file for each level can contain a UnitLabel layer. The UnitLabel layer a
 * Unit labels must fall inside the bounds of their unit.
 * Units must not contain multiple text entities in the UnitLabel layer.
 
-You can see an example of the UnitLabel layer as the unitlabel layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the UnitLabel layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### ZoneLabel layer
 
-The DWG file for each level may contain a ZoneLabel layer. This layer adds a name property to zones extracted from the Zone layer. Zones with a name property can have additional details specified in the manifest file.
+The DWG file for each level can contain a ZoneLabel layer. This layer adds a name property to zones extracted from the Zone layer. Zones with a name property can have additional details specified in the manifest file.
 
 * Zones labels must be single-line text entities.
 * Zones labels must fall inside the bounds of their zone.
 * Zones must not contain multiple text entities in the ZoneLabel layer.
 
-You can see an example of the ZoneLabel layer as the zonelabel layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+You can see an example of the ZoneLabel layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Manifest file requirements
 
@@ -262,7 +262,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 |categoryName|    string|    false    |Category name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Alternate name of the zone.  |
 |zoneNameSubtitle|    string |    false    |Subtitle of the zone. |
-|zoneSetId|    string |    false    | Set ID to establish a relationship among multiple zones so that they may be queried or selected as a group. For example, zones that span multiple levels. |
+|zoneSetId|    string |    false    | Set ID to establish a relationship among multiple zones so that they can be queried or selected as a group. For example, zones that span multiple levels. |
 
 ### Sample Drawing package manifest
 
