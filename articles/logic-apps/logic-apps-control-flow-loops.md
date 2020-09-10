@@ -201,7 +201,7 @@ a variable until the variable's value equals 10. The logic app
 then sends an email that confirms the current value. 
 
 > [!NOTE]
-> These steps use Outlook for Microsoft 365, but you can 
+> These steps use Office 365 Outlook, but you can 
 > use any email provider that Logic Apps supports. 
 > [Check the connectors list here](/connectors/). 
 > If you use another email account, the general steps stay the same, 

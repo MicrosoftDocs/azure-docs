@@ -49,8 +49,8 @@ that appear in the email body.
 including a trigger. If you don't have a logic app, see 
 [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   The example logic app in this topic uses this Outlook
-   for Microsoft 365 trigger: **When a new email arrives**
+   The example logic app in this topic uses this Office 365 
+   Outlook trigger: **When a new email arrives**
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 that's linked to your logic app
@@ -80,7 +80,7 @@ location that you want in your logic app's workflow.
    and select **Add an action**.
 
    This example adds the **Inline Code** action 
-   under the Outlook for Microsoft 365 trigger.
+   under the Office 365 Outlook trigger.
 
    ![Add new step](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
@@ -277,7 +277,7 @@ found at run time.
 > adding the trigger or actions as explicit dependencies.
 
 For example, suppose you have code that references the **SelectedOption** 
-result from the **Send approval email** action for the Outlook for Microsoft 365 
+result from the **Send approval email** action for the Office 365 Outlook 
 connector. At create time, the Logic Apps engine analyzes your code to 
 determine whether you've referenced any trigger or action results and 
 includes those results automatically. At run time, should you get an 

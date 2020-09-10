@@ -17,7 +17,7 @@ This quickstart introduces the basic general concepts behind how to build your f
 
 ![Conceptual art showing high-level example logic app workflow.](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-For this scenario, you need an Azure subscription or [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), an email account from a service that's supported by Azure Logic Apps, such as Outlook for Microsoft 365, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](/connectors/). In this example, the logic app uses a work or school account. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
+For this scenario, you need an Azure subscription or [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), an email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](/connectors/). In this example, the logic app uses a work or school account. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
 
 > [!IMPORTANT]
 > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
@@ -107,9 +107,9 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
 1. In the search box, enter `send an email` so that you can find connectors that offer this action. To filter the actions list to a specific app or service, you can select that app or service first.
 
-   For example, if you're using a Microsoft work or school account and want to use Outlook for Microsoft 365, select **Outlook for Microsoft 365**. Or, if you're using a personal Microsoft account, you can select Outlook.com. This example continues with Outlook for Microsoft 365:
+   For example, if you're using a Microsoft work or school account and want to use Office 365 Outlook, select **Office 365 Outlook**. Or, if you're using a personal Microsoft account, you can select Outlook.com. This example continues with Office 365 Outlook:
 
-   ![Screenshot showing Logic Apps Designer and selected Outlook for Microsoft 365 connector.](./media/quickstart-create-first-logic-app-workflow/select-connector.png)
+   ![Screenshot showing Logic Apps Designer and selected Office 365 Outlook connector.](./media/quickstart-create-first-logic-app-workflow/select-connector.png)
 
    You can now more easily find and select the action that you want to use, for example, `send an email`:
 

@@ -236,7 +236,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 1. In the Azure portal, create a blank logic app. Add a trigger that checks for new email and any attachments.
 
-   This example uses the Outlook for Microsoft 365 trigger for **When a new email arrives**. You can set up this trigger to fire only when the email has attachments. However, you can use any connector that checks for new emails with attachments, such as the Outlook.com connector.
+   This example uses the Office 365 Outlook trigger for **When a new email arrives**. You can set up this trigger to fire only when the email has attachments. However, you can use any connector that checks for new emails with attachments, such as the Outlook.com connector.
 
 1. In the trigger, to check for attachments and pass those attachments into your logic app's workflow, select **Yes** for these properties:
 

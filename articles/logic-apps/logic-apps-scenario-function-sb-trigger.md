@@ -81,7 +81,7 @@ For this scenario, you have a function running each logic app that you want to t
 
 1. Add any other actions that you want to run after receiving the queue message.
 
-   For example, you can send an email with the Outlook for Microsoft 365 connector.
+   For example, you can send an email with the Office 365 Outlook connector.
 
 1. Save your logic app, which generates the callback URL for the trigger in this logic app. Later, you use this callback URL in the code for the Azure Service Bus Queue trigger.
 

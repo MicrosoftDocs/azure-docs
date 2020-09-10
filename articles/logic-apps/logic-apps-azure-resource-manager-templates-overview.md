@@ -21,7 +21,7 @@ This overview describes the attributes in a Resource Manager template that inclu
 >
 > Or, you can create logic app templates by using [Azure PowerShell with the LogicAppTemplate module](../logic-apps/logic-apps-create-azure-resource-manager-templates.md#azure-powershell).
 
-The example logic app in this topic uses an [Outlook for Microsoft 365 trigger](/connectors/office365/) that fires when a new email arrives and an [Azure Blob Storage action](/connectors/azureblob/) that creates a blob for the email body and uploads that blob to an Azure storage container. The examples also show how to parameterize values that vary at deployment.
+The example logic app in this topic uses an [Office 365 Outlook trigger](/connectors/office365/) that fires when a new email arrives and an [Azure Blob Storage action](/connectors/azureblob/) that creates a blob for the email body and uploads that blob to an Azure storage container. The examples also show how to parameterize values that vary at deployment.
 
 For more information about Resource Manager templates, see these topics:
 
@@ -599,7 +599,7 @@ When your logic app creates and uses connections to other services and system by
 
 Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameters file. Make sure that connections use the same Azure resource group and location as your logic app.
 
-Here is an example resource definition for an Outlook for Microsoft 365 connection and the corresponding template parameters:
+Here is an example resource definition for an Office 365 Outlook connection and the corresponding template parameters:
 
 ```json
 {
@@ -613,14 +613,14 @@ Here is an example resource definition for an Outlook for Microsoft 365 connecti
          "type": "string",
          "defaultValue": "office365",
          "metadata": {
-            "description": "The resource name for the Outlook for Microsoft 365 connection"
+            "description": "The resource name for the Office 365 Outlook connection"
          }
       },
       "office365_1_Connection_DisplayName": {
          "type": "string",
          "defaultValue": "",
          "metadata": {
-            "description": "The display name for the Outlook for Microsoft 365 connection"
+            "description": "The display name for the Office 365 Outlook connection"
          }
       }
    },
@@ -630,7 +630,7 @@ Here is an example resource definition for an Outlook for Microsoft 365 connecti
       {
          <logic-app-resource-definition>
       },
-      // Outlook for Microsoft 365 API connection resource definition
+      // Office 365 Outlook API connection resource definition
       {
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
@@ -673,7 +673,7 @@ Your logic app's resource definition also works with connection resource definit
 
 Each connection that you create has a unique name in Azure. When you create multiple connections to the same service or system, each connection name is appended with a number, which increments with each new connection created, for example, `office365`, `office365-1`, and so on.
 
-This example shows the interactions between your logic app's resource definition and a connection resource definition for Outlook for Microsoft 365:
+This example shows the interactions between your logic app's resource definition and a connection resource definition for Office 365 Outlook:
 
 ```json
 {
@@ -724,7 +724,7 @@ This example shows the interactions between your logic app's resource definition
          }
          // End logic app resource definition
       },
-      // Outlook for Microsoft 365 API connection resource definition
+      // Office 365 Outlook API connection resource definition
       {
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
@@ -1069,14 +1069,14 @@ Here is the parameterized sample template that's used by this topic's examples:
          "type": "string",
          "defaultValue": "office365",
          "metadata": {
-            "description": "The resource name to use for the Outlook for Microsoft 365 connection"
+            "description": "The resource name to use for the Office 365 Outlook connection"
          }
       },
       "office365_1_Connection_DisplayName": {
          "type": "string",
          "defaultValue": "",
          "metadata": {
-            "description": "The display name to use for the Outlook for Microsoft 365 connection"
+            "description": "The display name to use for the Office 365 Outlook connection"
          }
       },
       "azureblob_1_Connection_Name": {

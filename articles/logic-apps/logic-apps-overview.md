@@ -17,13 +17,13 @@ For example, here are just a few workloads you can automate with logic apps:
 
 * Process and route orders across on-premises systems and cloud services.
 
-* Send email notifications with Microsoft 365 when events happen in various systems, apps, and services.
+* Send email notifications with Office 365 when events happen in various systems, apps, and services.
 
 * Move uploaded files from an SFTP or FTP server to Azure Storage.
 
 * Monitor tweets for a specific subject, analyze the sentiment, and create alerts or tasks for items that need review.
 
-To build enterprise integration solutions with Azure Logic Apps, you can choose from a growing gallery with [hundreds of ready-to-use connectors](../connectors/apis-list.md), which include services such as Azure Service Bus, Azure Functions, Azure Storage, SQL Server, Microsoft 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, file shares, and more. [Connectors](#logic-app-concepts) provide [triggers](#logic-app-concepts), [actions](#logic-app-concepts), or both for creating logic apps that securely access and process data in real time.
+To build enterprise integration solutions with Azure Logic Apps, you can choose from a growing gallery with [hundreds of ready-to-use connectors](../connectors/apis-list.md), which include services such as Azure Service Bus, Azure Functions, Azure Storage, SQL Server, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, file shares, and more. [Connectors](#logic-app-concepts) provide [triggers](#logic-app-concepts), [actions](#logic-app-concepts), or both for creating logic apps that securely access and process data in real time.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
