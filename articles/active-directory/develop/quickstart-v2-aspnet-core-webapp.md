@@ -89,18 +89,15 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 >
 >    - Replace `Enter_the_Application_Id_here` with the **Application (client) ID** of the application you registered in the Azure portal. You can find **Application (client) ID** in the app's **Overview** page.
 >    - Replace `common` with one of the following:
->       - If your application supports **Accounts in this organizational directory only**, replace this value with the **Directory (tenant) ID** (a GUID) or **tenant name** (for example, `contoso.onmicrosoft.com`).
+>       - If your application supports **Accounts in this organizational directory only**, replace this value with the **Directory (tenant) ID** (a GUID) or **tenant name** (for example, `contoso.onmicrosoft.com`). You can find the **Directory (tenant) ID** on the app's **Overview** page.
 >       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >       - If your application supports **All Microsoft account users**, leave this value as `common`
->
->     > [!TIP]
->     > You can find the **Application (client) ID** and **Directory (tenant) ID** on the app's **Overview** page in the Azure portal.
 >
 > For this quickstart, do not alter any other values in the *appsettings.json* file.
 >
 > #### Step 4: Build and run the application
 > 
-> Build and run the app by selecting the **Debug** menu > **Start Debugging**, or press the `F5` key.
+> Build and run the app in Visual Studio by selecting the **Debug** menu > **Start Debugging**, or by pressing the `F5` key.
 > 
 > You're prompted for your credentials, and then asked to consent to the permissions your app requires. Select **Accept** on the consent prompt.
 > 
