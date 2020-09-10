@@ -52,7 +52,7 @@ account](create-sql-api-dotnet.md#create-account), or select an existing Azure C
 You can turn on analytical store on an Azure Cosmos container while creating the container. You can use the Azure portal or configure the `analyticalTTL` property during container creation by using the Azure Cosmos DB SDKs.
 
 > [!NOTE]
-> Currently you can enable analytical store for **new** containers (both in new and existing accounts). You can migrate data from your exisitng containers to new containers using [Azure Cosmos DB migration tools.](https://docs.microsoft.com/en-us/azure/cosmos-db/cosmosdb-migrationchoices)
+> Currently you can enable analytical store for **new** containers (both in new and existing accounts). You can migrate data from your exisitng containers to new containers using [Azure Cosmos DB migration tools.](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-migrationchoices)
 
 ### Azure portal
 
