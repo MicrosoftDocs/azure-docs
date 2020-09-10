@@ -28,7 +28,7 @@ You can [monitor progress and status of management operations](monitoring-manage
 
 Category  |Operation  |Cancelable  |Estimated cancel duration  |
 |---------|---------|---------|---------|
-|Deployment |Instance creation |Yes |  |
+|Deployment |Instance creation |Yes |90% of operations finish in 5 minutes. |
 |Update |Instance storage scaling up/down (General Purpose) |No |  |
 |Update |Instance storage scaling up/down (Business Critical) |Yes |90% of operations finish in 5 minutes. |
 |Update |Instance compute (vCores) scaling up and down (General Purpose) |Yes |90% of operations finish in 5 minutes. |
