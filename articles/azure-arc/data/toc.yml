@@ -66,7 +66,7 @@
           href: monitor-grafana-kibana.md
         - name: Upload metrics and logs
           href: upload-metrics-and-logs-to-azure-monitor.md
-        - name: Inventory SQL instances
+        - name: Inventory database instances
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Get data controller username & password
           href: retrieve-the-username-password-for-data-controller.md
