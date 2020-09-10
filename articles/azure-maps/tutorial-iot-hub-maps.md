@@ -106,7 +106,7 @@ When you successfully create your storage account, you then need to create a con
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Screenshot of create a blob container.":::
 
-3. Go to the **Access keys** pane in your storage account, and copy the **Storage account name** and the **Key** value in the **key1** section. You need both of these values in the [Create an Azure Function and add an Event Grid subscription](#create-an-azure-function-and-add-an-event-grid-subscription) section.
+3. Go to the **Access keys** pane in your storage account, and copy the **Storage account name** and the **Key** value in the **key1** section. You need both of these values in the "Create an Azure Function and add an Event Grid subscription" section.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Screenshot of copy storage account name and key.":::
 
@@ -205,7 +205,7 @@ Now, set up your Azure function.
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Screenshot of add event subscription.":::
 
-1. Fill out the subscription details. Name the event subscription. For **Event Schema**, select **Event Grid Schema**. For **Topic Types**, select **Azure IoT Hub Accounts**. For **Resource Group**, select the resource group you created at the beginning of this tutorial. For **Resource**, select the IoT hub you created in [Create an Azure IoT hub](#create-an-azure-iot-hub). For **Filter to Event Types**, select **Device Telemetry**.
+1. Fill out the subscription details. Name the event subscription. For **Event Schema**, select **Event Grid Schema**. For **Topic Types**, select **Azure IoT Hub Accounts**. For **Resource Group**, select the resource group you created at the beginning of this tutorial. For **Resource**, select the IoT hub you created in "Create an Azure IoT hub." For **Filter to Event Types**, select **Device Telemetry**.
 
    After choosing these options, you'll see the **Topic Type** change to **IoT Hub**. For **System Topic Name**, you can use the same name as your resource. Finally, in the **Endpoint details** section, select **Select an endpoint**. Accept all settings and select **Confirm Selection**.
 
