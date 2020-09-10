@@ -12,7 +12,6 @@ ms.author: rosouz
 
 Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
-
 > [!IMPORTANT]
 > To use Azure Synapse Link, ensure you provision your Azure Cosmos account & Azure Synapse Analytics workspace in one of the supported regions. Azure Synapse Link is currently available in the following Azure regions: US West Central, East US, West US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
 
@@ -22,7 +21,8 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 * [Create an analytical store enabled Azure Cosmos container](#create-analytical-ttl)
 * [Connect your Azure Cosmos database to a Synapse workspace](#connect-to-cosmos-database)
 * [Query the analytical store using Synapse Spark](#query-analytical-store-spark)
-* [Query the analytical store using SQL on-demand](#query-analytical-store-sql-on-demand)
+* [Query the analytical store using Synapse SQL serverless](#query-analytical-store-sql-on-demand)
+* [Use Synapse SQL serverless to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos accounts
 
@@ -209,14 +209,16 @@ Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/syn
 
 Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
 
-## <a id="query-analytical-store-sql-on-demand"></a> Query analytical store using SQL on-demand
+## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using Synapse SQL serverless
 
-SQL on-demand (preview) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using SQL on-demand]() article.
+Synapse SQL serverless (a preview feature which, was previously referred to as **SQL on-demand**) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using Synapse SQL serverless]() article.
 
-## <a id="analyze-with-powerbi"></a>Use SQL on-demand analyze data and visualize in Power BI
+> [!NOTE]
+> Using the Azure Cosmos DB analytic store with Synapse SQL serverless is currently under gated preview. To request access, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
-SQL on-demand (preview) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link.
-You can build a SQL on-demand database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. To learn more, see how to use [SQL on-demand to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
+## <a id="analyze-with-powerbi"></a>Use Synapse SQL serverless to analyze and visualize data in Power BI
+
+You can build a Synapse SQL serverless database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. To learn more, see how to use [Synapse SQL serverless to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
 

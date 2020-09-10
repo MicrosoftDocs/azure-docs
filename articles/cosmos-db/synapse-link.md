@@ -36,7 +36,6 @@ Azure Synapse Link allows you to directly access Azure Cosmos DB analytical stor
 
 You can now get rich insights on your operational data in near real-time, using Azure Synapse Link. ETL-based systems tend to have higher latency for analyzing your operational data, due to many layers needed to extract, transform and load the operational data. With native integration of Azure Cosmos DB analytical store with Azure Synapse Analytics, you can analyze operational data in near real-time enabling new business scenarios. 
 
-
 ### No impact on operational workloads
 
 With Azure Synapse Link, you can run analytical queries against an Azure Cosmos DB analytical store (a separate column store) while the transactional operations are processed using provisioned throughput for the transactional workload (a row-based transactional store).  The analytical workload is served independent of the transactional workload traffic without consuming any of the throughput provisioned for your operational data.
@@ -114,7 +113,9 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * Azure Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and the Azure Cosmos DB’s API for MongoDB. Support for Cassandra API is currently under a gated preview. To request access to the gated preview, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
-* Currently, the analytical store can only be enabled for new containers. You can enable Synapse Link on new and existing Azure Cosmos DB accounts.
+* Currently, the analytical store can only be enabled for new containers. To use analytical store for existing containers, migrate data from your existing containers to new containers using [Azure Cosmos DB migration tools](cosmosdb-migrationchoices.md). You can enable Synapse Link on new and existing Azure Cosmos DB accounts.
+
+* Accessing the Azure Cosmos DB analytic store with Synapse SQL serverless is currently under gated preview. To request access, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
 * In preview, for Synapse Link enabled database accounts, backup and restore of containers is not supported. If you have workloads that require backup and restore functionality, we recommended not to enable Synapse Link on those database accounts. 
 

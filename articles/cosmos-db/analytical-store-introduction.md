@@ -29,7 +29,7 @@ Azure Cosmos DB analytical store addresses the complexity and latency challenges
 
 Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly linking to Azure Cosmos DB analytical store from Synapse Analytics. It enables you to run near real-time large-scale analytics on your operational data.
 
-## Analytical store features
+## Features of analytical store 
 
 When you enable analytical store on an Azure Cosmos DB container, a new column-store is internally created based on the operational data in your container. This column store is persisted separately from the row-oriented transactional store for that container. The inserts, updates, and deletes to your operational data are automatically synced to analytical store. You don't need the change feed or ETL to sync the data.
 
@@ -69,6 +69,8 @@ Azure Cosmos DB transactional store is schema-agnostic, and it allows you to ite
 
 As your schema evolves, and new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
+#### Schema constraints
+
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
 * You can have a maximum of 200 properties at any nesting level in the schema and a maximum nesting depth of 5.
@@ -81,6 +83,8 @@ The following constraints are applicable on the operational data in Azure Cosmos
 * Property names should be unique when compared case insensitively. For example, the following items do not satisfy this constraint and hence will not be represented in the analytical store:
 
   `{"Name": "fred"} {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner.
+
+##### Schema representation
 
 There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
 
