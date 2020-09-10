@@ -27,6 +27,8 @@ Make sure to create the following resources before you start:
 
 * Create a database within the Azure Cosmos account and two containers that have [analytical store enabled.](configure-synapse-link.md#create-analytical-ttl)
 
+* Load products data into the Azure Cosmos containers as described in this [batch data ingestion](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) notebook.
+
 * [Create a Synapse workspace](../synapse-analytics/quickstart-create-workspace.md) named **SynapseLinkBI**.
 
 * [Connect the Azure Cosmos database to the Synapse workspace](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json).
