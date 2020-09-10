@@ -63,7 +63,7 @@ CREATE VIEW  RetailSales
 AS  
 SELECT  *
 FROM OPENROWSET (
-    'CosmosDB', N'account=<Your Azure Cosmos account name>;database=<Your Azure Cosmos database name>;region=<Your Azure Cosmos DB Region>;key=<Your Azure Cosmos DB key here>',RetailSales)
+    'CosmosDB', 'account=<Your Azure Cosmos account name>;database=<Your Azure Cosmos database name>;region=<Your Azure Cosmos DB Region>;key=<Your Azure Cosmos DB key here>',RetailSales)
 AS q1
 ```
 
@@ -77,7 +77,7 @@ CREATE VIEW StoreDemographics
 AS  
 SELECT  *
 FROM OPENROWSET (
-    'CosmosDB', N'account=<Your Azure Cosmos account name>;database=<Your Azure Cosmos database name>;region=<Your Azure Cosmos DB Region>;key=<Your Azure Cosmos DB key here>', StoreDemographics)
+    'CosmosDB', 'account=<Your Azure Cosmos account name>;database=<Your Azure Cosmos database name>;region=<Your Azure Cosmos DB Region>;key=<Your Azure Cosmos DB key here>', StoreDemographics)
 AS q1
 ```
 
