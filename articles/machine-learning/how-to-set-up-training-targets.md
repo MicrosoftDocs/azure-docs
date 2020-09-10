@@ -17,7 +17,7 @@ ms.custom: how-to, devx-track-python, contperfq1
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to use various training environments ([compute targets](concept-compute-target.md)) to train your machine learning model.
+In this article, you learn how to configure and submit Azure Machine Learning runs train your models.
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning, you can run your script on various compute targets without having to change your training script.
 
@@ -68,6 +68,8 @@ experiment_name = 'my_experiment'
 
 experiment = Experiment(workspace=ws, name=experiment_name)
 ```
+
+## Select a compute target
 
 ## Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker).
