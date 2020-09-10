@@ -15,7 +15,7 @@ ms.date: 09/03/2020
 
 # Configure Azure Private Link for an Azure Machine Learning workspace (preview)
 
-In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. 
+In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. For information on setting up a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 > [!IMPORTANT]
 > Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is available in all regions that Azure Machine Learning is supported in, excluding US Government and Azure China 21Vianet regions.
@@ -55,88 +55,7 @@ Since communication to the workspace is only allowed from the virtual network, a
 
 For information on Azure Virtual Machines, see the [Virtual Machines documentation](/azure/virtual-machines/).
 
-## Using Azure Storage
-
-To secure the Azure Storage account used by your workspace, put it inside the virtual network.
-
-For information on putting the storage account in the virtual network, see [Use a storage account for your workspace](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
-
-> [!WARNING]
-> Azure Machine Learning does not support using an Azure Storage account that has private link enabled.
-
-## Using Azure Key Vault
-
-To secure the Azure Key Vault used by your workspace, you can either put it inside the virtual network or enable Private Link for it.
-
-For information on putting the key vault in the virtual network, see [Use a key vault instance with your workspace](how-to-enable-virtual-network.md#key-vault-instance).
-
-For information on enabling Private Link for the key vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/private-link-service).
-
-## Using Azure Kubernetes Services
-
-To secure the Azure Kubernetes services used by your workspace, put it inside a virtual network. For more information, see [Use Azure Kubernetes Services with your workspace](how-to-enable-virtual-network.md#aksvnet).
-
-Azure Machine Learning now supports using an Azure Kubernetes Service that has private link enabled. However, using a private link enabled Azure Kubernetes Service cluster with Azure Machine Learning may require a quota increase. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
-To create a private AKS cluster, see the [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/azure/aks/private-clusters).
-
-## Azure Container Registry
-
-For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#azure-container-registry).
-
-> [!IMPORTANT]
-> If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "keyVaultArmId": {
-      "type": "string"
-      },
-      "workspaceName": {
-      "type": "string"
-      },
-      "containerRegistryArmId": {
-      "type": "string"
-      },
-      "applicationInsightsArmId": {
-      "type": "string"
-      },
-      "storageAccountArmId": {
-      "type": "string"
-      },
-      "location": {
-      "type": "string"
-      }
-  },
-  "resources": [
-      {
-      "type": "Microsoft.MachineLearningServices/workspaces",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]",
-      "identity": {
-          "type": "SystemAssigned"
-      },
-      "sku": {
-          "tier": "enterprise",
-          "name": "enterprise"
-      },
-      "properties": {
-          "sharedPrivateLinkResources":
-  [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
-          "keyVault": "[parameters('keyVaultArmId')]",
-          "containerRegistry": "[parameters('containerRegistryArmId')]",
-          "applicationInsights": "[parameters('applicationInsightsArmId')]",
-          "storageAccount": "[parameters('storageAccountArmId')]"
-      }
-      }
-  ]
-}
-```
 
 ## Next steps
 
-For more information on securing your Azure Machine Learning workspace, see the [Enterprise security](concept-enterprise-security.md) article.
+For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
