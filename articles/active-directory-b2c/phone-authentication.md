@@ -26,16 +26,14 @@ One-time passwords are sent to your users by using SMS text messages, and you ma
 
 ## User experience for phone sign-up and sign-in
 
-With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary identifier. The end user's experience during sign-up and sign-in is described below. 
+With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary identifier. The end user's experience during sign-up and sign-in is described below.
 
 > [!NOTE]
 > We strongly suggest you include consent information in your sign-up and sign-in experience, similar to the sample text below. This sample text is for informational purposes only; you should consult with your own legal or compliance experts for guidance on your final text and feature configuration to meet your own compliance needs:
 >
-> *&lt;Your application name&gt;*
+> *By providing your phone number, you consent to recieving a one-time passcode sent by text message to help you sign in to *&lt;Your application name&gt;*. Standard message and data rates may apply.*
 >
-> *By providing your phone number, you consent to recieving a one-time passcode sent by text message to help you sign in to this application. Standard message and data rates may apply.*
->
-> *For more information,*<br/>*&lt;link to your Privacy Statement&gt;*<br/>*&lt;link to your Terms of Service&gt;*
+> *&lt;link to your Privacy Statement&gt;*<br/>*&lt;link to your Terms of Service&gt;*
 
 
 ### Phone sign-up
