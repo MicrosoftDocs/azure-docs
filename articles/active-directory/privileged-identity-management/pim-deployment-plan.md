@@ -356,7 +356,7 @@ Successfully deploying Privileged Identity Management in production is a signifi
 
 ### Use Privileged Identity Management alerts to safeguard your privileged access
 
-For more information on using Privileged Identity Management’s built-in alerting functionality to safeguard your organization, see [security alerts](pim-how-to-configure-security-alerts.md#security-alerts). These alerts include: administrators aren’t using privileged roles, roles are being assigned outside of Privileged Identity Management, roles are being activated too frequently and more. To fully protect your organization, you should regularly go through your list of alerts and fix the issues. You can view and fix your alerts the following way:
+For more information on using Privileged Identity Management’s built-in alerting functionality to safeguard your organization, see [security alerts](pim-how-to-configure-security-alerts.md#security-alerts-for-new-version). These alerts include: administrators aren’t using privileged roles, roles are being assigned outside of Privileged Identity Management, roles are being activated too frequently and more. To fully protect your organization, you should regularly go through your list of alerts and fix the issues. You can view and fix your alerts the following way:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management**.
