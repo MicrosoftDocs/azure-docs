@@ -59,7 +59,7 @@ When **Azure Defender for container registries** is enabled, any image you push 
 
 ## View and remediate findings
 
-1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the following recommendation:
+1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the recommendation **Vulnerabilities in Azure Container Registry images should be remediated**
 
     ![Recommendation to remediate issues ](media/monitor-container-security/acr-finding.png)
 
@@ -107,6 +107,7 @@ When **Azure Defender for container registries** is enabled, any image you push 
 
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
+
 ## Disable specific findings
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
@@ -118,9 +119,14 @@ You can use any of the following criteria:
 - Finding ID 
 - Category
 - Security check 
-- CVSS scores (v2, v3) 
+- CVSS v3 scores
 - Severity 
 - Patchable status 
+
+From the recommendations detail page for **Vulnerabilities in Azure Container Registry images should be remediated**, select **Disable rule** and define your criteria:
+
+:::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry":::
+
 
 
 

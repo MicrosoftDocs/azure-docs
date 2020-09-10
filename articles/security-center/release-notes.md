@@ -96,6 +96,24 @@ Security Center periodically analyzes the security state of your Azure resources
 
 When any resource has outstanding recommendations, they'll appear in the inventory.
 
+Learn more in [Explore and manage your resources with asset inventory and management tools](asset-inventory.md).
+
+
+
+### Disable a specific vulnerability finding for scans of container registries and virtual machines
+
+The vulnerability scanners included with Azure Defender scan images in your Azure Container Registry as well as you virtual machines. 
+
+If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
+
+When a finding matches the criteria you've defined in your disable rules, it won't appear in the list of findings.
+
+This option is available from the recommendations details pages for:
+
+- **Vulnerabilities in Azure Container Registry images should be remediated**
+- **Vulnerabilities in your virtual machines should be remediated**
+
+Learn more in [Disable specific findings for your container images](defender-for-container-registries-usage.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
 
 ### AWS and GCP connectors in Security Center bring a multi-cloud experience
 
