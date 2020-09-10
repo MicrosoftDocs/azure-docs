@@ -118,7 +118,7 @@ For Visual Studio for Mac use the [manual guidance](#enable-application-insights
 ### User secrets and other configuration providers
 
 If you want to store the instrumentation key in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
-Starting from [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.15.0-beta3, calling `services.AddApplicationInsightsTelemetry()` will read the instrumentation key from all [ASP.NET Core supported configuration providers](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#cp) and there is no need to pass `Microsoft.Extensions.Configuration.IConfiguration` parameter explicitly. 
+Starting from Microsoft.ApplicationInsights.AspNetCore version [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), calling `services.AddApplicationInsightsTelemetry()` will automatically read the instrumentation key from `Microsoft.Extensions.Configuration.IConfiguration` of the application. There is no need to explicitly provide the `IConfiguration`.
 
 ## Run your application
 
