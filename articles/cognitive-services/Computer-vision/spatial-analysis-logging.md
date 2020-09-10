@@ -20,7 +20,7 @@ Spatial analysis includes a set of features to monitor the health of the system 
 
 To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md). There are four debug skills available.
 
-Edit the deployment manifest to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
+Edit the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 
 After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container, and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
 
@@ -34,7 +34,7 @@ xhost +
 
 ## Collecting System Health Telemetry with Telegraf
 
-Telegraf is open source and the spatial-analysis-telegraf image available in Microsoft Container Registry takes the following inputs and sends them to Azure Monitor. The spatial-analysis-telegraf module can be built with desired custom Inputs and Outputs by the end user. The spatial-analysis-telegraf module configuration in spatial analysis is part of the deployment manifest. This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is open source and the spatial-analysis-telegraf image available in Microsoft Container Registry takes the following inputs and sends them to Azure Monitor. The spatial-analysis-telegraf module can be built with desired custom Inputs and Outputs by the end user. The spatial-analysis-telegraf module configuration in spatial analysis is part of the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179). This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
 1. spatial analysis Metrics
@@ -63,7 +63,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-In the deployment manifest, look for the *spatial-analysis-telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
+In the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), look for the *spatial-analysis-telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
 
 ```json
 
@@ -173,7 +173,7 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 > the `diagnostics` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
 > You must have Docker API version 1.40 or higher to use this module.`
 
-The sample deployment manifest file includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
+The [sample deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) file includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
 
 The `diagnostics` collection is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
 

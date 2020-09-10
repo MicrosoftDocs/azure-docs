@@ -64,11 +64,11 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 Deploy the spatial analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) on GitHub, which includes a basic deployment configuration for the *spatial-analysis* container. 
 
 > [!NOTE] 
-> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the DeploymentManifest.json file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. 
+> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find a sample *DeploymentManifest.json* file [on Github](https://go.microsoft.com/fwlink/?linkid=2142179) 
 
 ### Set environment variables
 
-Most of the **Environment Variables** for the IoT Edge Module are already set in the sample *DeploymentManifest.json* file. In the file, search for the `BILLING_ENDPOINT` and `API_KEY` environment variables, shown below. Replace the values with the Endpoint URI and the API Key that you created earlier. Ensure that the EULA value is set to "accept". 
+Most of the **Environment Variables** for the IoT Edge Module are already set in the sample *DeploymentManifest.json* file linked above. In the file, search for the `BILLING_ENDPOINT` and `API_KEY` environment variables, shown below. Replace the values with the Endpoint URI and the API Key that you created earlier. Ensure that the EULA value is set to "accept". 
 
 ```json
 
@@ -88,7 +88,7 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
 
 Now that the initial configuration of the *spatial-analysis* container is complete, the next step is to configure the operations parameters and add them to the deployment. 
 
-The first step is to update the sample [deployment manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) and configure the operationId for `cognitiveservices.vision.spatialanalysis-personcount` as shown below:
+The first step is to update the sample [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) and configure the operationId for `cognitiveservices.vision.spatialanalysis-personcount` as shown below:
 
 
 ```json
@@ -144,7 +144,7 @@ Locate the *Runtime Status* in the IoT Edge Module Settings for the spatial-anal
 
 ![Example deployment verification](./media/spatial-analytics/deployment-verification.png)
 
-At this point, the spatial-analysis container is running the operation. It emits AI insights for the `cognitiveservices.vision.spatialanalysis-personcount` operation and it routes these insights as telemetry to your Azure IoT Hub instance. To configure additional cameras, you can update the deployment manifest file and execute the deployment again.
+At this point, the spatial-analysis container is running the operation. It emits AI insights for the `cognitiveservices.vision.spatialanalysis-personcount` operation and it routes these insights as telemetry to your Azure IoT Hub instance. To configure additional cameras, you can update the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) file and execute the deployment again.
 
 ## Person Counting Web Application
 
