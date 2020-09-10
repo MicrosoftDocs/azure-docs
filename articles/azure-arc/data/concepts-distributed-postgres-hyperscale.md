@@ -29,6 +29,8 @@ This is the hyperscale form factor of the Postgres database engine offered avail
 
 The key concepts around Azure Arc enabled PostgreSQL Hyperscale are summarized below:
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Nodes and tables
 It is important to know about a following concepts to benefit the most from Azure Arc enabled Postgres Hyperscale:
 - Specialized Postgres nodes in Azure Arc enabled PostgreSQL Hyperscale: coordinator and workers
@@ -66,7 +68,7 @@ Queries can go fast when all the necessary data is available without any network
 See details at [Table colocation](../../postgresql/concepts-hyperscale-colocation.md).
 
 
-## Next steps:
+## Next steps
 - [Read about deploying Azure Arc enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
 - [Read about scaling out Azure Arc enabled PostgreSQL Hyperscale server groups deployed in your Arc Data Controller](scale-out-postgresql-hyperscale-server-group.md)
 - [Read about Azure Arc enabled Data Services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)

@@ -13,6 +13,8 @@ ms.topic: how-to
 
 # Get Azure Arc enabled data services logs
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Prerequisites
 
 To retrieve the Azure Arc enabled data services logs you will need the Azure Data CLI tool. [Installation instructions](./install-client-tools.md)

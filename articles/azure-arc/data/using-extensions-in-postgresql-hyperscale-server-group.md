@@ -17,6 +17,8 @@ ms.topic: how-to
 PostgreSQL is at its best when you use it with extensions. In fact, a key element of our own Hyperscale functionality is the Microsoft-provided `citus` extension that is installed by default, which allows Postgres to transparently shard data across multiple nodes.
 
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## List of extensions
 In addition of the extensions in [`contrib`](https://www.postgresql.org/docs/12/contrib.html), the list of extensions present in the containers of your Azure Arc enabled Postgres Hyperscale server group is:
 - `citus`, v: 9.3-2

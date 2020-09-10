@@ -15,6 +15,8 @@ ms.topic: how-to
 
 This document describes the steps to delete a server group from your Azure Arc setup.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Delete the server group
 
 As an example, let's consider we want to delete the _postgres01_ instance from the below setup:

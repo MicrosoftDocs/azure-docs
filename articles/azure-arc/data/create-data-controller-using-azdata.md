@@ -12,6 +12,8 @@ ms.topic: how-to
 ---
 # Create Azure Arc data controller using the Azure Data CLI (azdata)
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Prerequisites
 
 Review the topic [Deploy the Azure Arc data controller](create-data-controller.md) for overview information.

@@ -17,6 +17,8 @@ This document walks you through the steps for installing Azure SQL managed insta
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Log in to the Azure Arc data controller
 
 Before you can create an instance, log in to the Azure Arc data controller if you are not already logged in.

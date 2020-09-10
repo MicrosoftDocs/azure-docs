@@ -13,13 +13,15 @@ ms.topic: conceptual
 
 # Connectivity Modes and Requirements
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Connectivity Modes
 
 There are multiple options for the degree of connectivity from your Azure Arc enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the availability of network connectivity to Azure, you can choose from the following connectivity modes.
 
 Azure Arc enabled data services provides you the option to connect to Azure in two different “connectivity modes”: Directly Connected and Indirectly Connected.  This provides you the flexibility to choose how much data is sent to Azure and how users interact with the Arc Data Controller. Depending on the connectivity mode that is chosen, some functionality of Azure Arc enabled data services may or may not be available.
 
-Importantly, if the Azure Arc enabled data services are directly connected to Azure, then users can use Azure Resource Manager (ARM) APIs, the Azure CLI, and the Azure Portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure Portal.  If the Azure Arc enabled data services are indirectly connected to Azure, then the Azure Portal is a read-only view. You can see the inventory of SQL managed instances and Postgres Hyperscale instances that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the Indirectly Connected mode, all actions must be taken locally using Azure Data Studio, the Azure Data CLI, or Kubernetes native tools like kubectl.
+Importantly, if the Azure Arc enabled data services are directly connected to Azure, then users can use Azure Resource Manager (ARM) APIs, the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.  If the Azure Arc enabled data services are indirectly connected to Azure, then the Azure portal is a read-only view. You can see the inventory of SQL managed instances and Postgres Hyperscale instances that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the Indirectly Connected mode, all actions must be taken locally using Azure Data Studio, the Azure Data CLI, or Kubernetes native tools like kubectl.
 
 Additionally, Azure Active Directory and Azure Role-Based Access Control can be used in the Directly Connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
 
@@ -39,7 +41,7 @@ Currently, in the preview only the Indirectly Connected mode is supported.  Dire
 |**Feature**|**Indirectly Connected**|**Directly Connected**|
 |---|---|---|
 |**Automatic high availability**|Supported|Supported|
-|**Self-service provisioning**|Supported<br/>Deployment can be done through Azure Data Studio, Azure Data CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the Indirectly Connected mode deployment options, you can also deploy through the Azure Portal, Azure Resource Manager (ARM) APIs, the Azure CLI, or ARM templates. **Pending availability of Directly Connected mode**
+|**Self-service provisioning**|Supported<br/>Deployment can be done through Azure Data Studio, Azure Data CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the Indirectly Connected mode deployment options, you can also deploy through the Azure portal, Azure Resource Manager (ARM) APIs, the Azure CLI, or ARM templates. **Pending availability of Directly Connected mode**
 |**Elastic scalability**|Supported|Supported<br/>**Pending availability of Directly Connected mode**|
 |**Billing**|Supported<br/>Billing data is periodically exported out and sent to Azure.|Supported<br/>Billing data is automatically and continuously sent to Azure and reflected in near real time. **Pending availability of Directly Connected mode**|
 |**Inventory management**|Supported<br/>Inventory data is periodically exported out and sent to Azure.|Supported<br/>Inventory data is automatically and continuously sent to Azure and reflected in near real time. **Pending availability of Directly Connected mode**|

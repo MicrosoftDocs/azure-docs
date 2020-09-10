@@ -17,6 +17,8 @@ This document walks you through the steps for using Azure Data Studio to provisi
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Connect to the Azure Arc data controller
 
 Before you can create an instance, log in to the Azure Arc data controller if you are not already logged in.

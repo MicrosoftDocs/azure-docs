@@ -23,6 +23,8 @@ This guide explains you how to scale vCore and/or memory.
 
 Scaling up or down the vCore or memory settings of your server group means you have the possibility to set a minimum and/or a maximum for each of the vCore and memory settings. If you want to configure your server group to use a specific number of vCore or a specific amount of memory, you would set the min settings equal to the max settings.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Show the current definition of the server group
 
 To show the current definition of your server group and see what are the current vCore and Memory settings, run either of the following command:

@@ -17,6 +17,8 @@ This document describes the steps to deploy a PostgreSQL Hyperscale server group
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Getting started
 If you are already familiar with the topics below you may skip this paragraph.
 There are important topics you may want read before you proceed with deployment:
@@ -49,14 +51,15 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 ## Preliminary and temporary step for OpenShift users only
 
-Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your Postgres Hyperscale server group. The scc **_arc-data-scc_** is the one you added when you deloyed the Azure Arc data controller.
+Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your Postgres Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you deployed the Azure Arc data controller.
 
 ```console
 oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
 ```
+
 _**Server-group-name** is the name of the server group you will deploy during the next step._
    
-For more details on the Security Context Constraints (SCC) in OpenShift, please refer to the OpenShift documentation [here](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
+For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
 You may now implement the next step.
 
 ## Create an Azure Database for PostgreSQL Hyperscale server group
@@ -69,6 +72,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
+
 > [!NOTE]
 > - **There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.**
 > - In Preview, you must indicate a storage class for backups (_--storage-class-backups -scb_) at the time you create a server group in order to be able to backup and restore.
@@ -76,7 +80,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 > - Names must be 10 characters or fewer in length and conform to DNS naming conventions.
 > - You will be prompted to enter the password for the _postgres_ standard administrative user.  You can skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
 > - If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to deploy the PostgreSQL Hyperscale server group too. The name of the default administrator user for the Postgres Hyperscale database engine is _postgresql_ and cannot be changed at this point.
-> - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure Portal.
+> - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
 > - The --port parameter cannot be changed at this point.
 > - If you do not have a default storage class in your Kubernetes cluster, you'll need to use the parameter--metadataStorageClass to specify one. Not doing this will result in the failure of the create command. To verify if you have a default storage class declared on your Kubernetes cluster, rung the following command: 
 >
@@ -84,7 +88,8 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 >   kubectl get sc
 >   ```
 >
->If there is storage class configured as default storage class you will see **(default)** appended to the name of the storage class. For example:
+> - If there is storage class configured as default storage class you will see **(default)** appended to the name of the storage class. For example:
+>
 >   ```output
 >   NAME                       PROVISIONER                        AGE
 >   local-storage (default)    kubernetes.io/no-provisioner       4d18h
@@ -97,6 +102,8 @@ To view the PostgreSQL Hyperscale server groups on Azure Arc, use the following 
 
 ```console
 azdata arc postgres server list
+```
+
 
 ```output
 Name        State     Workers
@@ -154,7 +161,8 @@ az network nsg rule create -n db_port --destination-port-ranges 30655 --source-a
 
 Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above, and the password you specified at the time you created the instance.  If PostgreSQL isn't available in the *Connection type* dropdown, you can install the PostgreSQL extension by searching for PostgreSQL in the extensions tab.
 
-> *NOTE:* You will need to click the [Advanced] button in the connection panel to enter the port number.
+> [!NOTE]
+> You will need to click the [Advanced] button in the connection panel to enter the port number.
 
 Remember, if you are using an Azure VM you will need the _public_ IP address which is accessible via the following command:
 

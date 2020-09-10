@@ -13,6 +13,8 @@ ms.topic: how-to
 
 # Deploy the Azure Arc data controller
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Overview of installing the Azure Arc data controller
 
 Azure Arc enabled data services can be deployed on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
@@ -70,6 +72,6 @@ There are multiple options for deploying the Azure Arc data controller:
 > 
 - [Use the Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
 - [Use Azure Data Studio](create-data-controller-azure-data-studio.md)
-- [Use the Azure Portal to create a notebook which can be run in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
+- [Use the Azure portal to create a notebook which can be run in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Use Kubernetes native tools such as kubectl or oc](create-data-controller-using-k8s-native-tools.md)
 - [Use Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)

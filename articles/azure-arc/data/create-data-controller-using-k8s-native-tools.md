@@ -15,6 +15,8 @@ ms.topic: how-to
 
 You can deploy a data controller, SQL Managed Instance, and PostgreSQL Hyperscale instances using Kubernetes native tools like `kubectl` or `oc`. 
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Steps
 
 To deploy with native tools:

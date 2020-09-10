@@ -19,6 +19,8 @@ This document describes various aspects related to security of your server group
    - General perspectives
    - Change the password of the _postgres_ administrative user
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Encryption at rest
 You can implement encryption at rest either by encrypting the disks on which you store your databases and/or by using database functions to encrypt the data you insert or update.
 
@@ -159,7 +161,7 @@ printenv AZDATA_PASSWORD
 You may want to delete its value if you prefer being prompted to enter a new password.
 
 
-## Next step
+## Next steps
 - Read details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
 - Read details about how to use Postgres extensions [here](using-extensions-in-postgresql-hyperscale-server-group.md).
 
