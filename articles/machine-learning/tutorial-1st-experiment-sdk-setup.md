@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Experiment in Jupyter notebooks (Python)"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you'll to create an Azure Machine Learning workspace, 
+description: Setup for Jupyter Notebook tutorials.  Create an Azure Machine Learning workspace, clone Jupyter Notebooks into the workspace, and create a compute instance where you run the notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,8 @@ ms.custom: devx-track-python
 
 # Tutorial: Use a compute instance to run Azure Machine Learning
 
-In this tutorial, you complete the steps to get started with the Azure Machine Learning Python SDK on a [compute instance](concept-compute-instance.md). This tutorial is a precursor to all other Python tutorials that you want to perform on a compute instance.
+In this tutorial, you complete the steps to get started with the Azure Machine Learning Python SDK on a [compute instance](concept-compute-instance.md). This tutorial is a precursor to all other Jupyter Notebook tutorials running on a compute instance.
 
-You could instead run the tutorials on your own local computer.  Use [Tutorial:  Set up your local computer for Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md) if you wish to use your local computer.
 
 In this tutorial, you:
 
@@ -98,10 +97,6 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 1. Once the VM is available it will be displayed in the top toolbar.  You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.
 
 If you have custom widgets or prefer using Jupyter/JupyterLab select the **Jupyter** drop down on the far right, then select **Jupyter** or **JupyterLab**. The new browser window will be opened.
-
-## Run Python scripts
-
-If you prefer to run Python scripts instead of using the notebooks, open the **Terminal** window for the compute instance.
 
 ## Next steps
 
