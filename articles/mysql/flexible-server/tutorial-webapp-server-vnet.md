@@ -10,12 +10,12 @@ ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Create an Azure Database for MySQL - Flexible Server (Preview) with App Services Web App in virtual network
+# Tutorial: Create an Azure Database for MySQL - Flexible Server (Preview) with App Services Web App in virtual network
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
-This tutorial shows you how create a Azure App Service Web app with  MySQL Flexible Server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+This tutorial shows you how create a Azure App Service Web App with  MySQL Flexible Server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ This command performs the following actions, which may take a few minutes:
 > [!NOTE]
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az mysql flexible-server update``` command
 
-## Create a Web App
+## Create a web app
 
 In this section, you create app host in App Service app and connect this app to the MySQL database. Make sure you're in the repository root of your application code in the terminal.
 
@@ -74,7 +74,7 @@ This command performs the following actions, which may take a few minutes:
 - Enable default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
 
-## Add the Web App to the virtual network
+## Add the web app to the virtual network
 
 Use **az webapp vnet-integration** command to add a regional virtual network integration to a webapp. Replace _&lt;vnet-name>_ and _&lt;subnet-name_ with the virtual network and subnet name that the flexible server is using.
 
