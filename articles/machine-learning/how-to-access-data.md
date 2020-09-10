@@ -33,7 +33,7 @@ You'll need:
 
 - An Azure storage account with a [supported storage type](#matrix).
 
-- The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
+- The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
 - An Azure Machine Learning workspace.
   
