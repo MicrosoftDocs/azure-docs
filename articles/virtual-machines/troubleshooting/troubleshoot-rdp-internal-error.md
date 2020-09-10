@@ -34,6 +34,7 @@ You cannot connect to an Azure VM by using the remote desktop protocol (RDP). Th
 
 This issue may occur for the following reasons:
 
+- The virtual machine is suspected to be attacked.
 - The local RSA encryption keys cannot be accessed.
 - TLS protocol is disabled.
 - The certificate is corrupted or expired.
@@ -42,7 +43,11 @@ This issue may occur for the following reasons:
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To troubleshoot this issue, use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
+To troubleshoot this issue, First check if the network security group for the RDP port 3389 is widely open .
+If it is widely open with * as source ip address in inbound , Restrict it to specifc user ip address and test RDP . 
+If this fails proceed further
+
+Use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
 
 
 ### Use Serial control
