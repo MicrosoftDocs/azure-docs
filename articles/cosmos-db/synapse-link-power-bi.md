@@ -25,7 +25,7 @@ Make sure to create the following resources before you start:
 
 * Enable Azure Synapse Link for your [Azure Cosmos account](configure-synapse-link.md#enable-synapse-link)
 
-* Create a database within the Azure Cosmos account and two containers that have [analytical store enabled.](configure-synapse-link.md##create-analytical-ttl)
+* Create a database within the Azure Cosmos account and two containers that have [analytical store enabled.](configure-synapse-link.md#create-analytical-ttl)
 
 * [Create a Synapse workspace](../synapse-analytics/quickstart-create-workspace.md) named **SynapseLinkBI**.
 
