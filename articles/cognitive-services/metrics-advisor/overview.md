@@ -23,10 +23,6 @@ Metrics Advisor is a cognitive service that uses time series based decision AI t
 
 :::image type="content" source="media/metrics-advisor-overview.png" alt-text="Metrics Advisor overview":::
 
-<!--## Scenarios
-
-:::image type="content" source="media/overview-scenarios.png" alt-text="Metrics Advisor overview scenarios":::-->
-
 ## Connect to a variety of data sources
 
 Metrics Advisor can connect to, and [ingest multi-dimensional metric](how-tos/onboard-your-data.md) data from many data stores, including: SQL Server, Azure Blob Storage, MongoDB and more. 
