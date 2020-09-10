@@ -1,6 +1,6 @@
 ---
 title: Performance best practices and configuration guidelines - Azure SQL Edge
-description: Learn how to manage historical data with retention policy in Azure SQL Edge
+description: Learn about performance best practices and configuration guidelines in Azure SQL Edge
 keywords: SQL Edge, data retention
 services: sql-edge
 ms.service: sql-edge
