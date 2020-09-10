@@ -19,4 +19,4 @@ After you have uploaded your [metrics, logs](upload-metrics-and-logs-to-azure-mo
 1. Search for your type of database instances types
 1. Add it to your favorites
 1. Click on instance type from the left nav
-1. View your instances in the same view as your other Azure SQL resources (use filters to get a granular view)
+1. View your instances in the same view as your other Azure SQL or Azure PostgreSQL Hyperscale resources (use filters to get a granular view)
