@@ -1,6 +1,6 @@
 ---
 title: Use Power BI and SQL on-demand to analyze Azure Cosmos DB data with Synapse Link
-description: learn how to build a SQL on-demand database and views over Synapse Link for Azure Cosmos DB, query the Azure Cosmos containers and then build a model with Power BI over those views.
+description: Learn how to build a SQL on-demand database and views over Synapse Link for Azure Cosmos DB, query the Azure Cosmos containers and then build a model with Power BI over those views.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to

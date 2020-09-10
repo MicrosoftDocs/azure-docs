@@ -29,7 +29,7 @@ Azure Cosmos DB analytical store addresses the complexity and latency challenges
 
 Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly linking to Azure Cosmos DB analytical store from Synapse Analytics. It enables you to run near real-time large-scale analytics on your operational data.
 
-## Analytical store details
+## Analytical store features
 
 When you enable analytical store on an Azure Cosmos DB container, a new column-store is internally created based on the operational data in your container. This column store is persisted separately from the row-oriented transactional store for that container. The inserts, updates, and deletes to your operational data are automatically synced to analytical store. You don't need the change feed or ETL to sync the data.
 
@@ -57,26 +57,26 @@ There is no impact on the performance of your transactional workloads due to ana
 
 Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store in near real time within 5 minutes.
 
-The autosync capability along with analytical store provides the following key benefits:
+The auto-sync capability along with analytical store provides the following key benefits:
 
 #### Scalability & elasticity
 
-By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in autosync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
+By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in auto-sync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
 
 #### <a id="analytical-schema"></a>Automatically handle schema updates
 
-Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the autosync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
+Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the auto-sync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
 As your schema evolves, and new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
-* You can have a maximum of 200 properties at any nesting level in the schema and a maximum nesting depth of 5
+* You can have a maximum of 200 properties at any nesting level in the schema and a maximum nesting depth of 5.
   
   * An item with 201 properties at the top level doesn’t satisfy this constraint and hence it will not be represented in the analytical store.
   *	An item with more than five nested levels in the schema also doesn’t satisfy this constraint and hence it will not be represented in the analytical store. For example, the following item doesn't satisfy the requirement:
 
-  `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+    `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
 * Property names should be unique when compared case insensitively. For example, the following items do not satisfy this constraint and hence will not be represented in the analytical store:
 
@@ -94,13 +94,13 @@ There are two modes of schema representation in the analytical store. These mode
 
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
-* A property always has the same type across multiple items
+* A property always has the same type across multiple items.
 
   * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `“a”` as the data type of `“a”` in the first-occurring item in the lifetime of the container. Items where the data type of `“a”` differs will not be included in the analytical store.
   
     This condition does not apply for null properties. For example, `{"a":123} {"a":null}` is still well defined.
 
-* Array types must contain a single repeated type
+* Array types must contain a single repeated type.
 
   * For example, `{"a": ["str",12]}` is not a well-defined schema because the array contains a mix of integer and string types.
 
@@ -131,8 +131,9 @@ salary: 1000000
 
 The leaf property `streetName` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetName.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it’s a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetName.string` where this value of "123" is stored.
 
-Here is a map of all the property data types and their suffix representations in the analytical store:
+**Data type to suffix map**
 
+Here is a map of all the property data types and their suffix representations in the analytical store:
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
@@ -178,7 +179,7 @@ Analytical store follows a consumption-based pricing model where you are charged
 
 * Storage: the volume of the data retained in the analytical store every month including historical data as defined by Analytical TTL.
 
-* Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (autosync)
+* Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (auto-sync)
 
 * Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL serverless run times.
 
@@ -204,6 +205,7 @@ Analytical TTL on a container is set using the `AnalyticalStoreTimeToLiveInSecon
 * If present and the value is set to some positive number "n": items will expire from the analytical store "n" seconds after their last modified time in the transactional store. This setting can be leveraged if you want to retain your operational data for a limited period of time in the analytical store, irrespective of the retention of the data in the transactional store
 
 Some points to consider:
+
 *	After the analytical store is enabled with an analytical TTL value, it can be updated to a different valid value later 
 *	While transactional TTL can be set at the container or item level, analytical TTL can only be set at the container level currently
 *	You can achieve longer retention of your operational data in the analytical store by setting analytical TTL >= transactional TTL at the container level
@@ -211,9 +213,9 @@ Some points to consider:
 
 When you enable analytical store on a container:
 
- * using Azure portal, analytical TTL is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
+ * Using Azure portal, analytical TTL is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
  
- * using Azure SDK or PowerShell or CLI, analytical TTL can be enabled by setting it to either -1 or 'n'. 
+ * Using Azure SDK or PowerShell or CLI, analytical TTL can be enabled by setting it to either -1 or 'n'. 
 
 To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
