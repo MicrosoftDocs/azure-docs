@@ -45,7 +45,7 @@ When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already
 
 > [!IMPORTANT]
-> For best experience, we recommend that you use a connection pooler like pgBouncer to efficiently manage connections.
+> For best experience, we recommend that you use a connection pooler like PgBouncer to efficiently manage connections.
 
 A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, creating new connections takes time. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. Connection pooling can be used to decrease idle connections and reuse existing connections. To learn more, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
@@ -78,11 +78,11 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Manually moving servers to a different availability zone is currently not supported.
 - The availability zone of the HA standby server cannot be manually configured.
 
-### Postgres engine, extensions, and pgBouncer
+### Postgres engine, extensions, and PgBouncer
 
 - Postgres 10 and older are not supported. We recommend using the [Single Server](../overview-single-server.md) option if you require older Postgres versions.
 - Extension support is currently limited to the Postgres `contrib` extensions.
-- Built-in pgBouncer connection pooler is currently not available for database servers within a VNET, or for Burstable servers.
+- Built-in PgBouncer connection pooler is currently not available for database servers within a VNET, or for Burstable servers.
 
 ### Stop/start operation
 
