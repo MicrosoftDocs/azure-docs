@@ -222,7 +222,7 @@ You can build a Synapse SQL serverless database and views over Synapse Link for 
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
 
-You can find samples to get started with Azure Synapse Link on [GitHub](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and Retail scenarios.
+You can find samples to get started with Azure Synapse Link on [GitHub](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and retail scenarios. You can also find the samples corresponding to Azure Cosmos DB API for MongoDB in the same repo under the [MongoDB](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/MongoDB) folder. 
 
 ## Next steps
 
