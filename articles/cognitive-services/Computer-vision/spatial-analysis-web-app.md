@@ -120,7 +120,9 @@ You can also select a confidence threshold for when detected people are counted 
 Now that the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) is complete, use this command in the Azure CLI to deploy the container on the host computer as an IoT Edge Module.
 
 ```azurecli
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content deployment.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
+az login
+az extension add --name azure-iot
+az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
 ```
 
 Fill in the required parameters:
