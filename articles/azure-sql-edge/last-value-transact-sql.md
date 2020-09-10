@@ -21,13 +21,21 @@ Returns the last value in an ordered set of values.
   
 ```syntaxsql
   
-LAST_VALUE ( [ scalar_expression ] )   
+LAST_VALUE ( [ scalar_expression ] )  [ IGNORE NULLS | RESPECT NULLS ]
     OVER ( [ partition_by_clause ] order_by_clause rows_range_clause )   
 ```  
   
 ## Arguments
  *scalar_expression*  
  Is the value to be returned. *scalar_expression* can be a column, subquery, or other expression that results in a single value. Other analytic functions are not permitted.  
+ 
+ [ IGNORE NULLS | RESPECT NULLS ]     
+ **Applies to**: Azure SQL Edge
+ 
+ IGNORE NULLS - Ignore null values in the dataset when computing the last value over a partition.     
+ RESPECT NULLS - Respect null values in the dataset when computing last value over a partition.     
+ 
+ For more information refer [Imputing missing values](../azure/azure-sql-edge/imputing-missing-values.md).
   
  OVER **(** [ *partition_by_clause* ] *order_by_clause* [ *rows_range_clause* ] **)**  
  *partition_by_clause* divides the result set produced by the FROM clause into partitions to which the function is applied. If not specified, the function treats all rows of the query result set as a single group.  
