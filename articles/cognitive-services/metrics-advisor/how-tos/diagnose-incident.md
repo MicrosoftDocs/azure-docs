@@ -12,12 +12,12 @@ ms.date: 08/19/2020
 ms.author: aahi
 ---
 
-# How-to: Diagnose an incident using Metrics Monitor
+# How-to: Diagnose an incident using Metrics Advisor
 
 Metrics Advisor provides several features for diagnostics, and gives an in-depth view of detected incidents, and provide root-cause analysis. When a group of anomalies detected on a metric, Metrics Advisor will group anomalies into a hierarchy and analyze on top of it.
 
 > [!NOTE]
-> Currently Metrics Advisor supports incident diagnostics for metrics with at least one dimension, and measure with the  *numeric* type. Your metric needs to have an aggregated dimension value like SUM for each dimension, which is used to build the diagnostics hierarchy. Metrics Advisor offers [Automatic roll up settings](onboard-your-data.md#automatic-roll-up-settings) to help with generating aggregated values. 
+> Currently Metrics Advisor supports incident diagnostics for metrics with at least one dimension, and measure with the  *numeric* type. Your metric needs to have an aggregated dimension value like SUM for each dimension, which is used to build the diagnostics hierarchy. Metrics Advisor offers [**Automatic roll up settings**](onboard-your-data.md#automatic-roll-up-settings) to help with generating aggregated values. 
 
 Click on **Incident hub** in the left navigation window to see all incidents under a given metric. At the top of the page, you can select different metrics to see their detection configurations, and detection results, and change the time range.
 

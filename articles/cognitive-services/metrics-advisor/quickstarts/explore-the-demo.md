@@ -69,5 +69,6 @@ By pinpointing root cause of the incident, customers are able to take actions as
 
 - [Use the web portal](web-portal.md)
 - [Use the REST API](rest-api-and-client-library.md)
-- [Onboard and manage data feeds](../how-tos/manage-data-feeds.md)
+- [Onboard your data feeds](../how-tos/onboard-your-data.md)
+    - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)

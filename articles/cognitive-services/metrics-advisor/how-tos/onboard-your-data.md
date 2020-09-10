@@ -52,6 +52,8 @@ Next you'll input a set of parameters to connect your time-series data source.
 
 Next, you'll need to specify the connection information for the data source, and the custom queries used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
 
+[!INCLUDE [query requirements](../includes/query-requirements.md)]
+
 ### Verify and get schema
 
 After the connection string and query string are set, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
@@ -88,10 +90,10 @@ If *Country* is a dimension and *Language* is set as *Ignored*, then the first a
 ### Automatic roll up settings
 
 > [!IMPORTANT]
-> Root cause analysis and other diagnostic features are available if automatic roll up is enabled.  
+> If you'd like to enable root cause analysis and other diagnostic capabilities, 'auto roll up setting' needs to be configured. 
 > Once enabled, the auto roll-up settings cannot be changed.
 
-Metrics Advisor can automatically generate the data cube (sum) during ingestion, which can help when performing hierarchical analysis. 
+Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. 
 
 Consider the following scenarios:
 

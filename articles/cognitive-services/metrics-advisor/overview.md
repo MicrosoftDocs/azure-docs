@@ -15,32 +15,37 @@ ms.custom: seodec2018
 
 # What is Metrics Advisor? 
 
-Metrics Advisor is a time series monitoring platform that provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use Metrics Advisor to:
+Metrics Advisor is a cognitive service that uses time series based decision AI to identify and assist trouble shooting the incidents of online services, predict next maintenance cycle of various equipment and devices and monitor the business health by automating the slice and dice of business metrics like revenue, page views… Metrics Advisor provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use Metrics Advisor to:
 
 * Analyze multi-dimensional data from multiple data sources 
 * Identify and correlate anomalies
 * Configure and fine-tune the anomaly detection model used on your data
-* Build scalable root cause analysis. 
+* Diagnose anomalies and help with root cause analysis. 
 
-:::image type="content" source="media/metrics-monitoring-overview.png" alt-text="Metrics Advisor overview":::
+:::image type="content" source="media/metrics-advisor-overview.png" alt-text="Metrics Advisor overview":::
 
 <!--## Scenarios
 
 :::image type="content" source="media/overview-scenarios.png" alt-text="Metrics Advisor overview scenarios":::-->
 
-## Customizable anomaly detection at scale
+## Connect to a variety of data sources
 
-Use Metrics Advisor to analyze your time series data, regardless of industry, scenario, or data volume. Metrics Advisor provides visualizations, analysis tools, and applies detection models without you needing to know machine learning.
+Metrics Advisor [ingests multi-dimensional metrics](how-tos/onboard-your-data.md) data from many data stores, including: SQL Servers, Azure Blob Storage, MongoDB and more. Support collecting data through both 'pull' and 'push' mode and enable data monitored in streaming. 
 
-Like the [Anomaly Detector API](../anomaly-detector/overview.md), Metrics Advisor automatically identifies and applies the best-fitting models to your data. Using your time series data, Metrics Advisor determines boundaries for anomaly detection, expected values, and which data points are anomalies. You can also customize the model used to fit your data.
+## Easy-to-use and customizable anomaly detection
 
-## Interactive Web portal
+* Auto-select the best model that works for your metric data without needing to know any underlying techniques. 
+* Auto-monitor on every sliced time series of multi-dimensional metrics by using a default configuration. 
+* Simple [parameter tuning](how-tos/configure-metrics.md) and [interactive feedback](how-tos/anomaly-feedback.md) to customize your model and detection result.
 
-Use the web portal to easily onboard your data and work with the Metrics Advisor service.  
 
-## Use your own data source 
+## Real time alerts through multiple channels
 
-Metrics Advisor lets you connect to a variety of different sources and databases, including: SQL Servers, Azure Blob Storage, MongoDB and more.
+Whenever anomalies are detected, Metrics Advisor is able to [fire real time alerts](how-tos/alerts.md) through multiple channels(defined as hooks in Metrics Advisor), like email, web hook as well as Azure DevOps. Flexible alert rule settings are available to better serve on various scenarios. 
+
+## Smart diagnostic insights by analyzing anomalies
+
+Analyze anomalies detected on multi-dimensional metrics and generate [smart diagnostic insights](how-tos/diagnose-incident.md) including most likely root cause, diagnosing tree, metric drilling, anomaly clustering... By configuring [Metrics graph](how-tos/metrics-graph.md), cross metrics analysis is also enabled to help understand on overall impact from a global view. 
 
 
 ## Typical workflow
@@ -59,6 +64,5 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
 ## Next Steps
 
 * Try the [demo site](quickstarts/explore-the-demo.md).
-* Create a Metrics Advisor instance using the [web portal](quickstarts/web-portal.md), and onboard your data. 
-  * You can also use the [REST API](quickstarts/rest-api-and-client-library.md). 
-* Learn about [managing data feeds](how-tos/manage-data-feeds.md). 
+* Explore a quickstart: [Monitor your first metric on web](quickstarts/web-portal.md).
+* Explore a quickstart: [Use the REST APIs to customize your solution](quickstarts/rest-api-and-client-library.md).

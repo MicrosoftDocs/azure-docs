@@ -137,5 +137,5 @@ The **Operator** selector is the logical relationship of each section, to determ
 ## Next Steps
 
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose incidents](diagnose-incident.md).
+- [Diagnose an incident](diagnose-incident.md).
 - [Configure metrics and fine tune detecting configuration](configure-metrics.md)

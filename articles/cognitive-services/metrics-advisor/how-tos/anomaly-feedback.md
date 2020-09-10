@@ -58,6 +58,6 @@ There are many reasons when you might consider an anomaly is a false alarm. Cons
 |There is a regular pattern to detected anomalies (for example on weekends) and they should not be anomalies.      |Use the feedback feature, or preset events.        |
 
 ## Next steps
-- [Diagnose incidents](diagnose-incident.md).
+- [Diagnose an incident](diagnose-incident.md).
 - [Configure metrics and fine tune detecting configuration](configure-metrics.md)
-- [Create alerts](../how-tos/alerts.md)
+- [Configure alerts and get notifications using a hook](../how-tos/alerts.md)

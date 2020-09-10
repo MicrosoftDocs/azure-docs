@@ -34,6 +34,35 @@ A metric is a quantifiable measure that is used to monitor and assess the status
 
 A dimension is one or more categorical values. The combination of those values identify a particular univariate time series, for example: country, language, tenant, and so on.
 
+## Multi-dimensional metric
+Let's use two examples.
+
+* Revenue of an e-business
+
+Your time series data would look like this:
+
+| Timestamp | Category | Market | Revenue |
+| ----------|----------|--------|----- |
+| 2020-6-1 | Food | US | 1000 |
+| 2020-6-1 | Apparel | US | 2000 |
+| 2020-6-2 | Food | UK | 800 | 
+…
+
+"Category" and "Market" are dimensions. "Revenue" is the KPI which could be sliced into different categories and/or markets and could also be aggregated, e.g. revenue of "food" for all markets.
+
+* Error count of a complex application
+
+| Timestamp	| Application component | Region | Error count |
+| ----------|----------|--------|----- |
+| 2020-6-1 | Employee database | WEST EU | 9000 |
+| 2020-6-1 | Message queue | EAST US | 1000 |
+| 2020-6-2 | Message queue | EAST US | 8000| 
+…
+
+"Application component" and "Region" are dimensions. "Error count" is the KPI which could be sliced into different components and/or regions and could also be aggregated, e.g. error count of "message queue" in all regions.
+
+
+
 ## Measure
 
 A measure is a fundamental or unit-specific term and a quantifiable value of the metric.
@@ -64,9 +93,9 @@ Metrics Advisor provides tools to adjust the sensitivity of the algorithms used.
 ![Confidence bounds](media/confidence-bounds.png)
 
 
-## Web hook
+## Hook
 
-Metrics Advisor lets you create and subscribe to real-time alerts. These alerts are sent over the internet, [using a web hook](how-tos/alerts.md).
+Metrics Advisor lets you create and subscribe to real-time alerts. These alerts are sent over the internet, [using a hook](how-tos/alerts.md).
 
 ## Anomaly incident
 

@@ -40,12 +40,16 @@ Metrics Advisor provides connectors for different data sources, such as SQL Data
 
 This quickstart uses a SQL Database as an example. You can also ingest your own data follow the same steps.
 
-To get started, sign into your Metrics Advisor portal, with your Active Directory account. From the landing page, select your **Directory**, **Subscription** and **Workspace** that just created, then click **Get started**. After the main page of the portal loads, select **Add data feed** from the left menu.
+To get started, sign into your Metrics Advisor workspace, with your Active Directory account. From the landing page, select your **Directory**, **Subscription** and **Workspace** that just created, then click **Get started**. After the main page of the workload loads, select **Add data feed** from the left menu.
+
+### Data schema requirements and configuration
+
+[!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
 
 ### Configure connection settings
 
 > [!TIP]
-> See [how to add data feeds](../how-tos/onboard-your-data.md) for details on the available parameters.
+> See [**how to add data feeds**](../how-tos/onboard-your-data.md) for details on the available parameters.
 
 Add the data feed by connecting to your time-series data source. Start by selecting the following parameters:
 
@@ -55,6 +59,8 @@ Add the data feed by connecting to your time-series data source. Start by select
 
 
 Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**. The query is used to specify the data to be ingested, and converted into the required schema.
+
+[!INCLUDE [query requirements](../includes/query-requirements.md)]
 
 ![Connections settings](../media/connection-settings.png)
 
@@ -80,7 +86,15 @@ Once the data schema is loaded and shown like below, select the appropriate fiel
 
 ![Schema configuration](../media/schema-configuration.png)
 
-Give a custom name for the data feed, which will be displayed on the portal. Click on **Submit**. 
+### Automatic roll up settings
+
+> [!IMPORTANT]
+> If you'd like to enable **root cause analysis** and other diagnostic capabilities, 'automatic roll up setting' needs to be configured. 
+> Once enabled, the automatic roll up settings cannot be changed.
+
+Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. For more detail, refer to [**Automatic roll up settings**](onboard-your-data.md#automatic-roll-up-settings).
+
+Give a custom name for the data feed, which will be displayed in your workspace. Click on **Submit**. 
 
 ## Tune detection configuration
 
@@ -126,7 +140,8 @@ After creating a hook, an alert setting determines how and which alert notificat
 
 ## Next Steps
 
-- [Onboard and manage data feeds](../how-tos/manage-data-feeds.md)
+- [Onboard your data feeds](../how-tos/onboard-your-data.md)
+    - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
 - [Use the REST API or Client libraries](rest-api-and-client-library.md)
 - [Configure metrics and fine tune detecting configuration](../how-tos/configure-metrics.md)

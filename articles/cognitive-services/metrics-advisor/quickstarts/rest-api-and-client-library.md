@@ -37,8 +37,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 - [Use the web portal](web-portal.md)
 - [Onboard your data feeds](../how-tos/onboard-your-data.md)
-    - [Managing data feeds](../how-tos/manage-data-feeds.md)
+    - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Configure metrics and fine tune detecting configurationn](configure-metrics.md)
+- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
 - [Adjust anomaly detection using feedback](../how-tos/anomaly-feedback.md)
-- [Diagnose incidents](../how-tos/diagnose-incident.md).

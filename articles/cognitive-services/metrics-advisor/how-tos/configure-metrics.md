@@ -174,7 +174,7 @@ If you'd like to get notified whenever an anomaly is detected, you can subscribe
 
 
 ## Next steps 
-- [Configure alerts](alerts.md)
+- [Configure alerts and get notifications using a hook](alerts.md)
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose incidents](diagnose-incident.md).
+- [Diagnose an incident](diagnose-incident.md).
 

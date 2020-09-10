@@ -138,4 +138,4 @@ To configure an alert, you need to [create a hook](alerts.md#create-a-hook) firs
 ## Next steps
 - [Configure metrics and fine tune detecting configuration](configure-metrics.md)
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose incidents](diagnose-incident.md).
+- [Diagnose an incident](diagnose-incident.md).
