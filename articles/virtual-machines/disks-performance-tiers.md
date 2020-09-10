@@ -54,7 +54,7 @@ Adjusting the performance tier of a managed disk is currently only available to 
 
 ## Prerequisite
 
-You must get the feature enabled for your subscriptions before you can use performance tier. Please [sign up](https://aka.ms/perftiersignup) for access to the preview.
+You must get the feature enabled for your subscriptions before you can use performance tier. Sign up](https://aka.ms/perftiersignup) for access to the preview.
 
 ## Create/update a data disk with a tier higher than the baseline tier
 
@@ -83,9 +83,9 @@ You must get the feature enabled for your subscriptions before you can use perfo
     az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
      ```
 
-## Create/update a OS disk with a tier higher than the baseline tier
+## Create/update an OS disk with a tier higher than the baseline tier
 
-1. Create an OS disk from a marketplace image or update the tier of a OS disk higher than the baseline tier using the sample template [CreateUpdateOSDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json)
+1. Create an OS disk from a marketplace image or update the tier of an OS disk higher than the baseline tier using the sample template [CreateUpdateOSDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json)
 
      ```cli
      resourceGroupName=<yourResourceGroupNameHere>
