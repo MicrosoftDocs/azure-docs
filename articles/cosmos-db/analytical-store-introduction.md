@@ -69,7 +69,7 @@ Azure Cosmos DB transactional store is schema-agnostic, and it allows you to ite
 
 As your schema evolves, and new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
-#### Schema constraints
+##### Schema constraints
 
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 

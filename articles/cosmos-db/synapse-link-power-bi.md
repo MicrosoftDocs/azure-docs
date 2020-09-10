@@ -45,7 +45,7 @@ Create a new database, named **RetailCosmosDB**, and a SQL view over the Synapse
 
 ```sql
 -- Create database
-Create database  RetailCosmosDB
+Create database RetailCosmosDB
 ```
 
 Next, create multiple views across different Synapse Link enabled Azure Cosmos containers. This will allow you to use T-SQL to join and query Azure Cosmos DB data sitting in different containers.  Make sure to select the **RetailCosmosDB** database when creating the views.
@@ -61,7 +61,7 @@ CREATE VIEW  RetailSales
 AS  
 SELECT  *
 FROM OPENROWSET (
-    'CosmosDB', N'account=CosmosDBSales;database=surfaceSalesDB;region=<Insert your Azure Cosmos DB Region>;key=<Insert your Azure Cosmos DB key here>',RetailSales)
+    'CosmosDB', N'account=<Your Azure Cosmos account name>;database=<Your Azure Cosmos database name>;region=<Your Azure Cosmos DB Region>;key=<Your Azure Cosmos DB key here>',RetailSales)
 AS q1
 ```
 
@@ -75,7 +75,7 @@ CREATE VIEW StoreDemographics
 AS  
 SELECT  *
 FROM OPENROWSET (
-    'CosmosDB', N'account=CosmosDBSales ;database=surfaceSalesDB;region=<Insert your Azure Cosmos DB Region>;key=<Insert your Azure Cosmos DB key here>', StoreDemographics)
+    'CosmosDB', N'account=<Your Azure Cosmos account name>;database=<Your Azure Cosmos database name>;region=<Your Azure Cosmos DB Region>;key=<Your Azure Cosmos DB key here>', StoreDemographics)
 AS q1
 ```
 
