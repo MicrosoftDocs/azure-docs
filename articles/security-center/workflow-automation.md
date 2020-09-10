@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 09/12/2020
 ms.author: memildin
 ---
 
@@ -38,7 +38,7 @@ This article describes the workflow automation feature of Azure Security Center.
 
 1. From Security Center's sidebar, select **Workflow automation**.
 
-    [![List of workflow automations](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="List of workflow automations":::
 
     From this page you can create new automation rules, as well as enable, disable, or delete existing ones.
 
@@ -49,7 +49,7 @@ This article describes the workflow automation feature of Azure Security Center.
     1. The triggers that will initiate this automatic workflow. For example, you might want your Logic App to run when a security alert that contains "SQL" is generated.
     1. The Logic App that will run when your trigger conditions are met. 
 
-        [![List of workflow automations](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane":::
 
 1. From the Actions section, click **Create a new one** to begin the Logic App creation process.
 

@@ -96,8 +96,6 @@ Security Center periodically analyzes the security state of your Azure resources
 
 When any resource has outstanding recommendations, they'll appear in the inventory.
 
-[Learn more about asset inventory](asset-inventory.md).
-
 
 ### AWS and GCP connectors in Security Center bring a multi-cloud experience
 
