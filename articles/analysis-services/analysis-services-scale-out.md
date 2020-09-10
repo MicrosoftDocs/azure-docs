@@ -4,7 +4,7 @@ description: Replicate Azure Analysis Services servers with scale-out. Client qu
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -36,6 +36,8 @@ When performing a subsequent scale-out operation, for example, increasing the nu
 * Perform a synchronization *before the scale-out operation* to avoid redundant hydration of the added replicas. Concurrent synchronization and scale-out operations running at the same time are not allowed.
 
 * When automating both processing *and* scale-out operations, it's important to first process data on the primary server, then perform a synchronization, and then perform the scale-out operation. This sequence assures minimal impact on QPU and memory resources.
+
+* During scale-out operations, all servers in the query pool, including the primary server, are temporarily offline.
 
 * Synchronization is allowed even when there are no replicas in the query pool. If you are scaling out from zero to one or more replicas with new data from a processing operation on the primary server, perform the synchronization first with no replicas in the query pool, and then scale-out. Synchronizing before scaling out avoids redundant hydration of the newly added replicas.
 
@@ -109,7 +111,7 @@ Synchronization operations must be performed manually or by using the REST API.
 
 In **Overview** > model > **Synchronize model**.
 
-![Scale-out slider](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Synchronize icon](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### REST API
 
