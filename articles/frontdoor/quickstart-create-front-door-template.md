@@ -89,7 +89,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
 
-1. Select the Front Door you created previously and click on the **Frontend host** link. This should direct you to your backend FQDN you defined during creation.
+1. Select the Front Door you created previously and click on the **Frontend host** link. The link will open a web browser redirecting you to your backend FQDN you defined during creation.
 
     :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Front Door portal overview":::
 
