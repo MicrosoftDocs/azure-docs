@@ -60,7 +60,7 @@ productDirectory:
           text: See more...
     # Card
     - title: Azure Arc enabled Kubernetes
-      imageSrc: ./media/containers-101-kubernetes-services.svg
+      imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
       links:
         - url: ./kubernetes/connect-cluster.md
           text: Connect cluster
@@ -82,9 +82,11 @@ productDirectory:
           text: See more...
     # Card
     - title: Azure Arc enabled SQL Server (preview)
-      imageSrc: ./media/databases-132-sql-server.svg
+      imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
       links:
-        - url: https://docs.microsoft.com/en-us/sql/sql-server/
+        - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+          text: Assess your SQL instances
+        - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
           text: See more...
 
 # conceptualContent section (optional)
