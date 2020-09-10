@@ -128,6 +128,7 @@ Spatial analysis generates Docker debugging logs that you can use to diagnose ru
 
 In the "env" section add the following configuration:
 
+```json
 "diagnostics": {  
   "settings": {
   "image":   "mcr.microsoft.com/azure-cognitive-services/spatial-analysis/diagnostics:1.0",
@@ -138,7 +139,7 @@ In the "env" section add the following configuration:
             "ARCHON_LOG_LEVEL":"info",
 	    "LOG_COLOR"="false"
 }
-
+```
 
 To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we recommend maintaining a small file size. See the example below for the recommended Docker logs configuration.
 
