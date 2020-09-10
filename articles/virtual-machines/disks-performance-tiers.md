@@ -1,10 +1,10 @@
 ---
-title: Change a managed disk performance tier
-description: Learn about performance tiers for managed disks, as well as how to temporarily upgrade performance tiers for existing disks.
+title: Temporarily boost Azure managed disk performance
+description: Learn about performance tiers for managed disks, as well as how to temporarily upgrade performance tiers for your managed disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
