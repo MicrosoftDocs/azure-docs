@@ -13,6 +13,8 @@ ms.topic: how-to
 
 # Scenario: Create an Azure SQL managed instance on Azure Arc
 
+[!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
+
 ## Login to the Azure Arc data controller
 
 Before you can create an instance, log in to the Azure Arc data controller if you are not already logged in.

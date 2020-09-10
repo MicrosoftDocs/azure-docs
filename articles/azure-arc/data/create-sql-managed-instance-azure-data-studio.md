@@ -15,10 +15,7 @@ ms.topic: how-to
 
 This document walks you through the steps for installing Azure SQL managed instance - Azure Arc using Azure Data Studio
 
-## Pre-requisites
-
-- [Install azdata, Azure Data Studio, and Azure CLI](/scenarios/install-client-tools.md)
-- Ensure the **Azure Data CLI** and **Azure Arc** extensions are installed.
+[!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 ## Log in to the Azure Arc data controller
 

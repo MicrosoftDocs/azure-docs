@@ -1,5 +1,5 @@
 ---
-title: Delete an Azure Arc enabled Postgres Hyperscale server group
+title: Delete an Azure Arc enabled PostgreSQL Hyperscale server group
 description: Delete an Azure Arc enabled Postgres Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
@@ -11,13 +11,13 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Delete an Azure Arc enabled Postgres Hyperscale server group
+# Delete an Azure Arc enabled PostgreSQL Hyperscale server group
 
-This document describes the steps to delete an Azure PostgreSQL server group from your Azure Arc setup.
+This document describes the steps to delete a server group from your Azure Arc setup.
 
 ## Delete the server group
 
-As an example, let's consider we want to delete the postgres01 instance from the below setup:
+As an example, let's consider we want to delete the _postgres01_ instance from the below setup:
 
 ```console
 azdata arc postgres server list
@@ -101,4 +101,4 @@ persistentvolumeclaim "data-postgres01-0" deleted
     > Message:        The node was low on resource: ephemeral-storage. Container controller was using 16372Ki, which exceeds its request of 0.
     
 ## Next step
-Deploy [Azure Arc enabled Postgres Hyperscale](create-postgresql-hyperscale-server-group.md)
+Deploy [Azure Arc enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)

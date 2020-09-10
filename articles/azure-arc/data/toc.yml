@@ -106,14 +106,6 @@
           items:
             - name: Backup & restore
               href: backup-restore-postgresql-hyperscale.md
-            - name: Secure
-              href: configure-security-postgres-hyperscale.md
-            - name: Manage server group (Azure Data Studio)
-              href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
-            - name: List server groups
-              href: list-server-groups-postgres-hyperscale.md
-            - name: Use Postgres extensions
-              href: using-extensions-in-postgresql-hyperscale-server-group.md
             - name: Configure & scale
               items:
                 - name: Show configuration
@@ -126,6 +118,16 @@
                   href: configure-server-parameters-postgresql-hyperscale.md
             - name: Delete
               href: delete-postgresql-hyperscale-server-group.md
+            - name: List server groups
+              href: list-server-groups-postgres-hyperscale.md
+            - name: Monitoring, log analytics, billing information, Azure portal
+              href: monitoring-log-analytics-azure-portal-postgresql.md
+            - name: Secure
+              href: configure-security-postgres-hyperscale.md
+            - name: Manage server group (Azure Data Studio)
+              href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
+            - name: Use Postgres extensions
+              href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Migrate
           items:
             - name: Migrate PostgreSQL data into a Postgres Hyperscale server group
@@ -144,20 +146,26 @@
           href: managed-instance-features.md
     - name: How-to
       items:
-        - name: Configure
-          href: configure-managed-instance.md
-        - name: Create SQL Managed Instance
-          href: create-sql-managed-instance.md
-        - name: Create SQL Managed Instance (Azure Data Studio)
-          href: create-sql-managed-instance-azure-data-studio.md
-        - name: Connect
-          href: connect-managed-instance.md
-        - name: Migrate to SQL Managed Instance (Azure Arc)
-          href: migrate-to-managed-instance.md
-        - name: Restore AdventureWorks
-          href: restore-adventureworks-sample-db.md
-        - name: Delete
-          href: delete-managed-instance.md
+        - name: Manage
+          items:
+            - name: Configure
+              href: configure-managed-instance.md
+            - name: Create SQL Managed Instance
+              href: create-sql-managed-instance.md
+            - name: Create SQL Managed Instance (Azure Data Studio)
+              href: create-sql-managed-instance-azure-data-studio.md
+            - name: Connect
+              href: connect-managed-instance.md
+            - name: Monitoring, log analytics, billing information, Azure portal
+              href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: Delete
+              href: delete-managed-instance.md
+        - name: Migrate
+          items:
+            - name: Migrate to SQL Managed Instance (Azure Arc)
+              href: migrate-to-managed-instance.md
+            - name: Restore AdventureWorks
+              href: restore-adventureworks-sample-db.md
 - name: Reference
   items:
   - name: azdata
