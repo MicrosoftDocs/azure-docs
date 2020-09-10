@@ -31,11 +31,9 @@ ms.author: yelevin
 
 The new [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) connector lets you stream **advanced hunting** logs - a type of raw event data - from Microsoft 365 Defender into Azure Sentinel. 
 
-With the integration of [Microsoft Defender for Endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) into the Microsoft 365 security umbrella, you can now collect your Microsoft Defender for Endpoint [advanced hunting](https://aka.ms/mdatpAH) events using the Microsoft 365 Defender connector, and stream them straight into new purpose-built tables in your Azure Sentinel workspace. In doing so, you will benefit from the following: 
+With the integration of [Microsoft Defender for Endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) into the Microsoft 365 Defender security umbrella, you can now collect your Microsoft Defender for Endpoint [advanced hunting](https://aka.ms/mdatpAH) events using the Microsoft 365 Defender connector, and stream them straight into new purpose-built tables in your Azure Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting logs, and allowing you to do the following:
 
-- Full availability of Microsoft Defender for Endpoint advanced hunting logs, either standalone or through the Microsoft 365 Defender portal if applicable, in identical schema in either case.
-
-- Query portability support - easily copy your Microsoft Defender for Endpoint advanced hunting queries into Azure Sentinel.
+- Easily copy your existing Microsoft Defender ATP advanced hunting queries into Azure Sentinel.
 
 - Use the raw event logs to provide additional insights for your alerts, hunting, and investigation, and correlate events with data from additional data sources in Azure Sentinel.
 
@@ -48,8 +46,6 @@ With the integration of [Microsoft Defender for Endpoint (MDATP)](https://docs.m
 ## Prerequisites
 
 - You must have a valid license for Microsoft Defender for Endpoint, as described in [Set up Microsoft Defender for Endpoint deployment](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
-
-- You must already be using **advanced hunting** in either Microsoft Defender for Endpoint or Microsoft 365 Defender.
 
 - Your user must be assigned the Global Administrator role on the tenant (in Azure Active Directory).
 
@@ -78,23 +74,25 @@ If Microsoft Defender for Endpoint is deployed and ingesting your data, the even
 
 1. To query the advanced hunting tables in Log Analytics, enter the table name from the list above in the query window.
 
-    You'll notice that the data graph in the connector page shows a single line that aggregates event volume across all enabled tables. Once you have enabled the connector, you can use the following KQL query to generate a similar graph of event volume for a single table (change the *DeviceEvents* table to the required table of your choosing):
+## Verify data ingestion
 
-    ```kusto
-    let Now = now();
-    (range TimeGenerated from ago(14d) to Now-1d step 1d
-    | extend Count = 0
-    | union isfuzzy=true (
-        DeviceEvents
-        | summarize Count = count() by bin_at(TimeGenerated, 1d, Now)
-    )
-    | summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now)
-    | sort by TimeGenerated
-    | project Value = iff(isnull(Count), 0, Count), Time = TimeGenerated, Legend = "Events")
-    | render timechart
-    ```
+The data graph in the connector page indicates that you are ingesting data. You'll notice that it shows a single line that aggregates event volume across all enabled tables. Once you have enabled the connector, you can use the following KQL query to generate a similar graph of event volume for a single table (change the *DeviceEvents* table to the required table of your choosing):
 
-    In the **Next steps** tab, you will find a few sample queries that have been included. You can run them on the spot, or modify and save them.
+```kusto
+let Now = now();
+(range TimeGenerated from ago(14d) to Now-1d step 1d
+| extend Count = 0
+| union isfuzzy=true (
+    DeviceEvents
+    | summarize Count = count() by bin_at(TimeGenerated, 1d, Now)
+)
+| summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now)
+| sort by TimeGenerated
+| project Value = iff(isnull(Count), 0, Count), Time = TimeGenerated, Legend = "Events")
+| render timechart
+```
+
+In the **Next steps** tab, you will find a few sample queries that have been included. You can run them on the spot, or modify and save them.
 
 ## Next steps
 In this document, you learned how to get raw event data from Microsoft Defender for Endpoint into Azure Sentinel, using the Microsoft 365 Defender connector. To learn more about Azure Sentinel, see the following articles:
