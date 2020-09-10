@@ -89,6 +89,6 @@ landingContent:
           - text: Implement Adaptive Network Hardening
             url: security-center-adaptive-network-hardening.md
           - text: Try Azure Defender free for 30 days
-            url: security-center-pricing.md##try-azure-defender-free-for-30-days
+            url: security-center-pricing.md#try-azure-defender-free-for-30-days
           - text: Use the Azure Defender dashboard
             url: azure-defender-dashboard.md
