@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/10/2020
 ms.topic: how-to
 ---
 
