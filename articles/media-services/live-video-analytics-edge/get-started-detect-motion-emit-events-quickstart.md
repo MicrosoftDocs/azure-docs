@@ -80,6 +80,9 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
 
+> [!TIP]
+> If you have [manually deployed Live Video Analytics on IoT Edge](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+
 ## Use direct method calls
 
 You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Live Video Analytics on IoT Edge](direct-methods.md). 
