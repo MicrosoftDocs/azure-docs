@@ -19,12 +19,14 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 
 1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT New notebook**
 1. This will create a new Notebook with the following code:
+    ```
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
     data_df = data.to_spark_dataframe()
     # Display 10 rows
     display(data_df.limit(10))
+    ```
 1. In the notebook choose a spark pool in the **Attach to** menu
 1. Click **Run** on the cell
 
