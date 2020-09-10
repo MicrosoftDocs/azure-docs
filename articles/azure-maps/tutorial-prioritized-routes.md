@@ -3,7 +3,7 @@ title: 'Tutorial: Find and display routes for specific travel modes with Microso
 description: Learn how to use Azure Maps to find and display routes for specific travel modes. 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -13,12 +13,12 @@ ms.custom: mvc, devx-track-javascript
 
 # Tutorial: Find and display routes for different modes of travel using Azure Maps
 
-This tutorial shows you how to use the Azure Maps [Route service](https://docs.microsoft.com/rest/api/maps/route) and [Map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) to display route directions for prioritized travel modes. In this tutorial, we'll show you how to display two routes. The first route is for trucks with `USHazmatClass2` cargo type. The second route is for cars.
+This tutorial shows you how to use the Azure Maps [Route service](https://docs.microsoft.com/rest/api/maps/route) and [Map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) to display route directions for both private vehicles and commercial vehicles (trucks) with `USHazmatClass2` cargo type . In addition, we'll walk you through how to visualize real-time traffic data on a map. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create and display the Map control
-> * Display general traffic flow data
-> * Define and render routes prioritized by mode of travel
+> * Create and display the Map control on a web page
+> * Render real-time traffic data on a map
+> * Request and display private and commercial vehicle routes on a map
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ This tutorial shows you how to use the Azure Maps [Route service](https://docs.m
 
 You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
 
-## Create and display the Map control
+## Create a new web page using the map control API
 
 The following steps show you how to create and display the Map control in a web page.
 
@@ -99,7 +99,7 @@ The following steps show you how to create and display the Map control in a web 
 
     :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="Basic map rendering of Map control":::
 
-## Display general traffic flow data
+## Render real-time traffic data on a map
 
 1. Append the following JavaScript code in the `GetMap` function. This code implements the Map control's `ready` event handler. The rest of the code in this tutorial will be placed inside the `ready` event handler.
 
@@ -122,7 +122,7 @@ The following steps show you how to create and display the Map control in a web 
 
 ## Define route display rendering
 
-In this tutorial, two routes will be calculated and rendered on the map. One route will use roads accessible to cars. The other route will use roads accessible to trucks. Both routes will be rendered using a line layer. The start and end points of the routes will be rendered using a symbol layer. For more information on adding line layers, see [Add a line layer to a map](map-add-line-layer.md). To learn more about symbol layers, see [Add a symbol layer to a map](map-add-pin.md).
+In this tutorial, two routes will be calculated and rendered on the map. The first route will be calculated for a private vehicle (car). The second route will be calculated for a commercial vehicle (truck) to show the difference between the results. When rendered, the map will display a symbol icon for the start and end points of the route, and route line geometries with different colors for each route path. For more information on adding line layers, see [Add a line layer to a map](map-add-line-layer.md). To learn more about symbol layers, see [Add a symbol layer to a map](map-add-pin.md).
 
 1. In the Map control's `ready` event handler, append the following code.
 
@@ -155,7 +155,7 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
 
     ```
 
-    In the Map Control's `ready` event handler, a data source is created to store the route from start to finish. [Expressions](data-driven-style-expressions-web-sdk.md) are used to retrieve the line width and color from properties on the route line feature. To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
+    In the Map control's `ready` event handler, a data source is created to store the route from start to finish. [Expressions](data-driven-style-expressions-web-sdk.md) are used to retrieve the line width and color from properties on the route line feature. To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
 
     Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered.Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions](data-driven-style-expressions-web-sdk.md).
 
@@ -194,7 +194,7 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
 
 <a id="multipleroutes"></a>
 
-## Render routes prioritized by mode of travel
+## Request and display private and commercial vehicle routes on a map
 
 This section shows you how to use the Azure Maps Route service to get directions from one point to another, based on your mode of transport. We'll be using two modes of transport: truck and car.
 
@@ -243,10 +243,10 @@ This section shows you how to use the Azure Maps Route service to get directions
     });
     ```
 
-    The code above queries the Azure Maps Route service through the [calculateRouteDirections method](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. We are adding it at the index of 0, to ensure that the truck route is rendered before any other lines in the data source, because the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line: a blue stroke color, and a stroke width of nine pixels.
+    The code above queries the Azure Maps Route service through the [Azure Maps Route Directions API](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. We are adding it at the index of 0, to ensure that the truck route is rendered before any other lines in the data source, because the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line: a blue stroke color, and a stroke width of nine pixels.
 
     >[!TIP]
-    > To see all possible options and values for the `calcuatedRouteDirections` method, see [URI Parameters for Post Route Directions](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#uri-parameters).
+    > To see all possible options and values for the Azure Maps Route Directions API, see [URI Parameters for Post Route Directions](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#uri-parameters).
 
 3. Now append the following JavaScript code to construct a route for a car.
 
@@ -266,13 +266,13 @@ This section shows you how to use the Azure Maps Route service to get directions
     });
     ```
 
-    The code above queries the Azure Maps routing service through the  [calculateRouteDirections method](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. Two properties are added to the truck route line: a purple stroke color, and a stroke width of five pixels.
+    The code above queries the Azure Maps routing service through the  [Azure Maps Route Directions API](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. Two properties are added to the truck route line: a purple stroke color, and a stroke width of five pixels.
 
 4. Save the **TruckRoute.html** file and refresh your web browser. The map should now display the truck and car routes.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Prioritized routes with Azure Route Service":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Private and commercial vehicle routes on a map with Azure Route Service":::
 
-    The truck route is displayed using a thick blue line. The car route is displayed using at hin purple line. The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are close to residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different highway.
+    The truck route is displayed using a thick blue line. The car route is displayed using a thin purple line. The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are close to residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different highway.
 
     You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
 

@@ -175,10 +175,10 @@ In this tutorial, we'll render the route using a line layer. The start and end p
 
 ## Get route directions
 
-This section shows you how to use the Azure Maps Route service to get directions from one point to another. 
+This section shows you how to use the Azure Maps Route Directions API to get route directions and the estimated time of arrival from one point to another.
 
 >[!TIP]
->The Route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes based on distance, traffic conditions, and mode of transport used. The service also lets users plan future routes based on historical traffic conditions. Users can see the prediction of route durations for any given time. For more information, see [Get Route directions API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+>The Azure Maps Route services offer APIs to plan routes based on different route types such as *fastest*, *shortest*, *eco*, or *thrilling* routes based on distance, traffic conditions, and mode of transport used. The service also lets users plan future routes based on historical traffic conditions. Users can see the prediction of route durations for any given time. For more information, see [Get Route directions API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
 1. In the `GetMap` function, inside the control's `ready` event handler, add the following to the JavaScript code.
 
