@@ -13,7 +13,7 @@ ms.date: 09/09/2020
 Azure Advisor provides best practice recommendations for your workloads. These recommendations are personalized and actionable to help you:
 1. Improve the posture of your workloads and optimize your Azure deployments
 2. Proactively prevent top issues by following best practices
-3. Assess your Azure workloads against the five pillars of the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/)
+3. Assess your Azure workloads against the five pillars of the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/)
 
 As a core feature of Advisor, the **Advisor Score** is devised to help you achieve these goals effectively and efficiently. 
 
@@ -52,7 +52,7 @@ Advisor applies three additional weights to the healthy resource ratio in each c
 		b. Resources with long-standing recommendations will count more against your score.
 		c. Resources that you dismiss in Advisor are removed from your score calculation entirely. 
     
-Advisor applies this model at an Advisor category level (Security uses [Secure Score](https://docs.microsoft.com/en-us/azure/security-center/secure-score-security-controls#introduction-to-secure-score) model), giving us Advisor Score for each category and further a simple average produces the final Advisor Score.
+Advisor applies this model at an Advisor category level (Security uses [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) model), giving us Advisor Score for each category and further a simple average produces the final Advisor Score.
 
 
 ## Advisor Score FAQ
