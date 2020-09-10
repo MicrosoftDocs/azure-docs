@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
-title: Azure Security Center for IoT documentation
-summary: Azure Security Center for IoT is an Azure based cloud security service providing comprehensive IoT device threat protection.
+title: Azure Defender for IoT documentation
+summary: Azure Defender for IoT is an Azure based cloud security service providing comprehensive IoT device threat protection.
 
 metadata:
-  title: Azure Security Center for IoT documentation
-  description: Learn how Azure Security Center for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
+  title: Azure Defender for IoT documentation
+  description: Learn how Azure Defender for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
   services: service
-  ms.service: asc-for-iot
+  ms.service: defender-for-iot
   ms.topic: landing-page
   ms.collection: M365-security-compliance
   author: mlottner
@@ -18,11 +18,11 @@ metadata:
 
 landingContent:
 
-  - title: About Azure Security Center for IoT
+  - title: About Azure Defender for IoT
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Security Center for IoT?
+          - text: What is Azure Defender for IoT?
             url: overview.md
           - text: Security Module for Azure RTOS 
             url: iot-security-azure-rtos.md
@@ -30,21 +30,21 @@ landingContent:
             url: service-prerequisites.md
       - linkListType: architecture
         links:
-          - text: Understand Azure Security Center for IoT architecture
+          - text: Understand Azure Defender for IoT architecture
             url: architecture.md
-          - text: Azure Security Center for IoT Agents
+          - text: Azure Defender for IoT Agents
             url: security-agent-architecture.md
           - text: Edge security module
             url: security-edge-architecture.md
-  - title: Onboard Azure Security Center for IoT into IoT Hub
+  - title: Onboard Azure Defender for IoT into IoT Hub
     linkLists:
       - linkListType: get-started
         links:
-          - text: Get started with Azure Security Center for IoT
+          - text: Get started with Azure Defender for IoT
             url: getting-started.md
           - text: IoT Hub
             url: iot-hub-integration.md
-          - text: Get started with Azure IoT Security Module-RTOS
+          - text: Get started with Security Module for Azure RTOS
             url: concept-rtos-security-module.md
           - text: Security agents
             url: security-agents.md
@@ -52,13 +52,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Enable Azure Security Center for IoT in IoT Hub
+          - text: Enable Azure Defender for IoT in IoT Hub
             url: quickstart-onboard-iot-hub.md
           - text: Configure your IoT security solution
             url: quickstart-configure-your-solution.md
           - text: Configure your Security Module for Azure RTOS 
             url: quickstart-azure-rtos-security-module.md
-          - text: Create an Azure Security Center for IoT module twin
+          - text: Create an Azure Defender for IoT module twin
             url: quickstart-create-security-twin.md
           - text: Create custom security alerts
             url: quickstart-create-custom-alerts.md
@@ -72,11 +72,11 @@ landingContent:
             url: how-to-azure-rtos-security-module.md
           - text: Choose an agent
             url: how-to-deploy-agent.md
-          - text: Deploy an Azure Security Center for IoT C#-based security agent for Windows
+          - text: Deploy an Azure Defender for IoT C#-based security agent for Windows
             url: how-to-deploy-windows-cs.md
-          - text: Deploy Azure Security Center for IoT C# based security agent for Linux
+          - text: Deploy Azure Defender for IoT C# based security agent for Linux
             url: how-to-deploy-linux-cs.md
-          - text: Deploy Azure Security Center for IoT C based security agent for Linux
+          - text: Deploy Azure Defender for IoT C based security agent for Linux
             url: how-to-deploy-linux-c.md
           - text: Deploy Edge security module
             url: how-to-deploy-edge.md
@@ -98,13 +98,13 @@ landingContent:
             url: azure-iot-security-local-configuration-c.md
           - text: Understanding the Local configuration file - C# agent
             url: azure-iot-security-local-configuration-csharp.md
-  - title: Azure Security Center for IoT solution resources
+  - title: Azure Defender for IoT solution resources
     linkLists:
       - linkListType: video
         links:
-          - text: What is Azure Security Center for IoT?
+          - text: What is Azure Defender for IoT?
             url: https://youtu.be/pq5uSp9u_x0
-          - text: Understanding Azure Security Center for IoT
+          - text: Understanding Azure Defender for IoT
             url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
       - linkListType: reference
         links:

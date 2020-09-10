@@ -1,4 +1,4 @@
-- name: Azure Security Center for IoT documentation
+- name: Azure Defender for IoT documentation
   href: index.yml
 - name: Overview
   href: overview.md
@@ -13,7 +13,7 @@
     href: security-edge-architecture.md
   - name: Service prerequisites
     href: service-prerequisites.md
-  - name: Get started with Azure Security Center for IoT
+  - name: Get started with Azure Defender for IoT
     href: getting-started.md
     items:
     - name: IoT Hub
@@ -25,11 +25,11 @@
   items:
   - name: Configure Security Module for Azure RTOS
     href: quickstart-azure-rtos-security-module.md
-  - name: Onboard Azure Security Center for IoT in IoT Hub
+  - name: Onboard Azure Defender for IoT in IoT Hub
     href: quickstart-onboard-iot-hub.md
   - name: Configure your solution
     href: quickstart-configure-your-solution.md
-  - name: Create an Azure Security Center for IoT module twin
+  - name: Create an Azure Defender for IoT module twin
     href: quickstart-create-security-twin.md
   - name: Investigate security recommendations
     href: quickstart-investigate-security-recommendations.md
@@ -77,7 +77,7 @@
       href: how-to-deploy-linux-c.md
   - name: Troubleshoot a security agent
     items:
-    - name: Troubleshoot Azure Security Center for IoT Linux security agent
+    - name: Troubleshoot Azure Defender for IoT Linux security agent
       href: troubleshoot-agent.md
     - name: Local configuration C
       href: azure-iot-security-local-configuration-c.md
