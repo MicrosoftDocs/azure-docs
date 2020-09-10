@@ -19,15 +19,13 @@ Use the Azure portal to create an Azure Stream Analytics cluster. A [Stream Anal
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Completion of [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md).
 
-## Sign in to Azure portal
-
-Sign in to the Azure portal.
-
 ## Create a Stream Analytics cluster
 
 In this section, you create a Stream Analytics cluster resource.
 
-1. In the Azure portal, select **Create a resource**. In the *Search the Marketplace* search box, type and select **Stream Analytics cluster**. Then select **Add**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Create a resource**. In the *Search the Marketplace* search box, type and select **Stream Analytics cluster**. Then select **Add**.
 
    :::image type="content" source="./media/create-cluster/search-result.png" alt-text="Stream Analytics cluster search result.":::
 

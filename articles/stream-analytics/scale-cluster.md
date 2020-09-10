@@ -1,5 +1,5 @@
 ---
-title: Scale an Azure Stream Analytics cluster
+title: Resize an Azure Stream Analytics cluster
 description: Learn how to scale up and down the size of an Azure Stream Analytics cluster.
 author: sidramadoss
 ms.author: sidram
@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 09/22/2020
 ---
 
-# Scale an Azure Stream Analytics cluster
+# Resize an Azure Stream Analytics cluster
 
 The capacity of a Stream Analytics cluster is measured in Streaming Units (SU). Multiple jobs can run in parallel in the same cluster as long as the sum of SUs assigned to all running jobs does not exceed the capacity of the cluster.
 

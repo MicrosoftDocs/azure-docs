@@ -32,31 +32,32 @@ The *build* command does a keyword syntax check and outputs the Azure Resource M
 
 | Parameter | Description |
 |---|---|
-| -project | The absolute path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
-| -outputPath | The path of the output folder for Azure Resource Manager Templates. If it is not specified, the templates will be placed in the current directory. |
+| `-project` | The absolute path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
+| `-outputPath` | The path of the output folder for Azure Resource Manager Templates. If it is not specified, the templates will be placed in the current directory. |
 
-
-### VS Code project example
+#### [Visual Studio Code](#tab/visual-studio-code)
 
 ```powershell
 azure-streamanalytics-cicd build -project "/Users/username/projects/samplejob/asaproj.json"
 ```
 
-### Visual Studio project example
+#### [Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd build -project "/Users/username/projects/samplejob/samplejob.asaproj"
 ```
 
+--- 
+
 When a Stream Analytics project builds successfully, it generates the following two files under the output folder:
 
 * Azure Resource Manager template file
 
-   [ProjectName].JobTemplate.json
+   `[ProjectName].JobTemplate.json`
 
 * Azure Resource Manager parameter file
 
-   [ProjectName].JobTemplate.parameters.json
+   `[ProjectName].JobTemplate.parameters.json`
 
 The default parameters in the parameters.json file are from the settings in your Visual Studio Code or Visual Studio project. If you want to deploy to another environment, replace the parameters accordingly.
 
@@ -80,21 +81,23 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 
 | Parameter | Description |
 |---|---|
-| -project | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
-| -outputPath | The path of the output folder. If it is not specified, the output result files will be placed in the current directory. |
-| -customCodeZipFilePath | The path of the zip file for C# custom code, such as a UDF or deserializer, if they are used. Package the DLLs into a zip file and specify this path. |
+| `-project` | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
+| `-outputPath` | The path of the output folder. If it is not specified, the output result files will be placed in the current directory. |
+| `-customCodeZipFilePath` | The path of the zip file for C# custom code, such as a UDF or deserializer, if they are used. Package the DLLs into a zip file and specify this path. |
 
-### VS Code project example
+#### [Visual Studio Vode](#tab/visual-studio-code)
 
 ```powershell
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/asaproj.json"
 ```
 
-### Visual Studio project example
+#### [Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/samplejob.asaproj"
 ```
+
+---
 
 > [!Note] 
 > JavaScript UDF only works on Windows.
@@ -105,7 +108,7 @@ You can use the CI/CD npm package to configure and run automated tests for your 
 
 ### Add a test case
 
-The test cases are described in a test configuration file. To get started, use the **addtestcase** command to add a test case template to the test configuration file. If the test configuration file doesn't exist, one is created by default.
+The test cases are described in a test configuration file. To get started, use the `addtestcase` command to add a test case template to the test configuration file. If the test configuration file doesn't exist, one is created by default.
 
 ```powershell
 azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPath <testConfigFileFullPath>]
@@ -113,20 +116,21 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 
 | Parameter | Description |
 |---|---|
-| -project | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
-| -testConfigPath | The path of the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file will be created if not existed. |
+| `-project` | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
+| `-testConfigPath` | The path of the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file will be created if not existed. |
 
-### VS Code project example
+#### [Visual Studio Code](#tab/visual-studio-code)
 
 ```powershell
 azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob/asaproj.json"
 ```
 
-### Visual Studio project example
+#### [Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob/samplejob.asaproj"
 ```
+---
 
 If the test configuration file is empty, the following content is written into the file. Otherwise, a test case is added into the array of **TestCases**. Necessary input configurations are automatically filled according to the input configuration files, if they exist. Otherwise, default values are configured. **FilePath** of each input and expected output must be specified before running the test. You can modify the configuration manually.
 
@@ -169,10 +173,10 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 
 | Parameter | Description |
 |---|---|
-| -project | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
-| -testConfigPath | The path to the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
-| -outputPath | The path of the test result output folder. If it is not specified, the output result files will be placed in the current directory. |
-| -customCodeZipFilePath | The path of the zip file for custom code such as a UDF or deserializer, if they are used. |
+| `-project` | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
+| `-testConfigPath` | The path to the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
+| `-outputPath` | The path of the test result output folder. If it is not specified, the output result files will be placed in the current directory. |
+| `-customCodeZipFilePath` | The path of the zip file for custom code such as a UDF or deserializer, if they are used. |
 
 When all tests are finished, a summary of the test results in JSON format is generated in the output folder. The summary file is named **testResultSummary.json**.
 
@@ -232,8 +236,7 @@ When all tests are finished, a summary of the test results in JSON format is gen
 
 You can use the Azure Resource Manager template and parameter files generated from Build to [deploy your job to Azure](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md?tabs=azure-powershell#deploy-template).
 
-
-## Next Steps
+## Next steps
 
 * [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd-overview.md)
 * [Set up CI/CD pipeline for Stream Analytics job using Azure Pipelines](set-up-cicd-pipeline.md)
