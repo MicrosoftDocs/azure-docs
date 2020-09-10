@@ -138,7 +138,7 @@ az postgres flexible-server firewall-rule show --name mydemoserver --rule-name F
 ```
 Upon success, the command output lists the details of the firewall rule you have specified, in JSON format (by default). If there is a failure, the output shows error message text instead.
 
-## Delete a firewall rule
+### Delete a firewall rule
 Use the `az postgres flexible-server firewall-rule delete` command to delete an existing firewall rule from the server. Provide the name of the existing firewall rule.
 ```azurecli-interactive
 az postgres flexible-server firewall-rule delete --name mydemoserver --rule-name FirewallRule1
