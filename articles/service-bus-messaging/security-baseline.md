@@ -534,7 +534,7 @@ Microsoft manages the underlying infrastructure for Azure Service Bus and has im
 
 - [Allow access to Azure Service Bus namespaces via private endpoints](private-link-service.md)
 
-- [Understand Network Security Groups and Service Tags](../virtual-network/security-overview.md)
+- [Understand Network Security Groups and Service Tags](/azure/virtual-network/security-overview)
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
