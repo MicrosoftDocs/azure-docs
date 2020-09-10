@@ -19,7 +19,7 @@ ms.custom: devops
 
 # Tutorial - Configure the rolling deployment strategy for Azure Linux virtual machines
 
-Azure DevOps is a built-in Azure service that automates each part of the DevOps process for any Azure resource. Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code (IaaC), continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.
+Azure DevOps is a built-in Azure service that automates each part of the DevOps process for any Azure resource. Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code (IaC), continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.
 
 ![The Azure portal with Azure DevOps selected under Services](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
