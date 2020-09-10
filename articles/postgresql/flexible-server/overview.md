@@ -77,7 +77,7 @@ The flexible server service allows you to stop and start server on-demand to low
 
 The flexible server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default). The service encrypts data in-motion with transport layer security (SSL/TLS) enforced by default. The service enforces and supports TLS versions 1.2 only.
 
-Flexible servers allows full private access to the servers using [Azure virtual network]() (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints.
+Flexible servers allows full private access to the servers using Azure virtual network (VNet integration). Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints.
 
 ## Monitoring and alerting
 
@@ -87,20 +87,11 @@ The flexible server service is equipped with built-in performance monitoring and
 
 The service runs the community version of PostgreSQL. This allows full application compatibility and requires minimal refactoring cost to migrate an existing application developed on PostgreSQL engine to Flexible Server. 
 
-- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like Pg_dump and Pg_restore can provide fastest way to migrate. See [Migrate using dump and restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) for details.
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, Azure Database Migration Service can be leveraged. See [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) and [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online). You can migrate from your Azure Database for PostgreSQL - Single Server to flexible server. See this [DMS article](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) for details.
+- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like pg_dump and pg_restore can provide fastest way to migrate. See [Migrate using dump and restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) for details.
+- **Azure Database Migration Service** – For seamless and simplified migrations to flexible server with minimal downtime, Azure Database Migration Service can be leveraged. See [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) and [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online). You can migrate from your Azure Database for PostgreSQL - Single Server to Flexible Server. See this [DMS article](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) for details.
 
 ## Next steps
 
-Now that you've read an introduction to Azure Database for PostgreSQL single server deployment mode, you're ready to:
-- Create your first server.
-  - [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
-  - Create an Azure Database for PostgreSQL - Flexible Server using Azure CLI
-- Azure CLI samples for Azure Database for PostgreSQL
-- Build your first app using your preferred language:
-    - Python
-    - Java
-    - Ruby
-    - .NET
-    - Go
+Now that you've read an introduction to Azure Database for PostgreSQL flexible server deployment mode, you're ready to create your first server: [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+
 
