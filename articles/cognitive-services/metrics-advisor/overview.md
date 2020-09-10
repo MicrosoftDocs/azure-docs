@@ -14,7 +14,7 @@ ms.author: aahi
 
 # What is Metrics Advisor? 
 
-Metrics Advisor is a cognitive service that uses time series based decision AI to identify and assist trouble shooting the incidents of online services, predict next maintenance cycle of various equipment and devices and monitor the business health by automating the slice and dice of business metrics like revenue, page views… Metrics Advisor provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use Metrics Advisor to:
+Metrics Advisor is a part of Azure Cognitive Services that uses AI perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Use Metrics Advisor to:
 
 * Analyze multi-dimensional data from multiple data sources 
 * Identify and correlate anomalies
