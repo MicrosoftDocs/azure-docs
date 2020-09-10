@@ -120,7 +120,7 @@ This section lists all the security alerts for Azure AD roles, along with how to
 | **Activation renewal timeframe** | This setting specifies in days, hours, minutes, and second the time period you want to use to track suspicious renewals. |
 | **Number of activation renewals** | This setting specifies the number of activations, from 2 to 100, at which you would like to be notified, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box. |
 
-## Configure security alert settings
+## Configure security alert settings for new version
 
 From the Alerts page, go to **Settings**.
 
@@ -219,7 +219,7 @@ This section lists all the security alerts for Azure AD roles, along with how to
 | **Activation renewal timeframe** | This setting specifies in days, hours, minutes, and second the time period you want to use to track suspicious renewals. |
 | **Number of activation renewals** | This setting specifies the number of activations, from 2 to 100, at which you would like to be notified, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box. |
 
-## Configure security alert settings
+## Configure security alert settings for previous version
 
 You can customize some of the security alerts in Privileged Identity Management to work with your organization's needs and security goals. Follow these steps to open the security alert settings:
 

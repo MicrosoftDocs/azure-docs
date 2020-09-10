@@ -57,7 +57,7 @@ If you are creating a server, use the [New-AzSqlServer](/powershell/module/az.sq
        -ServerName <LogicalServerName> -ServerVersion "12.0" -SqlAdministratorCredentials <PSCredential> -AssignIdentity
    ```
 
-## Grant Key Vault permissions to your server using Azure CLI
+## Grant Key Vault permissions to your server using PowerShell
 
 Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to grant your server access to the key vault before using a key from it for TDE.
 
