@@ -189,12 +189,12 @@ If you open the graph topology for this tutorial in a browser, you will see that
 1. To start a debugging session, select the F5 key. You see messages printed in the TERMINAL window.
 1. The operations.json code starts off with calls to the direct methods GraphTopologyList and GraphInstanceList. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
     
-    The TERMINAL window shows the next set of direct method calls:
+   The TERMINAL window shows the next set of direct method calls:
     
-    * A call to GraphTopologySet that uses the preceding topologyUrl.
-    * A call to GraphInstanceSet that uses the following body:
+   * A call to GraphTopologySet that uses the preceding topologyUrl.
+   * A call to GraphInstanceSet that uses the following body:
         
-        ```
+   ```
         {
           "@apiVersion": "1.0",
           "name": "Sample-Graph-1",
@@ -217,19 +217,20 @@ If you open the graph topology for this tutorial in a browser, you will see that
             ]
           }
         }
-    ```
+   ```
     
-    * A call to GraphInstanceActivate that starts the graph instance and the flow of video.
-    * A second call to GraphInstanceList that shows that the graph instance is in the running state.
+   * A call to GraphInstanceActivate that starts the graph instance and the flow of video.
+   * A second call to GraphInstanceList that shows that the graph instance is in the running state.
+    
 1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub. The following section of this tutorial discusses these messages.
 1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the TERMINAL window and select Enter.
 The next series of calls cleans up resources:
     
-    * A call to GraphInstanceDeactivate deactivates the graph instance.
-    * A call to GraphInstanceDelete deletes the instance.
-    * A call to GraphTopologyDelete deletes the topology.
-    * A final call to GraphTopologyList shows that the list is empty.
+   * A call to GraphInstanceDeactivate deactivates the graph instance.
+   * A call to GraphInstanceDelete deletes the instance.
+   * A call to GraphTopologyDelete deletes the topology.
+   * A final call to GraphTopologyList shows that the list is empty.
     
 ## Interpret the Results
 
