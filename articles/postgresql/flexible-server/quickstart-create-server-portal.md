@@ -6,7 +6,7 @@ ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
@@ -162,6 +162,5 @@ To delete only the newly created server:
 3. Confirm the name of the server you want to delete, and view the databases under it that are affected. Enter your server name in the text box, such as the example, **mydemoserver**. Select **Delete**.
 
 ## Next steps
-
 > [!div class="nextstepaction"]
->[Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)
+> [Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)

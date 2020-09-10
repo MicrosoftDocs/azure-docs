@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 9/21/2020
+ms.date: 09/22/2020
 ---
 
 # Manage scheduled maintenance settings for Azure Database for PostgreSQL – Flexible server
@@ -30,5 +30,5 @@ You can use Azure Service Health to [view notifications](/azure/service-health/s
  
 ## Next steps  
  
-* Learn about [scheduled maintenance in Azure Database for PostgreSQL – Flexible server](concept-maintenance.md)
+* Learn about [scheduled maintenance in Azure Database for PostgreSQL – Flexible server](concepts-maintenance.md)
 * Lean about [Azure Service Health](/azure/service-health/overview.md)

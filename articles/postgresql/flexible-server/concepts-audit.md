@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Flexible server
@@ -13,7 +13,7 @@ ms.date: 09/21/2020
 Audit logging of database activities in Azure Database for PostgreSQL - Flexible server is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session and/or object audit logging.
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible server is in preview.
+> Azure Database for PostgreSQL - Flexible server is in preview
 
 If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md).
 
@@ -59,7 +59,7 @@ For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgre
 You can use this query to get started. You can configure alerts based on queries.
 
 Search for all pgAudit entries in Postgres logs for a particular server in the last day
-```
+```kusto
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
 | where TimeGenerated > ago(1d) 

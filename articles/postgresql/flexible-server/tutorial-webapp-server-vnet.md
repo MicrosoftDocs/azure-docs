@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -16,6 +16,13 @@ ms.custom: mvc, devx-track-azurecli
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
 This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+In this tutorial you will
+>[!div class="checklist"]
+> * Create a PostgreSQL flexible server in a virtual network
+> * Create a web app
+> * Add the web app to the virtual network
+> * Connect to Postgres from the web app 
 
 ## Prerequisites
 
@@ -106,5 +113,7 @@ Clean up all resources you created in the tutorial using the following command. 
 az group delete -n myresourcegroup
 ```
 
+
 ## Next steps
-- [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [!div class="nextstepaction"]
+> [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
