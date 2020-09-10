@@ -56,7 +56,7 @@
     - name: Move across regions
       href: move-region.md
     - name: Move resources across regions (within resource group)
-      href: ../../resource-mover/move-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
+      href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Supported services
       href: region-move-support.md
     - name: Services
