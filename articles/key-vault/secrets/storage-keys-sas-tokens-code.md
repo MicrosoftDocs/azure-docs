@@ -14,10 +14,10 @@ ms.custom: devx-track-csharp
 ---
 # Fetch shared access signature tokens in code
 
-You can manage your storage account with shared access signature (SAS) tokens stored in your key vault. For more information, see [Grant limited access to Azure Storage resources using SAS](~/storage/common/storage-sas-overview.md).
+You can manage your storage account with shared access signature (SAS) tokens stored in your key vault. For more information, see [Grant limited access to Azure Storage resources using SAS](../../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> We recommend using [Role-Based Access Control (RBAC)](~/storage/common/storage-auth-aad.md) to secure your storage account for superior security and ease of use over Shared Key authorization.
+> We recommend using [Role-Based Access Control (RBAC)](../../storage/common/storage-auth-aad.md) to secure your storage account for superior security and ease of use over Shared Key authorization.
 
 This article provides examples of .NET code that creates a SAS definition and fetches SAS tokens. See our [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) sample for full details including the generated client for Key Vault-managed storage accounts. For information on how to create and store SAS tokens, see [Manage storage account keys with Key Vault and the Azure CLI](overview-storage-keys.md) or [Manage storage account keys with Key Vault and Azure PowerShell](overview-storage-keys-powershell.md).
 
@@ -25,20 +25,20 @@ This article provides examples of .NET code that creates a SAS definition and fe
 
 In the following example we'll create a SAS template:
 
-:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="91,97":::
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="91-97":::
 
 Using this template, we can create a SAS definition using the 
 
-:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="137,156":::
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="137-156":::
 
 Once the SAS definition is created, you can retrieve SAS tokens like secrets using a `SecretClient`. You need to preface the secret name with the storage account name followed by a dash:
 
-:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="52,58":::
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="52-58":::
 
 If your shared access signature token is about to expire, you can fetch the same secret again to generate a new one.
 
 ## Next steps
-- Learn how to [Grant limited access to Azure Storage resources using SAS](~/storage/common/storage-sas-overview.md).
+- Learn how to [Grant limited access to Azure Storage resources using SAS](../../storage/common/storage-sas-overview.md).
 - Learn how to [Manage storage account keys with Key Vault and the Azure CLI](overview-storage-keys.md) or [Azure PowerShell](overview-storage-keys-powershell.md).
 - See the full [ShareLink](https://docs.microsoft.com/en-us/samples/azure/azure-sdk-for-net/share-link/) sample.
 - More [Key Vault samples](https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault)
