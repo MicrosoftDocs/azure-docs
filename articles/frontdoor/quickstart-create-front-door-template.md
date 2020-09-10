@@ -91,7 +91,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. Select the Front Door you created previously and click on the **Frontend host** link. This should direct you to your backend FQDN you defined during creation.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Front Door Resource Manager template PowerShell deployment output":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Front Door portal overview":::
 
 ## Clean up resources
 
