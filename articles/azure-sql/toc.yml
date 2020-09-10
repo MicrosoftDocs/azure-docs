@@ -752,6 +752,8 @@
         href: managed-instance/management-operations-overview.md
       - name: API reference
         href: managed-instance/api-references-create-manage-instance.md
+      - name: Monitoring management operations
+        href: managed-instance/monitoring-management-operations.md
     - name: Machine Learning Services
       items:
       - name: Overview
