@@ -64,7 +64,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     1. Select **Next** to open the **Datastore and file selection form**. On this form you select where to upload your dataset; the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
     
-        1. If your data is behind a virtual network, you need to enable the **skip the validation** function to ensure that the workspace can access your data. Learn more about [network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio). 
+        1. If your data is behind a virtual network, you need to enable the **skip the validation** function to ensure that the workspace can access your data. For more information, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md). 
     
     1. Select **Browse** to upload the data file for your dataset. 
 
