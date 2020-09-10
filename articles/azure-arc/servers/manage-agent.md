@@ -19,7 +19,7 @@ Before removing the Connected Machine agent from your Arc enabled server, consid
 
 For servers or machines you no longer want to register and manage with Azure Arc enabled servers, it is necessary to follow these steps to successfully stop managing it:
 
-1. Remove the VM extensions from the machine or server.
+1. Remove the VM extensions from the machine or server. Steps are provided below.
 
 2. Disconnect the machine from Azure Arc using one of the following methods:
 
@@ -29,7 +29,7 @@ For servers or machines you no longer want to register and manage with Azure Arc
 
     * Using the [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) or [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). For the`ResourceType` parameter use `Microsoft.HybridCompute/machines`.
 
-3. Uninstall the agent from the machine or server.
+3. Uninstall the agent from the machine or server. Follow the steps below.
 
 ## Upgrading agent
 
