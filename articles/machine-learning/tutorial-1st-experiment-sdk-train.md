@@ -29,7 +29,7 @@ This article will demonstrate to you these Azure Machine Learning concepts:
 - [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) 
 - [Azure Machine Learning Metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
 
-Learning these concepts means that by the end of this session, you can:
+Learning these concepts means that by the end of this session, you can:-
 
 > [!div class="checklist"]
 > * Use Conda to define an Azure Machine Learning environment.
