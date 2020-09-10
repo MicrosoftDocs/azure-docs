@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.author: b-juche
 ---
 # Cross-region replication of Azure NetApp Files volumes
