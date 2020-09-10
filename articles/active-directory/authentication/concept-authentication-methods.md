@@ -27,31 +27,32 @@ Passwordless authentication methods such as Windows Hello, FIDO2 security keys, 
 
 Azure Multi-Factor Authentication adds additional security over only using a password when a user signs in. The user can be prompted for additional forms of authentication, such as to respond to a push notification, enter a code from a software or hardware token, or respond to an SMS or phone call.
 
-To simplify the user on-boarding experience and register for both MFA and SSPR, we recommend you [enable combined security information registration](howto-registration-mfa-sspr-combined.md). For resiliency, we recommend that you require users to register multiple authentication methods. When one method isn't available for a user during sign-in or SSPR, they can choose to authenticate with another method.
+To simplify the user on-boarding experience and register for both MFA and SSPR, we recommend you [enable combined security information registration](howto-registration-mfa-sspr-combined.md). For resiliency, we recommend that you require users to register multiple authentication methods. When one method isn't available for a user during sign-in or SSPR, they can choose to authenticate with another method. For more information, see [Create a resilient access control management strategy in Azure AD](concept-resilient-controls.md).
 
 ## Authentication method strength and security
 
 When you deploy features like Azure Multi-Factor Authentication in your organization, review the available authentication methods. Choose the methods that meet or exceed your requirements in terms of security, usability, and availability. Where possible, use authentication methods with the highest level of security.
 
-The following table outlines the security considerations for the available authentication methods:
+The following table outlines the security considerations for the available authentication methods. Availability is an indication of the user being able to use the authentication method, not of the service availability in Azure AD:
 
-| Authentication method       | Authentication level | Security | Usability | Phisable? | Channel jackable? | Availability |
-|-----------------------------|----------------------|----------|-----------|-----------|-------------------|--------------|
-| FIDO2 security key          | Passwordless         | High     | High      | No        | No                | High         |
-| Microsoft Authenticator app | Passwordless or MFA <sup>1</sup>  | High     | High      | Yes       | No <sup>2</sup>     | High         |
-| Windows Hello for Business  | Passwordless         | High     | High      | No        | No                | High         |
-| Hardware OATH tokens        | MFA <sup>1</sup>     | Medium   | Medium    | Yes       | No                | High         |
-| Software OATH tokens        | MFA <sup>1</sup>     | Medium   | Medium    | Yes       | No <sup>3</sup>   | High         |
-| SMS                         | MFA <sup>1</sup>     | Medium   | High      | Yes       | Yes               | Medium       |
-| Voice                       | MFA <sup>1</sup>     | Medium   | Medium    | Yes       | Yes               | Medium       |
-| Password                    | Password             | Low      | High      | Yes       | Yes               | High         |
+| Authentication method       | Security | Usability | Phisable? | Channel jackable? | Availability |
+|-----------------------------|----------|-----------|-----------|-------------------|--------------|
+| FIDO2 security key          | High     | High      | No        | No                | High         |
+| Microsoft Authenticator app | High     | High      | Yes       | No <sup>1</sup>   | High         |
+| Windows Hello for Business  | High     | High      | No        | No                | High         |
+| Hardware OATH tokens        | Medium   | Medium    | Yes       | No                | High         |
+| Software OATH tokens        | Medium   | Medium    | Yes       | No <sup>2</sup>   | High         |
+| SMS                         | Medium   | High      | Yes       | Yes               | Medium       |
+| Voice                       | Medium   | Medium    | Yes       | Yes               | Medium       |
+| Password                    | Low      | High      | Yes       | Yes               | High         |
 
-<sup>1</sup> When used with a password<br />
-<sup>2</sup> In passwordless mode, when the app is registered to a specific device<br />
-<sup>3</sup> Assuming the app requires a device PIN to unlock
+<sup>1</sup> In passwordless mode, when the app is registered to a specific device<br />
+<sup>2</sup> Assuming the app requires a device PIN to unlock
+
+For more information on vulnerabilities and attack vectors, see [channel-jacking and real-time phishing](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
 
 > [!TIP]
-> For the best of usability and availability, we recommend that you use the Microsoft Authenticator app. This authentication method provides the best user experience and multiple modes, such as passwordless, MFA push notifications, and OATH codes.
+> For flexibility and usability, we recommend that you use the Microsoft Authenticator app. This authentication method provides the best user experience and multiple modes, such as passwordless, MFA push notifications, and OATH codes.
 
 ## How each authentication method works
 
@@ -84,7 +85,7 @@ To learn more about how each authentication method works, see the following sepa
 * Password
 
 > [!NOTE]
-> In Azure AD, a password is often one of the primary authentication methods. You can't disable the password authentication method. Increase the security of sign-in events using Azure Multi-Factor Authentication.
+> In Azure AD, a password is often one of the primary authentication methods. You can't disable the password authentication method. If you use a password as the primary authentication factor, increase the security of sign-in events using Azure Multi-Factor Authentication.
 
 The following additional verification methods can be used in certain scenarios:
 
