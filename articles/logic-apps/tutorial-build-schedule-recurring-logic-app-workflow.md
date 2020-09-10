@@ -31,7 +31,7 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* An email account from an email provider that's supported by Logic Apps, such as Outlook for Microsoft 365, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This quickstart uses a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
+* An email account from an email provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This quickstart uses a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
@@ -266,7 +266,7 @@ Now, add an action that emails you when the travel time exceeds your limit. This
 
    ![Select the email connector that you want](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
-   * For Azure work or school accounts, select **Outlook for Microsoft 365**.
+   * For Azure work or school accounts, select **Office 365 Outlook**.
    * For personal Microsoft accounts, select **Outlook.com**.
 
 1. When the connector's actions appear, select "send email action" that you want to use, for example:

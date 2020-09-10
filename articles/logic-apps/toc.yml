@@ -251,7 +251,7 @@
         href: logic-apps-enterprise-integration-metadata.md
       - name: Microsoft Graph Security
         href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
-      - name: Outlook for Microsoft 365
+      - name: Office 365 Outlook
         href: ../connectors/connectors-create-api-office365-outlook.md
       - name: OneDrive
         href: ../connectors/connectors-create-api-onedrive.md

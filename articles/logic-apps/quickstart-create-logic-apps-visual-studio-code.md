@@ -124,7 +124,7 @@ Before you start, make sure that you have these items:
 
    ![Empty logic app workflow definition JSON file](./media/quickstart-create-logic-apps-visual-studio-code/empty-logic-app-workflow-definition.png)
 
-   For example, here is a sample logic app workflow definition, which starts with an RSS trigger and an Outlook for Microsoft 365 action. Usually, JSON elements appear alphabetically in each section. However, this sample shows these elements roughly in the order that the logic app's steps appear in the designer.
+   For example, here is a sample logic app workflow definition, which starts with an RSS trigger and an Office 365 Outlook action. Usually, JSON elements appear alphabetically in each section. However, this sample shows these elements roughly in the order that the logic app's steps appear in the designer.
 
    > [!IMPORTANT]
    > If you want to reuse this sample logic app definition, you need an organizational account, 

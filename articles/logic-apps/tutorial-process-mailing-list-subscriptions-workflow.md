@@ -35,7 +35,7 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * A MailChimp account that contains a list named "test-members-ML" where your logic app can add email addresses for approved members. If you don't have an account, [sign up for a free account](https://login.mailchimp.com/signup/), and then learn [how to create a MailChimp list](https://us17.admin.mailchimp.com/lists/#).
 
-* An email account in Outlook for Microsoft 365 or Outlook.com, which supports approval workflows. This article uses Outlook for Microsoft 365. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
+* An email account in Outlook for Microsoft 365 or Outlook.com, which supports approval workflows. This article uses Office 365 Outlook. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
 ## Create your logic app
 
@@ -74,11 +74,11 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 1. On the Logic App Designer, in the search box, enter `when email arrives` as your filter. From the **Triggers** list, select the **When a new email arrives** trigger for your email provider.
 
-   This example uses the Outlook for Microsoft 365 trigger:
+   This example uses the Office 365 Outlook trigger:
 
    ![Select "When a new email arrives" trigger for email provider](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
-   * For Azure work or school accounts, select Outlook for Microsoft 365.
+   * For Azure work or school accounts, select Office 365 Outlook.
    * For personal Microsoft accounts, select Outlook.com.
 
 1. If prompted, sign in to your email account with your credentials so that Logic Apps can create a connection to your email account.
@@ -100,7 +100,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
       ![Add "Subject Filter" property to trigger](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
-      For more information about this trigger's properties, see the [Outlook for Microsoft 365 connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
+      For more information about this trigger's properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
 
    1. After the property appears in the trigger, enter this text: `subscribe-test-members-ML`
 
@@ -122,7 +122,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
 
 1. Under **Choose an action**, in the search box, enter `approval` as your filter. From the actions list, select the **Send approval email** action for your email provider. 
 
-   This example uses the Outlook for Microsoft 365 action:
+   This example uses the Office 365 Outlook action:
 
    ![Select "Send approval email" action](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-send-approval-email.png)
 
@@ -139,7 +139,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
 
    For now, ignore the dynamic content list that appears when you click inside specific edit boxes. This list lets you select available output from previous actions that you can use as inputs in your workflow.
 
-   For more information about this action's properties, see the [Outlook for Microsoft 365 connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
+   For more information about this action's properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
  
 1. Save your logic app.
 
