@@ -149,7 +149,6 @@ To request an allowance for these scenarios, use the following steps:
     | Field | Selection |
     | ----- | ----- |
     | Issue type | Technical |
-    | Subscription | Your Azure subscription |
     | Service | My services. Select __Machine Learning__ in the dropdown list. |
     | Problem type | Workspace setup, SDK and CLI |
     | Problem subtype | Problem provisioning or managing workspace |
