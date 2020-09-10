@@ -313,9 +313,13 @@ RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop adm
 
 ![Rimo3 logo](./media/partners/rimo3.png)
 
-Rimo3 enhances the Windows Virtual Desktop experience by accelerating deployment and improving ongoing change management. Rimo3 equips IT teams with the knowledge they need to support your application portfolio for Azure migration readiness of application workloads. Users can onboard applications and test them in their target Windows Virtual Desktop workspace quickly and painlessly. Users can also proactively understand the impact of any changes as their organization rolls out new applications and updates. Finally, IT admins can leverage Rimo3's Intelligent Smoke Testing capability and automate functionality testing without interrupting user sessions.
+Rimo3 enhances the Windows Virtual Desktop experience with its easy-to-use, scalable, and cloud-based Application Modernization Platform.
 
-Rimo3 offers an easy-to-use, scalable, automated application testing platform. This platform includes capabilities for all three application testing fundamentals: compatibility, functionality, and performance. It allows organizations, leaders, and teams to improve business continuity, adopt change faster, and optimize user experience.
+For IT teams, Rimo3 helps discover, modernize, and manage application workloads for the move to Windows Virtual Desktop. Users can automatically scan their application portfolio to discover candidates suitable for onboarding into Windows Virtual Desktop or modernizing to MSIX.  
+
+Users can automate pre-testing their applications, converting apps to MSIX, and post-conversion testing while applying automated remediation if the apps don't convert properly. The result is a modernized, deployment-ready MSIX package. With each Windows Virtual Desktop feature release and update, users can fully test apps automatically prior to deployment, providing complete confidence and ongoing management.
+
+For managed service providers, Rimo3 helps extend their managed services capability to improve margins, and help them bridge project-based revenue to subscription-based recurring revenue, and add value to customers who need to modernize and move to Windows Virtual Desktop and manage regular updates in their Desktop workspaces.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
 - [Go to the partner website](https://rimo3.com/windows-virtual-desktop/).
@@ -332,6 +336,8 @@ sepago's innovation and development lab builds smart solutions using big data an
 - [Go to the partner website](https://www.sepago.de/en/).
 
 ## SSH2
+
+![SSH2 Logo](./media/partners/ssh2.png)
 
 SSH2 is a Windows Virtual Desktop value-added services provider that equips your IT teams with software to speed up the application delivery from the current platform to Windows Virtual Desktop on Azure. SSH2 lets IT accelerate application capture to streamline the migration process. SSH2’s appCURE captures running applications on the endpoint, enables updating and remediation to create a comprehensive step change in the speed in which end-user environments can be executed. 
 
