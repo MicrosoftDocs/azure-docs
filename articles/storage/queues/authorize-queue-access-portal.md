@@ -84,11 +84,9 @@ If you are authenticating using your Azure AD account, you'll see **Azure AD Use
 
 :::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing queues with Azure AD account":::
 
-To switch to using the account access key, click the link highlighted in the image. If you have access to the account key, then you'll be able to proceed. However, if you lack access to the account key, you'll see an error message like the following one:
+To switch to using the account access key, click the link highlighted in the image. If you have access to the account key, then you'll be able to proceed. However, if you lack access to the account key, the Azure portal displays an error message.
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-access-key.png" alt-text="Error shown if you do not have access to account key":::
-
-Notice that no queues appear in the list if you do not have access to the account keys. Click on the **Switch to Azure AD User Account** link to use your Azure AD account for authentication again.
+Queues are not listed in the portal if you do not have access to the account keys. Click on the **Switch to Azure AD User Account** link to use your Azure AD account for authentication again.
 
 ## Next steps
 
