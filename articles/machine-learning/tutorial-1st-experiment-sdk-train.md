@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 # Tutorial: Train your first ML model
 
-In the [previous tutorial](tutorial-1st-experiment-hello-azure.md), you ran a trivial "Hello world!" script in the cloud using AzureML's Python SDK. This time you take it a step further by submitting a script that will train an ML-model.
+In the [previous tutorial](tutorial-1st-experiment-hello-world.md), you ran a trivial "Hello world!" script in the cloud using AzureML's Python SDK. This time you take it a step further by submitting a script that will train an ML-model.
 
 This tutorial shows you how to train a PyTorch model on the [CIFAR 10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset. Using this example we will show you how to ensure a consistent behavior between local testing and remote runs.
 
@@ -36,14 +36,13 @@ Learning these concepts means that by the end of this session, you can:
 > * Train a model in the cloud.
 > * Log metrics to AzureML.
 
-
 ## Prerequisites
 
 - You have completed the following:
   - Setup on your [local computer](tutorial-1st-experiment-sdk-setup-local.md) or setup to use a [compute instance](tutorial-1st-experiment-sdk-setup-local.md).
-  - [Tutorial: Hello Azure](tutorial-1st-experiment-hello-azure.md)
+  - [Tutorial: Hello Azure](tutorial-1st-experiment-hello-world.md)
 - Familiarity with Python and Machine Learning concepts.
-- If using your local computer, a local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
+- A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
 
 ## Create training scripts
 

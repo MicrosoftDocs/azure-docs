@@ -75,7 +75,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you cannot run a notebook from there.  In order to run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
-1. Select the **tutorial-hello-azure.ipynb** file in your **tutorials/create-first-ml-experiment** folder.
+1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/image-classification-mnist-data** folder.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Open tutorials folder":::
 
@@ -105,10 +105,10 @@ If you prefer to run Python scripts instead of using the notebooks, open the **T
 
 ## Next steps
 
-Now that you have a development environment set up, continue on to learn more about Azure Machine Learning:
+Now that you have a development environment set up, continue on to train a model in a Jupyter Notebook:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Hello Azure](tutorial-1st-experiment-hello-azure.md)
+> [Tutorial: Train image classification models with MNIST data and scikit-learn](tutorial-train-models-with-aml.md)
 
 <a name="stop-compute-instance"></a>
 If you do not plan on following any other tutorials now, you should stop the cloud notebook server VM when you are not using it to reduce cost:
