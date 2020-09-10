@@ -57,7 +57,7 @@ You can add up to three solution areas for your offer. For each solution area, y
 
 ## Documents
 
-You have the option to provide collateral documents that Microsoft will use for evaluating your customer needs. All the documents listed in the table below are optional.
+You have the option to provide collateral documents that Microsoft will use to learn more about your offer and evaluate its fit for your customer needs. All the documents listed in the table below are optional.
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
