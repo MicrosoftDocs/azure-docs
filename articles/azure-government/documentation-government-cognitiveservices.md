@@ -1,6 +1,6 @@
 ---
 title: Cognitive Services on Azure Government | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government
+description: Guidance for developing Cognitive Services applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 9/10/2020
+ms.date: 10/10/2020
 ms.custom: references_regions
 ---
 
@@ -104,7 +104,7 @@ The Quickstarts below will help you to get started with the APIs available throu
     >
     
 ### Variations
-* The URI for accessing the Computer Vision API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government to global Azure](compare-azure-government-global-azure#guidance-for-developers).
+* The URI for accessing the Computer Vision API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government to global Azure](compare-azure-government-global-azured#guidance-for-developers.md).
 
 ### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
 
@@ -369,7 +369,7 @@ For more information, please see [public documentation](../cognitive-services/co
     >
     
 ### Variations 
-* The URI for accessing the Face API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government to global Azure](compare-azure-government-global-azure#guidance-for-developers).
+* The URI for accessing the Face API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government to global Azure](compare-azure-government-global-azure#guidance-for-developers.md).
 
 
 ### Detect Faces in images with Face API using C# <a name="Detect"> </a>
@@ -611,7 +611,7 @@ For more information, please see [public documentation](../cognitive-services/Fa
     >
     
 ### Variations
-* The URI for accessing the Translator API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government to global Azure](compare-azure-government-global-azure#guidance-for-developers).
+* The URI for accessing the Translator API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government to global Azure](compare-azure-government-global-azure#guidance-for-developers.md).
 * [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
   The URI for accessing the API is:
   - `https://<your-custom-domain>.cognitiveservices.azure.us/translator/text/v3.0`
