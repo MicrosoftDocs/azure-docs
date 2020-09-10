@@ -15,7 +15,8 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: "Python: Get started (day 1)"
+    - name: "Python (day 1)"
+      expanded: true
       items:
         - name: 1. Set up local computer
           href: tutorial-1st-experiment-sdk-setup-local.md
