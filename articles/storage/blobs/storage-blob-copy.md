@@ -177,8 +177,6 @@ The [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/azure.st
 
 ---
 
-[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
-
 ## Next steps
 
 The following topics contain information about copying blobs and aborting ongoing copy operations by using the Azure REST APIs.
