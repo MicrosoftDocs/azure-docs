@@ -4,7 +4,7 @@ title: Azure Arc enabled data services # < 60 chars
 summary: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
  
 metadata:
-  title: Azure Arc enabled data services # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Arc enabled data services (preview) # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: azure-arc #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: azure-arc-data # Optional; Remove if no subservice is used.
@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Arc enabled data services (preview)?
+          - text: What are Azure Arc enabled data services?
             url: overview.md
       - linkListType: concept
         links:
@@ -49,13 +49,20 @@ landingContent:
         links:
           - text: Create PostgreSQL Hyperscale server group
             url: create-postgresql-hyperscale-server-group.md
+          - text: Migrate to Azure Arc enabled PostgreSQL Hyperscale
+            url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+          - text: Restore sample database
+            url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+          - text: Connect to Azure Arc enabled PostgreSQL Hyperscale
+            url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+
 
   # Card (optional)
   - title: Azure Arc enabled SQL Managed Instance
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create Managed instance
+          - text: Create Managed Instance
             url: create-sql-managed-instance.md
           - text: Migrate to Managed Instance
             url: migrate-to-managed-instance.md
