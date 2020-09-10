@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server
@@ -176,7 +176,5 @@ conn.close()
 ```
 
 ## Next steps
-- [Encrypted connectivity using Transport Layer Security in Azure Database for PostgreSQL - Flexible Server](./how-to-connect-tls-ssl.md).
-- Learn more about [Networking in Azure Database for PostgreSQL - Flexible Server](./concepts-networking.md)
-- [Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage Azure Database for PostgreSQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
+> [!div class="nextstepaction"]
+> [Migrate your database using dump and restore](../howto-migrate-using-dump-and-restore.md)

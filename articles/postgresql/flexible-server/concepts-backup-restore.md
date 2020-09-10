@@ -13,7 +13,6 @@ ms.date: 09/22/2020
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-## Overview
 Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL - Flexible Server automatically backs up your server and retains the backups for the duration of up to 35 days. During the restore process, you can specify the date and time to which you want to restore within the retention period The overall time to restore and recover depends on the size of the database files and the amount of recovery. 
 
 ### Backup process in flexible server

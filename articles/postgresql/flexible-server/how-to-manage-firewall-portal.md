@@ -5,7 +5,7 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using the Azure portal
