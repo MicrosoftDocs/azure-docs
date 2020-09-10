@@ -36,7 +36,7 @@ David, from Contoso's IT security, has already chosen to onboard Security Center
 
 Security Center automatically analyzes the security state of Contoso’s Azure resources and applies default security policies. When Security Center identifies potential security vulnerabilities, it creates **recommendations** based on the controls set in the security policy. 
 
-David runs Azure Security with Azure Defender enabled, across all their subscriptions to get the full suite of recommendations and security features available. Jeff also onboards all their existing on-premises servers that haven't yet been migrated to the cloud so that they can take advantage of Security Center's hybrid support across their [Windows](quick-onboard-windows-computer.md) and [Linux](quick-onboard-linux-computer.md) servers.
+David runs Azure Security with Azure Defender enabled, across all their subscriptions to get the full suite of recommendations and security features available. Jeff also onboards all their existing on-premises servers that haven't yet been migrated to the cloud so that they can take advantage of Security Center's hybrid support across their [Windows and Linux servers](quickstart-onboard-machines.md).
 
 Jeff is a cloud workload owner. Jeff is responsible for applying security controls in accordance with Contoso’s security policies. 
 

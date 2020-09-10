@@ -86,30 +86,12 @@ To enable automatic provisioning of the Log Analytics agent:
     > Setting auto provisioning to **Off** doesn't remove the Log Analytics agent from Azure VMs where the agent has already been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 
 
-## Onboard non-Azure computers
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. You can add non-Azure computers from the **Getting started** blade or from the **Compute** blade. We’ll walk through both methods.
-
-### Add new non-Azure computers from **Getting started**
-
-1. Return to the **Getting started** page and open the **Get started** tab.
-
-    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
-
-1. Select **Configure** under **Add non-Azure servers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
-
-    You can add computers to an existing workspace or create a new workspace. 
-
-1. Optionally, to create a new workspace, select  **Create new workspace**.
-1. From the list of workspaces, select **Add Servers** for the relevant workspace.
-    The **Agents management** page appears.
-1. From the **Agents management** page, download the relevant agent for Windows or Linux and follow the instructions.
-
 
 ## Next steps
 In this quickstart you enabled Azure Defender and provisioned the Log Analytics agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Onboard Windows computers to Azure Security Center](quick-onboard-windows-computer.md)
+> [Quickstart: Onboard non-Azure machines](quickstart-onboard-machines.md)
 
 Want to optimize and save on your cloud spending?
 

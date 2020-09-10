@@ -133,7 +133,7 @@ As an **Owner** on the subscription you want to use for the onboarding, create a
 
             OR
 
-        - Select **Credentials** and paste the **access key** and **secret key** from the .csv file you saved in [Step 3 - Create AWS user for Security Center](#step-3---create-aws-user-for-security-center).
+        - Select **Credentials** and paste the **access key** and **secret key** from the .csv file you saved in [Create an AWS user for Security Center](#create-an-aws-user-for-security-center).
 1. Select **Next**.
 1. Configure the options in the **Azure Arc Configuration** tab:
 
