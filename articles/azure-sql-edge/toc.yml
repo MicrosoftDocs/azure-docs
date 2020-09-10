@@ -60,7 +60,7 @@
     - name: Encrypting connections
       href: https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=azure/azure-sql-edge/toc.json
     - name: Azure security center for IoT
-      href: https://docs.microsoft.com/azure/asc-for-iot/overview?toc=azure/azure-sql-edge/toc.json
+      href: https://docs.microsoft.com/azure/asc-for-iot/overview?toc=azure/azure-sql-edge/toc.json&bc=azure/azure-sql-edge/breadcrumb/toc.json
   - name: Machine learning and AI with ONNX
     href: onnx-overview.md
   - name: Backup and restore
