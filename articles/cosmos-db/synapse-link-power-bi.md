@@ -21,13 +21,15 @@ In this scenario, you will use dummy data about Surface product sales in a partn
 
 Make sure to create the following resources before you start:
 
-* [Create an Azure Cosmos DB SQL(Core) API account.](create-cosmosdb-resources-portal.md)
+* [Create an Azure Cosmos DB account of kind SQL(core) or MongoDB.](create-cosmosdb-resources-portal.md)
 
-* Create a database within the Azure Cosmos account and two containers that have [Synapse Link enabled.](configure-synapse-link.md#enable-synapse-link)
+* Enable Azure Synapse Link for your [Azure Cosmos account](configure-synapse-link.md#enable-synapse-link)
+
+* Create a database within the Azure Cosmos account and two containers that have [analytical store enabled.](configure-synapse-link.md##create-analytical-ttl)
 
 * [Create a Synapse workspace](../synapse-analytics/quickstart-create-workspace.md) named **SynapseLinkBI**.
 
-* Connect the Azure Cosmos database to the "SynapseLinkBI" Synapse workspace.
+* [Connect the Azure Cosmos database to the Synapse workspace](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json).
 
 ## Create a database and views
 
