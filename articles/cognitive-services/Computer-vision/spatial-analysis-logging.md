@@ -18,7 +18,7 @@ Spatial analysis includes a set of features to monitor the health of the system 
 
 ## Enable video frame and JSON output visualization on the host computer
 
-To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md). There are four debug skills available.
+To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md). There are four debug operations available.
 
 Edit the deployment manifest to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 
@@ -124,7 +124,21 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 
 ## Collect log files with the diagnostics container
 
-Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets.
+Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the [sample deployment manifest](), look for the *diagnostics* module.
+
+In the "env" section add the following configuration:
+
+"diagnostics": {  
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/spatial-analysis/diagnostics:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
+  },
+{
+	    "IOTEDGE_WORKLOADURI":"fd://iotedge.socket",
+            "ARCHON_LOG_LEVEL":"info",
+	    "LOG_COLOR"="false"
+}
+
 
 To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we recommend maintaining a small file size. See the example below for the recommended Docker logs configuration.
 
@@ -202,10 +216,10 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 
 ### Uploading spatial analysis Logs
 
-Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `penginelogs` module. 
+Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `diagnostics` module. 
 
 
-1. Go to your IoT Hub portal page, select **Edge Devices**, then select your device and your penginelogs module. 
+1. Go to your IoT Hub portal page, select **Edge Devices**, then select your device and your diagnostics module. 
 2. Go to the details page of the module and click on the ***direct method*** tab.
 3. Type `getRTCVLogs` on Method Name, and a json format string in payload. You can enter `{}`, which is an empty payload. 
 4. Set the connection and method timeouts, and click **Invoke Method**.
@@ -288,7 +302,7 @@ The following table lists the attributes in the query response.
 }
 ```
 
-Check fetch log's lines, times, and sizes, replace ***DoPost*** to `true`, then you can push logs with same filters to destinations. 
+Check fetch log's lines, times, and sizes, if those settings look good replace ***DoPost*** to `true` and that will push the logs with same filters to destinations. 
 
 **4. Export the log file from Azure Blob Storage and send to Microsoft**
 

@@ -25,7 +25,7 @@ The spatial analysis container implements the following operations:
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
-All above the operations are also available in the `.debug` version, which has the capability to visualize the video frames as being processed. You will need to run `xhost +` on the host computer to enable the visualization of video frames and events.
+All above the operations are also available in the `.debug` version, which have the capability to visualize the video frames as they are being processed. You will need to run `xhost +` on the host computer to enable the visualization of video frames and events.
 
 | Operation Identifier| Description|
 |---------|---------|
@@ -60,9 +60,7 @@ These are the parameters required by each of these spatial analysis operations.
 | VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
-| VICA_NODE_CONFIG | JSON indicating from which GPU to move data to CPU. Should be in the following format: `"{ \"gpu_index\": 0 }",`|
 | DETECTOR_NODE_CONFIG | JSON indicating which GPU to run the detector node on. Should be in the following format: `"{ \"gpu_index\": 0 }",`|
-| TRACKER_NODE_CONFIG | JSON configuration for the tracker. Should be in the following format: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
