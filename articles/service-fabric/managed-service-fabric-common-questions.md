@@ -13,19 +13,19 @@ There are many commonly asked questions about what managed Service Fabric can do
 ## General 
 
 ### What is a managed Service Fabric cluster? 
-Managed Service Fabric clusters are an evolution of the Service Fabric cluster resource model designed to make it easier to deploy and manage clusters. A managed Service Fabric cluster utilizes the Azure Resource Manager encapsulation model so that a user only needs to define and deploy a single cluster resource compared to the many independent resources that they must deploy today (Virutal Machine Scale Set, Load Balancer, IP, etc.).
+Managed Service Fabric clusters are an evolution of the Service Fabric cluster resource model designed to make it easier to deploy and manage clusters. A managed Service Fabric cluster uses the Azure Resource Manager encapsulation model so that a user only needs to define and deploy a single cluster resource compared to the many independent resources that they must deploy today (Virtual Machine Scale Set, Load Balancer, IP, and more).
 
 ### What regions are supported in the public preview? 
 Supported regions for the public preview include centraluseuap, eastus2euap, eastasia, northeurope, westcentralus, and eastus2.
 
 ### Can I do an in-place migration of my existing Service Fabric cluster to a managed Service Fabric cluster resource? 
-No, at this time you would need to create a new Service Fabric cluster resource in order to utilize the new managed Service Fabric resource type.
+At this time you would need to create a new Service Fabric cluster resource to use the new managed Service Fabric resource type.
 
 ### Is there an additional cost for managed Service Fabric clusters? 
 No, there is no additional cost associated with a managed Service Fabric cluster beyond the cost of the underlying compute, storage, and networking resources that are required for the cluster. 
 
 ### Is there a new SLA introduced by the managed Service Fabric resource?
-The SLA does not change from the current Service Fabric resource model.
+The SLA doesn't change from the current Service Fabric resource model.
 
 ### What is the difference between a Basic, and Standard SKU cluster? 
 A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see cluster SKUs for more details. 
@@ -36,13 +36,13 @@ A Basic SKU cluster means, most of the configurations are provided by the Servic
 Yes you can still specify VM extensions on a node type. For more information, see the node type extension sample for more details.
 
 ### I want to have an internal only load balancer, is that possible?
-It is not currently possible to have an internal only load balancer. It is recommended that you lock down the Network Security Group rules to block any undesired inbound/outbound traffic.
+It isn't currently possible to have an internal only load balancer. We recommended locking down the Network Security Group rules to block any undesired inbound/outbound traffic.
 
 ### Can I autoscale my cluster? 
-Autoscaling is not yet available in the preview. 
+Autoscaling isn't yet available in the preview. 
 
 ### Can I deploy my cluster across availability zones? 
-Cross availability zone clusters are not yet available in the preview. 
+Cross availability zone clusters aren't yet available in the preview. 
 
 ### Can I select between automatic and manual upgrades for my cluster runtime? 
 In the preview, all runtime upgrades will be completed automatically.
@@ -53,4 +53,4 @@ In the preview, all runtime upgrades will be completed automatically.
 The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Create a .Net Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) for more details on the local development experience. 
 
 ### Can I deploy my applications as an Azure Resource Manager resource? 
-In the preview, you will not be able to deploy applications as an Azure Resource Manager resource. Applications must be deployed by connecting directly to the cluster either through PowerShell or CLI. This functionality will be added before manged Service Fabric clusters enter general availability. 
+In the preview, you can't deploy applications as an Azure Resource Manager resource. Applications must be deployed by connecting directly to the cluster either through PowerShell or CLI. This functionality will be added before manged Service Fabric clusters enter general availability. 
