@@ -310,7 +310,7 @@
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
-      - name: Copy a blob (.NET)
+      - name: Copy a blob (SDK)
         href: storage-blob-copy.md
     - name: Authorize access to blob data
       items:
