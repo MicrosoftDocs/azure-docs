@@ -78,7 +78,10 @@ If the user has an existing account with phone number as their identifier, the u
 
 ## Deleting a user account
 
-There might be scenarios in which you need to manually delete an account in your Azure AD B2C directory, for example to support your obligations under the GDPR. For details, see [Delete a consumer user](manage-users-portal.md#delete-a-consumer-user). If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+There might be scenarios in which you need to manually delete an account in your Azure AD B2C directory, for example to support your obligations under the GDPR. For details, see [Delete a consumer user](manage-users-portal.md#delete-a-consumer-user). 
+
+For European customers, find GDPR information relevant to you in the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted). For US customers, refer to the *Short Code Monitoring Handbook* on the [CTIA website](https://www.ctia.org/programs).
+
 
 ## Prerequisites
 
@@ -144,14 +147,12 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 
 ## Next steps
 
-* You can find the phone sign-up and sign-in custom policy starter pack (and other starter packs) on GitHub:
+You can find the phone sign-up and sign-in custom policy starter pack (and other starter packs) on GitHub:
   [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
   The starter pack policy files use multi-factor authentication technical profiles and phone number claims transformations:
-  * [Define an Azure Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
-  * [Define phone number claims transformations](phone-number-claims-transformations.md)
+* [Define an Azure Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
+* [Define phone number claims transformations](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->
 [starter-pack]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
 [starter-pack-phone]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/phone-number-passwordless
-
-* For information about the **Short Code Registry**, find best practices and the *Short Code Monitoring Handbook* on the CTIA website at [https://www.ctia.org/programs](https://www.ctia.org/programs).
