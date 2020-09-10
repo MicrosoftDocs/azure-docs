@@ -37,8 +37,7 @@ The Sentinel **common information model** consists of three aspects:
 
 With this release, the normalized network connections and sessions schema (v1.0.0) is available for public preview, which describes network connections or sessions such as those logged by firewalls, Wire Data, NSG, Netflow, proxy systems and web security gateways. The schema is available along with selected query-time parsers and analytics rules.
 
-The schema is currently available only via query-time parsers (see parsers section). 
-*In the future we’ll also offer that as built-in native Log Analytics table, where data can be parsed to in ingestion time.*
+The schema is currently available only via query-time parsers (see parsers section).
 
 You can parse data to additional representations and use the [OSSEM entities naming model](https://ossemproject.com/cdm/entities/intro.html#) to create columns that will be consistent with existing and future normalized tables.
 
@@ -70,7 +69,7 @@ Note that the schema reference also includes value and format standardization. T
 
 With a base set of defined normalized tables available, you will need to transform (parse/map) your data into those tables. That is, you will extract specific data from its raw form into well-known columns in the normalized schema. Parsing in Azure Sentinel happens at **query time** - parsers are built as Log Analytics user functions (using Kusto Query Language - KQL) that transform data in existing tables (such as CommonSecurityLog, custom logs tables, syslog) into the normalized tables schema.
 
-The other kind of parsing, not yet supported in Azure Sentinel, is at **ingestion time** - allowing to collect data directly into the normalized table(s) as it is ingested from its data sources. Ingestion time parsing provides improved performance as the data model is queried directly without the need to use functions. This capability will be introduced in the near future.
+The other kind of parsing, not yet supported in Azure Sentinel, is at **ingestion time** - allowing to collect data directly into the normalized table(s) as it is ingested from its data sources. Ingestion time parsing provides improved performance as the data model is queried directly without the need to use functions.
 
 ### Using query time parsers
 
