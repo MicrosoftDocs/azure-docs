@@ -34,6 +34,7 @@ Updates in September include:
 - [Azure Defender released](#azure-defender-released)
 - [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
 - [Asset inventory tools are now generally available](#asset-inventory-tools-are-now-generally-available)
+- [Disable a specific vulnerability finding for scans of container registries and virtual machines](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
 - [AWS and GCP connectors in Security Center bring a multi-cloud experience](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
 - [Kubernetes workload protection recommendation bundle](#kubernetes-workload-protection-recommendation-bundle)
 - [IoT threat protection enhancements in Azure Defender for IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
