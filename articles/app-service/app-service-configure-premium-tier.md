@@ -112,4 +112,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## More resources
 
 [Scale up an app in Azure](manage-scale-up.md)  
-[Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md)
+[Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md)

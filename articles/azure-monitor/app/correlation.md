@@ -6,7 +6,7 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.custom: devx-track-python
+ms.custom: "devx-track-python, devx-track-csharp"
 ---
 
 # Telemetry correlation in Application Insights

@@ -21,11 +21,11 @@ This article lists human languages supported by the Form Recognizer (Preview) se
 |:-----|:----:|:-----:|:---:|:---:|
 |Chinese (Simplified) | `zh-Hans`| | ✔ |
 |Dutch | `nl` | |✔ |
-|English | `en` |✔ |
+|English (printed & handwritten) | `en` |✔ |
 |French | `fr` | |✔ |
 |German | `de` | |✔ |
 |Italian | `it` | |✔ |
 |Portuguese | `pt` | |✔ |
 |Spanish | `es` | |✔ |
 
-* Form Recognizer v2.1 public preview supports these languages for `Analyze Layout` and `Train Custom Model` (_Train With Labels_ and _Train without Labels_) operations. `Analyze Receipt` and `Analyze Business Card` are only supported in English.
+* Form Recognizer v2.1 public preview supports these languages for Layout and Custom. Pre-built Reciept and Pre-built Buisness Card are only supported in English.

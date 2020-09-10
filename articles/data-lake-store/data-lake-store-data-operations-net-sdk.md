@@ -7,6 +7,7 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
+ms.custom: devx-track-dotnet
 
 ---
 # Filesystem operations on Data Lake Storage Gen1 using the .NET SDK

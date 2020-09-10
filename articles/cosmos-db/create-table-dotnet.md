@@ -8,6 +8,8 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
+ms.custom: devx-track-csharp
+
 
 ---
 # Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB 

@@ -112,6 +112,8 @@ A security key **MUST** implement the following features and extensions from the
 | 3 | hmac-secret | This extension ensures you can sign in to your device when it's off-line or in airplane mode. |
 | 4 | Multiple accounts per RP | This feature ensures you can use the same security key across multiple services like Microsoft Account and Azure Active Directory. |
 
+### FIDO2 security key providers
+
 The following providers offer FIDO2 security keys of different form factors that are known to be compatible with the passwordless experience. We encourage you to evaluate the security properties of these keys by contacting the vendor as well as FIDO Alliance.
 
 | Provider | Contact |

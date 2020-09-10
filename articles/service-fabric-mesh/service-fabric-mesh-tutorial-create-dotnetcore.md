@@ -5,7 +5,7 @@ author: dkkapur
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
-ms.custom: mvc, devcenter
+ms.custom: "mvc, devcenter, devx-track-csharp"
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, debug it on my local development cluster, publish it to Azure, monitor it, upgrade it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 

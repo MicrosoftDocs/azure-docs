@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved across Azure regio
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: raynew
 ---
 
@@ -116,6 +116,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
@@ -1022,6 +1023,14 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | queries |  No |  
+
+## Microsoft.Resources
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Region move |
+> | ------------- | ----------- |
+> | deploymentScripts |  Yes<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templateSpecs |  Yes<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |  
 
 ## Microsoft.SaaS
 

@@ -60,7 +60,7 @@ For a list of all request and response headers, see [Headers](https://docs.micro
 > [!NOTE]
 > When you call the Bing Autosuggest API from JavaScript, your browser's built-in security features might prevent you from accessing the values of these headers.
 
-To resolve this, you can make the Bing Autosuggest API request through a CORS proxy. The response from such a proxy has a `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+To resolve this, you can make the Bing Autosuggest API request through a CORS proxy. The response from such a proxy has a `Access-Control-Expose-Headers` header that filter response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our [tutorial app](../tutorials/autosuggest.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
 

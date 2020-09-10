@@ -2,7 +2,7 @@
 title: Encryption-at-rest with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/26/2020
 ms.custom:
 ---
 
@@ -17,10 +17,14 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 ## Things to know
 
-* You can currently enable a customer-managed key only when you create a registry.
-* After enabling a customer-managed key on a registry, you can't disable it.
+* You can currently enable a customer-managed key only when you create a registry. When enabling the key, you configure a *user-assigned* managed identity to access the key vault.
+* After enabling encryption with a customer-managed key on a registry, you can't disable the encryption.  
 * [Content trust](container-registry-content-trust.md) is currently not supported in a registry encrypted with a customer-managed key.
 * In a registry encrypted with a customer-managed key, run logs for [ACR Tasks](container-registry-tasks-overview.md) are currently retained for only 24 hours. If you need to retain logs for a longer period, see guidance to [export and store task run logs](container-registry-tasks-logs.md#alternative-log-storage).
+
+
+> [!NOTE]
+> If access to your Azure key vault is restricted using a virtual network with a [Key Vault firewall](../key-vault/general/network-security.md), extra configuration steps are needed. After creating the registry and enabling the customer-managed key, set up access to the key using the registry's *system-assigned* managed identity, and configure the registry to bypass the Key Vault firewall. Follow the steps in this article first to enable encryption with a customer-managed key, and then see the guidance for [Advanced scenario: Key Vault firewall](#advanced-scenario-key-vault-firewall) later in this article.
 
 ## Prerequisites
 
@@ -367,7 +371,7 @@ After enabling a customer-managed key in a registry, you can perform the same re
 
 ## Rotate key
 
-Rotate a customer-managed key used for registry encryption to your compliance policies. Create a new key, or update a key version, and then update the registry to encrypt data using the key. You can perform these steps using the Azure CLI or in the portal.
+Rotate a customer-managed key used for registry encryption according to your compliance policies. Create a new key, or update a key version, and then update the registry to encrypt data using the key. You can perform these steps using the Azure CLI or in the portal.
 
 When rotating a key, typically you specify the same identity used when creating the registry. Optionally, configure a new user-assigned identity for key access, or enable and specify the registry's system-assigned identity.
 
@@ -434,9 +438,15 @@ az keyvault delete-policy \
 
 Revoking the key effectively blocks access to all registry data, since the registry can't access the encryption key. If access to the key is enabled or the deleted key is restored, your registry will pick the key so you can again access the encrypted registry data.
 
-## Advanced scenarios
+## Advanced scenario: Key Vault firewall
 
-### System-assigned identity
+If your Azure key vault is deployed in a virtual network with a Key Vault firewall, perform the following additional steps after enabling customer-managed key encryption in your registry.
+
+1. Configure registry encryption to use the registry's system-assigned identity
+1. Enable the registry to bypass the Key Vault firewall
+1. Rotate the customer-managed key
+
+### Configure system-assigned identity
 
 You can configure a registry's system-assigned managed identity to access the key vault for encryption keys. If you're unfamiliar with the different managed identities for Azure resources, see the [overview](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -461,14 +471,18 @@ To update the registry's encryption settings to use the identity:
 1. Under **Settings**, select  **Encryption** > **Change key**.
 1. In **Identity**, select **System assigned**, and select **Save**.
 
-### Key Vault firewall
+### Enable key vault bypass
 
-If your Azure key vault is deployed in a virtual network with a Key Vault firewall, perform the following steps:
+To access a key vault configured with a Key Vault firewall, the registry must bypass the firewall. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry is one of the trusted services.
 
-1. Configure registry encryption to use the registry's system-assigned identity. See the preceding section.
-2. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
+1. In the portal, navigate to your key vault.
+1. Select **Settings** > **Networking**.
+1. Confirm, update, or add virtual network settings. For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
+1. In **Allow Microsoft Trusted Services to bypass this firewall**, select **Yes**. 
 
-For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
+### Rotate the customer-managed key
+
+After completing the preceding steps, rotate the key to a new key in the key vault behind a firewall. For steps, see [Rotate key](#rotate-key) in this article.
 
 ## Next steps
 

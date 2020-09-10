@@ -12,6 +12,7 @@ ms.workload: data-services
 
 ms.topic: conceptual
 ms.date: 01/22/2018
+ms.custom: devx-track-csharp
 ---
 
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK

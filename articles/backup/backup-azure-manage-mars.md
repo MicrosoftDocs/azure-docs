@@ -74,7 +74,7 @@ You can add exclusion rules to skip files and folders that you don't want to be 
     ![Select the items to remove](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
-    > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it is recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
+    > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it's recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
 
 2. Complete the next steps and select **Finish** to complete the operation.
 
@@ -148,7 +148,7 @@ If you stopped protection while retaining data and decided to resume protection,
 
 ## Re-generate passphrase
 
-A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with the Recovery Services Vault and the backup is configured) by following these steps:
+A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with the Recovery Services vault and the backup is configured) by following these steps:
 
 1. From the MARS agent console, go to **Actions Pane** > **Change properties** >. Then go to **Encryption tab**.<br>
 1. Select **Change Passphrase** checkbox.<br>
@@ -157,7 +157,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase.png)
 
-1. Select **OK** to apply changes.  If the [Security Feature](./backup-azure-security-feature.md#enable-security-features) is enabled on the Azure portal for the Recovery Services Vault, then you'll be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Select **OK** to apply changes.  If the [Security Feature](./backup-azure-security-feature.md#enable-security-features) is enabled on the Azure portal for the Recovery Services vault, then you'll be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
 1. Paste the security PIN from the portal and select **OK** to apply the changes.<br>
 
     ![Paste the security PIN](./media/backup-azure-manage-mars/passphrase2.png)
@@ -167,7 +167,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
 This section discusses a scenario where your source machine that was protected with MARS is no longer available because it was deleted, corrupted, infected with malware/ransomware, or decommissioned.
 
-For these machines, the Azure Backup service ensures that the last recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
+For these machines, the Azure Backup service ensures that the most recent recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
 
 ### Scenario 1: The source machine is unavailable, and you no longer need to retain backup data
 
