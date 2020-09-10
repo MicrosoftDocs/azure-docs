@@ -29,6 +29,7 @@ This article will demonstrate to you these Azure Machine Learning concepts:
 - [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) 
 - [Azure Machine Learning Metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
 
+
 Learning these concepts means that by the end of this session, you can:
 
 > [!div class="checklist"]
@@ -222,8 +223,8 @@ Python environment for running experiments. It's easy to create an environment f
 - **`config.run_config.environment = env`** adds the environment to the ScriptRunConfig.
 
 > [!TIP]
-> There are many ways to create AML environments, including [from a pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-),
-> or even [from an existing local Conda environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-).
+> There are many ways to create AML environments, including [from a pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-),
+> or even [from an existing local Conda environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
 
 ## Submit to compute cluster
 
