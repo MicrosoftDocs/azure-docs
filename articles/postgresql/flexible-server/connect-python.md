@@ -177,4 +177,4 @@ conn.close()
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Migrate your database using dump and restore](howto-migrate-using-dump-and-restore.md)
+> [Migrate your database using dump and restore](../howto-migrate-using-dump-and-restore.md)
