@@ -65,7 +65,8 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Moving in and out of VNET is currently not supported.
 - Combining public access with deployment within a VNET is currently not supported.
-- Database servers can connect to public internet, for example through `postgres_fdw`, and this access cannot be restricted.
+- Firewall rules are not supported on VNET, Network security groups can be used instead.
+- Public access database servers can connect to public internet, for example through `postgres_fdw`, and this access cannot be restricted. VNET-based servers can have restricted outbound access using Network Security Groups.
 
 ### High availability
 
@@ -79,6 +80,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### Postgres engine, extensions, and pgBouncer
 
+- Postgres 10 and older are not supported. We recommend using the [Single Server](../overview-single-server.md) option if you require older Postgres versions.
 - Extension support is currently limited to the Postgres `contrib` extensions.
 - Built-in pgBouncer connection pooler is currently not available for database servers within a VNET, or for Burstable servers.
 
@@ -86,12 +88,28 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Server can't be stopped for more than seven days.
 
+### Scheduled maintenance
+
+- Changing the maintenance window less than five days before an already planned upgrade, will not affect that upgrade. Changes only take effect with the next scheduled maintenance.
+
+### Backing up a server
+
+- Backups are managed by the system, there is currently no way to run these backups manually. We recommend using `pg_dump` instead.
+- Backups are always snapshot-based full backups (not differential backups), possibly leading to higher backup storage utilization.
+
 ### Restoring a server
 
 - When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server it is based on.
+- VNET based database servers are restored into the same VNET when you restore from a backup.
 - The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be created separately for the new server.
 - Restoring a deleted server is not supported.
 - Cross region restore is not supported.
+
+### Other features
+
+* Azure AD authentication is not yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require Azure AD authentication.
+* Read replicas are not yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require read replicas.
+
 
 ## Next steps
 
