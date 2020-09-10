@@ -64,7 +64,7 @@ Manually installed machines or machines already reporting to your workspace must
 4. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved search and scope configuration from the workspace, and permits the feature to include all Azure and non-Azure machines that currently or in the future, report to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration available.
 
     > [!NOTE]
-    > Since this option deletes the saved searches and scope configurations within Log Analytics, it is important to remove any deletion locks on the Log Analytics Workspace before selecting this option. If not, the option will fail to remove the configurations and you will need to remove them manually.
+    > Because this option deletes the saved searches and scope configurations within Log Analytics, it's important to remove any deletion locks on the Log Analytics Workspace before you select this option. If you don't, the option will fail to remove the configurations and you must remove them manually.
 
 5. If necessary, you can add the scope configurations back by re-adding the initial saved search query. For more information, see [Limit Update Management deployment scope](update-mgmt-scope-configuration.md).
 
