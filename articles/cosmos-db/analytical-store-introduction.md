@@ -74,9 +74,9 @@ The following constraints are applicable on the operational data in Azure Cosmos
 * You can have a maximum of 200 properties at any nesting level in the schema and a maximum nesting depth of 5
   
   * An item with 201 properties at the top level doesn’t satisfy this constraint and hence it will not be represented in the analytical store.
-  *	An item with more than five nested levels in the schema also doesn’t satisfy this constraint and hence it will not be represented in the analytical store. For example, the following item doesn't satisfy the requirement:
+  * An item with more than five nested levels in the schema also doesn’t satisfy this constraint and hence it will not be represented in the analytical store. For example, the following item doesn't satisfy the requirement:
 
-  `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
 * Property names should be unique when compared case insensitively. For example, the following items do not satisfy this constraint and hence will not be represented in the analytical store:
 
@@ -211,9 +211,9 @@ Some points to consider:
 
 When you enable analytical store on a container:
 
- * using Azure portal, analytical TTL is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
+ * From the Azure portal, the analytical TTL option is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
  
- * using Azure SDK or PowerShell or CLI, analytical TTL can be enabled by setting it to either -1 or 'n'. 
+ * From the Azure SDK or PowerShell or CLI, the analytical TTL option can be enabled by setting it to either -1 or 'n'. 
 
 To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
