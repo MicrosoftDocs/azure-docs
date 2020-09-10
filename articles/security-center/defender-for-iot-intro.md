@@ -12,25 +12,43 @@ manager: rkarlin
 
 # Intro to Azure Defender for IoT
 
-Azure Defender for IoT, Now With CyberX Agentless Technology 
+Unify security management and enable end-to-end threat detection and analysis across hybrid cloud workloads and your Azure IoT solution.
 
-At Ignite, we’re announcing Public Availability of significant new capabilities for securing unmanaged brownfield devices used in Operational Technology (OT) environments such as manufacturing, building management systems (BMS), life sciences, energy and water utilities, oil & gas, and logistics. 
+Azure Defender for IoT, provides:
 
-Incorporating agentless technology from our recent acquisition of CyberX, Azure Defender for IoT enables organizations to auto-discover and continuously monitor unmanaged IoT/OT assets such as HMIs, PLCs, and DCUs. Combined with previous support for securing greenfield devices connected via IoT Hub, this enables organizations to accelerate their IoT initiatives by securing both modern, internet-native devices and traditional ICS/SCADA devices with a single unified solution. 
+- **Asset discovery and network mapping**, including details such as device manufacturer, device type, and how devices are communicating on the network
+- **Vulnerability management**, including information about CVEs, open ports, and unauthorized internet connections
+- **Continuous threat monitoring**, with real-time alerts indicating any anomalous or unauthorized activity such as targeted attacks or malware
 
-Azure Defender for IoT is available for either cloud-connected or air-gapped IoT/OT environments. It uses an on-premises sensor to perform passive, non-invasive Network Traffic Analysis (NTA) that has zero performance impact on OT environments. It also incorporates an in-depth understanding of specialized IoT/OT protocols — combined with patented, IoT/OT-aware behavioral analytics and machine learning — to eliminate the need to configure any rules or signatures, resulting in typical deployments in minutes or hours rather than days or weeks. 
+Full details are available in [the dedicated documentation](https://docs.microsoft.com/azure/asc-for-iot/overview).
 
-## Benefits of Azure Defender for IoT
+## Availability
+|Aspect|Details|
+|----|:----|
+|Release state:|General availability|
+|Pricing:|Requires [Azure Defender](security-center-pricing.md)|
+|Required roles and permissions:|Write permissions on the machine’s NSGs|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
 
-Key capabilities include: 
+## What devices can Azure Defender for IoT secure?
+By combining the capabilities of Security Center, Azure Defender, and CyberX Agentless Technology, you can secure:
 
-- Asset discovery and network mapping, including details such as device manufacturer, device type, and how devices are communicating on the network. 
+- **Greenfield devices**, connected via IoT Hub, this enables organizations to accelerate their IoT initiatives by securing both modern, internet-native devices and traditional ICS/SCADA devices with a single unified solution.
+    - Onboard new devices, and apply security policies across your workloads (Leaf devices, Microsoft Edge devices, IoT Hub) to ensure compliance with security standards and improved security posture.
 
-- Vulnerability management, including information about CVEs, open ports, and unauthorized internet connections. 
+- **Unmanaged brownfield devices** used in Operational Technology (OT) environments such as manufacturing, building management systems (BMS), life sciences, energy and water utilities, oil & gas, and logistics. 
+    - Azure Defender for IoT uses an on-premises sensor to perform passive, non-invasive Network Traffic Analysis (NTA) that has zero performance impact on OT environments. 
+    - It also incorporates an in-depth understanding of specialized IoT/OT protocols — combined with patented, IoT/OT-aware behavioral analytics and machine learning — to eliminate the need to configure any rules or signatures, resulting in typical deployments in minutes or hours rather than days or weeks. 
 
-- Continuous threat monitoring, with real-time alerts indicating any anomalous or unauthorized activity such as targeted attacks or malware. 
 
-To enable unified IT/OT security monitoring and governance, Azure Defender for IoT natively integrates with Azure Sentinel. SecOps teams can now rapidly detect and respond to IoT/OT threats via OT-specific SOAR playbooks included with Sentinel, as well as continuously-updated IoT/OT-specific threat intelligence supplied by Section 52, Microsoft’s in-house IoT/OT threat intelligence team. Additionally, Azure Defender for IoT integrates with existing SOC workflows and third-party security tools such as Splunk, IBM QRadar, and ServiceNow. 
+## Azure Defender for IoT integration with Azure Sentinel
+To enable unified IT/OT security monitoring and governance, Azure Defender for IoT natively integrates with [Azure Sentinel?](../sentinel/overview.md).
+
+SecOps teams can rapidly detect and respond to IoT/OT threats via OT-specific SOAR playbooks included with Sentinel, as well as continuously-updated IoT/OT-specific threat intelligence supplied by Section 52, Microsoft’s in-house IoT/OT threat intelligence team. Additionally, Azure Defender for IoT integrates with existing SOC workflows and third-party security tools such as Splunk, IBM QRadar, and ServiceNow. 
+
+
+
 
 
 ## Next steps
