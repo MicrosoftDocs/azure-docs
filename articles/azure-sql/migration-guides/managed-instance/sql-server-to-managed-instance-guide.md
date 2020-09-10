@@ -33,35 +33,31 @@ For more migration information see the [migration overview](sql-server-to-manage
 To migrate your SQL Server to Azure SQL Managed Instance, make sure: 
 
 - You've chosen a [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
-- You've assessed a [performance baseline](sql-server-to-managed-instance-performance-baseline.md), if necessary. 
+- You've created a [performance baseline](sql-server-to-managed-instance-performance-baseline.md), if necessary. 
 
 
 ## Pre-migration
 
-After verifying that your source environment is supported and ensuring that you have addressed any prerequisites, you are ready to start the Pre-migration stage.
-Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your migration. 
+After you've verified that your source environment is supported, start with the pre-migration stage. Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your migration. 
 
 ### Discover
 
 In the Discover phase, scan the network to identify all SQL Server instances and features used by your organization. 
 
-Use the [Azure Migrate](../../../migrate/migrate-services-overview) service to assesses the migration suitability of on-premises servers, perform performance-based sizing, and provides cost estimations for running them in Azure. 
+Use [Azure Migrate](../../../migrate/migrate-services-overview) to assesses migration suitability of on-premises servers, perform performance-based sizing, and provide cost estimations for running them in Azure. 
 
-Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP Toolkit")](https://www.microsoft.com/download/details.aspx?id=7826) to assess your current IT infrastructure. THe toolkit provides a powerful inventory, assessment, and reporting tool to simplify the migration planning process. 
+Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP Toolkit")](https://www.microsoft.com/download/details.aspx?id=7826) to assess your current IT infrastructure. The toolkit provides a powerful inventory, assessment, and reporting tool to simplify the migration planning process. 
 
-For more information about tools available to use for the Discover phase, see the article [Services and tools available for data migration scenarios](../../../dms/dms-tools-matrix.md)
+For more information about tools available to use for the Discover phase, see [Services and tools available for data migration scenarios](../../../dms/dms-tools-matrix.md). 
 
 ### Assess 
 
-After data sources have been identified, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Database Managed Instance to identify migration blockers or compatibility issues. 
+After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues. 
 
-You can use Data Migration Assistant (version 4.1 and later) to assess databases to get: 
+You can use the Data Migration Assistant (version 4.1 and later) to assess databases to get: 
 
 - [Azure target recommendations](/sql/dma/dma-assess-sql-data-estate-to-sqldb)
 - [Azure SKU recommendations](/sql/dma/dma-sku-recommend-sql-db)
-
-
-If SQL Managed Instance is not a suitable target for your workload, SQL Server on Azure VMs might be a better alternative target for your business. 
 
 To assess your environment using the Database Migration Assessment, follow these steps: 
 
@@ -77,11 +73,13 @@ To assess your environment using the Database Migration Assessment, follow these
 1. Determine the database compatibility level that minimizes post-migration efforts.  
 1. Identify the best Azure SQL Managed Instance SKU for your on-premises workload. 
 
-To learn more, see [Perform a SQL Server migration assessment with Data Migration Assistant](/sql/dma/dma-assesssqlonprem?view=sql-server-2017).
+To learn more, see [Perform a SQL Server migration assessment with Data Migration Assistant](/sql/dma/dma-assesssqlonprem).
+
+If SQL Managed Instance is not a suitable target for your workload, SQL Server on Azure VMs might be a viable alternative target for your business. 
 
 ### Create a performance baseline
 
-If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. See [performance baseline](sql-server-to-managed-instance-perforamnce-baseline.md) to learn more. 
+If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, create a performance baseline to use for comparison. See [performance baseline](sql-server-to-managed-instance-perforamnce-baseline.md) to learn more. 
 
 ## Create SQL Managed Instance 
 
@@ -90,7 +88,7 @@ Based on the information in the discover and assess phase, create your target SQ
 
 ## Migrate
 
-After you have completed the tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
+After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
 
 Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
 
@@ -104,18 +102,18 @@ However, when using online migration options (DMS, transactional replication), t
 After you verify that data is the same at both source and target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
 
 > [!IMPORTANT]
-> For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see the information [here](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-managed-instance-online#performing-migration-cutover).
+> For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-managed-instance-online#performing-migration-cutover).
 
 
 ## Post-migration
 
-After you have successfully completed the migration stage, go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently. 
+After you have successfully completed the migration stage, go through a series of post-migration tasks to ensure that everything is functioning smoothly and efficiently. 
 
 The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload. 
 
 ### Remediate applications 
 
-After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications.
+After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will, in some cases, require changes to the applications.
 
 ### Perform tests
 
