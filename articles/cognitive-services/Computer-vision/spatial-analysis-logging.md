@@ -34,7 +34,7 @@ xhost +
 
 ## Collecting System Health Telemetry with Telegraf
 
-Telegraf is open source and the spatial-analysis-telegraf image available in Microsoft Container Registry takes the following inputs and sends them to Azure Monitor. The spatial-analysis-telegraf module can be built with desired custom Inputs and Outputs by the end user. The spatial-analysis-telegraf module configuration in spatial analysis is part of the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179). This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is open source and the spatial analysis telegraf image available in Microsoft Container Registry takes the following inputs and sends them to Azure Monitor. The telegraf module can be built with desired custom Inputs and Outputs by the end user. The telegraf module configuration in spatial analysis is part of the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179). This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
 1. Spatial analysis Metrics
@@ -46,7 +46,7 @@ Inputs:
 Outputs:
 1. Azure Monitor
 
-The supplied spatial-analysis-telegraf module will publish all the telemetry data emitted by the spatial analysis container to Azure Monitor. See the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for information on adding Azure monitor to your subscription.
+The supplied spatial analysis telegraf module will publish all the telemetry data emitted by the spatial analysis container to Azure Monitor. See the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for information on adding Azure monitor to your subscription.
 
 After setting up Azure Monitor, you will need to create credentials that enable the module to send telemetry. You can use the Azure portal to create a new Service Principal, or use the Azure CLI command below to create one.
 
@@ -63,7 +63,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-In the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), look for the *spatial-analysis-telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
+In the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
 
 ```json
 
@@ -92,7 +92,7 @@ In the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), l
 ...
 ```
 
-Once the spatial-analysis-telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
+Once the telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
 
 ![Azure Monitor telemetry report](./media/spatial-analytics/iot-hub-telemetry.png)
 
@@ -133,14 +133,13 @@ In the "env" section add the following configuration:
   "settings": {
   "image":   "mcr.microsoft.com/azure-cognitive-services/spatial-analysis/diagnostics:1.0",
   "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
-  },
-{
-	    "IOTEDGE_WORKLOADURI":"fd://iotedge.socket",
-            "ARCHON_LOG_LEVEL":"info",
-	    "LOG_COLOR"="false"
-}
+  }
 ```    
 
+>[!NOTE]
+> If you are not running in a ASE Kubernetes environment, replace the container create options for the logging module to the following:
+>
+>`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 >[!NOTE]
 > If you are not running in a ASE Kubernetes environment, replace the container create options for the logging module to the following:
 >
@@ -190,8 +189,8 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 ### Collecting Logs
 
 > [!NOTE]
-> the `diagnostics` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
-> You must have Docker API version 1.40 or higher to use this module.`
+> The `diagnostics` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
+> You must have Docker API version 1.40 or higher to use this module.
 
 The [sample deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) file includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
 
@@ -199,7 +198,7 @@ The `diagnostics` collection is on-demand and controlled via an IoT Edge direct 
 
 ### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **diagnostics** module. In the DeploymentManifes.json, look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the DeploymentManifest.json, look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
 
 **Configure Upload to Azure Blob Storage**
 
@@ -214,11 +213,6 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 	"ARCHON_LOG_LEVEL":"info"
 }
 ```
-
->[!NOTE]
-> If you are not running in a ASE Kubernetes environment, replace the container create options for the logging module to the following:
->
->`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 
 ### Uploading spatial analysis Logs
 

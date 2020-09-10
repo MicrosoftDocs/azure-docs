@@ -80,7 +80,7 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
 }
 ```
 
-### Configure the Operation parameters
+### Configure the operation parameters
 
 Now that the initial configuration of the *spatial-analysis* container is complete, the next step is to configure the operations parameters and add them to the deployment. 
 
@@ -115,7 +115,7 @@ This is a sample video frame that shows how the vertex coordinates are being cal
 
 You can also select a confidence threshold for when detected people are counted and events are generated. Set the threshold to 0 if you’d like all events to be output.
 
-### Execute the Deployment
+### Execute the deployment
 
 Now that the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) is complete, use this command in the Azure CLI to deploy the container on the host computer as an IoT Edge Module.
 
@@ -133,7 +133,7 @@ Fill in the required parameters:
 
 This command will begin the deployment, and you can view the deployment status in your Azure IoT Hub instance in the Azure Portal. The status may show as *417 – The device’s deployment configuration is not set* until the device finishes downloading the container images and starts running.
 
-### Validate that the Deployment was Successful
+### Validate that the deployment was successful
 
 Locate the *Runtime Status* in the IoT Edge Module Settings for the spatial-analysis module in your IoT Hub instance on the Azure Portal. The **Desired Value** and **Reported Value** for the *Runtime Status* should say `Running`. See below for what this will look like on the Azure Portal.
 
@@ -147,9 +147,10 @@ This person counting web application enables you to quickly configure a sample w
 
 ### Get the person counting app container
 
-A container form of this app available on the Docker hub. Use the following docker pull command to download it. Contact Microsoft at projectarchon@microsoft.com for the access token.
+A container form of this app available on the Azure Container Registry. Use the following docker pull command to download it. Contact Microsoft at projectarchon@microsoft.com for the access token.
 
 ```bash
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 
@@ -163,7 +164,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-To install the container, create a new Azure Web App for Containers and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**.
+To install the container, create a new Azure Web App for Containers and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
 
 ![Enter image details](./media/spatial-analytics/solution-app-create-screen.png)
 

@@ -175,7 +175,7 @@ Install Docker CE on the host computer.
 
 ```bash
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
@@ -293,6 +293,8 @@ The following table shows the various Environment Variables used by the IoT Edge
 Once you update the [sample deployment manifest file](https://go.microsoft.com/fwlink/?linkid=2142179) `DeploymentManifest.json` file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
 
 ```azurecli
+az login
+az extension add --name azure-iot
 az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
 ```
 
