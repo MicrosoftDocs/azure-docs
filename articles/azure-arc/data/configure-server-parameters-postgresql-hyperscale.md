@@ -16,6 +16,20 @@ ms.topic: how-to
 
 This document describes the steps to set the database engine settings of your PostgreSQL Hyperscale server group to custom (non-default) values. For details about what database engine parameters can be set and what their default value is, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
 
+> [!NOTE]
+> Preview does not support setting the following parameters: 
+>
+> - `archive_command`
+> - `archive_timeout`
+> - `log_directory`
+> - `log_file_mode`
+> - `log_filename`
+> - `restore_command`
+> - `shared_preload_libraries`
+> - `synchronous_commit`
+> - `ssl`
+> - `wal_level`
+
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -155,19 +169,7 @@ For example:
 azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
 
-> [!NOTE]
-> Preview does not support setting the following parameters: 
->
-> - `archive_command`
-> - `archive_timeout`
-> - `log_directory`
-> - `log_file_mode`
-> - `log_filename`
-> - `restore_command`
-> - `shared_preload_libraries`
-> - `synchronous_commit`
-> - `ssl`
-> - `wal_level`
+
 
 ## Next steps
 - Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
