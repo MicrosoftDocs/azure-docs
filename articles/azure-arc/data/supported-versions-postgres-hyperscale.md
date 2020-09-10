@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Supported versions Postgres with Azure Arc enabled PostgreSQL Hyperscale
+# Supported versions of Postgres with Azure Arc enabled PostgreSQL Hyperscale
 
 This article explains what versions of Postgres are available with Azure Arc enabled PostgreSQL Hyperscale.
 The list of supported versions evolves over time. Today, the major versions that are supported are:
@@ -24,7 +24,7 @@ To learn more, read about each version on the official Postgres site:
 - [Postgres 12 (default)](https://www.postgresql.org/docs/12/index.html)
 - [Postgres 11](https://www.postgresql.org/docs/11/index.html)
 
-## How to deploy a particular version in Azure Arc enabled Postgres Hyperscale?
+## How to deploy a particular version in Azure Arc enabled PostgreSQL Hyperscale?
 At deployment time you have the possibility to indicate what version to deploy by passing the _--engine-version_ parameter. 
 If you do not indicate a version information, by default, a server group of Postgres version 12 will be deployed.
 
@@ -52,5 +52,5 @@ These are CRDs, not server groups. The presence of a CRD is not an indication th
 The CRD is an indication of what kind of resources can be deployed.
 
 ## Next steps:
-- [Read about deploying Azure Arc enabled Postgres Hyperscale](create-postgresql-hyperscale-server-group.md)
-- [Read about getting a list of the Azure Arc enabled Postgres Hyperscale server groups deployed in your Arc Data Controller](list-server-groups-postgres-hyperscale.md)
+- [Read about deploying Azure Arc enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
+- [Read about getting a list of the Azure Arc enabled PostgreSQL Hyperscale server groups deployed in your Arc Data Controller](list-server-groups-postgres-hyperscale.md)

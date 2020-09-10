@@ -16,12 +16,16 @@ ms.topic: how-to
 This document describes various aspects related to security of your server group:
 - Encryption at rest
 - User management
+   - General perspectives
+   - Change the password of the _postgres_ administrative user
 
 ## Encryption at rest
 There are two ways you can implement encryption at rest for your server group. You can implement either of them or combine them.
 
 ### Hardware: Linux host volume encryption
-Implement system data encryption to secure any data that resides on the disks used by your Azure Arc enabled Data Services setup. You can read [here](https://wiki.archlinux.org/index.php/Data-at-rest_encryption), for example, more about the perspectives and solutions that you have in this area. Since Azure Arc enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
+Implement system data encryption to secure any data that resides on the disks used by your Azure Arc enabled Data Services setup. You can read more about this topic:
+- [Data encryption at rest](https://wiki.archlinux.org/index.php/Data-at-rest_encryption) on Linux in general 
+- Disk encryption with LUKS cryptsetup encrypt command (Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) specifically Since Azure Arc enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
 
 ### Software: Use the PostgreSQL `pgcrypto` extension in your server group
 In addition of encrypting the disks used to host your Azure Arc setup, you can configure your Azure Arc enabled PostgreSQL Hyperscale server group to expose mechanisms that your applications can use to encrypt data in your database(s). The `pgcrypto` extension is part of the `contrib` extensions of Postgres and is available in your Azure Arc enabled PostgreSQL Hyperscale server group. You find details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
@@ -138,11 +142,22 @@ When I connect with my application and I pass a password, it will look up in the
 This small example demonstrates that you can encrypt data at rest (store encrypted data) in Azure Arc enabled PostgreSQL Hyperscale using the Postgres `pgcrypto` extension and your applications can use functions offered by `pgcrypto` to manipulate this encrypted data.
 
 ## User management
+### General perspectives
+You can use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. During preview, these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that in preview, the user definition is not replicated to the Worker nodes.
+
+### Change the password of the _postgres_ administrative user
 Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you deploy your server group.
+The general format of the command to change its password is:
+```console
+azdata arc postgres server edit --name <server group name> --admin-password <new password>
+```
+The password will be set to the value of the AZDATA_PASSWORD **session**'s environment variable if it exists. If not, the user will be prompted for a value.
+To verify what if the the AZDATA_PASSWORD session's environment variable exists and/or to what value it is set, run:
+```console
+printenv AZDATA_PASSWORD
+```
+You may want to delete its value if you prefer being prompted to enter a new password.
 
-Private preview does not support changing this password.
-
-You can also use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. During preview, these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that in preview, the user definition is not replicated to the Worker nodes.
 
 ## Next step
 - Read details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
