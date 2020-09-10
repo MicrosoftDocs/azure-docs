@@ -35,11 +35,13 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 1. In the **Favorites** or **All Directories** list, choose the Active Directory tenant where you wish to register your application.
 1. In the Azure portal, search for and select **Azure Active Directory**.
 1. In the  **Azure Active Directory** pane, select **App registrations** to view a list of all your applications.
-1. Select the application you want to define app roles in. Then select **App roles | Preview** and click the **Create app role** button.
-  :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/approles-overview-blade.png" alt-text="An app registration's app roles pane in the Azure portal":::
-1. Fill in the appropriate values for each textbox. Refer the table below to see description and requirements for each field.
- :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/approles-create-contextpane.png" alt-text="An app registration's app roles create context pane in the Azure portal":::
-1. Click **Apply** to save your changes.
+1. Select the application you want to define app roles in. Select **App roles** > **Preview**, and then select **Create app role**.
+
+   :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/approles-overview-blade.png" alt-text="An app registration's app roles pane in the Azure portal":::
+1. Fill in the appropriate values for each textbox. For descriptions and requirements for each field, see the following table.
+
+   :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/approles-create-contextpane.png" alt-text="An app registration's app roles create context pane in the Azure portal":::
+1. Select **Apply** to save your changes.
   
   Use the following table to ensure the values match the requirements for each field.
 
@@ -88,5 +90,5 @@ When the users assigned to the various app roles sign in to the application, the
 - [Implement authorization in your applications with Microsoft identity platform (Video)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory app manifest](./reference-app-manifest.md)
-- [AAD Access tokens](access-tokens.md)
-- [AAD `id_tokens`](id-tokens.md)
+- [Azure AD Access tokens](access-tokens.md)
+- [Azure AD `id_tokens`](id-tokens.md)
