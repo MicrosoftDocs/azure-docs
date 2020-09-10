@@ -84,7 +84,7 @@ The following operating systems are currently supported by the Azure Monitor age
   - CentOS 6<sup>1</sup>, 7
   - Debian 9, 10
   - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7, 8
+  - RHEL 6<sup>1</sup>, 7
   - SLES 11, 12, 15
   - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
 
