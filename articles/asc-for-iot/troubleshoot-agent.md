@@ -71,7 +71,7 @@ systemctl stop ASCIoTAgent.service
 > [!Note]
 > Error logs are shown in chronological order. Make sure to note the timestamp of each error to help your remediation.
 
-## Restart the agent
+## Restart the agent after fixing the error
 
 1. After locating and fixing a security agent error, try to restart the agent by running the following command.
 

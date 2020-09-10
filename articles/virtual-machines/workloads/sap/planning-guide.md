@@ -2017,7 +2017,7 @@ Since Mid 2014, extensions to various components around Hyper-V, System Center, 
 A blog detailing how to deploy this solution is documented here:
 <https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
 
-## Summary
+## Summary for High Availability for SAP systems
 
 The key points of High Availability for SAP systems in Azure are:
 

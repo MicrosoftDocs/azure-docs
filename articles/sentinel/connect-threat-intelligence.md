@@ -62,7 +62,7 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 - Read and write permissions to the Azure Sentinel workspace to store your threat indicators.
 
-## Instructions
+## Procedure
 
 1. [Register an application](/graph/auth-v2-service#1-register-your-app) in Azure Active Directory to get an application ID, application secret, and Azure Active Directory tenant ID. You need these values for when you configure your integrated TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API.
 
@@ -86,7 +86,7 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 ## Connect Azure Sentinel to TAXII servers
 
-## Prerequisites  
+## Prerequisites to connect to TAXXI servers 
 
 - Read and write permissions to the Azure Sentinel workspace to store your threat indicators.
 

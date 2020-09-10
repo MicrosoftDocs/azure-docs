@@ -128,7 +128,7 @@ In this step, you configure your *TodoListClient* project by registering a new a
 1. In the *Application registration portal*, in the **Overview** page copy the value of the **Application (client) ID**
 1. Open the **app.config** file located in the **TodoListClient** project's root folder and then paste the value in the `ida:ClientId` parameter value
 
-## Run your project
+### Run your project
 
 1. Press `<F5>` to run your project. Your *TodoListClient* should open.
 1. Select **Sign in** at the top right and sign in with the same user you have used to register your application, or a user in the same directory.
@@ -145,7 +145,7 @@ One of the ways to allow users from other directories to access your web API is 
 1. In the *Authorized scopes* section, select the scope for this web API `api://<Application ID>/access_as_user`.
 1. Press the **Add application** button at the bottom of the page.
 
-## Run your project
+### Run your project
 
 1. Press `<F5>` to run your project. Your *TodoListClient* should open.
 1. Select **Sign in** at the top right (or Clear Cache/Sign-in) and then sign-in either using a personal Microsoft account (live.com or hotmail.com) or work or school account.

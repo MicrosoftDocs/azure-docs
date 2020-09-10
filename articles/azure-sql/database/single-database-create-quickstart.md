@@ -22,7 +22,7 @@ In this quickstart, you create a [single database](single-database-overview.md) 
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 
-## Create a single database
+## Create a single database in Azure SQL Database
 
 This quickstart creates a single database in the [serverless compute tier](serverless-tier-overview.md).
 
@@ -72,13 +72,13 @@ To create a single database in the Azure portal this quickstart starts at the Az
 
 # [Azure CLI](#tab/azure-cli)
 
-## Launch Azure Cloud Shell
+## Launch Azure Cloud Shell for Azure CLI
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-## Set parameter values
+## Set parameter values using Azure CLI
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
@@ -107,7 +107,7 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 az group create --name $resourceGroupName --location $location
 ```
 
-## Create a server
+## Create a server using Azure CLI
 
 Create a server with the [az sql server create](/cli/azure/sql/server) command.
 
@@ -135,7 +135,7 @@ az sql server firewall-rule create \
 ```
 
 
-## Create a single database
+## Create a single database using Azure CLI
 
 Create a database with the [az sql db create](/cli/azure/sql/db) command. The following code creates
 
@@ -157,13 +157,13 @@ az sql db create \
 
 You can create a resource group, server, and single database using Windows PowerShell.
 
-## Launch Azure Cloud Shell
+## Launch Azure Cloud Shell for Azure PowerShell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-## Set parameter values
+## Set parameter values using Azure PowerShell
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the Get-Random cmdlet is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
@@ -197,7 +197,7 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 ```
 
 
-## Create a server
+## Create a server using PowerShell
 
 Create a server with the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet.
 
@@ -224,7 +224,7 @@ Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell
 ```
 
 
-## Create a single database
+## Create a single database using PowerShell
 
 Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 
