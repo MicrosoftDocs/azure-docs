@@ -103,7 +103,8 @@ IoT Hub enforces other operational limits:
 | Automatic device and module configurations<sup>1</sup> | 100 configurations per paid SKU hub. 20 configurations per free SKU hub. |
 | IoT Edge automatic deployments<sup>1</sup> | 50 modules per deployment. 100 deployments (including layered deployments) per paid SKU hub. 10 deployments per free SKU hub. |
 | Twins<sup>1</sup> | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. |
-| Shared access policies | Maximum number of shared access policies is 16 |
+| Shared access policies | Maximum number of shared access policies is 16. |
+| x509 CA certificates | Maximum number of x509 CA certificates that can be registered on IoT Hub is 25. |
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).
 

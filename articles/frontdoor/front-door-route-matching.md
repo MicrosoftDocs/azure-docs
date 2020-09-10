@@ -3,14 +3,14 @@ title: Azure Front Door - Routing rule matching monitoring | Microsoft Docs
 description: This article helps you understand how Azure Front Door matches which routing rule to use for an incoming request
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
+ms.author: duau
 ---
 
 # ​​How Front Door matches requests to a routing rule

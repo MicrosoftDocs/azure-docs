@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json" range="1-261" highlight="110-260":::
+:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
 
 
 Several resources are defined in the template:
@@ -55,16 +55,16 @@ Several resources are defined in the template:
     - **Location**: select a location.  For example, **Central US**.
     - **Admin username**: provide a username, such as *azureuser*.
     - **Authentication type**: You can choose between using an SSH key or a password.
-	- **Admin Password Or Key** depending on what you choose for authentication type:
-		- If you choose **password**, the password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
-		- If you choose **sshPublicKey**, paste in the contents of your public key.
+    - **Admin Password Or Key** depending on what you choose for authentication type:
+        - If you choose **password**, the password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+        - If you choose **sshPublicKey**, paste in the contents of your public key.
     - **DNS label prefix**: enter a unique identifier to use as part of the DNS label.
     - **Ubuntu OS version**: select which version of Ubuntu you want to run on the VM.
     - **Location**: the default is the same location as the resource group, if it already exists.
     - **VM size**: select the [size](../sizes.md) to use for the VM.
     - **Virtual Network Name**: name to be used for the vNet.
-	- **Subnet Name**: name for the subnet the VM should use.
-	- **Network Security Group Name**: name for the NSG.
+    - **Subnet Name**: name for the subnet the VM should use.
+    - **Network Security Group Name**: name for the NSG.
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
 
 

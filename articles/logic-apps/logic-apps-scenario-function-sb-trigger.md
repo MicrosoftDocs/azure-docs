@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
+ms.custom: devx-track-csharp
 ---
 
 # Call or trigger logic apps by using Azure Functions and Azure Service Bus

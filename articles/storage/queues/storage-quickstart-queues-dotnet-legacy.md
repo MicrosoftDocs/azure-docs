@@ -9,6 +9,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue

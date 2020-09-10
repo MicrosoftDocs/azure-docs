@@ -114,7 +114,6 @@ The report provides the following information:
 > This report is automatically updated after every 12 hours with the new information collected within that time. As a result, login attempts within the last 12 hours may not be included in the report.
 
 ## Related links
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Risky IP report](how-to-connect-health-adfs-risky-ip.md)
-

@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
+ms.custom: devx-track-dotnet
 
 ---
 # Multitenant Applications in Azure

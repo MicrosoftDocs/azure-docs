@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 11/08/2019
+ms.date: 08/24/2020
 ---
 
 # Authentication issues in Azure HDInsight
@@ -77,7 +77,7 @@ Wait for 30 minutes or so, stop any applications that might be trying to authent
 
 ---
 
-## invalid_grant or unauthorized_client, 50053
+## invalid_grant or unauthorized_client, 50053 (#2)
 
 ### Issue
 

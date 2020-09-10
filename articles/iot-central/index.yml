@@ -71,7 +71,7 @@ conceptualContent:
         - url: ./core/tutorial-create-telemetry-rules.md
           itemType: how-to-guide
           text: Create a telemetry rule 
-        - url: ./core/howto-use-data-export.md
+        - url: ./core/howto-export-data.md
           itemType: how-to-guide
           text: Export data to cloud destinations - preview
       footerLink: 
