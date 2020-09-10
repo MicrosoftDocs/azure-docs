@@ -24,7 +24,9 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information see the [migration overview](sql-server-to-managed-instance-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For more migration information see the [migration overview](sql-server-to-managed-instance-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+
+:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow.png" alt-text="Migration process flow":::
 
 ## Prerequisites 
 
