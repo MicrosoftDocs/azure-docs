@@ -93,7 +93,6 @@ We don't test containers with OpenShift, but generally, Cognitive Services conta
 | `Unknown` | The server is currently unable to process billing requests. |
 
 
-
 **Q: Who do I contact for support?**
 
 **A:** Customer support channels are the same as the Cognitive Services cloud offering. All Cognitive Services containers include logging features that will help us and the community support customers. For additional support, see the following options.
