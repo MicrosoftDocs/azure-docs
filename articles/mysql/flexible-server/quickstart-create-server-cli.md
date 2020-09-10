@@ -59,7 +59,7 @@ The server created has the below attributes:
 - The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet
 
 > [!NOTE] 
-> The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
+> The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
 
 If you'd like to change any defaults, please refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. 
 

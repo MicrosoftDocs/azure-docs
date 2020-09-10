@@ -23,7 +23,7 @@ Open your web browser, and then go to the [Azure portal](https://portal.azure.co
 
 ## Create an Azure Database for MySQL Flexible Server
 
-You create a flexible server with a defined set of compute and storage resources <!-- [compute and storage resources](./concepts-compute-and-storage.md)-->. You create the server within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-and-storage.md). You create the server within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
 
 Follow these steps to create a flexible server:
 
@@ -61,10 +61,10 @@ Follow these steps to create a flexible server:
 
 1. Configure Networking options
 
-    On the Networking tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server provides two options to connect to your server via *Public access (allowed IP addresses)* and *Private access (VNet Integration)*. With *Public access (allowed IP addresses)*, access to your server is limited to allowed IP addresses added to a firewall rule. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. With *Private access (VNet Integration)*, access to your server is limited to your virtual network. In this quickstart, we show you how to enable public access to connect to the server. <!--Learn more about connecitivity methods in the [concepts article](./concepts-networking.md).-->
+    On the Networking tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server provides two options to connect to your server via *Public access (allowed IP addresses)* and *Private access (VNet Integration)*. With *Public access (allowed IP addresses)*, access to your server is limited to allowed IP addresses added to a firewall rule. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. With *Private access (VNet Integration)*, access to your server is limited to your virtual network. In this quickstart, we show you how to enable public access to connect to the server. Learn more about connectivity methods in the [concepts article](./concepts-networking.md).-
 
     > [!NOTE]
-    > The connectivity method cannot be changed after creating the server. For example, if you selected *Public access (allowed IP addresses)* during create then you cannot change to *Private access (VNet Integration)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
+    > The connectivity method cannot be changed after creating the server. For example, if you selected *Public access (allowed IP addresses)* during create then you cannot change to *Private access (VNet Integration)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
 
     >[!div class="mx-imgBorder"]
     > ![Configure networking](./media/quickstart-create-server-portal/networking.png)  
