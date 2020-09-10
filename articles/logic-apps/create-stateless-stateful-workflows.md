@@ -354,6 +354,8 @@ The workflow in this example uses this trigger and these actions:
 
 To add your own code that you can directly call and run from your workflow app, add an Azure function to your project. For more information, see [Add a function to your project](../azure-functions/functions-develop-vs-code.md#add-a-function-to-your-project).
 
+### Create the Azure function
+
 1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
 
 1. In the Azure pane, next to **Azure: Functions**, select **Create Function** (lightning icon).
@@ -373,6 +375,8 @@ To add your own code that you can directly call and run from your workflow app, 
    ![Screenshot that shows open "MyExampleFunction.cs" file open.](./media/create-stateless-stateful-workflows/myexamplefunction-csharp-code-file.png)
 
 1. Save your function's class library file.
+
+### Call the function from the workflow app
 
 1. Return to the Logic App Designer and your workflow app.
 
