@@ -33,6 +33,7 @@ Updates in September include:
 - [Security Center gets a new look!](#security-center-gets-a-new-look)
 - [Azure Defender released](#azure-defender-released)
 - [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
+- [IoT threat protection enhancements in Azure Defender for IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Network security group recommendations improved](#network-security-group-recommendations-improved)
