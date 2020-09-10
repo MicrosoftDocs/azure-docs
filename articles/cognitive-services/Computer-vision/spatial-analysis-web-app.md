@@ -71,10 +71,9 @@ Deploy the spatial analysis container as an IoT Module on the host computer, usi
 Most of the **Environment Variables** for the IoT Edge Module are already set in the sample *DeploymentManifest.json* file linked above. In the file, search for the `BILLING_ENDPOINT` and `API_KEY` environment variables, shown below. Replace the values with the Endpoint URI and the API Key that you created earlier. Ensure that the EULA value is set to "accept". 
 
 ```json
-
 "EULA": { 
-  "value": "accept"
-  },
+    "value": "accept"
+},
 
 "BILLING_ENDPOINT":{ 
     "value": "<Use a key from your Computer Vision resource>"
@@ -106,7 +105,7 @@ The first step is to update the sample [deployment manifest](https://go.microsof
 },
 ```
 
-After the deployment manifest is updated, follow the camera manufacturer's instructions to install the camera, configure the camera url, and configure the user name and password. 
+After the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) is updated, follow the camera manufacturer's instructions to install the camera, configure the camera url, and configure the user name and password. 
 
 Next, set `VIDEO_URL` to the RTSP url of the camera, and the credentials for connecting to the camera.
 
@@ -121,7 +120,7 @@ You can also select a confidence threshold for when detected people are counted 
 
 ### Execute the Deployment
 
-Now that the deployment manifest is complete, use this command in the Azure CLI to deploy the container on the host computer as an IoT Edge Module.
+Now that the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) is complete, use this command in the Azure CLI to deploy the container on the host computer as an IoT Edge Module.
 
 ```azurecli
 az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content deployment.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
