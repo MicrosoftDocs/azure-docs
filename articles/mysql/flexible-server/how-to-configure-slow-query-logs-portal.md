@@ -26,7 +26,7 @@ Configure access to the MySQL slow query log.
 1. Select your flexible server.
 
 1. Under the **Settings** section in the sidebar, select **Server parameters**.
-   <!-- ![Screenshot of Server logs options](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)-->
+   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
 
 1. Update the **slow_query_log** parameter to **ON**.
 
@@ -44,17 +44,17 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings** > **Add diagnostic settings**.
 
-   <!--![Screenshot of Diagnostic settings options](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)-->
+   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
 
 1. Provide a diagnostic setting name.
 
 1. Specify which destinations to send the slow query logs (storage account, event hub, or Log Analytics workspace).
 
 1. Select **MySqlSlowLogs** as the log type.
-    <!--![Screenshot of Diagnostic settings configuration options](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)-->
+    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
 
 1. After you've configured the data sinks to pipe the slow query logs to, select **Save**.
-    <!--![Screenshot of Diagnostic settings configuration options, with Save highlighted](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)-->
+    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
 
 1. Access the slow query logs by exploring them in the data sinks you configured. It can take up to 10 minutes for the logs to appear.
 

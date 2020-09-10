@@ -32,17 +32,17 @@ Follow these steps to create a flexible server:
 1. Select **Databases** > **Azure Database for MySQL**. You can also enter **MySQL** in the search box to find the service.
 
     >[!div class="mx-imgBorder"]
-    > ![Azure Database for MySQL option](./media/quickstart-create-server-portal/navigate-to-mysql.png)
+    > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Azure Database for MySQL option":::
 
 1. Select **Flexible server** as the deployment option.
      
     >[!div class="mx-imgBorder"]
-    > ![Pick deployment option](./media/quickstart-create-server-portal/deployment-option.png)    
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Pick deployment option":::    
 
 1. Fill out the **Basics** form with the following information: 
 
     >[!div class="mx-imgBorder"]
-    > ![Create server form](./media/quickstart-create-server-portal/create-form.png)    
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Create server form":::    
 
     **Setting**|**Suggested Value**|**Description**
     ---|---|---
@@ -56,7 +56,7 @@ Follow these steps to create a flexible server:
     Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for **Compute tier**, **Compute size**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **Save** to continue with configurations. The below screenshot shows the compute and storage options.
 
     >[!div class="mx-imgBorder"]
-    > ![Compute + storage](./media/quickstart-create-server-portal/compute-storage.png)
+    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Compute + storage":::
 
 
 1. Configure Networking options
@@ -67,9 +67,9 @@ Follow these steps to create a flexible server:
     > The connectivity method cannot be changed after creating the server. For example, if you selected *Public access (allowed IP addresses)* during create then you cannot change to *Private access (VNet Integration)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
 
     >[!div class="mx-imgBorder"]
-    > ![Configure networking](./media/quickstart-create-server-portal/networking.png)  
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Configure networking":::  
 
-    <!--![Select "Add current client IP address"](./media/quickstart-create-database-portal/6-add-client-ip.png)-->
+    <!--:::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select "Add current client IP address"":::-->
 
 1. Select **Review + create** to review your flexible server configuration.
 
@@ -106,7 +106,7 @@ You have successfully created an Azure Database for MySQL Flexible Server in a r
 To delete the server, you can click on **Delete** button on **Overview** page of your server as shown below:
 
 > [!div class="mx-imgBorder"]
-> ![Delete your resources](./media/quickstart-create-server-portal/delete-server.png)
+> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Delete your resources":::
 
 ## Next steps
 > [!div class="nextstepaction"]

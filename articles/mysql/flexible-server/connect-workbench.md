@@ -34,7 +34,7 @@ Get the connection information needed to connect to the flexible server. You nee
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
-<!--- ![Azure Database for MySQL Flexible Server name](./media/connect-php/1_server-overview-name-login.png)--->
+<!--- :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::--->
 
 ## Connect to the server using MySQL Workbench
 
@@ -44,7 +44,7 @@ To connect to Azure Database for MySQL Flexible Server using MySQL Workbench:
 
 2. In **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
 
-    ![setup new connection](./media/connect-workbench/2-setup-new-connection.png)
+    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="setup new connection":::
 
     | **Parameters** | **Suggested value** | **Field description** |
     |---|---|---|
@@ -99,7 +99,7 @@ To connect to Azure Database for MySQL Flexible Server using MySQL Workbench:
 
     The screenshot shows an example of the SQL code in SQL Workbench and the output after it has been run.
 
-    ![MySQL Workbench SQL Tab to run sample SQL code](./media/connect-workbench/3-workbench-sql-tab.png)
+    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="MySQL Workbench SQL Tab to run sample SQL code":::
 
 2. To run the sample SQL Code, click the lightening bolt icon in the toolbar of the **SQL File** tab.
 3. Notice the three tabbed results in the **Result Grid** section in the middle of the page.

@@ -50,11 +50,11 @@ You can configure and get information about alert rules using:
 
     Provide **Name** to the notification type and select **Review + Create** when completed.
 
-    <!--![Action group](./media/howto-alert-on-metric/10-action-group-type.png)-->
+    <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
     
 15. Fill in **Alert rule details** like **Alert rule name**, **Description**, **Save alert rule to resource group** and **Severity**.
 
-    <!--![Action group](./media/howto-alert-on-metric/11-name-description-severity.png)-->
+    <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->
 
 16. Select **Create alert rule** to create the alert.
     Within a few minutes, the alert is active and triggers as previously described.

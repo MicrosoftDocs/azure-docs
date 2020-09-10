@@ -28,13 +28,13 @@ Follow these steps to set MySQL server Deny Public Network Access:
 
 1. In **Deny Public Network Access**, select **Yes** to enable deny public access for your MySQL server.
 
-    ![Azure Database for MySQL Deny network access](./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG)
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG" alt-text="Azure Database for MySQL Deny network access":::
 
 1. Click **Save** to save the changes.
 
 1. A notification will confirm that connection security setting was successfully enabled.
 
-    ![Azure Database for MySQL Deny network access success](./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png)
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Azure Database for MySQL Deny network access success":::
 
 ## Next steps
 

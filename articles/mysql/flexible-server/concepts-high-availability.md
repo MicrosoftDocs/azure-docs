@@ -14,7 +14,7 @@ Azure Database for MySQL Flexible Server, which is currently in public preview, 
 
 Zone redundant high availability configuration enables automatic failover during planned events such as user-initiated scale compute operations, and unplanned events such as underlying hardware and software faults, network failures, and even availability zone failures.
 
-![view of zone redundant high availability](./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png)
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="view of zone redundant high availability":::
 
 ## Zone redundant high availability architecture
 
