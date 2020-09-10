@@ -11,19 +11,19 @@ ms.topic: how-to
 
 # Create and run a job in your Azure IoT Central application
 
-You can use Microsoft Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device properties and run commands. This article shows you how to get started with using jobs in your own application.
+You can use Microsoft Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. This article shows you how to get started with using jobs in your own application.
 
 ## Create and run a job
 
-This section shows you how to create and run a job in the form of setting the light threshold for a group of logistic gateway devices.
+This section shows you how to create and run a job in the form of setting the light threshold for a group of logistic gateway devices. You will use a new job wizard to create and run a job. You will have the option to save a job to run in the future. 
 
 1. On the left pane, select **Jobs**.
 
-2. Select **+ New**.
+2. Select **+ New Job**.
 
    ![Screenshot that shows selections for creating a job.](./media/howto-run-a-job/create-new-job.png)
 
-3. Enter a name and description to identify the job that you're creating.
+3. Configure your job by entering a name and description to identify the job that you're creating.
 
 4. Select the target device group that you want your job to apply to. You can see how many devices your job configuration applies to in the **Summary** section.
 
@@ -33,24 +33,31 @@ This section shows you how to create and run a job in the form of setting the li
 
    ![Screenshot that shows selections for creating a property job called Set Light Threshold.](./media/howto-run-a-job/configure-job.png)
 
-6. Select **Run** or **Save**. The job now appears on your main **Jobs** page. On this page, you can see your currently running job and the history of any previously run or saved jobs. You can reopen your saved job at any time to continue editing it or to run it.
+   You can choose to save and exit the job. You will be presented with Saved Jobs list page and the job now appears on saved jobs list page.
+   
+   ![Save and Exit Job Wizard.](./media/howto-run-a-job/save-and-exit.png)
 
-   ![Screenshot that shows the name, status, and description of a created job.](./media/howto-run-a-job/view-job.png)
+   Click on the Job to go back to Job Wizard page. Click **Next** button. You will be presented with Review Page. 
 
-   > [!NOTE]
-   > You can view up 30 days of history for your previously run jobs.
+   ![Screenshot that shows selections for creating a property job called Set Light Threshold.](./media/howto-run-a-job/configure-job-next.png)
+   
+   You will be presented with Review Page. The review page will have job configuration details, number of devices which qualify for the job and the job type details. Click **Run** button to submit the job for execution.
+   
+   ![Job Wizard Review Page](./media/howto-run-a-job/job-wizard-review.png)
 
-7. Select the saved job and run it by selecting the **Run** button. 
-
-   The **Run your job?** dialog box appears. Confirm by selecting the **Run job** button. 
-
-   ![Screenshot of the dialog box that confirms that you want to run a job.](./media/howto-run-a-job/run-job.png)
-
-8. A job goes through the phases of pending, running, and completed. The job execution details contain result metrics, duration details, and a device list grid. 
+6. A job goes through the phases of pending, running, and completed. The job execution details contain result metrics, duration details, and a device list grid. 
 
    From this overview, you can also select **Results log** to download a CSV file of your job details, including the devices and their status values. This information can be useful for troubleshooting.
 
    ![Screenshot that shows device status.](./media/howto-run-a-job/download-details.png)
+
+6. Click on Jobs in the left nav or in the breadcrumbs. The job now appears on **Last 30 days** page. On this page, you can see your currently running jobs and the history of any previously run or saved jobs. 
+
+   ![Last 30 days jobs list](./media/howto-run-a-job/view-job.png)
+
+   > [!NOTE]
+   > You can view up 30 days of history for your previously run jobs.
+
 
 ## Manage jobs
 
@@ -64,7 +71,7 @@ After a job is in a stopped state, you can select **Continue** to resume running
 
 ## Copy a job
 
-To copy one of your existing jobs, select it on the **Jobs** page and select **Job details**. The **Job details** page appears. 
+To copy one of your existing jobs, select an executed job. click on **Copy** from job results page or from the jobs details page.  
 
 ![Screenshot that shows the page for job details.](./media/howto-run-a-job/job-details.png)
 
@@ -72,7 +79,7 @@ Select **Copy**.
 
 ![Screenshot that shows the Copy button.](./media/howto-run-a-job/job-details-copy.png)
 
-A copy of the job configuration opens for you to edit, and **Copy** is appended to the job name. You can save or run the new job.
+A copy of the job configuration opens for you to edit, and **Copy** is appended to the job name. You can save and exit from the job wizard or run the new job.
 
 ![Screenshot that shows a copy of the job configuration.](./media/howto-run-a-job/copy-job.png)
 
