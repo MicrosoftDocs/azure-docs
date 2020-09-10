@@ -168,7 +168,7 @@ In this step, create a manifest to describe the container based on the Azure SQL
         spec:
         terminationGracePeriodSeconds: 30
         securityContext:
-          fsgroup: 10001
+          fsGroup: 10001
         containers:
         - name: azuresqledge
             image: mcr.microsoft.com/azure-sql-edge-developer:latest
