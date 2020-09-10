@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 ---
 # Convert Word to Vector module
 
-This article describes how to use the Convert Word to Vector module in Azure Machine Learning designer (preview) to do these tasks:
+This article describes how to use the Convert Word to Vector module in Azure Machine Learning designer to do these tasks:
 
 - Apply various Word2Vec models (Word2Vec, FastText, GloVe pretrained model) on the corpus of text that you specified as input.
 - Generate a vocabulary with word embeddings.
@@ -88,7 +88,7 @@ The module has one output:
 
 + **Vocabulary with embeddings**: Contains the generated vocabulary, together with each word's embedding. One dimension occupies one column.
 
-The following example illustrates how the Convert Word to Vector module works. It applies this module with the default settings to the preprocessed Wikipedia SP 500 Dataset provided in Azure Machine Learning (Preview).
+The following example illustrates how the Convert Word to Vector module works. It applies this module with the default settings to the preprocessed Wikipedia SP 500 Dataset provided in Azure Machine Learning.
 
 ### Source dataset
 
@@ -144,4 +144,4 @@ This section contains tips and answers to frequently asked questions.
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 
-For a list of errors specific to the designer (preview) modules, see [Machine Learning error codes](designer-error-codes.md).
+For a list of errors specific to the designer modules, see [Machine Learning error codes](designer-error-codes.md).

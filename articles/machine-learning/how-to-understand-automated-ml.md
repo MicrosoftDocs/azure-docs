@@ -14,7 +14,7 @@ ms.custom: how-to
 ---
 
 # Understand automated machine learning results
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to view and understand the charts and metrics for each of your automated machine learning runs. 
 

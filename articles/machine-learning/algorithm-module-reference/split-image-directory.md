@@ -13,7 +13,7 @@ ms.date: 05/26/2020
 ---
 # Split Image Directory
 
-This topic describes how to use the Split Image Directory module in Azure Machine Learning designer (preview), to divide the images of an image directory into two distinct sets.
+This topic describes how to use the Split Image Directory module in Azure Machine Learning designer, to divide the images of an image directory into two distinct sets.
 
 This module is particularly useful when you need to separate image data into training and testing sets. 
 

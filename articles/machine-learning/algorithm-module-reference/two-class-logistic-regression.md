@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 ---
 # Two-Class Logistic Regression module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a logistic regression model that can be used to predict two (and only two) outcomes. 
 

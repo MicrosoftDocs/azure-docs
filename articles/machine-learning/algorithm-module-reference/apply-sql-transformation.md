@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Apply SQL Transformation
 
-This article describes a module of Azure Machine Learning designer (preview).
+This article describes a module of Azure Machine Learning designer.
 
 Using the Apply SQL Transformation module, you can:
   

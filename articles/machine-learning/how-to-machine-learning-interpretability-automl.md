@@ -14,7 +14,7 @@ ms.date: 07/09/2020
 
 # Interpretability: model explanations in automated machine learning (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to get explanations for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand engineered feature importance. 
 

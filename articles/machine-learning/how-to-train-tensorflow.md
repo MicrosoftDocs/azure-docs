@@ -15,7 +15,7 @@ ms.custom: how-to
 ---
 
 # Build a TensorFlow deep learning model at scale with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article shows you how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning's [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true) class. This example trains and registers a TensorFlow model to classify handwritten digits using a deep neural network (DNN).
 
