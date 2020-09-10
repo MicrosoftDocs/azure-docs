@@ -86,7 +86,7 @@ You can add additional storage capacity during and after the creation of the ser
 >[!NOTE]
 > Storage can only be scaled up, not down.
 
-<!--You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).-->
+You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
 ### Maximum IOPS for your configuration
 
@@ -154,11 +154,11 @@ Storage auto-grow is not yet available for Flexible Server.
 
 ## Backup
 
-The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days.<!-- Learn more about backups in the [concepts article](concepts-backup.md).-->
+The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days. Learn more about backups in the [concepts article](concepts-backup-restore.md).
 
 ## Scale resources
 
-After you create your server, you can independently change the vCores, the compute tier, the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI.<!-- For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).-->
+After you create your server, you can independently change the vCores, the compute tier, the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI.
 
 > [!NOTE]
 > The storage size can only be increased. You cannot go back to a smaller storage size after the increase.

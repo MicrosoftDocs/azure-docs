@@ -10,7 +10,7 @@ ms.date: 9/22/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Deploy Django app with App Serice and Azure Database for PostgreSQL - Flexible Server (Preview)
+# Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server (Preview)
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
