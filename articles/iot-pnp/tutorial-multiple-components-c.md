@@ -17,9 +17,9 @@ services: iot-pnp
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components and root interface, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Prerequisites
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 You can complete this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
@@ -53,29 +53,6 @@ To complete this tutorial on Windows, install the following software on your loc
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
-### Azure IoT explorer
-
-To interact with the sample device in the second part of this tutorial, you use the **Azure IoT explorer** tool. [Download and install the latest release of Azure IoT explorer](./howto-use-iot-explorer.md) for your operating system.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Run the following command to get the _IoT hub connection string_ for your hub. Make a note of this connection string, you use it later in this tutorial:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> You can also use the Azure IoT explorer tool to find the IoT hub connection string.
-
-Run the following command to get the _device connection string_ for the device you added to the hub. Make a note of this connection string, you use it later in this tutorial:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
 ## Download the code
 
 In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C SDK.
@@ -99,7 +76,7 @@ You can build and run the code using Visual Studio or `cmake` at the command lin
 1. Open the root folder of the cloned repository. After a couple of seconds, the **CMake** support in Visual Studio creates all you need to run and debug the project.
 1. When Visual Studio is ready, in **Solution Explorer**, navigate to the sample *iothub_client/samples/pnp/pnp_temperature_controller/*.
 1. Right-click on the *pnp_temperature_controller.c* file and select **Add Debug Configuration**. Select **Default**.
-1. Visual Studio opens the *launch.vs.json* file. Edit this file as shown in the following snippet to set the required environment variables:
+1. Visual Studio opens the *launch.vs.json* file. Edit this file as shown in the following snippet to set the required environment variables. You made a note of the scope ID and enrollment primary key when you completed [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md):
 
     ```json
     {
@@ -112,8 +89,10 @@ You can build and run the code using Visual Studio or `cmake` at the command lin
           "projectTarget": "",
           "name": "pnp_temperature_controller.c",
           "env": {
-            "IOTHUB_DEVICE_SECURITY_TYPE": "connectionString",
-            "IOTHUB_DEVICE_CONNECTION_STRING": "<Your device connection string>"
+            "IOTHUB_DEVICE_SECURITY_TYPE": "DPS",
+            "IOTHUB_DEVICE_DPS_ID_SCOPE": "<Your ID scope>",
+            "IOTHUB_DEVICE_DPS_DEVICE_ID": "my-pnp-device",
+            "IOTHUB_DEVICE_DPS_DEVICE_KEY": "<Your enrollment primary key>"
           }
         }
       ]
@@ -145,12 +124,9 @@ To build the sample:
     cmake --build .
     ```
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
 To run the sample:
-
-1. Create two environment variables to configure the sample to use a connection string to connect to your IoT hub:
-
-    * **IOTHUB_DEVICE_SECURITY_TYPE** with the value `"connectionString"`
-    * **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 
 1. From the _cmake_ folder, navigate to the folder that contains the executable file and run it:
 
