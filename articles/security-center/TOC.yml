@@ -62,10 +62,10 @@
 
 - name: Quickstarts
   items:
+  - name: Get started
+    href: security-center-get-started.md
   - name: Connect your machines to Security Center
     href: quickstart-onboard-machines.md
-  - name: Quickstart - Get started
-    href: security-center-get-started.md
   - name: Connect your AWS and GCP clouds
     items:
     - name: Connect AWS accounts

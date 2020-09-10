@@ -29503,6 +29503,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-onboarding.md",
+      "redirect_url": "/azure/security-center/security-center-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/threat-protection.md",
       "redirect_url": "/azure/security-center/azure-defender",
       "redirect_document_id": false

@@ -50,12 +50,13 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Get started with Security Center
+            url: security-center-get-started.md
           - text: Configure your security policies
             url: tutorial-security-policy.md
           - text: Evaluate your security posture
             url: secure-score-security-controls.md
-          - text: Upgrade to advanced security
-            url: security-center-onboarding.md
+
 
   # Card
   - title: Improve your Secure Score

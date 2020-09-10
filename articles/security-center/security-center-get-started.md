@@ -19,9 +19,9 @@ ms.author: memildin
 
 # Quickstart: Setting up Azure Security Center
 
-Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the free features offers limited security for your Azure resources only, enabling Azure Defender extends these capabilities to on-premises and other clouds. Azure Defender helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the free features offer limited security for your Azure resources only, enabling Azure Defender extends these capabilities to on-premises and other clouds. Azure Defender helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-In this article, you upgrade to Azure Defender for added security and install the Log Analytics agent on your virtual machines to monitor for security vulnerabilities and threats.
+In this article, you upgrade to Azure Defender for added security and install the Log Analytics agent on your  machines to monitor for security vulnerabilities and threats.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -29,21 +29,23 @@ To get started with Security Center, you must have a subscription to Microsoft A
 To enable Azure Defender on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 
 
-## Enable your Azure subscription
+## Open Security Center for the first time
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 
-1. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
+1. From the portal's menu, select **Security Center**. 
 
+    Security Center's overview page opens.
 
+    :::image type="content" source="./media/security-center-get-started/overview.png" alt-text="Security Center's overview dashboard" lightbox="./media/security-center-get-started/overview.png":::
 
-**Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
+**Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically, at no cost, enables any of your Azure subscriptions not previously onboarded by you or another subscription user.
 
-You can view and filter the list of subscriptions by clicking the **Subscriptions** menu item. Security Center will now begin assessing the security of these subscriptions to identify security vulnerabilities. To customize the types of assessments, you can modify the security policy. A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements.
+You can view and filter the list of subscriptions by selecting the **Subscriptions** menu item. Security Center will adjust the display to reflect the security posture of the selected subscriptions. To customize the types of assessments performed, you can modify the security policy. A security policy defines the desired configuration of your workloads and helps ensure compliance with the security requirements of your organization and any relevant regulatory standards.
 
 Within minutes of launching Security Center the first time, you may see:
 
-- **Recommendations** for ways to improve the security of your Azure subscriptions
+- **Recommendations** for ways to improve the security of your connected resources
 - An inventory of your resources that are now being assessed by Security Center, along with the security posture of each.
 
 To take full advantage of Security Center, you need to complete the steps below to enable Azure Defender and install the Log Analytics agent.
@@ -60,52 +62,48 @@ For the purpose of the Security Center quickstarts and tutorials you must enable
     The **Upgrade** tab lists subscriptions and workspaces eligible for onboarding.
 
 1. From the **Select workspaces to enable Azure Defender on** list, select the workspaces to upgrade.
-
-    > [!TIP]
-    > If you select a workspace that's eligible for a free trial, the next step will begin a trial. If the workspaces isn't eligible for trial, it will be upgraded and charges will begin.
-
+   - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
+   - If you select a workspace that's eligible for a free trial, the next step will begin a trial.
 1. Select **Upgrade** to enable Azure Defender.
 
-## Automate data collection
-Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
+## Enable automatic data collection
+Security Center collects data from your machines to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
 
-When automatic provisioning is enabled, Security Center installs the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
+When automatic provisioning is enabled, Security Center installs the Log Analytics agent on all supported machines and any new ones that are created. Automatic provisioning is strongly recommended.
 
 To enable automatic provisioning of the Log Analytics agent:
 
-1. Under the Security Center main menu, select **Pricing & settings**.
-
-1. On the row of the subscription, click on the subscription on which you'd like to change the settings.
-
-1. In the **Data Collection** tab, set **Auto provisioning** to **On**.
-
-1. Select **Save**.
----
-  ![Enable automatic provisioning][6]
-
-With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
-
-  ![Endpoint protection recommendations][8]
-
-## Clean up resources
-
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Azure Defender enabled. If you do not plan to continue or wish to disable Azure Defender:
-
-1. Return to the Security Center main menu and select **Pricing and settings**.
-1. Select the subscription that you want to downgrade.
-1. Set **Azure Defender** to Off.
+1. From Security Center's menu, select **Pricing & settings**.
+1. Select the relevant subscription.
+1. In the **Data collection** page, set **Auto provisioning** to **On**.
 1. Select **Save**.
 
-If you wish to disable automatic provisioning:
+     ![Enable automatic provisioning][6]
 
-1. Return to the Security Center main menu and select **Pricing & settings**.
-2. Select the subscription that you want to disable automatic provisioning on.
-3. In the **Data Collection** tab, set **Auto provisioning** to **Off**.
-4. Select **Save**.
+    With the agent deployed to your machines, Security Center can provide additional recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional security alerts.
 
->[!NOTE]
-> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
->
+    >[!NOTE]
+    > Setting auto provisioning to **Off** doesn't remove the Log Analytics agent from Azure VMs where the agent has already been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+
+
+## Onboard non-Azure computers
+Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. You can add non-Azure computers from the **Getting started** blade or from the **Compute** blade. We’ll walk through both methods.
+
+### Add new non-Azure computers from **Getting started**
+
+1. Return to the **Getting started** page and open the **Get started** tab.
+
+    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
+
+1. Select **Configure** under **Add non-Azure servers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
+
+    You can add computers to an existing workspace or create a new workspace. 
+
+1. Optionally, to create a new workspace, select  **Create new workspace**.
+1. From the list of workspaces, select **Add Servers** for the relevant workspace.
+    The **Agents management** page appears.
+1. From the **Agents management** page, download the relevant agent for Windows or Linux and follow the instructions.
+
 
 ## Next steps
 In this quickstart you enabled Azure Defender and provisioned the Log Analytics agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.

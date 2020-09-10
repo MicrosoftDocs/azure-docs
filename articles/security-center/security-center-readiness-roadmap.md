@@ -48,7 +48,7 @@ Security Center automatically detects any Azure subscriptions or workspaces not 
 Use the following resources to assist you during the onboarding processes.
 
 Article
-* [Onboarding to Azure Security Center Standard for enhanced security](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
+* [Onboard non-Azure computers](security-center-get-started.md#onboard-non-azure-computers)
 
 * [Azure Security Center Hybrid - Overview](https://youtu.be/NMa4L_M597k)
 
