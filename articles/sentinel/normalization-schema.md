@@ -63,9 +63,9 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | EventCount | Integer  | 10 | The number of events aggregated, if applicable. | Event |
 | EventEndTime | Date/Time | See “data types” | The time in which the event ended | Event |
 | EventMessage | string |  access denied | A general message or description, either included in, or generated from the record | Event |
-| EventHostIpAddr<br>DvcIpAddr | IP Address |  23.21.23.34 | The IP address of the device generating the record | Device,<br>IP |
-| EventMacAddr<br>DvcMacAddr | String | 06:10:9f:eb:8f:14 | The MAC address of the network interface of the reporting device from which the event was send. | Device,<br>Mac |
-| EventHostName<br>DvcHostName | Device Name (String) | syslogserver1.contoso.com | The device name of the device generating the message. | Device |
+| DvcIpAddr | IP Address |  23.21.23.34 | The IP address of the device generating the record | Device,<br>IP |
+| DvcMacAddr | String | 06:10:9f:eb:8f:14 | The MAC address of the network interface of the reporting device from which the event was send. | Device,<br>Mac |
+| DvcHostname | Device Name (String) | syslogserver1.contoso.com | The device name of the device generating the message. | Device |
 | EventProduct | String | OfficeSharepoint | The product generating the event. | Event |
 | EventProductVersion | string | 9.0 |  The version of the product generating the event. | Event |
 | EventResourceId | Device ID (String) | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | The resource ID of the device generating the message. | Event |
@@ -87,14 +87,17 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | NetworkDirection | Multi-value: Inboud, Outbound (string) | Inbound | The direction the connection or session, into or out of the organization. | Network |
 | DstGeoCity | String | Burlington | The city associated with the destination IP address | Destination,<br>Geo |
 | DstGeoCountry | Country (String) | USA | The country associated with the source IP address | Destination,<br>Geo |
-| DstHostName<br>DstDvcHostName | Device name (String) |  victim_pc | The device name of the destination device | Destination<br>Device |
-| DstHostFqdn<br>DstDvcFqdn | String | victim_pc.contoso.local | The fully qualified domain name of the host where the log was created | Destination,<br>Device |
-| DstDomain<br>DstDvcDomain | string | CONTOSO | The domain of the destination host | Destination,<br>Device |
+| DstDvcHostname | Device name (String) |  victim_pc | The device name of the destination device | Destination<br>Device |
+| DstDvcFqdn | String | victim_pc.contoso.local | The fully qualified domain name of the host where the log was created | Destination,<br>Device |
+| DstDomainHostname | string | CONTOSO | The domain of the destination, The domain of the destination host (website, domain name, etc.), for example for DNS lookups or NS lookups | Destination |
 | DstInterfaceName | string | Microsoft Hyper-V Network Adapter | The network interface used for the connection or session by the destination device. | Destination |
 | DstInterfaceGuid | string | 2BB33827-6BB6-48DB-8DE6-DB9E0B9F9C9B | GUID of the network interface which was used for authentication request  | Destination |
-| DstIpAddr | IP address | 2001:db8::ff00:42:8329 | The IP address of the connection or session destination. | Destination,<br>IP |
+| DstIpAddr | IP address | 2001:db8::ff00:42:8329 | The IP address of the connection or session destination, most commonly referred to as the destination IP in the network packet | Destination,<br>IP |
+| DstDvcIpAddr | IP address | 75.22.12.2 | The destination IP address of a device that is not directly associated with the network packet | Destination,<br>Device,<br>IP
 | DstGeoLatitude | Latitude (Double) | 44.475833 | The latitude of the geographical coordinate associated with the destination IP address | Destination,<br>Geo |
-| DstMacAddr<br>DstDvcMacAddr | String | 06:10:9f:eb:8f:14 | The MAC address of the network interface at which the connection or session terminated. | Destination,<br>Device,<br>MAC |
+| DstMacAddr | String | 06:10:9f:eb:8f:14 | The MAC address of the network interface at which the connection or session terminated, most commonly referred to the destination MAC in the network packet | Destination,<br>MAC |
+| DstDvcMacAddr | String | 06:10:9f:eb:8f:14 | The destination MAC address of a device that is not directly associated with the network packet. | Destination,<br>Device,<br>MAC |
+| DstDvcDomain | String | CONTOSO | The Domain of the destination device. | Destination,<br>Device |
 | DstPortNumber | Integer | 443 | The destination IP port. | Destination,<br>Port |
 | DstGeoRegion | Region (String) | Vermont | The region within a country associated with the destination IP address | Destination,<br>Geo |
 | DstResourceId | Device Id (String) |  /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | The resource Id of the destination device. | Destination |
@@ -118,24 +121,26 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | NetworkPackets | int  | 0 | Number of packets sent in both directions. If both PacketsReceived and PacketsSent exist, BytesTotal should equal their sum. | Network |
 | HttpRequestTime | Integer | 700 | The amount of time it took to send the request to the server, if applicable. | Http |
 | HttpResponseTime | Integer | 800 | The amount of time it took to receive a response in the server, if applicable. | Http |
-| RuleName | String | AnyAnyDrop | The name or ID of the rule by which DeviceAction was decided upon | Rule |
-| RuleNumber | int |  23 | Matched rule number  | Rule |
+| NetworkRuleName | String | AnyAnyDrop | The name or ID of the rule by which DeviceAction was decided upon | Network |
+| NetworkRuleNumber | int |  23 | Matched rule number  | Network |
 | NetworkSessionId | string | 172_12_53_32_4322__123_64_207_1_80 | The session identifier as reported by the reporting device. For example, L7 session Identifier for specific applications following authentication | Network |
 | SrcGeoCity | String | Burlington | The city associated with the source IP address | Source,<br>Geo |
 | SrcGeoCountry | Country (String) | USA | The country associated with the source IP address | Source,<br>Geo |
-| SrcHostName<br>SrcDvcHostName | Device name (String) |  villain | The device name of the source device | Source,<br>Device |
-| SrcHostFqdn<br>SrcDvcFqdn | string | Villain.malicious.com | The fully qualified domain name of the host where the log was created | Source,<br>Device |
-| SrcDomain<br>SrcDvcDomain | string | EVILORG | Domain of the device from which session was initiated | Source,<br>Device |
-| SrcHostOs<br>SrcDvcOs | String | iOS | The OS of the source device | Source,<br>Device |
-| SrcHostModel<br>SrcDvcModelName | String | Samsung Galaxy Note | The model name of the source device | Source,<br>Device |
+| SrcDvcHostname | Device name (String) |  villain | The device name of the source device | Source,<br>Device |
+| SrcDvcFqdn | string | Villain.malicious.com | The fully qualified domain name of the host where the log was created | Source,<br>Device |
+| SrcDvcDomain | string | EVILORG | Domain of the device from which session was initiated | Source,<br>Device |
+| SrcDvcOs | String | iOS | The OS of the source device | Source,<br>Device |
+| SrcDvcModelName | String | Samsung Galaxy Note | The model name of the source device | Source,<br>Device |
 | SrcDvcModelNumber | String | 10.0 | The model number of the source device | Source,<br>Device |
-| SrcHostType<br>SrcDvcType | String | Mobile | The type of the source device | Source,<br> Device |
+| SrcDvcType | String | Mobile | The type of the source device | Source,<br> Device |
 | SrcIntefaceName | String | eth01 | The network interface used for the connection or session by the source device. | Source |
 | SrcInterfaceGuid | String | 46ad544b-eaf0-47ef-827c-266030f545a6 | GUID of the network interface used | Source |
 | SrcIpAddr | IP address | 77.138.103.108 | The IP address from which the connection or session originated. | Source,<br>IP |
+| SrcDvcIpAddr | IP address | 77.138.103.108 | The source IP address of a device not directly associated with the network packet (collected by a provider or explicitly calculated). | Source,<br>Device,<br>IP |
 | SrcGeoLatitude | Latitude (Double) | 44.475833 | The latitude of the geographical coordinate associated with the source IP address | Source,<br>Geo |
 | SrcGeoLongitude | Longitude (Double) | -73.211944 | The longitude of the geographical coordinate associated with the source IP address | Source,<br>Geo |
 | SrcMacAddr | String | 06:10:9f:eb:8f:14 | The MAC address of the network interface from which the connection od session originated. | Source,<br>Mac |
+| SrcDvcMacAddr | String | 06:10:9f:eb:8f:14 | The source MAC address of a device that is not directly associated with the network packet. | Source,<br>Device,<br>Mac |
 | SrcPortNumber | Integer | 2335 | The IP port from which the connection originated. May not be relevant for a session comprising multiple connections. | Source,<br>Port |
 | SrcGeoRegion | Region (String) | Vermont | The region within a country associated with the source IP address | Source,<br>Geo |
 | SrcResourceId | String | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | The resource ID of the device generating the message. | Source |
@@ -170,9 +175,9 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | HttpRequestXff | String | 120.12.41.1 | The HTTP X-Forwarded-For header for HTTP/HTTPS network sessions. | Http |
 | UrlCategory | String | Search engines | The defined grouping of a URL (or could be just based on the domain in the URL) related to what it is (i.e.: adult, news, advertising, parked domains, etc.) | url |
 | UrlOriginal | String | https:// contoso.com/fo/?k=v&q=u#f | The HTTP request URL for HTTP/HTTPS network sessions. | Url |
-| UrlHostName | String | contoso.com | The domain part of an HTTP request URL for HTTP/HTTPS network sessions. | Url |
-| ThreatCategory | String | Trojan | The category of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Custom field |
-| ThreatId | String | Tr.124 | The ID of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Custom field |
-| ThreatName | String | EICAR Test File | The name of the threat or malware identified | Custom field |
+| UrlHostname | String | contoso.com | The domain part of an HTTP request URL for HTTP/HTTPS network sessions. | Url |
+| ThreatCategory | String | Trojan | The category of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Threat |
+| ThreatId | String | Tr.124 | The ID of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Threat |
+| ThreatName | String | EICAR Test File | The name of the threat or malware identified | Threat |
 | EventAdditionalFields | Dynamic (JSON bag) | {<br>Property1: “val1”,<br>Property2: “val2”<br>} | When no respective column in the schema matches, additional fields can be stored in a JSON bag.<br>For query-time parsing it’s recommended to not use this method as packing data into a JSON will degrade query performance. Instead, it is recommended to promote additional columns.<br>For future ingestion-time parsing scenarios, additional data will of course be collected into this JSON bag column. | Custom field |
 | 
