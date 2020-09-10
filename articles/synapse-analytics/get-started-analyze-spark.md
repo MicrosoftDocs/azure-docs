@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Get started analyze with Spark' 
-description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
+description: In this tutorial, you'll learn to analyze data with Apache Spark
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -24,7 +24,6 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 
     data = NycTlcYellow()
     data_df = data.to_spark_dataframe()
-    # Display 10 rows
     display(data_df.limit(10))
     ```
 1. In the notebook choose a spark pool in the **Attach to** menu
