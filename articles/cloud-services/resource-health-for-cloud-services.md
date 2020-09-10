@@ -18,7 +18,7 @@ Azure status reports on problems that affect a broad set of Azure customers. Res
 
 
 ## How health is checked and reported?
-Resouce health is reported at a deployment or role level. The health check happens at role instance level, we aggregate the status and report it on Role level. E.g. If all role instances are available, then the role status is available. Similarly, we aggregate the health status of all roles and report it on deployment level. E.g. If all roles are available then deployment status becomes available. 
+Resource health is reported at a deployment or role level. The health check happens at role instance level, we aggregate the status and report it on Role level. E.g. If all role instances are available, then the role status is available. Similarly, we aggregate the health status of all roles and report it on deployment level. E.g. If all roles are available then deployment status becomes available. 
 
 ## Why I cannot see health status for my staging slot deployment?
 Resource health checks only work for production slot deployment. Staging slot deployment is not yet supported. 
@@ -31,7 +31,7 @@ Customers should continue to using load balancer probes to monitor the health of
 Annotations are the health status of the deployment or roles. There are different annotations based on health status, reason for status change, etc. 
 
 ## What does it mean by Role Instance being "unavailable"?
-This means the role instance is not emiting a healthy signal to the platform. Please check the role instance status for detailed explaination of why healthy signal is not being emitted.
+This means the role instance is not emitting a healthy signal to the platform. Please check the role instance status for detailed explanation of why healthy signal is not being emitted.
 
 ## What does it mean by deployment being "unknown"?
 Unknown means the aggregated health of the Cloud Service deployment cannot be determined. Usually this indicates either there is no production deployment created for the Cloud Service, the deployment was newly created (and that Azure is starting to collect health events), or platform is having issues collecting health events for this deployment.
@@ -98,4 +98,4 @@ Since Role Instances are basically VMs and the health check for VMs is reused fo
 | Redeploying due to unplanned host maintenance | We're sorry, your virtual machine isn't available because an unexpected failure on the host server. An unexpected problem with the host is preventing us from automatically recovering your virtual machine |
 | Provisioning failure | We're sorry, your virtual machine isn't available due to unexpected provisioning problems. The provisioning of your virtual machine has failed due to an unexpected error |
 | Remote disk disconnected | We're sorry, your virtual machine is unavailable because of connectivity loss to the remote disk. An unexpected problem is preventing us from automatically recovering your virtual machine |
-| Reboot due to Guest OS update | A reboot was initiated by the Azure platform to apply a new Guest OS udpate. The virtual machine will be back online after the reboot completes |
+| Reboot due to Guest OS update | A reboot was initiated by the Azure platform to apply a new Guest OS update. The virtual machine will be back online after the reboot completes |
