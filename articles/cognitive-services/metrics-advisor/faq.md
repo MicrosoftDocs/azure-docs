@@ -17,22 +17,21 @@ ms.author: aahi
 
 ### What is the cost of my instance?
 
-During public preview, the cost is covered by Microsoft.
+There currently isn't a cost to use your instance during the preview.
 
 ### Why is the demo website readonly?
 
-The [demo website](https://anomaly-detector.azurewebsites.net/) is shared by everyone. This instance is made readonly for the sake of preventing our customers accidentally uploading any private data. Therefore, many features are disabled to protect your data privacy.
+The [demo website](https://anomaly-detector.azurewebsites.net/) is publicly available. This instance is made read-only to prevent accidental upload of any data.
 
-### Why can't I create the resource as "Pricing tier" can't be selected and it says "You have already created 1 S0 for this subscription"?
+### Why can't I create the resource? The "Pricing tier" is unavailable and it says "You have already created 1 S0 for this subscription"?
 
 ![one_instance_allowed](media/pricing.png "You have already created 1 F0 for this subscription")
 
-During public preview, only one instance of Metrics Advisor is allowed to create under one subscription in one region.
+During public preview, only one instance of Metrics Advisor is allowed to created under a subscription, in one region.
 
-If you already have one instance created in the same region using the same subscription, you could try a different region or a different subscription to create a new instance.
-Or you could delete the existing instance to create a new one.
+If you already have an instance created in the same region using the same subscription, you can try a different region or a different subscription to create a new instance. You can also delete an existing instance to create a new one.
 
-If you have already deleted the existing instance but still meet the error, please wait for about 20 minutes after resource deletion before you go to create a new instance.
+If you have already deleted the existing instance but still see the error, please wait for about 20 minutes after resource deletion before you create a new instance.
 
 ## Basic concepts
 
@@ -42,10 +41,9 @@ See the [Multi-dimensional metric](glossary.md#multi-dimensional-metric)  defini
 
 ### How much data is needed for Metrics Advisor to start anomaly detection?
 
-At minimum, one data point could already trigger anomaly detection.
-However, that surely doesn't bring the best accuracy. The service will assume a window of previous data points using the value you've specified as the "fill-gap" rule during data feed creation.
+At minimum, one data point can trigger anomaly detection. This doesn't bring the best accuracy, however. The service will assume a window of previous data points using the value you've specified as the "fill-gap" rule during data feed creation.
 
-The recommendation is to have some data before the timestamp that you want detection to run.
+We recommend having some data before the timestamp that you want detection on.
 Based on the granularity of your data, the recommended data amount varies as below.
 
 | Granularity | Recommended data amount for detection |
@@ -87,7 +85,7 @@ If there's no thresholds, you could use "smart detection" which is powered by AI
 
 ### How do I detect flat lines as anomalies?
 
-If your data is normally quite unstable and fluctuates a lot, and you want to be alarmed when it turns too stable or even becomes a flat line.
+If your data is normally quite unstable and fluctuates a lot, and you want to be alerted when it turns too stable or even becomes a flat line,
 "Change threshold" is able to be configured to detect such data points when the change is too tiny.
 Please refer to [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods) for details.
 
