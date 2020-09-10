@@ -66,11 +66,12 @@ In this section, you create a dataset parameter to specify a different dataset t
    
     Enter a name for the parameter, or accept the default value.
 
-    ![Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
+    > [!div class="mx-imgBorder"]
+    > ![Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
 
-## Publish your batch inferencing pipeline
+## Publish your batch inference pipeline
 
-Now you're ready to deploy the inferencing pipeline. This will deploy the pipeline and make it available for others to use.
+Now you're ready to deploy the inference pipeline. This will deploy the pipeline and make it available for others to use.
 
 1. Select the **Publish** button.
 
@@ -137,7 +138,7 @@ When you publish a pipeline, you can choose to make it the new default pipeline 
 
 You can also set a new default pipeline in the **Published pipelines** tab of your endpoint.
 
-![Set default pipeline](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Set default pipeline in published pipeline page](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## Next steps
 

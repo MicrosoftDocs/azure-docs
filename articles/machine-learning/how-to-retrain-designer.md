@@ -78,7 +78,8 @@ The designer saves all pipeline output, including trained models, to the default
 1. You can find your model in **Other outputs** along with run logs.
 1. Alternatively, select the **View output** icon. From here, you can follow the instruction in the dialog to navigate directly to your datastore. 
 
-![Screenshot that shows how to download the trained model](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot that shows how to download the trained model](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## Publish a training pipeline
 
