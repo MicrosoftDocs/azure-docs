@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: a-sakand
-author:
+author: skandil
 ---
 # Sign in to LUIS portal
 
