@@ -15,16 +15,16 @@
 - name: Tutorials
   expanded: true
   items: 
-  - name: "Python: Get started (day 1)
-    items:
-      - name: 1. Set up local computer
-        href: tutorial-1st-experiment-sdk-setup-local.md
-      - name: 2. Hello world
-        href: tutorial-1st-experiment-hello-world.md
-      - name: 3. Train a model
-        href: tutorial-1st-experiment-sdk-train.md
-      - name: 4. Bring your own data
-        href: tutorial-1st-experiment-bring-data.md
+    - name: "Python: Get started (day 1)"
+      items:
+        - name: 1. Set up local computer
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: 2. Hello world
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Train a model
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Bring your own data
+          href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       expanded: true
       items:
