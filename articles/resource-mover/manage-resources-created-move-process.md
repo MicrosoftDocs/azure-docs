@@ -1,23 +1,21 @@
 ---
-title: Manage resources that are created during the move process in Azure Resource Mover
-description: Learn how to manage resources that are created during the move process in Azure Resource Mover
+title: Manage resources that are created during the VM move process in Azure Resource Mover
+description: Learn how to manage resources that are created during the VM move process in Azure Resource Mover
 manager: evansma
 author: rayne-wiselman 
-ms.service: azure-migrate
+ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 
 ---
-# Manage resources created for the move
+# Manage resources created for the VM move
 
-This article describes how to manage resources that are created explicitly by [Azure Resource Mover](overview.md) to facilitate the move process. 
-
-## Move across regions
+This article describes how to manage resources that are created explicitly by [Azure Resource Mover](overview.md) to facilitate the VM move process. 
 
 After moving VMs across regions, there are a number of resources created by Resource Mover that should be cleaned up manually.
 
-### Delete resources created for VM move
+## Delete resources created for VM move
 
 Manually delete the move collection, and Site Recovery resources created for the VM move.
 

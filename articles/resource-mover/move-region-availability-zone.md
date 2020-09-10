@@ -202,6 +202,7 @@ With resources prepared, you can now initiate the move.
 > - Resource Mover recreates other resources using the ARM templates that were prepared. There's usually no downtime.
 > - After preparing resources, they're in an *Commit move pending* state.
 
+
 ![Page to show resources in a commit move pending state](./media/move-region-availability-zone/resources-commit-move-pending.png)
 
 ## Discard or commit?
@@ -210,7 +211,6 @@ After the initial move, you can decide whether you want to commit the move, or t
 
 - **Discard**: You might discard a move if you're testing, and you don't want to actually move the source resource. Discarding the move returns the resource to a state of *Initiate move pending*.
 - **Commit**: Commit completes the move to the target region. After committing, a source resource will be in a state of *Delete source pending*, and you can decide if you want to delete it.
-
 
 ## Discard the move 
 

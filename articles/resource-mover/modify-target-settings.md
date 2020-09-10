@@ -3,7 +3,7 @@ title: Modify target settings when moving Azure VMs between regions with Azure R
 description: Learn how to modify target settings when moving Azure VMs between regions with Azure Resource Mover.
 manager: evansma
 author: rayne-wiselman 
-ms.service: azure-migrate
+ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew

@@ -30,7 +30,7 @@
       href: move-region-powershell.md
     - name: Move Azure VMs to availability zones
       href: move-region-availability-zone.md
-    - name: Move resources to another region (resource group)
+    - name: Move across regions (from resource group)
       href: move-region-within-resource-group.md
   - name: Manage region moves
     items:
