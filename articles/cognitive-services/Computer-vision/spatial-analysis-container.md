@@ -66,10 +66,15 @@ In this article, you will download and install the following software packages. 
 
 Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
 
-[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
+The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
 
-[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
+> [IMPORTANT]
+> * On the form, you must use an email address associated with an Azure subscription ID.
+> * The Computer Vision resource you use to run the container must have been created with the approved Azure subscription ID.
 
+After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
+
+You won't be able to run the container if your Azure subscription has not been approved.
 
 ## Set up the host computer
 
@@ -312,7 +317,7 @@ This command will start the deployment. Navigate to the page of your Azure IoT H
 
 There are several ways to validate that the container is running. Locate the *Runtime Status* in the **IoT Edge Module Settings** for the spatial analysis module in your Azure IoT Hub instance on the Azure portal. Validate that the **Desired Value** and **Reported Value** for the *Runtime Status* is *Running*.
 
-![Example deployment verification](./media/spatial-analytics/deployment-verification.png)
+![Example deployment verification](./media/spatial-analysis/deployment-verification.png)
 
 Once the deployment is complete and the container is running, the **host computer** will start sending events to the Azure IoT Hub. If you used the `.debug` version of the operations, you’ll see a visualizer window for each camera you configured in the deployment manifest. You can now define the lines and zones you want to monitor in the deployment manifest and follow the instructions to deploy again. 
 

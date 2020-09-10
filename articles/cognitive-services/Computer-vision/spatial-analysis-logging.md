@@ -94,7 +94,7 @@ In the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), l
 
 Once the telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
 
-![Azure Monitor telemetry report](./media/spatial-analytics/iot-hub-telemetry.png)
+![Azure Monitor telemetry report](./media/spatial-analysis/iot-hub-telemetry.png)
 
 ### System health events
 
@@ -198,7 +198,7 @@ The `diagnostics` collection is on-demand and controlled via an IoT Edge direct 
 
 ### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **diagnostics** module. In the DeploymentManifest.json, look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the DeploymentManifest.json linked above, look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
 
 **Configure Upload to Azure Blob Storage**
 
@@ -229,7 +229,7 @@ Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `diag
 > Invoking the `getRTCVLogs` method with an empty payload will return a list of all containers deployed on the device. The method name is case sensitive. You will get a 501 error if an incorrect method name is given.
 
 
-![getRTCVLogs Direct method page](./media/spatial-analytics/direct-log-collection.png)
+![getRTCVLogs Direct method page](./media/spatial-analysis/direct-log-collection.png)
 
  
 ### Logging syntax

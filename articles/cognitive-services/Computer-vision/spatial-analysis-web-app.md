@@ -111,7 +111,7 @@ If the edge device has more than one GPU, select the GPU on which to run this op
 Next, configure the zone in which you want to count people. To configure the zone polygon, first follow the manufacturer’s instructions to retrieve a frame from the camera. To determine each vertex of the polygon, select a point on the frame, take the x,y pixel coordinates of the point relative to the left, top corner of the frame, and divide by the corresponding frame dimensions. Set the results as x,y coordinates of the vertex. You can set the zone polygon configuration in the `SPACEANALYTICS_CONFIG` field.
 
 This is a sample video frame that shows how the vertex coordinates are being calculated for a frame of size 1920/1080.
-![Sample video frame](./media/spatial-analytics/sample-video-frame.jpg)
+![Sample video frame](./media/spatial-analysis/sample-video-frame.jpg)
 
 You can also select a confidence threshold for when detected people are counted and events are generated. Set the threshold to 0 if you’d like all events to be output.
 
@@ -137,7 +137,7 @@ This command will begin the deployment, and you can view the deployment status i
 
 Locate the *Runtime Status* in the IoT Edge Module Settings for the spatial-analysis module in your IoT Hub instance on the Azure Portal. The **Desired Value** and **Reported Value** for the *Runtime Status* should say `Running`. See below for what this will look like on the Azure Portal.
 
-![Example deployment verification](./media/spatial-analytics/deployment-verification.png)
+![Example deployment verification](./media/spatial-analysis/deployment-verification.png)
 
 At this point, the spatial-analysis container is running the operation. It emits AI insights for the `cognitiveservices.vision.spatialanalysis-personcount` operation and it routes these insights as telemetry to your Azure IoT Hub instance. To configure additional cameras, you can update the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) file and execute the deployment again.
 
@@ -166,7 +166,7 @@ docker push [desired local image name]
 
 To install the container, create a new Azure Web App for Containers and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
 
-![Enter image details](./media/spatial-analytics/solution-app-create-screen.png)
+![Enter image details](./media/spatial-analysis/solution-app-create-screen.png)
 
 After entering the above parameters, click on **Review+Create** and create the app.
 
@@ -176,7 +176,7 @@ Wait for setup to complete, and navigate to your resource in the Azure portal. G
 
 * `EventHubConsumerGroup` – The string name of the consumer group from your Azure IoT hub, you can create a new consumer group in your IoT hub or use the default group. 
 * `IotHubConnectionString` – The connection string to your Azure IoT hub, this can be retrieved from the keys section of your Azure IoT hub resource 
-![Configure Parameters](./media/spatial-analytics/solution-app-config-page.png)
+![Configure Parameters](./media/spatial-analysis/solution-app-config-page.png)
 
 Once these 2 settings are added, click **Save**. Then click **Authentication/Authorization** in the left navigation menu, and update it with the desired level of authentication. We recommend Azure Active Director(AAD) express. 
 
@@ -184,7 +184,7 @@ Once these 2 settings are added, click **Save**. Then click **Authentication/Aut
 
 Go to the Azure Web App and verify the deployment was successful, and the web app is running. Navigate to the configured url: `<yourapp>.azurewebsites.net` to view the running app.
 
-![Test the deployment](./media/spatial-analytics/solution-app-output.png)
+![Test the deployment](./media/spatial-analysis/solution-app-output.png)
 
 ## Next steps
 

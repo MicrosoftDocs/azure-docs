@@ -39,11 +39,11 @@ You need to consider three things when deciding how to install a camera for spat
 
 It's also important to know the direction that the majority of people walk (person walking direction) in relation to the camera field of view if possible. This direction is important for system performance.
 
-![Image of a person walking in a direction](./media/spatial-analytics/person-walking-direction.png)
+![Image of a person walking in a direction](./media/spatial-analysis/person-walking-direction.png)
 
 The following illustration shows the elevation view for person walking direction.
 
-![Elevation and plan view](./media/spatial-analytics/person-walking-direction-diagram.png)
+![Elevation and plan view](./media/spatial-analysis/person-walking-direction-diagram.png)
 
 ## Camera height
 
@@ -53,15 +53,15 @@ Generally, cameras should be mounted 12-14 feet from the ground. When planning y
 
 _Camera-to-focal-point distance_ is the linear distance from the focal point (or center focal point of the point of interest) to the camera.
 
-![Camera-to-focal-point-distance](./media/spatial-analytics/camera-focal-point.png)
+![Camera-to-focal-point-distance](./media/spatial-analysis/camera-focal-point.png)
 
 This distance is measured on the floor plane.
 
-![How camera-to-focal-point-distance is measured from the floor](./media/spatial-analytics/camera-focal-point-floor-plane.png)
+![How camera-to-focal-point-distance is measured from the floor](./media/spatial-analysis/camera-focal-point-floor-plane.png)
 
 From above, it looks like this:
 
-![How camera-to-focal-point-distance is measured from above](./media/spatial-analytics/camera-focal-point-above.png)
+![How camera-to-focal-point-distance is measured from above](./media/spatial-analysis/camera-focal-point-above.png)
 
 Use the table below to determine the camera's distance from the focal point based on specific mounting heights. These distances are for optimal placement. Note that the table provides guidance below the 12'-14' recommendation since some ceilings can limit height.
 
@@ -78,7 +78,7 @@ The following illustration simulates camera views from the closest and farthest 
 
 | Closest                                      | Farthest                                      |  
 | -------------------------------------------- | --------------------------------------------- |  
-| ![Closest camera-to-focal-point distance](./media/spatial-analytics/focal-point-closest.png) | ![Farthest camera-to-focal-point distance](./media/spatial-analytics/focal-point-farthest.png) |  
+| ![Closest camera-to-focal-point distance](./media/spatial-analysis/focal-point-closest.png) | ![Farthest camera-to-focal-point distance](./media/spatial-analysis/focal-point-farthest.png) |  
 
 ## Camera angle mounting ranges
 
@@ -100,11 +100,11 @@ The following illustration simulates camera views using the leftmost (-) and rig
 
 | Leftmost view                | Rightmost view                |  
 | ---------------------------- | ----------------------------- |  
-| ![Leftmost camera angle](./media/spatial-analytics/camera-angle-left.png) | ![Rightmost camera angle](./media/spatial-analytics/camera-angle-right.png) |  
+| ![Leftmost camera angle](./media/spatial-analysis/camera-angle-left.png) | ![Rightmost camera angle](./media/spatial-analysis/camera-angle-right.png) |  
 
 The following illustration shows camera placement and mounting angles from a birds-eye view.
 
-![Bird's eye view](./media/spatial-analytics/camera-angle-top.png)
+![Bird's eye view](./media/spatial-analysis/camera-angle-top.png)
 
 ### Zone Configuration
 
@@ -112,19 +112,19 @@ We recommend that you place cameras at 10 feet or more above ground to guarantee
 
 When the zone is next to an obstacle like a wall or shelf, mount cameras in the specified distance from the target within the acceptable 120-degree angle range as shown in the following illustration.
 
-![Acceptable camera angle](./media/spatial-analytics/camera-angle-acceptable.png)
+![Acceptable camera angle](./media/spatial-analysis/camera-angle-acceptable.png)
 
 The following illustration provides simulations for the left and right camera views of an area next to a shelf.
 
 | Left view        | Right view        |  
 | ---------------- | ----------------- |  
-| ![Left view](./media/spatial-analytics/end-cap-left.png) | ![Right view](./media/spatial-analytics/end-cap-right.png) |  
+| ![Left view](./media/spatial-analysis/end-cap-left.png) | ![Right view](./media/spatial-analysis/end-cap-right.png) |  
 
 #### Queues
 
 The **cognitiveservices.vision.spatialanalysis-personcount**, **cognitiveservices.vision.spatialanalysis-persondistance**, and **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** skills may be used to monitor queues. For optimal queue data quality, retractable belt barriers are preferred to minimize occlusion of the people in the queue and ensure the queues location is consistent over time.
 
-![Retractable belt queue](./media/spatial-analytics/retractable-belt-queue.png)
+![Retractable belt queue](./media/spatial-analysis/retractable-belt-queue.png)
 
 This type of barrier is preferred over opaque barriers for queue formation to maximize the accuracy of the insights from the system.
 
@@ -132,13 +132,13 @@ There are two types of queues: linear and zig-zag.
 
 The following illustration shows recommendations for linear queues:
 
-![Linear queue recommendation](./media/spatial-analytics/camera-angle-linear-queue.png)
+![Linear queue recommendation](./media/spatial-analysis/camera-angle-linear-queue.png)
 
 The following illustration provides simulations for the left and right camera views of linear queues. Note that you can mount the camera on the opposite side of the queue.
 
 | Left view                          | Right view                          |  
 | ---------------------------------- | ----------------------------------- |  
-| ![Left angle for linear queue](./media/spatial-analytics/camera-angle-linear-left.png) | ![Right angle for linear queue](./media/spatial-analytics/camera-angle-linear-right.png) |  
+| ![Left angle for linear queue](./media/spatial-analysis/camera-angle-linear-left.png) | ![Right angle for linear queue](./media/spatial-analysis/camera-angle-linear-right.png) |  
 
 For zig-zag queues, it's best to avoid placing the camera directly facing the queue line direction, as shown in the following illustration. Note that each of the four example camera positions in the illustration provide the ideal view with an acceptable deviation of +/- 15 degrees in each direction.
 
@@ -146,11 +146,11 @@ The following illustrations simulate the view from a camera placed in the ideal 
 
 | View 1        | View 2        |  
 | ------------- | ------------- |  
-| ![View 1](./media/spatial-analytics/camera-angle-ideal-location-right.png) | ![View 2](./media/spatial-analytics/camera-angle-ideal-location-left.png) |  
+| ![View 1](./media/spatial-analysis/camera-angle-ideal-location-right.png) | ![View 2](./media/spatial-analysis/camera-angle-ideal-location-left.png) |  
 
 | View 3 |  View 4 |  
 | ---- | ----  |
-| ![View 3](./media/spatial-analytics/camera-angle-ideal-location-back.png) |  ![View 4](./media/spatial-analytics/camera-angle-ideal-location-back-left.png) | 
+| ![View 3](./media/spatial-analysis/camera-angle-ideal-location-back.png) |  ![View 4](./media/spatial-analysis/camera-angle-ideal-location-back-left.png) | 
 
 ##### Organic queues
 
