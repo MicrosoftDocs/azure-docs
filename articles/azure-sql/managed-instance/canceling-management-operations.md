@@ -41,13 +41,13 @@ Category  |Operation  |Cancelable  |Estimated cancel duration  |
 
 In order to cancel the management operation, go to the overview blade and click on notification box of the ongoing operation. From the right side, a screen with the ongoing operation will appear and there will be button for canceling operation. After the first click, you will be asked to click again and confirm that you want to cancel the operation.
 
-[![Cancel operation](./media/canceling-management-operation/canceling-operation.png)](./media/canceling-management-operation/canceling-operation.png#lightbox)
+[![Cancel operation](./media/canceling-management-operations/canceling-operation.png)](./media/canceling-management-operations/canceling-operation.png#lightbox)
 
 After a cancel request has been submitted and processed, you will get a notification if the cancel submission has been successful or not.
 
 If submitted cancel request is successful, the management operation will be canceled in a couple of minutes, resulting with a failure.
 
-![Canceling operation result](./media/canceling-management-operation/canceling-operation-result.png)
+![Canceling operation result](./media/canceling-management-operations/canceling-operation-result.png)
 
 If the cancel request fails or the cancel button is not active, it means that the management operation has entered non-cancelable state and that it will finish in couple of minutes. The management operation will continue its execution until it is completed.
 
