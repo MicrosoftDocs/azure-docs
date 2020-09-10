@@ -192,6 +192,7 @@ Lakeside Software's digital experience monitoring solution, SysTrack, can help p
 Lenovo Thin Clients give your network the flexibility of a client computer running from your server, but with native PC capability and power. Lenovo Thin Clients give Windows Virtual Desktop deployments blazing performance and intuitive manageability, elevating your company's network to the next level of reliability. Each Thin Client is equipped with a Lenovo Terminal Manager license at no additional cost giving organizations seamless and cost-effective hardware management and deployment options. They're also small and versatile, making them easy to add to existing Lenovo deployments.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FnaB).
+- [Go to the partner website](https://www.lenovo.com/us/en/desktops-and-all-in-ones/thinkcentre/m-series-thin-clients/c/M-Series-Thin-Clients).
 
 ## Liquidware
 
@@ -337,7 +338,7 @@ SSH2 is a Windows Virtual Desktop value-added services provider that equips your
 appCURE captures application details from running applications to ensure all points that may impact your end-user’s applications are understood. appCURE then updates and delivers them to your new Windows Virtual Desktop. By capturing all application integration points in your current environment, appCURE provides the speed to optimize IT resources and plan for your migrations better and quicker than ever before thus enabling organisations to get to production faster.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
-- [Go to the partner page](https://www.ssh2.xyz/partners/).
+- [Go to the partner page](https://www.ssh2.xyz/windows-virtual-desktop/).
 
 ## ThinPrint
 
