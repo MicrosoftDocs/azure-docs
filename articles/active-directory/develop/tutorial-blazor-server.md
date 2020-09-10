@@ -11,7 +11,7 @@ ms.date: 08/07/2020
 
 # Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication
 
-Blazor Server provides support for hosting Razor components on the server in an ASP.NET Core app. In this tutorial, you learn how to implement authentication and retrieve data from Microsoft Graph for a Blazor Server app with the Microsoft identity platform. 
+Blazor Server provides support for hosting Razor components on the server in an ASP.NET Core app. This tutorial will show you how to implement authentication and retrieve data from Microsoft Graph for a Blazor Server app with the Microsoft identity platform. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -26,16 +26,14 @@ In this tutorial, you learn how to:
 
 ## Option 1: Register and create the app using the .NET CLI
 
-Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. You can create a new registration and then use the [.NET CLI](https://docs.microsoft.com/dotnet/core/tools/) to create a new Blazor app using the following instructions. If you are using VisualStudio 2019, you can skip this step and complete step two. 
+Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. You can create a new registration and then use the [.NET CLI](https://docs.microsoft.com/dotnet/core/tools/) to create a new Blazor app using the following instructions. If you are using Visual Studio 2019, you can skip this step and complete step two. 
 
 First, follow the instructions in [Register a new application using the Azure portal](https://review.docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) with the following settings:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
-- Leave the **Redirect URI** drop down set to **Web** and provide the following redirect URI: `https://localhost:{PORT}/signin-oidc`.
+- Leave the **Redirect URI** drop down set to **Web** and provide the following redirect URI: `https://localhost:{PORT}/signin-oidc`. The default port for an app running on Kestrel is 5001. If the app is run on a different Kestrel port, use the app's port. For IIS Express, the randomly generated port for the app can be found in the app's properties in the **Debug** panel. Since the app doesn't exist at this point and the IIS Express port isn't known, you can update the redirect URI after the app is created and you have the port number. 
 - Disable the **Permissions** > **Grant admin consent to openid and offline_access permissions** check box.
 
-> [!NOTE]
-> The default port for an app running on Kestrel is 5001. If the app is run on a different Kestrel port, use the app's port. For IIS Express, the randomly generated port for the app can be found in the app's properties in the **Debug** panel. Since the app doesn't exist at this point and the IIS Express port isn't known, return to this step after the app is created and update the redirect URI. 
 
 Once the app is registered, note the following information:
 
@@ -66,17 +64,15 @@ The output location specified with the `-o|--output` option creates a project fo
 > [!NOTE]
 > If the port wasn't configured earlier with the app's known port, return to the app's registration in the Azure portal and update the redirect URI with the correct port.
 
-You can now run the app and log in using an Azure AD user account.
+You can now run the app and log in using an Azure AD user account. You can skip option two and move on to simplifying the code with Microsoft.Identity.Web.
 
-You're now ready to move to step 3.
+## 2. Option 2: Register and create the app using Visual Studio 2019
 
-## 2. Option 2: Register and create the app using VisualStudio 2019
-
-You can use VisualStudio's built in templates to create a Blazor server app. Skip this step if you have already completed step one. To do so:
+You can use Visual Studio's built in templates to create a Blazor server app. Skip this step if you have already completed step one. To do so:
 
 1. Create a new project. Search for a Blazor template, and select the Blazor Server options from the results. Select **Next**.
 2. Give your project a name and confirm the save location. Select **Create**. 
-2. Choose **Blazor Server App** and select **change** under **Authentication** type from **No authentication** to **Work or School Accounts**. 
+2. Choose **Blazor Server App** and select **Change** under **Authentication** type from **No authentication** to **Work or School Accounts**. 
 3. Select **Create**. 
 
 You now have a working app sample that will sign users in using the Microsoft identity platform. 
@@ -85,7 +81,7 @@ Try running the app. The first time it runs, you will see a screen that prompts 
 
 ![Picture of dialog box asking the user for permission for the app to sign the user in and read their profile](.\media\tutorial-blazor-server\consent-dialog-1.png)
 
-The VisualStudio creation tool automatically registered this application in your tenant. Applications that authenticate users always need to be registered with the identity provider they use. You can verify that this registration happened successfully by going to the Azure portal, navigating to Azure Active Directory, and viewing your registered apps. The TenantID and ClientID found there will match the settings defined in your appsettings.json file. 
+The Visual Studio creation tool automatically registered this application in your tenant. Applications that authenticate users always need to be registered with the identity provider they use. You can verify that this registration happened successfully by going to the Azure portal, navigating to Azure Active Directory, and viewing your registered apps. The TenantID and ClientID found there will match the settings defined in your *appsettings.json* file. 
 
 ![Screenshot of the completed app. The webpage says "Hello, world! Welcome to your new app." There is a menu bar on the side with buttons for "home", "counter", and "fetch data".](.\media\tutorial-blazor-server\final-app-1.png)
 
@@ -102,15 +98,17 @@ First, download the following NuGet packages to have access to the libraries:
 -	Microsoft.Identity.Web (0.2.2 preview)
 -	Microsoft.Identity.Web.UI (0.2.2 preview)
 
-You can find instructions for downloading the packages on [https://www.nuget.org/packages/Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) or use Visual Studio: 
+If using .Net CLI, you can find instructions for downloading the packages on [https://www.nuget.org/packages/Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
 
-![Screenshot of VisualStudios package browser, with the Microsoft.Identity.Web package highlighted.](.\media\tutorial-blazor-server\nuget-package-1.png)
+Or you can use Visual Studio: 
 
-![Screenshot of VisualStudios package browser, with the Microsoft.Identity.Web.UI package highlighted.](.\media\tutorial-blazor-server\nuget-package-2.png)
+![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web package highlighted.](.\media\tutorial-blazor-server\nuget-package-1.png)
+
+![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web.UI package highlighted.](.\media\tutorial-blazor-server\nuget-package-2.png)
 
 Next, perform a couple small code changes to swap out the old authentication code and plug-in the new code.
 
-Open startup.cs and replace the following code 
+Open *Startup.cs* and replace the following code 
 
 ```csharp
 services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
@@ -152,7 +150,7 @@ Then, ensure that your app can use the right v2 endpoints for signin and signout
 </AuthorizeView>
 ```
 
-You will notice that there are no dedicated pages for sign-in and sign out. Instead, they are built into the Microsoft.Identity.Web dll. So as long as you update the Area to be “MicrosoftIdentity”, no other change is needed.
+You will notice that there are no dedicated pages for sign-in and sign out. Instead, they are built into the Microsoft.Identity.Web library. So as long as you update the Area to be “MicrosoftIdentity”, no other change is needed.
 
 As you can see, with a couple of lines of code, you are able to leverage the Microsoft.Identity.Web library to authenticate against Azure AD and take advantage of easy authentication and authorization with MSAL. 
 
@@ -160,9 +158,9 @@ As you can see, with a couple of lines of code, you are able to leverage the Mic
 
 [Microsoft Graph](https://docs.microsoft.com/graph/overview) offers a wide range of APIs to allow you to build rich and immersive apps with the Microsoft 365 data your users own. Using the Microsoft identity platform as the identity provider for your app enables you to access this information easily by accessing protected Graph APIs using the authentication and authorization tokens you get from the Microsoft identity platform. In this section, you learn how to do this.
 
-Before you start, make sure to log out of your app, because we will be making changes to the required permissions and your current token will not work. 
+Before you start, make sure to log out of your app, because you will be making changes to the required permissions and your current token will not work. 
 
-In the steps below, you are going to pull user’s emails and display them within the app. To achieve this, you first need to extend the app registration permissions in Azure AD to add access to the email data and then you need to add some code in our Blazor app to retrieve and display this data in one of our pages: 
+In the following steps, you pull user's emails and display them within the app. To achieve this, you first need to extend the app registration permissions in Azure AD to add access to the email data and then you need to add some code in our Blazor app to retrieve and display this data in one of our pages: 
 
 1. In the Azure portal search for and select **Azure Active Directory**. 
 2. Under **Manage**, select **App registrations** and select your new app. 
@@ -172,17 +170,17 @@ In the steps below, you are going to pull user’s emails and display them withi
 
 You also need to create a User Secret since our app will need a way to validate the token and retrieve the data without any user interaction: 
 
-1. Within the same app registration, open the Certificates & Secrets tab. 
+1. Within the same app registration, open the **Certificates & secrets** tab. 
 2. Create a new secret that never expires
 3. Copy the **Value** to your clipboard. You can’t access it again once you navigate away from this tab/page. However, you can always recreate it as needed.
 
-Navigate back to your Blazor app. Add the client secret in **appsettings.json**. Inside the AzureAD config section, add the following line:
+Navigate back to your Blazor app. Add the client secret in *appsettings.json*. Inside the AzureAD config section, add the following line:
 
-```csharp
+```yaml
 “ClientSecret”: “<your secret>”
 ```
 
-In the startup.cs class, you need to update your code to ensure that it fetches the appropriate token with the right permissions and stores it in a cache so that you can use it later when you make the call to Microsoft Graph. You will also add HttpClient to our services pipeline to allow us to efficiently make HTTP calls to Microsoft Graph later. Add the following to the end of the **ConfigureServices** method.
+In the *Startup.cs* class, you need to update your code to ensure that it fetches the appropriate token with the right permissions and stores it in a cache so that you can use it later when you make the call to Microsoft Graph. You will also add **HttpClient** to the services pipeline to efficiently make HTTP calls to Microsoft Graph later. Add the following to the end of the **ConfigureServices** method.
 
  ```csharp
 services.AddMicrosoftWebAppAuthentication(Configuration)
@@ -192,7 +190,7 @@ services.AddMicrosoftWebAppAuthentication(Configuration)
 services.AddHttpClient();
 ```
 
-Next, you need to update the code in the FetchData.razor page to retrieve our email data instead of the default (random) weather details. Replace the code in that file with the following:
+Next, you need to update the code in the *FetchData.razor* page to retrieve our email data instead of the default (random) weather details. Replace the code in that file with the following:
 
 ```csharp
 @page "/fetchdata"
