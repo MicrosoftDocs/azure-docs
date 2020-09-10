@@ -1,8 +1,8 @@
 ---
 title: Security Module for Azure RTOS built-in & customizable alerts and recommendations 
 description: Learn about security alerts and recommended remediation using the Azure IoT Security Module -RTOS.
-services: asc-for-iot
-ms.service: asc-for-iot
+services: defender-for-iot
+ms.service: defender-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin

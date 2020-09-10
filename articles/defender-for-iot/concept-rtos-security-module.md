@@ -1,8 +1,8 @@
 ---
-title: Conceptual explanation of the basics of the Azure IoT Security Module - Azure RTOS 
-description: Learn the basics about the Azure RTOS IoT security module concepts and workflow.
-services: asc-for-iot
-ms.service: asc-for-iot
+title: Conceptual explanation of the basics of the Security Module for Azure RTOS 
+description: Learn the basics about the Security Module for Azure RTOS concepts and workflow.
+services: defender-for-iot
+ms.service: defender-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin

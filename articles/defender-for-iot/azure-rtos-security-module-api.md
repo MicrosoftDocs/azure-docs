@@ -1,8 +1,8 @@
 ---
 title: Security Module for Azure RTOS API
 description: Reference API for the Security Module for Azure RTOS.
-services: asc-for-iot
-ms.service: asc-for-iot
+services: defender-for-iot
+ms.service: defender-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
