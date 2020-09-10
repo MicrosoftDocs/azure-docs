@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Deploy Azure Arc enabled PostgreSQL Hyperscale using Azure Data Studio
 
-This document walks you through the steps for using Azure Data Studio] to provision Azure Arc enabled PostgreSQL Hyperscale server groups.
+This document walks you through the steps for using Azure Data Studio to provision Azure Arc enabled PostgreSQL Hyperscale server groups.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
