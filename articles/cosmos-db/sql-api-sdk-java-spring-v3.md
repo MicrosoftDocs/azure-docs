@@ -44,7 +44,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 >
 > Spring Data Azure Cosmos DB supports only the SQL API.
 >
-> See the articles for information about Spring Data on other Azure Cosmos DB APIs:
+> See these articles for information about Spring Data on other Azure Cosmos DB APIs:
 > * [Spring Data for Apache Cassandra with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
 > * [Spring Data MongoDB with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
 > * [Spring Data Gremlin with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)

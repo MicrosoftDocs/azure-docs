@@ -65,7 +65,7 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 ### 3.1.0
 #### New features
 * Adds support for bulk updates when nested partition keys are used.
-* Adds support for Decimal and Float data types during writes to Cosmos DB.
+* Adds support for Decimal and Float data types during writes to Azure Cosmos DB.
 * Adds support for Timestamp types when they're using Long (Unix epoch) as a value.
 
 ### 3.0.8
@@ -109,6 +109,6 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 
 ## Next steps
 
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
+Learn more about [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-To learn more about Apache Spark, see [the homepage](https://spark.apache.org/).
+Learn more about [Apache Spark](https://spark.apache.org/).
