@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server

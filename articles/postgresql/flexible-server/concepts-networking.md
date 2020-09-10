@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Networking overview - Azure Database for PostgreSQL - Flexible Server

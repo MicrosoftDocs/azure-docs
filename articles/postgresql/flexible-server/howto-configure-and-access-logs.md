@@ -5,7 +5,7 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server

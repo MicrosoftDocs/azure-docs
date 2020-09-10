@@ -6,7 +6,7 @@ ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
