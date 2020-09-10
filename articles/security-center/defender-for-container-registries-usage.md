@@ -107,6 +107,22 @@ When **Azure Defender for container registries** is enabled, any image you push 
 
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
+## Disable specific findings
+
+If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
+
+When a finding matches the criteria you've defined in your disable rules, it won't appear in the list of findings.
+
+You can use any of the following criteria: 
+
+- Finding ID 
+- Category
+- Security check 
+- CVSS scores (v2, v3) 
+- Severity 
+- Patchable status 
+
+
 
 ## Next steps
 
