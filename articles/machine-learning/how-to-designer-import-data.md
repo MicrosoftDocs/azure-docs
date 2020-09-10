@@ -1,18 +1,18 @@
 ---
-title: Import data into the designer (preview)
+title: Import data into the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to import data into Azure Machine Learning designer (preview) from various data sources.
+description: Learn how to import data into Azure Machine Learning designer from various data sources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ---
 
-# Import data into Azure Machine Learning designer (preview)
+# Import data into Azure Machine Learning designer
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
@@ -33,13 +33,13 @@ You can also register the output for any designer module as a dataset.
 
 1. Select the module that outputs the data you want to register.
 
-1. In the properties pane, select **Outputs** > **Register dataset**.
+1. In the properties pane, select **Outputs + logs** > **Register dataset**.
 
     ![Screenshot showing how to navigate to the Register Dataset option](media/how-to-designer-import-data/register-dataset-designer.png)
 
 ### Use a dataset
 
-Your registered datasets can be found in the module palette, under **Datasets** > **My Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
+Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
@@ -89,8 +89,8 @@ Modules in the designer are limited by the size of the compute target. For large
 
 ## Access data in a virtual network
 
-If your workspace is in a virtual network, you must perform additional configuration steps to  visualize data in the designer. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#machine-learning-studio).
+If your workspace is in a virtual network, you must perform additional configuration steps to  visualize data in the designer. For more information on how to use datastores and datasets in a virtual network, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).
 
 ## Next steps
 
-Learn the basics of the designer with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).

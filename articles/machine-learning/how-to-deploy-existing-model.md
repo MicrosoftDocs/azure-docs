@@ -14,7 +14,7 @@ ms.custom: how-to, devx-track-python
 ---
 
 # Deploy your existing model with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to register and deploy a machine learning model you trained outside Azure Machine Learning. You can deploy as a web service or to an IoT Edge device.  Once deployed, you can monitor your model and detect data drift in Azure Machine Learning. 
 
@@ -269,7 +269,7 @@ For more information on deployment, see [How and where to deploy models](how-to-
 
 ## Request-response consumption
 
-After deployment, the scoring URI is displayed. This URI can be used by clients to submit requests to the service. The following example is a basic Python client that submits data to the service and displays the response:
+After deployment, the scoring URI is displayed. This URI can be used by clients to submit requests to the service. The following example is a simple Python client that submits data to the service and displays the response:
 
 ```python
 import requests

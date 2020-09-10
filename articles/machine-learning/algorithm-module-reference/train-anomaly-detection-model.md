@@ -14,7 +14,7 @@ ms.date: 02/22/2020
 
 # Train Anomaly Detection Model module
 
-This article describes how to use the Train Anomaly Detection Model module in Azure Machine Learning designer (preview) to create a trained anomaly detection model.
+This article describes how to use the Train Anomaly Detection Model module in Azure Machine Learning designer to create a trained anomaly detection model.
 
 The module takes as input a set of parameters for an anomaly detection model and an unlabeled dataset. It returns a trained anomaly detection model, together with a set of labels for the training data.  
 
@@ -49,5 +49,5 @@ After training is complete:
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 
-See [Exceptions and error codes for the designer (preview)](designer-error-codes.md) for a list of errors specific to the designer modules.
+See [Exceptions and error codes for the designer](designer-error-codes.md) for a list of errors specific to the designer modules.
 '

@@ -14,7 +14,7 @@ ms.custom: how-to
 ---
 
 # Enable logging in Azure ML training runs
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 The Azure Machine Learning Python SDK lets you log real-time information using both the default Python logging package and SDK-specific functionality. You can log locally and send logs to your workspace in the portal.
 
@@ -79,7 +79,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning can also log information from other sources during training, such as automated machine learning runs, or Docker containers that run the jobs. These logs aren't documented, but if you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
-For information on logging metrics in Azure Machine Learning designer (preview), see [How to log metrics in the designer (preview)](how-to-track-designer-experiments.md)
+For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md)
 
 ## Example notebooks
 
@@ -93,6 +93,6 @@ The following notebooks demonstrate concepts in this article:
 
 See these articles to learn more on how to use Azure Machine Learning:
 
-* Learn how to [log metrics in Azure Machine Learning designer (preview)](how-to-track-designer-experiments.md).
+* Learn how to [log metrics in Azure Machine Learning designer](how-to-track-designer-experiments.md).
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).

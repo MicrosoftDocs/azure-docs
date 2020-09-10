@@ -14,7 +14,7 @@ ms.custom: how-to, has-adal-ref, devx-track-javascript
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to authenticate to your Azure Machine Learning workspace, and to models deployed as web services.
 

@@ -14,7 +14,7 @@ ms.custom: how-to
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article shows you how to secure a web service that's deployed through Azure Machine Learning.
 
@@ -259,4 +259,4 @@ aks_target.update(update_config)
 ## Next steps
 Learn how to:
 + [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
-+ [Securely run experiments and inference inside an Azure virtual network](how-to-enable-virtual-network.md)
++ [Virtual network isolation and privacy overview](how-to-network-security-overview.md)

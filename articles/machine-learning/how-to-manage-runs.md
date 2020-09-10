@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python
 ---
 
 # Start, monitor, and cancel training runs in Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and manage your runs for training and experimentation.
 
@@ -105,7 +105,7 @@ To start a run of your experiment, use the following steps:
 
 ### Using Azure Machine Learning studio
 
-To start a submit a pipeline run in the designer (preview), use the following steps:
+To start a submit a pipeline run in the designer, use the following steps:
 
 1. Set a default compute target for your pipeline.
 
@@ -381,7 +381,7 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 #### Using the CLI
 
-The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show basic queries using properties and tags:
+The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show some queries using properties and tags:
 
 ```azurecli-interactive
 # list runs where the author property = 'azureml-user'

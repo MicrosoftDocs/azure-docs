@@ -14,7 +14,7 @@ ms.date: 07/09/2020
 ---
 
 # Model interpretability in Azure Machine Learning (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 ## Overview of model interpretability
 

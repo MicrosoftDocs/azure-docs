@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Monitor and view ML run logs and metrics
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to monitor Azure Machine Learning runs and view their logs. Before you can view logs, you have to enable them first. For more information, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
@@ -124,7 +124,7 @@ Use the following methods in the logging APIs to influence the studio visualizes
 
 Try these next steps to learn how to use Azure Machine Learning:
 
-* Learn how to [track experiments and enable logs in the Azure Machine Learning designer (preview)](how-to-track-designer-experiments.md).
+* Learn how to [track experiments and enable logs in the Azure Machine Learning designer](how-to-track-designer-experiments.md).
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
