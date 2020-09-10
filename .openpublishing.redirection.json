@@ -29498,6 +29498,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/connect-logstash.md",
+      "redirect_url": "/azure/sentinel/connect-data-sources",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sentinel/connect-microsoft-waf.md",
       "redirect_url": "/azure/sentinel/connect-azure-waf",
       "redirect_document_id": false
