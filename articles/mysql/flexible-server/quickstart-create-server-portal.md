@@ -55,8 +55,8 @@ Region|The region closest to your users| The location that is closest to your us
 Version|5.7| MySQL major version.|
 Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for     **Compute tier**, **Compute size**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **Save** to continue with configurations. The below screenshot shows the compute and storage options.|
 
-    >[!div class="mx-imgBorder"]
-    > ![Compute + storage](./media/quickstart-create-server-portal/compute-storage.png)
+>[!div class="mx-imgBorder"]
+> ![Compute + storage](./media/quickstart-create-server-portal/compute-storage.png)
 
 
 5. Configure Networking options
