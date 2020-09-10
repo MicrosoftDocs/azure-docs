@@ -17,7 +17,7 @@ ms.author: diberry
 
 Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities. 
 
-You can test LUIS interactively, one utterance at a time, or provide a of utterances. While testing, you can compare the current active model's prediction response to the published model's prediction response. 
+You can test LUIS interactively, one utterance at a time, or provide a set of utterances. While testing, you can compare the current active model's prediction response to the published model's prediction response. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
