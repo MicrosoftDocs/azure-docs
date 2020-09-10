@@ -62,7 +62,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 7. On the **OAuth consent screen**, enter an **Application name**. 
 
-   ![Screenshot showing the Google OAuth consent screen option](/media/google-federation/google-oauth-consent-screen.png)
+   ![Screenshot showing the Google OAuth consent screen option](media/google-federation/google-oauth-consent-screen.png)
 
 8. Scroll to the **Authorized domains** section and enter microsoftonline.com.
 
@@ -81,7 +81,7 @@ First, create a new project in the Google Developers Console to obtain a client 
      > [!NOTE]
      > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
 
-   ![Screenshot showing the Authorized redirect URIs section](media/google-federation/google-create-oauth-client-id.png)
+     ![Screenshot showing the Authorized redirect URIs section](media/google-federation/google-create-oauth-client-id.png)
 
 12. Select **Create**. Copy the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
 
