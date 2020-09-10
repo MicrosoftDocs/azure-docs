@@ -4,7 +4,7 @@ description: How to upgrade the MongoDB wire-protocol version for your existing 
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: upgrade
+ms.topic: guide
 ms.date: 09/09/2020
 ms.author: lbosq
 
@@ -58,19 +58,19 @@ This new endpoint will need to be replace the existing one in the applications a
 
 1. Review the information displayed about this specific upgrade. Note that the upgrade will only be completed until your applications use the updated endpoint, as highlighted in this section. Click on `Enable` as soon as you are ready to start the process.
 
-:::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Features blade with options." border="false":::
+:::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Expanded upgrade guidance." border="false":::
 
 1. After starting the process, the `Features` menu will show the status of the upgrade. The status will go from `Pending`, to `In Progress`, to `Upgraded`. This process will not affect the existing functionality or operations of the database account.
 
-:::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Features blade with options." border="false":::
+:::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Upgrade status after initiating." border="false":::
 
 1. Once the upgrade is completed, the status will show as `Upgraded`. Click on it to learn more about the next steps and actions you need to take to finalize the process.
 
-:::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Features blade with options." border="false":::
+:::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Upgraded account status." border="false":::
 
-1. To start using the upgraded version of your database account, go back to the `Overview` blade, and copy the new connection string to use in your application. The applications will start using the upgraded version as soon as they connect to the new endpoint. Existing connections will not be interrupted and can be migrated at your convenience.
+1. **To start using the upgraded version of your database account**, go back to the `Overview` blade, and copy the new connection string to use in your application. The applications will start using the upgraded version as soon as they connect to the new endpoint. Existing connections will not be interrupted and can be updated at your convenience.
 
-:::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Features blade with options." border="false":::
+:::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="New overview blade." border="false":::
 
 ## Next steps
 
