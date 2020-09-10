@@ -111,6 +111,6 @@ Call the anomaly detection methods created above.
 A successful response is returned in JSON format. Click the links below to view the JSON response on GitHub:
 * [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
-* [Example change point detection resoponse](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
+* [Example change point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

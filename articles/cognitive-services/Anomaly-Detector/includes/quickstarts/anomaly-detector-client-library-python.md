@@ -40,7 +40,7 @@ Use the Anomaly Detector client library for Python to:
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
-Create variables for your key as an environment variable, the path to a time series data file, and the azure location of your subscription. For example, `westus2`.
+Create variables for your key as an environment variable, the path to a time series data file, and the Azure location of your subscription. For example, `westus2`.
 
 [!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
 
@@ -72,7 +72,7 @@ These code snippets show you how to do the following with the Anomaly Detector c
 
 ## Authenticate the client
 
-Add your azure location variable to the endpoint, and authenticate the client with your key.
+Add your Azure location variable to the endpoint, and authenticate the client with your key.
 
 [!code-python[Client authentication](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=client)]
 
