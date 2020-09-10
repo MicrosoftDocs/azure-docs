@@ -4,7 +4,7 @@ description: Specifications for the Ev3 and Esv3-series VMs.
 author: joelpelley
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
 ---
@@ -83,7 +83,7 @@ Memory Preserving Updates: Supported
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -91,6 +91,8 @@ Memory Preserving Updates: Supported
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+- [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+- For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
 ## Next steps
 
