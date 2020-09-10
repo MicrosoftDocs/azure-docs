@@ -41,7 +41,7 @@ Currently, in the preview only the Indirectly Connected mode is supported.  Dire
 |**Feature**|**Indirectly Connected**|**Directly Connected**|
 |---|---|---|
 |**Automatic high availability**|Supported|Supported|
-|**Self-service provisioning**|Supported<br/>Deployment can be done through Azure Data Studio, Azure Data CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the Indirectly Connected mode deployment options, you can also deploy through the Azure Portal, Azure Resource Manager (ARM) APIs, the Azure CLI, or ARM templates. **Pending availability of Directly Connected mode**
+|**Self-service provisioning**|Supported<br/>Deployment can be done through Azure Data Studio, Azure Data CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the Indirectly Connected mode deployment options, you can also deploy through the Azure portal, Azure Resource Manager (ARM) APIs, the Azure CLI, or ARM templates. **Pending availability of Directly Connected mode**
 |**Elastic scalability**|Supported|Supported<br/>**Pending availability of Directly Connected mode**|
 |**Billing**|Supported<br/>Billing data is periodically exported out and sent to Azure.|Supported<br/>Billing data is automatically and continuously sent to Azure and reflected in near real time. **Pending availability of Directly Connected mode**|
 |**Inventory management**|Supported<br/>Inventory data is periodically exported out and sent to Azure.|Supported<br/>Inventory data is automatically and continuously sent to Azure and reflected in near real time. **Pending availability of Directly Connected mode**|
