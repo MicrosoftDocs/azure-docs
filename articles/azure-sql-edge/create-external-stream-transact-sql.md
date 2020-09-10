@@ -96,7 +96,7 @@ WITH  ( <with_options> )
 
 - **INPUT_OPTIONS**: Specify options as key-value pairs for services such as Kafka, IoT Edge Hub that are inputs to streaming queries
     - PARTITIONS: 
-      Number of partitions defined for a topic
+      Number of partitions defined for a topic. The maximum number of partitions which can be used is limited to 32.
       - Applies to Kafka Input Streams
     - CONSUMER_GROUP:
       Event and IoT Hubs limit the number of readers within one consumer group (to 5). Leaving this field empty will use the '$Default' consumer group.
