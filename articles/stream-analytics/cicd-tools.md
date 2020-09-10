@@ -85,7 +85,7 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 | `-outputPath` | The path of the output folder. If it is not specified, the output result files will be placed in the current directory. |
 | `-customCodeZipFilePath` | The path of the zip file for C# custom code, such as a UDF or deserializer, if they are used. Package the DLLs into a zip file and specify this path. |
 
-#### [Visual Studio Vode](#tab/visual-studio-code)
+#### [Visual Studio Code](#tab/visual-studio-code)
 
 ```powershell
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/asaproj.json"
