@@ -203,7 +203,7 @@ For example, building a model __for each instance or individual__ in the followi
 
 ## AutoML in Azure Machine Learning
 
-Azure Machine Learning offers two experiences for working with automated ML.
+Azure Machine Learning offers two experiences for working with automated ML:
 
 * For code experienced customers, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
