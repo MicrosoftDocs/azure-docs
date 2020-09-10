@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Assign a custom domain'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to assign a custom domain to an app.
 author: msangapu-msft
@@ -8,7 +8,7 @@ ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ---
 
 # Assign a custom domain to a web app using PowerShell

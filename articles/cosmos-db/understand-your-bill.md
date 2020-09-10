@@ -5,24 +5,31 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/19/2020
 ms.reviewer: sngun
 ---
 
 # Understand your Azure Cosmos DB bill
 
-As a fully managed cloud-native database service, Azure Cosmos DB simplifies billing by charging only for provisioned throughput and consumed storage. There are no additional license fees, hardware, utility costs, or facility costs compared to on-premises or IaaS-hosted alternatives. When you consider the multi region capabilities of Azure Cosmos DB, the database service provides a substantial reduction in costs compared to existing on-premises or IaaS solutions.
+As a fully managed cloud-native database service, Azure Cosmos DB simplifies billing by charging only for your database operations and consumed storage. There are no additional license fees, hardware, utility costs, or facility costs compared to on-premises or IaaS-hosted alternatives. When you consider the multi region capabilities of Azure Cosmos DB, the database service provides a substantial reduction in costs compared to existing on-premises or IaaS solutions.
 
-With Azure Cosmos DB, you are billed hourly based on the provisioned throughput and the consumed storage. For the provisioned throughput, the unit for billing is 100 RU/sec per hour, see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information. For the consumed storage, you are billed per 1 GB of storage per month, see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
+- **Database operations**: The way you get charged for your database operations depends on the type of Azure Cosmos account you are using.
 
-This article uses some examples to help you understand the details you see on the monthly bill. The numbers shown in the examples may be different if your Azure Cosmos containers have a different amount of throughput provisioned, if they span across multiple regions or run for a different for a period over a month. All the examples in this article calculate the bill based on the pricing information shown in the [Pricing page.](https://azure.microsoft.com/pricing/details/cosmos-db/)
+  - **Provisioned Throughput**: You are billed hourly for the maximum provisioned throughput for a given hour, in increments of 100 RU/s.
+  - **Serverless**: You are billed hourly for the total amount of Request Units consumed by your database operations.
+
+- **Storage**: You are billed a flat rate for the total amount of storage (in GBs) consumed by your data and indexes for a given hour.
+
+See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
+
+This article uses some examples to help you understand the details you see on the monthly bill. The numbers shown in the examples may be different if your Azure Cosmos containers have a different amount of throughput provisioned, if they span across multiple regions or run for a different for a period over a month. All the examples in this article calculate the bill based on the pricing information shown in the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 > [!NOTE]
 > Billing is for any portion of a wall-clock hour, not a 60 minute duration. All the examples shown in this doc are based on the price for an Azure Cosmos account deployed in a non-government region in the US. The pricing and calculation vary depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
 
 ## Billing examples
 
-### Billing example - throughput on a container (full month)
+### Billing example - provisioned throughput on a container (full month)
 
 * Let's assume you configure a throughput of 1,000 RU/sec on a container, and it exists for 24 hours * 30 days for the month = 720 hours total.  
 
@@ -34,13 +41,21 @@ This article uses some examples to help you understand the details you see on th
 
 * The total monthly bill will show 7,200 units (of 100 RUs), which will cost $57.60.
 
-### Billing example - throughput on a container (partial month)
+### Billing example - provisioned throughput on a container (partial month)
 
 * Let's assume we create a container with provisioned throughput of 2,500 RU/sec. The container lives for 24 hours over the month (for example, we delete it 24 hours after we create it).  
 
 * Then we'll see 600 units on the bill (2,500 RU/sec / 100 RU/sec/unit * 24 hours). The cost will be $4.80 (600 units * $0.008/unit).
 
 * Total bill for the month will be $4.80.
+
+### Billing example - serverless container
+
+* Let's assume we create a serverless container. 
+
+* Over a month, we issue database requests consuming a total of 500,000 Request Units. The cost will be $0.125 (500,000 * $0.25/million).
+
+* Total bill for the month will be $0.125.
 
 ### Billing rate if storage size changes
 
@@ -50,7 +65,7 @@ Storage capacity is billed in units of the maximum hourly amount of data stored,
 
 You're billed the flat rate for each hour the container or database exists, no matter the usage or if the container or database is active for less than an hour. For example, if you create a container or database and delete it 5 minutes later, your bill will include one hour.
 
-### Billing rate when throughput on a container or database scales up/down
+### Billing rate when provisioned throughput on a container or database scales up/down
 
 If you increase provisioned throughput at 9:30 AM from 400 RU/sec to 1,000 RU/sec and then lower provisioned throughput at 10:45 AM back to 400 RU/sec, you will be charged for two hours of 1,000 RU/sec. 
 
@@ -70,7 +85,7 @@ If you increase provisioned throughput for a container or a set of containers at
 
 :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Dedicated throughput bill example":::
 
-### Billing example: containers with shared throughput mode
+### Billing example: containers with shared (provisioned) throughput mode
 
 * If you create an Azure Cosmos account in East US 2 with two Azure Cosmos databases (with a set of containers sharing the throughput at the database level) with the provisioned throughput of 50-K RU/sec and 70-K RU/sec, respectively, you would have a total provisioned throughput of 120 K RU/sec.  
 

@@ -18,7 +18,7 @@ managed disks. They're _non-compliant_ with the policy assignment.
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
 **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for assigning an Azure Policy to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template for assigning an Azure Policy to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ _Audit VMs that do not use managed disks_. For a partial list of available built
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json":::
 
 The resource defined in the template is:
 
@@ -47,7 +47,7 @@ The resource defined in the template is:
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for assigning an Azure Policy to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template for assigning an Azure Policy to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Select or enter the following values:
 
@@ -79,7 +79,7 @@ Some additional resources:
 Select **Compliance** in the left side of the page. Then locate the _Audit VMs that do not use
 managed disks_ policy assignment you created.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Policy compliance overview page" border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Screenshot of compliance details on the Policy Compliance page." border="false":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -97,7 +97,7 @@ To remove the assignment created, follow these steps:
 1. Right-click the _Audit VMs that do not use managed disks_ policy assignment and select **Delete
    assignment**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Delete an assignment from the compliance overview page" border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Screenshot of using the context menu to delete an assignment from the Compliance page." border="false":::
 
 ## Next steps
 

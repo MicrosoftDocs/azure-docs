@@ -41,7 +41,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
+    href: https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance
   - name: Resource Manager templates
     href: container-instances-samples-rm.md
 - name: Concepts

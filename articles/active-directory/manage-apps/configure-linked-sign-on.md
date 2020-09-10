@@ -17,7 +17,7 @@ ms.reviewer: arvinh,luleon
 
 In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you set up SAML-based SSO. Another option is **Linked**. This article goes into more detail about the linked option.
 
-The **Linked** option lets you configure the target location when a user selects the app in your organization's [My Apps](https://myapplications.microsoft.com/) or Office 365 portal.
+The **Linked** option lets you configure the target location when a user selects the app in your organization's [My Apps](https://myapps.microsoft.com/) or Office 365 portal.
 
 Some common scenarios where the link option is valuable include:
 - Add a link to a custom web application that currently uses federation, such as Active Directory Federation Services (AD FS).
@@ -30,7 +30,7 @@ Some common scenarios where the link option is valuable include:
 
 To ramp up quickly, walk through the [quickstart series](view-applications-portal.md) on application management. On the quickstart, where you configure single sign-on, you'll also find the **Linked** option. 
 
-The **Linked** option doesn't provide sign-on functionality through Azure AD. The option simply sets the location users will be sent to when they select the app on [My Apps](https://myapplications.microsoft.com/) or the Microsoft 365 app launcher.
+The **Linked** option doesn't provide sign-on functionality through Azure AD. The option simply sets the location users will be sent to when they select the app on [My Apps](https://myapps.microsoft.com/) or the Microsoft 365 app launcher.
 
 > [!IMPORTANT] 
 > There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**. 
@@ -43,7 +43,7 @@ The **Linked** option doesn't provide sign-on functionality through Azure AD. Th
 
 To set a link for an app, select **Linked** on the **Single sign-on** page. Then enter the link and select **Save**. Need a reminder on where to find these options? Check out the [quickstart series](view-applications-portal.md).
  
-After you configure an app, assign users and groups to it. When you assign users, you can control when the application appears on [My Apps](https://myapplications.microsoft.com/) or the Microsoft 365 app launcher.
+After you configure an app, assign users and groups to it. When you assign users, you can control when the application appears on [My Apps](https://myapps.microsoft.com/) or the Microsoft 365 app launcher.
 
 ## Next steps
 

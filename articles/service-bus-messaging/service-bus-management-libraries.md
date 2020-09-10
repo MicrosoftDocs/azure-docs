@@ -4,6 +4,7 @@ description: This article explains how to use Azure Service Bus management libra
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Service Bus management libraries

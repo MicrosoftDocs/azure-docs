@@ -108,7 +108,7 @@ An enriched document at the end of the pipeline differs from its original input 
 
 There’s a lot more you can do with AI enrichment to get the most out of your data in Azure Storage, including combining Cognitive Services in different ways, and authoring custom skills for cases where there’s no existing Cognitive Service for the scenario. You can learn more by following the links below.
 
-+ [Upload, download, and list blobs with the Azure portal (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Upload, download, and list blobs with the Azure portal (Azure Blob storage)](../storage/blobs/storage-quickstart-blobs-portal.md)
 + [Set up a blob indexer (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
 + [AI enrichment overview (Azure Cognitive Search)](cognitive-search-concept-intro.md) 
 + [Create a skillset (Azure Cognitive Search)](cognitive-search-defining-skillset.md)

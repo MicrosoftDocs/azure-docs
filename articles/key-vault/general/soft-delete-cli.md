@@ -7,7 +7,7 @@ manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
 ---
@@ -53,7 +53,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### New key vault
 
-Soft delete is automatically enabled on all key vaults by default. By December 31st 2020 it will no longer be possible to create a new key vault without soft delete enabled.
+Soft delete is automatically enabled on all key vaults by default. From December 31st 2020, it will no longer be possible to create a new key vault without soft delete enabled.
 
 ### Verify soft-delete enablement
 

@@ -6,7 +6,7 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
-ms.topic: quickstart 
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 
 ---

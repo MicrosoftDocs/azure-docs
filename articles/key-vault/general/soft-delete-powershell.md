@@ -7,9 +7,10 @@ manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/11/2020
-ms.author: sudbalas
+ms.author: sudbalas 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to use Key Vault soft-delete with PowerShell

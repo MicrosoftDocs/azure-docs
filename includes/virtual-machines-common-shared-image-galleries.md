@@ -191,7 +191,7 @@ You can create Shared Image Gallery resource using templates. There are several 
 * [What are the charges for using the Shared Image Gallery?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [What API version should I use to create Shared Image Gallery and Image Definition and Image Version?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [What API version should I use to create Shared VM or Virtual Machine Scale Set out of the Image Version?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Can I update my Virtual Machine Scale Set created using managed image to use Shared Image Gallery images?]
+* [Can I update my Virtual Machine Scale Set created using managed image to use Shared Image Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### How can I list all the Shared Image Gallery resources across subscriptions?
 
