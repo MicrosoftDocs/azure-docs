@@ -518,7 +518,7 @@ This behavior occurs when nodes can't communicate with each other.
 ### Connectivity issue between Self-hosted IR and Data Factory or Self-hosted IR and data source/sink
 
 To troubleshoot the network connectivity issue, you should know 
-how to [collect the network trace](#how-to-collect-netmon-trace), understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
+how to collect the network trace, understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
 
 #### Symptoms
 
