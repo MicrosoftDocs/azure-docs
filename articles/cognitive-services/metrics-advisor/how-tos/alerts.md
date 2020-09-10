@@ -40,8 +40,6 @@ After you click **OK**, an email hook will be created. You can use it in any ale
 
 ### Web hook
 
-A web hook is the entry point to get anomaly noticed by a programmatic way from the Metrics Advisor service, which calls a user-provided API when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts could be sent through web hooks.
-
 > [!Note]
 > * Use the **POST** request method.
 > * The request body wil be similar to:  

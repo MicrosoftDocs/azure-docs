@@ -61,7 +61,7 @@ The **Diagnostics** section shows a tree of the incident, along with several tab
 
 ![Incident diagnostic](../media/incident-diagnostic.png "Incident diagnostic")
 
-By pinpointing root cause of the incident, customers are able to take actions as soon as possible to mitigate issue before the situation gets worse. Customers are also able to explore further insights by pivoting through other diagnostic features provided. 
+By pinpointing root cause of the incident, you can take take action and mitigate the issue before the situation gets worse. You can also explore more insights by clicking through the other diagnostic features provided. 
 
 ## Next Step
 

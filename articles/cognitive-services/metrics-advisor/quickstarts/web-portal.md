@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Quickstart: Monitor your first metric using the web portal
 
-Within every provisioned service instance, there's a set of APIs and a web-based workspace available for customers. The web-based workspace could be used as a quick and straightforward way to learn the service and prove the value in a short time. It could also be used as a visual way to do configuration tuning, model customization, as well as root cause analysis. 
+When you provision a Metrics Advisor instance, you can use the APIs and web-based workspace to work with the service. The web-based workspace can be used as a straightforward way to quickly get started with the service. It also provides a visual way to configure settings, customize your model, and perform root cause analysis. 
 
 * Onboard your metric data
 * View your metrics and visualizations

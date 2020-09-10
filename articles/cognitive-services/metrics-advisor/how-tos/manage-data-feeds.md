@@ -53,11 +53,12 @@ Select the  **Backfill** button to trigger an immediate ingestion on a time-stam
 
 ## Manage permission of a data feed
 
-Identify who is able to access the workspace is controlled by the permission of the resourced, which uses Azure Active Directory for authentication. However, there's another layer of permission control in Metrics Advisor, which is applied on metric data. 
+Workspace access is controlled by the Metrics Advisor resource, which uses Azure Active Directory for authentication. Another layer of permission control is applied to metric data.
 
-You are able to grant permission for different groups of people on different data feeds created. Two types of roles are supported: 
-- Administrator: who has full permissions to manage a data feed, including modify and delete.
-- Viewer: who is read-only to the data feed. In the other parts of this service, wherever reading time-series from a metric, it will check whether the current user has read permission the data feed of this metric or not.
+Metrics Advisor lets you grant permissions to different groups of people on different data feeds. There are two types of roles: 
+
+- Administrator: Who has full permissions to manage a data feed, including modify and delete.
+- Viewer: Who has access to a read-only view of the data feed.
  
 
 ## Advanced settings
