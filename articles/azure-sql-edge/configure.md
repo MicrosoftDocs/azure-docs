@@ -25,6 +25,15 @@ Azure SQL Edge supports configuration through one of the following two options:
 
 Azure SQL Edge exposes several different environment variables that can be used to configure the SQL Edge container. These environment variables are a subset of the ones available for SQL Server on Linux. For more information on SQL Server on Linux environment variables, see [Environment variables](/sql/linux/sql-server-linux-configure-environment-variables/).
 
+The following new environment variables were added to Azure SQL Edge. 
+
+| Environment variable | Description | Values |     
+|-----|-----| ---------- |   
+| **MSSQL_TELEMETRY_ENABLED** | Enable or disable usage and diagnostics data collection. | TRUE or FALSE |  
+| **MSSQL_TELEMETRY_DIR** | Sets the target directory for the usage and diagnostics data collection audit files. | Folder location within SQL Edge container. This folder can be mapped to a host volume using either mount points or data volumes. | 
+| **MSSQL_PACKAGE** | Specifes the location of the dacpac or bacpac package to be deployed. | Folder, file or SAS URL containing the dacpac or bacpac packages. For more information, refer [Deploy SQL Database DACPAC and BACPAC packages in SQL Edge](deploy-dacpac.md). |
+
+
 The following SQL Server on Linux environment variable isn't supported for Azure SQL Edge. If defined, this environment variable will be ignored during container initialization.
 
 | Environment variable | Description |
@@ -65,6 +74,13 @@ Azure SQL Edge doesn't include the [mssql-conf configuration utility](/sql/linux
       }
     }
 ```
+
+The following new mssql.conf options were added for Azure SQL Edge. 
+
+|Option|Description|
+|:---|:---|
+|**customerfeedback** | Choose if SQL Server sends feedback to Microsoft. For more information refer [Disable usage and diagnostic data collection](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection)|      
+|**userrequestedlocalauditdirectory** | Sets the target directory for the usage and diagnostics data collection audit files. For more information refer [Local audit of usage and diagnostic data collection](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) |        
 
 The following mssql.conf options aren't applicable to SQL Edge:
 
