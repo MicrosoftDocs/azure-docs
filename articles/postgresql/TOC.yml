@@ -471,10 +471,10 @@
     - name: Configure server parameters
       items:
       - name: Azure portal
-        href: howto-configure-server-parameters-using-portal.md
+        href: flexible-server/howto-configure-server-parameters-using-portal.md
         displayName: application development, server parameters
       - name: Azure CLI
-        href: howto-configure-server-parameters-using-cli.md
+        href: flexible-server/howto-configure-server-parameters-using-cli.md
         displayName: application development, server parameters
     - name: Scale a server
       items:
