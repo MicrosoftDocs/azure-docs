@@ -137,8 +137,8 @@ In this section, you create a private web app that uses a private endpoint.
 
 1. Open the downloaded RDP file.
 
-   - At the prompt, select **Connect**.  
-   - Enter the username and password you specified when you created the VM.
+   a. At the prompt, select **Connect**.  
+   b. Enter the username and password you specified when you created the VM.
 
      > [!Note]
      > To use these credentials, you might need to select **More choices** > **Use a different account**.
@@ -182,11 +182,13 @@ In this section, you connect privately to the web app by using the private endpo
    For the DNS, do either of the following:
  
    - Use the *hosts* file of the VM.  
+
      a. Create a DNS private zone named *`privatelink.azurewebsites.net`*, and then link it to the virtual network.  
      b. Create the two A records (that is, the app name and the Service Control Manager [SCM] name) with the IP address of your private endpoint.  
      > [!div class="mx-imgBorder"]
      > ![Screenshot of DNS private zone records.][21]  
    - Use the Azure DNS private zone service.  
+
      a. Create the hosts entry, open File Explorer, and look for the *hosts* file.  
      > [!div class="mx-imgBorder"]
      > ![Screenshot showing the hosts file in File Explorer.][18]  
@@ -207,7 +209,9 @@ You are now accessing your web app through the private endpoint.
 When you're done using the private endpoint, the web app, and the VM, delete the resource group and all of the resources it contains.
 
 1. In the Azure portal, in the **Search** box, enter **ready-rg**, and then select **ready-rg** in the results list.
+
 1. Select **Delete resource group**.
+
 1. Under **Type the resource group name**, enter **ready-rg**, and then select **Delete**.
 
 ## Next steps
