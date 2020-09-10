@@ -48,7 +48,7 @@ Next, create multiple views across different Synapse Link enabled Azure Cosmos c
 The following scripts show how to create views on each container. For simplicity, let’s use the [automatic schema inference](analytical-store-introduction.md#analytical-schema) feature of SQL on-demand over Synapse Link enabled containers:
 
 
-**RetailSales view**:
+### RetailSales view:
 
 ```sql
 -- Create view for RetailSales container
@@ -62,7 +62,7 @@ AS q1
 
 Make sure to insert your Azure Cosmos DB region and the primary key in the previous SQL script. All the characters in the region name should be in lower case without spaces. Unlike the other parameters of the `OPENROWSET` command, the container name parameter should be specified without quotes around it.
 
-**StoreDemographics view**:
+### StoreDemographics view:
 
 ```sql
 -- Create view for StoreDemographics container
@@ -133,4 +133,4 @@ After you choose these options, you should see a graph like the following screen
 
 ## Next steps
 
-* Use SQL on-demand to [analyze Azure Open Datasets and visualize the results in Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
+Use SQL on-demand to [analyze Azure Open Datasets and visualize the results in Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
