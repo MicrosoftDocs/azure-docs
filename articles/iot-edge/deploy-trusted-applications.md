@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/10/2020
 ms.author: kgremban
 ---
 
@@ -42,7 +42,7 @@ The Open Enclave repository also includes samples to help developers get started
 
 ## Hardware
 
-Currently, [TrustBox by Scalys](https://scalys.com/trustbox-industrial/) is the only device supported for deploying trusted applications as IoT Edge modules. The TrustBox is built on  The TrustBox Edge and TrustBox EdgeXL devices both come pre-loaded with the Open Enclave SDK and Azure IoT Edge.
+Currently, [TrustBox by Scalys](https://scalys.com/trustbox-industrial/) is the only device supported with manufacturer service agreements for deploying trusted applications as IoT Edge modules. The TrustBox is built on  The TrustBox Edge and TrustBox EdgeXL devices both come pre-loaded with the Open Enclave SDK and Azure IoT Edge.
 
 For more information, see [Getting started with Open Enclave for the Scalys TrustBox](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/OP-TEE/Hardware/ScalysTrustBox.md).
 
