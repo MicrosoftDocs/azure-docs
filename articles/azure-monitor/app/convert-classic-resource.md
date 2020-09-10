@@ -10,7 +10,7 @@ ms.date: 09/09/2020
 
 # Migrate to workspace-based Application Insights resources
 
-This guide will walk you through the process of migrating a classic Application Insights resource to a workspace-based resource. Workspace-based resources support full integration between Application Insights and Log Analytics. Workspace-based resources send Application Insights telemetry to a common Log Analytics workspace, which allows you full access to [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a single consolidated location.
+This guide will walk you through the process of migrating a classic Application Insights resource to a workspace-based resource. Workspace-based resources support full integration between Application Insights and Log Analytics. Workspace-based resources send Application Insights telemetry to a common Log Analytics workspace, which allows you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a single consolidated location.
 
 This also allows for common Role-Based Access Control (RBAC) across your resources, and eliminates the need for cross-app/workspace queries.
 
@@ -37,24 +37,24 @@ The migration process is **permanent, and cannot be reversed**. Once you migrate
 > [!NOTE]
 > Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources. (Classic Application Insights resource data ingested prior to the migration will continue to fall under Application Insights retention/pricing for the duration that the data is kept.) 
 
-If don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
+If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
 
 ## Pre-requisites 
 
-- Log Analytics workspace with the access control mode set to the **`use resource or workspace permissions`** setting. 
+- A Log Analytics workspace with the access control mode set to the **`use resource or workspace permissions`** setting. 
 
-    - Workspace-based Application Insights resources are not compatible with workspaces set to the dedicated **`workspace based permissions`** setting. To learn more about Log Analytics workspace access control consult the [Log Analytics configure access control mode guidance](./platform/manage-access.md#configure-access-control-mode)
+    - Workspace-based Application Insights resources are not compatible with workspaces set to the dedicated **`workspace based permissions`** setting. To learn more about Log Analytics workspace access control consult the [Log Analytics configure access control mode guidance](../platform/manage-access.md#configure-access-control-mode)
 
     - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../learn/quick-create-workspace.md).
     
 - Continuous export is not supported for workspace-based resources and must be disabled.
-Once the migration is complete, you can use [diagnostic settings](./platform/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  
+Once the migration is complete, you can use [diagnostic settings](../platform/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  
 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will impact how long any new ingested data is stored once you migrate your Application Insights resource. If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period you may need to adjust your workspace retention settings.
 
 ## Migrate your resource
 
-This section will walk you through the migrating a classic Application Insights resource to the new workspace-based resource type.
+This section will walk you through the process of migrating a classic Application Insights resource to the new workspace-based resource type.
 
 1. From your Application Insights resource select **Properties** under the **Configure** heading in the left-hand menu bar.
 
@@ -81,7 +81,7 @@ We still provide full backwards compatibility for your Application Insights clas
 
 To write queries against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. 
 
-When you query directly from the Log Analytics UI within your workspace you will only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use Logs query view from within your migrated Application Insights resource.
+When you query directly from the Log Analytics UI within your workspace you will only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
 
 ## Programmatic resource migration
 
@@ -200,7 +200,7 @@ The `Update-AzApplicationInsights` PowerShell command does not currently support
 
 Once a workspace-based Application Insights resource has been created, you can modify the associated Log Analytics Workspace.
 
-From within the Application Insights resource pane, select **Properties** > **Change Workspace** > **Log Analytics Workspaces**
+From within the Application Insights resource pane, select **Properties** > **Change Workspace** > **Log Analytics Workspaces**.
 
 ## Troubleshooting
 
@@ -208,7 +208,7 @@ From within the Application Insights resource pane, select **Properties** > **Ch
 
 **Error message:** *The selected workspace is configured with workspace-based access mode. Some APM features may be impacted. Select another workspace or allow resource-based access in the workspace settings. You can override this error by using CLI.* 
 
-In order for your workspace-based Application Insights resource to operate properly you need to change the access control mode of your target Log Analytics workspace to the **resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For detailed instructions consult the [Log Analytics configure access control mode guidance](./platform/manage-access.md#configure-access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting migration via the portal migration experience will remain blocked.
+In order for your workspace-based Application Insights resource to operate properly you need to change the access control mode of your target Log Analytics workspace to the **resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For detailed instructions consult the [Log Analytics configure access control mode guidance](../platform/manage-access.md#configure-access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting migration via the portal migration experience will remain blocked.
 
 If you cannot change the access control mode for security reasons for your current target workspace we recommend creating a new Log Analytics workspace to use for the migration. 
 
@@ -224,11 +224,11 @@ From your Application Insights resource view under the **Configure** heading sel
 
 Select **Disable**.
 
-![Continuous export menu item](./media/convert-classic-resource/disable.png)
+![Continuous export disable button](./media/convert-classic-resource/disable.png)
 
 Once you have selected disable you can navigate back to the migration UI. If the edit continuous export page prompts you that your settings won't be saved you can select ok for this prompt as it does not pertain to disabling/enabling continuous export.
 
-Once you have successfully migrated your Application Insights resource to workspace-based, you can use Diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub. For detailed guidance on diagnostic settings refer to the [Azure Monitor diagnostic settings guidance](./platform/diagnostic-settings.md).
+Once you have successfully migrated your Application Insights resource to workspace-based, you can use Diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub. For detailed guidance on diagnostic settings refer to the [Azure Monitor diagnostic settings guidance](../platform/diagnostic-settings.md).
 
 ### Retention settings
 
