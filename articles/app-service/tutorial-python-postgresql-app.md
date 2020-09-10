@@ -109,7 +109,7 @@ These changes are specific to configuring Django to run in any production enviro
 ## Create Postgres database in Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. -->
 
 Install the `db-up` extension for the Azure CLI:
 

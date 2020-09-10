@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Cut planes
@@ -50,7 +51,6 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 }
 ```
 
-
 ### CutPlaneComponent properties
 
 The following properties are exposed on a cut plane component:
@@ -62,6 +62,11 @@ The following properties are exposed on a cut plane component:
 * `FadeColor` and `FadeLength`:
 
   If the alpha value of *FadeColor* is non-zero, pixels close to the cut plane will fade towards the RGB part of FadeColor. The strength of the alpha channel determines whether it will fade fully towards the fade color or only partially. *FadeLength* defines over which distance this fade will take place.
+
+## API documentation
+
+* [C# CutPlaneComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [C++ CutPlaneComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
 
 ## Next steps
 

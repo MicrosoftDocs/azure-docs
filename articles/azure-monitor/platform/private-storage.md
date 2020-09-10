@@ -74,6 +74,8 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
+## Get linked storage accounts
+
 ### Get linked storage accounts for all data source types
 
 #### API request

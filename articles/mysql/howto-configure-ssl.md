@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
-ms.custom: devx-track-python
+ms.custom: "devx-track-python, devx-track-csharp"
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
 

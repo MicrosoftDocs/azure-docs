@@ -32,7 +32,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - Learn more about [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
 
 >[!NOTE]
->The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there is no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
+>The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there's no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
 
 ## Set Cross Region Restore
 
@@ -52,7 +52,7 @@ For this process, there are pricing implications as it's at the storage level.
 >- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
->- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM won't be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
+>- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM won't be supported).  When additional management types support CRR, then they'll be **automatically** enrolled.
 >- Cross Region Restore currently can't be reverted back to GRS or LRS once the protection is initiated for the first time.
 
 ### Configure Cross Region Restore

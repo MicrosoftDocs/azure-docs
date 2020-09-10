@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Create or delete a container in Azure Storage with .NET

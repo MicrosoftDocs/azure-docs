@@ -4,7 +4,8 @@ description: Examples that show how to use the front end via PowerShell scripts
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
-ms.topic: sample
+ms.topic: sample 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Example PowerShell scripts
@@ -15,6 +16,9 @@ Azure Remote Rendering provides the following two REST APIs:
 - [Session REST API](../how-tos/session-rest-api.md)
 
 The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains sample scripts in the *Scripts* folder for interacting with the REST APIs of the service. This article describes their usage.
+
+> [!CAUTION]
+Calling REST API functions too frequently will cause the server to throttle and return failure eventually. The http failure code id in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
 ## Prerequisites
 

@@ -19,7 +19,7 @@ ms.date: 11/13/2018
 This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
 
 > [!NOTE]
-> Azure Backup Server can now protect VMware VMs and provides improved security capabilities. Install the product as explained in the sections below and the latest Azure Backup Agent. To learn more about backing up VMware servers with Azure Backup Server, see the article, [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md). To learn about security capabilities, refer to [Azure backup security features documentation](backup-azure-security-feature.md).
+> Azure Backup Server can now protect VMware VMs and provides improved security capabilities. Install the product as explained in the sections below and the latest Azure Backup Agent. To learn more about backing up VMware servers with Azure Backup Server, see the article, [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md). To learn about security capabilities, refer to [Azure Backup security features documentation](backup-azure-security-feature.md).
 >
 >
 
@@ -61,9 +61,9 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 >
 > * A computer running as a domain controller
 > * A computer on which the Application Server role is installed
-> * A computer that is a System Center Operations Manager management server
+> * A computer that's a System Center Operations Manager management server
 > * A computer on which Exchange Server is running
-> * A computer that is a node of a cluster
+> * A computer that's a node of a cluster
 >
 > Installing Azure Backup Server isn't supported on Windows Server Core or Microsoft Hyper-V Server.
 
@@ -256,26 +256,26 @@ Here are the steps if you need to move MABS to a new server, while retaining the
 
   > [!IMPORTANT]
   >
-  > * The new server name must be the same name as the original Azure Backup Server instance. You can't change the name of the new Azure Backup Server instance if you want to use the previous storage pool and MABS Database (DPMDB) to retain recovery points.
-  > * You must have a backup of the MABS Database (DPMDB). You'll need to restore the database.
+  > * The new server name must have the same name as the original Azure Backup Server instance. You can't change the name of the new Azure Backup Server instance if you want to use the previous storage pool and MABS Database (DPMDB) to retain recovery points.
+  > * You must have a backup of the MABS Database (DPMDB). You'll need it to restore the database.
 
 1. In the display pane, select the client computers for which you want to update the protection agent.
-2. Shut down the original Azure backup server or take it off the wire.
-3. Reset the machine account in active directory.
-4. Install Server 2016 on new machine and name it the same machine name as the original Azure Backup server.
-5. Join the Domain
-6. Install Azure Backup server V3 or later (move MABS Storage pool disks from old server and import)
+2. Shut down the original Azure Backup server or take it offline.
+3. Reset the machine account in Active Directory.
+4. Install Server 2016 on a new machine and give it the same machine name as the original Azure Backup server.
+5. Join the domain.
+6. Install Azure Backup Server V3 or later (move MABS Storage pool disks from old server and import).
 7. Restore the DPMDB taken in step 1.
 8. Attach the storage from the original backup server to the new server.
-9. From SQL Restore the DPMDB
-10. From admin command line on new server cd to Microsoft Azure Backup install location and bin folder
+9. From SQL, restore the DPMDB.
+10. Run CMD (as an administrator) on the new server. Go to the Microsoft Azure Backup install location and bin folder
 
     Path example:
-    C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
-11. To Azure backup, Run DPMSYNC -SYNC
+11. To connect to Azure Backup, run `DPMSYNC -SYNC`
 
-    If you have added NEW disks to the DPM Storage pool instead of moving the old ones, then run DPMSYNC -Reallocatereplica
+    If you've added **new** disks to the DPM Storage pool instead of moving the old ones, then run `DPMSYNC -Reallocatereplica`.
 
 ## Network connectivity
 
@@ -296,7 +296,7 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 ### Recovering from loss of connectivity
 
-If you have a firewall or a proxy that is preventing access to Azure, you need to allow the following domain addresses in the firewall/proxy profile:
+If you have a firewall or a proxy that are preventing access to Azure, you need to allow the following domain addresses in the firewall/proxy profile:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com

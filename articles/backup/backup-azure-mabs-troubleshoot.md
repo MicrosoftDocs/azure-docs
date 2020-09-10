@@ -78,7 +78,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The original and external DPM servers must be registered to the same vault | **Cause**: This issue occurs when you're trying to restore files to the alternate server from the original server using External DPM recovery option and if the server that is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Services vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
+| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The original and external DPM servers must be registered to the same vault | **Cause**: This issue occurs when you're trying to restore files to the alternate server from the original server using the External DPM recovery option, and if the server that's being recovered and the original server from where the data is backed-up are not associated with the same Recovery Services vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server are registered to the same vault.|
 
 ## Online recovery point creation jobs for VMware VM fail
 

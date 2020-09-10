@@ -39,9 +39,9 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 
 ## Next steps
 
-[Create a managed disk from a VHD](virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fcli%2fmodule%2ftoc.json)
+[Create a managed disk from a VHD](virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-[Create a virtual machine from a managed disk](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
+[Create a virtual machine from a managed disk](virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 

@@ -41,6 +41,8 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment t
 
 * DocuSign supports [automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
 
+* Once you configure DocuSign you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
 ## Adding DocuSign from the gallery
 
 To configure the integration of DocuSign into Azure AD, you must add DocuSign from the gallery to your list of managed SaaS apps:

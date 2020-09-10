@@ -21,13 +21,21 @@ You may also run this tutorial on the command line (macOS, Windows, or Linux) us
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
+
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
 
 ## Configure and run the Azure Function app
 
@@ -61,10 +69,15 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
         ```bash
         func start
         ```
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
 
 ## Next steps
 
@@ -72,3 +85,5 @@ In this quickstart, you built and ran a real-time serverless application in Visu
 
 > [!div class="nextstepaction"]
 > [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
+
+[Having issues? Let us know.](https://aka.ms/asrs/qscsharp)
