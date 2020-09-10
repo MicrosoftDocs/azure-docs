@@ -7,13 +7,13 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
 # Scenario: Azure Data Studio dashboards
 
-Azure Data Studio provides an experience similar to the Azure portal for viewing information about your Azure Arc resources.  These views are called *dashboards* and have a layout and options similar to what you could see about a given resource in the Azure portal, but give you the flexibility of seeing that information locally in your environment in cases where you don't have a connection available to Azure.
+[Azure Data Studio](https://aka.ms/azuredatastudio) provides an experience similar to the Azure portal for viewing information about your Azure Arc resources.  These views are called **dashboards** and have a layout and options similar to what you could see about a given resource in the Azure portal, but give you the flexibility of seeing that information locally in your environment in cases where you don't have a connection available to Azure.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -21,8 +21,8 @@ Azure Data Studio provides an experience similar to the Azure portal for viewing
 
 ### Prerequisites
 
-- Azure Data Studio is installed (/scenarios/install-client-tools.md)
-- Azure Arc extension is installed (/scenarios/install-client-tools.md)
+- Download [Azure Data Studio](https://aka.ms/getazuredatastudio)
+- Azure Arc extension is installed
 
 ### Determine the data controller server API endpoint URL
 
@@ -59,9 +59,9 @@ Take note of your IP address as you will use it in the next step.
 
 ### Connect
 
-Open Azure Data Studio
+1. Open Azure Data Studio
 
-Select the Connections tab on the left
+1. Select the **Connections** tab on the left
 
 Towards the bottom, expand the panel called **Azure Arc Controllers**.
 
