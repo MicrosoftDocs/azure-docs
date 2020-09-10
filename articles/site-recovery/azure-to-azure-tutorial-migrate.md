@@ -12,7 +12,7 @@ ms.custom: MVC
 
 # Move VMs to another Azure region
 
-There are various scenarios in which you'd want to move your existing Azure IaaS virtual machines (VMs) from one region to another. For example, you want to improve reliability and availability of your existing VMs, to improve manageability, or to move for governance reasons. For more information, see the [Azure VM move overview](azure-to-azure-move-overview.md). 
+There are scenarios in which you'd want to move your existing Azure IaaS virtual machines (VMs) from one region to another. For example, you want to improve reliability and availability of your existing VMs, to improve manageability, or to move for governance reasons. For more information, see the [Azure VM move overview](azure-to-azure-move-overview.md). 
 
 You can use [Azure Site Recovery](site-recovery-overview.md) service to move Azure VMs to a secondary region.
 
