@@ -56,7 +56,7 @@ This section describes the most common deployment architectures for a multi-tier
 
 * **Single-instance VMs deployed across various tiers**: Each VM in a tier is configured as a single-instance VM and is connected by load balancers to the other tiers. This configuration is the simplest to adopt.
 
-     ![Single-instance VM deployment across tiers](media/move-vm-overview/regular-deployment.png)
+     ![Selection to move single-instance VM deployment across tiers](media/move-vm-overview/regular-deployment.png)
 
 * **VMs in each tier deployed across availability sets**: Each VM in a tier is configured in an availability set. [Availability sets](../virtual-machines/windows/tutorial-availability-sets.md) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected, and your overall solution remains available and operational.
 
@@ -71,16 +71,8 @@ This section describes the most common deployment architectures for a multi-tier
 Based on the [architectures](#typical-architectures-for-a-multi-tier-deployment) mentioned earlier, here's what the deployments will look like after you perform the move as is to the target region.
 
 * **Single-instance VMs deployed across various tiers**
-
-     ![Single-instance VM deployment across tiers](media/move-vm-overview/single-zone.png)
-
 * **VMs in each tier deployed across availability sets**
-
-     ![Cross region availability sets](media/move-vm-overview/crossregionaset.png)
-
 * **VMs in each tier deployed across Availability Zones**
-
-     ![VM deployment across Availability Zones](media/move-vm-overview/azonecross.png)
 
 ## Move VMs to increase availability
 
