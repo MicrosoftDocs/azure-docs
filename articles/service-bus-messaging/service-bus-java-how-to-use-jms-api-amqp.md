@@ -33,7 +33,7 @@ This article assumes that you already have a Service Bus namespace that contains
 
 For information about where to download the latest version of the Apache Qpid JMS AMQP 1.0 client library, see the [Apache Qpid download site](https://qpid.apache.org/download.html).
 
-You must add the following JAR files from the Apache Qpid JMS AMQP 1.0 distribution archive to the Java CLASSPATH parameter when you build and run JMS applications with Service Bus:
+You must add the following JAR files from the Apache Qpid JMS AMQP 1.0 distribution archive to the Java CLASSPATH environment variable when you build and run JMS applications with Service Bus:
 
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[version].jar
@@ -65,7 +65,7 @@ queue.QUEUE = queue1
 The connection string referenced is the one available in the Shared Access Policies in the [Azure portal](https://portal.azure.com) under **Primary Connection String**.
 
 ```java
-// The connection string builder is the only part of the Azure Service Bus SDK library
+// The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
 ConnectionStringBuilder csb = new ConnectionStringBuilder(connectionString);
@@ -172,12 +172,12 @@ public class JmsQueueQuickstart {
 
     public void run(String connectionString) throws Exception {
 
-        // The connection string builder is the only part of the Azure Service Bus SDK library
+        // The connection string builder is the only part of the azure-servicebus SDK library
         // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
         // connection string. 
         ConnectionStringBuilder csb = new ConnectionStringBuilder(connectionString);
         
-        // set up JNDI context
+        // Set up JNDI context
         Hashtable<String, String> hashtable = new Hashtable<>();
         hashtable.put("connectionfactory.SBCF", "amqps://" + csb.getEndpoint().getHost() + "?amqp.idleTimeout=120000&amqp.traceFrames=true");
         hashtable.put("queue.QUEUE", "BasicQueue");
