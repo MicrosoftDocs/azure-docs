@@ -47,3 +47,4 @@ After you deploy the data controller, see [Deploy an Azure SQL managed instance 
 - SQL and PostgreSQL login authentication only.  No support for Azure Active Directory or Active Directory.
 - Deploying on OpenShift requires relaxed security constraints.  See documentation for details.
 - Scaling the number of Postgres Hyperscale worker nodes _down_ is not supported.
+- If you are using Azure Kubernetes Service Engine (AKS Engine) on Azure Stack Hub with Azure Arc data controller and database instances, upgrading to a newer Kubernetes version is not supported. Uninstall Azure Arc data controller and all the database instances before upgrading the Kubernetes cluster. 
