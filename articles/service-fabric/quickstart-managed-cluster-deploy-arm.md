@@ -36,6 +36,10 @@ If you need to create a new client certificate, please follow the steps in [set 
 Take note of the certificate thumbprint as this will be required to deploy the template in the next step.
 
 ## Deploy the template
+
+> [!Note]
+> Supported regions for the public preview include centraluseuap, eastus2euap, eastasia, northeurope, westcentralus, and eastus2.
+
 <!-- Link to be updated when template is merged into the quickstart repo -->
 1. Select the following image to sign in to Azure and open a template. 
 

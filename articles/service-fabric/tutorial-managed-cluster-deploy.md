@@ -39,6 +39,9 @@ Follow the steps below to use the module before the official release is availabl
 
 ## Connect your Azure account
 
+> [!Note]
+> Supported regions for the public preview include centraluseuap, eastus2euap, eastasia, northeurope, westcentralus, and eastus2.
+
 Replace `<your-subscription>` with the subscription string for your Azure account, and connect:
 
 ```powershell
