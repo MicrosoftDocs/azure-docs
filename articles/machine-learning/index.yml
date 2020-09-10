@@ -64,7 +64,8 @@ landingContent:
         links:
         - text: Deploy your model to the cloud
           url: how-to-deploy-existing-model.md  
-
+        - text: Track & deploy MLflow models
+          url: how-to-use-mlflow.md
  
   # MLOps
   - title: 'MLOps: Deploy & manage models'
