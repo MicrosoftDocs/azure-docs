@@ -71,6 +71,10 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 
 ## Select a compute target
 
+Select the compute target where your training script will run on. If no compute target is specified in the ScriptRunConfig, or if `compute_target='local'`, Azure ML will execute your script locally. 
+
+The example code in this article assumes that you have already created a compute target `my_compute_target` from the "Prerequisites" section.
+
 ## Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker).
 
