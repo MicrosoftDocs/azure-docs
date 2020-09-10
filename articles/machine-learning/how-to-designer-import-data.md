@@ -37,13 +37,11 @@ You can also register the output for any designer module as a dataset.
 
     ![Screenshot showing how to navigate to the Register Dataset option](media/how-to-designer-import-data/register-dataset-designer.png)
 
-1. If the module output data is in tabular format, there will be option to register output as file dataset or tabular dataset.
- 
-    ![Screenshot showing register dataset options](media/how-to-designer-import-data/register-dataset-option.png)
+If the module output data is in a tabular format, you must choose to register the output as a **file dataset** or **tabular dataset**.
 
-    The **file dataset** option will register module's output folder as a file dataset. The output folder contains data file and meta files that support functionalities in designer, for example visualize data and mark column type. So this option is recommended if you want to continue to use the registered dataset in designer. 
-    
-    The **tabular dataset** option will register only the output data file as a tabular dataset. And it can be easily consumed out of designer, for example in Automated Machine Learning UI or Python SDK. This option is recommended if you want to use the registered dataset out of designer.  
+ - **File dataset** registers the module's output folder as a file dataset. The output folder contains a data file and meta files that the designer uses internally. Select this option if you want to continue to use the registered dataset in the designer. 
+
+ - **Tabular dataset** registers only the module's the output data file as a tabular dataset. This format is easily consumed by other tools, for example in Automated Machine Learning or the Python SDK. Select this option if you plan to use the registered dataset outside of the designer.  
 
 
 
@@ -54,9 +52,9 @@ Your registered datasets can be found in the module palette, under **Datasets**.
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
-The designer also supports [dataset version](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-version-track-datasets). You can set a dataset version in the property panel.
+> [!NOTE]
+> The designer supports [dataset versioning](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-version-track-datasets). Specify the dataset version in the property panel of the dataset module.
 
-![Screenshot showing how to set dataset version](media/how-to-designer-import-data/set-dataset-version.png)
 
 ## Import data using the Import Data module
 
