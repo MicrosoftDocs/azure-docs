@@ -53,6 +53,7 @@ The following limitations and restrictions apply to T-SQL streaming.
 - Only one streaming job can be active at any specific time. Jobs that are already running must be stopped before starting another job.
 - Each streaming job execution is single-threaded. If the streaming job contains multiple queries, each query is evaluated in serial order.
 - When you stopped a streaming job in Azure SQL Edge, there may be some delay before the next streaming job can be started. This delay is introduced because the underlying streaming process needs to be stopped in response to the stop job request and then restarted in response to the start job request. 
+- T-SQL Streaming upto 32 partitions for a kafka stream. Attempts to configure a higher partition count will result in an error. 
 
 ## Next steps
 
