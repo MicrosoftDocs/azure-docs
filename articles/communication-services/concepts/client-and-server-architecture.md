@@ -1,5 +1,6 @@
 ---
 title: Client and server architecture
+titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' architecture.
 author: mikben
 manager: mikben
@@ -67,9 +68,7 @@ Azure Communication Services supports human-to-system communication though text 
 You may want to exchange arbitrary data between users, for example to synchronize a shared mixed reality or gaming experience. The real-time data plane used for text, voice, and video communication is available to you directly in two ways:
 
 - **Calling client library** - Devices in a call have access to APIs for sending and receiving data over the call channel. This is the easiest way to add data communication to an existing interaction.
-- **STUN/TURN** - Azure Communication Services makes standards-compliant STUN and TURN services available to you. This allows you to build a heavily customized transport layer on top of these standardized primitives. You can author your own standards-compliant client or use open-source libraries such as [WinRTC](https://github.com/microsoft/winrtc)
-
-For more information on STUN and TURN solutions, see [STUN and TURN Concepts](../concepts/networking/ice-stun-nat-turn-sdp.md)
+- **STUN/TURN** - Azure Communication Services makes standards-compliant STUN and TURN services available to you. This allows you to build a heavily customized transport layer on top of these standardized primitives. You can author your own standards-compliant client or use open-source libraries such as [WinRTC](https://github.com/microsoft/winrtc).
 
 ## Next steps
 
@@ -80,6 +79,6 @@ For more information, see the following articles:
 
 - Learn about [authentication](../concepts/authentication.md)
 - Learn about [PSTN and SMS solutions](../concepts/telephony-sms/plan-solution.md)
-- Learn about [STUN and TURN solutions](../concepts/networking/ice-stun-nat-turn-sdp.md)
+
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)

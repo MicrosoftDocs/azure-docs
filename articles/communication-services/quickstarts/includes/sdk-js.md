@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ---
-
 ## JavaScript client libraries
 
 > [!NOTE]

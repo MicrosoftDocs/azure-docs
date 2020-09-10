@@ -1,5 +1,6 @@
 ---
 title: Quickstart - Create and manage resources in Azure Communication Services
+titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to create and manage your first Azure Communication Services resource.
 author: mikben
 manager: jken
@@ -11,7 +12,6 @@ ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
 ---
-
 # Quickstart: Create and manage Communication Services resources
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
@@ -76,19 +76,17 @@ Edit your **.bash_profile**, and add the environment variable:
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
----
-
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective.
 
-If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+---
 
+If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about cleaning up resources [here](./create-communication-resource.md#clean-up-resources).
 
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time. 
-
 
 ## Next Steps
 
@@ -99,7 +97,6 @@ In this quickstart you learned how to:
 > * Configure resource geography and tags
 > * Access the keys for that resource
 > * Delete the resource
-
 
 > [!div class="nextstepaction"]
 > [Create your first user access tokens](user-access-tokens.md)

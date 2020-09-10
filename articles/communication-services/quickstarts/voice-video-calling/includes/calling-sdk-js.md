@@ -1,3 +1,10 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -57,10 +64,10 @@ const oneToOneCall = callAgent.call([acsUserId], placeCallOptions);
 ```
 
 ### Place a 1:n call with users and PSTN
-[!IMPORTANT] To place the call to PSTN you have to specify phone number you own with "4:" prefix
+To place the call to PSTN you have to specify phone number acquired with Communication Services
 ```js
 
-const placeCallOptions = {alternateCallerId: '4:+1234567890'};
+const placeCallOptions = {alternateCallerId: new PhoneNumber('+1999999999')};
 const acsUser1 = CommunicationUser('8:acsUserId');
 const acsUser2 = PhoneNumber('+1234567890');
 const groupCall = callClient.call([acsUser1, acsUser2], placeCallOptions);

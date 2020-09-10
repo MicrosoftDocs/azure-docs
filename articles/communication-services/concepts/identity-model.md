@@ -1,5 +1,6 @@
 ---
 title: Identity model in Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
 description: Learn how entities are represented in Azure Communication Services
 author: arturk
 manager: mariusu

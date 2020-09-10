@@ -17,13 +17,13 @@ ms.author: mikben
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - A `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
 
 
-## Setting Up
+## Setting up
 
-### Create a new java application
+### Create a new Java application
 
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
 
@@ -31,7 +31,7 @@ Open your terminal or command window and navigate to the directory where you wou
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, the src/main/java directory contains the project source code, the src/test/java directory contains the test source, and the pom.xml file is the project's Project Object Model, or POM.
+You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, the `src/main/java directory` contains the project source code, the `src/test/java` directory contains the test source, and the pom.xml file is the project's Project Object Model, or POM.
 
 ### Add the package references for the chat client library
 Add the project [POM file](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) to your Maven application.
@@ -187,7 +187,7 @@ chatMessagesResponse.iterableByPage().forEach(resp -> {
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
-## Add users as members to the chat thread
+## Add a user as member to the chat thread
 
 Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other members. You'll need to start by getting a new access token and identity for that user. Before calling addMembers method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
@@ -217,7 +217,7 @@ AddChatThreadMembersOptions addChatThreadMembersOptions = new AddChatThreadMembe
 chatThreadClient.addMembers(addChatThreadMembersOptions);
 ```
 
-## Remove User from a chat thread
+## Remove user from a chat thread
 
 Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the user identities of the members you have added.
 

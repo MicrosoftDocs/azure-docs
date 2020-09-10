@@ -16,10 +16,8 @@ ms.author: mikben
 
 First, include the Communication Services Management client library in your C# project:
 
-```dotnetcli
-
+```csharp
 using Azure.ResourceManager.Communication;
-
 ```
 
 ## Subscription ID
@@ -46,12 +44,12 @@ how to enable them on your service, can be found [here](https://docs.microsoft.c
 If you've enabled managed identity on your service, you can create a Communication Services management client like this:
 
 ```csharp
-    using Azure.Identity;
-    using Azure.ResourceManager.Communication;
-    using System;
-    ...
-    var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
-    var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIdentityCredential());
+using Azure.Identity;
+using Azure.ResourceManager.Communication;
+using System;
+...
+var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
+var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIdentityCredential());
 ```
 
 ### Option 2: Service Principal
@@ -68,12 +66,12 @@ After you've created your service principal, you'll need to collect the followin
 Store these values in environment variables named `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` respectively. You can then create a Communication Services management client like this:
 
 ```csharp
-    using Azure.Identity;
-    using Azure.ResourceManager.Communication;
-    using System;
-    ...
-    var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
-    var acsClient = new CommunicationManagementClient(subscriptionId, new EnvironmentCredential());
+using Azure.Identity;
+using Azure.ResourceManager.Communication;
+using System;
+...
+var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
+var acsClient = new CommunicationManagementClient(subscriptionId, new EnvironmentCredential());
 ```
 
 ## Managing Communication Services Resources
@@ -86,7 +84,6 @@ For each of the following examples, we'll be assigning our Communication Service
 
 If you need to create a resource group, you can do so by using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or the [ARM Management client library](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
-
 ### Create and manage a Communication Services resource
 
 Our instance of the Communication Services Management client library client (``Azure.ResourceManager.Communication.CommunicationManagementClient``) can be used to perform operations on Communication Services resources.
@@ -94,43 +91,42 @@ Our instance of the Communication Services Management client library client (``A
 #### Create a Communication Services resource
 
 ```csharp
-    var resourceGroupName = "myResourceGroupName";
-    var resourceName = "myResource";
-    var resource = new CommunicationServiceResource { Location = "West US" };
-    await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
+var resourceGroupName = "myResourceGroupName";
+var resourceName = "myResource";
+var resource = new CommunicationServiceResource { Location = "West US" };
+await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
 ```
 
 #### Update a Communication Services resource
 
 ```csharp
-    ...
-    var resourceGroupName = "myResourceGroupName";
-    var resourceName = "myResource";
-    var tags = new Dictionary<string,string>();
-    tags.Add("environment","test");
-    tags.Add("department","tech");
-    var resource = new CommunicationServiceResource { Tags = tags };
-    // Use existing resource name and new resource object
-    await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
+...
+var resourceGroupName = "myResourceGroupName";
+var resourceName = "myResource";
+var tags = new Dictionary<string,string>();
+tags.Add("environment","test");
+tags.Add("department","tech");
+var resource = new CommunicationServiceResource { Tags = tags };
+// Use existing resource name and new resource object
+await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
 ```
-
 
 #### List all Communication Services resources
 
 ```csharp
-    var resources = acsClient.CommunicationService.ListBySubscription();
-    foreach (var resource in resources)
-    {
-        Console.WriteLine(resource.Name);
-    }
+var resources = acsClient.CommunicationService.ListBySubscription();
+foreach (var resource in resources)
+{
+    Console.WriteLine(resource.Name);
+}
 ```
 
 #### Delete a Communication Services resource
 
 ```csharp
-    var resourceGroupName = "myResourceGroupName";
-    var resourceName = "myResource";
-    await acsClient.CommunicationService.StartDeleteAsync(resourceGroupName, resourceName);
+var resourceGroupName = "myResourceGroupName";
+var resourceName = "myResource";
+await acsClient.CommunicationService.StartDeleteAsync(resourceGroupName, resourceName);
 ```
 
 ## Managing keys and connection strings
@@ -140,24 +136,21 @@ Every Communication Services resource has a pair of access keys and correspondin
 #### Get access keys for a Communication Services resource
 
 ```csharp
-    var resourceGroupName = "myResourceGroupName";
-    var resourceName = "myResource";
-    var keys = await acsClient.CommunicationService.ListKeysAsync(resourceGroupName, resourceName);
+var resourceGroupName = "myResourceGroupName";
+var resourceName = "myResource";
+var keys = await acsClient.CommunicationService.ListKeysAsync(resourceGroupName, resourceName);
 
-    Console.WriteLine(keys.Value.PrimaryConnectionString);
-    Console.WriteLine(keys.Value.SecondaryConnectionString);
+Console.WriteLine(keys.Value.PrimaryConnectionString);
+Console.WriteLine(keys.Value.SecondaryConnectionString);
 ```
 
 #### Regenerate an access key for a Communication Services resource
 
 ```csharp
-    var resourceGroupName = "myResourceGroupName";
-    var resourceName = "myResource";
-    var keyParams = new RegenerateKeyParameters { KeyType = KeyType.Primary };
-    var keys = acsClient.CommunicationService.RegenerateKeyAsync(resourceGroupName, resourceGroup, keyParams);
+var resourceGroupName = "myResourceGroupName";
+var resourceName = "myResource";
+var keyParams = new RegenerateKeyParameters { KeyType = KeyType.Primary };
+var keys = acsClient.CommunicationService.RegenerateKeyAsync(resourceGroupName, resourceGroup, keyParams);
 
-    Console.WriteLine(keys.Value.PrimaryKey);
+Console.WriteLine(keys.Value.PrimaryKey);
 ```
-
-
-

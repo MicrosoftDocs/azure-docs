@@ -1,7 +1,13 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
 > [!WARNING]
 > This document is under construction and needs the following items to be addressed: 
 >
-
 
 Get started with Azure Communication Services by using the Communication Services client library to add video calling to your app.
 

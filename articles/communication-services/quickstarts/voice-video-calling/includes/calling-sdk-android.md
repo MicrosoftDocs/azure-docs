@@ -1,3 +1,10 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -51,11 +58,11 @@ call = callAgent.call(appContext, participants, startCallOptions);
 ```
 
 ### Place a 1:n call with users and PSTN
-[!IMPORTANT] To place the call to PSTN you have to specify phone number you own with "4:" prefix
+To place the call to PSTN you have to specify phone number acquired with Communication Services
 ```java
 
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ new CommunicationUser("acsUserId"), new PhoneNumber("+1234567890") };
-StartCallOptions startCallOptions = new StartCallOptions(alternateCallerId: '4:+1234567890');
+StartCallOptions startCallOptions = new StartCallOptions(alternateCallerId: new PhoneNumber("+1999999999"));
 Context appContext = this.getApplicationContext();
 Call groupCall = callClient.call(participants, callOptions);
 

@@ -1,5 +1,6 @@
 ---
 title: Azure Communication Services calling client library overview
+titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the calling client library.
 author: mikben
 manager: jken
@@ -10,14 +11,17 @@ ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
-
 # Calling client library overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-## Calling client library capabilities
+There are two separate families of Calling SDKs, for *clients* and *services.* Currently available client SDKs are intended for end-user experiences: websites and native apps.
 
-The following list presents the set of features which are currently available in the Azure Communication Services Calling client libraries.
+The Service SDKs are yet available, and provide "raw" access to the voice and video data planes, suitable for integration with bots and other services. To learn more about this and other upcoming features, check out the [product roadmap](../../roadmap.md). 
+
+## Calling Client SDK capabilities
+
+The following list presents the set of features which are currently available in the Azure Communication Services Calling Client SDKs.
 
 | Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS) |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | -------------- | ----------------- |

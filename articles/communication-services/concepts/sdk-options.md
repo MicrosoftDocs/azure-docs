@@ -1,5 +1,6 @@
 ---
-title: Client libraries and REST APIs
+title: Client libraries and REST APIs for Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
 description: Learn more about Azure Communication Services client libraries and REST APIs.
 author: mikben
 manager: jken
@@ -22,7 +23,7 @@ The Calling client library uses proprietary network interfaces and is currently 
 
 | Assembly               | Protocols             | Namespaces                          | Capabilities                                                      |
 | ---------------------- | --------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Azure Resource Manager (ARM)| REST             | Azure.ResourceManager.Communication | Provision and manage Communication Services resources             |
+| Azure Resource Manager | REST             | Azure.ResourceManager.Communication | Provision and manage Communication Services resources             |
 | Common                 | REST                  | Azure.Communication.Common          | Provides base types for other client libraries |
 | Administration         | REST                  | Azure.Communication.Administration  | Manage users, access tokens, and phone numbers, allocate standards-compliant STUN and TURN servers |
 | Chat                   | REST                  | Azure.Communication.Chat            | Add real-time text based chat to your applications  |
@@ -35,7 +36,7 @@ Availability guidance and timelines for individual client library packages are d
 
 | Area           | JavaScript | .NET | Python | Java | Swift or Obj-C | Java (Android) | Other                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
-| ARM            | ✔️         | ✔️    | ✔️      | -    | -              | *Coming Soon*  | GO and Azure CLI *Coming Soon* |
+| Azure Resource Manager | ✔️         | ✔️    | ✔️      | -    | -              | *Coming Soon*  | GO and Azure CLI *Coming Soon* |
 | Common         | ✔️         | ✔️    | ✔️      | ✔️   | ✔️            | ✔️             | -                              |
 | Administration | ✔️         | ✔️    | ✔️      | ✔️   | -              | -              | CLI                            |
 | Chat           | ✔️         | ✔️    | ✔️      | ✔️   | *Coming Soon*  | *Coming Soon*  | -                              |

@@ -1,5 +1,6 @@
 ---
-title: Quickstart - Send an SMS message with Azure Communication Services
+title: Quickstart - Send an SMS message
+titleSuffix: An Azure Communication Services quickstart
 description: Learn how to send an SMS message using Azure Communication Services.
 author: mikben
 manager: jken

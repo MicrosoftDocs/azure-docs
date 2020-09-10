@@ -1,7 +1,13 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
 > [!WARNING]
 > This document is under construction and needs the following items to be addressed: 
 > - note the "raw materials" located in `calling-client-samples`
-
 
 Get started with Azure Communication Services by using the Communication Services client library to manage your VoIP and PSTN call participants.
 

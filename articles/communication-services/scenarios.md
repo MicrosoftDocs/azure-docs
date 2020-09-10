@@ -1,5 +1,5 @@
 ---
-title: Communication Services Scenarios
+title: Azure Communication Services Scenarios
 description: Learn how Azure Communication Services helps you develop rich user experiences with real-time communications.
 author: mikben
 manager: jken
@@ -11,7 +11,6 @@ ms.topic: overview
 ms.service: azure-communication-services
 
 ---
-
 # Communication Services scenarios
 
 [!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
@@ -47,10 +46,6 @@ Azure Communication Services supports both browser-to-app and app-to-app communi
 
 ![Diagram showing Communication Services Architecture for native app communication.](./media/scenarios/archdiagram-app.png)
 
-#### Resources
-
-- **Concept:** [Integrating push notifications](./concepts/telephony-sms/push-notifications-overview.md)
-
 ### Voice and SMS over the public switched telephony network (PSTN)
 
 Communicating over the traditional telephone system can dramatically increase the reach of your application. To support PSTN voice and SMS scenarios, Communication Services lets you acquire phone numbers quickly across a variety of geographies directly from the Azure portal or using REST APIs and client libraries.
@@ -61,8 +56,7 @@ Communicating over the traditional telephone system can dramatically increase th
 
 - **Quickstart:** [Search and acquire a phone number](./quickstarts/telephony-sms/get-phone-number.md)
 - **Quickstart:** [Send an SMS message](./quickstarts/telephony-sms/send.md)
-- **Quickstart:** [Place an outgoing telephone call](./quickstarts/voice-video-calling/add-pstn-calling.md)
-- **Quickstart:** [Assigning a phone number to a bot](./tutorials/telephony-sms/assign-a-telephone-number-to-an-acs-bot.md)
+- **Quickstart:** [Place an outgoing telephone call](./quickstarts/voice-video-calling/post-ignite/add-pstn-calling.md)
 
 ### Networking 
 

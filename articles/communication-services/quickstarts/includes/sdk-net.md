@@ -5,13 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ---
-
 ## .NET client libraries
 
 ```dotnetcli
-
 dotnet add package Azure.Communication.Administration
-
 ```
 
 ### Gaining Access to the Package Feed
@@ -43,7 +40,7 @@ Once your access to the Feed is setup, right click your project within the "Solu
 
 Then if you search for `Azure.Communication` you should see the Communication Services packages in the available packages list.
 
-![Azure Communications Services Packages Available](../media/dotnet-sdk-setup/packages.png)
+![Screenshot showing Communication Services' library listings in NuGet](../media/dotnet-sdk-setup/packages.png)
 
 If you're unsure what packages are required, double check the documentation you're referring to as it should list the required packages.
 

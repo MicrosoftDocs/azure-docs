@@ -105,11 +105,11 @@ let callAgent;
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
 
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| [CallClient](../../../references/overview.md)| The CallClient is the main entry point to the Calling client library.|
-| [CallAgent](../../../references/overview.md) | The CallAgent is used to start and manage calls. |
-| [CommunicationUserCredential](../../../references/overview.md) | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.|
+| Name                                                           | Description                                                                                   |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| [CallClient](../../../references/overview.md)                  | The CallClient is the main entry point to the Calling client library.                         |
+| [CallAgent](../../../references/overview.md)                   | The CallAgent is used to start and manage calls.                                              |
+| [CommunicationUserCredential](../../../references/overview.md) | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent. |
 
 ## Authenticate the client
 
@@ -174,6 +174,6 @@ npx webpack-dev-server --entry ./client.js --output bundle.js
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-![App Image](../../media/calling-javascript-app.png)
+![Screenshot of the completed JavaScript Application.](../media/javascript/calling-javascript-app.png)
 
 You can make an outbound VOIP call by providing a user ID in the text field and clicking the **Start Call** button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.

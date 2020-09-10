@@ -2,8 +2,9 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: Daniel Doolabh
+author: danieldoolabh
 manager: nimag
+
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 09/03/2020

@@ -1,3 +1,10 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -11,7 +18,7 @@
 
 In Xcode, create a new iOS project and select the **Single View Application** template. This tutorial uses the [SwiftUI framework][swift_ui], so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**
 
-![Create a New Project in XCode](../../../media/xcode-new-ios-project.png)
+![Screenshot showing the create new project window in XCode](../media/ios/xcode-new-ios-project.png)
 
 Add the request for microphone access. Right-click the `Info.plist` entry of the project tree, and select **Open As** > **Source Code**. Add the following lines into the `<dict>` section, and then save the file.
 
@@ -32,8 +39,7 @@ Currently the client library includes multiple binaries, each targeting differen
 
 Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **SpoolCallingSDK.framework**
 
-![Update Framework Search Paths](../../../media/xcode-framework-search-paths.png)
-
+![Screenshot showing the framework search paths for the communication services libraries.](../media/ios/xcode-framework-search-paths.png)
 
 ## Object model
 
@@ -81,10 +87,11 @@ let oneToOneCall = self.CallingApp.adHocCallClient.callWithParticipants(particip
 ```
 
 ### Place a 1:n call with users and PSTN
-[!IMPORTANT] To place the call to PSTN you have to specify phone number you own with "4:" prefix
+To place the call to PSTN you have to specify phone number acquired with Communication Services
 ```swift
 
-let placeCallOptions = ACSPlaceCallOptions(alternateCallerId: '4:+1234567890');
+let callerId = PhoneNumber('+1999999999');
+let placeCallOptions = ACSPlaceCallOptions(alternateCallerId: callerId);
 let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId', '+1234567890'], options: placeCallOptions);
 
 ```

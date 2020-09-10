@@ -1,5 +1,6 @@
 ---
 title: Voice and video concepts in Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
 description: TODO
 author: mikben
 manager: jken
@@ -9,7 +10,6 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-
 ---
 # Voice and video concepts
 

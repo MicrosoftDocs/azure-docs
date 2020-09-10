@@ -1,5 +1,6 @@
 ---
 title: Call flows in Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
 description: Learn about call flows in Azure Communication Services.
 author: mikben
 manager: jken
@@ -80,4 +81,3 @@ The following documents may be interesting to you:
 
 - Learn more about [call types](../concepts/voice-video-calling/about-call-types.md)
 - Learn about [Client-server architecture](./client-and-server-architecture.md)
-- Explore [STUN and TURN](./networking/ice-stun-nat-turn-sdp.md) capabilities

@@ -1,5 +1,6 @@
 ---
-title: Use the Communication Services calling client library
+title: Quickstart - Use the Azure Communication Services calling client library
+titleSuffix: An Azure Communication Services quickstart
 description: Learn about the Communication Services calling client library capabilities.
 author: mikben
 manager: jken
@@ -41,5 +42,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 For more information, see the following articles:
+
 - Check out our calling hero sample [here](../../samples/calling-hero-sample.md)
 - Learn more about how calling works [here](../../concepts/voice-video-calling/about-call-types.md)

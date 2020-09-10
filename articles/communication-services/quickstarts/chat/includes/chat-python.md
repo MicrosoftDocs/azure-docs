@@ -163,7 +163,7 @@ thread_members = [member]
 chat_thread_client.add_members(thread_members)
 ```
 
-## Remove User from a chat thread
+## Remove user from a chat thread
 
 Similar to adding a member, you can also remove members from a thread. In order to remove, you'll need to track the IDs of the members you have added.
 

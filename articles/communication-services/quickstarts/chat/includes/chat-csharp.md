@@ -19,7 +19,7 @@ Before you get started, make sure to:
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
 - Obtain a `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
 
-## Setting Up
+## Setting up
 
 ### Create a new C# application
 
@@ -151,7 +151,7 @@ foreach (Page<ChatMessage> page in allMessages.AsPages(continuationToken, maxPag
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
 
-## Add a user as ember to the chat thread
+## Add a user as member to the chat thread
 
 Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other members. Before calling `AddMembers`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
@@ -172,7 +172,7 @@ var members = new List<ChatThreadMember>
 };
 chatThreadClient.AddMembers(addChatThreadMembersOptions);
 ```
-## Remove User from a Chat Thread
+## Remove user from a chat thread
 
 Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the identity (CommunicationUser) of the members you have added.
 

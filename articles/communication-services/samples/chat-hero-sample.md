@@ -29,15 +29,15 @@ The sample has both a client-side application and a server-side application. The
 
 Here's what the sample looks like:
 
-![Landing Page](../media/samples/samples_chat_landing-page.png)
+![Screenshot showing the sample application's landing page.](./media/chat/landing-page.png)
 
 When you press the "Start a Chat" button, the web application fetches a user access token from the server-side application. This token is then used to connect the client app to Azure Communication Services. Once the token is retrieved, you'll be prompted to specify your name and emoji that will represent you in chat. 
 
-![Pre-Chat Flow](../media/samples/samples_chat_pre-chat.png)
+![Screenshot showing the application's pre-chat screen.](./media/chat/pre-chat.png)
 
 Once your configure your display name and emoji, you can join the chat session. Now you will see the main chat canvas where the core chat experience lives.
 
-![Main Chat Canvas](../media/samples/samples_chat_main-app.png)
+![Screenshot showing showing the main screen of the sample application.](./media/chat/main-app.png)
 
 Components of the main chat screen:
 

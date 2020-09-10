@@ -23,15 +23,15 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 
 From Android Studio, select Start a new Android Studio project.
 
-![Start a new Android Studio Project](../../media/android-studio-new-project.png)
+![Screenshot showing the "Start a new Android Studio Project" button selected in Android Studio.](../media/android/studio-new-project.png)
 
 Select "Empty Activity" project template under "Phone and Tablet".
 
-![Create a Blank Activity](../../media/android-studio-blank-activity.png)
+![Screenshot showing the "Empty Activity" option selected in the Project Template Screen.](../media/android/studio-blank-activity.png)
 
 Select Minimum client library of "API 26: Android 8.0 (Oreo)" or greater.
 
-![Select Minimum client library](../../media/android-studio-calling-min-api.png)
+![Screenshot showing the minimum client library being selected.](../media/android/studio-calling-min-api.png)
 
 ## Add the Azure Communication Services Calling client library to Your App
 
@@ -238,8 +238,4 @@ Input for the callee id and the call button can be added through the designer or
 
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you are able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
 
-![Call echobot](../../media/quickstart-android-call-echobot.png)
-
-
-
-
+![Screenshot showing the completed application.](../media/android/quickstart-android-call-echobot.png)

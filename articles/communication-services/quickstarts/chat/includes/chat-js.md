@@ -123,7 +123,7 @@ let threadId = chatThreadClient.threadId;
 
 ```
 
-## Send message to a chat thread
+## Send a message to a chat thread
 
 Use `sendMessage` method to send a chat message to the thread you just created, identified by threadId.
 
@@ -154,7 +154,7 @@ let messageId = sendChatMessageResult.id;
 
 ```
 
-## Receive messages from a chat thread
+## Receive chat messages from a chat thread
 
 With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. For complete list of events you can subscribe to, see event details [here](../../../concepts/chat/concepts.md#real-time-signaling-events).
 
@@ -226,7 +226,7 @@ await chatThreadClient.addMembers(addMembersRequest);
 
 ```
 
-## Remove User from a chat thread
+## Remove user from a chat thread
 
 Similar to adding a member, you can remove members from a chat thread. In order to remove, you'll need to track the ids of the members you have added.
 

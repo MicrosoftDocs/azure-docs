@@ -1,5 +1,6 @@
 ---
 title: Quickstart - Create and manage user access tokens
+titleSuffix: An Azure Communication Services quickstart
 description: Learn how to manage users and access tokens using the Azure Communication Services Administration client library.
 author: matthewrobertson
 manager: jken

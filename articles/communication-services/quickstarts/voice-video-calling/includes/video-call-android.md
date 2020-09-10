@@ -1,11 +1,16 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
 > [!WARNING]
 > This document is under construction and needs the following items to be addressed: 
 > - note the "raw materials" located in `calling-client-samples`
 > - consider possibility that this should be joined with VoIP calling, since (I think) it will just be a line or two per code snippet that changes and the addition of a DOM element to render to
 
-
 Get started with Azure Communication Services by using the Communication Services client library to add video calling to your app.
-
 
 ## Prerequisites
 
