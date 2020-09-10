@@ -41,12 +41,12 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 
 ### Attach an IoT Hub to Azure Stack Edge
 
-* In the [Azure portal](https://ms.portal.azure.com), go to your Azure Stack Edge resource and click on Overview. In the right-pane, on the Compute tile, select Get started.
+1. In the [Azure portal](https://ms.portal.azure.com), go to your Azure Stack Edge resource and click on Overview. In the right-pane, on the Compute tile, select Get started.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge.png" alt-text="Azure Stack Edge":::
-* On the Configure Edge compute tile, select Configure compute.
-* On the Configure Edge compute blade, input the following:
+1. On the Configure Edge compute tile, select Configure compute.
+1. On the Configure Edge compute blade, input the following:
     
     | Field|Value|
     |---|---|
@@ -55,7 +55,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge get started":::
-* Select **Create**. The IoT Hub resource creation takes a couple minutes. After the IoT Hub resource is created, the **Configure compute** tile updates to show the compute configuration. To confirm that the Edge compute role has been configured, select **View Compute** on the **Configure compute** tile.
+1. Select **Create**. The IoT Hub resource creation takes a couple minutes. After the IoT Hub resource is created, the **Configure compute** tile updates to show the compute configuration. To confirm that the Edge compute role has been configured, select **View Compute** on the **Configure compute** tile.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="IoT Hub resource creation":::
@@ -74,7 +74,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 
 Before you continue, make sure that:
 
-* You've activated your Azure Stack Edge device
+* You've activated your Azure Stack Edge device.
 * You have access to a Windows client system running PowerShell 5.0 or later to access the Azure Stack Edge device.
 * To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge device via its [local web UI](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup). 
     
@@ -94,13 +94,13 @@ Before you continue, make sure that:
             * Add the Kubernetes API device name's IPv4 and hostname to the file. (This info can be found in the Azure Stack Edge Portal under the Devices section.)
             * Save and close
 
-### Deploy Live Video Analytics Edge module using Azure Portal
+### Deploy Live Video Analytics Edge module using Azure portal
 
 For this, we are only going to take specific steps from [deploy Live Video Analytics via IoT Hub](deploy-iot-edge-device.md).
 
-* Skip the user and group creation steps and go to [Deploy Live Video Analytics Edge](deploy-iot-edge-device.md#deploy-live-video-analytics-edge-module) module. Follow the steps mentioned there.
-* In Container Create Options you do not need to set Environment variables. So, skip this step.
-* Open the Container Create Options tab.
+1. Skip the user and group creation steps and go to [Deploy Live Video Analytics Edge](deploy-iot-edge-device.md#deploy-live-video-analytics-edge-module) module. Follow the steps mentioned there.
+1. In Container Create Options you do not need to set Environment variables. So, skip this step.
+1. Open the Container Create Options tab.
 
     * Copy and paste the following JSON into the box, to limit the size of the log files produced by the module.
     
@@ -146,11 +146,11 @@ For this, we are only going to take specific steps from [deploy Live Video Analy
     * "/var/lib/azuremediaservices:/var/lib/azuremediaservices": This is used to bind the persistent application configuration data from the container and store it on the edge device.
     * "/var/media:/var/media": This binds the media folders between the edge device and the container. This is used to store the video recordings when you run a media graph topology that supports storing of video clips on the edge device.
         
-* Continue the steps in the doc and fill in the Module Twin Settings.
-* Select **Next**: Routes to continue to the routes section. Specify routes.
+1. Continue the steps in the doc and fill in the Module Twin Settings.
+1. Select **Next**: Routes to continue to the routes section. Specify routes.
 
     Keep the default routes and select Next: Review + create to continue to the review section.
-* [Review and verify your deployment](deploy-iot-edge-device.md#review-deployment)
+1. [Review and verify your deployment](deploy-iot-edge-device.md#review-deployment)
 
 #### (Optional) Setup Docker Volume Mounts
 
@@ -161,48 +161,46 @@ These steps cover creating a Gateway user and setting up file shares to view the
 > [!NOTE]
 > Bind Mounts are supported, but Volume Mounts allow the data to be viewable and if desired remotely copied. It is possible to use both Bind and Volume mounts, but they cannot point to the same container path.
 
-* Open Azure Portal and go to the Azure Stack Edge resource.
-* Create a **Gateway User** that can access shares.
+1. Open Azure portal and go to the Azure Stack Edge resource.
+1. Create a **Gateway User** that can access shares.
     
-    * In the left navigation pane, click on **Gateway->Users**.
-    * Click on **+ Add User** to the set the username and password. (Recommended: `lvauser`).
-    * Click on **Add**.
-    
-* Create a **Local Share** for Live Video Analytics persistence.
+    1. In the left navigation pane, click on **Gateway->Users**.
+    1. Click on **+ Add User** to the set the username and password. (Recommended: `lvauser`).
+    1. Click on **Add**.
+1. Create a **Local Share** for Live Video Analytics persistence.
 
-    * Click on **Gateway->Shares**.
-    * Click on **+ Add Shares**.
-    * Set a share name. (Recommended: `lva`).
-    * Keep the share type as SMB.
-    * Ensure **Use the share with Edge compute** is checked.
-    * Ensure **Configure as Edge local share** is checked.
-    * In User Details, give access to the share to the recently created user.
-    * Click on **Create**.
+    1. Click on **Gateway->Shares**.
+    1. Click on **+ Add Shares**.
+    1. Set a share name. (Recommended: `lva`).
+    1. Keep the share type as SMB.
+    1. Ensure **Use the share with Edge compute** is checked.
+    1. Ensure **Configure as Edge local share** is checked.
+    1. In User Details, give access to the share to the recently created user.
+    1. Click on **Create**.
         
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Local share":::
+1. Create a Remote Share for file sync storage.
 
-* Create a Remote Share for file sync storage.
-
-    * First create a blob storage account in the same region.
-    * Click on **Gateway->Shares**.
-    * Click on **+ Add Shares**.
-    * Set a share name. (Recommended: media).
-    * Keep the share type as SMB.
-    * Ensure **Use the share with Edge compute** is checked.
-    * Ensure **Configure as Edge local share** is not checked.
-    * Select the recently created storage account.
-    * Set a container name.
-    * Set the storage type to Block Blob.
-    * In User Details, give access to the share to the recently created user.
-    * Click on **Create**.    
+    1. First create a blob storage account in the same region.
+    1. Click on **Gateway->Shares**.
+    1. Click on **+ Add Shares**.
+    1. Set a share name. (Recommended: media).
+    1. Keep the share type as SMB.
+    1. Ensure **Use the share with Edge compute** is checked.
+    1. Ensure **Configure as Edge local share** is not checked.
+    1. Select the recently created storage account.
+    1. Set a container name.
+    1. Set the storage type to Block Blob.
+    1. In User Details, give access to the share to the recently created user.
+    1. Click on **Create**.    
     
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Remote share":::
     
-    > [!TIP]
+    > 1[!TIP]
     > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share).
-* Update the Live Video Analytics Edge module's Container Create Options (see point 4 in [add modules document](deploy-iot-edge-device.md#add-modules)) to use Volume Mounts.
+1. Update the Live Video Analytics Edge module's Container Create Options (see point 4 in [add modules document](deploy-iot-edge-device.md#add-modules)) to use Volume Mounts.
 
     ```
     // Original (Bind Mounts)
@@ -257,28 +255,24 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 * Click on iothubowner get the shared access keys.
 * Copy the Connection String – primary key and paste it in the input box on the VSCode.
 
-    The connection string will look like:
+    The connection string will look like:<br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
     
-    ```
-    HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx
-    ```
-    
-    If the connection succeeds, the list of edge devices appears. You should see your Azure Stack Edge. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under the Azure stack device, expand the Modules node.
+    If the connection succeeds, the list of edge devices appears. You should see your Azure Stack Edge. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under the Azure Stack device, expand the Modules node.
     
 ## Troubleshooting
 
 * Kubernetes API Access (kubectl).
 
     * Follow the documentation to configure your machine for [access to the Kubernetes cluster](https://review.docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-create-kubernetes-cluster?toc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Ftoc.json&bc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Fbreadcrumb%2Ftoc.json&branch=release-tzl#debug-kubernetes-issues).
-    * All deployed IoTEdge modules use the 'iotedge' namespace. Make sure to include that when using kubectl.
+    * All deployed IoTEdge modules use the `iotedge` namespace. Make sure to include that when using kubectl.
 * Module Logs
 
-    The 'iotedge' tool is not accessible to obtain logs. You must use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)  to view the logs or pipe to a file. Example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`
+    The `iotedge` tool is not accessible to obtain logs. You must use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)  to view the logs or pipe to a file. Example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`
 * Pod and Node Metrics
 
     Use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  to see pod and node metrics. (This functionality will be available in the next Azure Stack Edge release. >v2007)<br/>`kubectl top pods -n iotedge`
 * Module Networking
-For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over moduleName:hostport.
+For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
     
     ```
     "createOptions": {

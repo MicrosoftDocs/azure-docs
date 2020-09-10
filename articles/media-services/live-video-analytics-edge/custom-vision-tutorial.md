@@ -149,20 +149,16 @@ Once finished, if the model is ready as per your satisfaction, you can export it
 
     1. Login into the registry by  executing the following command:
     
-    `docker login <address>`
-
-    Type in the user name and password when asked for authentication. 
+        `docker login <address>`
     
-    > [!NOTE]
-    > The password is not visible on the command line.
-    1. Tag your image using:
-    
-    `docker tag cvtruck   <address>/cvtruck`
-    1. Push your image using:
+        Type in the user name and password when asked for authentication. 
+        
+        > [!NOTE]
+        > The password is not visible on the command line.
+    1. Tag your image using:<br/>`docker tag cvtruck   <address>/cvtruck`
+    1. Push your image using:<br/>`docker push <address>/cvtruck`
 
-    `docker push <address>/cvtruck`
-
-    If successful you should see 'Pushed' on the command line along with the SHA for the image. 
+        If successful you should see 'Pushed' on the command line along with the SHA for the image. 
     1. You can also confirm by checking your Azure Container registry on the Azure portal. Here you will see the name of the repository along with the tag. 
 1. Set the IoTHub connection string by clicking on the "More actions" icon next to AZURE IOT HUB pane in the bottom left corner. You can copy the string from the appsettings.json file. (Here is another recommended approach to ensure you have the proper IoT Hub configured within VSCode via the [Select Iot Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
 
