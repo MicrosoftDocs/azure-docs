@@ -4,7 +4,7 @@ description: Find Azure Storage API reference, readme files, and client library 
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
@@ -46,7 +46,7 @@ The following table lists reference and sample documentation for Azure Queue sto
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure Storage Queue client library for Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Quickstart: Azure Queue storage client library v12 for Java](/azure/storage/queues/storage-quickstart-queues-java) |
+| 12.x | [Azure Storage Queue client library for Java](/java/api/overview/azure/storage-queue-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Quickstart: Azure Queue storage client library v12 for Java](/azure/storage/queues/storage-quickstart-queues-java) |
 | 8.x | [com.microsoft.azure.storage.queue](/java/api/com.microsoft.azure.storage.queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Quickstart: Manage blobs with Java v8 SDK](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
 
 ### Storage management

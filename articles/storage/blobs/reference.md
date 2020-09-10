@@ -4,7 +4,7 @@ description: Find Azure Blob storage API reference, readme files, and client lib
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -46,7 +46,7 @@ The following table lists reference and sample documentation for Azure Blob stor
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure Storage - Blobs](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Quickstart: Manage blobs with Java v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-java) |
+| 12.x | [Azure Storage - Blobs](https://docs.microsoft.com/java/api/overview/azure/storage-blob-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Quickstart: Manage blobs with Java v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-java) |
 | 8.x | [com.microsoft.azure.storage.blob](/java/api/com.microsoft.azure.storage.blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Quickstart: Manage blobs with Java v8 SDK](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
 
 ### Storage management
