@@ -51,7 +51,7 @@ landingContent:
             url: create-postgresql-hyperscale-server-group.md
           - text: Connect
             url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
-          - text: Migrate to
+          - text: Migrate
             url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
           - text: Restore
             url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
@@ -66,7 +66,7 @@ landingContent:
             url: create-sql-managed-instance.md
           - text: Connect
             url: connect-managed-instance.md
-          - text: Migrate to
+          - text: Migrate
             url: migrate-to-managed-instance.md
           - text: Restore
             url: restore-adventureworks-sample-db.md
