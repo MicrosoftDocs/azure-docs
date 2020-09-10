@@ -19,9 +19,6 @@ This topic describes how to enable and disable data retention policies for a dat
 
 The following example shows how to enable data retention by using [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
-> [!NOTE]
-> To enable the data retention feature in Azure SQL Edge (Preview), enable TF 12825 as a startup option, or use the DBCC TRACEON command. For more information on how to enable trace flags by using an mssql.conf file, see [Configure using an mssql.conf file](configure.md#configure-by-using-an-mssqlconf-file). 
-
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
 ```
@@ -93,9 +90,9 @@ The data retention setting on the database and the table, are used in conjunctio
 |Database Option | Table Option | Behavior |
 |----------------|--------------|----------|
 | OFF | OFF | Data Retention policy is disabled and both auto and manual cleanup of aged records is disabled.|
-| OFF | ON  | Data Retention policy is enabled for the table, however both auto and manual cleanup of aged records is disabled. |
+| OFF | ON  | Data Retention policy is enabled for the table. Auto cleanup of obsolete records is disabled, however manual cleanup method can be used to cleanup obsolete records. |
 | ON | OFF | Data Retention policy is enabled at the database level. However since the option is disabled at the table level, there is no retention-based cleanup of aged rows.|
-| ON | ON | Data Retention policy is enabled for both the database and tables. Auto/manual cleanup of aged records is enabled |
+| ON | ON | Data Retention policy is enabled for both the database and tables. Automatic cleanup of obsolete records is enabled. |
 
 ## Disable data retention on a table 
 
