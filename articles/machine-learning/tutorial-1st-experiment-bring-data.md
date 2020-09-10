@@ -197,7 +197,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 The `target_path` specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
 >[!TIP] 
-> Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, we recommend [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction) to ingest your data into Azure.
+> Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) to ingest your data into Azure.
 
 Run the Python file to upload the data (Note: The run should be quick, less than 15 seconds.)
 
