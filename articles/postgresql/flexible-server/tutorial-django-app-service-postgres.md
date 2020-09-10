@@ -189,7 +189,7 @@ python manage.py runserver
 ```
 Once the web app is fully loaded, the Django development server provides the local app URL in the message, "Starting development server at http://127.0.0.1:8000/. Quit the server with CTRL-BREAK".
 
-![Example Django development server output](./media/tutorial-django-app-service-postgres/django-dev-server-output.png)
+:::image type="content" source="./media/tutorial-django-app-service-postgres/django-dev-server-output.png" alt-text="Example Django development server output":::
 
 Test the app locally with the following steps:
 
@@ -265,11 +265,11 @@ Browse to *http:\//\<app-name>.azurewebsites.net* and test the app again in prod
 
 In the [Azure portal](https://portal.azure.com), search for the app name and select the app in the results.
 
-![Navigate to your Python Django app in the Azure portal](./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Navigate to your Python Django app in the Azure portal":::
 
 By default, the portal shows your app's **Overview** page, which provides a general performance view. Here, you can also perform basic management tasks like browse, stop, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![Manage your Python Django app in the Overview page in the Azure portal](./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png)
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Manage your Python Django app in the Overview page in the Azure portal":::
 
 
 ## Clean up resources
