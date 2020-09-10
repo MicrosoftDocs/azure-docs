@@ -156,14 +156,16 @@
               href: create-sql-managed-instance-azure-data-studio.md
             - name: Connect
               href: connect-managed-instance.md
+            - name: Monitoring, log analytics, billing information, Azure portal
+              href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: Delete
+              href: delete-managed-instance.md
+        - name: Migrate
+          items:
             - name: Migrate to SQL Managed Instance (Azure Arc)
               href: migrate-to-managed-instance.md
             - name: Restore AdventureWorks
               href: restore-adventureworks-sample-db.md
-            - name: Delete
-              href: delete-managed-instance.md
-        - name: Monitoring, log analytics, billing information, Azure portal
-          href: monitoring-log-analytics-azure-portal-managed-instance.md
 - name: Reference
   items:
   - name: azdata
