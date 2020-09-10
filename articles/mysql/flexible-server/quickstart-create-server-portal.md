@@ -44,20 +44,19 @@ Follow these steps to create a flexible server:
     >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Create server form"::: 
                                     
-|**Setting**|**Suggested Value**|**Description**|
-|---|---|---|
-Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
-Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.|
-Server name |*mydemoserver*|A unique name that identifies your flexible server. The domain name *mysql.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.|
-Admin username |*mydemouser*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.|
-Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).|
-Region|The region closest to your users| The location that is closest to your users.|
-Version|5.7| MySQL major version.|
-Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for     **Compute tier**, **Compute size**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **Save** to continue with configurations. The below screenshot shows the compute and storage options.|
-
+    |**Setting**|**Suggested Value**|**Description**|
+    |---|---|---|
+    Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
+    Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.|
+    Server name |*mydemoserver*|A unique name that identifies your flexible server. The domain name *mysql.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.|
+    Admin username |*mydemouser*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.|
+    Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).|
+    Region|The region closest to your users| The location that is closest to your users.|
+    Version|5.7| MySQL major version.|
+    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for     **Compute tier**, **Compute size**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **Save** to continue with configurations. The below screenshot shows the compute and storage options.|
+    
     >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Compute + storage":::
-
 
 5. Configure Networking options
 
