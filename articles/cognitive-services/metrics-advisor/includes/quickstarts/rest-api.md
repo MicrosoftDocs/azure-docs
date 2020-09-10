@@ -658,8 +658,8 @@ I wonder following api usage flow chart could be displayed in some place of doc
 
 #### brief version
 
-![REST API usage flow(../../media/ApiUsageFlow-MetricsMonitor1.png "REST API usage flow")
+![REST API usage flow](../../media/ApiUsageFlow-MetricsMonitor1.png "REST API usage flow")
 
 #### full version
 
-![REST API usage flow(../../media/ApiUsageFlow-MetricsMonitor2.png "REST API usage flow")
+![REST API usage flow](../../media/ApiUsageFlow-MetricsMonitor2.png "REST API usage flow")
