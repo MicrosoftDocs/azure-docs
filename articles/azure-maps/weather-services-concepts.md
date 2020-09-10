@@ -1,9 +1,9 @@
 ---
-title: Weather Services concepts | Microsoft Azure Maps
-description: In this article, you will learn about the concepts that apply to Microsoft Azure Maps Weather Services.
+title: Weather Services concepts in Microsoft Azure Maps
+description: Learn about the concepts that apply to Microsoft Azure Maps Weather Services.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/24/2020
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -524,23 +524,23 @@ Below is a table of available index IDs, their names, and a link to their range 
   Soil Moisture              | 34| [Poor-Excellent 1](#poor-excellent-1)
   Stargazing                 | 12| [Poor-Excellent 1](#poor-excellent-1)
 
-Below is the list of available Index Groups (indexGroupId):
+Below is the list of available Index groups (indexGroupId):
 
-  ID   | Group Name
-  -------- | ------------------
-  1       |All
-  2       |Aches and Pains
-  3       |Respiratory
-  4       |Gardening
-  5       |Environmental
-  6       |Outdoor Living
-  7       |Beach and Marine
-  8       |Sportsman
-  9       |Farming
-  10      |Health
-  11      | Outdoor
-  12       |Sporting
-  13       |Home
+  ID   | Group Name | Indices in this group |
+  -------- | ------------------|------
+  1       |All | All
+  2       |Aches and Pains | Arthritis Pain (21) </br> Migraine Headache (27) </br> Sinus Headache (30)
+  3       |Respiratory | Asthma (23) </br> Common Cold (25) </br> Flu Forecast (26)
+  4       |Gardening | Field Readiness (32) </br> Lawn Mowing (28) </br> Soil Moisture (34)</br>
+  5       |Environmental | Compositing (38) </br> Home Energy Efficiency (36) </br> Fuel Economy (37)
+  6       |Outdoor Living | Outdoor Barbecue (24) </br> Mosquito Activity (17)
+  7       |Beach and Marine | Beach & Pool (10) </br> Fishing (13) </br> Sailing (11)
+  8       |Sportsman | Fishing (13) </br> Hunting (20) </br> Outdoor Activity (29)</br>
+  9       |Farming |  Field Readiness (32) </br>  Soil Moisture (34)
+  10      |Health | Arthritis Pain (21) </br> Asthma (23) </br> Common Cold (25) </br> Dust & Dander (18) </br> Flu (26) </br> Healthy Heart Fitness (16) </br> Migraine Headache (27)
+  11      |Outdoor | Outdoor Barbecue (24) </br> Beach & Pool (10) </br> Bicycling (4) </br> Outdoor Concert (8) </br>  Field Readiness (32) </br> Fishing (13) </br> Golf Weather (5) </br> Hiking (3) </br> Hunting (20) </br> Jogging (2) </br> Kite Flying (9) </br> Mosquito Activity (17)</br> Lawn Mowing (28) </br> Outdoor Activity (29) </br> Running (1) </br> Sailing (11) </br> Skateboarding (7) </br> Ski Weather (15) </br>  Soil Moisture (34)</br> Stargazing (12) </br> Tennis (6)
+  12      |Sporting | Bicycling (4) </br> Golf Weather (5) </br> Hiking (3) </br>  Jogging (2) </br> Running (1) </br> Skateboarding (7) </br> Ski Weather (15) </br>Tennis (6)
+  13      |Home | Home Energy Efficiency (36) </br> Fuel Economy (37) </br> Indoor Activity (-2)
 
 ## Daily index range sets
 
