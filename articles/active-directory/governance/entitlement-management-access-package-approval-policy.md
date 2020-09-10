@@ -55,6 +55,7 @@ Follow these steps to specify the approval settings for requests for the access 
 
     ![Access package - Requests - Approval settings](./media/entitlement-management-access-package-approval-policy/approval.png)
 
+
 Use the following steps to add approvers after selecting how many stages you require: 
 
 ### Single-stage approval
@@ -120,7 +121,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
 
-    ![Access package - Policy - Add Alternate Approvers](../media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+    ![Access package - Policy - Add Alternate Approvers](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
 
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
 
