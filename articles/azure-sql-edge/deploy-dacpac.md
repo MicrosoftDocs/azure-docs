@@ -56,7 +56,7 @@ To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `
 
     9. On the **Set modules** page, select **Create**.
 
-5. After the module update, the package file are downloaded, unzipped, and deployed against the SQL Edge instance.
+5. After the module update, the package files are downloaded, unzipped, and deployed against the SQL Edge instance.
 
 On each restart of the Azure SQL Edge container, SQL Edge attempts to download the zipped file package and evaluate for changes. If a new version of the dacpac file is encountered, the changes are deployed to the database in SQL Edge.
 
