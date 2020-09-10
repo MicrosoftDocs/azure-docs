@@ -52,11 +52,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     
   + **azureml-pipeline-core**
     + Improved the documentation of the PipelineOutputFileDataset.parse_* methods.
-    + Introduced new experimental pipeline step which would allow users to provide command to run.
     + New Kusto Step and Kusto Compute Target.
     + Provided Swaggerurl property for pipeline-endpoint entity via that user can see the schema definition for published pipeline endpoint.
   + **azureml-pipeline-steps**
-    + Introduced new experimental pipeline step which would allow users to provide command to run.
     + New Kusto Step and Kusto Compute Target.
   + **azureml-telemetry**
     + Update description of the package for pypi overview page.
