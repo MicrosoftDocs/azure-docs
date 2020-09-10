@@ -26,18 +26,18 @@ The fixed set of states that can be overridden are:
 * **`Hidden`**: Respective meshes in the scene graph are hidden or shown.
 * **`Tint color`**: A rendered object can be color-tinted with its individual tint color and tint weight. The image below shows color tinting the rim of a wheel.
   
-  ![Color Tint](./media/color-tint.png)
+  ![Tint color used to turn an object green](./media/color-tint.png)
 
 * **`See-through`**: The geometry is rendered semi-transparently, for example to reveal the inner parts of an object. The following image shows the entire car being rendered in see-through mode, except for the red brake caliper:
 
-  ![See-Through](./media/see-through.png)
+  ![See-through mode used to make selected objects transparent](./media/see-through.png)
 
   > [!IMPORTANT]
   > The see-through effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
 
 * **`Selected`**: The geometry is rendered with a [selection outline](outlines.md).
 
-  ![Selection Outline](./media/selection-outline.png)
+  ![Outline option used to highlight a selected part](./media/selection-outline.png)
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
@@ -93,6 +93,11 @@ The `tint color` override is slightly special in that there's both an on/off/inh
 An instance of `HierarchicalStateOverrideComponent` itself doesn't add much runtime overhead. However, it's always good practice to keep the number of active components low. For instance, when implementing a selection system that highlights the picked object, it is recommended to delete the component when the highlight is removed. Keeping the components around with neutral features can quickly add up.
 
 Transparent rendering puts more workload on the server's GPUs than standard rendering. If large parts of the scene graph are switched to *see-through*, with many layers of geometry being visible, it may become a performance bottleneck. The same is valid for objects with [selection outlines](../../overview/features/outlines.md#performance).
+
+## API documentation
+
+* [C# HierarchicalStateOverrideComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C++ HierarchicalStateOverrideComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## Next steps
 

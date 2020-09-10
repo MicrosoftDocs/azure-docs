@@ -22,19 +22,7 @@ Azure DDoS protection, combined with application design best practices, provide 
 - **Basic**: Automatically enabled as part of the Azure platform. Always-on traffic monitoring, and real-time mitigation of common network-level attacks, provide the same defenses utilized by Microsoft's online services. The entire scale of Azure's global network can be used to distribute and mitigate attack traffic across regions. Protection is provided for IPv4 and IPv6 Azure [public IP addresses](virtual-network-public-ip-address.md).
 - **Standard**: Provides additional mitigation capabilities over the Basic service tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable, and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks, such as Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances, but this protection does not apply to App Service Environments. Real-time telemetry is available through Azure Monitor views during an attack, and for history. Rich attack mitigation analytics are available via diagnostic settings. Application layer protection can be added through the [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or by installing a 3rd party firewall from Azure Marketplace. Protection is provided for IPv4 and IPv6 Azure [public IP addresses](virtual-network-public-ip-address.md).
 
-|Feature                                         |DDoS Protection Basic                 |DDoS Protection Standard                      |
-|------------------------------------------------|--------------------------------------|----------------------------------------------|
-|Active traffic monitoring & always on detection |Yes                                   |Yes                                           |
-|Automatic attack mitigations                    |Yes                                   |Yes                                           |
-|Availability guarantee                          |Azure Region                          |Application                                   |
-|Mitigation policies                             |Tuned for Azure traffic region volume |Tuned for application traffic volume          |
-|Metrics & alerts                                |No                                    |Real time attack metrics & resource logs via                                                                                            Azure Monitor                                 |
-|Mitigation reports                              |No                                    |Post attack mitigation reports                |
-|Mitigation flow logs                            |No                                    |NRT log stream for SIEM integration           |
-|Mitigation policy customization                 |No                                    |Engage DDoS Experts                           |
-|Support                                         |Best effort                           |Access to DDoS Experts during an active attack|
-|SLA                                             |Azure Region                          |Application guarantee & cost protection       |
-|Pricing                                         |Free                                  |Monthly & usage based                         |
+![DDoS Protection Basic vs Standard](./media/ddos-protection-overview/ddoscomparison.png)
 
 Azure DDoS protection does not store customer data.
 
