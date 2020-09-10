@@ -12,38 +12,104 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 # Add Cards for Flexible Server Content
-landingContent: 
-  # Card 1
+
+
+landingContent:
+  # Card
   - title: About Flexible Server (Preview)
     linkLists:
       - linkListType: overview
-        links: 
+        links:
           - text: What is Flexible Server?
             url: overview.md
       - linkListType: quickstart
         links:
-          - text: Create a flexible server - Azure portal
+          - text: Create a flexible server
             url: quickstart-create-server-portal.md
-          - text: Create a flexible server - Azure CLI
-            url: quickstart-create-server-cli.md
+      - linkListType: tutorial
+        links:
+          - text: Create a PHP app with flexible server
+            url: tutorial-php-database-app.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
             url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
 
-  # Card 1
+
+
+# Card
   - title: Manage
     linkLists:
       - linkListType: concept
-        links: 
-          - text: Compute and storage 
+        links:
+          - text: Compute and storage options
             url: concepts-compute-storage.md
-          - text: Logging
-            url: concepts-slow-query-logs.md
+          - text: MySQL versions
+            url: concepts-supported-versions.md
+          - text: Networking
+            url: concepts-networking.md
+          - text: Monitor
+            url: concepts-monitoring.md
+          - text: Audit logs
+            url: concepts-audit-logs.md
       - linkListType: how-to-guide
         links:
-          - text: Manage server from Azure portal
+          - text: Manage server
             url: how-to-manage-server-portal.md
-          - text: Manage server with Azure CLI
-            url: how-to-manage-server-cli.md
+          - text: Stop/Start server
+            url: how-to-stop-start-server-portal.md        
+          - text: Configure and access logs
+            url: how-to-configure-slow-query-logs-portal.md
+          - text: Schedule maintenance
+            url: how-to-maintenance-portal.md
+# Card
+  - title: Business continuity
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Business continuity overview
+            url: concepts-business-continuity.md
+          - text: High availability
+            url: concepts-high-availability.md
+          - text: Backup and restore
+            url: concepts-backup-restore.md
+      - linkListType: how-to-guide
+        links:
+          - text: Restore a server
+            url: how-to-restore-server-portal.md
 
+  # Card
+  - title: Connect
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Connect using PHP
+          url: connect-php.md
+        - text: Connect using MySQL workbench
+          url: connect-workbench.md
+        - text: Connect using Python
+          url: connect-python.md
+      - linkListType: tutorial
+        links:
+        - text: Connect Web App in virtual network
+          url: tutorial-webapp-server-vnet.md
+
+  # Card
+  - title: Migrate
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate online
+            url: ../howto-migrate-online.md
+
+# Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI developer reference
+            url:  /cli/azure/mysql
+          - text: REST API developer reference
+            url: /rest/api/mysql/
+          - text: Azure Resource Manager templates
+            url: /azure/templates/microsoft.dbformysql/allversions
