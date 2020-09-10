@@ -1,6 +1,6 @@
 ---
 title: Connect Microsoft 365 Defender raw data to Azure Sentinel| Microsoft Docs
-description: Learn how to ingest raw event data from Microsoft Defender for Endpoint (formerly Microsoft Defender ATP) and associated products, through the Microsoft 365 Defender connector, into Azure Sentinel.
+description: Learn how to ingest raw event data from Microsoft 365 Defender into Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -17,7 +17,7 @@ ms.date: 10/13/2019
 ms.author: yelevin
 
 ---
-# Ingest raw data logs from Microsoft Defender for Endpoint into Azure Sentinel, using the new Microsoft 365 Defender connector
+# Connect data from Microsoft 365 Defender to Azure Sentinel
 
 > [!IMPORTANT]
 >
@@ -27,9 +27,11 @@ ms.author: yelevin
 >
 > You may see the old names still in use for a period of time.
 
-The new [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) connector lets you stream raw event data from [Microsoft Defender for Endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) into Azure Sentinel. This will enable you to more comprehensively analyze security events across your organization and build playbooks for effective and immediate response.
+## Background
 
-With the integration of Microsoft Defender for Endpoint **raw event logs** into Sentinel, you can collect your [Microsoft Defender for Endpoint advanced hunting](https://aka.ms/mdatpAH) events straight into your Azure Sentinel workspace, and benefit from the following: 
+The new [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) connector lets you stream **advanced hunting** logs - a type of raw event data - from Microsoft 365 Defender into Azure Sentinel. 
+
+With the integration of [Microsoft Defender for Endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) into the Microsoft 365 security umbrella, you can now collect your Microsoft Defender for Endpoint [advanced hunting](https://aka.ms/mdatpAH) events using the Microsoft 365 Defender connector, and stream them straight into new purpose-built tables in your Azure Sentinel workspace. In doing so, you will benefit from the following: 
 
 - Full availability of Microsoft Defender for Endpoint advanced hunting logs, either standalone or through the Microsoft 365 Defender portal if applicable, in identical schema in either case.
 
@@ -58,6 +60,7 @@ If Microsoft Defender for Endpoint is deployed and ingesting your data, the even
 1. In Azure Sentinel, select **Data connectors**, select **Microsoft 365 Defender (Preview)** from the gallery and select **Open connector page**.
 
 1. The following types of events can be collected from their corresponding advanced hunting tables. Mark the check boxes of the event types you wish to collect:
+
     | Events type | Table name |
     |-|-|
     | Machine information (including OS information) | DeviceInfo |
