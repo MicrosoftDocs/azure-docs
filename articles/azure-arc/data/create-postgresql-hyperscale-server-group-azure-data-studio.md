@@ -15,11 +15,7 @@ ms.topic: how-to
 
 This document walks you through the steps for using Azure Data Studio] to provision Azure Arc enabled PostgreSQL Hyperscale server groups.
 
-## Prerequisites
-
-- [Install `azdata`, Azure Data Studio, and Azure CLI](install-client-tools.md)
-- Install Azure Data Studio extensions for **Azure Data CLI**, **Azure Arc**, and **PostgreSQL** 
-- Install the [Azure Arc Data Controller](create-data-controller-using-azdata.md)
+[!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 ## Connect to the Azure Arc data controller
 

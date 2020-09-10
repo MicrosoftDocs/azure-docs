@@ -15,6 +15,8 @@ ms.topic: how-to
 
 This document describes the steps to deploy a PostgreSQL Hyperscale server group on Azure Arc.
 
+[!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
+
 ## Getting started
 If you are already familiar with the topics below you may skip this paragraph.
 There are important topics you may want read before you proceed with deployment:
