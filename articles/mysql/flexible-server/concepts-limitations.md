@@ -85,5 +85,5 @@ The following are unsupported:
 ## Next steps
 
 - Understand [what’s available for compute and storage options](concepts-compute-storage.md)
-<!-- - Learn about [Supported MySQL Database Versions](concepts-supported-versions.md)
-- Review [how to back up and restore a server in Azure Database for MySQL using the Azure portal](howto-restore-server-portal.md)-->
+- Learn about [Supported MySQL Versions](concepts-supported-versions.md)
+- Review [how to back up and restore a server using the Azure portal](how-to-restore-server-portal.md)
