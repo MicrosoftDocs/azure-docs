@@ -62,17 +62,17 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 7. On the **OAuth consent screen**, enter an **Application name**. 
 
-   ![Screenshot showing the Google OAuth consent screen option](media/google-federation/google-oauth-consent-screen.png)
+   ![Screenshot showing the Google OAuth consent screen option](/media/google-federation/google-oauth-consent-screen.png)
 
 8. Scroll to the **Authorized domains** section and enter microsoftonline.com.
 
-   ![Screenshot showing the Authorized domains section](media/google-federation/google-oauth-authorized-domains.png)
+   ![Screenshot showing the Authorized domains section](media/google-federation/google-oauth-authorized-domains.PNG)
 
 9. Select **Save**.
 
 10. Choose **Credentials**. In the **Create credentials** menu, choose **OAuth client ID**.
 
-   ![Screenshot showing the Google APIs create credentials option](media/google-federation/google-api-credentials.png)
+    ![Screenshot showing the Google APIs create credentials option](media/google-federation/google-api-credentials.png)
 
 11. Under **Application type**, choose **Web application** and give the application a suitable name, for example "Azure AD B2B", and then under **Authorized redirect URIs**, enter the following URIs:
    - `https://login.microsoftonline.com` 
@@ -85,7 +85,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 12. Select **Create**. Copy the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
 
-   ![Screenshot showing the OAuth client ID and client secret](media/google-federation/google-auth-client-id-secret.png)
+    ![Screenshot showing the OAuth client ID and client secret](media/google-federation/google-auth-client-id-secret.png)
 
 ## Step 2: Configure Google federation in Azure AD 
 Now you'll set the Google client ID and client secret, either by entering it in the Azure AD portal or by using PowerShell. Be sure to test your Google federation configuration by inviting yourself using a Gmail address and trying to redeem the invitation with your invited Google account. 
