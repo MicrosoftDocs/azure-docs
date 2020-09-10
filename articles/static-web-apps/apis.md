@@ -15,8 +15,8 @@ Azure Static Web Apps provides serverless API endpoints via [Azure Functions](..
 
 - **Integrated security** with direct access to user [authentication and role-based authorization](user-information.md) data.
 - **Seamless routing** that makes the _api_ route available to the web app securely without requiring custom CORS rules.
-- **Azure Functions** v3 compatible with Node.js 12 or .NET Core 3.1.
-- **HTTP triggers** and output bindings.
+- **Azure Functions** v3 compatible with Node.js 12, .NET Core 3.1, and Python 3.8.
+- **HTTP triggers** and input/output bindings.
 
 ## Configuration
 
@@ -27,7 +27,7 @@ API endpoints are available to the web app through the _api_ route. While this r
 Azure Static Web Apps provides an API through Azure Functions. The capabilities of Azure Functions are focused to a specific set of features that enable you to create an API for a web app and allow the web app to connect to API securely. These features come with some constraints, including:
 
 - The API route prefix must be _api_.
-- The API must either be a JavaScript or C# Azure Functions app.
+- The API must either be a JavaScript, C#, or Python Azure Functions app.
 - Route rules for API functions only support [redirects](routes.md#redirects) and [securing routes with roles](routes.md#securing-routes-with-roles).
 - Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Input and output [bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) are supported.
