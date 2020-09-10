@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. You can create a new registration and then use the [.NET CLI](https://docs.microsoft.com/dotnet/core/tools/) to create a new Blazor app using the following instructions. If you are using Visual Studio 2019, you can skip this step and complete step two. 
 
-First, follow the instructions in [Register a new application using the Azure portal](https://review.docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) with the following settings:
+First, follow the instructions in [Register an application in the Azure portal](quickstart-register-app.md) with the following settings:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Leave the **Redirect URI** drop down set to **Web** and provide the following redirect URI: `https://localhost:{PORT}/signin-oidc`. The default port for an app running on Kestrel is 5001. If the app is run on a different Kestrel port, use the app's port. For IIS Express, the randomly generated port for the app can be found in the app's properties in the **Debug** panel. Since the app doesn't exist at this point and the IIS Express port isn't known, you can update the redirect URI after the app is created and you have the port number. 
