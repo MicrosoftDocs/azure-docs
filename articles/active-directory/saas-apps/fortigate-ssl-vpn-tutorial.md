@@ -94,12 +94,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL, Identifier, Reply URL and Logout URL. Contact [FortiGate SSL VPN Client support team](mailto:tac_amer@fortinet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. FortiGate SSL VPN application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The FortiGate SSL VPN application expects SAML assertions in a specific format, which requires you to add custom attribute mappings to the configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, FortiGate SSL VPN application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
+1. The two additional claims required by FortiGate SSL VPN are shown below. The names of these claims must match the names used later in the section of this tutorial, **Perform FortiGate command-line configuration**. To create these additional claims,
+   
+   1. Click **Edit** next to **User Attributes & Claims**
+   1. Click **Add new claim**
+   1. In the **Name** field, enter **username**
+   1. In the **Source attribute** field, select **user.userprincipalname**
+   1. Click **Save**
+   1. Click **Add a group claim**
+   1. Select **All groups**
+   1. Check **Customize the name of the group claim**
+   1. In the **Name** field, enter **group**
+   1. Click **Save**
+   
 	| Name |  Source Attribute|
 	| ------------ | --------- |
 	| username | user.userprincipalname |
