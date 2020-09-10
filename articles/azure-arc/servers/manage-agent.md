@@ -13,7 +13,7 @@ After initial deployment of the Azure Arc enabled servers Connected Machine agen
 
 Before removing the Connected Machine agent from your Arc enabled server, consider the following to avoid unexpected issues or costs added to your Azure bill:
 
-* If you have deployed Azure VM extensions to an enabled server and you remove the Connected Machine agent or you delete the resource representing the Arc enabled server in the resource group, those extensions continue to run and perform their normal operation.
+* If you have deployed Azure VM extensions to an enabled server, and you remove the Connected Machine agent or you delete the resource representing the Arc enabled server in the resource group, those extensions continue to run and perform their normal operation.
 
 * If you delete the resource representing the Arc enabled server in your resource group, but you don't uninstall the VM extensions, when you re-register the machine, you won't be able to manage the installed VM extensions.
 
