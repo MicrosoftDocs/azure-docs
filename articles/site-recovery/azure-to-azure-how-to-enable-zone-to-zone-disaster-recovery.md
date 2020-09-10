@@ -5,7 +5,7 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/19 
+ms.date: 04/28/2019
 ms.author: sideeksh
 
 ---
