@@ -1,5 +1,5 @@
 ---
-title: Servers - Azure Database for PostgreSQL - Flexible Server
+title: Servers in Azure Database for PostgreSQL - Flexible Server (Preview)
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Flexible Server.
 author: lfittl-msft
 ms.author: lufittl
@@ -67,7 +67,4 @@ As a managed service for Postgres, the configurable parameters in Azure Database
 
 - For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
 - For information about specific resource quotas and limitations based on your **configuration**, see [Compute and Storage options](concepts-compute-storage.md).
-<!--
-- For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
-- View and edit server parameters through [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md)
--->.
+- View and edit server parameters through [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).

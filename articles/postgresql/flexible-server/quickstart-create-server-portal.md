@@ -161,9 +161,7 @@ To delete only the newly created server:
 
 3. Confirm the name of the server you want to delete, and view the databases under it that are affected. Enter your server name in the text box, such as the example, **mydemoserver**. Select **Delete**.
 
-<!--
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate your database using dump and restore](howto-migrate-using-dump-and-restore.md)
--->
+>[Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)
