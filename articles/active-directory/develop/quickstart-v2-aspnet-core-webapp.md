@@ -116,7 +116,7 @@ This section gives an overview of the code required to sign in users. This overv
 
 ### Startup class
 
-*Microsoft.AspNetCore.Authentication* middleware uses a Startup class that is executed when the hosting process initializes:
+The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's executed when the hosting process initializes:
 
 ```csharp
   public void ConfigureServices(IServiceCollection services)
@@ -136,17 +136,17 @@ This section gives an overview of the code required to sign in users. This overv
   }
 ```
 
-The method `AddAuthentication` configures the service to add cookie-based authentication, which is used on browser scenarios and to set the challenge to OpenID Connect.
+The `AddAuthentication()` method configures the service to add cookie-based authentication, which is used in browser scenarios and to set the challenge to OpenID Connect.
 
-The line containing `.AddMicrosoftIdentityWebApp` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the **appsettings.json** configuration file.
+The line containing `.AddMicrosoftIdentityWebApp` adds Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 
-> |Where | Description |
-> |---------|---------|
-> | ClientId  | Application (client) ID from the application registered in the Azure portal. |
-> | Instance | The STS endpoint for the user to authenticate. Usually, this is `https://login.microsoftonline.com/` for public cloud.
-> | TenantId | Name of your tenant or your tenant ID, or *common* to sign-in users with work or school accounts or Microsoft personal accounts. |
+| *appsettings.json* key | Description                                                                                                                                                          |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ClientId`             | **Application (client) ID** of the application registered in the Azure portal.                                                                                       |
+| `Instance`             | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
+| `TenantId`             | Name of your tenant or its tenant ID (a GUID), or *common* to sign in users with work or school accounts or Microsoft personal accounts.                             |
 
-> Also note the `Configure` method which contains two important methods: `app.UseCookiePolicy()` and `app.UseAuthentication()`
+The `Configure()` method contains two important methods, `app.UseCookiePolicy()` and `app.UseAuthentication()`, that enable their named functionality.
 
 ```csharp
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -167,7 +167,12 @@ You can protect a controller or controller methods using the `[Authorize]` attri
 
 ## Next steps
 
-Check out the GitHub repo for this ASP.NET Core tutorial for more information. This repo includes instructions on how to add authentication to a brand new ASP.NET Core Web application, how to call Microsoft Graph, and other Microsoft APIs, how to call your own APIs, how to add authorization, how to sign in users in national clouds, or with social identities and more:
+The GitHub repo that contains this ASP.NET Core tutorial includes instructions and more code samples that show you how to:
+
+- Add authentication to a new ASP.NET Core Web application
+- Call Microsoft Graph, other Microsoft APIs, or your own web APIs
+- Add authorization
+- Sign in users in national clouds or with social identities
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core web app tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+> [ASP.NET Core web app tutorials on GitHub](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
