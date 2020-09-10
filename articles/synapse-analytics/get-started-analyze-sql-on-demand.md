@@ -17,7 +17,7 @@ In this tutorial, you'll learn how to analyze data with SQL on-demand using data
 
 ## Analyze NYC Taxi data in blob storage  using SQL on-demand
 
-1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT TIO 100 rows**
+1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT TOP 100 rows**
 1. This will create a new SQL script with the following code:
 
     ```
