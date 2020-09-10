@@ -112,7 +112,7 @@ The following steps show you how to create and display the Map control in a web 
     });
     ```
 
-    In the map `ready` event handler, the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow. For more traffic options, see [TrafficOptions interface](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions?view=azure-maps-typescript-latest).
+    In the map `ready` event handler, the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow. For more traffic options, see [TrafficOptions interface](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions?view=azure-maps-typescript-latest&preserve-view=false).
 
 2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you zoom into any city, like Los Angeles, you will see that the streets display with current traffic flow data.
 
@@ -186,7 +186,7 @@ In this tutorial, two routes will be calculated and rendered on the map. The fir
 
     This code creates two [GeoJSON Point objects](https://en.wikipedia.org/wiki/GeoJSON) to represent start and end points, which are then added to the data source.
 
-    The last block of code sets the camera view using the latitude and longitude of the start and end points. The start and end points are added to the data source. The bounding box for the start and end points is calculated using the `atlas.data.BoundingBox.fromData` function. This bounding box is used to set the map cameras view over the entire route using the `map.setCamera` function. Padding is added to compensate for the pixel dimensions of the symbol icons. For more information about the Map control's setCamera property, see [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
+    The last block of code sets the camera view using the latitude and longitude of the start and end points. The start and end points are added to the data source. The bounding box for the start and end points is calculated using the `atlas.data.BoundingBox.fromData` function. This bounding box is used to set the map cameras view over the entire route using the `map.setCamera` function. Padding is added to compensate for the pixel dimensions of the symbol icons. For more information about the Map control's setCamera property, see [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) property.
 
 3. Save **TruckRoute.html** and refresh your browser. The map is now centered over Seattle. The teardrop blue pin marks the start point. The round blue pin marks the end point.
 
@@ -214,7 +214,7 @@ This section shows you how to use the Azure Maps Route service to get directions
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instance. The `routeURL` represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
+   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest&preserve-view=false) instance. The `routeURL` represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
 
 2. After setting up credentials and the URL, add the following JavaScript code to construct a truck route route from start to end point. This route is created and displayed for a truck carrying `USHazmatClass2` classed cargo.
 
@@ -243,7 +243,7 @@ This section shows you how to use the Azure Maps Route service to get directions
     });
     ```
 
-    The code above queries the Azure Maps Route service through the [Azure Maps Route Directions API](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. We are adding it at the index of 0, to ensure that the truck route is rendered before any other lines in the data source, because the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line: a blue stroke color, and a stroke width of nine pixels.
+    The code above queries the Azure Maps Route service through the [Azure Maps Route Directions API](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-&preserve-view=false). The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. We are adding it at the index of 0, to ensure that the truck route is rendered before any other lines in the data source, because the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line: a blue stroke color, and a stroke width of nine pixels.
 
     >[!TIP]
     > To see all possible options and values for the Azure Maps Route Directions API, see [URI Parameters for Post Route Directions](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#uri-parameters).
@@ -266,7 +266,7 @@ This section shows you how to use the Azure Maps Route service to get directions
     });
     ```
 
-    The code above queries the Azure Maps routing service through the  [Azure Maps Route Directions API](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. Two properties are added to the truck route line: a purple stroke color, and a stroke width of five pixels.
+    The code above queries the Azure Maps routing service through the  [Azure Maps Route Directions API](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-&preserve-view=false) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. Two properties are added to the truck route line: a purple stroke color, and a stroke width of five pixels.
 
 4. Save the **TruckRoute.html** file and refresh your web browser. The map should now display the truck and car routes.
 
