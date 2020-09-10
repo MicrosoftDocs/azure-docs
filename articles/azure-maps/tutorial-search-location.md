@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
-description: In this tutorial, you will learn how to search for points of interest on a map using Microsoft Azure Maps.
+description: Learn how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive popup boxes to a map.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -168,7 +168,7 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
 
 ### Service Module
 
-1. In the map `ready` event handler, construct the search service URL by adding the following Javascript code.
+1. In the map `ready` event handler, construct the search service URL by adding the following JavaScript code.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key

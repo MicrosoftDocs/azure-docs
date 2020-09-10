@@ -4,7 +4,7 @@ description: 'Tutorial: Learn how to use the open-source Azure Cosmos DB data mi
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/31/2020
 ms.author: dech
 
 ---
@@ -35,6 +35,9 @@ Before following the instructions in this article, ensure that you do the follow
 * **Increase throughput:** The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see [performance levels](performance-levels.md) and [pricing tiers](https://azure.microsoft.com/pricing/details/cosmos-db/) in Azure Cosmos DB.
 
 * **Create Azure Cosmos DB resources:** Before you start the migrating data, pre-create all your collections from the Azure portal. To migrate to an Azure Cosmos DB account that has database level throughput, provide a partition key when you create the Azure Cosmos containers.
+
+> [!IMPORTANT]
+> To make sure that the Data migration tool uses Transport Layer Security (TLS) 1.2 when connecting to your Azure Cosmos accounts, use the .NET Framework version 4.7 or follow the instructions found in [this article](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 
 ## <a id="Overviewl"></a>Overview
 

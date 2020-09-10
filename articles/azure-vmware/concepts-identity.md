@@ -1,11 +1,11 @@
 ---
 title: Concepts - Identity and access
-description: Learn about the identity and access concepts of Azure VMware Solution (AVS)
+description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
 ms.date: 05/04/2020
 ---
 
-# Azure VMware Solution (AVS) identity concepts
+# Azure VMware Solution identity concepts
 
 A vCenter server and NSX-T manager are provisioned when a private cloud is deployed. You use vCenter to manage virtual machine workloads and NSX-T manager to extend the private cloud software-defined network.
 

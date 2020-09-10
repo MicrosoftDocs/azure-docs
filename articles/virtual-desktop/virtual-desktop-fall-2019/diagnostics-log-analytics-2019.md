@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop (classic) diagnostics log analytics - Azure
 description: How to use log analytics with the Windows Virtual Desktop (classic) diagnostics feature.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
@@ -31,7 +28,7 @@ We recommend you use Log Analytics to analyze diagnostics data in the Azure clie
 
 Before you can use Log Analytics with the diagnostics feature, you'll need to [create a workspace](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) to get the following information:
+After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) to get the following information:
 
 - The workspace ID
 - The primary key of your workspace

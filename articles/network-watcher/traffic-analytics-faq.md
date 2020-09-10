@@ -31,7 +31,7 @@ Traffic Analytics requires the following prerequisites:
 
 Your account must meet one of the following to enable traffic analytics:
 
-- Your account must have any one of the following role-based access control (RBAC) roles at the subscription scope: owner, contributor, reader, or network contributor.
+- Your account must have any one of the following Azure roles at the subscription scope: owner, contributor, reader, or network contributor.
 - If your account is not assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
             
     - Microsoft.Network/applicationGateways/read
@@ -400,4 +400,3 @@ The virtual subnetworks topology page contains two main sections:
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
 - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
 - On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.    
-

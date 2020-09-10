@@ -11,7 +11,7 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 06/16/2020
 ms.author: aahi
-ms.custom: seodec2018, tracking-python
+ms.custom: seodec2018, devx-track-python
 ---
 
 # Quickstart: Perform a news search using Python and the Bing News Search REST API

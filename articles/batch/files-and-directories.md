@@ -2,18 +2,22 @@
 title: Files and directories in Azure Batch
 description: Learn about files and directories and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 08/03/2020
 
 ---
 # Files and directories in Azure Batch
 
-In Azure Batch, each task has a working directory under which it creates zero or more files and directories. This working directory can be used for storing the program that is run by the task, the data that it processes, and the output of the processing it performs. All files and directories of a task are owned by the task user.
+In Azure Batch, each task has a working directory under which it can create files and directories. This working directory can be used for storing the program that is run by the task, the data that it processes, and the output of the processing it performs. All files and directories of a task are owned by the task user.
 
-The Batch service exposes a portion of the file system on a node as the *root directory*. Tasks can access the root directory by referencing the `AZ_BATCH_NODE_ROOT_DIR` environment variable. For more information about using environment variables, see [Environment settings for tasks](jobs-and-tasks.md#environment-settings-for-tasks).
+The Batch service exposes a portion of the file system on a node as the *root directory*. This root directory is located on the temporary storage drive of the VM, not directly on the OS drive.
+
+Tasks can access the root directory by referencing the `AZ_BATCH_NODE_ROOT_DIR` environment variable. For more information about using environment variables, see [Environment settings for tasks](jobs-and-tasks.md#environment-settings-for-tasks).
+
+## Root directory structure
 
 The root directory contains the following directory structure:
 
-![Compute node directory structure][media\files-and-directories\node-folder-structure.png]
+![Screenshot of the compute node directory structure.](media\files-and-directories\node-folder-structure.png)
 
 - **applications**: Contains information about the details of application packages installed on the compute node. Tasks can access this directory by referencing the `AZ_BATCH_APP_PACKAGE` environment variable.
 
@@ -28,7 +32,7 @@ The root directory contains the following directory structure:
 - **workitems**: This directory contains the directories for jobs and their tasks on the compute node.
 
     Within the **workitems** directory, a **Tasks** directory is created for each task that runs on the node. This directory can be accessed by referencing the `AZ_BATCH_TASK_DIR` environment variable.
-    
+
     Within each **Tasks** directory, the Batch service creates a working directory (`wd`) whose unique path is specified by the `AZ_BATCH_TASK_WORKING_DIR` environment variable. This directory provides read/write access to the task. The task can create, read, update, and delete files under this directory. This directory is retained based on the *RetentionTime* constraint that is specified for the task.
 
     The `stdout.txt` and `stderr.txt` files are written to the **Tasks** folder during the execution of the task.

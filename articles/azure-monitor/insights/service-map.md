@@ -31,7 +31,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 ## Enable Service Map
 
 1. Enable the Service Map solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](solutions.md).
-1. [Install the Dependency agent on Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
+1. [Install the Dependency agent on Windows](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
 You access Service Map in the Azure portal from your Log Analytics workspace, and select the option **Solutions** from the left pane.<br><br> ![Select Solutions option in workspace](./media/service-map/select-solution-from-workspace.png).<br> From the list of solutions, select **ServiceMap(workspaceName)** and in the Service Map solution overview page click on the Service Map summary tile.<br><br> ![Service Map summary tile](./media/service-map/service-map-summary-tile.png).
 
@@ -600,4 +600,3 @@ Check the `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (W
 ## Suggestions
 
 Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.
-

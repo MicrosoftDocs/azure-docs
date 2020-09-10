@@ -21,10 +21,12 @@ One managed image supports up to 20 simultaneous deployments. Attempting to crea
 
 Sysprep removes all your personal account and security information, and then prepares the machine to be used as an image. For information about Sysprep, see [Sysprep overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep support for server roles](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) and [Unsupported scenarios](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep requires the drives to be fully decrypted before execution. If you have enabled encryption on your VM, disable encryption before you run Sysprep.
+Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep support for server roles](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) and [Unsupported scenarios](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
 > After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a [copy of the VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize its copy. 
+>
+>Sysprep requires the drives to be fully decrypted. If you have enabled encryption on your VM, disable encryption before you run Sysprep.
 >
 > If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
@@ -34,13 +36,15 @@ To generalize your Windows VM, follow these steps:
 
 1. Sign in to your Windows VM.
    
-2. Open a Command Prompt window as an administrator. Change the directory to %windir%\system32\sysprep, and then run `sysprep.exe`.
+2. Open a Command Prompt window as an administrator. 
+
+3. Delete the panther directory (C:\Windows\Panther). Then change the directory to %windir%\system32\sysprep, and then run `sysprep.exe`.
    
-3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)** and select the **Generalize** check box.
+4. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)** and select the **Generalize** check box.
    
-4. For **Shutdown Options**, select **Shutdown**.
+5. For **Shutdown Options**, select **Shutdown**.
    
-5. Select **OK**.
+6. Select **OK**.
    
     ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

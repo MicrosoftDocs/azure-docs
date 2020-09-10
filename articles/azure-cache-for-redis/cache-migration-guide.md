@@ -46,7 +46,7 @@ General steps to implement this option are:
 
 ### Export data to an RDB file and import it into Azure Cache for Redis
 
-Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. This file, called RDB, can be read by another Redis cache. [Azure Cache for Redis premium tier](cache-premium-tier-intro.md) supports importing data into a cache instance via RDB files. You can use an RDB file to transfer data from an existing cache to Azure Cache for Redis.
+Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. This file, called RDB, can be read by another Redis cache. [Azure Cache for Redis premium tier](cache-overview.md#service-tiers) supports importing data into a cache instance via RDB files. You can use an RDB file to transfer data from an existing cache to Azure Cache for Redis.
 
 > [!IMPORTANT]
 > RDB file format can change between Redis versions and may not maintain backward-compatibility. The Redis version of the cache you're exporting from should be equal or less than the version provided by Azure Cache for Redis.
@@ -109,5 +109,5 @@ General steps to implement this option are:
 ## Next steps
 Learn more about Azure Cache for Redis features.
 
-* [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md)
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
 * [Import data](cache-how-to-import-export-data.md#import)

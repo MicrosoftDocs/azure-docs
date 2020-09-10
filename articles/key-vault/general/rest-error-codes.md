@@ -85,7 +85,7 @@ Tokens are base64 encoded and the values can be decoded at websites such as [htt
 
 We can see many important parts in this token:
 
-- aud (audience): The resource of the token. Notice that this is <https://vault.azure.net>. This token will NOT work for any resource that does not explicitly match this value, such as graph.
+- aud (audience): The resource of the token. Notice that this is `https://vault.azure.net`. This token will NOT work for any resource that does not explicitly match this value, such as graph.
 - iat (issued at): The number of ticks since the start of the epoch when the token was issued.
 - nbf (not before): The number of ticks since the start of the epoch when this token becomes valid.
 - exp (expiration): The number of ticks since the start of the epoch when this token expires.
@@ -108,7 +108,7 @@ Content-Length: 192
 resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
 ```
 
-The following user-supplied information mush be correct:
+The following user-supplied information must be correct:
 
 - The key vault tenant ID
 - Resource value set to https%3A%2F%2Fvault.azure.net (URL encoded)

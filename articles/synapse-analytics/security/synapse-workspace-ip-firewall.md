@@ -30,7 +30,7 @@ You can also add IP firewall rules to a Synapse workspace after the workspace is
 
 ![Azure Synapse workspace IP configuration in Azure portal.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## Connecting to Synapse from your own network
+## Connect to Synapse from your own network
 
 You can connect to your Synapse workspace using Synapse Studio. You can also use SQL Server Management Studio (SSMS) to connect to the SQL resources (SQL pools and SQL on-demand) in your workspace.
 

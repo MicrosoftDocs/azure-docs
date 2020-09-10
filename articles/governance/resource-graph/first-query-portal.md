@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first portal query"
 description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
@@ -73,8 +73,8 @@ functions to achieve your intended results.
 After running the last query above, if you select the **Charts** tab, you get a message that "the
 result set isn't compatible with a pie chart visualization." Queries that list results can't be made
 into a chart, but queries that provide counts of resources can. Using the
-[Sample query - Count virtual machines by OS type](./samples/starter.md#count-os),
-let's create a visualization from the Resource Graph query.
+[Sample query - Count virtual machines by OS type](./samples/starter.md#count-os), let's create a
+visualization from the Resource Graph query.
 
 1. In the **Query 1** portion of the window, enter the following query and select **Run query**.
 

@@ -11,12 +11,11 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
 ---
 
 # Resources for migrating applications to Azure Active Directory
 
-Resources to help you migrate application access and authentication to Azure Active Directory (Azure AD). Take this short survey (https://aka.ms/AppsMigrationFeedback) to provide feedback on your experience migrating apps to Azure AD (including blockers to migration, need for tooling / guidance, or reasons for retaining your on-premises IDP). 
+Resources to help you migrate application access and authentication to Azure Active Directory (Azure AD).
 
 | Resource  | Description  |
 |:-----------|:-------------|

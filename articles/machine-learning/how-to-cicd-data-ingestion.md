@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ms.author: iefedore
 author: eedorenko
 manager: davete
@@ -62,7 +62,7 @@ For example, the code would be stored in an Azure DevOps, GitHub, or GitLab repo
 The data engineers work with the Python notebook source code either locally in an IDE (for example, [Visual Studio Code](https://code.visualstudio.com)) or directly in the Databricks workspace. Once the code changes are complete, they are merged to the repository following a branching policy.
 
 > [!TIP] 
-> We recommended storing the code in `.py` files rather than in `.ipynb` Jupyter notebook format. It improves the code readability and enables automatic code quality checks in the CI process.
+> We recommended storing the code in `.py` files rather than in `.ipynb` Jupyter Notebook format. It improves the code readability and enables automatic code quality checks in the CI process.
 
 ### Azure Data Factory Source Code
 

@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
-ms.custom: akjosh
+ms.custom: akjosh, devx-track-azurecli
 
 ---
 # Share gallery VM images across tenants in Azure

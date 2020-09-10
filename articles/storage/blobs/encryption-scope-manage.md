@@ -1,14 +1,14 @@
 ---
 title: Create and manage encryption scopes (preview)
-description: 
+description: Learn how to create an encryption scope to isolate blob data at the container or blob level.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/25/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -18,9 +18,11 @@ Encryption scopes (preview) enable you to manage encryption at the level of an i
 
 This article shows how to create an encryption scope. It also shows how to specify an encryption scope when you create a blob or container.
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## Create an encryption scope
 
-To create an encryption scope, you must first create an Azure key vault and add the key you intend to use for the scope. The key vault must have both the **Soft Delete** and **Purge Protection** properties enabled and must be in the same region as the storage account. For more information, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../common/encryption-customer-managed-keys.md).
+You can create encryption scopes with a Microsoft-managed key or with a customer-managed key that's stored in Azure Key Vault. To create an encryption scope with a customer-managed key, you must first create an Azure key vault and add the key you intend to use for the scope. The key vault must have both the **Soft Delete** and **Purge Protection** properties enabled and must be in the same region as the storage account. For more information, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../common/encryption-customer-managed-keys.md).
 
 An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify it when you create a blob. You can also specify a default encryption scope when you create a container, which automatically applies to all blobs in the container.
 

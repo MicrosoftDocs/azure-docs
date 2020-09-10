@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Amazon Web Services (AWS) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Amazon Web Services (AWS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 07/14/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Amazon Web Services (AWS)
@@ -78,7 +72,7 @@ To configure the integration of Amazon Web Services (AWS) into Azure AD, you nee
 1. In the **Add from the gallery** section, type **Amazon Web Services (AWS)** in the search box.
 1. Select **Amazon Web Services (AWS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Amazon Web Services (AWS)
+## Configure and test Azure AD SSO for Amazon Web Services (AWS)
 
 Configure and test Azure AD SSO with Amazon Web Services (AWS) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amazon Web Services (AWS).
 
@@ -130,7 +124,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](./media/amazon-web-service-tutorial/certificate.png)
 
 1. In the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
 
@@ -382,8 +376,6 @@ When you click the Amazon Web Services (AWS) tile in the Access Panel, you shoul
 * Roles must meet the following requirements to be eligible to be imported from AWS into Azure AD:
 
   * Roles must have exactly one saml-provider defined in AWS
-
-  * The combined length of the role ARN and the saml-provider ARN for a role being imported must be 119 characters or less
 
 ## Additional resources
 

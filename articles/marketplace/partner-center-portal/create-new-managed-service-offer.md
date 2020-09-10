@@ -3,10 +3,10 @@ title: Create a Managed Service offer in Microsoft commercial marketplace
 description: How to create a new Managed Service offer for listing in Azure Marketplace using the Commercial Marketplace portal in Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
+ms.date: 08/07/2020
 ---
 
 # Create a Managed Service offer
@@ -24,7 +24,7 @@ You must have a [Silver or Gold Cloud Platform competency level](https://partner
     ![Illustrates the left-navigation menu.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+>After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -125,26 +125,24 @@ If you have support websites for **Azure Global Customers** and/or **Azure Gover
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
-#### Marketplace logos
+#### Store logos
 
-Provide your offer's logo in four pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Small** (48 x 48)
-- **Medium** (90 x 90)
-- **Large** (216 x 216)
-- **Wide** (255 x 115)
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-Follow these guidelines for your logos:
+These logos are used in different places in the listing:
 
-- The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
-- The theme colors of the portal are white and black. Don't use these colors as the background color for your logo. Use a color that makes your logo prominent in the portal. We recommend simple primary colors.
-- If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
-- The look and feel of your logo should be flat and avoid gradients. Don't use a gradient background on the logo.
-- Don't place text on the logo, not even your company or brand name.
-- Make sure the logo isn't stretched.
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -173,6 +171,8 @@ Select **Save draft** before continuing.
 ## Plan overview
 
 Each offer must have one or more plans (formerly called SKUs). You might add multiple plans to support different feature sets at different prices or to customize a specific plan for a limited audience of specific customers. Customers can view the plans that are available to them under the parent offer.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 On the **Plan overview** page, select **+ Create new plan**. Then enter a **Plan ID** and a **Plan name**. Both of these values can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. These values may be visible to customers, and they can't be changed after you publish the offer.
 

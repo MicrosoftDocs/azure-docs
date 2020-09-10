@@ -1,15 +1,15 @@
 ---
 title: Azure Key Vault - How to use soft-delete with CLI
-description: Use case examples of soft-delete with CLI code snips
+description: Learn how to use Azure CLI to use the soft-delete feature of Azure Key Vault that allows recovery of key vaults and key vault objects.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
+ms.topic: how-to
+ms.date: 08/11/2020
+ms.author: sudbalas
 ---
 # How to use Key Vault soft-delete with CLI
 
@@ -53,11 +53,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### New key vault
 
-Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
-
-```azurecli
-az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
-```
+Soft delete is automatically enabled on all key vaults by default. By December 31st 2020 it will no longer be possible to create a new key vault without soft delete enabled.
 
 ### Verify soft-delete enablement
 

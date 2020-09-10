@@ -1,6 +1,6 @@
 ---
 title: Return your Azure Stack Edge device | Microsoft Docs 
-description: Describes how to return the Azure Stack Edge device.
+description: Learn how to wipe the data and return your Azure Stack Edge device, and then delete the resource associated with the device.
 services: databox
 author: alkohli
 

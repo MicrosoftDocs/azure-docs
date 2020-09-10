@@ -180,6 +180,16 @@ PagerDuty, the leading incident management solution, has provided first-class su
 
 [Go to the documentation.][pagerduty-doc]
 
+## Promitor
+
+![Promitor Logo](./media/partners/promitor.png)
+
+Promitor is an Azure Monitor scraper that makes the metrics available in systems like Atlassian Statuspage, Prometheus, and StatsD.
+
+Push all metrics to Azure Monitor and consume them where you need them.
+
+[Learn more.][promitor-doc]
+
 ## QRadar
 
 ![QRadar Logo](./media/partners/qradar.png)
@@ -289,6 +299,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie documentation."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty documentation."
+[promitor-doc]: https://promitor.io/ "Promitor documentation."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar documentation."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic documentation."
 [serverless360-doc]: https://docs.serverless360.com/docs/ "Serverless360 documentation."

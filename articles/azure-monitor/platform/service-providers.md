@@ -36,7 +36,7 @@ There are two ways that service provider administrators can gain access to a Log
 
 The advantages of the distributed architecture are:
 
-* The customer can confirm specific levels of permissions via [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md), or can manage access to the logs using their own [role-based access](../../role-based-access-control/overview.md).
+* The customer can confirm specific levels of permissions via [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md), or can manage access to the logs using their own [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 * Logs can be collected from all types of resources, not just agent-based VM data. For example, Azure Audit Logs.
 * Each customer can have different settings for their workspace such as retention and data capping.
 * Isolation between customers for regulatory and compliancy.
@@ -86,4 +86,3 @@ There are two options to implement logs in a central location:
 * Generate summary reports using [Power BI](./powerbi.md)
 
 * Onboard customers to [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
-

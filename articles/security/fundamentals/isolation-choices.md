@@ -73,9 +73,9 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 - **Reader** can view existing Azure resources.
 
-![Azure Role-Based Access Control](./media/isolation-choices/azure-isolation-fig3.png)
+![Azure role-based access control (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
-The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
+The rest of the Azure roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
 
 [RBAC built-in roles](../../role-based-access-control/built-in-roles.md) list the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](../../role-based-access-control/custom-roles.md).
 

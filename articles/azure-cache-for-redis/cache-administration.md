@@ -94,5 +94,7 @@ Yes, you can manage your scheduled updates using the following PowerShell cmdlet
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ## Next steps
-* Explore more [Azure Cache for Redis premium tier](cache-premium-tier-intro.md) features.
+Learn more about Azure Cache for Redis features.
+
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
 

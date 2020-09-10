@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Freedcamp | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Freedcamp.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: bfc73563-017d-458f-b634-162f93e03b74
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Freedcamp with Azure Active Directory

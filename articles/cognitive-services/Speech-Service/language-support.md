@@ -45,21 +45,47 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-SA` | Arabic (Saudi Arabia)             | No                                                |
 | `ar-SY` | Arabic (Syria)                    | Language model                                    |
 | `ca-ES` | Catalan                           | Language model                                    |
+| `cs-CZ` | Czech (Czech Republic)            | Language Model                                    | 
 | `da-DK` | Danish (Denmark)                  | Language model                                    |
 | `de-DE` | German (Germany)                  | Acoustic model<br>Language model<br>Pronunciation |
 | `en-AU` | English (Australia)               | Acoustic model<br>Language model                  |
 | `en-CA` | English (Canada)                  | Acoustic model<br>Language model                  |
 | `en-GB` | English (United Kingdom)          | Acoustic model<br>Language model<br>Pronunciation |
+| `en-HK` | English (Hong kong)               | Language Model                                    | 
+| `en-IE` | English (Ireland)                 | Language Model                                    | 
 | `en-IN` | English (India)                   | Acoustic model<br>Language model                  |
 | `en-NZ` | English (New Zealand)             | Acoustic model<br>Language model                  |
+| `en-PH` | English (Philippines)             | Language Model                                    | 
+| `en-SG` | English (Singapore)               | Language Model                                    | 
 | `en-US` | English (United States)           | Acoustic model<br>Language model<br>Pronunciation |
+| `en-ZA` | English (South Africa)            | Language Model                                    | 
+| `es-AR` | Spanish (Argentina)               | Language Model                                    | 
+| `es-BO` | Spanish (Bolivia)                 | Language Model                                    | 
+| `es-CL` | Spanish (Chile)                   | Language Model                                    | 
+| `es-CO` | Spanish (Colombia)                | Language Model                                    | 
+| `es-CR` | Spanish (Costa Rica)              | Language Model                                    | 
+| `es-CU` | Spanish (Cuba)                    | Language Model                                    | 
+| `es-DO` | Spanish (Dominican Republic)      | Language Model                                    | 
+| `es-EC` | Spanish (Ecuador)                 | Language Model                                    | 
 | `es-ES` | Spanish (Spain)                   | Acoustic model<br>Language model                  |
+| `es-GT` | Spanish (Guatemala)               | Language Model                                    | 
+| `es-HN` | Spanish (Honduras)                | Language Model                                    | 
 | `es-MX` | Spanish (Mexico)                  | Acoustic model<br>Language model                  |
+| `es-NI` | Spanish (Nicaragua)               | Language Model                                    | 
+| `es-PA` | Spanish (Panama)                  | Language Model                                    | 
+| `es-PE` | Spanish (Peru)                    | Language Model                                    | 
+| `es-PR` | Spanish (Puerto Rico)             | Language Model                                    | 
+| `es-PY` | Spanish (Paraguay)                | Language Model                                    | 
+| `es-SV` | Spanish (El Salvador)             | Language Model                                    | 
+| `es-US` | Spanish (USA)                     | Language Model                                    | 
+| `es-UY` | Spanish (Uruguay)                 | Language Model                                    | 
+| `es-VE` | Spanish (Venezuela)               | Language Model                                    | 
 | `fi-FI` | Finnish (Finland)                 | Language model                                    |
 | `fr-CA` | French (Canada)                   | Acoustic model<br>Language model                  |
 | `fr-FR` | French (France)                   | Acoustic model<br>Language model<br>Pronunciation |
 | `gu-IN` | Gujarati (Indian)                 | Language model                                    |
 | `hi-IN` | Hindi (India)                     | Acoustic model<br>Language model                  |
+| `hu-HU` | Hungarian (Hungary)               | Language Model                                    | 
 | `it-IT` | Italian (Italy)                   | Acoustic model<br>Language model<br>Pronunciation |
 | `ja-JP` | Japanese (Japan)                  | Language model                                    |
 | `ko-KR` | Korean (Korea)                    | Language model                                    |
@@ -75,7 +101,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `te-IN` | Telugu (India)                    | Language model                                    |
 | `th-TH` | Thai (Thailand)                   | No                                                |
 | `tr-TR` | Turkish (Turkey)                  | Language model                                    |
-| `zh-CN` | Chinese (Mandarin, simplified)    | Acoustic model<br>Language model                  |
+| `zh-CN` | Chinese (Mandarin, Simplified)    | Acoustic model<br>Language model                  |
 | `zh-HK` | Chinese (Cantonese, Traditional)  | Language model                                    |
 | `zh-TW` | Chinese (Taiwanese Mandarin)      | Language model                                    |
 
@@ -97,7 +123,7 @@ For more information about regional availability, see [regions](regions.md#stand
 |Locale  | Language            | Gender | Voice name | Style support |
 |--|--|--|--|--|
 | `ar-EG` | Arabic (Egypt)                  | Female | `ar-EG-SalmaNeural`      | General |
-| `ar-SA` | Arabic (Saudi Arabia)           | Female | `ar-SA-ZariyahNeura`     | General |
+| `ar-SA` | Arabic (Saudi Arabia)           | Female | `ar-SA-ZariyahNeural`    | General |
 | `ca-ES` | Catalan (Spain)                 | Female | `ca-ES-AlbaNeural`       | General |
 | `da-DK` | Danish (Denmark)                | Female | `da-DK-ChristelNeural`   | General |
 | `de-DE` | German (Germany)                | Female | `de-DE-KatjaNeural`      | General |
@@ -126,11 +152,11 @@ For more information about regional availability, see [regions](regions.md#stand
 | `ru-RU` | Russian (Russia)                | Female | `ru-RU-DariyaNeural`     | General |
 | `sv-SE` | Swedish (Sweden)                | Female | `sv-SE-HilleviNeural`    | General |
 | `th-TH` | Thai (Thailand)                 | Female | `th-TH-AcharaNeural`     | General |
-| `zh-CN` | Chinese (Mandarin, simplified)  | Female | `zh-CN-XiaoxiaoNeural`   | General, multiple voice styles available |
+| `zh-CN` | Chinese (Mandarin, Simplified)  | Female | `zh-CN-XiaoxiaoNeural`   | General, multiple voice styles available |
 |         |                                 | Female | `zh-CN-XiaoyouNeural`    | Kid voice, optimized for story narrating |
 |         |                                 | Male   | `zh-CN-YunyangNeural`    | Optimized for news reading,  multiple voice styles available |
 |         |                                 | Male   | `zh-CN-YunyeNeural`      | Optimized for story narrating |
-| `zh-HK` | Chinese (Cantonese, tranditional)   | Female | `zh-HK-HiuGaaiNeural`| General |
+| `zh-HK` | Chinese (Cantonese, Traditional)   | Female | `zh-HK-HiuGaaiNeural`| General |
 | `zh-TW` | Chinese (Taiwanese Mandarin)   | Female | `zh-TW-HsiaoYuNeural`    | General |
 
 > [!IMPORTANT]
@@ -218,7 +244,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 | `th-TH` | Thai | Male |  "th-TH-Pattara" |
 | `tr-TR` | Turkish (Turkey) | Female | "tr-TR-SedaRUS" |
 | `vi-VN` | Vietnamese | Male |  "vi-VN-An" |
-| `zh-CN` | Chinese (Mandarin, simplified) | Female |  "zh-CN-HuihuiRUS" |
+| `zh-CN` | Chinese (Mandarin, Simplified) | Female |  "zh-CN-HuihuiRUS" |
 |  |  | Female | "zh-CN-Yaoyao-Apollo" |
 |  |  | Male | "zh-CN-Kangkang-Apollo" |
 | `zh-HK` | Chinese (Cantonese, Traditional) | Female |  "zh-HK-Tracy-Apollo" |
@@ -330,20 +356,20 @@ See the following table for supported languages for the various Speaker Recognit
 | Locale | Language | Text-dependent verification | Text-independent verification | Text-independent identification |
 |----|----|----|----|----|
 | en-US | English (US) | yes | yes | yes |
-|zh-CN	|Chinese (Mandarin, simplified)|	n/a|	yes|	yes|
-|de-DE	|German (Germany)	|n/a	|yes	|yes|
-|en-GB	|English (UK)	|n/a	|yes	|yes|
-|fr-FR	|French (France)	|n/a	|yes	|yes|
-|en-AU	|English (Australia)	|n/a	|yes	|yes|
-|en-CA	|English (Canada)	|n/a|	yes|	yes|
-|fr-CA	|French (Canada)	|n/a	|yes|	yes|
-|it-IT	|Italian|	n/a	|yes|	yes|
-|es-ES|	Spanish (Spain)	|n/a	|yes|	yes|
-|es-MX	|Spanish (Mexico)	|n/a|	yes|	yes|
-|ja-JP|	Japanese	|n/a	|yes	|yes|
-|pt-BR|	Portuguese (Brazil)|	n/a|	yes|	yes|
+|zh-CN    |Chinese (Mandarin, simplified)|    n/a|    yes|    yes|
+|de-DE    |German (Germany)    |n/a    |yes    |yes|
+|en-GB    |English (UK)    |n/a    |yes    |yes|
+|fr-FR    |French (France)    |n/a    |yes    |yes|
+|en-AU    |English (Australia)    |n/a    |yes    |yes|
+|en-CA    |English (Canada)    |n/a|    yes|    yes|
+|fr-CA    |French (Canada)    |n/a    |yes|    yes|
+|it-IT    |Italian|    n/a    |yes|    yes|
+|es-ES|    Spanish (Spain)    |n/a    |yes|    yes|
+|es-MX    |Spanish (Mexico)    |n/a|    yes|    yes|
+|ja-JP|    Japanese    |n/a    |yes    |yes|
+|pt-BR|    Portuguese (Brazil)|    n/a|    yes|    yes|
 
 ## Next steps
 
-* [Get your Speech service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 * [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

@@ -201,7 +201,7 @@ You can prepare in advance for failover as follows:
     - Estimate end-to-end RTO for your apps.
     - Estimate end-to-end RPO for your workloads.
     - Identify IP address range conflicts.
-    - As you run drills, we recommend that you don't use production networks for drills, avoid using the same subnet names in production and test networks, and clean up test failovers after every drill.
+    - As you run drills, we recommend that you don't use production networks for drills and clean up test failovers after every drill.
 
 To run a large-scale failover, we recommend the following:
 

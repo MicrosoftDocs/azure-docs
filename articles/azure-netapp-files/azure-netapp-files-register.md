@@ -1,6 +1,6 @@
 ---
 title: Register for Azure NetApp Files | Microsoft Docs
-description: Describes how to register to use Azure NetApp Files. 
+description: Learn how to register for Azure NetApp Files by submitting a waitlist request and registering the Azure Resource Provider for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche

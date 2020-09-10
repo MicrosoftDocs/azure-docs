@@ -9,14 +9,15 @@ ms.topic: how-to
 
 # Override materials during model conversion
 
-During conversion, the material settings in the source model are used to define the [PBR materials](../../overview/features/pbr-materials.md) used by the renderer.
+The material settings in the source model are used to define the [PBR materials](../../overview/features/pbr-materials.md) used by the renderer.
 Sometimes the [default conversion](../../reference/material-mapping.md) doesn't give the desired results and you need to make changes.
 When a model is converted for use in Azure Remote Rendering, you can provide a material-override file to customize how material conversion is done on a per-material basis.
 The section on [configuring model conversion](configure-model-conversion.md) has instructions for declaring the material override filename.
 
 ## The override file used during conversion
 
-As a simple example, let's say that a box model has a single material, called "Default". The albedo color needs to be adjusted for use in ARR.
+As a simple example, let's say that a box model has a single material, called "Default".
+Additionally, let's say its albedo color needs to be adjusted for use in ARR.
 In this case, a `box_materials_override.json` file can be created as follows:
 
 ```json
@@ -33,7 +34,7 @@ In this case, a `box_materials_override.json` file can be created as follows:
 ]
 ```
 
-The `box_materials_override.json` file is placed in the input container, and a `ConversionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
+The `box_materials_override.json` file is placed in the input container, and a `box.ConversionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
 
 ```json
 {
@@ -46,7 +47,7 @@ When the model is converted, the new settings will apply.
 ### Color materials
 
 The [color material](../../overview/features/color-materials.md) model describes a constantly shaded surface that is independent of lighting.
-This is useful for assets made by Photogrammetry algorithms, for example.
+Color materials are useful for assets made by Photogrammetry algorithms, for example.
 In material override files, a material can be declared to be a color material by setting `unlit` to `true`.
 
 ```json

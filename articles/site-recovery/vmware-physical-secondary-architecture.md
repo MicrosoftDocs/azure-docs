@@ -50,9 +50,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 2. After initial replication, the agent on each machine sends delta replication changes to the process server.
 3. The process server optimizes the data, and transfers it to the master target server on the secondary site. The configuration server manages the replication process.
 
-**Figure 6: VMware to VMware replication**
-
-![VMware to VMware](./media/site-recovery-components/vmware-to-vmware.png)
+![Diagram showing replication of VMware VMs and physical servers  to a secondary datacenter](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 

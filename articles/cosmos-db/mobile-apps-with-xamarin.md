@@ -7,6 +7,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
+ms.custom: devx-track-csharp
 
 ---
 # Tutorial: Build mobile applications with Xamarin and Azure Cosmos DB

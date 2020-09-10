@@ -68,7 +68,6 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/d
 	blob1
 	blob2
 ```
-
 Remove a single file from a Blob Storage account that has a hierarchical namespace (include/exclude not supported):
 
 ```azcopy
@@ -98,7 +97,9 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 **--include-pattern** string  Include only files where the name matches the pattern list. For example: *`.jpg`;*`.pdf`;`exactName`
 
 **--list-of-files** string  Defines the location of a file, which contains the list of files and directories to be deleted. The relative paths should be 
-delimited by line breaks, and the paths should NOT be URL-encoded.
+delimited by line breaks, and the paths should NOT be URL-encoded. 
+
+**--list-of-versions** string   Specifies a file where each version id is listed on a separate line. Ensure that the source must point to a single blob and all the version ids specified in the file using this flag must belong to the source blob only. Specified version ids of the given blob will get deleted from Azure Storage. 
 
 **--log-level** string   Define the log verbosity for the log file. Available levels include: `INFO`(all requests/responses), `WARNING`(slow responses), `ERROR`(only failed requests), and `NONE`(no output logs). (default `INFO`) (default `INFO`)
 
