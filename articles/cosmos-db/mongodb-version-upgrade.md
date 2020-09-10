@@ -46,31 +46,31 @@ This new endpoint will need to be replace the existing one in the applications a
 
 1. First, go to the Azure Portal and navigate to your Azure Cosmos DB API for MongoDB account overview blade. Verify that your server version is `3.2`. 
 
-:::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Azure Portal with MongoDB account overview" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Azure Portal with MongoDB account overview" border="false":::
 
-1. From the options on the left, select the `Features` blade. This will reveal the Account level features that are available for your database account.
+2. From the options on the left, select the `Features` blade. This will reveal the Account level features that are available for your database account.
 
-:::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal with MongoDB account overview with Features blade highlighted" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal with MongoDB account overview with Features blade highlighted" border="false":::
 
-1. Click on the `Upgrade to Mongo server version 3.6` row. If you don't see this option, your account might not be eligible for this upgrade.
+3. Click on the `Upgrade to Mongo server version 3.6` row. If you don't see this option, your account might not be eligible for this upgrade.
 
-:::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Features blade with options." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Features blade with options." border="false":::
 
-1. Review the information displayed about this specific upgrade. Note that the upgrade will only be completed until your applications use the updated endpoint, as highlighted in this section. Click on `Enable` as soon as you are ready to start the process.
+4. Review the information displayed about this specific upgrade. Note that the upgrade will only be completed until your applications use the updated endpoint, as highlighted in this section. Click on `Enable` as soon as you are ready to start the process.
 
-:::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Expanded upgrade guidance." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Expanded upgrade guidance." border="false":::
 
-1. After starting the process, the `Features` menu will show the status of the upgrade. The status will go from `Pending`, to `In Progress`, to `Upgraded`. This process will not affect the existing functionality or operations of the database account.
+5. After starting the process, the `Features` menu will show the status of the upgrade. The status will go from `Pending`, to `In Progress`, to `Upgraded`. This process will not affect the existing functionality or operations of the database account.
 
-:::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Upgrade status after initiating." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Upgrade status after initiating." border="false":::
 
-1. Once the upgrade is completed, the status will show as `Upgraded`. Click on it to learn more about the next steps and actions you need to take to finalize the process.
+6. Once the upgrade is completed, the status will show as `Upgraded`. Click on it to learn more about the next steps and actions you need to take to finalize the process.
 
-:::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Upgraded account status." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Upgraded account status." border="false":::
 
-1. **To start using the upgraded version of your database account**, go back to the `Overview` blade, and copy the new connection string to use in your application. The applications will start using the upgraded version as soon as they connect to the new endpoint. Existing connections will not be interrupted and can be updated at your convenience.
+7. **To start using the upgraded version of your database account**, go back to the `Overview` blade, and copy the new connection string to use in your application. The applications will start using the upgraded version as soon as they connect to the new endpoint. Existing connections will not be interrupted and can be updated at your convenience.
 
-:::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="New overview blade." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="New overview blade." border="false":::
 
 ## Next steps
 
