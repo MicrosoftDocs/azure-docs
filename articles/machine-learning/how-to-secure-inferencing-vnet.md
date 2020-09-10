@@ -30,6 +30,7 @@ In this article you learn how to secure the following inferencing resources in a
 > [!div class="checklist"]
 > - Default Azure Kubernetes Service (AKS) cluster
 > - Private AKS cluster
+> - AKS cluster with private link
 > - Azure Container Instances (ACI)
 
 
@@ -111,6 +112,9 @@ When the creation process is completed, you can run inference, or model scoring,
 By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
 After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-create-attach-kubernetes.md) to use with Azure Machine Learning.
+
+> [!IMPORTANT]
+> Before using a private link enabled AKS cluster with Azure Machine Learning, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Internal AKS load balancer
 

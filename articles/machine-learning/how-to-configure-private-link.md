@@ -1,5 +1,5 @@
 ---
-title: Configure a private endpoint (preview)
+title: Configure a private endpoint
 titleSuffix: Azure Machine Learning
 description: 'Use Azure Private Link to securely access your Azure Machine Learning workspace from a virtual network.'
 services: machine-learning
@@ -13,15 +13,9 @@ ms.reviewer: larryfr
 ms.date: 09/03/2020
 ---
 
-# Configure Azure Private Link for an Azure Machine Learning workspace (preview)
+# Configure Azure Private Link for an Azure Machine Learning workspace
 
 In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. For information on setting up a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
-
-> [!IMPORTANT]
-> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is available in all regions that Azure Machine Learning is supported in, excluding US Government and Azure China 21Vianet regions.
->
-> This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
 
@@ -30,12 +24,9 @@ Azure Private Link enables you to connect to your workspace using a private endp
 >
 > You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge of Google Chrome as a workaround.
 
-> [!TIP]
-> Azure Machine Learning compute instance can be used with a workspace and private endpoint.
-
 ## Prerequisites
 
-If you plan on using a private link enabled workspace, with a customer-managed key, you must request a quota allowance. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+If you plan on using a private link enabled workspace with a customer-managed key, you must request this feature using a support ticket. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Create a workspace that uses a private endpoint
 
