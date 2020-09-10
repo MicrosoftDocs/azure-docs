@@ -53,7 +53,9 @@ The following table provides a summary of known issues for the Azure Stack Edge 
 |**16.**|Kubernetes |If you bring your own certificates for IoT Edge and add those on your Azure Stack Edge device after the compute is configured on the device, the new certificates are not picked up.|To work around this problem, you should upload the certificates before you configure compute on the device. If the compute is already configured, [Connect to the PowerShell interface of the device and run IoT Edge commands](azure-stack-edge-gpu-connect-powershell-interface.md#use-iotedge-commands). Restart `iotedged` and `edgehub` pods.|
 |**17.**|Certificates |In certain instances, certificate state in the local UI may take several seconds to update. |The following scenarios in the local UI may be affected.<ul><li>**Status** column in **Certificates** page.</li><li>**Security** tile in **Get started** page.</li><li>**Configuration** tile in **Overview** page.</li></ul>  |
 |**17.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | |
-|**17.**|Compute/Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
+|**18.**|Compute + Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
+|**19.**|Compute + web proxy + update |If you have compute configured with web proxy, then compute update may fail. |We recommend that you disable compute before the update. |
+
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->
 
 
