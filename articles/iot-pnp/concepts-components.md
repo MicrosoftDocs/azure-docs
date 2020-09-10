@@ -112,5 +112,6 @@ This model has three components defined in the contents section -  two `Thermost
 
 Now that you've learned about model components, here are some additional resources:
 
+- [Install and use the DTDL extension for Visual Studio Code](howto-use-vs-code-dtdl.md)
 - [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Model repositories](./concepts-model-repository.md)

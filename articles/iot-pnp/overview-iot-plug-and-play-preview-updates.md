@@ -73,15 +73,17 @@ With the convention-based approach, there's no need for separate device client S
 
 Devices that don't use components require minimal code changes - just announcing the **Model ID**. More complex devices using a multiple components might require some reusable functions to implement the [conventions](concepts-convention.md). Device samples include a set of functions that you might reuse in your device implementation.
 
-### Service SDKs
-
-The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/README.md).
+To learn more about the available SDKs, see [Microsoft SDKs for IoT Plug and Play](libraries-sdks.md).
 
 ## VS Code extension
 
 The [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension provides authoring support for DTDL v1, integration with the previous version of the model repository, and code generation.
 
-If you require DTDL v2 authoring support in VS Code, install the new [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) in VS Code. The extension doesn't provide integration with the model repository or code generation. Managing models in the repository is now done using a [web UI](https://aka.ms/iotmodelrepo) or [CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest).
+For DTDL v2 authoring support in VS Code, install the [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) in VS Code.
+
+## Visual Studio 2019 extension
+
+For DTDL v2 authoring support in Visual Studio 2019, install the [DTDL Language Support for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16dtdllanguagesupport) extension in Visual Studio 2019.
 
 ## Digital twin service-side REST APIs
 
