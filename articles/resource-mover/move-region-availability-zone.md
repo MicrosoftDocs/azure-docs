@@ -20,9 +20,11 @@ In this article, learn how to move Azure VMs (and related network/storage resour
 - A VM in an availability set to an availability zone/availability set in the target region.
 - A VM in a source region availability zone to an availability zone in the target region.
 
+
 > [!IMPORTANT]
 > Azure Resource Mover is currently in public preview.
 
+If you want to move VMs to a different availability zone in the same region, [review this article](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
 ## Prerequisites
 
