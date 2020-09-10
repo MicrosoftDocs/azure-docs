@@ -944,7 +944,7 @@
             href: table-sdk-python.md
           - name: Table storage REST APIs
             href: /rest/api/storageservices/table-service-rest-api
-    - name: Etcd API
+    - name: etcd API
       items:
       - name: Overview
         items:
