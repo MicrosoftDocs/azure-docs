@@ -19,12 +19,13 @@ For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge d
 * Azure subscription to which you have [owner privileges](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 * An [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep) device:
 
-    * We currently have [Azure Stack Edge with FPGA](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-overview#features-and-specifications) that you can use. 
-    * *Azure Stack Edge with GPU* is currently in preview. This preview version is provided without a service level agreement, and it is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Azure Stack Edge with GPU](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-overview)
+   * We currently have [Azure Stack Edge with FPGA](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-overview#features-and-specifications) that you can use. 
+   * *Azure Stack Edge with GPU* is currently in preview. This preview version is provided without a service level agreement, and it is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Azure Stack Edge with GPU](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-overview).
+   
 * [An IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
 * A [service principal](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) for the Live Video Analytics module.
 
-    Use one of these regions where IoT Hub is available: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
+   Use one of these regions where IoT Hub is available: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
 * Storage account
 
     It is recommended that you use [General-purpose v2 (GPv2) Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal). 
@@ -102,9 +103,9 @@ For this, we are only going to take specific steps from [deploy Live Video Analy
 1. In Container Create Options you do not need to set Environment variables. So, skip this step.
 1. Open the Container Create Options tab.
 
-    * Copy and paste the following JSON into the box, to limit the size of the log files produced by the module.
+   * Copy and paste the following JSON into the box, to limit the size of the log files produced by the module.
     
-        ````json
+      ```json
         "HostConfig": {
                     "LogConfig": {
                         "Type": "",
@@ -118,13 +119,13 @@ For this, we are only going to take specific steps from [deploy Live Video Analy
                         "/var/lib/azuremediaservices:/var/lib/azuremediaservices"
                     ]
                     }
-        ```
+      ```
     
-    > [!NOTE]
-    > If using gRPC protocol with shared memory transfer, use the Host IPC mode for shared memory access between Live Video Analytics and Inference solutions.
-
-    ```json
-    "HostConfig": {
+      > [!NOTE]
+      > If using gRPC protocol with shared memory transfer, use the Host IPC mode for shared memory access between Live Video Analytics and Inference solutions.
+   
+      ```json
+          "HostConfig": {
                         "LogConfig": {
                             "Type": "",
                             "Config": {
@@ -139,10 +140,11 @@ For this, we are only going to take specific steps from [deploy Live Video Analy
                         "IpcMode": "host",
                         "ShmSize": 1536870912
                     }
-    ```
+      ```
 
-    > [!NOTE]
-    > The "Binds" section in the JSON has 2 entries. Feel free to update the edge device binds, but make sure that those directories exist.
+      > [!NOTE]
+      > The "Binds" section in the JSON has 2 entries. Feel free to update the edge device binds, but make sure that those directories exist.
+    
     * "/var/lib/azuremediaservices:/var/lib/azuremediaservices": This is used to bind the persistent application configuration data from the container and store it on the edge device.
     * "/var/media:/var/media": This binds the media folders between the edge device and the container. This is used to store the video recordings when you run a media graph topology that supports storing of video clips on the edge device.
         
@@ -167,6 +169,7 @@ These steps cover creating a Gateway user and setting up file shares to view the
     1. In the left navigation pane, click on **Gateway->Users**.
     1. Click on **+ Add User** to the set the username and password. (Recommended: `lvauser`).
     1. Click on **Add**.
+    
 1. Create a **Local Share** for Live Video Analytics persistence.
 
     1. Click on **Gateway->Shares**.
@@ -180,6 +183,7 @@ These steps cover creating a Gateway user and setting up file shares to view the
         
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Local share":::
+    
 1. Create a Remote Share for file sync storage.
 
     1. First create a blob storage account in the same region.
@@ -198,11 +202,12 @@ These steps cover creating a Gateway user and setting up file shares to view the
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Remote share":::
     
-    > 1[!TIP]
+    > [!TIP]
     > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share).
+    
 1. Update the Live Video Analytics Edge module's Container Create Options (see point 4 in [add modules document](deploy-iot-edge-device.md#add-modules)) to use Volume Mounts.
 
-    ```
+   ```
     // Original (Bind Mounts)
     "createOptions": {
         "HostConfig": {
@@ -251,13 +256,13 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 1. Select the More Options icon to see the context menu. Then select Set IoT Hub Connection String.
 1. When an input box appears, enter your IoT Hub connection string. 
 
-* To get the connection string, go to your IoT Hub in Azure portal and click on Shared access policies in the left navigation pane.
-* Click on iothubowner get the shared access keys.
-* Copy the Connection String – primary key and paste it in the input box on the VSCode.
+   * To get the connection string, go to your IoT Hub in Azure portal and click on Shared access policies in the left navigation pane.
+   * Click on iothubowner get the shared access keys.
+   * Copy the Connection String – primary key and paste it in the input box on the VSCode.
 
-    The connection string will look like:<br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
+   The connection string will look like:<br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
     
-    If the connection succeeds, the list of edge devices appears. You should see your Azure Stack Edge. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under the Azure Stack device, expand the Modules node.
+   If the connection succeeds, the list of edge devices appears. You should see your Azure Stack Edge. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under the Azure Stack device, expand the Modules node.
     
 ## Troubleshooting
 
@@ -283,6 +288,7 @@ For Module discovery on Azure Stack Edge it is required that the module have the
         }
     }
     ```
+    
 * Volume Mounting
 
     A module will fail to start if the container is trying mount a volume to an existing and non-empty directory.
@@ -340,6 +346,6 @@ Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/sc
             topologyKey: "kubernetes.io/hostname"
     ```
 
-## Next Steps
+## Next steps
 
 You can use the module to analyze live video streams by invoking direct methods. [Invoke the direct methods](get-started-detect-motion-emit-events-quickstart.md#use-direct-method-calls) on the module.
