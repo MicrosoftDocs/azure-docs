@@ -23,4 +23,4 @@ This article identifies troubleshooting resources for Azure Arc enabled data ser
 
 ## Next steps
 
-[Scenario: View inventory of your instances in the Azure portal](view-inventory-sql-instances.md)
+[Scenario: View inventory of your instances in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

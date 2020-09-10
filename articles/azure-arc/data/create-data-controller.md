@@ -20,7 +20,7 @@ Azure Arc enabled data services can be deployed on multiple different types of K
 Currently, the supported list of Kubernetes services and distributions are the following:
 
 - Azure Kubernetes Service (AKS)
-- Azure Kubernetes Engine (AKE) on Azure Stack
+- Azure Kubernetes Service Engine (AKS Engine) on Azure Stack
 - Azure Kubernetes Service on Azure Stack HCI
 - Azure RedHat OpenShift (ARO)
 - OpenShift Container Platform (OCP)

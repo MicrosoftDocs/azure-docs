@@ -8,3 +8,7 @@
   href: ./servers/overview.md
 - name: Arc enabled Kubernetes >
   href: ./kubernetes/overview.md
+- name: Arc enabled data services (preview) >
+  href: ./data/overview.md
+- name: Arc enabled SQL Server (preview) >
+  href: https://docs.microsoft.com/sql/sql-server/azure-arc/overview

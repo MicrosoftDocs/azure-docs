@@ -33,6 +33,13 @@ The `MeshComponent` class is used to place an instance of a mesh resource. Each 
 
 * **UsedMaterials:** The array of actually used materials for each submesh. Will be identical to the data in the *Materials* array, for non-null values. Otherwise it contains the value from the *Materials* array in the mesh instance.
 
+## API documentation
+
+* [C# Mesh class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
+* [C# MeshComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
+* [C++ Mesh class](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
+* [C++ MeshComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
+
 ## Next steps
 
 * [Materials](materials.md)

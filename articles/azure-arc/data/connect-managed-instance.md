@@ -80,4 +80,4 @@ az network nsg rule create -n db_port --destination-port-ranges 30913 --source-a
 ## Next steps
 
 - [View the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
-- [View SQL Managed Instance in the Azure portal](view-inventory-sql-instances.md)
+- [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

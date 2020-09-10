@@ -67,7 +67,7 @@
         - name: Upload metrics and logs
           href: upload-metrics-and-logs-to-azure-monitor.md
         - name: Inventory SQL instances
-          href: view-inventory-sql-instances.md
+          href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Get data controller username & password
           href: retrieve-the-username-password-for-data-controller.md
     - name: Troubleshooting
@@ -86,7 +86,6 @@
       items:
         - name: Install
           items:
-            - name: Overview
             - name: Supported versions
               href: supported-versions-postgres-hyperscale.md
             - name: Deploy PostgreSQL Hyperscale
@@ -103,14 +102,10 @@
           href: concepts-distributed-postgres-hyperscale.md
     - name: How-to
       items:
-        - name: List server groups
-          href: list-server-groups-postgres-hyperscale.md
         - name: Manage
           items:
             - name: Backup & restore
               href: backup-restore-postgresql-hyperscale.md
-            - name: Secure
-              href: configure-security-postgres-hyperscale.md
             - name: Configure & scale
               items:
                 - name: Show configuration
@@ -121,15 +116,21 @@
                   href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
                 - name: Configure server parameters
                   href: configure-server-parameters-postgresql-hyperscale.md
-        - name: Use extensions in PostgreSQL Hyperscale
-          href: using-extensions-in-postgresql-hyperscale-server-group.md
-        - name: Manage Hyperscale group
-          href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
-        - name: Delete PostgreSQL resources
-          href: delete-postgresql-hyperscale-server-group.md
+            - name: Delete
+              href: delete-postgresql-hyperscale-server-group.md
+            - name: List server groups
+              href: list-server-groups-postgres-hyperscale.md
+            - name: Monitoring, log analytics, billing information, Azure portal
+              href: monitoring-log-analytics-azure-portal-postgresql.md
+            - name: Secure
+              href: configure-security-postgres-hyperscale.md
+            - name: Manage server group (Azure Data Studio)
+              href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
+            - name: Use Postgres extensions
+              href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Migrate
           items:
-            - name: Migrate PostgreSQL data into Hyperscale server group
+            - name: Migrate PostgreSQL data into a Postgres Hyperscale server group
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
             - name: Restore the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
@@ -145,20 +146,26 @@
           href: managed-instance-features.md
     - name: How-to
       items:
-        - name: Configure
-          href: configure-managed-instance.md
-        - name: Create SQL Managed Instance
-          href: create-sql-managed-instance.md
-        - name: Create SQL Managed Instance (Azure Data Studio)
-          href: create-sql-managed-instance-azure-data-studio.md
-        - name: Connect
-          href: connect-managed-instance.md
-        - name: Migrate to SQL Managed Instance (Azure Arc)
-          href: migrate-to-managed-instance.md
-        - name: Restore AdventureWorks
-          href: restore-adventureworks-sample-db.md
-        - name: Delete
-          href: delete-managed-instance.md
+        - name: Manage
+          items:
+            - name: Configure
+              href: configure-managed-instance.md
+            - name: Create SQL Managed Instance
+              href: create-sql-managed-instance.md
+            - name: Create SQL Managed Instance (Azure Data Studio)
+              href: create-sql-managed-instance-azure-data-studio.md
+            - name: Connect
+              href: connect-managed-instance.md
+            - name: Monitoring, log analytics, billing information, Azure portal
+              href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: Delete
+              href: delete-managed-instance.md
+        - name: Migrate
+          items:
+            - name: Migrate to SQL Managed Instance (Azure Arc)
+              href: migrate-to-managed-instance.md
+            - name: Restore AdventureWorks
+              href: restore-adventureworks-sample-db.md
 - name: Reference
   items:
   - name: azdata
@@ -169,3 +176,37 @@
       href: /sql/azdata/reference/reference-azdata-notebook?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: sql
       href: /sql/azdata/reference/reference-azdata-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: azdata-arc
+      href: /sql/azdata/reference/reference-azdata-arc?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-dc
+      href: /sql/azdata/reference/reference-azdata-arc-dc?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-dc-config
+      href: /sql/azdata/reference/reference-azdata-arc-dc-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-dc-debug
+      href: /sql/azdata/reference/reference-azdata-arc-dc-debug?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-dc-endpoint
+      href: /sql/azdata/reference/reference-azdata-arc-dc-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-dc-status
+      href: /sql/azdata/reference/reference-azdata-arc-dc-status?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-postgres
+      href: /sql/azdata/reference/reference-azdata-arc-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-postgres-backup
+      href: /sql/azdata/reference/reference-azdata-arc-postgres-backup?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-postgres-server
+      href: /sql/azdata/reference/reference-azdata-arc-postgres-server?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-postgres-server-backup
+      href: /sql/azdata/reference/reference-azdata-arc-postgres-server-backup?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-postgres-server-config
+      href: /sql/azdata/reference/reference-azdata-arc-postgres-server-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-postgres-server-endpoint
+      href: /sql/azdata/reference/reference-azdata-arc-postgres-server-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-resource
+      href: /sql/azdata/reference/reference-azdata-arc-resource?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-resource-kind
+      href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-sql
+      href: /sql/azdata/reference/reference-azdata-arc-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-sql-mi
+      href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-sql-mi-config
+      href: /sql/azdata/reference/reference-azdata-arc-sql-mi-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
