@@ -72,6 +72,6 @@ There are multiple options for deploying the Azure Arc data controller:
 > 
 - [Use the Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
 - [Use Azure Data Studio](create-data-controller-azure-data-studio.md)
-- [Use the Azure Portal to create a notebook which can be run in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
+- [Use the Azure portal to create a notebook which can be run in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Use Kubernetes native tools such as kubectl or oc](create-data-controller-using-k8s-native-tools.md)
 - [Use Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)
