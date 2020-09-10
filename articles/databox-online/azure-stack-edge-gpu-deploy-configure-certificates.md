@@ -148,9 +148,13 @@ Follow these steps to add your own certificates including the signing chain.
 
     ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
+    At any time, you can select a certificate and view the details to ensure that these match with the certificate that you uploaded.
+
+    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
+
     The certificate page should update to reflect the newly added certificates.
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)  
+    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
 
     > [!NOTE]
     > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
