@@ -17,9 +17,6 @@ Azure SQL Edge is an optimized relational database engine geared for IoT and IoT
 
 Azure SQL Edge is built on the latest versions of the Microsoft SQL Database Engine(/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Edge is built on the same engine as [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) and [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same time makes application portability between IoT Edge devices, data centers and the cloud straight forward.
 
-> [!NOTE]
-> Azure SQL Edge is currently in preview and as such should NOT be used in production environments.
-
 ## Deployment Models
 
 Azure SQL Edge supported two deployment mechanism

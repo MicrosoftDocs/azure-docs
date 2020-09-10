@@ -1,6 +1,6 @@
 ---
-title: Manage historical data with retention policy - Azure SQL Edge (Preview)
-description: Learn how to manage historical data with retention policy in Azure SQL Edge (Preview)
+title: Manage historical data with retention policy - Azure SQL Edge
+description: Learn how to manage historical data with retention policy in Azure SQL Edge
 keywords: SQL Edge, data retention
 services: sql-edge
 ms.service: sql-edge
@@ -31,7 +31,7 @@ Data retention cleanup operation comprises of two phases.
 
 ## Manual cleanup
 
-Depending on the data retention settings on a table and the nature of the workload on the database, it's possible that the automatic cleanup thread may not completely remove all obsolete rows during its run. To assist with this and allow users to manually remove obsolete rows, the `sys.sp_cleanup_data_retention` stored procedure has been introduced in Azure SQL Edge (Preview). 
+Depending on the data retention settings on a table and the nature of the workload on the database, it's possible that the automatic cleanup thread may not completely remove all obsolete rows during its run. To assist with this and allow users to manually remove obsolete rows, the `sys.sp_cleanup_data_retention` stored procedure has been introduced in Azure SQL Edge. 
 
 This stored procedure takes three parameters. 
     - Schema Name - Name of the owning schema for the table. This is a required parameter. 
@@ -61,7 +61,7 @@ Excellent data compression and efficient retention cleanup makes clustered colum
 
 ## Monitoring data retention cleanup
 
-Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge (Preview). For more information on extended events, refer [XEvents Overview](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge. For more information on extended events, refer [XEvents Overview](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
 
 The following six extended events help track the state of the cleanup operations. 
 

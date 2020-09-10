@@ -56917,6 +56917,16 @@
 	  "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
 	  "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
 	  "redirect_document_id": false 	
-	}
+	},
+  {
+    "source_path": "articles/azure-sql-edge/alter-external-stream-transact-sql.md",
+    "redirect_url": "/azure/azure-sql-edge/release-notes",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/azure-sql-edge/stream-analytics.md",
+    "redirect_url": "/azure/azure-sql-edge/release-notes",
+    "redirect_document_id": false
+  }
   ]
 }

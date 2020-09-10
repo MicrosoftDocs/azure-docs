@@ -37,8 +37,6 @@
       href: tutorial-run-ml-model-on-sql-edge.md
 - name: How to
   items:
-  - name: Deploy Stream Analytics jobs
-    href: stream-analytics.md
   - name: Configure replication
     href: configure-replication.md
   - name: Track data changes
@@ -53,20 +51,30 @@
     href: deploy-dacpac.md
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security overview
+      href: security-overview.md
+    - name: Security features
+      href: https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json
+    - name: Encrypting connections
+      href: https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json
+    - name: Azure security center for IoT
+      href: https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json
   - name: Machine learning and AI with ONNX
     href: onnx-overview.md
   - name: Backup and restore
     href: backup-restore.md
   - name: High availability for containers
     href: high-availability-sql-edge-containers.md
+  - name: Performance guidelines
+    href: performance-best-practices.md
   - name: Data Streaming in SQL Edge
     items:
     - name: Stream data
       href: stream-data.md
     - name: Create External Stream (Transact-SQL)
       href: create-external-stream-transact-sql.md
-    - name: Alter External Stream (Transact-SQL)
-      href: alter-external-stream-transact-sql.md
     - name: Drop External Stream (Transact-SQL)
       href: drop-external-stream-transact-sql.md
     - name: Streaming views and DMVs
@@ -75,7 +83,7 @@
         href: streaming-catalog-views.md
       - name: sys.external_job_streams (Transact-SQL)
         href: sys-external-job-streams.md
-      - name: sys.external-streaming_jobs (Transact-SQL)
+      - name: sys.external_streaming_jobs (Transact-SQL)
         href: sys-external-streaming-jobs.md
       - name: sys.external_streams (Transact-SQL)
         href: sys-external-streams.md
@@ -83,8 +91,12 @@
     items:
     - name: Time gaps and missing values
       href: imputing-missing-values.md
-    - name: Date_Bucket (Transact-SQL)
+    - name: DATE_BUCKET (Transact-SQL)
       href: date-bucket-tsql.md
+    - name: FIRST_VALUE (Transact-SQL)
+      href: first-value-transact-sql.md
+    - name: LAST_VALUE (Transact-SQL)
+      href: last-value-transact-sql.md
     - name: Data retention and cleanup
       items:
       - name: Data retention overview
@@ -93,3 +105,5 @@
         href: data-retention-enable-disable.md
       - name: Data retention cleanup
         href: data-retention-cleanup.md
+      - name: sys.sp_cleanup_data_retention (Transact-SQL)
+        href: sys-sp-cleanup-data-retention.md

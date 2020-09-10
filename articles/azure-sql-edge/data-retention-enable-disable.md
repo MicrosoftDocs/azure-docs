@@ -1,6 +1,6 @@
 ---
-title: Enable and disable data retention policies - Azure SQL Edge (Preview)
-description: Learn how to enable and disable data retention policies in Azure SQL Edge (Preview)
+title: Enable and disable data retention policies - Azure SQL Edge
+description: Learn how to enable and disable data retention policies in Azure SQL Edge
 keywords: SQL Edge, data retention
 services: sql-edge
 ms.service: sql-edge
