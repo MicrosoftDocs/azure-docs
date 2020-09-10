@@ -144,7 +144,7 @@ Which permissions you require depends on the optional features you enable. If yo
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
 | Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/tutorial-enable-sspr-writeback.md) for users. |
 | Device writeback |Permissions granted with a PowerShell script as described in [device writeback](how-to-connect-device-writeback.md). |
-| Group writeback |Allows you to writeback **Office 365 Groups** to a forest with Exchange installed.|
+| Group writeback |Allows you to writeback **Microsoft 365 Groups** to a forest with Exchange installed.|
 
 ## Upgrade
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:

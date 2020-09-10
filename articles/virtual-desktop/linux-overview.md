@@ -18,6 +18,7 @@ The following partners have approved Windows Virtual Desktop clients for Linux d
 |Partner|Partner documentation|Partner support|
 |:------|:--------------------|:--------------|
 |![IGEL logo](./media/partners/igel.png)|[IGEL client documentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL support](https://www.igel.com/support/)|
+|![Stratodesk logo](./media/partners/stratodesk.png)|[Stratodesk client documentation](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk support](https://www.stratodesk.com/support-3/)|
 
 ## Next steps
 
