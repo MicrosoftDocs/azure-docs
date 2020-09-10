@@ -21,8 +21,6 @@ To get the most out of Azure, it's crucial to understand where you are in your w
 The Advisor Score consists of an overall score, which can be further broken down into five category scores, one for each category of Azure Advisor which represents the five pillars of the Well-Architected Framework. 
 You can track the progress you make over time by viewing your overall score and category score with daily, weekly, and monthly trend, and you can set benchmarks to help you achieve your goals. 
 
- ![Advisor score experience](./media/advisor-score-1.png)
-
 
 ## How to consume Advisor Score
 
@@ -33,7 +31,6 @@ Advisor displays your overall Advisor score and breakdown for Advisor categories
 
 The contribution of each recommendation to your score is shown clearly on the overview page in the Azure portal. You can increase your score by adopting the best practices, and you can prioritize the recommendations that have greatest **potential score increase** to make the fastest progress with the time you have.  
 
- ![Advisor Score impact](./media/advisor-score-1.png)
 
 Because Advisor’s scoring methodology applies extra weight to more expensive resources with long-standing recommendations, you can make the most progress by remediating the resources with the highest retail cost first. 
 In case any of Advisor recommendations are not relevant for an individual resource, you can dismiss those recommendations to exclude them from the score calculation and send feedback to Advisor to improve its recommendations. 
@@ -76,7 +73,6 @@ The scoring methodology is designed to control for number of resources on a subs
 ## How to access Advisor
 Advisor score is in public preview in Azure Portal. You have to go to Advisor section and you will find Advisor score as the 2nd menu item in the left nav. 
 
- ![Advisor Score entry-point](./media/advisor-score-3.png)
 
 ## Next steps
 
