@@ -16,7 +16,7 @@ This article provides you with information about:
 * Bug fixes
 * Deprecated functionality
 
-## September XX, 2020
+## September, 2020
 
 This release tag for the September 2020 refresh of the module is:
 
