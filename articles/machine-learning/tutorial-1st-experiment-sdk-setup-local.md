@@ -15,32 +15,31 @@ ms.custom: devx-track-python
 
 # Tutorial: Set up your local computer for Azure Machine Learning
 
-The goal of this tutorial is to introduce you to the fundamental concepts of Azure Machine Learning (AzureML), including:
+The goal of this tutorial series is to introduce you to the fundamental concepts of Azure Machine Learning (Azure Machine Learning), including:
 
 - Setting up a workspace and local (for example, laptop) ML developer environment
-- Running code in the cloud using Azure ML's Python SDK
+- Running code in the cloud using Azure Machine Learning's Python SDK
 - Managing python environments to use to train a model
 - Uploading data to Azure and consuming the data in your ML training
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-
-> * Install the AzureML SDK
+> * Install the Azure Machine Learning SDK
 > * Set up directory structure for code
-> * Create an AzureML workspace
+> * Create an Azure Machine Learning workspace
 > * Configure your local development environment
 > * Set up a compute cluster
 
 >[!NOTE]
-> This tutorial is focused heavily on the AzureML features and concepts that help with __jobs-based__ machine learning tasks that have the following traits:
+> This tutorial series is focused heavily on the Azure Machine Learning features and concepts that help with __jobs-based__ machine learning tasks that have the following traits:
 >
 > - Python-based and
 > - long running and/or
 > - distributed (require many machines and processes) and/or
 > - repeatable (require reproducible, auditable, and portable environment)
 >
-> If your machine learning tasks do not fit this profile - for example, you tend to run ad-hoc analysis with python code in a Jupyter notebook, or R code in Rstudio - **we would recommend you use the [Jupyter or RStudio functionality on a AzureML compute instance](tutorial-1st-experiment-sdk-setup.md)**. This will be the fastest way for you to onboard to AzureML.
+> If your machine learning tasks do not fit this profile - for example, you tend to run ad-hoc analysis with python code in a Jupyter notebook, or R code in Rstudio - **we would recommend you use the [Jupyter or RStudio functionality on a Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md)**. This will be the fastest way for you to onboard to Azure Machine Learning.
 
 ## Prerequisites
 
@@ -48,12 +47,12 @@ In this tutorial, you will:
 - Familiarity with Python and [Machine Learning concepts](concept-azure-machine-learning-architecture.md). For example, environments, training, scoring, and so on.
 - A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
 
-## Install the AzureML SDK
+## Install the Azure Machine Learning SDK
 
 Throughout this tutorial, we make use of the Azure ML Python SDK. The SDK allows us to use
-Python to interact with AzureML.
+Python to interact with Azure Machine Learning.
 
-You can use the tools most familiar to you - for example: conda, pip, and so on - to set up an environment to use throughout this tutorial. Install into the environment the AzureML Python SDK via pip:
+You can use the tools most familiar to you - for example: conda, pip, and so on - to set up an environment to use throughout this tutorial. Install into the environment the Azure Machine Learning Python SDK via pip:
 
 ```bash
 pip install azureml-sdk
@@ -68,7 +67,7 @@ tutorial
 ```
 
 - **tutorial** (top-level directory of the project)
-- **.azureml** (hidden subdirectory of tutorial):  The `.azureml` directory is used to store AzureML configuration files.
+- **.azureml** (hidden subdirectory of tutorial):  The `.azureml` directory is used to store Azure Machine Learning configuration files.
 
 ## Create an Azure Machine Learning Workspace
 
@@ -78,10 +77,14 @@ A workspace is a top-level resource for Azure Machine Learning and is a centrali
 - Store assets like Notebooks, Environments, Datasets, Pipelines, Models, Endpoints, and so on
 - Collaborate with other team members
 
-In the top-parent directory - `tutorial` - add a new Python file called `01-create-workspace.py` with the code below. Adapt the parameters (name, subscription ID, resource group, and location) with your preferences. You can run the code in an interactive session, or as a python file.
+In the top-parent directory - `tutorial` - add a new Python file called `01-create-workspace.py` with the code below. Adapt the parameters (name, subscription ID, resource group, and location) with your preferences. Valid locations include:
+
+`eastasia`;`southeastasia`;`australiaeast`;`brazilsouth`;`canadacentral`;`northeurope`;`westeurope`;`francecentral`;`japaneast`;`koreacentral`;`uksouth`;`centralus`;`eastus`;`eastus2`;`westus`;`northcentralus`;`southcentralus`;`westcentralus`;`westus2`.
+
+You can run the code in an interactive session, or as a python file.
 
 >[!NOTE]
-> When using a local (e.g. laptop) development environment you will be asked to authenticate to your workspace using a *device code* the first time you execute the code below. Follow the on-screen instructions.
+> When using a local development environment (e.g. laptop) you will be asked to authenticate to your workspace using a *device code* the first time you execute the code below. Follow the on-screen instructions.
 
 ```python
 # tutorial/01-create-workspace.py
@@ -91,7 +94,7 @@ ws = Workspace.create(name='<my_workspace_name>', # provide a name for your work
                       subscription_id='<azure-subscription-id>', # provide your subscription ID
                       resource_group='<myresourcegroup>', # provide a resource group name
                       create_resource_group=True,
-                      location='<azure-region>' # provide an azure region)
+                      location='<NAME_OF_REGION>') # provide an azure region
 
 # write out the workspace details to a configuration file: .azureml/config.json
 ws.write_config(path='.azureml')
@@ -113,7 +116,7 @@ tutorial
 └──01-create-workspace.py
 ```
 
-The file `.azureml/config.json` contains the metadata necessary to connect to your AzureML
+The file `.azureml/config.json` contains the metadata necessary to connect to your Azure Machine Learning
 workspace - namely your subscription ID, resource group and workspace name. We'll make use
 of this as you progress through the tutorial with the following:
 
@@ -123,11 +126,11 @@ ws = Workspace.from_config()
 
 > [!NOTE]
 > The contents of `config.json` are not secrets - it is perfectly fine to share these details.
-> Authentication is still required to interact with your AzureML workspace.
+> Authentication is still required to interact with your Azure Machine Learning workspace.
 
-## Create an AzureML compute cluster
+## Create an Azure Machine Learning compute cluster
 
-Create a python script in the `tutorial` top-level directory called `02-create-compute.py` and populate with the following code to create an AzureML compute cluster that will auto-scale between zero and four nodes:
+Create a python script in the `tutorial` top-level directory called `02-create-compute.py` and populate with the following code to create an Azure Machine Learning compute cluster that will auto-scale between zero and four nodes:
 
 ```python
 # tutorial/02-create-compute.py
@@ -153,8 +156,15 @@ except ComputeTargetException:
 cpu_cluster.wait_for_completion(show_output=True)
 ```
 
+Run the python file:
+
+```bash
+python ./02-create-compute.py
+```
+
+
 > [!NOTE]
-> When the cluster has been created it will have 0 nodes provisioned as no jobs have been submitted. Whilst there are 0 nodes provisioned you **do not** incur costs. This cluster will scale down when it has been idle for 2400 seconds (40 minutes). If there have been no jobs running on the cluster for 40 minutes it will automatically scale down to 0, and will not incur costs. 
+> When the cluster has been created it will have 0 nodes provisioned. Therefore, **do not** incur costs until you submit a job. This cluster will scale down when it has been idle for 2400 seconds (40 minutes). 
 
 Your folder structure will now look as follows:
 
@@ -166,16 +176,15 @@ tutorial
 └──02-create-compute.py
 ```
 
-
 ## Next steps
 
 In this setup tutorial you have:
 
 - Created an Azure ML workspace
 - Set up your local development environment
-- Created an AzureML compute cluster.
+- Created an Azure Machine Learning compute cluster.
 
-In the next tutorial, you walk through submitting an ML script to the AzureML compute cluster.
+In the next tutorial, you walk through submitting an ML script to the Azure Machine Learning compute cluster.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Hello Azure](tutorial-1st-experiment-hello-world.md)
+> [Tutorial: Run "Hello World" Python Script on Azure](tutorial-1st-experiment-hello-world.md)
