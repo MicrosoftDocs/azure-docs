@@ -414,7 +414,7 @@
     - name: Extensions
       href: flexible-server/concepts-extensions.md
     - name: Scheduled maintenance
-      href: flexible-server/concept-maintenance.md
+      href: flexible-server/concepts-maintenance.md
     - name: Business continuity
       items:
       - name: Overview

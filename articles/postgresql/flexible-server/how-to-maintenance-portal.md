@@ -30,5 +30,5 @@ You can use Azure Service Health to [view notifications](/azure/service-health/s
  
 ## Next steps  
  
-* Learn about [scheduled maintenance in Azure Database for PostgreSQL – Flexible server](concept-maintenance.md)
+* Learn about [scheduled maintenance in Azure Database for PostgreSQL – Flexible server](concepts-maintenance.md)
 * Lean about [Azure Service Health](/azure/service-health/overview.md)
