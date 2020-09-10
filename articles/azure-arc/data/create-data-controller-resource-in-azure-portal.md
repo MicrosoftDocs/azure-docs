@@ -17,7 +17,7 @@ ms.topic: how-to
 
 ## Introduction
 
-You can use the Azure Portal to deploy an Azure Arc data controller.
+You can use the Azure portal to deploy an Azure Arc data controller.
 
 Many of the creation experiences for Azure Arc start in the Azure portal even though the resource to be created or managed is outside of Azure infrastructure. The user experience pattern in these cases, especially when there is no direct connectivity between Azure and your environment, is to use the Azure portal to generate a script which can then be downloaded and executed in your environment to establish a secure connection back to Azure. For example, Azure Arc enabled servers follows this pattern to [create Arc enabled servers](/azure-arc/servers/onboard-portal).
 
@@ -25,7 +25,7 @@ For now, given that the preview only supports the Indirect Connected mode of Azu
 
 ## Use the Azure portal to create an Azure Arc data controller
 
-Follow the steps below to create an Azure Arc data controller using the Azure Portal and Azure Data Studio.
+Follow the steps below to create an Azure Arc data controller using the Azure portal and Azure Data Studio.
 
 1. First, log in to the [Azure portal marketplace](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).  The marketplace search results will be filtered to show you the 'Azure Arc data controller'.
 2. If the first step has not entered the search criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
