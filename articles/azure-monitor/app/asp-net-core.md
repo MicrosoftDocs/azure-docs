@@ -224,7 +224,7 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 ### Configuration Recommendation for Microsoft.ApplicationInsights.AspNetCore SDK 2.15.0-beta3 & above
 
-Starting from [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) version 2.15.0-beta3 we offer an additional option to modify all configuration updates through ASP.NET Core configuration. The recommended approach is to use `services.AddApplicationInsightsTelemetry()` and configure everything including the instrumentation key using `Microsoft.Extensions.Configuration.IConfiguration`. All settings that are part of `ApplicationInsightsServiceOptions` are automatically read from the user's `Microsoft.Extensions.Configuration.IConfiguration`. For example, the following appsettings.json can be used to set the instrumentation key, and to disable adaptive sampling and performance counter collection.
+Starting from Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) the recommendation is to configure every setting available in `ApplicationInsightsServiceOptions`, including instrumentationkey using applications `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the below example. The following section from appsettings.json configures instrumentation key, and also disable adaptive sampling and performance counter collection.
 
 ```json
 {
