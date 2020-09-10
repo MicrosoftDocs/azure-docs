@@ -67,7 +67,7 @@
         - name: Upload metrics and logs
           href: upload-metrics-and-logs-to-azure-monitor.md
         - name: Inventory SQL instances
-          href: view-inventory-sql-instances.md
+          href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Get data controller username & password
           href: retrieve-the-username-password-for-data-controller.md
     - name: Troubleshooting
