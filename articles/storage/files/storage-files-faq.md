@@ -284,6 +284,17 @@ This article answers common questions about Azure Files features and functionali
 
 Any application using NFS version 4.1 should work with minimal or no modifications.
 
+### I use NFS v3.0 today. Can I use NFS v4.1?
+
+Although NFS v3.0 is more widely used today, there were more than a few reason to implement NFS v4.1 as opposed to NFS v3.0 on Azure Files platform. Applications written for NFS 3 can work with NFS 4.x but not vice versa 
+- NFS v4.x is a major alteration over NFS v3.0. It is more similar to SMB which is a bonus to Azure Files when dual protocol access is added.
+- Better security is available in NFS 4.x – top concern while moving to cloud 
+- Firewall and port management is simple – Only one port is needed to be opened. We learnt the hard way that port opening soon becomes an issue for cloud file systems and top CSS call generator.
+- Statefulness aids it to be a truly distributed and performant file system with persistent handles, locks and leases by reducing roundtrips. 
+- Most applications have no dependency on underlying NFS versions.
+- Some workloads that do mandate NFS version 4+ due to the advanced capabilities like statefulness.
+
+
 ### How do I backup data stored in NFS shares?
 
 Currently, there is no first party support for backup. There are third party options such as rsync, tar, or any tool that supports NFS 4.1 which can copy data.
