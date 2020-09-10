@@ -3,7 +3,7 @@ title: Singletons for Durable Functions - Azure
 description: How to use singletons in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/10/2020
 ms.author: azfuncdf
 ---
 
@@ -39,9 +39,10 @@ public static async Task<HttpResponseMessage> RunSingle(
     else
     {
         // An instance with the specified ID exists, don't create one.
-        return req.CreateErrorResponse(
-            HttpStatusCode.Conflict,
-            $"An instance with ID '{instanceId}' already exists.");
+        return new HttpResponseMessage(HttpStatusCode.Conflict)
+        {
+            Content = new StringContent($"An instance with ID '{instanceId}' already exists."),
+        };
     }
 }
 ```
