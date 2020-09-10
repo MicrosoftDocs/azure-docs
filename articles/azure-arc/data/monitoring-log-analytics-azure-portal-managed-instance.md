@@ -1,6 +1,6 @@
 ---
-title: Monitoring, log analytics, Azure Portal...
-description: Install azdata, kubectl, Azure CLI, psql, Azure Data Studio (Insiders), and the Arc extension for Azure Data Studio
+title: Monitoring, log analytics, Azure Portal (SQL Managed Instance)
+description: Monitor Azure Arc enabled data services for SQL Managed Instance.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: conceptual
 ---
 
-# Monitoring, log analytics, billing information, Azure portal
+# Monitoring, log analytics, billing information, Azure portal (SQL Managed Instance)
 
 This article lists additional experiences you can have with Azure Arc enabled data services.
 
