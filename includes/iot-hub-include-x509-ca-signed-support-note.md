@@ -10,10 +10,10 @@
  ms.custom: include file
 ---
 > [!IMPORTANT]
-> The following functionality is not supported for devices that use X.509 CA-signed authentication:
+> The following functionality is not supported for devices that use X.509 certificate authority (CA) authentication:
 >
 > - HTTPS, MQTT over WebSockets, and AMQP over WebSockets protocols.
 > - File uploads (all protocols).
 >
-> IoT Hub supports two kinds of X.509 authentication: thumbprint and CA-signed. To learn more, see [Supported X.509 certificates](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates).  
+> It is supported on devices that use X.509 thumbprint authentication. To learn more about X.509 authentication with IoT Hub, see [Supported X.509 certificates](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates).  
 >
