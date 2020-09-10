@@ -27,7 +27,7 @@ After you sign into into the demo site, you will see a **Data feed** page. a dat
 
 There are several data feeds listed, which are ingested from different types of data sources, such as Azure SQL database or Azure Table. Each uses slightly different configuration settings to connect to the associated data stores.
 
-![Data feed list](../media/sample-datafeeds.png "Sample data feeds")
+:::image type="content" source="../media/sample-datafeeds.png" alt-text="Sample data list":::
 
 ## Explore the data feed configurations
 
@@ -38,6 +38,9 @@ Click on the *Sample - Cost/Revenue - City/Category* data feed. You'll see sever
 * Alert history for when the data feed becomes unavailable. 
 * Logs of when the data feed was updated.   
 * Data feed information and settings.
+
+:::image type="content" source="../media/data-feed-view.png" alt-text="Data feed view":::
+
 
 ## View time series visualizations and configurations
 
