@@ -1,5 +1,5 @@
 ---
-title: Monitoring churn patterns on Virtual Machines
+title: Monitoring churn patterns on virtual machines
 description: Learn how to monitor churn patterns on Virtual Machines protected using Azure Site Recovery
 author: Sharmistha-Rai
 manager: gaggupta
@@ -8,7 +8,7 @@ ms.date: 09/09/2020
 ms.author: sharrai
 ---
 
-# Monitoring churn patterns on Virtual Machines
+# Monitoring churn patterns on virtual machines
 
 This article provides an overview of various tools that can be used to monitor churn patterns on a virtual machine. By using proper tools, it is easy to find out exactly which application is causing high churn and then further actions for that application can be taken.
 
@@ -74,3 +74,7 @@ Open the command prompt and run the command `iotop` .
 IoStat is simple tool that will collect and show system input and output storage device statistics. This tool is often used to trace storage device performance issues including devices, local disks, remote disks.
 
 Open the command prompt and run the command `iostat` .
+
+## Next steps
+
+Learn how to monitor with [Azure Monitor](monitor-log-analytics.md).
