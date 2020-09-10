@@ -32,18 +32,20 @@ The following are the new features included in version 3.6:
 - Wildcard indexing is now supported
 
 ### Changes from version 3.2
+
 - **RequestRateIsLarge errors have been removed**. Requests from the client application will not return 16500 errors anymore. Instead requests will resume until they complete or fulfill the timeout.
 - Per request timeout is set to 60 seconds.
 - MongoDB collections created on the new wire protocol version will only have the `_id` property indexed by default.
 
 ### Action required
+
 For the upgrade to version 3.6, the database account endpoint suffix will be updated to the following format:
 
 ```
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-You need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the MongoDB version 3.6.**. The previous endpoint should have the suffix `.documents.azure.com`.
+You need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the MongoDB version 3.6**. The previous endpoint should have the suffix `.documents.azure.com`.
 
 >[!Note]
 > This endpoint might have slight differences if your account was created in a Sovereign, Government or Restricted Azure Cloud.
