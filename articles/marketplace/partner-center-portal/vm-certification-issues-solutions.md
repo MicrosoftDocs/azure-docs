@@ -265,7 +265,7 @@ Refer to the following table for any issues that arise when you download the VM 
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign (%) or quotation marks ("), exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First MB (2048 KB) partition
+## First MB (2048 KB) partition (Only for Linux)
 
 When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Otherwise, your request will fail*.
 
