@@ -54,7 +54,7 @@ You can configure Capture at the event hub creation time using the [Azure portal
 
 ## Exploring the captured files and working with Avro
 
-Event Hubs Capture creates files in Avro format, as specified on the configured time window. You can view these files in any tool such as [Azure Storage Explorer](https://github.com/microsoft/AzureStorageExplorer/releases). You can download the files locally to work on them.
+Event Hubs Capture creates files in Avro format, as specified on the configured time window. You can view these files in any tool such as [Azure Storage Explorer][Azure Storage Explorer]. You can download the files locally to work on them.
 
 The files produced by Event Hubs Capture have the following Avro schema:
 
@@ -142,7 +142,7 @@ Learn how to enable this feature using the Azure portal and Azure Resource Manag
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
+[Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
 [Avro Tools]: https://downloads.apache.org/avro/stable/java/
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
