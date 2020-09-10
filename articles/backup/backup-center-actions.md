@@ -126,7 +126,7 @@ To trigger an on-demand backup, navigate to Backup Center and select the **Backu
 
 [Learn more about stopping backup for Azure Virtual Machines](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
-[Learn more about stopping backup for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md).
+[Learn more about stopping backup for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md#stop-protection)
 
 ## Next Steps
 

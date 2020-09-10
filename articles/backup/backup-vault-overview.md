@@ -41,15 +41,21 @@ Sign in to the Azure portal at <https://portal.azure.com>.
 ### Create Backup vault
 
 1. Type **Backup vaults** in the search box.
-2. Under **Services**, select **Backup vaults**.
-3. In the **Backup vaults** page, select **Add**.
-4. In the **Basics tab**, under **Project details**, make sure the correct subscription is selected and then choose **Create new** resource group. Type *myResourceGroup* for the name.
-5. Under **Instance details**, type *myVault* for the **Backup vault name** and choose your region of choice, in this case *East US* for your **Region**.
-6. Now choose your **Storage redundancy**. Storage redundancy cannot be changed after protecting items to the vault.
-7. We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
-8. If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
-9. Learn more about [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
-10. Select the Review + create button at the bottom of the page.
+1. Under **Services**, select **Backup vaults**.
+1. In the **Backup vaults** page, select **Add**.
+1. In the **Basics tab**, under **Project details**, make sure the correct subscription is selected and then choose **Create new** resource group. Type *myResourceGroup* for the name.
+
+  ![Create new resource group](./media/backup-vault-overview/new-resource-group.png)
+
+1. Under **Instance details**, type *myVault* for the **Backup vault name** and choose your region of choice, in this case *East US* for your **Region**.
+1. Now choose your **Storage redundancy**. Storage redundancy cannot be changed after protecting items to the vault.
+1. We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
+1. If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
+1. Learn more about [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
+
+  ![Choose storage redundancy](./media/backup-vault-overview/storage-redundancy.png)
+
+1. Select the Review + create button at the bottom of the page.
 
     ![Select Review + Create](./media/backup-vault-overview/review-and-create.png)
 
@@ -84,19 +90,27 @@ After you've completed these steps, you can continue to delete the vault.
 
 When there are no more items in the vault, select **Delete** on the vault dashboard. You'll see a confirmation text asking if you want to delete the vault.
 
+![Delete vault](./media/backup-vault-overview/delete-vault.png)
+
 1. Select **Yes** to verify that you want to delete the vault. The vault is deleted. The portal returns to the **New** service menu.
 
 ## Monitor and manage the Backup vault
 
 This section explains how to use the Backup vault **Overview** dashboard to monitor and manage your Backup vaults. The overview pane contains two tiles: **Jobs** and **Instances**.
 
+![Overview dashboard](./media/backup-vault-overview/overview-dashboard.png)
+
 ### Manage Backup instances
 
 In the **Jobs** tile, you get a summarized view of all backup and restore related jobs in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
+![Backup instances](./media/backup-vault-overview/backup-instances.png)
+
 ### Manage Backup jobs
 
 In the **Backup Instances** tile, you get a summarized view of all backup instances in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection status.
+
+![Backup jobs](./media/backup-vault-overview/backup-jobs.png)
 
 ## Next steps
 

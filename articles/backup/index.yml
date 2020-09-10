@@ -65,12 +65,12 @@ landingContent:
         links:
           - text: Backup Center
             url: backup-center-overview.md
+          - text: Backup Azure Database for PostgreSQL 
+            url: backup-azure-database-postgresql.md
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files
-          - text: SAP HANA database on Azure VMs backup
-            url: backup-azure-sap-hana-database.md
   # Card
   - title: Back up Azure VMs
     linkLists:
