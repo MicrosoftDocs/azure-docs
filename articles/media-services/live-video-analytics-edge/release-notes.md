@@ -16,7 +16,7 @@ This article provides you with information about:
 * Bug fixes
 * Deprecated functionality
 
-## September, 2020
+## September 22, 2020
 
 This release tag for the September 2020 refresh of the module is:
 
@@ -27,10 +27,15 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 > [!NOTE]
 > In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
 
-### New features
+### Module updates
 
-* Instructions on how to use [Live Video Analytics on IoT Edge on Azure Stack Edge devices](deploy-azure-stack-edge-how-to.md) were added.
-* A new graph extension node, [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) is available to integrate with the [Spatial Analysis module](spatial-analysis-tutorial.md) from Cognitive Services.
+* A new graph extension node, [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) is available to integrate with the [Spatial Analysis module](spatial-analysis-tutorial.md)(preview) from Cognitive Services.
+* Added support for Linux ARM64 devices.
+
+### Documentation updates
+
+* [Instructions](deploy-azure-stack-edge-how-to.md) are available for using Live Video Analytics on IoT Edge on Azure Stack Edge devices.
+* New tutorial on developing scenario specific computer vision models using [Custom Vision service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) and using it to [analyze live video](custom-vision-tutorial.md) in real time.
 
 ## August 19, 2020
 
@@ -43,7 +48,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
 
-### New features 
+### Module updates
 
 * You can now get high data content transfer performance between Live Video Analytics on IoT Edge and your custom extension using gRPC framework. See [this](analyze-live-video-use-your-grpc-model-quickstart.md) to get started.
 * Broader regional deployment of Live Video Analytics and only the cloud service has been updated.  
@@ -66,10 +71,12 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 > [!NOTE]
 > In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
 
-### New features
+### Module updates
+
 * You can now create graph topologies that have an asset sink node as well as a file sink node downstream of a signal gate processor node. See [this](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) for an example.
 
 ### Bug fixes
+
 * Improvements to validation of desired properties
 
 ## June 1, 2020
@@ -81,6 +88,7 @@ This release is the first public preview release of Live Video Analytics on IoT 
 ```
 
 ### Supported functionalities
+
 * Analyze live video streams using AI modules of your choice and optionally record video on the edge device or in the cloud
 * Use on Linux AMD64 operating systems [supported](../../iot-edge/support.md) by IoT Edge
 * Deploy and configure the module via the IoT Hub using Azure portal or Visual Studio Code
@@ -94,7 +102,6 @@ This release is the first public preview release of Live Video Analytics on IoT 
     *	GraphInstanceSet
     *	GraphInstanceDelete
     *	GraphInstanceList
-
 
 ## Next steps
 
