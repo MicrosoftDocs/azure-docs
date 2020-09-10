@@ -30,18 +30,18 @@ Metrics Advisor is a cognitive service that uses time series based decision AI t
 
 ## Connect to a variety of data sources
 
-Metrics Advisor [ingests multi-dimensional metrics](how-tos/onboard-your-data.md) data from many data stores, including: SQL Servers, Azure Blob Storage, MongoDB and more. Support collecting data through both 'pull' and 'push' mode and enable data monitored in streaming. 
+Metrics Advisor [ingests multi-dimensional metrics](how-tos/onboard-your-data.md) data from many data stores, including: SQL Server, Azure Blob Storage, MongoDB and more. Support collecting data through both 'pull' and 'push' mode and enable data monitored in streaming. 
 
 ## Easy-to-use and customizable anomaly detection
 
 * Auto-select the best model that works for your metric data without needing to know any underlying techniques. 
-* Auto-monitor on every sliced time series of multi-dimensional metrics by using a default configuration. 
-* Simple [parameter tuning](how-tos/configure-metrics.md) and [interactive feedback](how-tos/anomaly-feedback.md) to customize your model and detection result.
+* Auto-monitor on every sliced time series of [multi-dimensional metrics](glossary.md#multi-dimensional-metrics) by using a default configuration. 
+* Simple [parameter tuning](how-tos/configure-metrics.md) and [interactive feedback](how-tos/anomaly-feedback.md) powered by reinforcement learning to customize your model and detection result.
 
 
 ## Real time alerts through multiple channels
 
-Whenever anomalies are detected, Metrics Advisor is able to [fire real time alerts](how-tos/alerts.md) through multiple channels(defined as hooks in Metrics Advisor), like email, web hook as well as Azure DevOps. Flexible alert rule settings are available to better serve on various scenarios. 
+Whenever anomalies are detected, Metrics Advisor is able to [fire real time alerts](how-tos/alerts.md) through multiple channels(defined as hooks in Metrics Advisor), like email, web hook as well as Azure DevOps. Flexible alert rule settings are available to better serve on various customer scenarios. 
 
 ## Smart diagnostic insights by analyzing anomalies
 
