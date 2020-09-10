@@ -12,18 +12,19 @@ ms.custom: mvc
 
 # Tutorial: Build a PHP (Laravel) and MySQL Flexible Server (Preview) app in Azure App Service
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
 :::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP Web App in Azure with Flexible Server":::
 
-In this tutorial, you learn how to:
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
-- Create a MySQL Flexible Server (Preview)
-- Connect a PHP app to MySQL
-- Deploy the app to Azure
-- Update the data model and redeploy the app
-- Stream diagnostic logs from Azure
-- Manage the app in the Azure portal
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> * Setup a PHP (Laravel) app with local MySQL
+> * Create a MySQL Flexible Server (Preview)
+> * Connect a PHP app to MySQL Flexible Server (Preview)
+> * Deploy the app to Azure App Service
+> * Update the data model and redeploy the app
+> * Manage the app in the Azure portal
 
 If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -31,11 +32,11 @@ If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guide
 
 To complete this tutorial:
 
-* [Install Git](https://git-scm.com/)
-* [Install PHP 5.6.4 or above](https://php.net/downloads.php)
-* [Install Composer](https://getcomposer.org/doc/00-intro.md)
-* Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
-* [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+1. [Install Git](https://git-scm.com/)
+2. [Install PHP 5.6.4 or above](https://php.net/downloads.php)
+3. [Install Composer](https://getcomposer.org/doc/00-intro.md)
+4. Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+5. [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
 
 ## Prepare local MySQL
 
@@ -74,9 +75,7 @@ In this step, you get a Laravel sample application, configure its database conne
 
 ### Clone the sample
 
-In the terminal window, `cd` to a working directory.
-
-Run the following command to clone the sample repository.
+In the terminal window, navigate to an empty directory where you can clone the sample application.  Run the following command to clone the sample repository.
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
@@ -135,20 +134,19 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 To stop PHP, type `Ctrl + C` in the terminal.
 
 ## Create a MySQL Flexible Server (Preview)
-In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](/azure/mysql) which is in public preview. Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-flexible-server-create) command.
+In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](/azure/mysql) which is in public preview. Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) command.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
 ```
 
-JSON output will show you all the server properties being configured. 
-
-> [!Important]
+> [!IMPORTANT]
 > - Make a note of the **servername** and **connection string** to use it in the next step to connect and run laravel data migration.
-> - For <IP-address> , provide the IP of your client machine. The server is locked when created and you need to permit access to your client machine to manage the server locally.
+> - For **IP-Address**  argument, provide the IP of your client machine. The server is locked when created and you need to permit access to your client machine to manage the server locally.
 
-### Configure server firewall
-In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the az mysql server firewall-rule create command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure services that do not have a static IP to connect to the server.
+### Configure server firewall to allow web app to connect to the server
+
+In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the az mysql server firewall-rule create command. When both starting IP and end IP are set to ```0.0.0.0```, the firewall is only opened for other Azure services that do not have a static IP to connect to the server.
 
 ```azurecli
 az mysql flexible-server firewall-rule create --name allanyAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -193,7 +191,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 
 ### Configure the database connection
 
-In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder_&lt;mysql-server-name>_ in both *DB_HOST* and *DB_USERNAME*.
+In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql-server-name>_ in both *DB_HOST* and *DB_USERNAME*.
 
 ```
 APP_ENV=production
@@ -277,7 +275,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 FTP and local Git can deploy to an Azure web app by using a deployment user. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials.
 
-To configure the deployment user, run the [az webapp deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace <username> and <password> with a deployment user username and password.
+To configure the deployment user, run the [az webapp deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace _&lt;username>_ and _&lt;password>_ with your deployment user username and password.
 
 The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol.
 The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
@@ -290,22 +288,24 @@ The JSON output shows the password as null. If you get a 'Conflict'. Details: 40
 
 ### Create an App Service plan
 
-In the Cloud Shell, create an App Service plan in the resource group with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) command. The following example creates an App Service plan named myAppServicePlan in the Free pricing tier (--sku F1) and in a Linux container (--is-linux).
+In the Cloud Shell, create an App Service plan in the resource group with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) command. The following example creates an App Service plan named myAppServicePlan in the Free pricing tier (--sku F1) and in a Linux container (--is-linux).
 
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 
 <a name="create"></a>
+
 ### Create a web app
 
 Create a [web app](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux) in the myAppServicePlan App Service plan.
 
-In the Cloud Shell, you can use the [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. In the following example, replace ```<app-name>``` with a globally unique app name (valid characters are ```a-z```,``` 0-9```, and ```-```). The runtime is set to ```PHP|7.0```. To see all supported runtimes, run [az webapp list-runtimes --linux](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+In the Cloud Shell, you can use the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) command. In the following example, replace _&lt;app-name>_ with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [az webapp list-runtimes --linux](https://docs.microsoft.com/cli/azure/webapp#az-webapp-list-runtimes).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
+
 ```
 Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git'
 {
@@ -329,7 +329,7 @@ You’ve created an empty new web app, with git deployment enabled.
 
 ### Configure database settings
 
-In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command.
+In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;app-name>_ and _&lt;mysql-server-name>_.
 
@@ -360,7 +360,7 @@ In the local terminal window, use `php artisan` to generate a new application ke
 php artisan key:generate --show
 ```
 
-In the Cloud Shell, set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command. Replace the placeholders _&lt;app-name>_ and _&lt;outputofphpartisankey:generate>_.
+In the Cloud Shell, set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. Replace the placeholders _&lt;app-name>_ and _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -376,7 +376,7 @@ For more information, see [Change site root](https://docs.microsoft.com/azure/ap
 
 ### Push to Azure from Git
 
-Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a web app](#create-a-web-app).
+Back in the local terminal window, add an Azure remote to your local Git repository. Replace _&lt;deploymentLocalGitUrl-from-create-step>_ with the URL of the Git remote that you saved from [Create a web app](#create-a-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -565,5 +565,8 @@ az group delete --name myResourceGroup
 <a name="next"></a>
 
 ## Next steps
-- [How to manage your resources in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal)
-- [Configure PHP applications in App Service](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux)
+
+> [!div class="nextstepaction"]
+> [How to manage your resources in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal) <br/>
+> [!div class="nextstepaction"]
+> [How to manage your server](how-to-manage-server-cli.md)

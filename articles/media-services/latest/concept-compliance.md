@@ -11,12 +11,14 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 
 ---
 
 # Media Services regulatory compliance
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Media Services meets the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense, from information impact levels 2 through 5. By deploying protected services including Azure Government, Office 365 U.S. Government, and Dynamics 365 Government, federal, and defense agencies can use a rich array of compliant services.
 

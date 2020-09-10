@@ -10,13 +10,16 @@ ms.date: 09/21/2020
 
 # Backup and restore in Azure Database for MySQL Flexible Server (Preview)
 
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview.
+
 Azure Database for MySQL Flexible Server, automatically creates server backups and securely stores them in local redundant storage within the region. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 
 ## Backup overview
 
-Flexible Server takes snapshot backups of the data files and stores them in a local redundant storage. The server also performs continuous transaction logs backup and also stores them in local redundant storage. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
+Flexible Server takes snapshot backups of the data files and stores them in a local redundant storage. The server also performs transaction logs backup and also stores them in local redundant storage. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
-These backup files cannot be exported. The backups can only be used for restore operations in Flexible server. You can also use [pg_dump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore) from a MySQL client to copy a database.
+These backup files cannot be exported. The backups can only be used for restore operations in Flexible server. You can also use [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore) from a MySQL client to copy a database.
 
 ## Backup frequency
 
@@ -58,16 +61,15 @@ Point-in-time restore is useful in multiple scenarios. Some of the use cases tha
 -   User drops an important table or database
 -   User application accidentally overwrites good data with bad data due to an application defect.
 
-You can choose between a latest restore point and a custom restore point.
+You can choose between a latest restore point and a custom restore point via [Azure portal](how-to-restore-server-portal.md).
 
 -   **Latest restore point**: The latest restore point helps you to restore the server to the last backup performed on the source server. The timestamp for restore will also displayed on the portal. This option is useful to quickly restore the server to the most updated state.
 -   **Custom restore point**: This will allow you to choose any point-in-time within the retention period defined for this flexible server. This option is useful to restore the server at the precise point in time to recover from a user error.
 
 The estimated time of recovery depends on several factors including the database sizes, the transaction log backup size, the compute size of the SKU, and the time of the restore as well. The transaction log recovery is the most time consuming part of the restore process. If the restore time is chosen closer to the full or differential snapshot backup schedule, the restores are faster since transaction log application is minimal. To estimate the accurate recovery time for your server, we highly recommend to test it in your environment as it has too many environment specific variables.
 
-
 > [!IMPORTANT]
-> If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured in the same region and zone as your primary server, and deployed as a single flexible server in a non-HA mode.
+> If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured in the same region and zone as your primary server, and deployed as a single flexible server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
 
 > [!IMPORTANT]
 > Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).

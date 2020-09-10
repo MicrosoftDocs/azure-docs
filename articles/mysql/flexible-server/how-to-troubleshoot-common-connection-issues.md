@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 9/21/2020
 ---
 
-# Troubleshoot connection issues to Azure Database for MySQL Flexible Server
+# Troubleshoot connection issues to Azure Database for MySQL - Flexible Server
 
-> [!IMPORTANT] 
-> Azure Database for MySQL Flexible Server is currently in public preview
+> [!IMPORTANT]
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 Connection problems may be caused by a variety of things, including:
 
@@ -23,7 +23,7 @@ Connection problems may be caused by a variety of things, including:
 
 In this article, we will discuss how you can troubleshoot some of the common errors and steps to resolve these errors.
 
-## Troubleshoot some of the common errors
+## Troubleshoot common errors
 
 If the application persistently fails to connect to Azure Database for MySQL Flexible Server, it usually indicates an issue with one of the following:
 
@@ -33,7 +33,7 @@ If the application persistently fails to connect to Azure Database for MySQL Fle
 * Client firewall configuration: The firewall on your client must allow connections to your database server. IP addresses and ports of the server that you cannot to must be allowed as well as application names such as MySQL in some firewalls.
 * User error: You might have mistyped connection parameters, such as the server name in the connection string.
 
-### Steps to resolve connectivity issues
+### Resolve connectivity issues
 
 * Refer to [encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md) --> to learn more about encrypted connections.
 * If you are using **Public access (allowed IP addresses)**, then set up [firewall rules](./how-to-manage-firewall-portal.md) to allow the client IP address. For temporary testing purposes only, set up a firewall rule using 0.0.0.0 as the starting IP address and using 255.255.255.255 as the ending IP address. This will open the server to all IP addresses. If this resolves your connectivity issue, remove this rule and create a firewall rule for an appropriately limited IP address or address range.

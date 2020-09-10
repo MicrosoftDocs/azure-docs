@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL Docs
+- name: Azure DB for MySQL Documentation
   href: index.yml
 - name: Overview
   items:
@@ -28,7 +28,7 @@
     displayName: corrupt data
 - name: Single Server
   items:
-  - name: Documentation
+  - name: Single Server documentation
     href: single-server/index.yml
     displayName: single server
   - name: Overview
@@ -131,7 +131,7 @@
          href: concepts-data-access-security-private-link.md
      - name: Security
        items:
-       - name: Overview
+       - name: Security overview
          href: concepts-security.md
        - name: Configuring SSL
          href: concepts-ssl-connection-security.md
@@ -162,7 +162,7 @@
          displayName: backup, restore, backups, restores, georestore, geo-restore, outage
      - name: Monitor and tune
        items:
-       - name: Overview
+       - name: Monitoring overview
          href: concepts-monitoring.md
          displayName: monitor, alerts, audit log, slow query log
        - name: Server parameters
@@ -185,7 +185,7 @@
          displayName:  recommendation
      - name: Application development
        items:
-       - name: Overview
+       - name: Application development overview
          href: concepts-database-application-development.md
        - name: Drivers and tools compatibility
          href: concepts-compatibility.md
@@ -389,7 +389,7 @@
         displayName: move servers across regions
 - name: Flexible Server (Preview)
   items:
-  - name: Documentation
+  - name: Flexible Server documentation
     href: flexible-server/index.yml
   - name: Overview
     items:
@@ -417,9 +417,9 @@
             href: flexible-server/connect-python.md
   - name: Tutorials
     items:
-    - name: Build PHP (Laravel) app with Flexible server
+    - name: Build PHP (Laravel) app with database
       href: flexible-server/tutorial-php-database-app.md
-    - name: Web app and database server in virtual network
+    - name: Connect with private web app
       href: flexible-server/tutorial-webapp-server-vnet.md
   - name: Concepts
     items:
@@ -434,9 +434,11 @@
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual network, IP address, public access
+    - name: Maintenance
+      href: flexible-server/concepts-maintenance.md
     - name: Business continuity
       items:
-      - name: Overview
+      - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
       - name: Backup and restore
         href: flexible-server/concepts-backup-restore.md
@@ -455,9 +457,13 @@
     - name: Manage a server
       items:
       - name: Azure portal
-        href: flexible-server/how-to-manage-portal.md
+        href: flexible-server/how-to-manage-server-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-manage-cli.md
+        href: flexible-server/how-to-manage-server-cli.md
+    - name: Maintenance
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-maintenance-portal.md
     - name: Stop/start server
       items:
       - name: Azure portal
@@ -465,7 +471,7 @@
     - name: Restore a server
       items:
       - name: Azure portal
-        href: flexible-server/how-to-restore-mysql-server-portal.md
+        href: flexible-server/how-to-restore-server-portal.md
     - name: Networking
       items:
       - name: Private access (VNet Integration)

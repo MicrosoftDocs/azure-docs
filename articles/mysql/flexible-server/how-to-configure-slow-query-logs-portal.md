@@ -11,7 +11,7 @@ ms.date: 9/21/2020
 # Configure and access slow query logs for Azure Database for MySQL - Flexible Server using the Azure portal
 
 > [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can configure, list, and download the Azure Database for MySQL Flexible Server [slow query logs](concepts-slow-query-logs.md) from the Azure portal.
 

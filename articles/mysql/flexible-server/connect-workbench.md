@@ -9,7 +9,11 @@ ms.topic: quickstart
 ms.date: 9/21/2020
 ---
 
-# Quickstart: Use MySQL Workbench to connect and query data in Azure Database for MySQL - Flexible Server
+# Quickstart: Use MySQL Workbench to connect and query data in Azure Database for MySQL - Flexible Server (Preview)
+
+
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This quickstart demonstrates how to connect to an Azure Database for MySQL Flexible Server using the MySQL Workbench application.
 
@@ -109,6 +113,6 @@ Now, you have connected to Azure Database for MySQL Flexible Server by using MyS
 
 ## Next steps
 - [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
-- Learn more about [Networking in Azure Database for MySQL Flexible Server]<!-- FIX ME (./concepts-networking-overview.md). -->
+- Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking.md).
 - [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
 - [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).

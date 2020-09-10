@@ -80,7 +80,7 @@ $ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u my
 ## Next Steps
 If the above steps do not help resolve the issue, you can always restore the entire server.
 - [Restore a  Azure Database for MySQL Single Server](howto-restore-server-portal.md)
-- [Restore a Azure Database for MySQL Flexible Server](flexible-server/how-to-restore-mysql-server-portal.md)
+- [Restore a Azure Database for MySQL Flexible Server](flexible-server/how-to-restore-server-portal.md)
 
 
 

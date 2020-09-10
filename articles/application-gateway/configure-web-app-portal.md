@@ -18,10 +18,8 @@ Application Gateway provides a switch called `Pick host name from backend addres
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
->
-> - Create a backend pool and add an App Service to it
-> - Create HTTP Settings and Custom Probe with “Pick Hostname” switches enabled
+- Create a backend pool and add an App Service to it
+- Create HTTP Settings and Custom Probe with “Pick Hostname” switches enabled
 
 ## Prerequisites
 

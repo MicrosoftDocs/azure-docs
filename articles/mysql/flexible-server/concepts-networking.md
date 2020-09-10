@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/21/2020
 ---
 
-# Networking overview
+# Connectivity and networking concepts for Azure Database for MySQL - Flexible Server (Preview)
 
-This article describes connectivity and networking concepts for Azure Database for MySQL Flexible server. 
+This article describes public and private connectivity options for your server. You will learn in detail the networking concepts for Azure Database for MySQL Flexible server to create a server securely in Azure.
 
 > [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is in preview.
+> Azure Database for MySQL - Flexible Server is in preview.
 
 ## Choosing a networking option
 You have two networking options for your Azure Database for MySQL Flexible Server. The options are **private access (VNet integration)** and **public access (allowed IP addresses)**. At server creation, you must pick one option. 

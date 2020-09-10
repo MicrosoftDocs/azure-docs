@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 9/21/2020
 ---
 
-# Compute and storage options in Azure Database for MySQL - Flexible Server
+# Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
 
 > [!IMPORTANT] 
-> Azure Database for MySQL Flexible Server is currently in public preview
+> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Memory Optimized. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
@@ -33,7 +33,7 @@ To choose a compute tier, use the following table as a starting point.
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
 | Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
-After you create a server, the compute tier, compute size, and storage size can be changed within seconds. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
+After you create a server, the compute tier, compute size, and storage size changed. Compute scaling requires a restart and takes between 60-120 seconds, while storage scaling does not require restart. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
 
 ## Compute tiers, size, and server types
 
@@ -133,7 +133,7 @@ You can monitor your I/O consumption in the Azure portal (with Azure Monitor) us
 
 ## Backup
 
-The service automatically takes backups of your server. You can select a retention period from a range of 1 to 35 days. Learn more about backups in the backups article<!-- [concepts article](concepts-backup.md)-->.
+The service automatically takes backups of your server. You can select a retention period from a range of 1 to 35 days. Learn more about backups in the [backup and restore concepts article](concepts-backup-restore.md).
 
 ## Scale resources
 
@@ -142,7 +142,7 @@ After you create your server, you can independently change the compute tier, com
 > [!NOTE]
 > The storage size can only be increased. You cannot go back to a smaller storage size after the increase.
 
-When you change the compute tier or compute size, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is less than a minute. 
+When you change the compute tier or compute size, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is between 60-120 seconds. 
 
 Scaling storage and changing the backup retention period are online operations and do not require a server restart.
 
