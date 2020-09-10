@@ -14,14 +14,14 @@ ms.custom: aaddev
 ms.reviewer: jesakowi
 ---
 
-# Mark your app as publisher verified (preview)
+# Mark your app as publisher verified
 
 When an application is marked as publisher verified, it means that the publisher has verified their identity using their Microsoft Partner Network (MPN) account and has associated this MPN account with their application registration. This article describes how to complete the [publisher verification (preview)](publisher-verification-overview.md) process.
 
 ## Quickstart
 If you are already enrolled in the Microsoft Partner Network (MPN) and have met the [pre-requisites](publisher-verification-overview.md#requirements), you can get started right away: 
 
-1. Navigate to the preview [App Registration portal](https://aka.ms/PublisherVerificationPreview).
+1. Navigate to the [App Registration portal](https://aka.ms/PublisherVerificationPreview).
 
 1. Choose an app and click **Branding**. 
 
@@ -41,7 +41,7 @@ Make sure you have met the [pre-requisites](publisher-verification-overview.md#r
 
     - In Partner Center this user must have of the following roles: MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD). 
 
-1. Navigate to the preview version of the App Registration portal:  
+1. Navigate to the App Registration portal:  
 
 1. Click on an app you would like to mark as Publisher Verified and open the Branding blade. 
 
