@@ -25,11 +25,11 @@ This tutorial introduces you to the core AzureML concepts needed to run your cod
 
 > [!div class="checklist"]
 > - Control plane vs data plane
-> - [Workspace](https://docs.microsoft.com/articlepython/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)
-> - [Experiment](https://docs.microsoft.com/articlepython/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)
-> - [Run](https://docs.microsoft.com/articlepython/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)
-> - [ScriptRunConfig](https://docs.microsoft.com/articlepython/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py)
-> - [ComputeTarget](https://docs.microsoft.com/articlepython/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)
+> - [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
+> - [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)
+> - [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)
+> - [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)
+> - [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true)
 
 ## Prerequisites
 

@@ -28,7 +28,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Using Python notebooks
+          - text: Using Python SDK (day 1)
+            url: tutorial-1st-experiment-sdk-setup-local.md
+          - text: Using Jupyter Notebooks
             url: tutorial-1st-experiment-sdk-setup.md
           - text: With AutoML (no code/low-code)
             url: tutorial-first-experiment-automated-ml.md

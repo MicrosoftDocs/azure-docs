@@ -27,9 +27,9 @@ By the end of this article you would have a better understanding of:
 The Azure Machine Learning concepts covered in this article are:
 
 > [!div class="checklist"]
-> - [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py): Passing script arguments.
-> - [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py)
-> - [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)
+> - [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true): Passing script arguments.
+> - [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py&preserve-view=true)
+> - [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true)
 
 ## Prerequisites
 
@@ -283,7 +283,7 @@ They make it easy to use cloud data in AML.
 > the concept of versioned data making it easy to keep track of your data
 > as it evolves over time.
 > 
-> For more on datasets, see our [documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py).
+> For more on datasets, see our [documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true).
 
 We can use this `Dataset` to create a reference to the CIFAR10 data as
 an argument in the ScriptRunConfig:
