@@ -70,20 +70,27 @@ az keyvault role assignment create --managed-hsm-name ContosoMHSM --role "Manage
 ## List existing role assignments
 
 I can view role assignments
+
+```azurecli
 az keyvault role assignment list --managed-hsm-name ContosoMHSM
+```
 
 OR
-
+```azurecli
 az keyvault role assignment list --managed-hsm-name ContosoMHSM --assignee <user, group, or service principal name>
+```
 
 OR
 
+```azurecli
 az keyvault role assignment list --managed-hsm-name ContosoMHSM --assignee <user, group, or service principal name> --scope <HSM or key>
+```
 
 OR
 
+```azurecli
 az keyvault role assignment list --managed-hsm-name ContosoMHSM --assignee <user, group, or service principal name> --scope <HSM or key> --role <role id or name>
-
+```
 
 
 ## Delete a role assignment
@@ -91,12 +98,16 @@ az keyvault role assignment list --managed-hsm-name ContosoMHSM --assignee <user
 
 
 I can delete role assignments
+
+```azurecli
 az keyvault role assignment delete --managed-hsm-name ContosoMHSM --role <role name or id> --assignee <user, group, or service principal name> --scope <HSM or key>
+```
 
 OR
 
+```azurecli
 az keyvault role assignment delete --managed-hsm-name ContosoMHSM --ids <role assignment IDs>
-
+```
 
 ## Next steps
 

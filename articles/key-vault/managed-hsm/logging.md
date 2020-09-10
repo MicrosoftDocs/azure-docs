@@ -25,8 +25,7 @@ You can access your logging information 10 minutes (at most) after the Managed H
 Use this tutorial to help you get started with Managed HSM logging. You'll create a storage account, enable logging, and interpret the collected log information.  
 
 > [!NOTE]
-> This tutorial does not include instructions for how to create Managed HSMs or keys. 
-> This article provides Azure CLI instructions for updating diagnostic logging.
+> This tutorial does not include instructions for how to create Managed HSMs or keys. This article provides Azure CLI instructions for updating diagnostic logging.
 >
 
 ## Prerequisites
@@ -41,8 +40,6 @@ To complete this tutorial, you must have the following:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-# [Azure CLI](#tab/azure-cli)
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
@@ -51,7 +48,6 @@ If you choose to install and use the CLI locally, this quickstart requires the A
 
 ## Sign in to Azure
 
-# [Azure CLI](#tab/azure-cli)
 
 To sign in to Azure using the CLI you can type:
 
@@ -97,7 +93,7 @@ hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
 storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
 ```
 
-## <a id="enable"></a>Enable logging
+## Enable logging
 
 To enable logging for Managed HSM, use the **az monitor diagnostic-settings create** command, together with the variables that we created for the new storage account and the Managed HSM. We'll also set the **-Enabled** flag to **$true** and set the category to **AuditEvent** (the only category for Managed HSM logging):
 
@@ -124,7 +120,7 @@ What's logged:
   * Key backup, restore, purge
 * Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
 
-## <a id="access"></a>Access your logs
+## Access your logs
 
 Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs.
 

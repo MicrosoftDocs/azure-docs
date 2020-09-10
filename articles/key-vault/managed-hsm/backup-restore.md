@@ -95,10 +95,6 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860
 ```
 
-
-
-
-
 ## Next Steps
 - See [Manage a Managed HSM using the Azure CLI](manage-with-cli.md) to learn how to use Azure CLI to perform backup and restore operations.
 - Learn more about [Managed HSM Security Domain](security-domain.md)
