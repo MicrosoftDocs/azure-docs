@@ -82,7 +82,7 @@ Use the following procedure in the BMC Helix environment:
    
    ![Screenshot of the webhook U R L in Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
 
-To add a webhook to an action, follow the instructions for Secure Webhook:
+To add a webhook to an action, follow these instructions for Secure Webhook:
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 1. Select **Alerts** > **Manage actions**.
@@ -122,7 +122,7 @@ Ensure that you've met the following prerequisites:
    1. Select **connectors**.
    1. Select **configuration**.
    1. Select the **add new connection** configuration.
-   1. Fill the information for the configuration section:
+   1. Fill in the information for the configuration section:
       - **Name**: Make up your own.
       - **Authorization type**: **NONE**
       - **Description**: Make up your own.
