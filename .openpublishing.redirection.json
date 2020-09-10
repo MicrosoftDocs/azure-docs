@@ -17439,7 +17439,7 @@
     },
     {
       "source_path": "articles/machine-learning/how-to-enable-virtual-network.md",
-      "redirect_url": "/azure/machine-learning/how-to-network-security-overview.md",
+      "redirect_url": "/azure/machine-learning/how-to-network-security-overview",
       "redirect_document_id": false
     },
     {

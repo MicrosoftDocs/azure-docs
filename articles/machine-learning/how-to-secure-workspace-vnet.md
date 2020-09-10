@@ -77,13 +77,13 @@ To use an Azure storage account for the workspace in a virtual network, use the 
    ![The "Firewalls and virtual networks" area on the Azure Storage page in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
 1. On the __Firewalls and virtual networks__ page, do the following actions:
-    - Select __Selected networks__.
-    - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute resides (see step 1).
+    1. Select __Selected networks__.
+    1. Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute resides (see step 1).
 
         > [!IMPORTANT]
         > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
 
-    - Select the __Allow trusted Microsoft services to access this storage account__ check box.
+    1. Select the __Allow trusted Microsoft services to access this storage account__ check box.
 
     > [!IMPORTANT]
     > When working with the Azure Machine Learning SDK, your development environment must be able to connect to the Azure Storage Account. When the storage account is inside a virtual network, the firewall must allow access from the development environment's IP address.
@@ -159,9 +159,9 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 1. On the __Key Vault__ page, in the left pane, select __Networking__.
 
 1. On the __Firewalls and virtual networks__ tab, do the following actions:
-    - Under __Allow access from__, select __Private endpoint and selected networks__.
-    - Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
-    - Under __Allow trusted Microsoft services to bypass this firewall?__, select __Yes__.
+    1. Under __Allow access from__, select __Private endpoint and selected networks__.
+    1. Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
+    1. Under __Allow trusted Microsoft services to bypass this firewall?__, select __Yes__.
 
    [![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 

@@ -267,36 +267,42 @@ For specific information on using Azure Databricks with a virtual network, see [
 > [!IMPORTANT]
 > Azure Machine Learning supports only virtual machines that are running Ubuntu.
 
-To use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace, use the following steps:
+In this section you learn how to use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace.
 
-1. Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
-    * [Create and manage Azure virtual networks for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+### Create the VM or HDInsight cluster
 
-    * [Extend HDInsight using an Azure virtual network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
+Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
+* [Create and manage Azure virtual networks for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
-1. To allow Azure Machine Learning to communicate with the SSH port on the VM or cluster, configure a source entry for the network security group. The SSH port is usually port 22. To allow traffic from this source, do the following actions:
+* [Extend HDInsight using an Azure virtual network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-    * In the __Source__ drop-down list, select __Service Tag__.
+### Configure network ports 
 
-    * In the __Source service tag__ drop-down list, select __AzureMachineLearning__.
+Allow Azure Machine Learning to communicate with the SSH port on the VM or cluster, configure a source entry for the network security group. The SSH port is usually port 22. To allow traffic from this source, do the following actions:
 
-    * In the __Source port ranges__ drop-down list, select __*__.
+1. In the __Source__ drop-down list, select __Service Tag__.
 
-    * In the __Destination__ drop-down list, select __Any__.
+1. In the __Source service tag__ drop-down list, select __AzureMachineLearning__.
 
-    * In the __Destination port ranges__ drop-down list, select __22__.
+    ![Inbound rules for doing experimentation on a VM or HDInsight cluster within a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
-    * Under __Protocol__, select __Any__.
+1. In the __Source port ranges__ drop-down list, select __*__.
 
-    * Under __Action__, select __Allow__.
+1. In the __Destination__ drop-down list, select __Any__.
 
-   ![Inbound rules for doing experimentation on a VM or HDInsight cluster within a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
+1. In the __Destination port ranges__ drop-down list, select __22__.
 
-    Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+1. Under __Protocol__, select __Any__.
 
-    If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [Limit outbound connectivity from the virtual network](#limiting-outbound-from-vnet) section.
+1. Under __Action__, select __Allow__.
 
-1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
+Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+
+If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [Limit outbound connectivity from the virtual network](#limiting-outbound-from-vnet) section.
+
+### Attach the VM or HDInsight cluster
+
+Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
 ## Next steps
 
