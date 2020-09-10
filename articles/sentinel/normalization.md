@@ -84,17 +84,19 @@ The available query time parsers are available in the Azure Sentinel [official G
     :::image type="content" source="./media/normalization/install-new-parser.png" alt-text="Install a new parser":::
 
 1. In the save dialog, populate the fields as follows:
-    1. **Name**: use the **Alias name** field in the description of the parser (in the example above, *CheckPoint_Network_NormalizedParser*)
+    1. **Name**: It is recommended to use the same value used in the **Function Alias** field (in the example above, *CheckPoint_Network_NormalizedParser*)
     
     1. **Save as**: select **Function**
 
-    1. **Function Alias**: should be the same as the **Name** field
+    1. **Function Alias**: Should be named in the following naming convention - *PRODUCT_Network_NormalizedParser* (in the above example, *CheckPoint_Network_NormalizedParser*).
 
     1. **Category**: you can select an existing category or create new category (such as *NormalizedNetworkSessionsParsers*)
     
         :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Save the parser":::
 
 In order to properly use the parsers, you must also install the Empty network schema parser (which creates an empty tabular view of all the network sessions schema’ fields) and the Network meta-parser (the meta parser `unions together all enabled parsers to create a single view of data from various sources in the networking schema). Installing these two  parsers is done in a similar manner to the aforementioned steps.
+
+Note: upon saving a query function, it may be necessary to close the query explorer and re-open it for the new function to be reflected.
 
 #### Using the parsers
 
@@ -110,7 +112,7 @@ On the pane on the right, Expand “Saved queries” section and find the ‘Nor
 
 :::image type="content" source="./media/normalization/find-parser.png" alt-text="Find your parser":::
 
-You can click on each individual parser and see the underlying function it uses, and run it (or access it directly by its alias, as described above).
+You can click on each individual parser and see the underlying function it uses, and run it (or access it directly by its alias, as described above). Note that some parsers can retain the original fields side-by-side to the normalized fields for convenience. This can be easily edited in the parser's query.
 
 #### Customizing parsers
 
