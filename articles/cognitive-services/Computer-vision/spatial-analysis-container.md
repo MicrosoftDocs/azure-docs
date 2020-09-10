@@ -70,7 +70,7 @@ Fill out and submit the [request form](https://aka.ms/cognitivegate) to request 
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > * On the form, you must use an email address associated with an Azure subscription ID.
 > * The Computer Vision resource you use to run the container must have been created with the approved Azure subscription ID.
 
@@ -96,13 +96,13 @@ Spatial analysis uses the compute features of the Azure Stack Edge to run an AI 
   3. Leave the Kubernetes test node IP addresses and the Kubernetes external services IP addresses blank.
   4. Click **Apply**. This operation may take about two minutes. 
 
-![Configure compute](media/spatial-analytics/configure-compute.png)
+![Configure compute](media/spatial-analysis/configure-compute.png)
 
 ### Set up an Edge compute role and create an IoT Hub resource
 
 In the [Azure portal](https://portal.azure.com/), navigate to your Azure Stack Edge resource. On the **Overview** page or navigation list, click the Edge compute **Get started** button. In the **Configure Edge compute** tile, click **Configure**. 
 
-![Link](media/spatial-analytics/configure-edge-compute-tile.png)
+![Link](media/spatial-analysis/configure-edge-compute-tile.png)
 
 In the **Configure Edge compute** page, choose an existing IoT Hub, or choose to create a new one. By default, a Standard (S1) pricing tier is used to create an IoT Hub resource. To use a free tier IoT Hub resource, create one and then select it. The IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource 
 

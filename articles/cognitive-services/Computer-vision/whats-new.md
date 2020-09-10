@@ -16,6 +16,10 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## September 2020
+
+The [spatial analysis container](spatial-analysis-container.md) is now in preview. The spatial analysis feature of Computer Vision lets you understand people’s movements and interactions with physical spaces. Use the container on real-time video, pre-recorded video, and images.
+
 ## May 2020
 Computer Vision API v3.0 entered General Availability, with updates to [Read API](concept-recognizing-text.md):
 
