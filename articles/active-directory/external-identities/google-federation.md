@@ -75,13 +75,13 @@ First, create a new project in the Google Developers Console to obtain a client 
     ![Screenshot showing the Google APIs create credentials option](media/google-federation/google-api-credentials.png)
 
 11. Under **Application type**, choose **Web application** and give the application a suitable name, for example "Azure AD B2B", and then under **Authorized redirect URIs**, enter the following URIs:
-   - `https://login.microsoftonline.com` 
-   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(where `<directory id>` is your directory ID)
+    - `https://login.microsoftonline.com` 
+    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(where `<directory id>` is your directory ID)
    
-     > [!NOTE]
-     > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
+    > [!NOTE]
+    > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
 
-     ![Screenshot showing the Authorized redirect URIs section](media/google-federation/google-create-oauth-client-id.png)
+    ![Screenshot showing the Authorized redirect URIs section](media/google-federation/google-create-oauth-client-id.png)
 
 12. Select **Create**. Copy the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
 
