@@ -111,63 +111,61 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 * Improves exception handling. Exposes `CosmosClientException` through `CosmosDBAccessException`.
 * Exposes `requestCharge` and `activityId` through `ResponseDiagnostics`.
 #### Key bug fixes
-* SDK 3.5.0 update fixes "Exception when Cosmos DB HTTP response header is larger than 8192 bytes", "ConsistencyPolicy.defaultConsistencyLevel() fails on Bounded Staleness and Consistent Prefix."
-* Fixed findById APIs behavior, return empty on not found, instead of throwing exception.
-* Fixed a bug where sorting was not applied on next page when using CosmosPageRequest.
+* SDK 3.5.0 update fixes "Exception when Cosmos DB HTTP response header is larger than 8192 bytes," "ConsistencyPolicy.defaultConsistencyLevel() fails on Bounded Staleness and Consistent Prefix."
+* Fixes `findById` method's behavior. Previously, this method returned empty if the entity wasn't found instead of throwing an exception.
+* Fixes a bug in which sorting wasn't applied on the next page when `CosmosPageRequest` was used.
 
 ### 2.1.9 (December 26, 2019)
 #### New features
-* Added annotation field to enable/disable auto create collection.
+* Adds annotation field to enable or disable automatic collection creation.
 #### Key bug fixes
-* Fixed findById APIs behavior, return empty on not found, instead of throwing exception.
+*  Fixes `findById` method's behavior. Previously, this method returned empty if the entity wasn't found instead of throwing an exception.
 
 ### 2.2.0 (October 21, 2019)
 #### New features
-* Complete Reactive Cosmos Repository Support.
-* Cosmos DB Request Diagnostics String and Query Metrics Support.
-* Cosmos DB SDK version update to 3.3.1.
+* Complete Reactive Cosmos Repository support.
+* Azure Cosmos DB Request Diagnostics String and Query Metrics support.
+* Azure Cosmos DB SDK version update to 3.3.1.
 * Spring Framework version upgrade to 5.2.0.RELEASE.
 * Spring Data Commons version upgrade to 2.2.0.RELEASE.
-* Added findByIdAndPartitionKey, deleteByIdAndPartitionKey APIs.
-* Removed dependency from azure-doumentdb.
-* Rebranded DocumentDb to Cosmos.
+* Adds `findByIdAndPartitionKey` and `deleteByIdAndPartitionKey` APIs.
+* Removes dependency from azure-documentdb.
+* Rebrands DocumentDB to Azure Cosmos DB.
 #### Key bug fixes
-* Fixed "Sorting throws exception when pageSize is less than total items in repository."
+* Fixes "Sorting throws exception when pageSize is less than total items in repository."
 
 ### 2.1.8 (October 18, 2019)
 #### New features
-* Deprecate Document DB APIs.
-* Added findByIdAndPartitionKey, deleteByIdAndPartitionKey APIs.
-* Added Optimistic Locking based on _etag.
-* Enabled SPeL expression for document collection name.
-* ObjectMapper improvements.
-#### Key bug fixes
+* Deprecates DocumentDB APIs.
+* Adds `findByIdAndPartitionKey` and `deleteByIdAndPartitionKey` APIs.
+* Adds optimistic locking based on `_etag`.
+* Enables SpEL expression for document collection name.
+* Adds `ObjectMapper` improvements.
 
 ### 2.1.7 (October 18, 2019)
 #### New features
-* Added Cosmos SDK v3 dependency
-* Added Reactive Cosmos Repository
-* Updated implementation of DocumentDbTemplate to use Cosmos SDK v3.
-* Other configuration changes for Reactive Cosmos Repository support.
+* Adds Azure Cosmos DB SDK version 3 dependency.
+* Adds Reactive Cosmos Repository.
+* Updates implementation of `DocumentDbTemplate` to use Azure Cosmos DB SDK version 3.
+* Adds other configuration changes for Reactive Cosmos Repository support.
 
 ### 2.1.2 (March 19, 2019)
 #### Key bug fixes
-* Remove applicationInsights dependency for
+* Removes `applicationInsights` dependency for:
     * Potential risk of dependencies polluting.
     * Java 11 incompatibility.
     * Avoiding potential performance impact to CPU and/or memory.
 
 ### 2.0.7 (March 20, 2019)
-#### New features
 #### Key bug fixes
-* Backport removes applicationInsights dependency for
+* Backport removes `applicationInsights` dependency for:
     * Potential risk of dependencies polluting.
     * Java 11 incompatibility.
     * Avoiding potential performance impact to CPU and/or memory.
 
 ### 2.1.1 (March 7, 2019)
 #### New features
-* Update master version to 2.1.1.
+* Updates master version to 2.1.1.
 
 ### 2.0.6 (March 7, 2019)
 #### New features
@@ -175,35 +173,35 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 ### 2.1.0 (December 17, 2018)
 #### New features
-* Update version to 2.1.0 to address issue.
+* Updates version to 2.1.0 to address problem.
 
 ### 2.0.5 (September 13, 2018)
 #### New features
-* Add keyword exists, startsWith.
-* Update Readme.
+* Adds keywords `exists` and `startsWith`.
+* Updates Readme.
 #### Key bug fixes
-* Fix "Cant call self href directly for Entity."
-* Fix "findAll will fail if collection is not created."
+* Fixes "Cant call self href directly for Entity."
+* Fixes "findAll will fail if collection is not created."
 
-### 2.0.4 (Pre-release) (August 23, 2018)
+### 2.0.4 (Prerelease) (August 23, 2018)
 #### New features
-* Renaming package from documentdb to cosmosdb.
-* Add new feature of query method keyword, 16 keywords from Sql API supported.
-* Add new feature of query with paging and sorting.
-* Simplify the configuration of spring-data-cosmosdb.
-* Add deleteCollection and deleteAll API.
+* Renames package from documentdb to cosmosdb.
+* Adds new feature of query method keyword. 16 keywords from SQL API are now supported.
+* Adds new feature of query with paging and sorting.
+* Simplifies the configuration of spring-data-cosmosdb.
+* Adds `deleteCollection` and `deleteAll` APIs.
 
 #### Key bug fixes
-* Bug fix and defect enhancement.
+* Bug fix and defect mitigation.
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## Next steps
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
+Learn more about [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-To learn more about the Spring framework, see the [project home page](https://spring.io/projects/spring-framework).
+Learn more about the [Spring Framework](https://spring.io/projects/spring-framework).
 
-To learn more about Spring Boot, see the [project home page](https://spring.io/projects/spring-boot).
+Learn more about [Spring Boot](https://spring.io/projects/spring-boot).
 
-To learn more about Spring Data, see the [project home page](https://spring.io/projects/spring-data).
+Learn more about [Spring Data](https://spring.io/projects/spring-data).
