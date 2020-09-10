@@ -28,7 +28,12 @@ Each workspace contains multiple tables are that are organized into separate col
 ![Azure Monitor Logs structure](media/data-platform-logs/logs-structure.png)
 
 
-Log data from Application Insights is also stored in Azure Monitor Logs, but it's structured different depending on how your application is configured. For a workspace-based application (currently in preview), data is stored in a Log Analytics workspace just like other data in a standard set of tables to hold data such as application requests, exceptions, and page views. Multiple applications can use the same workspace. For a classic application, the data is not stored in a Log Analytics workspace. Its data is structured the same, uses the same query language, and you create and run queries using the same Log Analytics tool in the Azure portal. Data for monitored applications though is stored separately from each other in a similar set of standard tables.
+Log data from Application Insights is also stored in Azure Monitor Logs, but it's stored different depending on how your application is configured. For a workspace-based application, data is stored in a Log Analytics workspace in a standard set of tables to hold data such as application requests, exceptions, and page views. Multiple applications can use the same workspace. For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries using the same Log Analytics tool in the Azure portal. Data for classic applications though is stored separately from each other. Its general structure is the same as workspace-based applications although the table and column names are different. See [Workspace-based resource changes](../app/apm-tables.md) for a detailed comparison of the two.
+
+
+> [!NOTE]
+> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. See [Query scope](../log-query/scope.md) for more details.
+
 
 ![Azure Monitor Logs structure for Application Insights](media/data-platform-logs/logs-structure-ai.png)
 
