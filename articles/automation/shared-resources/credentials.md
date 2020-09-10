@@ -22,7 +22,7 @@ The cmdlets in the following table create and manage Automation credentials with
 
 | Cmdlet | Description |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential) |Retrieves a [CredentialInfo](/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) object containing metadata about the credential. The cmdlet doesn't retrieve the `PSCredential` object itself.  |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential) |Retrieves a [CredentialInfo](/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo) object containing metadata about the credential. The cmdlet doesn't retrieve the `PSCredential` object itself.  |
 | [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential) |Creates a new Automation credential. |
 | [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential) |Removes an Automation credential. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential) |Sets the properties for an existing Automation credential. |
@@ -127,11 +127,11 @@ Connect-AzAccount -Credential $myPsCred
 
 You can add an activity for the internal `Get-AutomationPSCredential` cmdlet to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
 
-![Add credential to canvas](../media/credentials/credential-add-canvas.png)
+![Add credential cmdlet to canvas](../media/credentials/credential-add-canvas.png)
 
 The following image shows an example of using a credential in a graphical runbook. In this case, the credential provides authentication for a runbook to Azure resources, as described in [Use Azure AD in Azure Automation to authenticate to Azure](../automation-use-azure-ad.md). The first activity retrieves the credential that has access to the Azure subscription. The account connection activity then uses this credential to provide authentication for any activities that come after it. A [pipeline link](../automation-graphical-authoring-intro.md#use-links-for-workflow) is used here since `Get-AutomationPSCredential` is expecting a single object.  
 
-![Add credential to canvas](../media/credentials/get-credential.png)
+![Credential workflow with pipeline link example](../media/credentials/get-credential.png)
 
 ## Use credentials in a DSC configuration
 
