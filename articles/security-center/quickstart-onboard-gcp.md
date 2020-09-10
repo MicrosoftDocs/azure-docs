@@ -89,13 +89,13 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
 
 ### Step 5. Connect GCP to Security Center 
-1. From Security Center's menu, select cloud connectors.
+1. From Security Center's menu, select **Cloud connectors**.
 1. Select add GCP account.
-1. In the onboarding blade, do the following and then select Next
+1. In the onboarding page, do the following and then select **Next**.
     1. Validate the chosen subscription.
-    1. In the Display name box, Enter a display name for the connector.
-    1. In the Organization ID box, enter your organization's ID. If you don't know it, see [Creating and managing organizations](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
-    1. In the Private key file box, browse to the JSON file you downloaded in [Step 4. Create a private key for the dedicated service account](#step-4-create-a-private-key-for-the-dedicated-service-account).
+    1. In the **Display name** field, enter a display name for the connector.
+    1. In the **Organization ID** field, enter your organization's ID. If you don't know it, see [Creating and managing organizations](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
+    1. In the **Private key** file box, browse to the JSON file you downloaded in [Step 4. Create a private key for the dedicated service account](#step-4-create-a-private-key-for-the-dedicated-service-account).
 
 
 ### Step 6. Confirmation

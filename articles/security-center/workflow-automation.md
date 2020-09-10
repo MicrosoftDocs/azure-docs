@@ -11,7 +11,7 @@ ms.author: memildin
 ---
 
 
-# Workflow automation
+# Create automatic responses to alerts and recommendations with workflow automation
 
 Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 
@@ -97,7 +97,7 @@ To view the raw event schemas of the security alerts or recommendations events p
 
 In this article, you learned about creating Logic Apps, automating their execution in Security Center, and running them manually. 
 
-For other related material, see: 
+For related material, see: 
 
 - [The Microsoft Learn module on how to use workflow automation to automate a security response](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Security recommendations in Azure Security Center](security-center-recommendations.md)
