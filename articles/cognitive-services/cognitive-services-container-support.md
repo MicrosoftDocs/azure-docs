@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 9/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -55,7 +55,6 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Face][fa-containers] | F0, S0 | **Face** | Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access][request-access] |
 | [Form recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms.<br>[Request access][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Loads a trained or published Language Understanding model, also known as a LUIS app, into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the [LUIS portal](https://www.luis.ai) to improve the app's prediction accuracy. |
-| [Spatial Analysis][spa-containers] | S0 | **Spatial Analysis** ([image](https://hub.docker.com/_/azure-cognitive-services-vision-spatial-analysis)) | Enables you to analyze real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in the environment. |
 | [Speech Service API][sp-containers-stt] | F0, S0 | **Speech-to-text** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Transcribes continuous real-time speech into text. |
 | [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech-to-text** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text using a custom model. |
 | [Speech Service API][sp-containers-tts] | F0, S0 | **Text-to-speech** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Converts text to natural-sounding speech. |
