@@ -13,8 +13,7 @@ ms.custom: mvc
 # Tutorial: Build a PHP (Laravel) and MySQL Flexible Server (Preview) app in Azure App Service
 
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP Web App in Azure with Flexible Server":::
 
 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
@@ -130,7 +129,7 @@ php artisan serve
 
 Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
-![PHP connects successfully to MySQL](media/tutorial-php-database-app/mysql-connect-success.png)
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP connects successfully to MySQL":::
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
@@ -253,7 +252,7 @@ Navigate to `http://localhost:8000`. If the page loads without errors, the PHP a
 
 Add a few tasks in the page.
 
-![PHP connects successfully to Azure Database for MySQL](media/tutorial-php-database-app/mysql-connect-success.png)
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP connects successfully to Azure Database for MySQL":::
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
@@ -410,7 +409,7 @@ remote: Running deployment command...
 
 Browse to `http://<app-name>.azurewebsites.net` and add a few tasks to the list.
 
-![PHP Web App in Azure](media/tutorial-php-database-app/php-mysql-in-azure.png)
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="PHP Web App in Azure":::
 
 Congratulations, you're running a data-driven PHP app in Azure App Service.
 
@@ -530,7 +529,7 @@ php artisan serve
 
 To see the task status change, navigate to `http://localhost:8000` and select the checkbox.
 
-![Added check box to task](media/tutorial-php-database-app/complete-checkbox.png)
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Added check box to task":::
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
@@ -552,7 +551,7 @@ git push azure master
 
 Once the `git push` is complete, navigate to the Azure app and test the new functionality.
 
-![Model and database changes published to Azure](media/tutorial-php-database-app/complete-checkbox-published.png)
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Model and database changes published to Azure":::
 
 If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
 

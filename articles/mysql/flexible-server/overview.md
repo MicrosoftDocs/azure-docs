@@ -38,13 +38,13 @@ Within a single availability zone, if the server goes down due to planned or unp
 3. MySQL database engine is brought online on the new Virtual Machine.
 4. Client applications can reconnect once the server is ready to accept connections.
    
-![Single Zone high availability conceptual diagram](media/overview/2-flexible-server-architecture.png) 
+:::image type="content" source="media/overview/2-flexible-server-architecture.png" alt-text="Single Zone high availability conceptual diagram"::: 
 
 If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. The typical failover time ranges from 60-120 seconds. This allows the service to support high availability and provide improved resiliency with tolerance for single availability zone failures in a given Azure region. 
 
 See [high availability concepts](concepts-high-availability.md) for more details.
 
-![Zone Redundant high availability conceptual diagram](media/overview/3-flexible-server-overview-zone-redundant-ha.png) 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Zone Redundant high availability conceptual diagram"::: 
 
 ## Automated patching with managed maintenance window
 

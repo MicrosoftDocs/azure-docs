@@ -41,7 +41,7 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 6.  Provide a new server name in the **Restore to new server** field.
 
-    ![Earliest restore time](./media/concept-backup-restore/restore-blade-latest.png)
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="Earliest restore time":::
 
 8.  Click **OK**.
 
@@ -65,8 +65,10 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 6.  Provide a new server name in the **Restore to new server** field.
 
-    ![view overview](./media/concept-backup-restore/restore-blade-custom.png)
-
+6.  Provide a new server name in the **Restore to new server** field. 
+   
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="view overview":::
+ 
 7.  Click **OK**.
 
 8.  A notification will be shown that the restore operation has been initiated.

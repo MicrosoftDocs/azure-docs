@@ -22,11 +22,11 @@ Create an empty database on the Azure Database for MySQL server using MySQL Work
 
 To get connected, locate the connection information in the **Overview** of your Azure Database for MySQL.
 
-![Find the connection information in the Azure portal](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
+:::image type="content" source="./media/concepts-migrate-import-export/1_server-overview-name-login.png" alt-text="Find the connection information in the Azure portal":::
 
 Add the connection information to MySQL Workbench.
 
-![MySQL Workbench connection string](./media/concepts-migrate-import-export/2_setup-new-connection.png)
+:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="MySQL Workbench connection string":::
 
 ## Determine when to use import and export techniques
 
@@ -63,7 +63,7 @@ There are two ways to export and import data in MySQL Workbench. Each serves a d
 > - For MySQL Flexible server you can just use 'username' If you use 'username@servername' to connect, the connection will fail.
 
 ### Table data export and import wizards from the object browser's context menu
-![MySQL Workbench wizards on the object browser's context menu](./media/concepts-migrate-import-export/p1.png)
+:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="MySQL Workbench wizards on the object browser's context menu":::
 
 The wizards for table data support import and export operations by using CSV and JSON files. They include several configuration options, such as separators, column selection, and encoding selection. You can perform each wizard against local or remotely connected MySQL servers. The import action includes table, column, and type mapping.
 
@@ -89,7 +89,7 @@ The following example imports the table from a CSV file:
 Use a wizard to export or import SQL generated from MySQL Workbench or generated from the mysqldump command. Access these wizards from the **Navigator** pane or by selecting **Server** from the main menu. Then select **Data Export** or **Data Import**.
 
 #### Data Export
-![MySQL Workbench data export using the Navigator pane](./media/concepts-migrate-import-export/p2.png)
+:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="MySQL Workbench data export using the Navigator pane":::
 
 You can use the **Data Export** tab to export your MySQL data.
 1. Select each schema that you want to export, optionally choose specific schema objects/tables from each schema, and generate the export. Configuration options include export to a project folder or self-contained SQL file, dump stored routines and events, or skip table data.
@@ -102,7 +102,7 @@ You can use the **Data Export** tab to export your MySQL data.
 
 
 #### Data Import
-![MySQL Workbench Data Import using Management Navigator](./media/concepts-migrate-import-export/p3.png)
+:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="MySQL Workbench Data Import using Management Navigator":::
 
 You can use the **Data Import** tab to import or restore exported data from the data export operation or from the mysqldump command.
 1. Choose the project folder or self-contained SQL file, choose the schema to import into, or choose **New** to define a new schema.

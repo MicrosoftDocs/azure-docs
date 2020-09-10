@@ -30,13 +30,13 @@ Follow these steps to set MySQL server minimum TLS version:
 
 1. In **Minimum TLS version**, select **1.2** to deny connections with TLS version less than TLS 1.2 for your MySQL server.
 
-    ![Azure Database for MySQL TLS configuration](./media/howto-tls-configurations/setting-tls-value.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Azure Database for MySQL TLS configuration":::
 
 1. Click **Save** to save the changes.
 
 1. A notification will confirm that connection security setting was successfully enabled.
 
-    ![Azure Database for MySQL TLS configuration success](./media/howto-tls-configurations/setting-tls-value-success.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Azure Database for MySQL TLS configuration success":::
 
 ## Next steps
 
