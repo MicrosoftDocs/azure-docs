@@ -49,13 +49,13 @@ This new endpoint will need to be replace the existing one in the applications a
 
 ### How to upgrade
 
-1. First, go to the Azure Portal and navigate to your Azure Cosmos DB API for MongoDB account overview blade. Verify that your server version is `3.2`. 
+1. First, go to the Azure portal and navigate to your Azure Cosmos DB API for MongoDB account overview blade. Verify that your server version is `3.2`. 
 
-    :::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Azure Portal with MongoDB account overview" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Azure portal with MongoDB account overview" border="false":::
 
 2. From the options on the left, select the `Features` blade. This will reveal the Account level features that are available for your database account.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal with MongoDB account overview with Features blade highlighted" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure portal with MongoDB account overview with Features blade highlighted" border="false":::
 
 3. Click on the `Upgrade to Mongo server version 3.6` row. If you don't see this option, your account might not be eligible for this upgrade. Please file [a support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) if that is the case.
 
