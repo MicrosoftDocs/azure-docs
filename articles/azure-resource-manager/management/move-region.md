@@ -37,7 +37,7 @@ You can move resources to a different region with [Azure Resource Mover](../../r
 
 You can move resources to another region using a couple of different methods:
 
-- **Start moving resources from a resource group**: With this method you kick off the region move from within a resource group. After selecting the resources you want to move, the process continues in the Resource Mover hub, to check resources dependencies, and orchestrate the move process. [Learn more](../../resource-mover/move-region-within-resource-group.md).
+- **Start moving resources from a resource group**: With this method you kick off the region move from within a resource group. After selecting the resources you want to move, the process continues in the Resource Mover hub, to check resource dependencies, and orchestrate the move process. [Learn more](../../resource-mover/move-region-within-resource-group.md).
 - **Start moving resources directly from the Resource Mover hub**: With this method you kick off the region move process directly in the hub. [Learn more](../../resource-mover/tutorial-move-region-virtual-machines.md).
 
 
@@ -58,13 +58,13 @@ You can currently use Resource Mover to move these resources to another region:
 
 The actual process for moving resources across regions depends on the resources you're moving. However, there are some common key steps:
 
-- **Verify prerequisites**: Prerequisites include making sure that the resources you need are available in the target region, checking that you have enough quota, and verifying that your subscription can access the target region.
-- **Analyze dependencies**: Your resources might have dependencies on other resources. Before moving, figure out dependencies so that moved resources continue to function as expected after the move.
-- **Prepare for move**: These are the steps you take in your primary region before the move. For example, you might need to export an Azure Resource Manager template, or start replicating resources from source to target.
-- **Move the resources**: How you move resources depends on what they are. You might need to deploy a template in the target region, or fail resources over to the target.
-- **Discard target resources**: After moving resources, you might want to take a look at the resources now in the target region, and decide if there's anything you don't need.
-- **Commit the move**: After verifying resources in the target region, some resources might require a final commit action. For example, in a target region that's now the primary region, you might need to set up disaster recovery to a new secondary region. 
-- **Clean up the source**: Finally, after everything's up and running in the new region, you can clean up and decommission resources you created for the move, and resources in your primary region.
+1. **Verify prerequisites**: Prerequisites include making sure that the resources you need are available in the target region, checking that you have enough quota, and verifying that your subscription can access the target region.
+2. **Analyze dependencies**: Your resources might have dependencies on other resources. Before moving, figure out dependencies so that moved resources continue to function as expected after the move.
+3. **Prepare for move**: These are the steps you take in your primary region before the move. For example, you might need to export an Azure Resource Manager template, or start replicating resources from source to target.
+4. **Move the resources**: How you move resources depends on what they are. You might need to deploy a template in the target region, or fail resources over to the target.
+5. **Discard target resources**: After moving resources, you might want to take a look at the resources now in the target region, and decide if there's anything you don't need.
+6. **Commit the move**: After verifying resources in the target region, some resources might require a final commit action. For example, in a target region that's now the primary region, you might need to set up disaster recovery to a new secondary region. 
+7. **Clean up the source**: Finally, after everything's up and running in the new region, you can clean up and decommission resources you created for the move, and resources in your primary region.
 
 
 
