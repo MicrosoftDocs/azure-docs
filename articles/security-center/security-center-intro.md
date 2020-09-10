@@ -129,10 +129,17 @@ Azure Security Center for IoT (Internet of Things) simplifies hybrid workload pr
 
 ## Get secure faster
 
-Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
+Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Microsoft Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
 onboard and roll out.
 
-In addition, you can extend the full solution beyond Azure to workloads running on other clouds and in on-premises data centers.
+In addition, you can extend the full solution beyond Azure to workloads running:
+
+- On other clouds:
+    - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+    - [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+- In on-premises data centers:
+    - [Protect Windows Admin Center resources with Security Center](windows-admin-center-integration.md)
+    - [Connect your non-Azure machines to Azure Security Center](quickstart-onboard-machines.md))
 
 ### Automatically discover and onboard Azure resources
 

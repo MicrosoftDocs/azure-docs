@@ -43,16 +43,13 @@ By combining the capabilities of Security Center, Azure Defender, and CyberX Age
 
 
 ## Azure Defender for IoT integration with Azure Sentinel
-To enable unified IT/OT security monitoring and governance, Azure Defender for IoT natively integrates with [Azure Sentinel?](../sentinel/overview.md).
+To enable unified IT/OT security monitoring and governance, Azure Defender for IoT natively integrates with [Azure Sentinel](../sentinel/overview.md).
 
 SecOps teams can rapidly detect and respond to IoT/OT threats via OT-specific SOAR playbooks included with Sentinel, as well as continuously-updated IoT/OT-specific threat intelligence supplied by Section 52, Microsoft’s in-house IoT/OT threat intelligence team. Additionally, Azure Defender for IoT integrates with existing SOC workflows and third-party security tools such as Splunk, IBM QRadar, and ServiceNow. 
 
 
-
-
-
 ## Next steps
 
-In this article, you learned 
+In this article, you learned about Azure Defender for IoT in Azure Security Center. For more information, see:
 
-For related material, see the following articles: 
+- [Introducing Azure Security Center for IoT](../asc-for-iot/overview.md)
