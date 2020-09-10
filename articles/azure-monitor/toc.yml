@@ -1136,7 +1136,21 @@
       displayname: Workbooks
       href: platform/workbooks-overview.md
     - name: Visualizations
-      href: platform/workbooks-visualizations.md
+      items:
+      - name: Text
+        href: platform/workbooks-text-visualizations.md
+      - name: Chart 
+        href: platform/workbooks-chart-visualizations.md
+      - name: Grid
+        href: platform/workbooks-grid-visualizations.md
+      - name: Tile
+        href: platform/workbooks-tile-visualizations.md
+      - name: Tree
+        href: platform/workbooks-tree-visualizations.md
+      - name: Graph
+        href: platform/workbooks-graph-visualizations.md
+      - name: Composite bar
+        href: platform/workbooks-composite-bar.md
     - name: Data sources
       href: platform/workbooks-data-sources.md
     - name: Parameters
