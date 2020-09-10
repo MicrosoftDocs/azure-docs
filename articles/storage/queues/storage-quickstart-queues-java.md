@@ -33,10 +33,10 @@ Additional resources:
 
 ## Prerequisites
 
-* [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above
+* [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](/azure/storage/common/storage-quickstart-create-account)
 
 ## Setting up
 
@@ -368,6 +368,6 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 For tutorials, samples, quick starts, and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for Java cloud developers](https://docs.microsoft.com/azure/developer/java/)
+> [Azure for Java cloud developers](/azure/developer/java/)
 
 * To see more Azure Queue storage sample apps, continue to [Azure Queue storage SDK v12 Java client library samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
