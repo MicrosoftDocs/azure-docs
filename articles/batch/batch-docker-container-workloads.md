@@ -115,7 +115,7 @@ new_pool = batch.models.PoolAddParameter(
 ```
 
 ```csharp
-mageReference imageReference = new ImageReference(
+ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
     sku: "16-04-lts",
@@ -218,11 +218,13 @@ image_ref_to_use = batch.models.ImageReference(
         offer='ubuntu-server-container',
         sku='16-04-lts',
         version='latest')
+
 # Specify a container registry
 container_registry = batch.models.ContainerRegistry(
         registry_server="myRegistry.azurecr.io",
         user_name="myUsername",
         password="myPassword")
+
 # Create container configuration, prefetching Docker images from the container registry
 container_conf = batch.models.ContainerConfiguration(
         container_image_names = ["myRegistry.azurecr.io/samples/myImage"],
