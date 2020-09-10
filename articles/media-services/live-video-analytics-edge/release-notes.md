@@ -16,7 +16,7 @@ This article provides you with information about:
 * Bug fixes
 * Deprecated functionality
 
-## September, 2020
+## September XX, 2020
 
 This release tag for the September 2020 refresh of the module is:
 
@@ -27,10 +27,15 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 > [!NOTE]
 > In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
 
-### New features
+### Module updates
 
-* Instructions on how to use [Live Video Analytics on IoT Edge on Azure Stack Edge devices](deploy-azure-stack-edge-how-to.md) were added.
-* A new graph extension node, [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) is available to integrate with the [Spatial Analysis module](spatial-analysis-tutorial.md) from Cognitive Services.
+* A new graph extension node, [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) is available to integrate with the [Spatial Analysis module](spatial-analysis-tutorial.md)(preview) from Cognitive Services.
+* Added support for Linux ARM64 devices.
+
+### Documentation updates
+
+* [Instructions](deploy-azure-stack-edge-how-to.md) are available for using Live Video Analytics on IoT Edge on Azure Stack Edge devices.
+* New tutorial on developing scenario specific computer vision models using [Custom Vision service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) and using it to [analyze live video](custom-vision-tutorial.md) in real time.
 
 ## August 19, 2020
 
