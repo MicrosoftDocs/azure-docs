@@ -20,16 +20,16 @@ ms.reviewer: cynthn
 
 This article provides the most common issues and solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
-## InfiniBand driver installation on InfiniBand enabled N-series VM sizes
+## InfiniBand driver installation on N-series VMs
 
 NC24r_v3 and ND40r_v2 are SR-IOV enabled while NC24r and NC24r_v2 are not SR-IOV enabled. Some details on the bifurcation [here](../../sizes-hpc.md#rdma-capable-instances).
 InfiniBand (IB) can be configured on the SR-IOV enabled VM sizes with the OFED drivers while the non-SR-IOV VM sizes require ND drivers. This IB support is available appropriately on [CentOS-HPC VMIs](configure.md). For Ubuntu, see the [instruction here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) for installing both the OFED and ND drivers as described in the [docs](enable-infiniband.md#vm-images-with-infiniband-drivers).
 
-## Duplicate MAC with cloud-init when using Ubuntu on InfiniBand enabled SR-IOV H-series and N-series VMs
+## Duplicate MAC with cloud-init with Ubuntu on H-series and N-series VMs
 
 There is a known issue with cloud-init on Ubuntu VM images as it tries to bring up the IB interface. This can happen either on VM reboot or when trying to create a VM image after generalization. The VM boot logs may show an error like so: “Starting Network Service...RuntimeError: duplicate mac found! both 'eth1' and 'ib0' have mac”.
 
-This 'duplicate MAC with cloud-init on Ubuntu" is a known issue and will be addressed in the coming weeks. In the meantime, there is a workaround which is basically:
+This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. In the meantime, there is a workaround which is basically:
 1) Deploy the (Ubuntu 18.04) marketplace VM image
 2) Install the necessary software packages to enable IB ([instruction here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351))
 3) Edit waagent.conf to change EnableRDMA=y
