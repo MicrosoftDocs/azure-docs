@@ -5,9 +5,9 @@ description: Learn how to import data into Azure Machine Learning designer (prev
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ---
@@ -33,13 +33,13 @@ You can also register the output for any designer module as a dataset.
 
 1. Select the module that outputs the data you want to register.
 
-1. In the properties pane, select **Outputs** > **Register dataset**.
+1. In the properties pane, select **Outputs + logs** > **Register dataset**.
 
     ![Screenshot showing how to navigate to the Register Dataset option](media/how-to-designer-import-data/register-dataset-designer.png)
 
 ### Use a dataset
 
-Your registered datasets can be found in the module palette, under **Datasets** > **My Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
+Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
