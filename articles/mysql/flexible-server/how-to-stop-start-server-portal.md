@@ -41,6 +41,6 @@ To complete this how-to guide, you need:
 > Once the server is started, all management operations are now available for the flexible server.
 
 ## Next steps
-- Learn more about [networking in Azure Database for MySQL Flexible Server]<!-- FIX ME(./concepts-networking-overview.md).-->
+- Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking.md)
 - [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
 
