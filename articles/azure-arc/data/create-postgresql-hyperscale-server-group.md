@@ -71,6 +71,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 ```
 > [!NOTE]
 > - **There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.**
+> - In Preview, you must indicate a storage class for backups (_--storage-class-backups -scb_) at the time you create a server group in order to be able to backup and restore.
 > - The unit accepted by the --volume-size-* parameters is a Kubernetes resource quantity (an integer followed by one of these SI suffices (T, G, M, K, m) or their power-of-two equivalents (Ti, Gi, Mi, Ki)).
 > - Names must be 10 characters or fewer in length and conform to DNS naming conventions.
 > - Namespace must not be reserved namespaces.
