@@ -15,14 +15,14 @@ You can use the Co-sell program to work directly with Microsoft sellers on joint
 
 The Co-sell program is available for **software built with your intellectual property (IP) as repeatable, packaged offers** and for **services with Microsoft technology embedded**. Enrolling in the Co-sell program is available for most offer types in commercial marketplace. Offers accepted into the Co-sell program become either **co-sell ready** or **co-sell incentivized** depending on the requirements they meet.
 
-- **Co-sell ready** offers are exposed to Microsoft field sellers. When working with Microsoft sellers, the Co-sell program helps you reach a vast community of customers and create new sales opportunities to accelerate your business growth.
+- **Co-sell ready** offers are exposed to Microsoft field sellers. When working with Microsoft sellers, the Co-sell program helps you reach a vast community of Microsoft managed customers to collaborate on sales opportunities that accelerate your business growth.
 
 <ul>
 
 ![Diagram showing how co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
 </ul>
 
-- **Co-sell incentivized** IP solutions will earn incentives for Microsoft field sellers when they are sold and deployed with Microsoft field sales teams, in addition to the marketplace benefits listed below.</li></ul>
+- **Co-sell incentivized** IP solutions can earn incentives for Microsoft field sellers when they are sold in collaboration with Microsoft sales teams, in addition to the marketplace benefits listed below.</li></ul>
 
 ## Marketplace benefits for incentivized offers
 
@@ -42,9 +42,9 @@ The table below lists the steps and requirements to get your marketplace offer c
 |<ol start=1><li> Create an account in Partner Center and publish your offer in the commercial marketplace.</li>|All|<li>The offer meets the commercial marketplace publishing requirements.</li><li>You have a complete business profile in Partner Center.</li>|Not ready|
 |<ol start=2><li>Submit required Co-sell materials.</li>|IP offers *with* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Upload required materials in Partner Center](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Sales contact for each eligible country.</li><li>Bill of materials: customer one-pager, customer presentation deck (optional), solution landing page URL, social media channel URL, or other (for example, a case study).|Co-sell ready|
 ||IP offers *without* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.|Co-sell ready|
-||Consulting Services|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.</li><li>Active Gold competency</li>|Co-sell ready|
-|<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Module, SaaS, VMs|<li>Paid offers: cumulative marketplace billed revenue of $100,000 USD.</li><li>Non-paid offers: at the organization level, meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>Additional requirement for SaaS offers: more than 50% of your offer's infrastructure running on Azure. Upload an architecture diagram with your Co-sell documents in Partner Center for review.</li>|Azure IP Co-sell incentivized|
-||Dynamics|You have an active enrollment in ISV Connect premium tier.|Business Applications Co-sell incentivized|
+||Consulting Services|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.</li><li>Active Gold competency.</li>|Co-sell ready|
+|<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Modules, SaaS, VMs|Achieve either:<ul><li>*At the organization level:* meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>*At the offer level:* cumulative marketplace billed revenue of $100,000 USD.</li></ul><ul>Additional for SaaS offers: more than 50% of your offer's infrastructure running on Azure. Upload an architecture diagram with your Co-sell documents in Partner Center for review.</ul>|Azure IP Co-sell incentivized|
+||Dynamics|<li>You have an active enrollment in ISV Connect premium tier.</li>|Business Applications Co-sell incentivized|
 
 ## How to submit Co-sell materials in Partner Center
 
