@@ -15,13 +15,13 @@ ms.custom: tracking-python
 
 # Tutorial: Bring your own data
 
-In the previous [Tutorial: Train a model in the cloud](tutorial-1st-experiment-sdk-train.md) article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in AzureML. 
+In the previous [Tutorial: Train a model in the cloud](tutorial-1st-experiment-sdk-train.md) article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning. 
 
 This article begins by uploading to Azure the CIFAR10 data followed by using that data in a remote training run. Along the way, you see how to add command-line arguments to your training script.
 
 By the end of this article you would have a better understanding of:
 
-- Best practices for working with cloud data in AzureML
+- Best practices for working with cloud data in Azure Machine Learning
 - Working with command-line arguments
 
 The Azure Machine Learning concepts covered in this article are:
@@ -42,7 +42,7 @@ The Azure Machine Learning concepts covered in this article are:
 
 ## Adjust the training script
 
-By now you have your training script (`quickstart/src/train.py`) running in AzureML, and can monitor the model performance. Let's _parametrize_ the training script by introducing
+By now you have your training script (`quickstart/src/train.py`) running in Azure Machine Learning, and can monitor the model performance. Let's _parametrize_ the training script by introducing
 arguments. Using arguments will allow you to easily compare different hyperparmeters.
 
 Presently our training script is set to download the CIFAR10 dataset on each run. The python code below has been adjusted to read the data from a directory.
@@ -179,7 +179,7 @@ _momentum_ hyperparameters without having to hard-code them in the training scri
 
 ## Upload the data to Azure
 
-In order to run this script in AzureML, we need to make your training data available in Azure. Your AzureML workspace comes equipped with a _default_ **Datastore** - an Azure Blob storage account - that you can use to store your training data.
+In order to run this script in Azure Machine Learning, we need to make your training data available in Azure. Your Azure Machine Learning workspace comes equipped with a _default_ **Datastore** - an Azure Blob storage account - that you can use to store your training data.
 
 >[!NOTE] 
 > Azure Machine Learning allows you to connect other cloud-based datastores that store your data. For more details, see [datastores documentation](./concept-data.md).  
@@ -197,7 +197,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 The `target_path` specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
 >[!TIP] 
-> Whilst you are using AzureML to upload the data, you can use other methods such as `azcopy`, Azure Storage Explorer or Azure Data Factory to ingest your data into Azure.
+> Whilst you are using Azure Machine Learning to upload the data, you can use other methods such as `azcopy`, Azure Storage Explorer or Azure Data Factory to ingest your data into Azure.
 
 Run the Python file to upload the data (Note: The run should be quick, less than 15 seconds.)
 

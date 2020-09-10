@@ -15,26 +15,26 @@ ms.custom: devx-track-python
 
 # Tutorial: Train your first ML model
 
-In the [previous tutorial](tutorial-1st-experiment-hello-world.md), you ran a trivial "Hello world!" script in the cloud using AzureML's Python SDK. This time you take it a step further by submitting a script that will train an ML-model.
+In the [previous tutorial](tutorial-1st-experiment-hello-world.md), you ran a trivial "Hello world!" script in the cloud using Azure Machine Learning's Python SDK. This time you take it a step further by submitting a script that will train an ML-model.
 
 This tutorial shows you how to train a PyTorch model on the [CIFAR 10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset. Using this example we will show you how to ensure a consistent behavior between local testing and remote runs.
 
-This example will help you understand how AzureML eases consistent behavior between local debugging and remote runs.
+This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 
 >[!NOTE] 
 > The concepts in this article apply to *any* ML Code and not just PyTorch.
 
-This article will demonstrate to you these AzureML concepts:
+This article will demonstrate to you these Azure Machine Learning concepts:
 - [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)
 - [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) 
-- [AzureML Metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
+- [Azure Machine Learning Metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
 
 Learning these concepts means that by the end of this session, you can:
 
 > [!div class="checklist"]
-> * Use Conda to define an AzureML environment.
+> * Use Conda to define an Azure Machine Learning environment.
 > * Train a model in the cloud.
-> * Log metrics to AzureML.
+> * Log metrics to Azure Machine Learning.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ First you define the CNN architecture in a `model.py` file. All your training co
 The code below is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch.
 
 ```python
-# quickstart/src/model.py
+# tutorial/src/model.py
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -82,14 +82,13 @@ Next you define the training script. This script downloads the CIFAR10 dataset u
 Create a `train.py` script in the `src` subdirectory:
 
 ```python
-# quickstart/src/train.py
+# tutorial/src/train.py
 import torch
 import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 
 from model import Net
-
 
 # download CIFAR 10 data
 trainset = torchvision.datasets.CIFAR10(
@@ -142,7 +141,7 @@ if __name__ == "__main__":
 You now have the directory structure outlined below:
 
 ```txt
-quickstart
+tutorial
 └──.azureml
 |  └──config.json
 └──src
@@ -161,7 +160,7 @@ For demonstration purposes, we're going to use a Conda environment (the steps fo
 Create a file called `pytorch-env.yml` in the `.azureml` hidden directory:
 
 ```yml
-# quickstart/.azureml/pytorch-env.yml
+# tutorial/.azureml/pytorch-env.yml
 name: pytorch-env
 channels:
     - defaults
@@ -172,7 +171,7 @@ dependencies:
     - torchvision
 ```
 
-This environment has all the dependencies that your model and training script require. Notice there's no dependency on the AzureML Python
+This environment has all the dependencies that your model and training script require. Notice there's no dependency on the Azure Machine Learning Python
 SDK.
 
 ## Test locally
@@ -192,10 +191,10 @@ python src/train.py                    # train model
 
 The difference to the control-plane the script below and the one used to submit "hello world" is that you add a couple of extra lines to set the environment.
 
-Create a new python file in the `quickstart` directory called `04-run-pytorch.py`:
+Create a new python file in the `tutorial` directory called `04-run-pytorch.py`:
 
 ```python
-# quickstart/04-run-pytorch.py
+# tutorial/04-run-pytorch.py
 from azureml.core import Workspace
 from azureml.core import Experiment
 from azureml.core import Environment
@@ -203,7 +202,7 @@ from azureml.core import ScriptRunConfig
 
 if __name__ == "__main__":
     ws = Workspace.from_config()
-    experiment = Experiment(workspace=ws, name='quickstart-session-3')
+    experiment = Experiment(workspace=ws, name='tutorial-session-3')
     config = ScriptRunConfig(source_directory='src', script='train.py', compute_target='cpu-cluster')
 
     # set up pytorch environment
@@ -218,7 +217,7 @@ if __name__ == "__main__":
 
 ### Understand these two additional lines
 
-- **`env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')`** AzureML provides the concept of an `Environment` to represent a reproducible, versioned
+- **`env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')`** Azure Machine Learning provides the concept of an `Environment` to represent a reproducible, versioned
 Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
 - **`config.run_config.environment = env`** adds the environment to the ScriptRunConfig.
 
@@ -228,16 +227,16 @@ Python environment for running experiments. It's easy to create an environment f
 
 ## Submit to compute cluster
 
-In case you switched local environments, make sure you switch back to an environment with the AzureML Python SDK installed and run:
+In case you switched local environments, make sure you switch back to an environment with the Azure Machine Learning Python SDK installed and run:
 
 ```bash
 python 04-run-pytorch.py
 ```
 
 >[!NOTE] 
-> The first time you run this script, AzureML will build a new docker image from your PyTorch
+> The first time you run this script, Azure Machine Learning will build a new docker image from your PyTorch
 environment. The whole run could take 5-10 minutes to complete. You can see the docker build
-logs in the AzureML Studio: Follow the link to the ML Studio > Select "Outputs + logs" tab > Select `20_image_build_log.txt`.
+logs in the Azure Machine Learning Studio: Follow the link to the ML Studio > Select "Outputs + logs" tab > Select `20_image_build_log.txt`.
 This image will be reused in future runs making them run much quicker.
 
 Once your image is built, select `70_driver_log.txt` to see the output of your training script.
@@ -266,38 +265,16 @@ Finished Training
 > `data` directory is located in the `source_directory` used in the `ScriptRunConfig`.
 > Make sure to move `data` outside of `src`.
 
-### A note on registered environments
-
 Environments can be registered to a workspace with `env.register(ws)`, allowing them to be easily shared, reused, and versioned. Environments make it easy to reproduce previous results and to collaborate with your team.
 
-To register this environment with the workspace:
+Azure Machine Learning also maintains a collection of curated environments. These environments cover common ML scenarios and are backed by cached Docker images. Cached Docker images make the first remote run faster.
 
-```python
-env.register(ws)
-```
-
-AzureML also maintains a collection of curated environments. These environments cover common ML scenarios and are backed by cached Docker images. Cached Docker images make the first remote run faster.
-
-In short, using registered environments can save you time!
-
-To view all environments registered to a workspace:
-
-```python
-from azureml.core import Environment
-envs = Environment.list(ws)
-# returns Dict[str, Environemt] of all environments registered to `ws`
-```
-
-Now team member can make use of the `pytorch-env` environment you created:
-
-```python
-env = envs['pytorch-env']
-```
+In short, using registered environments can save you time! More details can be found on the [environments documentation](./how-to-use-environments.md)
 
 ## Log training metrics
 
-Now that you have a model training in AzureML, start tracking some performance metrics.
-The current training script prints metrics to the terminal. AzureML provides a
+Now that you have a model training in Azure Machine Learning, start tracking some performance metrics.
+The current training script prints metrics to the terminal. Azure Machine Learning provides a
 mechanism for logging metrics with more functionality. By adding a few lines of code, you gain the ability to visualize metrics in the studio and to compare metrics between multiple runs.
 
 ### Modify `train.py` to include logging
@@ -370,7 +347,7 @@ run = Run.get_context()
 run.log('loss', loss)
 ```
 
-Metrics in AzureML are:
+Metrics in Azure Machine Learning are:
 
 - Organized by experiment and run so it's easy to keep track of and
 compare metrics.
@@ -384,7 +361,7 @@ The `train.py` script just took a new dependency on `azureml.core`. Update `pyto
 to reflect this change:
 
 ```yaml
-# quickstart/.azureml/pytorch-env.yml
+# tutorial/.azureml/pytorch-env.yml
 name: pytorch-env
 channels:
     - defaults
@@ -398,7 +375,7 @@ dependencies:
         - azureml-sdk
 ```
 
-### Submit script to AzureML
+### Submit script to Azure Machine Learning
 Submit this script once more:
 
 ```bash
@@ -422,10 +399,10 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this session, you upgraded from a basic "Hello world!" script to a more realistic
 training script that required a specific Python environment to run. You saw how
-to take a local Conda environment to the cloud with AzureML Environments. Finally, you
-saw how in a few lines of code you can log metrics to AzureML.
+to take a local Conda environment to the cloud with Azure Machine Learning Environments. Finally, you
+saw how in a few lines of code you can log metrics to Azure Machine Learning.
 
-In the next session, you'll see how to work with data in AzureML by uploading the CIFAR10
+In the next session, you'll see how to work with data in Azure Machine Learning by uploading the CIFAR10
 dataset to Azure.
 
 > [!div class="nextstepaction"]
