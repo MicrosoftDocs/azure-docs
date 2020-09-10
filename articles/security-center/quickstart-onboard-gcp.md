@@ -64,44 +64,44 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
 ### Step 3. Create a dedicated service account for the security configuration integration
 
-1. In the **GCP Security Command Center**, select the project you want to connect to Security Center.
-1. From the **IAM & admin** options, select **Service accounts**.
+1. In the **GCP Console**, select the project you want to connect to Security Center.
+1. In the **Navigation menu**, Under **IAM & admin** options, select **Service accounts**.
 1. Select **CREATE SERVICE ACCOUNT**.
 1. Enter an account name, and select **Create**.
-1. Specify the **Role** as **Security Center Admin Viewer**, and select **Save**.
-1. Copy the **Email value**, and save it for later use.
-1. Under IAM & admin, select IAM.
+1. Specify the **Role** as **Security Center Admin Viewer**, and select **Continue**.
+1. The **Grant users access to this service account** section is optional. Select **Done**.
+1. Copy the **Email value** of the created service account, and save it for later use.
+1. In the **Navigation menu**, Under **IAM & admin** options, select **IAM**
     1. Switch to organization level.
     1. Select **ADD**.
     1. In the **New members** field, paste the **Email value** you copied earlier.
-    1. Specify the Role as Security Center Admin Viewer and then select Save.
+    1. Specify the Role as **Security Center Admin Viewer** and then select Save.
         :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Setting the relevant GCP permissions":::
 
 
 ### Step 4. Create a private key for the dedicated service account
 1. Switch to project level.
-1. Under IAM & admin, select Service accounts.
+1. In the **Navigation menu**, Under **IAM & admin** options, select **Service accounts**.
 1. Open the dedicated service account and select Edit.
-1. Select CREATE KEY.
-1. In the Create private key screen, select JSON, and then select CREATE.
-1. Safe this JSON file for later use.
+1. In the **Keys** section, select **ADD KEY** and then **Create new key**.
+1. In the Create private key screen, select **JSON**, and then select **CREATE**.
+1. Save this JSON file for later use.
 
 
 ### Step 5. Connect GCP to Security Center 
-1. In Security Center, select Pricing & Settings in the menu
-1. Select the Azure subscription you would like to onboard your GCP organization to.
-1. Select Multi-cloud connectors and then on add GCP account
+1. From Security Center's menu, select cloud connectors.
+1. Select add GCP account.
 1. In the onboarding blade, do the following and then select Next
-    1. Validate the chosen subscription
-    1. In the Display name box, Enter a display name for the connector
-    1. In the Organization ID box, enter the organization ID. If you don't know the ID, see [Creating and managing organizations](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
+    1. Validate the chosen subscription.
+    1. In the Display name box, Enter a display name for the connector.
+    1. In the Organization ID box, enter the organization you made a note of earlier.
     1. In the Private key file box, browse to the JSON file you downloaded in [Step 4 - Create a private key for the dedicated service account](#step-4---create-a-private-key-for-the-dedicated-service-account).
 
 
 ### Step 6. Confirmation
-When the connector is successfully created and GCP Security Command Center Hub has been configured properly:
-- Security Center scans the environment for GCP machines, onboarding them to Azure Arc, enabling to install the Log Analytics agent and providing threat protection and security recommendations. 
-- The ASC service scans for new GCP machines every **6 hours ???** and onboards them according to the configuration.
+
+When the connector is successfully created and GCP Security Command Center has been configured properly:
+
 - The GCP CIS standard will be shown in the Security Center's regulatory compliance dashboard.
 - Security recommendations for your GCP resources will appear in the Security Center portal and the regulatory compliance dashboard 5-10 minutes after onboard completes:
     :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="GCP resources and recommendations in Security Center's recommendations page":::

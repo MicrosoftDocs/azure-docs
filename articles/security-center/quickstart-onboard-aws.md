@@ -27,7 +27,7 @@ Onboarding your AWS account into Security Center, integrates AWS Security Hub an
 - Incorporation of your AWS resources into Security Center's secure score calculations
 - Regulatory compliance assessments of your AWS resources
 
-In the screenshot below you can see AWS projects displayed in Security Center's overview dashboard.
+In the screenshot below you can see AWS accounts displayed in Security Center's overview dashboard.
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="3 GCP projects listed on Security Center's overview dashboard" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -74,7 +74,7 @@ There are two ways to allow Security Center to authenticate to AWS:
 1. Enter the following details:
 
     - **Account ID** - enter the Microsoft Account ID (**158177204117**) as shown in the AWS connector page in Security Center.
-    - **Require External ID** - selected
+    - **Require External ID** - should be selected
     - **External ID** - enter the subscription ID as shown in the AWS connector page in Security Center 
 
 1. Select **Next**.
@@ -86,6 +86,9 @@ There are two ways to allow Security Center to authenticate to AWS:
 
 1. Optionally add tags. Adding Tags to the user doesn't affect the connection.
 1. Select **Next**.
+
+1. In The Roles list, choose the role you created
+
 1. Save the Amazon Resource Name (ARN) for later. 
 
 #### Create an AWS user for Security Center 
@@ -93,8 +96,10 @@ There are two ways to allow Security Center to authenticate to AWS:
 1. In the **Details** step, enter a username for Security Center and ensure that you select **Programmatic access** for the AWS Access Type. 
 1. Select **Next Permissions**.
 1. Select **Attach existing policies directly** and apply the following policies:
-    - AmazonEC2RoleforSSM
     - SecurityAudit
+    - AmazonSSMAutomationRole
+    - AWSSecurityHubReadOnlyAccess
+    
 1. Select **Next: Tags**. Optionally add tags. Adding Tags to the user doesn't affect the connection.
 1. Select **Review**.
 1. Save the automatically generated **Access key ID** and **Secret access key** CSV file for later.
@@ -187,4 +192,4 @@ Supported OS for automatic onboarding to Azure Arc for AWS Machines
 
 Connecting your GCP account is part of the multi-cloud experience available in Azure Security Center. For related information, see the following page:
 
-- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
