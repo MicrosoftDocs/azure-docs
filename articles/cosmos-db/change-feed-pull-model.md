@@ -24,7 +24,7 @@ Many scenarios can process the change feed using either the [change feed process
 However, you can't convert continuation tokens to a lease container (or vice versa).
 
 > [!NOTE]
-> In most cases when you need to read from the change feed, you should use the [change feed processor](change-feed-processor.md)
+> In most cases when you need to read from the change feed, the simplest option is to use the [change feed processor](change-feed-processor.md).
 
 You should consider using the pull model in these scenarios:
 
@@ -109,7 +109,7 @@ IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 
 When you obtain of list of FeedRanges for your container, you'll get one `FeedRange` per [physical partition](partition-data.md#physical-partitions).
 
-Using a `FeedRange`, you can then create a `FeedIterator` to parallelize the processing of the change feed across multiple machines or threads. Unlike the previous example that showed how to obtain a single `FeedIterator` for the entire container, you can use the `FeedRange` to obtain multiple FeedIterators which can process the change feed in parallel.
+Using a `FeedRange`, you can then create a `FeedIterator` to parallelize the processing of the change feed across multiple machines or threads. Unlike the previous example that showed how to obtain a `FeedIterator` for the entire container or a single partition key, you can use FeedRanges to obtain multiple FeedIterators which can process the change feed in parallel.
 
 In the case where you want to use FeedRanges, you need to have an orchestrator process that obtains FeedRanges and distributes them to those machines. This distribution could be:
 
@@ -121,7 +121,6 @@ Here's a sample that shows how to read from the beginning of the container's cha
 Machine 1:
 
 ```csharp
-// add line - start here 
 FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]));
 while (iteratorA.HasMoreResults)
 {
