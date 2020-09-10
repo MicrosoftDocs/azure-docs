@@ -50,7 +50,9 @@
         href: connect-azure-ad-identity-protection.md
       - name: Azure Information Protection
         href: connect-azure-information-protection.md
-      - name: Microsoft Defender for Endpoint
+      - name: Microsoft 365 Defender
+        href: connect-microsoft-365-defender.md
+      - name: Microsoft Defender for Endpoint (formerly MDATP)
         href: connect-microsoft-defender-advanced-threat-protection.md
       - name: Microsoft Defender for Identity (formerly Azure ATP)
         href: connect-azure-atp.md
