@@ -16,7 +16,7 @@ There are scenarios in which you'd want to move your existing Azure IaaS virtual
 
 You can use [Azure Site Recovery](site-recovery-overview.md) service to move Azure VMs to a secondary region.
 
-In this tutorial, you will:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > 
