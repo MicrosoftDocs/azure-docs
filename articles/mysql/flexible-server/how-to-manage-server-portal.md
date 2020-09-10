@@ -11,7 +11,7 @@ ms.date: 9/21/2020
 # Manage an Azure Database for MySQL - Flexible server (Preview) using Azure portal
 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article shows you how to manage your Azure Database for MySQL Flexible servers (Preview). Management tasks include compute and storage scaling, rest server administrator password and delete your server.
@@ -65,7 +65,7 @@ You can delete your server if you no longer need it.
 
 3. Select **Delete**.
 
-## Next Steps
+## Next steps
 - [Learn how to start or stop a server](how-to-stop-start-server-portal.md)
 - [Learn how to restore a server](how-to-restore-server-portal.md)
 - [Troubleshoot connection issues](how-to-troubleshoot-common-connection-issues.md)
