@@ -2,13 +2,9 @@
 title: Manage variables in Azure Automation
 description: This article tells how to work with variables in runbooks and DSC configurations.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/14/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage variables in Azure Automation
 
@@ -97,9 +93,9 @@ The functions in the following table are used to access variables in a Python 2 
 
 ### Create and get a variable using the Azure portal
 
-1. From your Automation account, click the **Assets** tile, then the **Assets** blade, and select **Variables**.
-2. On the **Variables** tile, select **Add a variable**.
-3. Complete the options on the **New Variable** blade and then click **Create** to save the new variable.
+1. From your Automation account, on the left-hand pane select **Variables** under **Shared Resources**.
+2. On the **Variables** page, select **Add a variable**.
+3. Complete the options on the **New Variable** page and then select **Create** to save the new variable.
 
 > [!NOTE]
 > Once you have saved an encrypted variable, it can't be viewed in the portal. It can only be updated.

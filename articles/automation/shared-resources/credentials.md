@@ -2,13 +2,9 @@
 title: Manage credentials in Azure Automation
 description: This article tells how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/31/2020
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Manage credentials in Azure Automation
@@ -67,15 +63,15 @@ You can create a new credential asset using the Azure portal or using Windows Po
 
 ### Create a new credential asset with the Azure portal
 
-1. From your Automation account, select **Credentials** under **Shared Resources**.
-1. Select **Add a credential**.
-2. In the New Credential pane, enter an appropriate credential name following your naming standards. 
-3. Type your access ID in the **User name** field. 
+1. From your Automation account, on the left-hand pane select **Credentials** under **Shared Resources**.
+1. On the **Credentials** page, select **Add a credential**.
+2. In the New Credential pane, enter an appropriate credential name following your naming standards.
+3. Type your access ID in the **User name** field.
 4. For both password fields, enter your secret access key.
 
     ![Create new credential](../media/credentials/credential-create.png)
 
-5. If the multi-factor authentication box is checked, uncheck it. 
+5. If the multi-factor authentication box is checked, uncheck it.
 6. Click **Create** to save the new credential asset.
 
 > [!NOTE]

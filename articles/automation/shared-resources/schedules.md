@@ -2,13 +2,9 @@
 title: Manage schedules in Azure Automation
 description: This article tells how to create and work with a schedule in Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Manage schedules in Azure Automation
@@ -44,17 +40,18 @@ You can create a new schedule for your runbooks in the Azure portal or with Powe
 
 ### Create a new schedule in the Azure portal
 
-1. In the Azure portal, from your Automation account, select **Schedules** under the section **Shared Resources** on the left.
-1. Select **Add a schedule** at the top of the page.
-1. On the **New schedule** pane, enter a name and optionally enter a description for the new schedule.
-1. Select whether the schedule runs one time or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once**, specify a start time and then select **Create**. If you select **Recurring**, specify a start time. For **Recur every**, select how often you want the runbook to repeat. Select by hour, day, week, or month.
-    1. If you select **Week**, the days of the week are presented for you to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time. For example, to choose a weekend schedule, select Saturday and Sunday.
-    
-       ![Setting weekend recurring schedule](../media/schedules/week-end-weekly-recurrence.png)
+1. From your Automation account, on the left-hand pane select **Schedules** under **Shared Resources**.
+1. On the **Schedules** page, select **Add a schedule**.
+1. On the **New schedule** page, enter a name and optionally enter a description for the new schedule.
+1. Select whether the schedule runs once or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once**, specify a start time and then select **Create**. If you select **Recurring**, specify a start time. For **Recur every**, select how often you want the runbook to repeat. Select by hour, day, week, or month.
 
-    2. If you select **Month**, you're given different options. For the **Monthly occurrences** option, select either **Month days** or **Week days**. If you select **Month days**, a calendar appears so that you can choose as many days as you want. If you choose a date such as the 31st that doesn't occur in the current month, the schedule won't run. If you want the schedule to run on the last day, select **Yes** under **Run on last day of month**. If you select **Week days**, the **Recur every** option appears. Choose **First**, **Second**, **Third**, **Fourth**, or **Last**. Finally, choose a day to repeat on.
+    * If you select **Week**, the days of the week are presented for you to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time. For example, to choose a weekend schedule, select Saturday and Sunday.
 
-       ![Monthly schedule on first, fifteenth, and last day of the month](../media/schedules/monthly-first-fifteenth-last.png)
+    ![Setting weekend recurring schedule](../media/schedules/week-end-weekly-recurrence.png)
+
+    * If you select **Month**, you're given different options. For the **Monthly occurrences** option, select either **Month days** or **Week days**. If you select **Month days**, a calendar appears so that you can choose as many days as you want. If you choose a date such as the 31st that doesn't occur in the current month, the schedule won't run. If you want the schedule to run on the last day, select **Yes** under **Run on last day of month**. If you select **Week days**, the **Recur every** option appears. Choose **First**, **Second**, **Third**, **Fourth**, or **Last**. Finally, choose a day to repeat on.
+
+    ![Monthly schedule on first, fifteenth, and last day of the month](../media/schedules/monthly-first-fifteenth-last.png)
 
 1. When you're finished, select **Create**.
 

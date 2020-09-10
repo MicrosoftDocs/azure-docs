@@ -2,13 +2,9 @@
 title: Manage certificates in Azure Automation
 description: This article tells how to work with certificates for access by runbooks and DSC configurations.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/02/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Manage certificates in Azure Automation
@@ -59,7 +55,8 @@ When you create a new certificate, you upload a .cer or .pfx file to Automation.
 
 ### Create a new certificate with the Azure portal
 
-1. From your Automation account, select **Assets** > **Certificates** > **Add a certificate**.
+1. From your Automation account, on the left-hand pane select **Certificates** under **Shared Resource**.
+1. On the **Certificates** page, select **Add a certificate**.
 1. In the **Name** field, type a name for the certificate.
 1. To browse for a **.cer** or **.pfx** file, under **Upload a certificate file**, choose **Select a file**. If you select a **.pfx** file, specify a password and indicate if it can be exported.
 1. Select **Create** to save the new certificate asset.
