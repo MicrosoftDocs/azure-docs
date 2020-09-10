@@ -88,7 +88,7 @@ The advantage of prefetching container images is that when tasks first start run
 
 ### Pool without prefetched container images
 
-To configure a container-enabled pool without prefetched container images, define `ContainerConfiguration` and `VirtualMachineConfiguration` objects as shown in the following examples. These example use the Ubuntu Server for Azure Batch container pools image from the Marketplace.
+To configure a container-enabled pool without prefetched container images, define `ContainerConfiguration` and `VirtualMachineConfiguration` objects as shown in the following examples. These examples use the Ubuntu Server for Azure Batch container pools image from the Marketplace.
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
@@ -123,6 +123,7 @@ ImageReference imageReference = new ImageReference(
 
 // Specify container configuration. This is required even though there are no prefetched images.
 ContainerConfiguration containerConfig = new ContainerConfiguration();
+
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
