@@ -73,7 +73,7 @@ pip install azureml-mlflow
 Import the `mlflow` and [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py&preserve-view=true) classes to access MLflow's tracking URI and configure your workspace.
 
 In the following code, the `get_mlflow_tracking_uri()` method assigns a unique tracking URI address to the workspace, `ws`, and `set_tracking_uri()` points the MLflow tracking URI to that address.
-?view=azure-ml-py&preserve-view=true)
+
 ```Python
 import mlflow
 from azureml.core import Workspace
@@ -105,7 +105,7 @@ Remote runs let you train your models on more powerful computes, such as GPU ena
 Configure your compute and training run environment with the [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) class. Include `mlflow` and `azureml-mlflow` pip packages in environment's [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py&preserve-view=true) section. Then construct  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) with your remote compute as the compute target.
 
 ```Python
-from azureml.core.environment import Environment?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
+from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core import ScriptRunConfig
 
@@ -154,7 +154,7 @@ To install libraries on your cluster, navigate to the **Libraries** tab and clic
  ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
 
 In the **Package** field, type azureml-mlflow and then click install. Repeat this step as necessary to install other additional packages to your cluster for your experiment.
-?view=azure-ml-py&preserve-view=true)
+
  ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/install-libraries.png)
 
 ### Set up your notebook and workspace
