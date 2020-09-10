@@ -13,6 +13,8 @@ ms.topic: how-to
 
 # Deploy the Azure Arc data controller
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Overview of installing the Azure Arc data controller
 
 Azure Arc enabled data services can be deployed on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.

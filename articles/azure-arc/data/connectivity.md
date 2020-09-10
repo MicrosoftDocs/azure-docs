@@ -13,6 +13,8 @@ ms.topic: conceptual
 
 # Connectivity Modes and Requirements
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Connectivity Modes
 
 There are multiple options for the degree of connectivity from your Azure Arc enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the availability of network connectivity to Azure, you can choose from the following connectivity modes.

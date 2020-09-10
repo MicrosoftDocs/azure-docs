@@ -17,6 +17,8 @@ This article explains how you can retrieve the list of server groups deployed in
 
 To retrieve this list, use either of the following methods once you are connected to the Arc Data Controller:
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## From CLI with azdata
 The general format of the command is:
 ```console

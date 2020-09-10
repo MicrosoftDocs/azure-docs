@@ -13,6 +13,8 @@ ms.topic: how-to
 
 # Create an Azure Arc data controller in the Azure portal
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Introduction
 
 You can use the Azure Portal to deploy an Azure Arc data controller.

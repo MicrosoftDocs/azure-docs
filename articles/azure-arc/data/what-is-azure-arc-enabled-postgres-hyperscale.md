@@ -24,6 +24,8 @@ Read more details at:
 - [What are Azure Arc enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Compare solutions
 
 This section describes how Azure Arc enabled PostgreSQL Hyperscale differs from Azure Database for PostgreSQL Hyperscale (Citus)?

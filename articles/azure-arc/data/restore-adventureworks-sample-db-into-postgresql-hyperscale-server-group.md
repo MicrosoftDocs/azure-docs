@@ -21,6 +21,8 @@ An open-source project has converted the AdventureWorks database to be compatibl
 
 This document describes a simple process to get the AdventureWorks sample database restored into your PostgreSQL Hyperscale server group.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Download the AdventureWorks backup file
 
 Download the AdventureWorks .sql file into your PostgreSQL Hyperscale server group container. In this example, we'll use the `kubectl exec` command to remotely execute a command in the PostgreSQL Hyperscale server group container to download the file into the container. You could download this file from any location accessible by `curl`. Use this same method if you have other database back up files you want to pull in the PostgreSQL Hyperscale server group container. Once it's in the PostgreSQL Hyperscale server group container, it's easy to create the database, schema, and populate the data.

@@ -20,6 +20,8 @@ This article explains how to display the configuration of your server group(s). 
 - from a Kubernetes point of view
 - from an Azure Arc enabled data services point of view
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## From a Kubernetes point of view
 
 ### How many pods are used by Azure Arc enabled PostgreSQL Hyperscale?
