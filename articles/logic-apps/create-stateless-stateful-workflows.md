@@ -421,10 +421,17 @@ To send a reply and return data back to the caller of your workflow app, add the
 
    1. Click inside the **Body** property box so that the dynamic content list appears and shows the available output values from the preceding trigger and actions in the workflow.
 
-      ![Screenshot that shows the "Response" action's details pane with the mouse pointer inside the "Body" property. In the dynamic content list that is open, under the "Invoke a function in this function app" action, the "Body" value is selected.](./media/create-stateless-stateful-workflows/select-function-action-body-output-value.png)
+      ![Screenshot that shows the "Response" action's details pane with the mouse pointer inside the "Body" property so that the dynamic content list appears.](./media/create-stateless-stateful-workflows/open-dynamic-content-list.png)
 
-1. 
+   1. In the dynamic content list, under **Invoke a function in this function app**, select **Body**.
 
+      ![Screenshot that shows the open dynamic content list. In the list, under "Invoke a function in this function app" header, the "Body" output value is selected.](./media/create-stateless-stateful-workflows/select-function-action-body-output-value.png)
+
+      When you're done, the Response action's **Body** property is now set to the **Invoke a function in this function app** actions' **Body** output value.
+
+      ![Screenshot that shows the "Response" action's details pane with the "Body" property set to the "Invoke a function in this function app" action's "Body" output value.](./media/create-stateless-stateful-workflows/response-action-details-body-property.png)
+
+1. On the designer, select **Save**.
 
 <a name="debug-test-workflow-locally"></a>
 
