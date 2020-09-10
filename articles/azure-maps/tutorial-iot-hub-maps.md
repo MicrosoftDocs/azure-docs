@@ -37,7 +37,7 @@ In this tutorial you will:
 
 4. [Create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*, but you can choose whatever name you like.
 
-5. Download the [rentalCarSimulation C# project ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
+5. Download the [rentalCarSimulation C# project](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
@@ -201,7 +201,7 @@ Now, we'll set up our Azure function.
     * Replace **UDID** with the `udid` of the geofence you uploaded in [Upload a geofence](#upload-a-geofence).
     * The **CreateBlobAsync** function in the script creates a blob per event in the data storage account. Replace the **ACCESS_KEY**, **ACCOUNT_NAME**, and **STORAGE_CONTAINER_NAME** with your storage account's access key, account name, and data storage container. These values were generated when you created your storage account in [Create an Azure storage account](#create-an-azure-storage-account).
 
-9. Click on the **Integration** blade in the left-hand menu. Click on **Event Grid Trigger** in the diagram. Type in a name for the trigger, like *eventCarTelemetry*, and click **Create Event Grid subscription**.
+9. Click on the **Integration** blade in the left-hand menu. Click on **Event Grid Trigger** in the diagram. Type in a name for the trigger, *eventGridEvent*, and click **Create Event Grid subscription**.
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Add event subscription":::
 

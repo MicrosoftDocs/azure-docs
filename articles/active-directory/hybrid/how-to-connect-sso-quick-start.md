@@ -48,7 +48,7 @@ Ensure that the following prerequisites are in place:
     
 * **Enable modern authentication**: You need to enable [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant for this feature to work.
 
-* **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
+* **Use the latest versions of Microsoft 365 clients**: To get a silent sign-on experience with Microsoft 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
 
 ## Step 2: Enable the feature
 
