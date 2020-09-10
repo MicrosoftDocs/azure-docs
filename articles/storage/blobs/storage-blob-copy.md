@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/09/2020
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -45,7 +45,7 @@ To copy a blob, call one of the following methods:
 - [StartCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
 - [StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
 
-The **StartCopyFromUri** and **StartCopyFromUriAsync** methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation.
+The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation.
 
 The following code example gets a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) representing a previously created blob and copies it to a new blob in the same container:
 
@@ -58,7 +58,7 @@ To copy a blob, call one of the following methods:
 - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy)
 - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync)
 
-The **StartCopy** and **StartCopyAsync** methods return a copy ID value that is used to check status or abort the copy operation.
+The `StartCopy` and `StartCopyAsync` methods return a copy ID value that is used to check status or abort the copy operation.
 
 The following code example gets a reference to a previously created blob and copies it to a new blob in the same container:
 
@@ -121,9 +121,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 # [Python v12](#tab/python)
 
-To copy a blob, call the [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) method.
-
-The **start_copy_from_url** method returns a [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) dictionary containing information about the copy operation.
+To copy a blob, call the [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) method. The `start_copy_from_url` method returns a dictionary containing information about the copy operation.
 
 The following code example gets a [BlobClient](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient) representing a previously created blob and copies it to a new blob in the same container:
 
@@ -167,15 +165,24 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 # [Python v12](#tab/python)
 
-Check the "copy_status" entry in the [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) dictionary returned by [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) method the to get the status of the copy operation. The final blob will be committed when the copy completes.
+Check the "status" entry in the [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) dictionary returned by [get_blob_properties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#get-blob-properties---kwargs-) method to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort a copy operation, the [copy_status](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) is set to "aborted".
+When you abort a copy operation, the [status](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) is set to "aborted".
 
 The [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#abort-copy-copy-id----kwargs-) method cancels an ongoing copy operation.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/copy_blob.py" id="Snippet_StopBlobCopy":::
 
 ---
+
+## Azure SDKs
+
+Get more information about Azure SDKs:
+
+ - [Azure SDK for .NET](https://github.com/azure/azure-sdk-for-net)
+ - [Azure SDK for Java](https://github.com/azure/azure-sdk-for-java)
+ - [Azure SDK for Python](https://github.com/azure/azure-sdk-for-python)
+ - [Azure SDK for JavaScript](https://github.com/azure/azure-sdk-for-js)
 
 ## Next steps
 
