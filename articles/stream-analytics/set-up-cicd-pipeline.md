@@ -46,7 +46,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
 2. Give the task a **Display name**. Change the **Command** option to *custom* and enter the following command in **Command and arguments**. Leave the remaining default options.
 
-   ```
+   ```bash
    install -g azure-streamanalytics-cicd
    ```
 
@@ -66,7 +66,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
 3. Give the task a **Display name** and enter the following script. Modify the script with your repository name and project name.
 
-   ```
+   ```bash
    azure-streamanalytics-cicd build -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(deployPath)
    ```
 
@@ -90,7 +90,7 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
    See [automated test instructions](cicd-tools.md#automated-test) for details on how to add and configure test cases.
 
-   ```cmd
+   ```bash
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
@@ -193,7 +193,7 @@ To create a release, select **Create release** in the top-right corner.
 
 :::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Create a release using Azure Pipelines":::
 
-## Next Steps
+## Next steps
 
 * [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd-overview.md)
 * [Automate build, test, and deployment of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md)
