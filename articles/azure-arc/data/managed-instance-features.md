@@ -133,7 +133,7 @@ Azure Arc enabled SQL Managed Instance support various data tools that can help 
 | **Tool** | Azure Arc enabled SQL Managed Instance|
 | --- | --- | --- |
 | Azure portal <sup>1</sup> | No |
-| Azure CLI | Yes|
+| Azure CLI | No |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes |
 | Azure PowerShell | Yes |
 | [BACPAC file (export)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes |
