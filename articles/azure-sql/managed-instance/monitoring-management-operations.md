@@ -24,7 +24,7 @@ Azure SQL Managed Instance provides [management operations](management-operation
 - Instance update (changing instance properties, such as vCores or reserved storage).
 - Instance deletion.
 
-Most of the management operations are [long running operations](management-operations-overview.md#management-operations-duration). Therefore there is a need for monitoring operation status or following the progress of operation steps. There are couple of ways how to monitor managed instance managemet operations:
+Most of the management operations are [long running operations](management-operations-overview.md#management-operations-duration). Therefore there is a need for monitoring operation status or following the progress of operation steps. There are couple of ways how to monitor managed instance management operations:
 
 - [Resource group deployments](../../azure-resource-manager/templates/deployment-history.md)
 - [Activity log](../../azure-monitor/platform/activity-log.md)
@@ -36,12 +36,12 @@ Comparison of monitoring options is represented in the following table
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Resource group deployments | Infinite | No* | Visible | Visible | Not visible | Visible | Not visible |
 | Activity log | 90 days | No | Visible | Visible | Visible | Visible |  Not visible |
-| Managed intance operations API | 24 hours | [Yes](canceling-management-operations.md) | Visible | Visible | Visible | Visible | Visible |
+| Managed instance operations API | 24 hours | [Yes](canceling-management-operations.md) | Visible | Visible | Visible | Visible | Visible |
 
 /* Resource group deployments are supporting cancel operation. However, cancel logic is implemented in a way that only operation scheduled for deployment after the cancel action is performed will be canceled. Ongoing deployment is not canceled. As managed instance deployment consists of one long running step (from ARM perspective), using resource group deployment cancel functionality will not cancel managed instance deployment and operation will be completed.
 
 ## Managed instance operations API
-Operations API represents API specialy designed for managed instance management operations monitoring that provides insights on operation parameters and operation steps, additionaly providing capability for canceling specific operation. Besides operation details and cancel command, this API can be used in automation scripts with multi-resource deployments - based on progress step, you can kick-off some dependet resource deployment.
+Operations API represents API specially designed for managed instance management operations monitoring that provides insights on operation parameters and operation steps, additionally providing capability for canceling specific operation. Besides operation details and cancel command, this API can be used in automation scripts with multi-resource deployments - based on progress step, you can kick-off some dependent resource deployment.
 
 | Command | Description |
 | --- | --- |
