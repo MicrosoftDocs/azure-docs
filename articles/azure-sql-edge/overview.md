@@ -22,9 +22,13 @@ Azure SQL Edge is built on the latest versions of the Microsoft SQL Database Eng
 
 ## Deployment Models
 
-Azure SQL Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
+Azure SQL Edge supported two deployment mechanism
+
+- Connected deployment through Azure IoT Edge: Azure SQL Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
 
 ![SQL Edge overview diagram](media/overview/overview.png)
+
+- Disconnected deployment: Azure SQL Edge container images can be pulled from docker hub and deployed either as a standalone docker container or on a kubernetes cluster. For more information refer [Deploy Azure SQL Edge with Docker](disconnected-deployment.md) and [Deploy an Azure SQL Edge container in Kubernetes](deploy-kubernetes.md).
 
 ## Editions of SQL Edge
 
@@ -37,7 +41,7 @@ SQL Edge is available with two different editions or software plans. These editi
 
 ## Pricing and Availability
 
-Azure SQL Edge is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
+Azure SQL Edge is now generally available. For more information on the pricing and availability in specific regions, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [Supported features of Azure SQL Edge](features.md).
