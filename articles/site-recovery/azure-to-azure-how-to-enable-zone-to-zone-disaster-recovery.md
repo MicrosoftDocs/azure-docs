@@ -23,6 +23,8 @@ Site Recovery service contributes to your business continuity and disaster recov
 
 Availability Zones are unique physical locations within an Azure region. Each zone has one or more datacenters. 
 
+If you want to move VMs to an availability zone in a different region, [review this article](../resource-mover/move-region-availability-zone.md).
+
 ## Using Availability Zones for Disaster Recovery 
 
 Typically, Availability Zones are used to deploy VMs in a High Availability configuration. They may be too close to each other to serve as a Disaster Recovery solution in case of natural disaster.

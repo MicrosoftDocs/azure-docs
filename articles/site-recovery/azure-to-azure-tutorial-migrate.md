@@ -14,7 +14,7 @@ ms.custom: MVC
 
 There are various scenarios in which you'd want to move your existing Azure IaaS virtual machines (VMs) from one region to another. For example, you want to improve reliability and availability of your existing VMs, to improve manageability, or to move for governance reasons. For more information, see the [Azure VM move overview](azure-to-azure-move-overview.md). 
 
-You can use the [Azure Site Recovery](site-recovery-overview.md) service to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for business continuity and disaster recovery (BCDR). You can also use Site Recovery to manage the move of Azure VMs to a secondary region.
+You can use [Azure Site Recovery](site-recovery-overview.md) service to move Azure VMs to a secondary region.
 
 In this tutorial, you will:
 
@@ -25,7 +25,19 @@ In this tutorial, you will:
 > * Copy the data and enable replication
 > * Test the configuration and perform the move
 > * Delete the resources in the source region
-> 
+
+
+> [!IMPORTANT]
+> To move Azure VMs to another region, we now recommend using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md). Resource Mover is in public preview and provides:
+> - A single hub for moving resources across regions.
+> - Reduced move time and complexity. Everything you need is in a single location.
+> - A simple and consistent experience for moving different types of Azure resources.
+> - An easy way to identify dependencies across resources you want to move. This helps you to move related resources together, so that everything works as expected in the target region, after the move.
+> - Automatic cleanup of resources in the source region, if you want to delete them after the move.
+> - Testing. You can try out a move, and then discard it if you don't want to do a full move.
+
+
+
 > [!NOTE]
 > This tutorial shows you how to move Azure VMs from one region to another as is. If you need to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, see the [Move Azure VMs into Availability Zones tutorial](move-azure-vms-avset-azone.md).
 

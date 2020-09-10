@@ -21,9 +21,21 @@ You might move VMs for the following reasons:
 - You already deployed in one region, and a new region support was added which is closer to the end users of your application or service. In this scenario, you'd want to move your VMs as is to the new region to reduce latency. Use the same approach if you want to consolidate subscriptions or if there are governance or organization rules that require you to move.
 - Your VM was deployed as a single-instance VM or as part of an availability set. If you want to increase the availability SLAs, you can move your VMs into an Availability Zone.
 
-## Steps to move Azure VMs
+## Move VMs with Resource Mover
 
-Moving VMs involves the following steps:
+You can now move VMs to another region with [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md). Resource Mover is in public preview and provides:
+- A single hub for moving resources across regions.
+- Reduced move time and complexity. Everything you need is in a single location.
+- A simple and consistent experience for moving different types of Azure resources.
+- An easy way to identify dependencies across resources you want to move. This helps you to move related resources together, so that everything works as expected in the target region, after the move.
+- Automatic cleanup of resources in the source region, if you want to delete them after the move.
+- Testing. You can try out a move, and then discard it if you don't want to do a full move.
+
+
+
+## Move VMs with Site Recovery
+
+Moving VMs with Site Recovery involves the following steps:
 
 1. Verify prerequisites.
 2. Prepare the source VMs.
