@@ -386,6 +386,8 @@
       items:
       - name: Azure portal
         href: flexible-server/quickstart-create-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/quickstart-create-server-cli.md
       - name: ARM template
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
@@ -466,6 +468,14 @@
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+    - name: Configure server parameters
+      items:
+      - name: Azure portal
+        href: flexible-server/howto-configure-server-parameters-using-portal.md
+        displayName: application development, server parameters
+      - name: Azure CLI
+        href: flexible-server/howto-configure-server-parameters-using-cli.md
+        displayName: application development, server parameters
     - name: Scale a server
       items:
       - name: Azure portal
