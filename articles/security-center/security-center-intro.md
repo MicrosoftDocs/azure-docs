@@ -154,4 +154,4 @@ Extensive log collection - logs from Windows and Linux are all leveraged in the 
 
 - Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, enable Azure Defender. 
 
-- If you're ready to enable Azure Defender now, the [Quickstart: Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through the steps.
+- If you're ready to enable Azure Defender now, the [Quickstart: Onboard your Azure subscription to Security Center](security-center-get-started.md) walks you through the steps.

@@ -1,6 +1,6 @@
 ---
-title: Pricing of Azure Security Center tiers
-description: Azure Security Center is offered in two tiers - Free and Standard. This page shows how to upgrade from Free to Standard.
+title: Pricing of Azure Security Center
+description: Azure Security Center is offered in two modes with and without Azure Defender.
 services: security-center
 documentationcenter: na
 author: memildin

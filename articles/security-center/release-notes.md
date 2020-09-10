@@ -120,7 +120,7 @@ Learn more in [Disable specific findings for your container images](defender-for
 
 ### Exempt a resource from a recommendation
 
-Occasionally, a resource will be listed as unhealthy regarding a specific recommendation even though you feel it shouldn't be. It might have been remediated by a process not tracked by Security Center. Or perhaps your organization has decided to accept the risk for that specific resource. 
+Occasionally, a resource will be listed as unhealthy regarding a specific recommendation (and therefore lowering your secure score) even though you feel it shouldn't be. It might have been remediated by a process not tracked by Security Center. Or perhaps your organization has decided to accept the risk for that specific resource. 
 
 In such cases, you can create an exemption rule and ensure that resource isn't listed amongst the unhealthy resources in the future. These rules can include documented justifications as described below.
 

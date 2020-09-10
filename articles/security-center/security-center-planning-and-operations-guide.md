@@ -116,7 +116,7 @@ Security Center policies contain the following components:
 - [Data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agent provisioning and data collection settings.
 - [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](../governance/policy/overview.md) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 - [Email notifications](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): security contacts and notification settings.
-- [Pricing tier](https://docs.microsoft.com/azure/security-center/security-center-pricing): free or standard pricing selection, which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces).
+- [Pricing tier](https://docs.microsoft.com/azure/security-center/security-center-pricing): with or without Azure Defender, which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces).
 
 > [!NOTE]
 > Specifying a security contact will ensure that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) for more information on how to enable this recommendation.

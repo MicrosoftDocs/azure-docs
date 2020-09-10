@@ -42,7 +42,7 @@ Use the following resources to assist you during the planning and operations pro
 
 
 ### Onboarding computers to Security Center
-Security Center automatically detects any Azure subscriptions or workspaces not enabled for Security Center Standard. This includes Azure subscriptions using Security Center Free and workspaces that do not have the Security solution enabled.
+Security Center automatically detects any Azure subscriptions or workspaces not protected by Azure Defender. This includes Azure subscriptions using Security Center Free and workspaces that do not have the security solution enabled.
 
 Use the following resources to assist you during the onboarding processes.
 
