@@ -248,6 +248,29 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
+## [Speech Language Detection](#tab/lid)
+
+### Basic example for Speech language detection
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### Logging example for Speech language detection
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
 ---
 
 ## Next steps

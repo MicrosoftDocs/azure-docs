@@ -66,7 +66,7 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
+| Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
 | Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
@@ -82,7 +82,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 # [Version 3.0-preview](#tab/version-3)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
 ```
 
 ---
@@ -123,7 +123,7 @@ This command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -145,6 +145,16 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
+If you need higher throughput (for example, when processing multi-page files), consider deploying multiple v3.0 or v3.1 containers [on a Kubernetes cluster](deploy-computer-vision-on-premises.md), using [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create) and [Azure Queue](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+
+If you’re using Azure Storage to store images for processing, you can create a [connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) to use when calling the container.
+
+To find your connection string:
+
+1. Navigate to **Storage accounts** on the Azure portal, and find your account.
+2. Click on **Access keys** in the left navigation list.
+3. Your connection string will be located below **Connection string**
+
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 <!--  ## Validate container is running -->
@@ -156,8 +166,6 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 The container provides REST-based query prediction endpoint APIs. 
 
 Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at `http://localhost:5000/swagger/vision-v3.0-read/swagger.json`.
-
-If you’re using Azure Storage to store images for processing, you can create a [connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string?toc=/azure/storage/blobs/toc.json) to use when calling the container.
 
 ### Asynchronous read
 
