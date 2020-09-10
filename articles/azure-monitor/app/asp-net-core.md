@@ -118,7 +118,7 @@ For Visual Studio for Mac use the [manual guidance](#enable-application-insights
 ### User secrets and other configuration providers
 
 If you want to store the instrumentation key in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
-Starting from [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.15.0-beta3, calling `services.AddApplicationInsightsTelemetry()` will read instrumentation key from all [ASP.NET Core supported configuration providers](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#cp) and there is no need to pass `Microsoft.Extensions.Configuration.IConfiguration` parameter explicitly. 
+Starting from [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.15.0-beta3, calling `services.AddApplicationInsightsTelemetry()` will read the instrumentation key from all [ASP.NET Core supported configuration providers](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#cp) and there is no need to pass `Microsoft.Extensions.Configuration.IConfiguration` parameter explicitly. 
 
 ## Run your application
 
@@ -488,4 +488,3 @@ For the latest updates and bug fixes [consult the release notes](./release-notes
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
 * Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
-
