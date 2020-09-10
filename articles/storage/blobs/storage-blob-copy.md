@@ -165,7 +165,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 # [Python v12](#tab/python)
 
-Check the "status" entry in the [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) dictionary returned by [get_blob_properties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#get-blob-properties---kwargs-) method the to get the status of the copy operation. The final blob will be committed when the copy completes.
+Check the "status" entry in the [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) dictionary returned by [get_blob_properties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#get-blob-properties---kwargs-) method to get the status of the copy operation. The final blob will be committed when the copy completes.
 
 When you abort a copy operation, the [status](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) is set to "aborted".
 
@@ -174,6 +174,15 @@ The [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/azure.st
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/copy_blob.py" id="Snippet_StopBlobCopy":::
 
 ---
+
+## Azure SDKs
+
+Get more information about Azure SDKs:
+
+ - [Azure SDK for .NET](https://github.com/azure/azure-sdk-for-net)
+ - [Azure SDK for Java](https://github.com/azure/azure-sdk-for-java)
+ - [Azure SDK for Python](https://github.com/azure/azure-sdk-for-python)
+ - [Azure SDK for JavaScript](https://github.com/azure/azure-sdk-for-js)
 
 ## Next steps
 
