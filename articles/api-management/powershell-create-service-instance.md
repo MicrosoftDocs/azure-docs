@@ -8,7 +8,7 @@ author: vladvino
 ms.service: api-management
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/09/2020
+ms.date: 09/10/2020
 ms.author: apimpm
 ---
 
@@ -40,17 +40,17 @@ New-AzResourceGroup -Name myResourceGroup -Location WestUS
 
 Now that you have a resource group, you can create an API Management service instance. Create one by using [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) and provide a service name and publisher details. The service name must be unique within Azure.
 
-In the following example, *myapim* is used for the service name. Update the name to a unique value. Also provide the organization name of the API publisher and the email address to receive notifications.
+In the following example, *myapim* is used for the service name. Update the name to a unique value. Also update the organization name of the API publisher and the admin email address to receive notifications.
+
+By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
 
 > [!NOTE]
-> This is a long-running operation. It usually takes between 20 and 30 minutes to create and activate an API Management service.
+> This is a long-running operation. It usually takes between 20 and 30 minutes to create and activate an API Management service in this tier.
 
 ```azurepowershell-interactive
 New-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" `
   -Location "West US" -Organization "Contoso" -AdminEmail "admin@contoso.com" 
 ```
-
-By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
 
 When the command returns, run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to view the properties of the Azure API Management service. After activation, the provisioning status is Succeeded and the service instance has several associated URLs. For example:
 
