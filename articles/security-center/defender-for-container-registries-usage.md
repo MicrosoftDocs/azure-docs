@@ -109,11 +109,21 @@ When the scanner reports vulnerabilities to Security Center, Security Center pre
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
 
-## Disable specific findings
+## Disable specific findings (preview)
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-When a finding matches the criteria you've defined in your disable rules, it won't appear in the list of findings.
+When a finding matches the criteria you've defined in your disable rules, it won't appear in the list of findings. Typical scenarios include:
+
+- Disable findings with severity below medium
+- Disable findings that are non-patchable
+- Disable findings with CVSS score below 6.5
+- Disable findings with specific text in the security check or category (for example, “RedHat”, “CentOS Security Update for sudo”)
+
+> [!IMPORTANT]
+> To create a rule, you need permissions to edit a policy in Azure Policy.
+>
+> Learn more in [RBAC Permissions in Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).
 
 You can use any of the following criteria: 
 
@@ -124,12 +134,20 @@ You can use any of the following criteria:
 - Severity 
 - Patchable status 
 
-From the recommendations detail page for **Vulnerabilities in Azure Container Registry images should be remediated**, select **Disable rule** and define your criteria:
+To create a rule:
 
-:::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry":::
+1. From the recommendations detail page for **Vulnerabilities in Azure Container Registry images should be remediated**, select **Disable rule**.
+1. Select the relevant scope.
+1. Define your criteria.
+1. Select **Apply rule**.
 
+    :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry":::
 
-
+1. To view, override, or delete a rule: 
+    1. Select **Disable rule**.
+    1. From the scope list, subscriptions with active rules show as **Rule applied**.
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modify or delete an existing rule":::
+    1. To view or delete the rule, select the ellipsis menu ("...").
 
 
 ## Next steps

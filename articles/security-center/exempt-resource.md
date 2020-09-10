@@ -26,7 +26,7 @@ In such cases, you can create an exemption rule and ensure that resource isn't l
 |----|:----|
 |Release state:|Preview|
 |Pricing:|Free during preview|
-|Required roles and permissions:|**Subscription owner** to create an exemption<br>(during preview **Policy contributor** will suffice)|
+|Required roles and permissions:|**Subscription owner** to create an exemption<br>(during preview **Policy contributor** will suffice)<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [RBAC Permissions in Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
