@@ -84,7 +84,7 @@ For detailed commands explanation, see [Get-AzSqlInstanceOperation](https://docs
 
 # [Azure CLI](#tab/azure-cli)
 
-The az sql mi op list gets a list of operations performed on the managed instance. If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+The az sql mi op list gets a list of operations performed on the managed instance. If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
