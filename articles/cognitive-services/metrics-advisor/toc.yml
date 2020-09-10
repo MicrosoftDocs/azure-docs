@@ -35,9 +35,18 @@
   items:
   - name: Glossary
     href: glossary.md
+  - name: FAQ
+    href: faq.md
   - name: Metrics Advisor API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/
   - name: Azure CLI reference 
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: PowerShell reference
     href: https://aka.ms/azure-powershell-cognitiveservices
+- name: Resources
+  - name: Pricing
+    href: http://go.microsoft.com/fwlink/?LinkID=761229
+  - name: Regional Availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services 
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
