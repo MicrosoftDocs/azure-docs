@@ -83,10 +83,12 @@ To activate your HSM you need:
 
 To activate the HSM you send at least 3 (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
 
-The example below shows how to use  `openssl` to generate a self signed certificate.
+The example below shows how to use  `openssl` to generate 3 self signed certificate.
 
 ```azurecli
-openssl req -newkey rsa:2048 -nodes -keyout ./certs/cert_0.key -x509 -days 365 -out ./certs/cert_0.cer
+openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
+openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
+openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
 ```
 
 Use the `az keyvault security-domain download` command to download the security domain and activate your managed HSM. The example below, uses 3 RSA key pairs (only public keys are needed for this command) and sets the quorum to 2.

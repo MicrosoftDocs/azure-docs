@@ -201,6 +201,9 @@ Use `az keyvault key purge` command to purge (permanently delete) a key.
 
 > [!NOTE] If the managed HSM has purge protection enabled, purge operation will not be permitted. The key will be automatically purged when the retention period has passed.
 
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az keyvault key purge --hsm-name ContosoHSM --name myrsakey
 
@@ -210,10 +213,67 @@ az keyvault key purge --hsm-name ContosoHSM --name myrsakey
 az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
 
 ```
+---
 
+
+## Create a single key backup
+
+Use `az keyvault key backup` to create a key backup. The backup file is an encrypted blob cryptographically tied to the Security Domain of the source HSM. It can only be restored in HSMs that share the same security domain. Read more about [Security Domain](security-domain.md).
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault key backup --hsm-name ContosoHSM --name myrsakey --file myrsakey.backup
+
+## OR
+# Note the key name (myaeskey) in the URI
+
+az keyvault key backup --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey  --file myrsakey.backup
+
+```
+---
+
+## Restore a single key backup
+
+Use `az keyvault key restore` to restore a single key. The source HSM where the backup was created must share the same security domain as the target HSM where the key is being restored.
+
+> [!NOTE] The restore will not succeed if a key with same name exists in active or deleted state.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault key restore --hsm-name ContosoHSM --name myrsakey --file myrsakey.bakup
+
+## OR
+# Note the key name (myaeskey) in the URI
+
+az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --file myrsakey.bakup
+
+```
+---
+
+## Import a key from a file
+
+Use `az keyvault key import` command to import a key (only RSA and EC) from a file. The certificate file must have private key and must use PEM encoding (as defined in RFCs [1421](https://tools.ietf.org/html/rfc1421), [1422](https://tools.ietf.org/html/rfc1422), [1423](https://tools.ietf.org/html/rfc1423), [1424](https://tools.ietf.org/html/rfc1424)).
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault key import --hsm-name ContosoHSM --name myrsakey --pem-file mycert.key --password 'mypassword'
+
+## OR
+# Note the key name (myaeskey) in the URI
+
+az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --pem-file mycert.key --password 'mypassword'
+
+```
+---
+To import a key from your on-premise HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-key-byok.md)
 
 ## Next steps
 
 - For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault).
 
 - For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md)
+
+- See 
