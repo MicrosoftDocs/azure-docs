@@ -40,18 +40,18 @@ landingContent:
 # Card
   - title: Manage
     linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a Flexible Server using ARM Template
-            url: quickstart-create-server-arm-template.md
       - linkListType: concept
         links:
           - text: Compute and storage options
             url: concepts-compute-storage.md
+          - text: Networking
+            url: concepts-networking.md
           - text: Postgres versions
             url: concepts-supported-versions.md
           - text: Extensions
             url: concepts-extensions.md
+          - text: Monitor
+            url: concepts-monitoring.md
           - text: Logical replication
             url: concepts-logical.md
       - linkListType: how-to-guide
@@ -114,8 +114,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI developer reference
-            url: /rest/api/postgresql/
+            url: /cli/azure/postgres 
           - text: REST API developer reference
-            url: /cli/azure/postgres
+            url: /rest/api/postgresql/
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbforpostgresql/allversions
