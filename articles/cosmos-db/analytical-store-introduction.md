@@ -67,7 +67,7 @@ By using horizontal partitioning, Azure Cosmos DB transactional store can elasti
 
 Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the autosync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
-When schema is evolved, where new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
+As your schema evolves, and new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
