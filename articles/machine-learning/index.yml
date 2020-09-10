@@ -48,9 +48,9 @@ landingContent:
           url: concept-designer.md   
       - linkListType: tutorial
         links:
-          - text: 'Get started: Use AutoML for classification'
+          - text: 'Get started with AutoML'
             url: tutorial-first-experiment-automated-ml.md                  
-          - text: 'Get started: Use designer to predict prices'
+          - text: 'Get started in designer'
             url: tutorial-designer-automobile-price-train-score.md
       - linkListType: reference
         links:
