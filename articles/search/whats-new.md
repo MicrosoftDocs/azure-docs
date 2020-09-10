@@ -27,6 +27,7 @@ Create an identity for a search service in Azure Active Directory, then use RBAC
 | [Outbound requests using a private link](search-indexer-howto-access-private.md) | Indexers, security | Create a shared private link resource that indexers can use when accessing Azure resources secured by Azure Private Link. For more information about all of the ways you can secure indexer connections, see [Secure indexer resources using Azure network security features](search-indexer-securing-resources.md). | Generally available. Access this capability when using the portal or [Shared Private Link Resource](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) with api-version=2020-08-01. |
 | [Management REST API (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | New stable REST API adds support for creating shared private link resources. | Generally available. |
 | [Management REST API (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Adds shared private link resource for Azure Functions and Azure SQL for MySQL Databases. | Public preview. |
+| [Management .NET SDK 4.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | Azure SDK update for the management SDK, targeted REST API version 2020-08-01. | Generally available. |
 
 ### August 2020
 
