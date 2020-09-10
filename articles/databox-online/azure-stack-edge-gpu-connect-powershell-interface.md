@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/10/2020
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
@@ -79,7 +79,7 @@ If the compute role is configured on your device, you can also get the GPU drive
 
 ## Enable Multi-Process Service (MPS)
 
-A Multi-Process Service (MPS) on Nvidia GPUs provides a mechanism where GPUs can be shared by multiple jobs, where each job is allocated some percentage of the GPU's resources. To enable MPS on your Azure Stack Edge Pro device, follow these steps:
+A Multi-Process Service (MPS) on Nvidia GPUs provides a mechanism where GPUs can be shared by multiple jobs, where each job is allocated some percentage of the GPU's resources. MPS is a preview feature on your Azure Stack Edge Pro GPU device. To enable MPS on your device, follow these steps:
 
 1. Before you begin, make sure: that 
 
