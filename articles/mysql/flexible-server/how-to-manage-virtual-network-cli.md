@@ -15,8 +15,8 @@ ms.date: 9/21/2020
 
 Azure Database for MySQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
-1. Public access (allowed IP addresses)
-2. Private access (VNet Integration)
+- Public access (allowed IP addresses)
+- Private access (VNet Integration)
 
 In this article, we will focus on creation of MySQL server with **Private access (VNet Integration)** using Azure CLI. With *Private access (VNet Integration)*, you can deploy your flexible server into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure Virtual Networks provide private and secure network communication. In Private access, the connections to the MySQL server are restricted to only within your virtual network. To learn more about it, refer to [Private access (VNet Integration)](./concepts-networking.md#private-access-vnet-integration).
 
@@ -67,7 +67,7 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
     ```
     > [!Note]
     > The virtual network and subnet should be in the same region, resource group and subscription as your server. You cannot use the virtual network and subnet in other region, resource group and subscription.
-<!--    
+<!--
 - Create a flexible server using new virtual network, subnet with non-default address prefix
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24

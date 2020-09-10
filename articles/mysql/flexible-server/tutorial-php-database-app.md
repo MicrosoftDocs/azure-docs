@@ -18,15 +18,14 @@ ms.custom: mvc
 
 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
-![PHP Web App in Azure with Flexible Server](media/tutorial-php-database-app/complete-checkbox-published.png)
-
 In this tutorial, you learn how to:
-- Setup a PHP (Laravel) app with local MySQL
-- Create a MySQL Flexible Server (Preview)
-- Connect a PHP app to MySQL Flexible Server (Preview)
-- Deploy the app to Azure App Service
-- Update the data model and redeploy the app
-- Manage the app in the Azure portal
+> [!div class="checklist"]
+> * Setup a PHP (Laravel) app with local MySQL
+> * Create a MySQL Flexible Server (Preview)
+> * Connect a PHP app to MySQL Flexible Server (Preview)
+> * Deploy the app to Azure App Service
+> * Update the data model and redeploy the app
+> * Manage the app in the Azure portal
 
 If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -34,11 +33,11 @@ If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guide
 
 To complete this tutorial:
 
-* [Install Git](https://git-scm.com/)
-* [Install PHP 5.6.4 or above](https://php.net/downloads.php)
-* [Install Composer](https://getcomposer.org/doc/00-intro.md)
-* Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
-* [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+1. [Install Git](https://git-scm.com/)
+2. [Install PHP 5.6.4 or above](https://php.net/downloads.php)
+3. [Install Composer](https://getcomposer.org/doc/00-intro.md)
+4. Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+5. [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
 
 ## Prepare local MySQL
 
@@ -295,6 +294,7 @@ In the Cloud Shell, create an App Service plan in the resource group with the [a
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 
 <a name="create"></a>
+
 ### Create a web app
 
 Create a [web app](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux) in the myAppServicePlan App Service plan.

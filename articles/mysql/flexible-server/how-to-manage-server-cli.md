@@ -81,7 +81,7 @@ If you would just like to delete the MySQL Flexible server, you can run [az mysq
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## Next Steps
+## Next steps
 - [Learn how to start or stop a server](how-to-stop-start-server-portal.md)
 - [Learn how to manage a virtual network](how-to-manage-virtual-network-cli.md)
 - [Troubleshoot connection issues](how-to-troubleshoot-common-connection-issues.md)

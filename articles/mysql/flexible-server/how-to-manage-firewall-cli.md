@@ -6,7 +6,7 @@ ms.author: ambhatna
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 9/21/2020 
+ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ---
 
@@ -17,8 +17,8 @@ ms.custom: devx-track-azurecli
 
 Azure Database for MySQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
-1. Public access (allowed IP addresses)
-2. Private access (VNet Integration)
+- Public access (allowed IP addresses)
+- Private access (VNet Integration)
 
 In this article, we will focus on creation of MySQL server with **Public access (allowed IP addresses)** using Azure CLI and will provide an overview on Azure CLI commands you can use to create, update, delete, list, and show firewall rules after creation of server. With *Public access (allowed IP addresses)*, the connections to the MySQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well.
 
@@ -44,7 +44,7 @@ Select the specific subscription under your account using [az account set](https
 az account set --subscription <subscription id>
 ```
 
-## Create firewall rule during flexible server create using Azure CLI
+## Create a server with a firewall rule
 
 You can use the `az mysql flexible-server --public access` command to create the flexible server with *Public access (allowed IP addresses)* and configure the firewall rules during creation of flexible server. You can use the **--public-access** switch to provide the allowed IP addresses that will be able to connect to the server. You can provide single or range of IP addresses to be included in the allowed list of IPs. IP address range must be dash separated and does not contain any spaces. There are various options to create a flexible server using CLI as shown in the example below.
 
@@ -80,7 +80,7 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
     >[!Note]
     > we do not recommend to create a server without any firewall rules. If you do not add any firewall rules then no client will be able to connect to the server.
 
-## Create and manage firewall rule after server create
+## Create and manage firewall rule for existing server
 The **az mysql flexible-server firewall-rule** command is used from the Azure CLI to create, delete, list, show, and update firewall rules.
 
 Commands:
