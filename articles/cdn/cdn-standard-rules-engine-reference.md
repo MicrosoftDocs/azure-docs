@@ -56,7 +56,7 @@ A percent sign is used to indicate URL encoding (for example, `%20`).
 
 ### Wildcard values
 
-Currently we support the wildcard character in the **UrlPath Match Condition** in Standard Rules Engine. The \* character is an asterisk that represents one or more characters. 
+Currently we support the wildcard character in the **UrlPath Match Condition** in Standard Rules Engine. The \* character is a wildcard that represents one or more characters. 
 
 ## Next steps
 
