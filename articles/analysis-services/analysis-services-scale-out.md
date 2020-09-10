@@ -111,7 +111,7 @@ Synchronization operations must be performed manually or by using the REST API.
 
 In **Overview** > model > **Synchronize model**.
 
-![Scale-out slider](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Synchronize icon](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### REST API
 
