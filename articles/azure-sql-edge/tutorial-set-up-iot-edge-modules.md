@@ -20,7 +20,7 @@ In part two of this three-part tutorial for predicting iron ore impurities in Az
 
 ## Create Azure Stream Analytics module
 
-Create an Azure Stream Analytics module that will be used in this tutorial. To learn more about using streaming jobs with SQL Edge, see [Using streaming jobs with SQL Edge](stream-analytics.md).
+Create an Azure Stream Analytics module that will be used in this tutorial.
 
 Once the Azure Stream Analytics job is created with the hosting environment set as Edge, set up the inputs and outputs for the tutorial.
 
