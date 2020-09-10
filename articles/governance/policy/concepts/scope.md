@@ -69,9 +69,9 @@ The following table is a comparison of the scope options:
 
 | | Inclusion | Exclusion (notScopes) | Exemption |
 |---|:---:|:---:|:---:|
-|Resources are evaluated | &#10004; | - | - |
-|Resource Manager object | - | - | &#10004; |
-|Requires modifying policy assignment object | &#10004; | &#10004; | - |
+|**Resources are evaluated** | &#10004; | - | - |
+|**Resource Manager object** | - | - | &#10004; |
+|**Requires modifying policy assignment object** | &#10004; | &#10004; | - |
 
 ## Next steps
 
