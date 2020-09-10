@@ -1,6 +1,6 @@
 ---
 title: Use cloud groups to manage role assignments in Azure Active Directory | Microsoft Docs
-description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
+description: Preview custom Azure AD roles for delegating identity management. Manage Azure role assignments in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
 manager: daveba
