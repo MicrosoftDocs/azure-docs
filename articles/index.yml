@@ -540,7 +540,7 @@ productDirectory:
       url: container-instances/index.yml
     # Card
     - title: Linux Virtual Machines
-      summary: Provision Windows and Linux virtual machines in seconds
+      summary: Provision virtual machines for Ubuntu, Red Hat, and more
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
         - featured
