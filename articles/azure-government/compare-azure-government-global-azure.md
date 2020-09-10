@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/20/2020
+ms.date: 09/09/2020
 ---
 
 # Compare Azure Government and global Azure
@@ -114,7 +114,7 @@ Commonly used services in bot applications that are not currently available in A
 - Application Insights
 - Speech Service
 
-For more information, see [How do I create a bot that uses US Government data center](https://docs.microsoft.com/azure/bot-service/bot-service-resources-faq-ecosystem?view=azure-bot-service-4.0#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
+For more information, see [How do I create a bot that uses US Government data center](https://docs.microsoft.com/azure/bot-service/bot-service-resources-faq-ecosystem?view=azure-bot-service-4.0#how-do-i-create-a-bot-that-uses-the-us-government-data-center&preserve-view=true).
 
 ### [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
 For feature variations and limitations, see [Azure Machine Learning sovereign cloud parity](https://docs.microsoft.com/azure/machine-learning/reference-machine-learning-cloud-parity).
@@ -230,7 +230,7 @@ If you are using the IoT Hub connection string (instead of the Event Hub-compati
 This section outlines variations and considerations when using Management and Governance services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-applications,azure-policy,network-watcher,monitor,traffic-manager,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
 
 > [!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.3.0). For Az module installation instructions, see [**Install Azure PowerShell**](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.3.0).
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.3.0&preserve-view=true). For Az module installation instructions, see [**Install Azure PowerShell**](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.3.0&preserve-view=true).
 
 ### [Application Insights](https://docs.microsoft.com/azure/azure-monitor/overview)
 This section describes the supplemental configuration that is required to use Application Insights (part of Azure Monitor) in Azure Government.
