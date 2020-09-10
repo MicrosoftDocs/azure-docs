@@ -22,7 +22,7 @@ As an example, if you have different streams of telemetry in separate metrics, M
 
 Click the **Metrics Graph** tab in the navigation bar. The first step in building a metrics graph is to put a node onto the graph. Select a data feed and metric at the top of the page. A node will appear in the bottom panel. 
 
-![Select metric](../media/graph/metrics-graph-select.png)
+:::image type="content" source="../media/graph/metrics-graph-select.png" alt-text="Select metric":::
 
 ## Add a node/relation on existing node
 
@@ -30,7 +30,7 @@ Next you need to add another node and specify a relation to an existing node(s).
 
 Click **Add relation**, and you will be able to choose another metric, and specify the relation type between the two nodes. You can also apply specific dimension filters. 
 
-![Add node/relation](../media/graph/metrics-graph-node-action.png)
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Add a node and relation":::
 
 After repeating the above steps, you will have a metrics graph describing the relations between all related metrics.
 **Hint on node colors**
@@ -45,7 +45,7 @@ When the metrics graph is built, whenever an anomaly is detected on metrics with
 
 Click into an incident within the graph and scroll down to **cross metrics analysis**, below the diagnostic information.
 
-![View related metrics anomaly](../media/graph/metrics-graph-cross-metrics-analysis.png)
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="View related metrics and anomalies":::
 
 ## Next steps
 

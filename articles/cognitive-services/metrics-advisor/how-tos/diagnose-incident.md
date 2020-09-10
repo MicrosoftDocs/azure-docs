@@ -28,21 +28,22 @@ Click on **Incident hub** in the left navigation window to see all incidents und
 
 The **overview** section contains detection results, including counts of the anomalies and alerts within in the selected time range.
 
-![Incidents overview](../media/diagnostics/incident-hub-overview.png)
+:::image type="content" source="../media/diagnostics/incident-hub-overview.png" alt-text="Incident hub":::
 
 Detected incidents within the selected metric and time range are listed in the **Incident list**. There are options to filter and order the incidents. For example, by severity. Click on one of the incidents to go to the **Incident** page for further diagnostics.
 
-![Incident list](../media/diagnostics/incident-list.png)
+:::image type="content" source="../media/diagnostics/incident-list.png" alt-text="Incident list":::
 
 The **Diagnostic** section lets you perform in-depth analysis on an incident, and tools to identify root-causes.
 
-![Diagnose an incident](../media/diagnostics/diagnose-incident.png)
+:::image type="content" source="../media/diagnostics/diagnose-incident.png" alt-text="Diagnose an incident":::
 
 ## Root cause advice
 
 When a group of anomalies is detected in a metric and causes an incident, Metrics Advisor will try to analyze the root cause of the incident. **Root cause advice** provides automatic suggestions for likely causes of an incident. This feature is only available if there is an aggregated value within dimension. If the metric has no dimension, the root cause will be itself. Root causes are listed at right side panel and there might be several reasons listed. If there is no data in the table, it means your dimension doesn't satisfy the requirements to perform the analysis.
 
-![Root Cause Advice](../media/diagnostics/root-cause-advice.png)
+:::image type="content" source="../media/diagnostics/root-cause-advice.png" alt-text="Root cause advice":::
+
 
 When the root cause metric is provided with specific dimensions, you can click **go to metric** to view more details of the metric.
 
@@ -54,7 +55,7 @@ The quick diagnosis tree is for diagnosing a current incident, and the root node
 
 The interactive tree lets you diagnose current incidents as well as older incidents, and ones that are related. When using the interactive tree, right click on a node to open an action menu, where you can choose a dimension to drill up through the root nodes, and a dimension to drill down for each node. By clicking on the cancel button of the dimension list on the top, you can remove the drilling up or down from this dimension. left click a node to select it and show its series together with current incident series in the chart.
 
-![Incident tree quick diagnose](../media/diagnostics/incident-tree.png "Incident tree quick diagnose")
+:::image type="content" source="../media/diagnostics/incident-tree.png" alt-text="Incident tree":::
 
 ## Anomaly drill down
 
@@ -62,7 +63,7 @@ When you're viewing incident information, you may need to get more detailed info
 
 To use the drill down function, click on the **Metric drilling** tab in the **Incident hub**. 
 
-![Metric Drilling](../media/diagnostics/metric-drilling.png "Metric Drilling")
+:::image type="content" source="../media/diagnostics/metric-drilling.png" alt-text="Metric drilling":::
 
 The **Dimensions** setting is a list of dimensions for an incident, you can select other available dimension values for each one. After the dimension values are changed. The **Timestamp** setting lets view the current incident at different moments in time.
 
@@ -74,24 +75,25 @@ There are two types of drill down options: **Drill down** and **Horizontal compa
 > 1. For drill down, you can explore the data from different dimension values, except the selected dimensions. 
 > 2. For horizontal comparison, you can explore the data from different dimension values, except the all-up dimensions.
 
-![Drill Down Dimension](../media/diagnostics/drill-down-dimension.png "Drill Down Dimension")
+:::image type="content" source="../media/diagnostics/drill-down-dimension.png" alt-text="Drill down dimension":::
 
 ### Value comparison for different dimension values
 
 The second section of the drill down tab is a table with comparisons for different dimension values. It includes the value, baseline value, difference value, delta value and whether it is an anomaly.
  
-![Drill Down Comparison](../media/diagnostics/drill-down-comparison.png "Drill Down comparison")
+:::image type="content" source="../media/diagnostics/drill-down-comparison.png" alt-text="Drill down comparison":::
+
 
 ### Value and expected value comparisons for different dimension value
 
 The third section of the drill down tab is an histogram with the values and expected values, for different dimension values. The histogram is sorted by the difference between value and expected value. You can find the unexpected value with the biggest impact easily. For example, in the above picture, we can find that, except the all up value, **US7** contributes the most for the anomaly.
 
-![Drill Down Table](../media/diagnostics/drill-down-table.png "Drill Down Table")
+:::image type="content" source="../media/diagnostics/drill-down-table.png" alt-text="Drill down table":::
 
 ### Raw value visualization
 The last part of drill down tab is a line chart of the raw values. With this chart provided, don't need to navigate to the metric page to view details.
 
-![Drill Down Raw Data](../media/diagnostics/drill-down-line-chart.png "Drill Down Raw Data")
+:::image type="content" source="../media/diagnostics/drill-down-line-chart.png" alt-text="Drill down line chart":::
 
 ## View similar anomalies using Time Series Clustering
 
@@ -102,14 +104,14 @@ When viewing an incident, you can use the **Similar time-series-clustering** tab
 
 Available dimensions are listed on the top the the tab, and you can make a selection to specify the series.
 
-![Series Group](../media/diagnostics/series-group.png)
+:::image type="content" source="../media/diagnostics/series-group.png" alt-text="Series group":::
 
 ## Compare time series
 
 Sometimes when an anomaly is detected on a specific time series, it's helpful to compare it with multiple other series in a single visualization. 
 Click on the **Compare tools** tab, and then click on the blue **+ Add** button. 
 
-![Add series to compare](../media/diagnostics/add-series.png)
+:::image type="content" source="../media/diagnostics/add-series.png" alt-text="Add series to compare":::
 
 Select a series from your data feed. You can choose the same granularity or a different one. Select the target dimensions and load the series trend, then click **Ok** to compare it with a previous series. The series will be put together in one visualization. You can continue to add more series for comparison and get further insights. Click the drop down menu at the top of the **Compare tools** tab to compare the time series data over a period of time, shifted.  
 
@@ -127,7 +129,7 @@ After selecting a shifted comparison, you can select whether you want to compare
 
 Sometimes you may need to check the incidents of different metrics at the same time, or related incidents in other metrics. You can find a list of related incidents in the **Cross Metrics Analysis** section. 
 
-![View related metrics anomaly](../media/graph/metrics-graph-cross-metrics-analysis.png)
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Add series to compare":::
 
 Before you can see related incidents for current metric, you need to add a relationship between metrics. Click **Metrics Graph Settings** to add a relationship. Only metrics with same dimension names can be related. Use the following parameters.
 

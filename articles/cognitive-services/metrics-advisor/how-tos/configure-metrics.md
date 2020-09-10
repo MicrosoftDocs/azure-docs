@@ -16,7 +16,7 @@ ms.author: aahi
 
 Use this article to start configuring your Metrics Advisor instance using the web portal. To browse the metrics for a specific data feed, go to the **Data feeds** page and select one of the feeds. This will display a list of metrics associated with it.
 
-![Select Metric](../media/metrics/select-metric.png)
+:::image type="content" source="../media/metrics/select-metric.png" alt-text="Select a metric":::
 
 Click on one of the metric names to see its details. In this detailed view, you can switch to another metric in the same data feed using the drop down list in the top right corner of the screen.
 
@@ -40,7 +40,7 @@ This configuration will be applied to all the series in this metric, except for 
 
 There are additional parameters like **Direction**, and **Valid anomaly** that can be used to further tune the configuration. You can combine different detection methods as well. 
 
-![Configuration combination](../media/configuration-combination.png "Configuration combination")
+:::image type="content" source="../media/configuration-combination.png" alt-text="Configuration combination":::
 
 ### Tune the configuration for a specific series or group
 
@@ -48,13 +48,11 @@ Click **Advanced configuration** below the metric level configuration options to
 
 This configuration will be applied to the group of series or specific series instead of the metric level configuration. After setting the conditions for this group, save it.
 
-![Advanced configuration](../media/advanced-configuration.png "Advanced configuration")
-
+:::image type="content" source="../media/advanced-configuration.png" alt-text="Advanced configuration":::
 
 ### Anomaly Detection Methods
 
 Metrics Advisor offers multiple anomaly detection methods. You can use one or combine them using logical operators by clicking the **+** button. 
-
 
 **Smart detection** 
 
@@ -65,12 +63,11 @@ In smart detection mode, the sensitivity and boundary version parameters are use
 
 Sensitivity can affect the width of the expected value range of each point. When increased, the expected value range will be tighter, and more anomalies will be reported:
 
-![Smart detection high sensitivity](../media/metrics/smart-detection-high-sensitivity.png)
+:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Smart detection with high sensitivity":::
 
 When the sensitivity is turned down, the expected value range will be wider, and fewer anomalies will be reported:
 
-![Smart detection low sensitivity](../media/metrics/smart-detection-low-sensitivity.png)
-
+:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Smart detection with low sensitivity":::
 
 **Change threshold** 
 
@@ -82,18 +79,17 @@ Change threshold is normally used when metric data generally stays around a cert
 Use the following steps to use this mode:
 
 1. Select **Change threshold** as your anomaly detection method when you set the anomaly detection configurations for your metrics or time series.
-
-    ![change threshold](../media/metrics/change-threshold.png)
+    
+    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="change threshold":::
 
 2. Select the **out of the range** or **in the range** parameter based on your scenario.
 
     If you want to detect fluctuations, select **out of the range**. For example, with the settings below, any data point that changes over 10% compared to the previous one will be detected as an outlier.
-
-    ![out of range](../media/metrics/out-of-the-range.png)
+    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="out of range parameter":::
 
     If you want to detect flat lines in your data, select **in the range**. For example, with the settings below, any data point that changes within 0.01% compared to the previous one will be detected as an outlier. Because the threshold is so small (0.01%), it detects flat lines in the data as outliers.
 
-    ![in the range](../media/metrics/in-the-range.png)
+    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="In range parameter":::
 
 3. Set the percentage of change that will count as an anomaly, and which previously captured data points will be used for comparison. This comparison is always between the current data point, and a single data point N points before it.
     
@@ -114,9 +110,9 @@ Sometimes, expected events and occurrences (such as holidays) can generate anoma
 > [!Note]
 > Preset event configuration will take holidays into consideration during anomaly detection, and may change your results. It will be applied to the data points ingested after you save the configuration. 
 
-Click the **Configure Preset Event** button next to the metrics drop down list on each metric details page. 
-
-![Preset events button](../media/metrics/preset-event-button.png)
+Click the **Configure Preset Event** button next to the metrics drop down list on each metric details page.
+ 
+:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="preset event button":::
 
 In the window that appears, configure the options according to your usage. Make sure **Enable holiday event** is selected to use the configuration. 
 
@@ -160,7 +156,7 @@ X - Unavailable.
 
 Cycle event is used to reduce anomalies if they follow a cyclic pattern, but it will report an anomaly if multiple data points don't follow the pattern. **Strict mode** is used to enable anomaly reporting if even one data point doesn't follow the pattern. 
 
-![Preset events configuration](../media/metrics/preset-events.png)
+:::image type="content" source="../media/metrics/preset-events.png" alt-text="preset event configuration":::
 
 ## View recent incidents
 

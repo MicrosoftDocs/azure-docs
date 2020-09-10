@@ -86,7 +86,7 @@ To create a Azure DevOps hook, you will need to add the following information
 Go to metrics detail page to find the **Alert settings** section, in the bottom left corner of metrics detail page. It lists all alert settings that apply to the selected detection configuration. When a new detection configuration is created, there's no alert setting, and no alerts will be sent.  
 You can use the **add**, **edit** and **delete** icons to modify alert settings.
 
-![Entrance For Alert Setting](../media/alerts/alert-setting.png)
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Alert settings menu item.":::
 
 Click the **add** or **edit** buttons to get a window to add or edit your alert settings.
 

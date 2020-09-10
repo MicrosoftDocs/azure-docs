@@ -18,7 +18,7 @@ If you aren't satisfied with some of the anomaly detection results provided by M
 
 Use the buttons on the top right corner of the page to activate Feedback annotation mode.
 
-![Activate feedback annotation mode](../media/feedback/annotation-mode.png "Activate feedback annotation mode")
+:::image type="content" source="../media/feedback/annotation-mode.png" alt-text="Feedback annotation mode.":::
 
 After feedback annotation mode is activated, you can give feedback for one point, or multiple continuous points.
 
@@ -32,19 +32,19 @@ With feedback annotation mode activated, click on a point to open a **Add feedba
 
 Consider leaving a comment in the **Comment** text box at the same time, and click **Save** to save your feedback.
 
-![Feedback menu](../media/feedback/feedback-menu.png)
+:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Feedback menu.":::
 
 ## Give feedback for multiple continuous points
 
 You can give feedback for multiple continuous points at once by clicking down and dragging your mouse on the points you want to annotate. You will see the same feedback menu as above. The same feedback will be applied to all chosen points after you click **Save**.
 
-![Choose multiple points](../media/feedback/continuous-points.png "Choose multiple points")
+:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Choose multiple points":::
 
 ## How to view my feedback
 
 To see if a point's anomaly detection has changed, hover over the point. The tooltip will show **Affected by feedback: true** if the detection was changed. If it displays **False**, then feedback calculation was done on the point, but the anomaly detection result was not changed.
 
-![Point affected by feedback](../media/feedback/affected-point.png "Point affected by feedback")
+:::image type="content" source="../media/feedback/affected-point.png" alt-text="Point affected by feedback":::
 
 ## When should I annotate an anomaly as "normal"
 

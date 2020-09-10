@@ -175,7 +175,8 @@ There are several advanced settings to enable data ingested in a customized way,
  
 Give a custom name for the data feed, which will be displayed in your workspace. Then click on **Submit**. In the data feed details page, you can use the ingestion progress bar to view status information.
 
-![Ingestion Progress](../media/datafeeds/ingestion-progress.png)
+:::image type="content" source="../media/datafeeds/ingestion-progress.png" alt-text="Ingestion progress bar":::
+
 
 To check ingestion failure details: 
 
@@ -183,7 +184,7 @@ To check ingestion failure details:
 2. Click **Status** then choose **Failed** or **Error**.
 3. Hover over a failed ingestion, and view the details message that appears.
 
-![Check Failed Ingestion](../media/datafeeds/check-failed-ingestion.png)
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Check failed ingestion":::
 
 A *failed* status indicates the ingestion for this data source will be retried later.
 An *Error* status indicates Metrics Advisor won't retry for the data source. To reload data, you need trigger a backfill/reload manually.

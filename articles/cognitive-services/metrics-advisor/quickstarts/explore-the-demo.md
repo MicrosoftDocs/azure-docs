@@ -39,8 +39,6 @@ Click on the *Sample - Cost/Revenue - City/Category* data feed. You'll see sever
 * Logs of when the data feed was updated.   
 * Data feed information and settings.
 
-![Data feed layout](../media/data-feed-layout.png "Data feed layout")
-
 ## View time series visualizations and configurations
 
 Click into the *cost* metric in the *Sample - Cost/Revenue - City/Category* data feed. You'll see the associated time series sliced by dimensions, with visualizations according to the historical metric data. The blue band around the metric data represents the expected value range from Metrics Advisor's machine learning models. Points that fall outside of this band will be marked as red dots, which are detected anomalies. 

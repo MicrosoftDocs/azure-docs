@@ -49,7 +49,7 @@ Select the  **Backfill** button to trigger an immediate ingestion on a time-stam
 - The end time is exclusive.
 - Anomaly detection is re-triggered on selected range only.
 
-![Backfill Datafeed](../media/datafeeds/backfill-datafeed.png)
+:::image type="content" source="../media/datafeeds/backfill-datafeed.png" alt-text="Backfill data feed":::
 
 ## Manage permission of a data feed
 
@@ -100,7 +100,7 @@ The options are:
 
 Action link templates are used to predefine actionable HTTP urls, which consist of the placeholders `%datafeed`, `%metric`, `%timestamp`, `%detect_config`, and `%tagset`. You can use the template to redirect from an anomaly or an incident to a specific URL to drill down.
 
-![Action link template](../media/action-link-template.png "Action link template")
+:::image type="content" source="../media/action-link-template.png" alt-text="Backfill data feed":::
 
 Once you've filled in the action link, click **Go to action link** on the incident list's action option, and incident tree's right-click menu. Replace the placeholders in the action link template with the corresponding values of the anomaly or incident.
 
