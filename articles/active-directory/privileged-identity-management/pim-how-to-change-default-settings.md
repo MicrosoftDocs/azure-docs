@@ -33,7 +33,7 @@ Follow the steps in this article to approve or deny requests for Azure AD roles.
 
 # [New version](#tab/new)
 
-## Open role settings
+## Open role settings for new version
 
 Follow these steps to open the settings for an Azure AD role.
 
@@ -118,7 +118,7 @@ If setting multiple approvers, approval completes as soon as one of them approve
 
 # [Previous version](#tab/previous)
 
-## Open role settings
+## Open role settings for previous version
 
 Follow these steps to open the settings for an Azure AD role.
 

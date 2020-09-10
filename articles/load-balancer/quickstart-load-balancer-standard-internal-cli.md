@@ -51,7 +51,7 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Configure virtual network
+## Configure virtual network in the Standard SKU
 
 Before you deploy VMs and deploy your load balancer, create the supporting virtual network resources.
 
@@ -157,7 +157,7 @@ Create two network interfaces with [az network nic create](https://docs.microsof
     --network-security-group myNSG
 ```
 
-## Create backend servers
+## Create backend servers in the Standard SKU
 
 In this section, you create:
 
@@ -384,7 +384,7 @@ Add the virtual machines to the backend pool with [az network nic ip-config addr
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about SKUS, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Configure virtual network
+## Configure virtual network in the Basic SKU
 
 Before you deploy VMs and deploy your load balancer, create the supporting virtual network resources.
 
@@ -490,7 +490,7 @@ Create two network interfaces with [az network nic create](https://docs.microsof
     --network-security-group myNSG
 ```
 
-## Create backend servers
+## Create backend servers in the Basic SKU
 
 In this section, you create:
 

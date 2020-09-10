@@ -85,7 +85,7 @@ Select **Create** to provision the web app to the *East US* region.
 
 ![Web app on Linux configuration in the Azure portal][deploy-app-portal-06]
 
-## View the deployed web app
+## View the second deployed web app
 
 As before, you can view the running application by navigating to its URL in your browser.
 

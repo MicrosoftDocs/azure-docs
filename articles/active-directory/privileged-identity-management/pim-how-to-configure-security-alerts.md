@@ -35,7 +35,7 @@ Follow the steps in this article to investigate security alerts for Azure AD rol
 
 ![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
-## Security alerts
+## Security alerts for new version
 
 This section lists all the security alerts for Azure AD roles, along with how to fix and how to prevent. Severity has the following meaning:
 
@@ -134,7 +134,7 @@ Customize settings on the different alerts to work with your environment and sec
 
 ![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## Security alerts
+## Security alerts for previous version
 
 This section lists all the security alerts for Azure AD roles, along with how to fix and how to prevent. Severity has the following meaning:
 
