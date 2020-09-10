@@ -75,7 +75,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | EventResultDetails | String | Wrong Password | Reason or details for the result reported in EventResult | Event |
 | EventSchemaVersion | Real | 0.1 | Azure Sentinel Schema Version. Currently 0.1. | Event |
 | EventSeverity | String | Low | If the activity reported has a security impact, denotes the severity of the impact. | Event |
-| EventOriginalUid | String | af6ae8fe-ff43-4a4c-b537-8635976a2b51 | The record id from the reporting device. | Event |
+| EventOriginalUid | String | af6ae8fe-ff43-4a4c-b537-8635976a2b51 | The record ID from the reporting device. | Event |
 | EventStartTime | Date/Time | See “data types” | The time in which the event stated | Event |
 | TimeGenerated | Date/Time | See “data types” | The time the event occurred, as reported by reporting source. | Custom field |
 | EventTimeIngested | Date/Time | See “data types” | The time the event was ingested to Azure Sentinel. Will be added by Azure Sentinel. | Event |
@@ -104,7 +104,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | DstNatIpAddr | IP address | 2::1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the source. | Destination NAT,<br>IP |
 | DstNatPortNumber | int | 443 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the source. | Destination NAT,<br>Port |
 | DstUserSid | User SID |  S-12-1445 | The User ID of the identity associated with the session’s destination. Typically, the identity used to authenticate a server. See "data types" for details. | Destination,<br>User |
-| DstUserAadId | String (guid) | ae92b0b4-cfba-4b42-85a0-fbd862f4df54 | The AAD account object id of the user at the destination end of the session | Destination,<br>User |
+| DstUserAadId | String (guid) | ae92b0b4-cfba-4b42-85a0-fbd862f4df54 | The Azure AD account object ID of the user at the destination end of the session | Destination,<br>User |
 | DstUserName | Username (String) | johnd | The username of the identity associated with the session’s destination.  | Destination,<br>User |
 | DstUserUpn | string | johnd@anon.com | The UPN of the identity associated with the session’s destination. | Destination,<br>User |
 | DstUserDomain | string | WORKGROUP | The domain or computer name of the account at the destination of the session | Destination,<br>User |
@@ -147,7 +147,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | SrcNatIpAddr | IP address | 4.3.2.1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the destination. | Source NAT,<br>IP |
 | SrcNatPortNumber | Integer | 345 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the destination. | Source NAT,<br>Port |
 | SrcUserSid | User ID (String) | S-15-1445 | The user ID of the identity associated with the sessions source. Typically, user performing an action on the client. See "data types" for details. | Source,<br>User |
-| SrcUserAadId | String (guid) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | The AAD account object id of the user at the source end of the session | Source,<br>User |
+| SrcUserAadId | String (guid) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | The Azure AD account object ID of the user at the source end of the session | Source,<br>User |
 | SrcUserName | Username (String) | bob | The username of the identity associated with the sessions source. Typically, user performing an action on the client. See "data types" for details. | Source<br>User |
 | SrcUserUpn | string | bob@alice.com | UPN of the account initiating the session | Source,<br>User |
 | SrcUserDomain | string | DESKTOP | The domain for the account initiating the session | Source,<br>User |

@@ -21,6 +21,8 @@ ms.author: yelevin
 
 # Normalization in Azure Sentinel
 
+This article explains data schema normalization in Azure Sentinel, and specifically the network connections and sessions schema, to which a link is included.
+
 ## What is normalization
 
 Working with various data types and tables together presents challenges. You must become familiar with  many different data types and schemas, having to write and use a unique set of analytics rules, workbooks, and hunting queries for each, even for those that share commonalities (for example, pertaining to firewall devices). Correlation between the different data types, necessary for investigation and hunting, is also difficult. Azure Sentinel provides a seamless experience for handling data from various sources in uniform, normalized views.
@@ -55,13 +57,13 @@ To learn more about OSSEM entity structure, visit the [official OSSEM reference]
 
 In the implementation of the OSSEM CIM in Azure Sentinel, we are projecting the OSSEM representation to a Log Analytics tabular representation, whether this representation is a built-in table or was created using query-time parsers or functions that map existing data to this representation. For the tabular representation, we are concatenating OSSEM entity names and attribute names, and mapping them collectively to a single column name. For example, a Source entity containing a File entity containing a Hash entity containing an md5 attribute, will be implemented as the following Log Analytics column: SrcFileHashMd5. (OSSEM uses *snake_case* by default, while Azure Sentinel and Log Analytics use *PascalCase*. In OSSEM such a column would be src_file_hash_md5.)
 
-Note that additional custom fields may exist in the Azure Sentinel implementation, due to Log Analytics platform requirements and use cases that are specific to Azure Sentinel customers.
+Additional custom fields may exist in the Azure Sentinel implementation, due to Log Analytics platform requirements and use cases that are specific to Azure Sentinel customers.
 
 ### Schema reference
 
 See the [schema reference document](./normalization-schema.md), as well the official [OSSEM project documentation](https://ossemproject.com/cdm/intro.html), to learn more.
 
-Note that the schema reference also includes value and format standardization. The source fields, original or parsed, might not be in a standard format or use the schema standard list of values, and would therefore need to be converted to the schema standard representation in order to be fully normalized.
+The schema reference also includes value and format standardization. The source fields, original or parsed, might not be in a standard format or use the schema standard list of values, and would therefore need to be converted to the schema standard representation in order to be fully normalized.
 
 ## Parsers
 
