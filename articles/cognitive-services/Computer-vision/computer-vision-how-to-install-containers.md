@@ -67,7 +67,7 @@ Container images for Read are available.
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
 | Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0` |
-| Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1` |
+| Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
