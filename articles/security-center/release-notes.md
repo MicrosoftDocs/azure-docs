@@ -33,15 +33,17 @@ Updates in September include:
 - [Security Center gets a new look!](#security-center-gets-a-new-look)
 - [Azure Defender released](#azure-defender-released)
 - [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
+- [Asset inventory tools are now generally available](#asset-inventory-tools-are-now-generally-available)
+- [AWS and GCP connectors in Security Center bring a multi-cloud experience](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
+- [Kubernetes workload protection recommendation bundle](#kubernetes-workload-protection-recommendation-bundle)
 - [IoT threat protection enhancements in Azure Defender for IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
-- [Network security group recommendations improved](#network-security-group-recommendations-improved)
-- [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
+- [Network security group recommendations improved](#network-security-group-recommendations-improved)auto        - 
+- [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)auto        - 
 - [Email notifications from Azure Security Center improved](#email-notifications-from-azure-security-center-improved)
 - [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
 - [Recommendations now include a severity indicator and the freshness interval](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
-
 
 ### Security Center gets a new look!
 
@@ -81,7 +83,42 @@ Azure Key Vault is a cloud service that safeguards encryption keys and secrets l
 
 The optional plan is now GA. This feature was in preview as "advanced threat protection for Azure Key Vault".
 
+Also, the Key Vault pages in the Azure portal now include a dedicated **Security** page for **Security Center** recommendations and alerts.
+
 Learn more in [Azure Defender for Key Vault](defender-for-key-vault-intro.md).
+
+
+### Asset inventory tools are now generally available
+
+The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center.
+
+Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
+
+When any resource has outstanding recommendations, they'll appear in the inventory.
+
+[Learn more about asset inventory](asset-inventory).
+
+
+### AWS and GCP connectors in Security Center bring a multi-cloud experience
+
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
+
+Azure Security Center now protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+
+Onboarding your AWS and GCP accounts into Security Center, integrates AWS Security Hub, GCP Security Command and Azure Security Center. 
+
+Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md) and [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md).
+
+
+### Kubernetes workload protection recommendation bundle
+
+Azure Security Center includes a bundle of recommendations that are available when you've installed the Azure Policy add-on for Kubernetes.
+
+When you've installed the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
+
+For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
+
+Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 
 ### IoT threat protection enhancements in Azure Defender for IoT
