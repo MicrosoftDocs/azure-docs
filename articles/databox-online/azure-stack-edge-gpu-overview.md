@@ -24,7 +24,7 @@ Here are the various scenarios where Azure Stack Edge Pro can be used for rapid 
 - **Inference with Azure Machine Learning** - With Azure Stack Edge Pro, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro device, see 
 [Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
-- **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
+- **Preprocess data** - Transform data before sending it to Azure via a variety of compute options such as containerized workloads, Azure IoT modules, and Virtual Machines, to create a more actionable dataset. Preprocessing can be used to: 
 
     - Aggregate data.
     - Modify data, for example to remove personal data.
@@ -40,16 +40,16 @@ Azure Stack Edge Pro has the following capabilities:
 |Capability |Description  |
 |---------|---------|
 |Accelerated AI inferencing| Enabled by the built-in GPU (one or two depending on the model).|
-|Edge computing      |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
+|Edge computing      |Compute options such as Kubernetes, IoT Edge, and Virtual Machines to allow analysis, processing, and filtering of data. |
 |High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.  |
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
-|Supported protocols     | Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge Pro system requirements](azure-stack-edge-system-requirements.md).|
+|Supported storage protocols     | Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge Pro system requirements](azure-stack-edge-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
-|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).
+<!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).-->
 
 ## Components
 
@@ -57,11 +57,11 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 
 * **Azure Stack Edge Pro physical device** - A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
     
-* **Azure Stack Edge resource** – a resource in the Azure portal that lets you manage an Azure Stack Edge Pro device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
     For more information, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 
-* **Azure Stack Edge Pro local web UI** - Use the local web UI to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
+* **Azure Stack Edge Pro local web UI** - A browser-based local user interface on your Azure Stack Edge Pro device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
     For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).
 
@@ -76,5 +76,6 @@ Azure Stack Edge Pro physical device, Azure resource, and target storage account
 ## Next steps
 
 - Review the [Azure Stack Edge Pro system requirements](azure-stack-edge-gpu-system-requirements.md).
+
 - Understand the [Azure Stack Edge Pro limits](azure-stack-edge-limits.md).
 - Deploy [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
