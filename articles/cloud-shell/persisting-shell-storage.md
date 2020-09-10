@@ -79,7 +79,7 @@ If a secondary storage region is used, the associated Azure storage account resi
 A user can run `(Get-CloudDrive | Get-AzStorageAccount).Location` in PowerShell to see the location of their File Share.
 
 ## Restrict resource creation with an Azure resource policy
-Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](../azure-policy/json-samples.md) that are triggered by this specific tag.
+Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](../governance/policy/samples/index.md) that are triggered by this specific tag.
 
 ## How Cloud Shell storage works 
 Cloud Shell persists files through both of the following methods: 
@@ -167,4 +167,4 @@ For example: . .\MyFunctions.ps1
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) <br>
 [Learn about Microsoft Azure Files storage](../storage/files/storage-files-introduction.md) <br>
-[Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Learn about storage tags](../azure-resource-manager/management/tag-resources.md) <br>
