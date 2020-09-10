@@ -67,7 +67,7 @@ In Azure portal operations API is leveraged on the managed instance overview bla
 ![Managed instance operation details](./media/monitoring-management-operations/monitoring-operation-details.png)
 
 > [!NOTE]
-> Create operations submitted through Azure portal and PowerShell, Azure CLI or other tooling using REST API version 2020-02-02 [can be canceled](management-operations-overview.md#canceling-management-operations). REST API versions older than 2020-02-02 used for submitting create operation will start instance deployment, however that deployment won't be listed in Operations API or can be canceled.
+> Create operations submitted through Azure portal and PowerShell, Azure CLI or other tooling using REST API version 2020-02-02 [can be canceled](canceling-management-operations.md). REST API versions older than 2020-02-02 used for submitting create operation will start instance deployment, however that deployment won't be listed in Operations API or can be canceled.
 
 # [PowerShell](#tab/azure-powershell)
 
