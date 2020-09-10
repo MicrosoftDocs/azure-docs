@@ -2,7 +2,7 @@
 title: Use dedicated pool to run task - Tasks
 description: Set up a dedicated compute pool (agent pool) in your registry to run an Azure Container Registry task.
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 09/10/2020
 ---
 
 # Run an ACR task on a dedicated agent pool
@@ -25,7 +25,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Preview limitations
 
 - Task agent pools currently support Linux nodes. Windows nodes aren't currently supported.
-- Task agent pools are available in preview in the following regions: East US, East US 2, South Central US, and West US 2.
+- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, USGov Arizona, USGov Texas, and USGov Virginia.
 - For each registry, the default total vCPU (core) quota is 16 for all standard agent pools and is 0 for isolated agent pools. Open a [support request][open-support-ticket] for additional allocation.
 - You can't currently cancel a task run on an agent pool.
 
@@ -40,10 +40,10 @@ Agent pool tiers provide the following resources per instance in the pool.
 
 |Tier    | Type  |  CPU  |Memory (GB)  |
 |---------|---------|---------|---------|
-|S1     |  standard    | 2       |  3       |
-|S2     |  standard    | 4       |   8      |
-|S3     |   standard    | 8     |   16      |
-|I6     |  isolated    | 16      |  256      |
+|S1     |  standard    | 2       |    3     |
+|S2     |  standard    | 4       |    8     |
+|S3     |  standard    | 8       |   16     |
+|I6     |  isolated    | 64     |   216     |
 
 
 ## Create and manage a task agent pool
@@ -89,7 +89,7 @@ Task agent pools require access to the following Azure services. The following f
 
 | Direction | Protocol | Source         | Source Port | Destination          | Dest Port | Used    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
-| Outbound  | TCP      | VirtualNetwork | Any         | AzureKeyVault              | 443       | Default |
+| Outbound  | TCP      | VirtualNetwork | Any         | AzureKeyVault        | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | Storage              | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | EventHub             | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | AzureActiveDirectory | 443       | Default |
