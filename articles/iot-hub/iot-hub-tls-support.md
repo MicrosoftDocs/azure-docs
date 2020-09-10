@@ -17,7 +17,7 @@ TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more 
 
 ## TLS 1.2 enforcement available in select regions
 
-For added security, configure your IoT Hubs to *only* allow client connections that use TLS version 1.2 and to enforce the use of [recommended ciphers](#recommended-ciphers). This feature is only supported in these regions:
+For added security, configure your IoT Hubs to *only* allow client connections that use TLS version 1.2 and to enforce the use of [cipher suites](#cipher-suites). This feature is only supported in these regions:
 
 * East US
 * South Central US
@@ -102,4 +102,4 @@ IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hu
 
 ## Device authentication
 
-After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or a X.509 certificate. For certificate based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. IoT Hub doesn’t support X.509 based mutual authentication yet (mTLS). To learn more, see [Supported X.509 certificates](iot-hub-devguide-security.md##supported-x509-certificates).
+After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or a X.509 certificate. For certificate based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. IoT Hub doesn’t support X.509 based mutual authentication yet (mTLS). To learn more, see [Supported X.509 certificates](iot-hub-devguide-security.md#supported-x509-certificates).
