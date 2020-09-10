@@ -4,7 +4,7 @@ description: Learn about the steps required to enable the new Azure Monitor Appl
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/10/2020
 
 ---
 
@@ -25,10 +25,6 @@ Workspace-based Application Insights allows you to take advantage of the latest 
 * [Azure Private Link](../platform/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
 * [Capacity Reservation tiers](../platform/manage-cost-storage.md#pricing-model) enable you to save as much as 25% compared to the Pay-As-You-Go price. 
-* [Diagnostic Settings]() enables:
-    * Business Continuity Disaster Recovery (BCDR) with the ability continuously export to a secondary Log Analytics workspace.
-    * Integration with third-party solutions by exporting to Event Hub.
-    * Audit-level archiving with built-in retention controls using hourly export to immutable/network isolated storage.
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 ## Create workspace-based resource
@@ -48,7 +44,7 @@ Once your resource is created, you will see the corresponding workspace info in 
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
 > [!NOTE]
-> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience.
+> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. Selecting **Logs (Analytics)** from within the Application Insights panes will give you access to the classic Application Insights query experience.
 
 ## Copy the connection string
 

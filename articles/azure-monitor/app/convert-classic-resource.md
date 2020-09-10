@@ -24,10 +24,6 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * [Azure Private Link](../platform/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
 * [Capacity Reservation tiers](../platform/manage-cost-storage.md#pricing-model) enable you to save as much as 25% compared to the Pay-As-You-Go price. 
-* [Diagnostic Settings]() enables:
-    * Business Continuity Disaster Recovery (BCDR) with the ability export to a secondary Log Analytics workspace.
-    * Integration with third-party solutions by exporting to Event Hub.
-    * Audit-level archiving with built-in retention controls using hourly export to immutable/network isolated storage.
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 ## Migration process
@@ -66,11 +62,11 @@ This section will walk you through the migrating a classic Application Insights 
 
 2. Select **`Migrate to Workspace-based`**.
     
-     ![Properties highlighted in red box](./media/convert-classic-resource/migrate.png)
+     ![Migrate resource button](./media/convert-classic-resource/migrate.png)
 
 3. Choose the Log Analytics Workspace where you want all future ingested Application Insights telemetry to be stored.
 
-     ![Properties highlighted in red box](./media/convert-classic-resource/migration.png)
+     ![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
     
 
 Once your resource is migrated, you will see the corresponding workspace info in the **Overview** pane:
@@ -102,25 +98,22 @@ If you don't run the `az extension add` command, you will see an error message t
 Now you can run the following to create your Application Insights resource:
 
 ```azurecli
-az monitor app-insights component create --app
-                                         --location
+az monitor app-insights component update --app
                                          --resource-group
-                                         [--application-type]
                                          [--ingestion-access {Disabled, Enabled}]
                                          [--kind]
-                                         [--only-show-errors]
                                          [--query-access {Disabled, Enabled}]
-                                         [--tags]
+                                         [--retention-time]
                                          [--workspace]
 ```
 
 #### Example
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
+az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-update).
 
 ### Azure PowerShell
 
@@ -215,7 +208,7 @@ From within the Application Insights resource pane, select **Properties** > **Ch
 
 **Error message:** *The selected workspace is configured with workspace-based access mode. Some APM features may be impacted. Select another workspace or allow resource-based access in the workspace settings. You can override this error by using CLI.* 
 
-In order for your workspace-based Application Insights resource to operate properly you need to change the access control mode of your target Log Analytics workspace to the **resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For detailed instructions consult the [Log Analytics configure access control mode guidance](./platform/manage-access.md#configure-access-control-mode). 
+In order for your workspace-based Application Insights resource to operate properly you need to change the access control mode of your target Log Analytics workspace to the **resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For detailed instructions consult the [Log Analytics configure access control mode guidance](./platform/manage-access.md#configure-access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting migration via the portal migration experience will remain blocked.
 
 If you cannot change the access control mode for security reasons for your current target workspace we recommend creating a new Log Analytics workspace to use for the migration. 
 

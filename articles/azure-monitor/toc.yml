@@ -730,7 +730,7 @@
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
       href: app/create-workspace-resource.md
-    - name: Migrate a resource to (workspace-based)
+    - name: Migrate to a workspace-based resource
       href: app/convert-classic-resource.md
     - name: Application dashboard
       displayname: dashboard, Application Insights dashboard
@@ -1138,7 +1138,21 @@
       displayname: Workbooks
       href: platform/workbooks-overview.md
     - name: Visualizations
-      href: platform/workbooks-visualizations.md
+      items:
+      - name: Text
+        href: platform/workbooks-text-visualizations.md
+      - name: Chart 
+        href: platform/workbooks-chart-visualizations.md
+      - name: Grid
+        href: platform/workbooks-grid-visualizations.md
+      - name: Tile
+        href: platform/workbooks-tile-visualizations.md
+      - name: Tree
+        href: platform/workbooks-tree-visualizations.md
+      - name: Graph
+        href: platform/workbooks-graph-visualizations.md
+      - name: Composite bar
+        href: platform/workbooks-composite-bar.md
     - name: Data sources
       href: platform/workbooks-data-sources.md
     - name: Parameters
@@ -1357,4 +1371,3 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
-
