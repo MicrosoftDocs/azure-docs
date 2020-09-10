@@ -62,12 +62,12 @@ In Azure portal operations API is leveraged on the managed instance overview bla
 
 ![Managed instance create progress](./media/monitoring-management-operations/monitoring-create-operation.png)
 
-2) Create or update operation - notification box for ongoing operation is displayed. By clicking on it, additional operations blade is opened with operation details and button for [canceling operation](management-operations-overview.md#canceling-management-operations).
+2) Create or update operation - notification box for ongoing operation is displayed. By clicking on it, additional operations blade is opened with operation details and button for [canceling operation](canceling-management-operations.md).
 
 ![Managed instance operation details](./media/monitoring-management-operations/monitoring-operation-details.png)
 
 > [!NOTE]
-> Update operations and create operations submitted through Azure portal, PowerShell, Azure CLI or other tooling and API with version 2020-02-02 [can be canceled](management-operations-overview.md#canceling-management-operations).
+> Create operations submitted through Azure portal and PowerShell, Azure CLI or other tooling using REST API version 2020-02-02 [can be canceled](management-operations-overview.md#canceling-management-operations). REST API versions older than 2020-02-02 used for submitting create operation will start instance deployment, however that deployment won't be listed in Operations API or can be canceled.
 
 # [PowerShell](#tab/azure-powershell)
 
