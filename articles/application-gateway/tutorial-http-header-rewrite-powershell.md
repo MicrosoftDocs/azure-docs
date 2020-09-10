@@ -16,15 +16,13 @@ configure [rules to rewrite HTTP request and response headers](rewrite-http-head
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
->
-> * Create an autoscale virtual network
-> * Create a reserved public IP
-> * Set up your application gateway infrastructure
-> * Specify your http header rewrite rule configuration
-> * Specify autoscale
-> * Create the application gateway
-> * Test the application gateway
+* Create an autoscale virtual network
+* Create a reserved public IP
+* Set up your application gateway infrastructure
+* Specify your http header rewrite rule configuration
+* Specify autoscale
+* Create the application gateway
+* Test the application gateway
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
