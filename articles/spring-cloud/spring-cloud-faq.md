@@ -31,14 +31,15 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 ### In which regions is Azure Spring Cloud available?
 
-East US, West US 2, West Europe, and Southeast Asia.
+East US, East US 2, Central US, South Central US, West US 2, West Europe, North Europe, UK South, Southeast Asia and Australia East.
+
 
 ### What are the known limitations of Azure Spring Cloud?
 
-During preview release, Azure Spring Cloud has the following known limitations:
-
+Azure Spring Cloud has the following known limitations:
+	
 * `spring.application.name` will be overridden by the application name that's used to create each application.
-* `server.port` defaults to ports 80/443. If any other value is applied, it will be overridden to 80/443.
+* `server.port` defaults to port 1025. If any other value is applied, it will be overridden to 1025.
 * The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
 
 ### What pricing tiers are available? 
@@ -53,7 +54,7 @@ If you encounter any issues with Azure Spring Cloud, create an [Azure Support Re
 
 ### I am a Spring Cloud developer but new to Azure. What is the quickest way for me to learn how to develop an Azure Spring Cloud application?
 
-For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](spring-cloud-quickstart-launch-app-portal.md).
+For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](spring-cloud-quickstart.md).
 
 ### What Java runtime does Azure Spring Cloud support?
 
@@ -83,6 +84,12 @@ Yes.
 ### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
 
 It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+
+You can delete Spring Cloud's diagnostic settings by using Azure CLI:
+
+```azurecli
+ az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
+```
 
 ## Java runtime and OS versions
 
@@ -140,7 +147,7 @@ No.  Azure Spring Cloud abstracts the developer from the underlying architecture
 
 ### Does Azure Spring Cloud support building containers from source?
 
-Yes. For more information, see [Launch your Spring Cloud application from source code](spring-cloud-launch-from-source.md).
+Yes. For more information, see [Launch your Spring Cloud application from source code](spring-cloud-quickstart.md).
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 

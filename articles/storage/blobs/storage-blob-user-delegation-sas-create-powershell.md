@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a user delegation SAS for a container or blob with PowerShell

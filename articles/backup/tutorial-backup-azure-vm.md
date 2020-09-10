@@ -3,7 +3,7 @@ title: 'Tutorial: Multiple Azure VM backup with PowerShell'
 description: This tutorial details backing up multiple Azure VMs to a Recovery Services vault using Azure PowerShell.
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Back up Azure VMs with PowerShell
 
@@ -22,7 +22,7 @@ In this tutorial you learn how to:
 Before you can back up (or protect) a virtual machine, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs.
 
 > [!IMPORTANT]
-> This tutorial assumes you have already created a resource group and an Azure virtual machine.
+> This tutorial assumes you've already created a resource group and an Azure virtual machine.
 
 ## Sign in and register
 
@@ -53,7 +53,7 @@ Create the vault as follows:
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
     ```
 
-2. Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+2. Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it's convenient to store the Backup Recovery Services vault object in a variable.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault –Name myRSVault

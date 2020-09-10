@@ -7,6 +7,7 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/18/2017
+ms.custom: devx-track-csharp
 ---
 # Manage Azure Data Lake Analytics a .NET app
 

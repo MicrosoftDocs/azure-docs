@@ -1,31 +1,30 @@
 ---
-title: Process change feed in Azure Blob Storage (Preview) | Microsoft Docs
+title: Process change feed in Azure Blob Storage | Microsoft Docs
 description: Learn how to process change feed logs in a .NET client application
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
+ms.custom: devx-track-csharp
 ---
 
-# Process change feed in Azure Blob Storage (Preview)
+# Process change feed in Azure Blob Storage
 
 Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to read change feed records by using the blob change feed processor library.
 
-To learn more about the change feed, see [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
-
-> [!NOTE]
-> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To learn more about this feature along with known issues and limitations, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md). The change feed processor library is subject to change between now and when this library becomes generally available.
+To learn more about the change feed, see [Change feed in Azure Blob Storage](storage-blob-change-feed.md).
 
 ## Get the blob change feed processor library
 
 1. Open a command window (For example: Windows PowerShell).
-2. From your project directory, install the **Azure.Storage.Blobs.Changefeed** NuGet package.
+2. From your project directory, install the [**Azure.Storage.Blobs.Changefeed** NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs.ChangeFeed/).
 
 ```console
-dotnet add package Azure.Storage.Blobs.ChangeFeed --source https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json --version 12.0.0-dev.20200604.2
+dotnet add package Azure.Storage.Blobs --version 12.5.1
+dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
 ## Read records
 
@@ -112,7 +111,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 ## Stream processing of records
 
-You can choose to process change feed records as they arrive. See [Specifications](storage-blob-change-feed.md#specifications). We recommend that you poll for changes every hour or so.
+You can choose to process change feed records as they are committed to the change feed. See [Specifications](storage-blob-change-feed.md#specifications). The change events are published to the change feed at a period of 60 seconds on average. We recommend that you poll for new changes with this period in mind when specifying your poll interval.
 
 This example periodically polls for changes.  If change records exist, this code processes those records and saves change feed cursor. That way if the process is stopped and then started again, the application can use the cursor to resume processing records where it last left off. This example saves the cursor to a local application configuration file, but your application can save it in any form that makes the most sense for your scenario. 
 
@@ -176,7 +175,7 @@ public void SaveCursor(string cursor)
 
 ## Reading records within a time range
 
-You can read records that fall within a specific time range. This example iterates through all records in the change feed that fall between 3:00 PM on March 2 2017 and 2:00 AM on October 7 2019, adds them to a list, and then returns that list to the caller.
+You can read records that fall within a specific time range. This example iterates through all records in the change feed that fall between 3:00 PM on March 2 2020 and 2:00 AM on August 7 2020, adds them to a list, and then returns that list to the caller.
 
 ### Selecting segments for a time range
 
@@ -193,8 +192,8 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
     // Create the start and end time.  The change feed client will round start time down to
     // the nearest hour, and round endTime up to the next hour if you provide DateTimeOffsets
     // with minutes and seconds.
-    DateTimeOffset startTime = new DateTimeOffset(2017, 3, 2, 15, 0, 0, TimeSpan.Zero);
-    DateTimeOffset endTime = new DateTimeOffset(2020, 10, 7, 2, 0, 0, TimeSpan.Zero);
+    DateTimeOffset startTime = new DateTimeOffset(2020, 3, 2, 15, 0, 0, TimeSpan.Zero);
+    DateTimeOffset endTime = new DateTimeOffset(2020, 8, 7, 2, 0, 0, TimeSpan.Zero);
 
     // You can also provide just a start or end time.
     await foreach (BlobChangeFeedEvent changeFeedEvent in changeFeedClient.GetChangesAsync(
@@ -212,4 +211,4 @@ The start time that you provide is rounded down to the nearest hour and the end 
 
 ## Next steps
 
-Learn more about change feed logs. See [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+Learn more about change feed logs. See [Change feed in Azure Blob Storage](storage-blob-change-feed.md)

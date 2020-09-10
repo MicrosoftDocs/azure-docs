@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 08/21/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -16,21 +16,21 @@ This article covers how to enable the shared disks feature for Azure managed dis
 
 If you are looking for conceptual information on managed disks that have shared disks enabled, refer to:
 
-* For Linux: [Azure shared disks](./linux/disks-shared.md)
+* For Linux: [Azure shared disks](linux/disks-shared.md)
 
-* For Windows: [Azure shared disks](./windows/disks-shared.md)
+* For Windows: [Azure shared disks](windows/disks-shared.md)
 
 ## Limitations
 
-[!INCLUDE [virtual-machines-disks-shared-limitations](~/includes/virtual-machines-disks-shared-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
 
 ## Supported operating systems
 
-Shared disks support several operating systems. See the [Windows](~/articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](~/articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
+Shared disks support several operating systems. See the [Windows](windows/disks-shared.md#windows) and [Linux](linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 
-[!INCLUDE [virtual-machines-disks-shared-sizes](~/includes/virtual-machines-disks-shared-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](../../includes/virtual-machines-disks-shared-sizes.md)]
 
 ## Deploy shared disks
 
@@ -142,7 +142,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!NOTE]
-> If you are deploying an ultra disk, make sure it matches the necessary requirements. See the [PowerShell](~/articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) or [CLI](~/articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) section of the ultra disk article for details.
+> If you are deploying an ultra disk, make sure it matches the necessary requirements. See the [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) or [CLI](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) section of the ultra disk article for details.
 
 ```azurepowershell-interactive
 

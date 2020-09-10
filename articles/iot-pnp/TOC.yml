@@ -29,6 +29,8 @@
         href: quickstart-service-python.md
 - name: Tutorials
   items:
+  - name: Connect a multiple component device (C)
+    href: tutorial-multiple-components-c.md
   - name: Connect a multiple component device (C#)
     href: tutorial-multiple-components-csharp.md
   - name: Connect a multiple component device (Java)
@@ -69,6 +71,8 @@
     href: howto-use-iot-pnp-cli.md
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
+  - name: Certify a device
+    href: howto-certify-device.md
 - name: Reference
   items:
   - name: Libraries and SDKs

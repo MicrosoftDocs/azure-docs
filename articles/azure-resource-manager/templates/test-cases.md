@@ -2,7 +2,7 @@
 title: Test cases for test toolkit
 description: Describes the tests that are run by the ARM template test toolkit.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -95,6 +95,37 @@ The next example **passes** this test:
         "type": "SecureString"
     }
 }
+```
+
+## Environment URLs can't be hardcoded
+
+Test name: **DeploymentTemplate Must Not Contain Hardcoded Uri**
+
+Don't hardcode environment URLs in your template. Instead, use the [environment function](template-functions-deployment.md#environment) to dynamically get these URLs during deployment. For a list of the URL hosts that are blocked, see the [test case](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+
+The following example **fails** this test because the URL is hardcoded.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+The test also **fails** when used with [concat](template-functions-string.md#concat) or [uri](template-functions-string.md#uri).
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+The following example **passes** this test.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## Location uses parameter
@@ -198,7 +229,7 @@ Test name: **Resources Should Have Location**
 
 The location for a resource should be set to a [template expression](template-expressions.md) or `global`. The template expression would typically use the location parameter described in the previous test.
 
-The following example **fails** this test because the location is not an expression or `global`.
+The following example **fails** this test because the location isn't an expression or `global`.
 
 ```json
 {
@@ -346,9 +377,9 @@ You also get this warning if you provide a min or max value, but not the other.
 
 ## Artifacts parameter defined correctly
 
-Test name: **artifacts-parameter**
+Test name: **artifacts parameter**
 
-When you include parameters for `_artifactsLocation` and `_artifactsLocationSasToken`, use the correct defaults and types. The following conditions must be meet to pass this test:
+When you include parameters for `_artifactsLocation` and `_artifactsLocationSasToken`, use the correct defaults and types. The following conditions must be met to pass this test:
 
 * if you provide one parameter, you must provide the other
 * `_artifactsLocation` must be a **string**
@@ -509,9 +540,9 @@ This test applies to:
 
 For `reference` and `list*`, the test **fails** when you use `concat` to construct the resource ID.
 
-## dependsOn can't be conditional
+## dependsOn best practices
 
-Test name: **DependsOn Must Not Be Conditional**
+Test name: **DependsOn Best Practices**
 
 When setting the deployment dependencies, don't use the [if](template-functions-logical.md#if) function to test a condition. If one resource depends on a resource that is [conditionally deployed](conditional-resource-deployment.md), set the dependency as you would with any resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
@@ -567,7 +598,7 @@ If your template includes a virtual machine with an image, make sure it's using 
 
 ## Use stable VM images
 
-Test name: **Virtual-Machines-Should-Not-Be-Preview**
+Test name: **Virtual Machines Should Not Be Preview**
 
 Virtual machines shouldn't use preview images.
 
