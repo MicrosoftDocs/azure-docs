@@ -58,7 +58,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for more information.
    > 
 
-    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="The "Pricing tier" pane":::
+    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="The Pricing tier pane":::
 
     > [!TIP]
     > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
@@ -67,7 +67,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 6. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this server on your Azure portal dashboard as a shortcut to the server's **Overview** page. Selecting **Go to resource** opens the server's **Overview** page.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="The "Notifications" pane":::
+    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="The Notifications pane":::
    
    By default, a **postgres** database is created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database that's meant for use by users, utilities, and third-party applications. (The other default database is **azure_maintenance**. Its function is to separate the managed service processes from user actions. You cannot access this database.)
 

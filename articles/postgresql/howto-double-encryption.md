@@ -24,7 +24,7 @@ Follow these steps to create an Azure Database for MySQL server with Infrastruct
 
 2. Select **Databases** > **Azure Database for PostgreSQL**. You can also enter PostgreSQL in the search box to find the service. Enabled the **Single server** deployment option.
 
-   :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="The "Azure Database for PostgreSQL" in menu":::
+   :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="The Azure Database for PostgreSQL in menu":::
 
 3. Provide the basic information of the server. Select **Additional settings** and enabled the **Infrastructure double encryption** checkbox to set the parameter.
 

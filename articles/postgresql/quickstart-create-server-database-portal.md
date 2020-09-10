@@ -29,7 +29,7 @@ To create an Azure Database for PostgreSQL server:
 2. Select **Databases** > **Azure Database for PostgreSQL**.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Screenshot that shows "Azure Database for PostgreSQL" on the menu.":::
+   > :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Screenshot that shows Azure Database for PostgreSQL on the menu.":::
 
 3. Select the **Single server** deployment option.
 
