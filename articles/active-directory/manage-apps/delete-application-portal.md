@@ -22,11 +22,6 @@ To delete an application from your Azure AD tenant, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Optional: Completion of [View your apps](view-applications-portal.md).
-- Optional: Completion of [Add an app](add-application-portal.md).
-- Optional: Completion of [Configure an app](add-application-portal-configure.md).
-- Optional: Completion of [Assign users to an app](add-application-portal-assign-users.md).
-- Optional: Completion of [Set up single sign-on](add-application-portal-setup-sso.md).
 
 >[!IMPORTANT]
 >Use a non-production environment to test the steps in this quickstart.
