@@ -181,7 +181,7 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc enabled servers, use `azcmagent connect` so a new resource is created for it in Azure.
 
 > [!NOTE]
-> If you have deployed one or more of the Azure VM extensions to your Arc enabled server and you delete it's registration in Azure, the extensions are still installed. It is important to understand that depending on the extension installed, it is actively performing its function. Machines that are intended to be retired or no longer managed by Arc enabled servers should first have the extensions removed before removing its registration from Azure.
+> If you have deployed one or more of the Azure VM extensions to your Arc enabled server and you delete its registration in Azure, the extensions are still installed. It is important to understand that depending on the extension installed, it is actively performing its function. Machines that are intended to be retired or no longer managed by Arc enabled servers should first have the extensions removed before removing its registration from Azure.
 
 To disconnect using a service principal, run the following command:
 
