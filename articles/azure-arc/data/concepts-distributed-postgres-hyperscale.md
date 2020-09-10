@@ -68,7 +68,7 @@ Queries can go fast when all the necessary data is available without any network
 See details at [Table colocation](../../postgresql/concepts-hyperscale-colocation.md).
 
 
-## Next steps:
+## Next steps
 - [Read about deploying Azure Arc enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
 - [Read about scaling out Azure Arc enabled PostgreSQL Hyperscale server groups deployed in your Arc Data Controller](scale-out-postgresql-hyperscale-server-group.md)
 - [Read about Azure Arc enabled Data Services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
