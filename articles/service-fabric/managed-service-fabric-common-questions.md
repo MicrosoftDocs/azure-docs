@@ -13,7 +13,7 @@ There are many commonly asked questions about what managed Service Fabric can do
 ## General 
 
 ### What is a managed Service Fabric cluster? 
-Managed Service Fabric clusters are an evolution of the Service Fabric cluster resource model designed to make it easier to deploy and manage clusters. A managed Service Fabric cluster utilizes the Azure Resource Manager encapsulation model so that a user only needs to define and deploy a single cluster resource compared to the many independent resources that they must deploy today (VMSS, LB, IP, etc.).
+Managed Service Fabric clusters are an evolution of the Service Fabric cluster resource model designed to make it easier to deploy and manage clusters. A managed Service Fabric cluster utilizes the Azure Resource Manager encapsulation model so that a user only needs to define and deploy a single cluster resource compared to the many independent resources that they must deploy today (Virutal Machine Scale Set, Load Balancer, IP, etc.).
 
 ### What regions are supported in the public preview? 
 Supported regions for the public preview include centraluseuap, eastus2euap, eastasia, northeurope, westcentralus, and eastus2.
