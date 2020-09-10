@@ -36,7 +36,7 @@ Comparison of monitoring options is represented in the following table
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Resource group deployments | Infinite | No* | Visible | Visible | Not visible | Visible | Not visible |
 | Activity log | 90 days | No | Visible | Visible | Visible | Visible |  Not visible |
-| Managed intance operations API | 24 hours | Yes | Visible | Visible | Visible | Visible | Visible |
+| Managed intance operations API | 24 hours | [Yes](canceling-management-operations.md) | Visible | Visible | Visible | Visible | Visible |
 
 /* Resource group deployments are supporting cancel operation. However, cancel logic is implemented in a way that only operation scheduled for deployment after the cancel action is performed will be canceled. Ongoing deployment is not canceled. As managed instance deployment consists of one long running step (from ARM perspective), using resource group deployment cancel functionality will not cancel managed instance deployment and operation will be completed.
 
