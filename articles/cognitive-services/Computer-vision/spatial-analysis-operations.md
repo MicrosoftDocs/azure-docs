@@ -56,7 +56,7 @@ These are the parameters required by each of these spatial analysis operations.
 |---------|---------|
 | Operation ID | The Operation Identifier from table above.|
 | enabled | Boolean: true or false|
-| VIDEO_URL| The RTSP url for the camera device(Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP or mp4 |
+| VIDEO_URL| The RTSP url for the camera device(Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP, http, or mp4 |
 | VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
@@ -228,7 +228,6 @@ Sample JSON for an event output by this operation.
                 "60add228e5274158897c135905b5a019"
             ],
             "properties": {
-                "@type": "type.googleapis.com/microsoft.rtcv.insights.PeopleCountEventMetadata",
                 "personCount": 2
             },
             "zone": "lobbycamera",
@@ -358,7 +357,6 @@ Sample JSON for detections output by this operation.
                 "90d55bfc64c54bfd98226697ad8445ca"
             ],
             "properties": {
-                "@type": "type.googleapis.com/microsoft.rtcv.insights.LineEventMetadata",
                 "trackingId": "90d55bfc64c54bfd98226697ad8445ca",
                 "status": "CrossLeft"
             },
@@ -442,7 +440,6 @@ Sample JSON for detections output by this operation.
                 "afcc2e2a32a6480288e24381f9c5d00e"
             ],
             "properties": {
-                "@type": "type.googleapis.com/microsoft.rtcv.insights.ZoneEventMetadata",
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Enter",
                 "side": ""
@@ -517,7 +514,6 @@ Sample JSON for detections output by this operation.
                 "7ad7f43fd1a64971ae1a30dbeeffc38a"
             ],
             "properties": {
-                "@type": "type.googleapis.com/microsoft.rtcv.insights.PeopleDistanceEventMetadata",
                 "personCount": 5,
                 "averageDistance": 20.807043981552123,
                 "minimumDistanceThreshold": 6.0,

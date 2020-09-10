@@ -21,24 +21,21 @@ In this tutorial you will learn how to:
 * Deploy the spatial analysis container
 * Configure the operation and camera
 * Configure the IoT Hub connection in the Web Application
-* Deploy and Test the Web Application
+* Deploy and test the Web Application
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* [The Visual Studio IDE](https://visualstudio.microsoft.com/vs/community/) or higher.
-    * Be sure to install the **ASP.NET and web development** and **Azure development** options.
-* Basic understanding of [Node.js](https://docs.microsoft.com/azure/app-service/quickstart-nodejs?pivots=platform-linux) development
 * Basic understanding of Azure IoT Edge deployment configurations, and an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)
 * A configured [host computer](spatial-analysis-container.md).
 
-## Deploy the spatial analysis Container to the host computer
+## Deploy the spatial analysis container to the host computer
 
 Fill out the [request application](https://aka.ms/csgate) to get access to run the container. 
 
 Follow [the Host Computer Setup](./spatial-analysis-container.md) to configure the host computer and connect an IoT Edge device to Azure IoT Hub. 
 
-### Deploy an Azure IoT Hub service in your Subscription
+### Deploy an Azure IoT Hub service in your subscription
 
 First, create an instance of an Azure IoT Hub service with either the Standard Pricing Tier (S1) or Free Tier (S0). Follow these instructions to create this instance using the Azure CLI.
 
