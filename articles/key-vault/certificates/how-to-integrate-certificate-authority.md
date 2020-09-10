@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
 ---
@@ -102,7 +102,7 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzureKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 $issuerName = "DigiCertCA"
 ```
@@ -128,6 +128,16 @@ If the certificate issued is in 'disabled' status in the Azure portal, proceed t
  ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+## Frequently asked questions
+
+- Can I generate a digicert wildcard certificate through KeyVault? 
+   Yes. It would depend upon how you have configured your digicert account.
+- If we were to create an EV cert, how do we specify that? 
+   When creating a certificate, click on Advanced Policy Configuration, then specify the Certificate type. Values supported are : OV-SSL, EV-SSL
+- Is there a time delay in creating digicert certificate through integration vs acquiring certificate through digicert directly?
+   No. When creating a certificate, it is the process of verification which may take time and that verification is dependent on process DigiCert follows.
+
 
 ## Next steps
 

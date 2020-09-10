@@ -100,7 +100,7 @@ A single subnet can't support both v2 and v1 Application Gateway SKUs.
 
 ### Does Application Gateway v2 support user-defined routes (UDR)?
 
-Yes, but only specific scenarios. For more information, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+Yes, but only specific scenarios. For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### Does Application Gateway support x-forwarded-for headers?
 
@@ -131,7 +131,7 @@ No. Application Gateway V2 doesn't support proxying requests with NTLM authentic
 ### Does Application Gateway affinity cookie support SameSite attribute?
 Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-party context. 
 
-To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-overview.md#cookie-based-affinity) for more information.
+To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-http-settings.md#cookie-based-affinity) for more information.
 
 ## Performance
 
@@ -181,7 +181,7 @@ See [Network security groups in the Application Gateway subnet](https://docs.mic
 
 ### Does the application gateway subnet support user-defined routes?
 
-See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
@@ -255,7 +255,7 @@ Sample NSG configuration for private IP only access:
 
 ### What certificates does Application Gateway support?
 
-Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, and wildcard certificates.
+Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, multi-domain (SAN) certificates, and wildcard certificates.
 
 ### What cipher suites does Application Gateway support?
 
@@ -402,7 +402,7 @@ Currently, one instance of Ingress Controller can only be associated to one Appl
 
 ### Why is my AKS cluster with kubenet not working with AGIC?
 
-AGIC tries to automatically associate the route table resource to the Application Gateway subnet but may fail to do so due to lack of permissions from the AGIC. If AGIC is unable to associate the route table to the Application Gateway subnet, there will be an error in the AGIC logs saying so, in which case you'll have to manually associate the route table created by the AKS cluster to the Application Gateway's subnet. For more information, see instructions [here](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+AGIC tries to automatically associate the route table resource to the Application Gateway subnet but may fail to do so due to lack of permissions from the AGIC. If AGIC is unable to associate the route table to the Application Gateway subnet, there will be an error in the AGIC logs saying so, in which case you'll have to manually associate the route table created by the AKS cluster to the Application Gateway's subnet. For more information, see [Supported user-defined routes](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### Can I connect my AKS cluster and Application Gateway in separate virtual networks? 
 
@@ -464,31 +464,6 @@ Yes. If your configuration matches following scenario, you won't see allowed tra
 - You've deployed Application Gateway v2
 - You have an NSG on the application gateway subnet
 - You've enabled NSG flow logs on that NSG
-
-### How do I use Application Gateway V2 with only private frontend IP address?
-
-Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations
-* Private IP and Public IP
-* Public IP only
-
-But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
-1. Create an Application Gateway with both public and private frontend IP address
-2. Don't create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
-3. Create and attach a [Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) for the Application Gateway subnet with the following configuration in the order of priority:
-    
-    a. Allow traffic from Source as **GatewayManager** service tag and Destination as **Any** and Destination port as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the Gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place
-    
-    b. Allow traffic from Source as **AzureLoadBalancer** service tag and destination port as **Any**
-    
-    c. Deny all inbound traffic from Source as **Internet** service tag and destination port as **Any**. Give this rule the *least priority* in the inbound rules
-    
-    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address isn't blocked
-    
-    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, and so on.
-
-Sample NSG configuration for private IP only access:
-![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## Next steps
 

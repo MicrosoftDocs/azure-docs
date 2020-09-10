@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell script sample - Configure IPv6 frontend with Standard Load Balancer(preview)
 titlesuffix: Azure Virtual Network
-description: Enable IPv6 endpoints using Powershell in Azure Virtual Network
+description: Learn about configuring an IPv6 frontend in a virtual network script sample with Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -10,7 +10,8 @@ ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure IPv6 frontend in virtual network script sample with Standard Load Balancer(preview)

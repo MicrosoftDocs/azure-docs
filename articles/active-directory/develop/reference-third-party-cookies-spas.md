@@ -41,7 +41,7 @@ For the Microsoft identity platform, SPAs and native clients follow similar prot
 
 SPAs have two additional restrictions:
 
-* [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#setup-required-for-single-page-apps) to enable CORS on login endpoints.
+* [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) to enable CORS on login endpoints.
 * Refresh tokens issued through the authorization code flow to `spa` redirect URIs have a 24-hour lifetime rather than a 90-day lifetime.
 
 ![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)

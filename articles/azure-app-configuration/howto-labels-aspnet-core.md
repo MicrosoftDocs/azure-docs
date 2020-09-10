@@ -5,6 +5,7 @@ description: Use labels to provide per-environment configuration values.
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 3/12/2020
 ms.author: lcozzens
 

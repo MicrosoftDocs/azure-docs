@@ -69,7 +69,7 @@ For more information, see the register model section of [Deploy models](how-to-d
 ### Profile models
 
 Azure Machine Learning can help you understand the CPU and memory requirements of the service that will be created when you deploy your model. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
-For more information, see the profiling section of [Deploy models](how-to-deploy-and-where.md#profilemodel).
+For more information, see the profiling section of [Deploy models](how-to-deploy-profile-model.md).
 
 ### Package and debug models
 
@@ -153,7 +153,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 > [!TIP]
 > While some information on models and datasets is automatically captured, you can add additional information by using __tags__. When looking for registered models and datasets in your workspace, you can use tags as a filter.
 >
-> Associating a dataset with a registered model is an optional step. For information on referencing a dataset when registering a model, see the [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) class reference.
+> Associating a dataset with a registered model is an optional step. For information on referencing a dataset when registering a model, see the [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true) class reference.
 
 
 ## Notify, automate, and alert on events in the ML lifecycle

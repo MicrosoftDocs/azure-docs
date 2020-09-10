@@ -39,14 +39,14 @@ The following table lists the different ways that you can use Logs in Azure Moni
 |  | Description |
 |:---|:---|
 | **Analyze** | Use [Log Analytics](../log-query/get-started-portal.md) in the Azure portal to write [log queries](../log-query/log-query-overview.md) and interactively analyze log data using the powerful Data Explorer analysis engine.<br>Use the [Application Insights analytics console](../log-query/log-query-overview.md) in the Azure portal to write log queries and interactively analyze log data from Application Insights. |
-| **Visualize** | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../platform/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
+| **Visualize** | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](./workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
 | **Alert** | Configure a [log alert rule](alerts-log.md) that sends a notification or takes [automated action](action-groups.md) when the results of the query match a particular result.<br>Configure a [metric alert rule](alerts-metric-logs.md) on certain log data logs extracted as metrics. |
 | **Retrieve** | Access log query results from a command line using [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
-| **Export** | Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](~/articles/logic-apps/index.yml). |
+| **Export** | Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](../../logic-apps/index.yml). |
 
 
 ## How is data in Azure Monitor Logs structured?
-Data collected by Azure Monitor Logs is stored in a [Log Analytics workspace](../platform/design-logs-deployment.md). Each workspace contains multiple tables that each store data from a particular source. While all tables share [some common properties](log-standard-properties.md), each has a unique set of properties depending on the kind of data it stores. A new workspace will have standard set of tables, and more tables will be added by different monitoring solutions and other services that write to the workspace.
+Data collected by Azure Monitor Logs is stored in a [Log Analytics workspace](./design-logs-deployment.md). Each workspace contains multiple tables that each store data from a particular source. While all tables share [some common properties](log-standard-properties.md), each has a unique set of properties depending on the kind of data it stores. A new workspace will have standard set of tables, and more tables will be added by different monitoring solutions and other services that write to the workspace.
 
 Log data from Application Insights uses the same Log Analytics engine as workspaces, but it's stored separately for each monitored application. Each application has a standard set of tables to hold data such as application requests, exceptions, and page views.
 
@@ -130,3 +130,4 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 - Learn more about the [Azure Monitor data platform](data-platform.md).
 - Learn about [metrics in Azure Monitor](data-platform-metrics.md).
 - Learn about the [monitoring data available](data-sources.md) for different resources in Azure.
+

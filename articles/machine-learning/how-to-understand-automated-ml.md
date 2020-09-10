@@ -8,8 +8,9 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 12/05/2019
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Understand automated machine learning results
@@ -53,7 +54,7 @@ After running an automated machine learning experiment, a history of the runs ca
 
    [![Experiment model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-You also see these same results during a run when you use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+You also see these same results during a run when you use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
 
 ## <a name="classification"></a> Classification results
 

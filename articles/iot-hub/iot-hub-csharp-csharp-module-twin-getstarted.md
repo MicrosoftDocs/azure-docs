@@ -8,7 +8,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.custom: amqp
+ms.custom: "amqp, devx-track-csharp"
 ---
 
 # Get started with IoT Hub module identity and module twin (.NET)

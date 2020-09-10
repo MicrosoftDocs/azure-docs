@@ -2,7 +2,7 @@
 title: Quickstart - Access & create new tenant - Azure AD
 description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization. 
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
@@ -68,6 +68,6 @@ If you're not going to continue to use this application, you can delete the tena
 
 - Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-- Learn about [role-based access using Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) and [Conditional Access](../../role-based-access-control/conditional-access-azure-management.md) to help manage your organization's application and resource access.
+- Learn about [role-based access using Privileged Identity Management](../../role-based-access-control/best-practices.md) and [Conditional Access](../../role-based-access-control/conditional-access-azure-management.md) to help manage your organization's application and resource access.
 
 - Learn about Azure AD, including [basic licensing information, terminology, and associated features](active-directory-whatis.md).

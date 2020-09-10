@@ -51,7 +51,7 @@ In the following samples, replace example parameter names such as *myResourceGro
     ```
 
     > [!NOTE]
-    > When you expand a managed disk, the updated size is rounded up to the nearest managed disk size. For a table of the available managed disk sizes and tiers, see [Azure Managed Disks Overview - Pricing and Billing](../windows/managed-disks-overview.md).
+    > When you expand a managed disk, the updated size is rounded up to the nearest managed disk size. For a table of the available managed disk sizes and tiers, see [Azure Managed Disks Overview - Pricing and Billing](../managed-disks-overview.md).
 
 1. Start your VM with [az vm start](/cli/azure/vm#az-vm-start). The following example starts the VM named *myVM* in the resource group named *myResourceGroup*:
 
@@ -66,7 +66,7 @@ To use an expanded disk, expand the underlying partition and filesystem.
 1. SSH to your VM with the appropriate credentials. You can see the public IP address of your VM with [az vm show](/cli/azure/vm#az-vm-show):
 
     ```azurecli
-    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
+    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --output tsv
     ```
 
 1. Expand the underlying partition and filesystem.

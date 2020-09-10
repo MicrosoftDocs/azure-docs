@@ -2,10 +2,15 @@
 title: Use portal to upload, encode, and stream content  - Azure
 description: This quickstart shows you how to use portal to upload, encode, and stream content with Azure Media Services.
 ms.topic: quickstart
-ms.date: 06/08/2020
+ms.date: 08/31/2020
+author: IngridAtMicrosoft
+ms.author: inhenkel
+manager: femila
  
 ---
 # Quickstart: Upload, encode, and stream content with portal
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This quickstart shows you how to use the Azure portal to upload, encode, and stream content with Azure Media Services.
 
@@ -23,7 +28,6 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
   * [Cloud upload and storage](storage-account-concept.md)
   * [Assets concept](assets-concept.md)
-  * [Managing assets](manage-asset-concept.md)
 * Once you upload your high-quality digital media file into an asset (an input asset), you can process it (encode or analyze). The processed content goes into another asset (output asset). 
     * [Encode](encoding-concept.md) your uploaded file into formats that can be played on a wide variety of browsers and devices.
     * [Analyze](analyzing-video-audio-files-concept.md) your uploaded file. 

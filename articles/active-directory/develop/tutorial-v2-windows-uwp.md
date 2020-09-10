@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
 # Call the Microsoft Graph API from a Universal Windows Platform application (XAML)
@@ -23,7 +23,7 @@ This guide explains how a native Universal Windows Platform (UWP) application ca
 At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory (Azure AD).
 
 >[!NOTE]
-> This guide requires Visual Studio with Universal Windows Platform development installed. For instructions to download and configure Visual Studio to develop Universal Windows Platform apps, see [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
+> This guide requires Visual Studio with Universal Windows Platform development installed. For instructions to download and configure Visual Studio to develop Universal Windows Platform apps, see [Get set up](/windows/uwp/get-started/get-set-up).
 
 >[!NOTE]
 > If you're new to the Microsoft identity platform, start with the [Call the Microsoft Graph API from a Universal Windows Platform (UWP) application quickstart](quickstart-v2-uwp.md).

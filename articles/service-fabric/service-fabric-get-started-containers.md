@@ -4,7 +4,7 @@ description: Create your first Windows container application on Azure Service Fa
 
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Create your first Service Fabric container application on Windows

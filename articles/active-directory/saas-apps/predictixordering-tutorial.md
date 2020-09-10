@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Predictix Ordering | Microsoft Docs'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Predictix Ordering.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2fe2f976-e97f-4368-9695-3e1624409e8b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Predictix Ordering
 

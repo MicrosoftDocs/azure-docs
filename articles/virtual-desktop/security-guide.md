@@ -1,10 +1,8 @@
 ---
 title: Windows Virtual Desktop security best practices - Azure
 description: Best practices for keeping your Windows Virtual Desktop environment secure.
-services: virtual-desktop
 author: heidilohr
 
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
@@ -98,7 +96,7 @@ Session hosts are virtual machines that run inside an Azure subscription and vir
 
 ### Enable endpoint protection
 
-To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 For profile solutions like FSLogix or other solutions that mount VHD files, we recommend excluding VHD file extensions.
 

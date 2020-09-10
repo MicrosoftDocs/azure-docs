@@ -2,19 +2,19 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ---
 
-This article provides information and sample code to help you get started using the Custom Vision SDK with Go to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application.
+This article provides information and sample code to help you get started using the Custom Vision client library with Go to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application.
 
 ## Prerequisites
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## Install the Custom Vision SDK
+## Install the Custom Vision client library
 
-To install the Custom Vision service SDK for Go, run the following command in PowerShell:
+To install the Custom Vision service client library for Go, run the following command in PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...

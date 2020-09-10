@@ -10,7 +10,7 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 08/21/2020
 ---
 
 # Linked services in Azure Data Factory
@@ -27,7 +27,7 @@ If you're new to Data Factory, see [Introduction to Azure Data Factory](introduc
 
 ## Overview
 
-A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.
+A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure Synapse Analytics (formerly SQL Data Warehouse), on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.
 
 Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs.
 
@@ -64,19 +64,19 @@ The following table describes properties in the above JSON:
 Property | Description | Required |
 -------- | ----------- | -------- |
 name | Name of the linked service. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
-type | Type of the linked service. For example: Azure Storage (data store) or AzureBatch (compute). See the description for typeProperties. | Yes |
-typeProperties | The type properties are different for each data store or compute. <br/><br/> For the supported data store types and their type properties, see the [dataset type](concepts-datasets-linked-services.md#dataset-type) table in this article. Navigate to the data store connector article to learn about type properties specific to a data store. <br/><br/> For the supported compute types and their type properties, see [Compute linked services](compute-linked-services.md). | Yes |
+type | Type of the linked service. For example: AzureBlobStorage (data store) or AzureBatch (compute). See the description for typeProperties. | Yes |
+typeProperties | The type properties are different for each data store or compute. <br/><br/> For the supported data store types and their type properties, see the [connector overview](copy-activity-overview.md#supported-data-stores-and-formats) article. Navigate to the data store connector article to learn about type properties specific to a data store. <br/><br/> For the supported compute types and their type properties, see [Compute linked services](compute-linked-services.md). | Yes |
 connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No
 
 ## Linked service example
 
-The following linked service is an Azure Storage linked service. Notice that the type is set to Azure Storage. The type properties for the Azure Storage linked service include a connection string. The Data Factory service uses this connection string to connect to the data store at runtime.
+The following linked service is an Azure Blob storage linked service. Notice that the type is set to Azure Blob storage. The type properties for the Azure Blob storage linked service include a connection string. The Data Factory service uses this connection string to connect to the data store at runtime.
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },

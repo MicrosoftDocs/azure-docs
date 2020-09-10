@@ -2,6 +2,7 @@
 title: Application Insights for Worker Service apps (non-HTTP apps)
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 
 ---
@@ -354,6 +355,7 @@ Commonly used settings in `ApplicationInsightsServiceOptions`
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling | true
 |EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15-min default) sends a custom metric named 'HeartBeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
 |AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor, which is a TelemetryProcessor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
+|EnableDiagnosticsTelemetryModule | Enable/Disable `DiagnosticsTelemetryModule`. Disabling this will cause the following settings to be ignored; `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` | true
 
 See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
@@ -542,7 +544,8 @@ Use this sample if you have a .NET Core 3.0 Worker Service application as per of
 
 ## Next steps
 
-* [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* [Track additional dependencies not automatically tracked](../../azure-monitor/app/auto-collect-dependencies.md).
-* [Enrich or Filter auto collected telemetry](../../azure-monitor/app/api-filtering-sampling.md).
+* [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
+* [Track additional dependencies not automatically tracked](./auto-collect-dependencies.md).
+* [Enrich or Filter auto collected telemetry](./api-filtering-sampling.md).
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
+

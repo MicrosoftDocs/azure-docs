@@ -15,6 +15,10 @@ ms.author: mbullwin
 
 Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences. 
 
+Here is a video walkthrough on creating workbooks.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
+
 ## Data sources
 
 Workbooks can query data from multiple sources within Azure. Authors of workbooks can transform this data to provide insights into the availability, performance, usage, and overall health of the underlying components. For instance, analyzing performance logs from virtual machines to identify high CPU or low memory instances and displaying the results as a grid in an interactive report.
@@ -35,12 +39,13 @@ Workbooks are currently compatible with the following data sources:
 
 Workbooks provide a rich set of capabilities for visualizing your data. For detailed examples of each visualization type you can consult the example links below:
 
-* [Text](workbooks-visualizations.md#text)
-* [Charts](workbooks-visualizations.md#charts)
-* [Grids](workbooks-visualizations.md#grids)
-* [Tiles](workbooks-visualizations.md#tiles)
-* [Trees](workbooks-visualizations.md#trees)
-* [Graphs](workbooks-visualizations.md#graphs)
+* [Text](workbooks-text-visualizations.md)
+* [Charts](workbooks-chart-visualizations.md)
+* [Grids](workbooks-grid-visualizations.md)
+* [Tiles](workbooks-tile-visualizations.md)
+* [Trees](workbooks-tree-visualizations.md)
+* [Graphs](workbooks-graph-visualizations.md)
+* [Composite bar](workbooks-composite-bar.md)
 
 ![Example workbook visualizations](./media/workbooks-overview/visualizations.png)
 
@@ -78,9 +83,9 @@ In the case of this particular workbook, the experience is interactive. You can 
 
 ### Editing mode
 
-To understand how this workbook template is put together you need to swap to editing mode by selecting **Edit**. 
+To understand how this workbook template is put together you need to swap to editing mode by selecting **Edit**.
 
-![Screenshot of application failure analysis template](./media/workbooks-overview/edit.png)
+![Screenshot of edit button in workbooks.](./media/workbooks-overview/edit.png)
 
 Once you have switched to editing mode you will notice a number of **Edit** boxes appear to the right corresponding with each individual aspect of your workbook.
 

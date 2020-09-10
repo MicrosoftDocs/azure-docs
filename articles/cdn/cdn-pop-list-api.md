@@ -1,6 +1,6 @@
 ---
 title: Retrieve the current POP IP list for Azure CDN| Microsoft Docs
-description: Learn how to retrieve the current POP list.
+description: Learn how to get POP servers by using the REST API. POP servers make requests to origin servers associated with Azure Content Delivery Network endpoints.
 services: cdn
 documentationcenter: ''
 author: asudbring

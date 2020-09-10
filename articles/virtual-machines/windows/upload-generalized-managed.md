@@ -4,7 +4,7 @@ description: Upload a generalized VHD to Azure and use it to create new VMs, in 
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
 ---

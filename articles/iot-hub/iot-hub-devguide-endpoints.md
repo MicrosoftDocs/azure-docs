@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
 
 # Reference - IoT Hub endpoints

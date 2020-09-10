@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Samanage | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Samanage.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Samanage
 

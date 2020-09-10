@@ -5,12 +5,11 @@ description: Learn how to import data into Azure Machine Learning designer (prev
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
-ms.custom: designer
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
 # Import data into Azure Machine Learning designer (preview)
@@ -20,25 +19,27 @@ In this article, you learn how to import your own data in the designer to create
 * **Azure Machine Learning datasets** - Register [datasets](concept-data.md#datasets) in Azure Machine Learning to enable advanced features that help you manage your data.
 * **Import Data module** - Use the [Import Data](algorithm-module-reference/import-data.md) module to directly access data from online datasources.
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 ## Use Azure Machine Learning datasets
 
 We recommend that you use [datasets](concept-data.md#datasets) to import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
 
 ### Register a dataset
 
-You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#use-the-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#use-the-ui).
+You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#datasets-ui).
 
 You can also register the output for any designer module as a dataset.
 
 1. Select the module that outputs the data you want to register.
 
-1. In the properties pane, select **Outputs** > **Register dataset**.
+1. In the properties pane, select **Outputs + logs** > **Register dataset**.
 
     ![Screenshot showing how to navigate to the Register Dataset option](media/how-to-designer-import-data/register-dataset-designer.png)
 
 ### Use a dataset
 
-Your registered datasets can be found in the module palette, under **Datasets** > **My Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
+Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
@@ -53,7 +54,7 @@ While we recommend that you use datasets to import data, you can also use the [I
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#use-the-ui).
+> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#datasets-ui).
 
 ## Supported sources
 
@@ -88,7 +89,7 @@ Modules in the designer are limited by the size of the compute target. For large
 
 ## Access data in a virtual network
 
-If your workspace is in a virtual network, you must perform additional configuration steps to  visualize data in the designer. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#machine-learning-studio).
+If your workspace is in a virtual network, you must perform additional configuration steps to  visualize data in the designer. For more information on how to use datastores and datasets in a virtual network, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).
 
 ## Next steps
 

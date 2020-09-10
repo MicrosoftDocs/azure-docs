@@ -86,9 +86,9 @@
     href: hyper-v-migration-architecture.md
   - name: VMware agent-based migration architecture
     href: agent-based-migration-architecture.md
-  - name: Azure VM Assessments overview
+  - name: Assessment overview (migrate to Azure VMs)
     href: concepts-assessment-calculation.md
-  - name: AVS Assessments overview
+  - name: Assessments overview (migrate to AVS)
     href: concepts-azure-vmware-solution-assessment-calculation.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
@@ -168,6 +168,8 @@
     href: troubleshoot-appliance-discovery.md
   - name: Troubleshoot assessment/dependency visualization
     href: troubleshoot-assessment.md
+  - name: Troubleshoot replication issues in agentless VMware migration
+    href: troubleshoot-changed-block-tracking-replication.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

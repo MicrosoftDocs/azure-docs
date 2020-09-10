@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Design an Azure Database for MariaDB using PowerShell

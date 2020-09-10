@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
+ms.custom: devx-track-javascript
 ---
 
 # Secure a single page application with user sign-in

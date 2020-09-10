@@ -55,7 +55,7 @@ Both user-initiated actions require an approval from a Global administrator or P
 
 ## API changes
 
-When customers have the updated version rolled out to their Azure AD organization, the existing graph API will stop working. You must transition to use the [Graph API for Azure resource roles](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). To manage Azure AD roles using that API, swap `/azureResources` with `/aadroles` in the signature and use the Directory ID for the `resourceId`.
+When customers have the updated version rolled out to their Azure AD organization, the existing graph API will stop working. You must transition to use the [Graph API for Azure resource roles](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). To manage Azure AD roles using that API, swap `/azureResources` with `/aadroles` in the signature and use the Directory ID for the `resourceId`.
 
 We have tried our best to reach out to all customers who are using the previous API to let them know about this change ahead of time. If your Azure AD organization was moved on to the new version and you still depend on the old API, reach out to the team at pim_preview@microsoft.com.
 

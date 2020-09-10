@@ -5,7 +5,7 @@ author: rloutlaw
 ms.service: virtual-machines
 ms.subservice: monitoring
 ms.custom: REST
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
 ---

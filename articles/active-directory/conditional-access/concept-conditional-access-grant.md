@@ -77,7 +77,7 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
-- Microsoft Flow
+- Microsoft Power Automate
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
