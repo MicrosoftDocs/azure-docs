@@ -13,7 +13,7 @@ ms.date: 09/22/2020
 
 # Filling time gaps and imputing missing values 
 
-When dealing with time series data, it's often possible that the time series data has missing values for the attributes, or because of some nature of the data, or due to interruptions in data collection, has gaps in the dataset.
+When dealing with time series data, it's often possible that the time series data has missing values for the attributes, or because of the nature of the data, or due to interruptions in data collection, has gaps in the dataset.
 
 For example, when collecting energy usage statistics for a smart device, whenever the device is not operational there will be gaps in the usage statistics. Similarly, in a machine telemetry data collection scenario, it's possible that the different sensors are configured to emit data at different frequencies, resulting in missing values for the sensors. For example, if there are two sensors, voltage and pressure, configured at 100 Hz and 10 Hz frequency respectively, the voltage sensor will emit data every one-hundredth of a second, while the pressure sensor will only emit data every one-tenth of a second.
 
@@ -43,12 +43,12 @@ There are two important characteristics of the preceding dataset.
 
 ## Gap filling 
 
-Gap filling is a technique that helps create contiguous, ordered set of timestamps for analysis of time series data. In Azure SQL Edge, the easiest way to fill gaps in the time series dataset is to define a temporary table with the desired time distribution and then perform a `LEFT OUTER JOIN` or a `RIGHT OUTER JOIN` operation on the dataset table. 
+Gap filling is a technique that helps create contiguous, ordered set of timestamps to facilitate the analysis of time series data. In Azure SQL Edge, the easiest way to fill gaps in the time series dataset is to define a temporary table with the desired time distribution and then perform a `LEFT OUTER JOIN` or a `RIGHT OUTER JOIN` operation on the dataset table. 
 
-Taking the `MachineTelemetry` data in the previous image, the following query can be used to generate contiguous, ordered set of timestamps for analysis. 
+Taking the `MachineTelemetry` data represented above as an example, the following query can be used to generate contiguous, ordered set of timestamps for analysis. 
 
 > [!NOTE]
-> The query below generated the missing rows, with the timestamp values and `null` values for the attributes. 
+> The query below generates the missing rows, with the timestamp values and `null` values for the attributes. 
 
 ```sql
 Create Table #SeriesGenerate(dt datetime Primary key Clustered)
@@ -66,7 +66,7 @@ From
 #SeriesGenerate a LEFT OUTER JOIN MachineTelemetry b 
     on a.dt = b.[timestamp]
 ```
-The above query produces the following output containing all *one-second timestamps in the timestamp range.
+The above query produces the following output containing all *one-second* timestamps in the specified range.
 
 Here is the Result Set
 
@@ -94,9 +94,9 @@ timestamp               VoltageReading    PressureReading
 
 ## Imputing missing values
 
-The preceding query generated the missing timestamps for data analysis, however it did not replace any of the missing values (represented as null) for `voltage` and `pressure` readings. In Azure SQL Edge, new syntax was added to the T-SQL `LAST_VALUE()` and `FIRST_VALUE()` functions, which provide mechanisms to impute missing values, based on the preceding or following values in the dataset. 
+The preceding query generated the missing timestamps for data analysis, however it did not replace any of the missing values (represented as null) for `voltage` and `pressure` readings. In Azure SQL Edge, a new syntax was added to the T-SQL `LAST_VALUE()` and `FIRST_VALUE()` functions, which provides mechanisms to impute missing values, based on the preceding or following values in the dataset. 
 
-The new syntax adds `IGNORE NULLS` and `RESPECT NULLS` clause to the `LAST_VALUE()` and `FIRST_VALUE()` functions. A following query on the `MachineTelemetry` dataset computes the missing values using the last_value function, where missing values are replaced with the last observed value carried forward (LOCF). 
+The new syntax adds `IGNORE NULLS` and `RESPECT NULLS` clause to the `LAST_VALUE()` and `FIRST_VALUE()` functions. A following query on the `MachineTelemetry` dataset computes the missing values using the last_value function, where missing values are replaced with the last observed value in the dataset.
 
 ```sql
 Select 
@@ -170,6 +170,9 @@ timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  Imput
 2020-09-07 06:14:55.000 NULL             157.019200      NULL              100.748200
 2020-09-07 06:14:56.000 159.183500       159.183500      100.748200        100.748200
 ```
+
+> [!NOTE]
+> The above query uses the `FIRST_VALUE()` function to replace missing values with the next observed value. The same result can be achieved by using the `LAST_VALUE()` function with a `ORDER BY <ordering_column> DESC` clause.
 
 ## Next steps 
 
