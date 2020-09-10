@@ -75,7 +75,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 
 ### Activate your managed HSM
-All data plane commands are disabled until the HSM  is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM.
+All data plane commands are disabled until the HSM  is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM you must download the [Security Domain](security-domain.md).
 
 To activate your HSM you need:
 - Minimum 3 RSA key-pairs (maximum 10)

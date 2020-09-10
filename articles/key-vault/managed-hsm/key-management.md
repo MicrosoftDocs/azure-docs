@@ -23,6 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+# [Azure CLI](#tab/azure-cli)
 To use the Azure CLI commands in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
@@ -40,20 +41,38 @@ az account set --help
 az account set -h
 ```
 
+Use `az keyvault key
 You can also read the following articles to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
 
 * [Install Azure CLI](/cli/azure/install-azure-cli)
 * [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli)
 
+
+> [!NOTE] All the commands below show two usage methods. One using **--hsm-name** and **--name** (for key name) parameters and another using **--id** parameter where you can specify entire url including including key name where appropriate. The latter method is useful when the caller (a user or an application) has no read access on the control plane and only restricted access on the data plane.
+
+---
+
+
 ## Create an HSM key
+
+Use `az keyvault key create` command to create a key. 
 
 ### Create an RSA key
 
-The example below shows how to create a 3070-bit **RSA** key that will be only used for **get, wrap, unwrap** operations (--ops).
+The example below shows how to create a 3070-bit **RSA** key that will be only used for **get, wrap, unwrap** operations (--ops). 
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault key create --hsm-name ContosoMHSM --name myrsakey --ops get wrap unwrap --expires <expiry date and time> --not-before <active date and time> --tags ‘tag1[=value1] tag2[=value2]’ --kty RSA-HSM
+az keyvault key create --hsm-name ContosoMHSM --name myrsakey --ops get wrap unwrap --kty RSA-HSM --size 3072
+
+## OR
+# Note the key name (myrsakey) in the URI
+
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey --ops get wrap unwrap --kty RSA-HSM --size 3072
+
 ```
+---
 
 Note, that the `get` operation only returns the public key and key attributes. It does not return the private key (in case of asymmetric key), or the key material (in case of symmetric key).
 
@@ -62,37 +81,135 @@ Note, that the `get` operation only returns the public key and key attributes. I
 
 The example below shows how to create an **EC** key with P-256 curve that will be only used for **sign and verify** operations (--ops) and has two tags, **usage** and **appname**. Tags help you add additional metadata to the key for tracking and managing.
 
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+
+## OR
+# Note the key name (myec256key) in the URI
+
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
 ```
+---
 
 ### Create a 256-bit symmetric key
 
 The example below shows how to create a 3070-bit **symmetric** key that will be only used for **encrypt and decrypt** operations (--ops).
 
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256
-```
 
+## OR
+# Note the key name (myaeskey) in the URI
+
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+```
+---
 
 ## View key attributes and tags
 
-Use following command to view attributes, versions and tags for a key.
+Use `az keyvault key show` command to view attributes, versions and tags for a key.
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az keyvault key show --hsm-name ContosoHSM --name myrsakey
 
-```
-You can also use the full key URI like this
-```azurecli
+## OR
+# Note the key name (myaeskey) in the URI
 
 az keyvault key show --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```
+---
+
+## List keys
+
+Use `az keyvault key list` command to list all keys inside a managed HSM.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault key list --hsm-name ContosoHSM
+
+## OR
+# use full URI
+
+az keyvault key list --id https://ContosoMHSM.managedhsm.azure.net/
+
+```
+---
+
+## Delete a key
+
+Use `az keyvault key delete` command to delete a key from a managed HSM. Note that soft-delete is always on. Therefore a deleted key will remain in deleted state and can be recovered until the number of retention days have passed when the key will be purged (permanently deleted) with no recovery possible.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault key delete --hsm-name ContosoHSM --name myrsakey
+
+## OR
+# Note the key name (myaeskey) in the URI
+
+az keyvault key delete --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey
+
+```
+---
 
 
+## List deleted keys
 
+Use `az keyvault key list-deleted` command to list all the keys in deleted state in your managed HSM.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault key list-deleted --hsm-name ContosoHSM
+
+## OR
+# use full URI
+
+az keyvault key list-deleted --id https://ContosoMHSM.managedhsm.azure.net/
+
+``` 
+
+---
+
+## Recover (undelete) a deleted key
+
+Use `az keyvault key list-deleted` command to list all the keys in deleted state in your managed HSM. If you need to recover (undelete) a key using the --id parameter while recovering a deleted key, you must note the `recoveryId` value of the deleted key obtained from the `az keyvault key list-deleted` command.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault key recover --hsm-name ContosoHSM --name myrsakey
+
+## OR
+# Note the key name (myaeskey) in the URI
+
+az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
+
+```
+---
+
+## Purge (permanently delete) a key
+Use `az keyvault key purge` command to purge (permanently delete) a key.
+
+> [!NOTE] If the managed HSM has purge protection enabled, purge operation will not be permitted. The key will be automatically purged when the retention period has passed.
+
+```azurecli
+az keyvault key purge --hsm-name ContosoHSM --name myrsakey
+
+## OR
+# Note the key name (myaeskey) in the URI
+
+az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
+
+```
 
 
 ## Next steps
