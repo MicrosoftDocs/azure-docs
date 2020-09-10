@@ -36,7 +36,7 @@ When you deploy features like Azure Multi-Factor Authentication in your organiza
 The following table outlines the security considerations for the available authentication methods. Availability is an indication of the user being able to use the authentication method, not of the service availability in Azure AD:
 
 | Authentication method       | Security | Usability | Phisable? | Channel jackable? | Availability |
-|-----------------------------|----------|-----------|-----------|-------------------|--------------|
+|-----------------------------|:--------:|:---------:|:---------:|:-----------------:|:------------:|
 | FIDO2 security key          | High     | High      | No        | No                | High         |
 | Microsoft Authenticator app | High     | High      | Yes       | No <sup>1</sup>   | High         |
 | Windows Hello for Business  | High     | High      | No        | No                | High         |
@@ -61,7 +61,7 @@ Some authentication methods can be used as the primary factor when you sign in t
 The following table outlines when an authentication method can be used during a sign-in event:
 
 | Method                         | Primary authentication | Secondary authentication  |
-|--------------------------------|------------------------|---------------------------|
+|--------------------------------|:----------------------:|:-------------------------:|
 | FIDO2 security keys (preview)  | Yes                    | MFA                       |
 | Microsoft Authenticator app    | Yes (preview)          | MFA and SSPR              |
 | Windows Hello for Business     | Yes                    | MFA                       |
@@ -80,8 +80,8 @@ To learn more about how each authentication method works, see the following sepa
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [OATH software tokens](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [OATH hardware tokens (preview)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
-* [SMS](concept-authentication-phone-options.md#mobile-phone-verification)
-* [Voice call](concept-authentication-phone-options.md)
+* SMS [sign-in (preview)](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)
+* [Voice call verification](concept-authentication-phone-options.md)
 * Password
 
 > [!NOTE]
