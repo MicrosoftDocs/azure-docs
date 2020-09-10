@@ -19,7 +19,7 @@ Returns the first value in an ordered set of values.
 ## Syntax  
 
 ```syntaxsql
-FIRST_VALUE ( [scalar_expression ] )   
+FIRST_VALUE ( [scalar_expression ] )  [ IGNORE NULLS | RESPECT NULLS ]
     OVER ( [ partition_by_clause ] order_by_clause [ rows_range_clause ] )
 
 ```
@@ -28,6 +28,14 @@ FIRST_VALUE ( [scalar_expression ] )
 ## Arguments
  *scalar_expression*  
  Is the value to be returned. *scalar_expression* can be a column, subquery, or other arbitrary expression that results in a single value. Other analytic functions are not permitted.  
+
+ [ IGNORE NULLS | RESPECT NULLS ]     
+ **Applies to**: Azure SQL Edge
+ 
+ IGNORE NULLS - Ignore null values in the dataset when computing the last value over a partition.     
+ RESPECT NULLS - Respect null values in the dataset when computing last value over a partition.     
+ 
+ For more information refer [Imputing missing values](./imputing-missing-values.md).
   
  OVER **(** [ *partition_by_clause* ] *order_by_clause* [ *rows_range_clause* ] **)**  
  *partition_by_clause* divides the result set produced by the FROM clause into partitions to which the function is applied. If not specified, the function treats all rows of the query result set as a single group. *order_by_clause* determines the logical order in which the operation is performed. *order_by_clause* is required. *rows_range_clause* further limits the rows within the partition by specifying start and end points. For more information, see [OVER Clause &#40;Transact-SQL&#41;](/sql/t-sql/queries/select-over-clause-transact-sql/).
