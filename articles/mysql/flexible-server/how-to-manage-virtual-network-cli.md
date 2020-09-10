@@ -45,7 +45,7 @@ az account set --subscription <subscription id>
 ```
 
 ## Create Azure Database for MySQL Flexible Server using CLI
-You can use the `az mysql flexible-server` command to create the flexible server with *Private access (VNet Integration)*. This command uses Private access (VNet Integration) as the default connectivity method. A virtual network and subnet will be created for you if none is provided. You can provide the **--vnet**,**--subnet**,**--vnet-address-prefix** or**--subnet-address-prefix** to customize the virtual network and subnet. There are various options to create a flexible server using CLI as shown in the examples below.
+You can use the `az mysql flexible-server` command to create the flexible server with *Private access (VNet Integration)*. This command uses Private access (VNet Integration) as the default connectivity method. A virtual network and subnet will be created for you if none is provided. You can also provide the already existing virtual network and subnet using subnet id. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> There are various options to create a flexible server using CLI as shown in the examples below.
 
 >[!Important]
 > Using this command will delegate the subnet to **Microsoft.DBforMySQL/flexibleServers**. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet.
@@ -57,21 +57,21 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
     ```azurecli-interactive
     az mysql flexible-server create
     ```
-- Create a flexible server using already existing virtual network and subnet
+<!--- Create a flexible server using already existing virtual network and subnet
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --subnet mySubnet
-    ```
-- Create a flexible server using already existing virtual network, subnet, and using the subnet ID
+    ```-->
+- Create a flexible server using already existing virtual network, subnet, and using the subnet ID. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to **Microsoft.DBforMySQL/flexibleServers**, if not already delegated.
     ```azurecli-interactive
-    az mysql flexible-server create --vnet myVnet --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
+    az mysql flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
-    > The virtual network and subnet should be in the same resource group and subscription as your server. You cannot use the virtual network and subnet in other resource group and subscription.
-    
+    > The virtual network and subnet should be in the same region, resource group and subscription as your server. You cannot use the virtual network and subnet in other region, resource group and subscription.
+<!--    
 - Create a flexible server using new virtual network, subnet with non-default address prefix
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
-    ```
+    ```-->
 Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters.
 
 
