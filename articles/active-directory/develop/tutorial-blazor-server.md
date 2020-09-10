@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 - An Azure AD tenant where you can register an app. If you don’t have access to an Azure AD tenant, you can get one by registering to the [Microsoft 365 Developer program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating a [Free Azure Trial](https://azure.microsoft.com/free) account
 - (Optional) [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
-## Option 1: Register and create the app using the .NET CLI
+## Option 1: Create the app using the .NET CLI and register it in the Azure portal
 
 Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. You can create a new registration and then use the [.NET CLI](https://docs.microsoft.com/dotnet/core/tools/) to create a new Blazor app using the following instructions. If you are using Visual Studio 2019, you can skip this step and complete step two. 
 
@@ -66,7 +66,7 @@ The output location specified with the `-o|--output` option creates a project fo
 
 You can now run the app and log in using an Azure AD user account. You can skip option two and move on to simplifying the code with Microsoft.Identity.Web.
 
-## 2. Option 2: Register and create the app using Visual Studio 2019
+## Option 2: Register and create the app using Visual Studio 2019
 
 You can use Visual Studio's built in templates to create a Blazor server app. Skip this step if you have already completed step one. To do so:
 
@@ -79,15 +79,15 @@ You now have a working app sample that will sign users in using the Microsoft id
 
 Try running the app. The first time it runs, you will see a screen that prompts you to provide consent for this app to access your directory information. This is part of the Microsoft identity platforms [permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) process which is necessary for the app to have permission to retrieve data from the directory on behalf of the user. 
 
-![Picture of dialog box asking the user for permission for the app to sign the user in and read their profile](.\media\tutorial-blazor-server\consent-dialog-1.png)
+![Picture of dialog box asking the user for permission for the app to sign the user in and read their profile](./media/tutorial-blazor-server/consent-dialog-1.png)
 
 The Visual Studio creation tool automatically registered this application in your tenant. Applications that authenticate users always need to be registered with the identity provider they use. You can verify that this registration happened successfully by going to the Azure portal, navigating to Azure Active Directory, and viewing your registered apps. The TenantID and ClientID found there will match the settings defined in your *appsettings.json* file. 
 
-![Screenshot of the completed app. The webpage says "Hello, world! Welcome to your new app." There is a menu bar on the side with buttons for "home", "counter", and "fetch data".](.\media\tutorial-blazor-server\final-app-1.png)
+![Screenshot of the completed app. The webpage says "Hello, world! Welcome to your new app." There is a menu bar on the side with buttons for "home", "counter", and "fetch data".](./media/tutorial-blazor-server/final-app-1.png)
 
 ## Simplify the code by using Microft.Identity.Web
 
-The apps created in the steps above utilize [ASP .Net Identity](https://docs.microsoft.com/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity) for authentication. You will need to add some more code that queries the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) endpoint in order to get authorization for your users to access protected APIs. In other words, **authentication** and **authorization** are done separately and require more code. 
+The apps created in the steps above utilize [ASP .NET Identity](https://docs.microsoft.com/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity) for authentication. You will need to add some more code that queries the [Microsoft Authentication Library (MSAL)](./msal-overview.md)  endpoint in order to get authorization for your users to access protected APIs. In other words, **authentication** and **authorization** are done separately and require more code. 
 
 However, you can use the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) authentication and token management library to handle both. **Microsoft.Identity.Web** is meant to abstract away the complexities and allow you to quickly implement authentication and authorization, as shown here. You can use the following instructions to update your code and make use of Microsoft.Identity.Web.
 
@@ -98,13 +98,13 @@ First, download the following NuGet packages to have access to the libraries:
 -	Microsoft.Identity.Web (0.2.2 preview)
 -	Microsoft.Identity.Web.UI (0.2.2 preview)
 
-If using .Net CLI, you can find instructions for downloading the packages on [https://www.nuget.org/packages/Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
+If using .NET CLI, you can find instructions for downloading the packages on [https://www.nuget.org/packages/Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
 
 Or you can use Visual Studio: 
 
-![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web package highlighted.](.\media\tutorial-blazor-server\nuget-package-1.png)
+![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web package highlighted.](./media/tutorial-blazor-server/nuget-package-1.png)
 
-![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web.UI package highlighted.](.\media\tutorial-blazor-server\nuget-package-2.png)
+![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web.UI package highlighted.](./media/tutorial-blazor-server/nuget-package-2.png)
 
 Next, perform a couple small code changes to swap out the old authentication code and plug-in the new code.
 
@@ -288,11 +288,11 @@ else
 
 Let’s launch our app and ensure that you are logged out first as the current token won’t have the right permissions and you’ve changed quite a few things in our code. You’ll notice that the next time you log in, you are prompted for the newly added permissions which means that everything is working as expected. Now, beyond basic user profile data, the app is requesting access to our email data. 
 
-![Image of a dialog box asking the user permission for the Blazor app to maintain access to data you have given it access to, sign you in and read your profile, and read your mail.](.\media\tutorial-blazor-server\consent-dialog-2.png)
+![Image of a dialog box asking the user permission for the Blazor app to maintain access to data you have given it access to, sign you in and read your profile, and read your mail.](./media/tutorial-blazor-server/consent-dialog-2.png)
 
 After granting consent you can navigate to the “Fetch Data” page to read some emails!
 
-![Screenshot of the final app. The webpage is titled "Weather forecast". It has a heading that says "Hello Christos Matskas" and it shows a list of emails belonging to Christos.](.\media\tutorial-blazor-server\final-app-2.png)
+![Screenshot of the final app. The webpage is titled "Weather forecast". It has a heading that says "Hello Christos Matskas" and it shows a list of emails belonging to Christos.](./media/tutorial-blazor-server/final-app-2.png)
 
 ## Notes
 
