@@ -1,7 +1,7 @@
 ---
-title: how to onboard your datafeed to Metrics Advisor
+title: Onboard your datafeed to Metrics Advisor
 titleSuffix: Azure Cognitive Services
-description: How to onboard your data feeds to Metrics Advisor
+description: How to get started with onboarding your data feeds to Metrics Advisor.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -90,10 +90,10 @@ If *Country* is a dimension and *Language* is set as *Ignored*, then the first a
 ### Automatic roll up settings
 
 > [!IMPORTANT]
-> If you'd like to enable root cause analysis and other diagnostic capabilities, 'auto roll up setting' needs to be configured. 
-> Once enabled, the auto roll-up settings cannot be changed.
+> If you'd like to enable root cause analysis and other diagnostic capabilities, the **Automatic roll up settings** need to be configured. 
+> Once enabled, the automatic roll-up settings cannot be changed.
 
-Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. 
+Metrics Advisor can automatically perform aggregation(for example SUM, MAX, MIN) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. 
 
 Consider the following scenarios:
 
@@ -105,13 +105,12 @@ Consider the following scenarios:
 
     This option means Metrics Advisor doesn't need to roll up the data because the rows are already summed. For example, if you select *NULL only*, then the second data row in the below example will be seen as an aggregation of all countries and language *EN-US*; the fourth data row which has an empty value for *Country* however will be seen as an ordinary row which might indicate incomplete data.
     
-    | Row ID | Country | Language | Income
-    | --- | --- | --- | --- |
-    | 1 | China | ZH-CN | 10000 |
-    | 2 | (NULL) | EN-US | 999999 |
-    | 3 | US | EN-US | 12000 |
-    | 4 |  | EN-US | 5000 |
-    | ... | ... | ... | ... |
+    | Country | Language | Income |
+    |---------|----------|--------|
+    | China   | ZH-CN    | 10000  |
+    | (NULL)  | EN-US    | 999999 |
+    | US      | EN-US    | 12000  |
+    |         | EN-US    | 5000   |
 
 2. *I need Metrics Advisor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by <some string>*
 
@@ -119,16 +118,18 @@ Consider the following scenarios:
     This option means you need Metrics Advisor to calculate the roll-up using the algorithm you've selected and use the specified string to represent the roll-up in Metrics Advisor. This won't change any data in your data source.
     For example, suppose you have a set of time series which stands for Sales metrics with the dimension (Country, Region). For a given timestamp, it might look like the following:
 
+
     | Country       | Region           | Sales |
-    | :------------ | :--------------- | :---- |
+    |---------------|------------------|-------|
     | Canada        | Alberta          | 100   |
     | Canada        | British Columbia | 500   |
     | United States | Montana          | 100   |
 
+
     After enabling Auto Roll Up with *Sum*, Metrics Advisor will calculate the dimension combinations, and sum the metrics during data ingestion. The result might be:
 
     | Country       | Region           | Sales |
-    | :------------ | :--------------- | :---- |
+    | ------------ | --------------- | ---- |
     | Canada        | Alberta          | 100   |
     | NULL          | Alberta          | 100   |
     | Canada        | British Columbia | 500   |

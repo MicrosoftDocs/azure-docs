@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Metrics Advisor REST API and Client libraries | Microsoft Docs"
+title: "Quickstart: Metrics Advisor REST API and Client libraries"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure Cognitive Services.
 services: cognitive-services

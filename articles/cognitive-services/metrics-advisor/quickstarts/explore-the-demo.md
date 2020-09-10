@@ -1,14 +1,14 @@
 ---
 title: Start exploring the Metrics Advisor demo
 titleSuffix: Azure Cognitive Services
-description: Learn about the Metrics Advisor web interface
+description: Learn about the Metrics Advisor web interface using the demo we provide
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 09/10/2020
 ms.author: aahi
 ---
 
@@ -68,7 +68,7 @@ By pinpointing root cause of the incident, customers are able to take actions as
 ## Next Step
 
 - [Use the web portal](web-portal.md)
-- [Use the REST API](rest-api-and-client-library.md)
+- [Use the REST API](rest-api.md)
 - [Onboard your data feeds](../how-tos/onboard-your-data.md)
     - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)

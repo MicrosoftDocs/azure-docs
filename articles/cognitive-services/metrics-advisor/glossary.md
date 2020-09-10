@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.author: aahi
 ---
 
@@ -35,33 +35,34 @@ A metric is a quantifiable measure that is used to monitor and assess the status
 A dimension is one or more categorical values. The combination of those values identify a particular univariate time series, for example: country, language, tenant, and so on.
 
 ## Multi-dimensional metric
-Let's use two examples.
 
-* Revenue of an e-business
+Let's use two examples. 
 
-Your time series data would look like this:
+**Revenue of a business**
+
+Suppose you have data for the revenue of your business. Your time series data might look something like this:
 
 | Timestamp | Category | Market | Revenue |
 | ----------|----------|--------|----- |
 | 2020-6-1 | Food | US | 1000 |
 | 2020-6-1 | Apparel | US | 2000 |
 | 2020-6-2 | Food | UK | 800 | 
-…
+| ...      | ...  |... | ... |
 
-"Category" and "Market" are dimensions. "Revenue" is the KPI which could be sliced into different categories and/or markets and could also be aggregated, e.g. revenue of "food" for all markets.
+In this example, *Category* and *Market* are dimensions. *Revenue* is the Key Performance Indicator (KPI) which could be sliced into different categories and/or markets, and could also be aggregated. For example, the revenue of *food* for all markets.
+ 
+**Error counts for a complex application**
 
-* Error count of a complex application
+Suppose you have data for the number of errors logged in an application. Your time series data might look something like this:
 
 | Timestamp	| Application component | Region | Error count |
 | ----------|----------|--------|----- |
 | 2020-6-1 | Employee database | WEST EU | 9000 |
 | 2020-6-1 | Message queue | EAST US | 1000 |
 | 2020-6-2 | Message queue | EAST US | 8000| 
-…
+| ...      | ...           | ...     |  ...|
 
-"Application component" and "Region" are dimensions. "Error count" is the KPI which could be sliced into different components and/or regions and could also be aggregated, e.g. error count of "message queue" in all regions.
-
-
+In this example, *Application component* and *Region* are dimensions. *Error count* is the KPI which could be sliced into different categories and/or markets, and could also be aggregated. For example, the error count of *Message queue* in all regions.
 
 ## Measure
 

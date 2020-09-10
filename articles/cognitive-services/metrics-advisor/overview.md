@@ -1,5 +1,5 @@
 ---
-title: What is Metrics Advisor
+title: What is the Metrics Advisor service?
 titleSuffix: Azure Cognitive Services
 description: What is Metrics Advisor?
 services: cognitive-services
@@ -10,7 +10,6 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/03/2020
 ms.author: aahi
-ms.custom: seodec2018
 ---
 
 # What is Metrics Advisor? 
@@ -30,22 +29,22 @@ Metrics Advisor is a cognitive service that uses time series based decision AI t
 
 ## Connect to a variety of data sources
 
-Metrics Advisor [ingests multi-dimensional metrics](how-tos/onboard-your-data.md) data from many data stores, including: SQL Server, Azure Blob Storage, MongoDB and more. Support collecting data through both 'pull' and 'push' mode and enable data monitored in streaming. 
+Metrics Advisor can connect to, and [ingest multi-dimensional metric](how-tos/onboard-your-data.md) data from many data stores, including: SQL Server, Azure Blob Storage, MongoDB and more. 
 
 ## Easy-to-use and customizable anomaly detection
 
-* Auto-select the best model that works for your metric data without needing to know any underlying techniques. 
-* Auto-monitor on every sliced time series of [multi-dimensional metrics](glossary.md#multi-dimensional-metrics) by using a default configuration. 
-* Simple [parameter tuning](how-tos/configure-metrics.md) and [interactive feedback](how-tos/anomaly-feedback.md) powered by reinforcement learning to customize your model and detection result.
+* Metrics Advisor automatically selects the best model for your data, without needing to know any machine learning. 
+* Automatically monitor every time series within [multi-dimensional metrics](glossary.md#multi-dimensional-metrics).
+* Use [parameter tuning](how-tos/configure-metrics.md) and [interactive feedback](how-tos/anomaly-feedback.md) to customize the model applied on your data, and future anomaly detection results.
 
 
 ## Real time alerts through multiple channels
 
-Whenever anomalies are detected, Metrics Advisor is able to [fire real time alerts](how-tos/alerts.md) through multiple channels(defined as hooks in Metrics Advisor), like email, web hook as well as Azure DevOps. Flexible alert rule settings are available to better serve on various customer scenarios. 
+Whenever anomalies are detected, Metrics Advisor is able to [send real time alerts](how-tos/alerts.md) through multiple channels using hooks, such as: email hooks, web hooks and Azure DevOps hooks. Flexible alert rules let you customize which alerts are sent, and where.
 
 ## Smart diagnostic insights by analyzing anomalies
 
-Analyze anomalies detected on multi-dimensional metrics and generate [smart diagnostic insights](how-tos/diagnose-incident.md) including most likely root cause, diagnosing tree, metric drilling, anomaly clustering... By configuring [Metrics graph](how-tos/metrics-graph.md), cross metrics analysis is also enabled to help understand on overall impact from a global view. 
+Analyze anomalies detected on multi-dimensional metrics, and generate [smart diagnostic insights](how-tos/diagnose-incident.md) including most the most likely root cause, diagnostic trees, metric drilling, and more. By configuring [Metrics graph](how-tos/metrics-graph.md), cross metrics analysis can enabled to help you visualize incidents.
 
 
 ## Typical workflow
@@ -65,4 +64,4 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
 
 * Try the [demo site](quickstarts/explore-the-demo.md).
 * Explore a quickstart: [Monitor your first metric on web](quickstarts/web-portal.md).
-* Explore a quickstart: [Use the REST APIs to customize your solution](quickstarts/rest-api-and-client-library.md).
+* Explore a quickstart: [Use the REST APIs to customize your solution](quickstarts/rest-api.md).

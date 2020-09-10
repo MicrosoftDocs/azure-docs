@@ -1,7 +1,7 @@
 ---
-title: How to diagnose an incident using Metrics Advisor
+title: Diagnose incidents using Metrics Advisor
 titleSuffix: Azure Cognitive Services
-description: Learn how to diagnose an incident using Metrics Advisor
+description: Learn how to diagnose an incidents using Metrics Advisor, and get detailed views of anomalies in your data.
 services: cognitive-services
 author: aahill
 manager: nitinme

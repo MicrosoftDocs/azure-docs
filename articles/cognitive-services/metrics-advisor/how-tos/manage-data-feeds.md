@@ -1,7 +1,7 @@
 ---
-title: how to add datafeeds to Metrics Advisor
+title: Manage data feeds in Metrics Advisor
 titleSuffix: Azure Cognitive Services
-description: add Datafeeds to Metrics Advisor
+description: Learn how to manage data feeds that you've added to Metrics Advisor.
 services: cognitive-services
 author: aahill
 manager: nitinme

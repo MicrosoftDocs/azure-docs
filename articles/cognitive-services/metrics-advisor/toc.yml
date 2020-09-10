@@ -12,7 +12,7 @@
   - name: Use the web portal
     href: quickstarts/web-portal.md
   - name: Use the REST API
-    href: quickstarts/rest-api-and-client-library.md
+    href: quickstarts/rest-api.md
 - name: How-tos
   items:
   - name: Onboard your data
@@ -38,7 +38,7 @@
   - name: FAQ
     href: faq.md
   - name: Metrics Advisor API
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/
+    href: https://go.microsoft.com/fwlink/?linkid=2141634
   - name: Azure CLI reference 
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: PowerShell reference

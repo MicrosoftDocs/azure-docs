@@ -1,14 +1,14 @@
 ---
 title: Provide anomaly feedback to the Metrics Advisor service
 titleSuffix: Azure Cognitive Services
-description: Learn how how to send feedback on anomalies found by your Metrics Advisor instance, and tune the results 
+description: Learn how to send feedback on anomalies found by your Metrics Advisor instance, and tune the results. 
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/10/2020
 ms.author: aahi
 ---
 

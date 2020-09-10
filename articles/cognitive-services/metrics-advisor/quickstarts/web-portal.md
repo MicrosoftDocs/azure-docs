@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: build your first Metrics Advisor" 
+title: "Quickstart: Metrics Advisor web portal" 
 titleSuffix: Azure Cognitive Services
-description: Learn how to build your first Metrics Advisor. 
+description: Learn how to start using the Metrics Advisor web portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 08/28/2020
+ms.date: 09/10/2020
 ms.author: aahi
 ---
 
-# Quickstart: Monitor your first metric on web
+# Quickstart: Monitor your first metric using the web portal
 
 Within every provisioned service instance, there's a set of APIs and a web-based workspace available for customers. The web-based workspace could be used as a quick and straightforward way to learn the service and prove the value in a short time. It could also be used as a visual way to do configuration tuning, model customization, as well as root cause analysis. 
 
@@ -49,7 +49,7 @@ To get started, sign into your Metrics Advisor workspace, with your Active Direc
 ### Configure connection settings
 
 > [!TIP]
-> See [**how to add data feeds**](../how-tos/onboard-your-data.md) for details on the available parameters.
+> See [how to add data feeds](../how-tos/onboard-your-data.md) for details on the available parameters.
 
 Add the data feed by connecting to your time-series data source. Start by selecting the following parameters:
 
@@ -92,7 +92,7 @@ Once the data schema is loaded and shown like below, select the appropriate fiel
 > If you'd like to enable **root cause analysis** and other diagnostic capabilities, 'automatic roll up setting' needs to be configured. 
 > Once enabled, the automatic roll up settings cannot be changed.
 
-Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. For more detail, refer to [**Automatic roll up settings**](onboard-your-data.md#automatic-roll-up-settings).
+Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. See [Automatic roll up settings](onboard-your-data.md#automatic-roll-up-settings) for more details.
 
 Give a custom name for the data feed, which will be displayed in your workspace. Click on **Submit**. 
 
@@ -143,5 +143,5 @@ After creating a hook, an alert setting determines how and which alert notificat
 - [Onboard your data feeds](../how-tos/onboard-your-data.md)
     - [Manage data feeds](../how-tos/manage-data-feeds.md)
     - [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Use the REST API or Client libraries](rest-api-and-client-library.md)
+- [Use the REST API or Client libraries](rest-api.md)
 - [Configure metrics and fine tune detecting configuration](../how-tos/configure-metrics.md)

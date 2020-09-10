@@ -1,14 +1,14 @@
 ---
-title: How to configure your Metrics Advisor instance using the web portal
+title: Configure your Metrics Advisor instance using the web portal
 titleSuffix: Azure Cognitive Services
-description: How to configure your Metrics Advisor instance using the web portal
+description: How to configure your Metrics Advisor instance and fine-tune the anomaly detection results.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 09/10/2020
 ms.author: aahi
 ---
 
