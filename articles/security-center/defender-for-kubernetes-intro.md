@@ -83,7 +83,7 @@ As mentioned above, the optional **Azure Defender for Kubernetes** plan provides
 
 We recommend deploying both, for the most complete protection possible.
 
-If you choose not to install the agent on your hosts, you will only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
+If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
 
 ## Next steps

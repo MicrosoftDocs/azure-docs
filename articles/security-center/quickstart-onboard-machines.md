@@ -10,7 +10,7 @@ manager: rkarlin
 
 ---
 
-#  Connect your non-Azure machines to Azure Security Center
+#  Connect your non-Azure machines to Security Center
 
 Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. You can add non-Azure computers from the **Getting started** page or from **Inventory** as described below.
 

@@ -44,7 +44,7 @@ Updates in September include:
 
 ### Security Center gets a new look!
 
-We've released a refreshed UI for Security Center's portal pages. The new pages include dashboards for secure score, regulatory compliance and Azure Defender.
+We've released a refreshed UI for Security Center's portal pages. The new pages include dashboards for secure score, regulatory compliance, and Azure Defender.
 
 The redesigned overview page now has a tile for each of these elements as well as a link to the asset inventory page dashboard.
 
@@ -83,9 +83,16 @@ The optional plan is now GA. This feature was in preview as "advanced threat pro
 Learn more in [Azure Defender for Key Vault](defender-for-key-vault-intro.md).
 
 
+### IoT threat protection enhancements in Azure Defender for IoT
+
+Azure Defender for IoT brings more threat protection capabilities thanks to the inclusion of CyberX Agentless Technology. This brings security protections for unmanaged brownfield devices used in Operational Technology (OT) environments such as manufacturing, building management systems (BMS), life sciences, energy and water utilities, oil & gas, and logistics.
+
+Learn more in [Introduction to Azure Defender for IoT](defender-for-iot-intro.md).
+
+
 ### Vulnerability assessment findings are now available in continuous export
 
-Use continuous export to stream your alerts and recommendations in real-time to Azure Event Hubs, Log Analytics workspaces, or Azure Monitor. From there, you can integrate this data with SIEMs (such as Azure Sentinel, Power BI, Azure Data Explorer, and more.
+Use continuous export to stream your alerts and recommendations in real time to Azure Event Hubs, Log Analytics workspaces, or Azure Monitor. From there, you can integrate this data with SIEMs (such as Azure Sentinel, Power BI, Azure Data Explorer, and more.
 
 Security Center's integrated vulnerability assessment tools return findings about your resources as actionable recommendations within a 'parent' recommendation such as "Vulnerabilities in your virtual machines should be remediated". 
 
