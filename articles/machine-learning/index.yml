@@ -28,11 +28,11 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Get started using Python
+          - text: Get started (Python)
             url: tutorial-1st-experiment-sdk-setup.md
-          - text: Create Azure ML pipelines
+          - text: Batch inference with ML pipelines (Python)
             url: tutorial-pipeline-batch-scoring-classification.md            
-          - text: Get started using R
+          - text: Get started (R)
             url: tutorial-1st-r-experiment.md
 
 # GET STARTED
