@@ -156,6 +156,8 @@ IoT Edge module offers must include a minimum hardware requirements paragrap
 
 [!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
+**Note : Offers must not include the terms 'contact tracing' or 'exposure notification' or related functionality unless affiliated with a public health authority**.
+
 #### Privacy policy URL
 
 Enter the web address of your organization's privacy policy. You're responsible for ensuring that your offer complies with privacy laws and regulations. You're also responsible for posting a valid privacy policy on your website.
