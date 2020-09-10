@@ -1,6 +1,7 @@
 ---
-title: Add sign-in with Microsoft to ASP.NET Core web apps - Microsoft identity platform | Azure
-description: Learn how to implement Microsoft Sign-In on an ASP.NET Core web app using OpenID Connect
+title: Add sign-in with Microsoft to ASP.NET Core web apps | Azure
+titleSuffix: Microsoft identity platform
+description: Learn how to implement Microsoft sign-in on an ASP.NET Core web app using OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/10/2020
+ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
@@ -79,27 +80,35 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 > #### Step 3: Configure your ASP.NET Core project
 > 1. Extract the .zip archive into a local folder near the root of your drive. For example, into *C:\Azure-Samples*.
 > 1. Open the solution in Visual Studio 2019.
-> 1. In the **NuGet Package Manager**, select the [Include prerelease](/nuget/consume-packages/install-use-packages-visual-studio#manage-packages-for-the-solution) check box to include prerelease NuGet packages.
 > 1. Open the *appsettings.json* file and modify the following:
 >
 >    ```json
->    "ClientId": "Enter_the_Application_Id_here"
->    "TenantId": "Enter_the_Tenant_Info_Here"
+>    "ClientId": "Enter_the_Application_Id_here",
+>    "TenantId": "common",
 >    ```
 >
 >    - Replace `Enter_the_Application_Id_here` with the **Application (client) ID** of the application you registered in the Azure portal. You can find **Application (client) ID** in the app's **Overview** page.
->    - Replace `Enter_the_Tenant_Info_Here` with one of the following:
+>    - Replace `common` with one of the following:
 >       - If your application supports **Accounts in this organizational directory only**, replace this value with the **Directory (tenant) ID** (a GUID) or **tenant name** (for example, `contoso.onmicrosoft.com`).
 >       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->       - If your application supports **All Microsoft account users**, replace this value with `common`
+>       - If your application supports **All Microsoft account users**, leave this value as `common`
 >
 >     > [!TIP]
 >     > You can find the **Application (client) ID** and **Directory (tenant) ID** on the app's **Overview** page in the Azure portal.
 >
-> #### Step 4: Build and run the application
+> For this quickstart, do not alter any other values in the *appsettings.json* file.
 >
-> > [!WARNING]
-> > WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO WIP TODO
+> #### Step 4: Build and run the application
+> 
+> Build and run the app by selecting the **Debug** menu > **Start Debugging**, or press the `F5` key.
+> 
+> You're prompted for your credentials, and then asked to consent to the permissions your app requires. Select **Accept** on the consent prompt.
+> 
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-01-consent.png" alt-text="Consent dialog showing the permissions the app is requesting from the > user":::
+> 
+> After consenting to the requested permissions, the app displays that you've successfully logged in using your Azure Active Directory credentials.
+> 
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Web browser displaying the running web app and the user signed in":::
 
 ## More information
 
