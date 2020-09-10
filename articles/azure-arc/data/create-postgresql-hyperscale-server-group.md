@@ -49,10 +49,10 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 ## Preliminary and temporary step for OpenShift users only
 
-Implement this preliminary step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to relax the security constraints. This command grants the necessary privileges to the service accounts that will run your Postgres Hyperscale server group. It is a temporary requirement that will be removed in the future.
+Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your Postgres Hyperscale server group. The **_arc-data-scc_** was created prior data controller deployment.
 
 ```console
-oc adm policy add-scc-to-group anyuid -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 _**Server-group-name** is the name of the server group you will deploy during the next step._
    
