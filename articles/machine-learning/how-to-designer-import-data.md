@@ -53,7 +53,7 @@ Your registered datasets can be found in the module palette, under **Datasets**.
 
 
 > [!NOTE]
-> The designer supports [dataset versioning](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-version-track-datasets). Specify the dataset version in the property panel of the dataset module.
+> The designer supports [dataset versioning](how-to-version-track-datasets.md). Specify the dataset version in the property panel of the dataset module.
 
 
 ## Import data using the Import Data module
