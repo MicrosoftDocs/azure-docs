@@ -6,6 +6,7 @@ ms.author: nichola
 ms.service: active-directory
 ms.topic: tutorial 
 ms.date: 08/07/2020
+#Customer intent: As a developer, I want to add authentication to a Blazor app.
 ---
 
 # Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication
@@ -297,9 +298,9 @@ After granting consent you can navigate to the “Fetch Data” page to read som
 
 ## Notes
 
-Unlike normal web apps that can support dynamic/incremental consent, in Blazor you need to request all the scopes necessary for your application up front. Failing to do so will cause an error as the TokenAcquisition method will be unable to validate the token against the new permissions. This is part of the Blazor mechanics so something to keep in mind when creating your apps.
+- Unlike normal web apps that can support dynamic or incremental consent, in Blazor you need to request all the scopes necessary for your application up front. Failing to do so will cause an error as the TokenAcquisition method will be unable to validate the token against the new permissions. This is part of the Blazor mechanics so something to keep in mind when creating your apps.
 
-Instead of hand rolling your Microsoft Graph HTTP requests, you should leverage the Microsoft Graph SDK which simplifies the interaction with Microsoft Graph and provides all the data objects you’ll need to serialize and deserialize from. However, in this instance you went with option 1 because you only make one call to Microsoft Graph. 
+- In general, you should leverage the Microsoft Graph SDK which simplifies the interaction with Microsoft Graph and provides all the data objects you’ll need to serialize and deserialize from, rather than creating custom Http requests. 
 
 ## Next steps
-- Need some next steps / links
+- [Microsoft identity platform best practices and recommendations](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist)
