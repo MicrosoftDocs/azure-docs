@@ -71,7 +71,7 @@ The Resource Manager sample template found [here](https://github.com/Azure/azure
 
 When creating a VM in Azure, you can select which dedicated host to use. You can also use the option to automatically place your VMs on existing hosts, within a host group. 
 
-When creating a new host group, make sure the setting for automatic VM placement is selected. When creating your VM, y select the host group and let Azure pick the best host for your VM. 
+When creating a new host group, make sure the setting for automatic VM placement is selected. When creating your VM, select the host group and let Azure pick the best host for your VM. 
 
 Host groups that are enabled for automatic placement do not require all the VMs to be automatically placed. You will still be able to explicitly pick a host, even when automatic placement is selected for the host group. 
 

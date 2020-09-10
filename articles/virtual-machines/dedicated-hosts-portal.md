@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure dedicated hosts using the Azure portal 
-description: Deploy VMs to dedicated hosts using the Azure portal.
+description: Deploy VMs and scale sets to dedicated hosts using the Azure portal.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.author: cynthn
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Deploy VMs to dedicated hosts using the portal 
+# Deploy VMs and scale sets to dedicated hosts using the portal 
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
@@ -42,10 +42,16 @@ In this example, we will create a host group using 1 availability zone and 2 fau
 1. For **Location**, select **East US**.
 1. For **Availability Zone**, select **1**.
 1. For **Fault domain count**, select **2**.
+1. For **Automatic placement**, select this option to automatically assign VMs and scale set instances to an available host in this group.
 1. Select **Review + create** and then wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host group.
 
 It should only take a few moments to create the host group.
+
+> [!IMPORTANT]
+> Automatic placement is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create a dedicated host
 
@@ -80,6 +86,22 @@ If you set a fault domain count for your host group, you will be asked to specif
 1. When you see the message that validation has passed, select **Create**.
 
 It will take a few minutes for your VM to be deployed.
+
+## Create a scale set (preview)
+
+> [!IMPORTANT]
+> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+When you deploy a scale set, you specify the host group.
+
+1. Search for *Scale set* and select **Virtual machine scale sets** from the list.
+1. Select **Add** to create a new scale set.
+1. Complet the fields on the **Basics** tab as you usually would, but make sure you select a VM size that is from the series you chose for your dedicated host, like **Standard E2s v3**.
+1. On the **Advanced** tab, for **Spreading algorithm** select **Max spreading**.
+1. In **Host group**, select the host group from the drop-down. If you recently created the group, it might take a minute to get added to the list.
+1. 
 
 ## Add an existing VM 
 

@@ -1,16 +1,16 @@
 ---
-title: Deploy Linux VMs to dedicated hosts using the CLI 
-description: Deploy VMs to dedicated hosts using the Azure CLI.
+title: Deploy VMs and scale set instances to dedicated hosts using the CLI 
+description: Deploy VMs and scale set instances to dedicated hosts using the Azure CLI.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 09/09/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Deploy VMs to dedicated hosts using the Azure CLI
+# Deploy to dedicated hosts using the Azure CLI
  
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
@@ -20,7 +20,6 @@ Make sure that you have installed Azure CLI version 2.0.70 or later, and signed 
 
 ## Limitations
 
-- Virtual machine scale sets are not currently supported on dedicated hosts.
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 ## Create resource group 
@@ -31,6 +30,7 @@ az group create --name myDHResourceGroup --location eastus
 ```
  
 ## List Available host SKUs in a region
+
 Not all host SKUs are available in all regions, and availability zones. 
 
 List host availability, and any offer restrictions before you start provisioning dedicated hosts. 
@@ -49,6 +49,7 @@ In either case, you are need to provide the fault domain count for your host gro
 
 You can also decide to use both availability zones and fault domains. 
 
+
 In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains. 
 
 ```bash
@@ -58,6 +59,13 @@ az vm host group create \
    -z 1 \
    --platform-fault-domain-count 2 
 ``` 
+
+Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](../dedicated-hosts.md#manual-vs-automatic-placement).
+
+> [!IMPORTANT]
+> Automatic placement is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Other examples
 
@@ -117,6 +125,32 @@ az vm create \
  
 > [!WARNING]
 > If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state. 
+
+## Create a scale set (preview)
+
+> [!IMPORTANT]
+> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+When you deploy a scale set, you specify the host group.
+
+```bash
+aaz vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --image UbuntuLTS \
+  --upgrade-policy-mode automatic \
+  --admin-username azureuser \
+  --generate-ssh-keys
+  --host-group myHostGroup \
+  --generate-ssh-keys \
+  --size Standard_D4s_v3 \
+  -g myDHResourceGroup \
+  --zone 1
+```
+
+If you want to manually choose which host to deploy the scale set to, add `--host` and the name of the host.
 
 
 ## Check the status of the host
