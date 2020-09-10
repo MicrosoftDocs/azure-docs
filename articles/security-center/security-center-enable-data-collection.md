@@ -30,22 +30,23 @@ To collect the data from the machines, you should have the Log Analytics agent i
 When automatic provisioning is on, Security Center deploys the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but you can install the agent manually if necessary (see [Manual installation of the Log Analytics agent](#manual-agent)).
 
 
+
 To enable automatic provisioning of the Log Analytics agent:
 
-1. From Security Center's menu in the portal, select **Pricing & settings**.
-
+1. From Security Center's menu, select **Pricing & settings**.
 1. Select the relevant subscription.
+1. In the **Data collection** page, set **Auto provisioning** to **On**.
+1. Select **Save**.
 
-1. Select **Data Collection**.
-
-1. Under **Auto Provisioning**, select **On** to enable automatic provisioning.
-
-1. Select **Save**. The agent will be deployed on all VMs within 15 minutes. 
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent":::
 
 >[!TIP]
 > If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
 
-   ![Enable automatic provisioning][1]
+With the agent deployed to your machines, Security Center can provide additional recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional security alerts.
+
+>[!NOTE]
+> Setting auto provisioning to **Off** doesn't remove the Log Analytics agent from Azure VMs where the agent has already been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 
 >[!NOTE]
 > - For instructions on how to provision a pre-existing installation, see [Automatic provisioning in cases of a preexisting agent installation](#preexisting).
@@ -309,7 +310,6 @@ This article showed you how data collection and automatic provisioning in Securi
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 [7]: ./media/security-center-enable-data-collection/select-subscription.png
 [8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png

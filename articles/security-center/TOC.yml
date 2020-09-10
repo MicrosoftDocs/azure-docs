@@ -64,21 +64,20 @@
   items:
   - name: Get started
     href: security-center-get-started.md
-  - name: Connect your machines to Security Center
+  - name: Connect non-Azure machines
+    displayName: azure stack, windows, linux
     href: quickstart-onboard-machines.md
-  - name: Connect your AWS and GCP clouds
+  - name: Connect AWS and GCP accounts
     items:
     - name: Connect AWS accounts
-      displayName: hybrid, multicloud
+      displayName: hybrid, multicloud, amazon
       href: quickstart-onboard-aws.md
     - name: Connect GCP accounts
-      displayName: hybrid, multicloud
+      displayName: hybrid, multicloud, google
       href: quickstart-onboard-gcp.md
-  - name: Enable Azure Defender    
-    href: security-center-onboarding.md
   - name: Automate onboarding using PowerShell
     href: security-center-powershell-onboarding.md
-  - name: Configure your data collection
+  - name: Configure data collection
     href: security-center-enable-data-collection.md
   - name: Set up email notifications
     href: security-center-provide-security-contact-details.md

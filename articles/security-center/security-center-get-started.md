@@ -78,12 +78,15 @@ To enable automatic provisioning of the Log Analytics agent:
 1. In the **Data collection** page, set **Auto provisioning** to **On**.
 1. Select **Save**.
 
-     ![Enable automatic provisioning][6]
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent":::
 
-    With the agent deployed to your machines, Security Center can provide additional recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional security alerts.
+>[!TIP]
+> If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
 
-    >[!NOTE]
-    > Setting auto provisioning to **Off** doesn't remove the Log Analytics agent from Azure VMs where the agent has already been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+With the agent deployed to your machines, Security Center can provide additional recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional security alerts.
+
+>[!NOTE]
+> Setting auto provisioning to **Off** doesn't remove the Log Analytics agent from Azure VMs where the agent has already been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 
 
 
