@@ -28,7 +28,8 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 This section helps you create a new Azure Bastion resource using Azure CLI.
 
-> [!NOTE] As you can see in the examples the `--location` parameter is used together with `--resource-group` for every command, this way we can ensure that the resources are deployed together.
+> [!NOTE]
+> As shown in the examples, use the `--location` parameter with `--resource-group` for every command to ensure that the resources are deployed together.
 
 1. Create a virtual network and an Azure Bastion subnet. You must create the Azure Bastion subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. This is different than a Gateway subnet. You must use a subnet of at least /27 or larger subnet (/27, /26, and so on). Create the **AzureBastionSubnet** without any route tables or delegations. If you use Network Security Groups on the **AzureBastionSubnet**, refer to the [Work with NSGs](bastion-nsg.md) article.
 
