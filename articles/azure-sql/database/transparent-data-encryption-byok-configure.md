@@ -57,7 +57,7 @@ If you are creating a server, use the [New-AzSqlServer](/powershell/module/az.sq
        -ServerName <LogicalServerName> -ServerVersion "12.0" -SqlAdministratorCredentials <PSCredential> -AssignIdentity
    ```
 
-## Grant Key Vault permissions to your server using CLI
+## Grant Key Vault permissions to your server using Azure CLI
 
 Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to grant your server access to the key vault before using a key from it for TDE.
 
@@ -165,7 +165,7 @@ az sql db tde set --database <dbname> --server <servername> --resource-group <rg
 
 Now the database or data warehouse has TDE enabled with a customer-managed encryption key in Azure Key Vault.
 
-## Check the encryption state and encryption activity using CLI
+## Check the encryption state and encryption activity using Azure CLI
 
 ```azurecli
 # get encryption scan progress
