@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/05/2020
+ms.date: 09/09/2020
 
 ---
 
@@ -17,7 +17,7 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 ## Customer-managed key (CMK) overview
 
-[Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage Encryption at Rest, while you have various options to closely manage encryption or encryption keys.
+[Encryption at Rest](../../security/fundamentals/encryption-atrest.md) is a common privacy and security requirement in organizations. You can let Azure completely manage Encryption at Rest, while you have various options to closely manage encryption or encryption keys.
 
 Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your [Azure Key Vault](../../key-vault/general/overview.md) and accessed by storage using system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) authentication. This key (CMK) can be either [software or hardware-HSM protected](../../key-vault/general/overview.md).
 
@@ -25,7 +25,7 @@ Azure Monitor use of encryption is identical to the way [Azure Storag
 
 CMK lets you control the access to your data and revoke it at any time. Azure Monitor storage always respects changes in key permissions within an hour. Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to [key revocation](#cmk-kek-revocation). We are working to have SSD data encrypted with CMK in the second half of 2020.
 
-The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is allowed beforehand. Use your Microsoft contact to get your subscription allowed before you start configuring CMK.
+The CMK capability is delivered on dedicated Log Analytics clusters, which gives you more control when using [Lockbox](#customer-lockbox-preview). To verify that we have the required capacity in your region, we require that your subscription is allowed beforehand. Use your Microsoft contact to get your subscription allowed before you start configuring CMK.
 
 The [Log Analytics clusters pricing model](./manage-cost-storage.md#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
 
@@ -535,6 +535,13 @@ Content-type: application/json
 ```
 
 After the configuration, any new alert query will be saved in your storage.
+
+## Customer Lockbox (preview)
+Lockbox gives you the control to approve or reject Microsoft engineer request to access your data during a support request.
+
+In Azure Monitor, you have this control on data in workspaces associated to your Log Analytics dedicated cluster. The Lockbox control applies to data stored in a Log Analytics dedicated cluster where it’s kept isolated in the cluster’s storage accounts under your Lockbox protected subscription.  
+
+Learn more about [Customer Lockbox for Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
 ## CMK management
 

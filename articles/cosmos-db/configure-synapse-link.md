@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
+ms.custom: references_regions
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
