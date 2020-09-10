@@ -44,6 +44,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Expose service managed resources settings for AML workspace in SDK.
   + **azureml-dataprep**
     + Enable execute permission on files for Dataset mount.
+  + **azureml-mlflow**
+    + Updated AzureML MLflow documentation and notebook samples 
+    + New support for MLflow projects with AzureML backend
+    + MLflow model registry support
+    + Added RBAC support for AzureML-MLflow operations 
+    
   + **azureml-pipeline-core**
     + Improved the documentation of the PipelineOutputFileDataset.parse_* methods.
     + Introduced new experimental pipeline step which would allow users to provide command to run.
