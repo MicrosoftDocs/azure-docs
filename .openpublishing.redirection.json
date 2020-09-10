@@ -17443,6 +17443,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-enable-virtual-network.md",
+      "redirect_url": "/azure/machine-learning/how-to-network-security-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
@@ -29493,11 +29498,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sentinel/connect-logstash.md",
-      "redirect_url": "/azure/sentinel/connect-data-sources",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/sentinel/connect-microsoft-waf.md",
       "redirect_url": "/azure/sentinel/connect-azure-waf",
       "redirect_document_id": false
@@ -33834,8 +33834,8 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
-      "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-troubleshoot",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/multi-factor-authentication/nps-extension-vpn.md",
@@ -56833,6 +56833,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
+      "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/aks/windows-node-limitations.md",
       "redirect_url": "/azure/aks/windows-faq",
       "redirect_document_id": false
@@ -56901,7 +56906,12 @@
       "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
       "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
       "redirect_document_id": false
-    }
+    },
 
+	{
+	  "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
+	  "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
+	  "redirect_document_id": false 	
+	}
   ]
 }
