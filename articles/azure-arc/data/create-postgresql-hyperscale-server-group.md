@@ -82,7 +82,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 >
 >   ```console
 >   kubectl get sc
->   ``
+>   ```
 >
 >If there is storage class configured as default storage class you will see **(default)** appended to the name of the storage class. For example:
 >   ```output
