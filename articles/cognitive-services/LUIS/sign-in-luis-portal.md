@@ -7,6 +7,7 @@ ms.service: cognitive-services
 ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: a-sakand
+author:
 ---
 # Sign in to LUIS portal
 
@@ -18,7 +19,13 @@ If you are a new user signing in to the LUIS portal, the sign-in experience will
 
 When you first sign in to the LUIS portal, use the following visual indicators to determine account type.
 
+### Account without Azure subscription
+
 An account, which is not associated with an Azure subscription has the Azure icon in the top-right navigation bar. Once you migrate to the associated account type, the icon no longer appears.
+
+:::image type="content" source="media/sign-in/sign-in-with-account-without-azure-subscription.png" alt-text="Partial screen-shot of LUIS navigation bar with Azure icon.":::
+
+### Account with Azure subscription
 
 An account associated with an Azure subscription allows you to select your subscription and resource to use.
 
@@ -29,12 +36,14 @@ An account associated with an Azure subscription allows you to select your subsc
 1. Sign in to [LUIS portal](https://www.luis.ai) and agree to the terms of use.
 
 1. You will have two options signing up:
+
     * Continue using an Azure resource, which is the recommended path and soon will be the only available path. This path allows you to link your LUIS account with an Azure Authoring resource while signing up either by choosing an existing resource in your subscription or creating a new resource. This is equivalent to signing up migrated without the need of undergoing the [migration process](luis-migration-authoring.md#what-is-migration) later on. All users will be required to migrate by November 2, 2020.
+
     * Continue using the starter or trial key. This path allows you to sign in to LUIS with the starter or the trial resource that is being provided without having to create any resources. If you choose this path, you will eventually be required to [migrate your account](luis-migration-authoring.md#migration-steps) and link your applications to an authoring resource. That is why choosing the path where you continue with your Azure resource is recommended.
 
-[Learn more about authoring and starter keys](luis-how-to-azure-subscription.md#luis-resources). Both resources give you 1 million free authoring transactions and 1000 free prediction endpoint transactions.
+    [Learn more about authoring and starter keys](luis-how-to-azure-subscription.md#luis-resources). Both resources give you 1 million free authoring transactions and 1000 free prediction endpoint transactions.
 
-:::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Partial screen-shot to choose a type of Language Understanding authoring resource.":::
+    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Partial screen-shot to choose a type of Language Understanding authoring resource.":::
 
 1. Use an existing authoring resource
 
@@ -46,8 +55,8 @@ An account associated with an Azure subscription allows you to select your subsc
     * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the drop-down list.
     * **Resource name** - The authoring resource you want you account to be associated to.
 
-> [!Note]
-> If the authoring resource that you are looking is greyed out in the dropdown list, this means that you have signed in to a different regional portal. [Understand the concept of regional portals](luis-reference-regions.md#luis-authoring-regions).
+    > [!Note]
+    > If the authoring resource that you are looking is greyed out in the dropdown list, this means that you have signed in to a different regional portal. [Understand the concept of regional portals](luis-reference-regions.md#luis-authoring-regions).
 
 1. Create a new authoring resource
 
@@ -64,8 +73,8 @@ An account associated with an Azure subscription allows you to select your subsc
 
     :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Confirm authoring resource":::
 
-> [!Note]
-> If you have a subscription and at least one authoring resource in the region same as the one you are signing up to in the portal, you might automatically sign in to LUIS migrated and associated with a resource without the need of choosing which path to go in.
+    > [!Note]
+    > If you have a subscription and at least one authoring resource in the region same as the one you are signing up to in the portal, you might automatically sign in to LUIS migrated and associated with a resource without the need of choosing which path to go in.
 
 
 ## Sign in with user account not associated with an Azure subscription
