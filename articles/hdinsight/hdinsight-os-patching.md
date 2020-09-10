@@ -60,6 +60,9 @@ The `install-updates-schedule-reboots` script accepts two numeric parameters, as
 > [!NOTE]
 > You must mark a script as persisted after you apply it to an existing cluster. Otherwise, any new nodes created through scaling operations will use the default patching schedule. If you apply the script as part of the cluster creation process, it's persisted automatically.
 
+> [!NOTE]
+> The Scheduled Restart option does an automated rolling restart of the patched cluster nodes over a period of 12 to 24 hours and takes into account high availability, update domain, and fault domain considerations. Scheduled Restart does not terminate running workloads but may take away cluster capacity in the interim when nodes are unavailable, leading to longer processing times. 
+
 ## Next steps
 
 For specific steps on using script actions, see the following sections in [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
