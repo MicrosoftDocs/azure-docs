@@ -136,8 +136,8 @@ To implement the simulation binding, it is important to understand the differenc
 
 Two cameras are needed:
 
-* **Local camera**: This camera represents the current camera position is driven by the application logic.
-* **Proxy camera**: This camera matches the current *Remote Frame* that was sent by the server. As there is a time delay between the client requesting a frame and it arriving, the *Remote Frame* is always a bit behind the movement of the local camera.
+* **Local camera**: This camera represents the current camera position that is driven by the application logic.
+* **Proxy camera**: This camera matches the current *Remote Frame* that was sent by the server. As there is a time delay between the client requesting a frame and its arrival, the *Remote Frame* is always a bit behind the movement of the local camera.
 
 The basic approach here is that both the remote image and the local content are rendered into an off-screen target using the proxy camera. The proxy image is then reprojected into the local camera space, which is further explained in [late stage reprojection](../overview/features/late-stage-reprojection.md).
 
