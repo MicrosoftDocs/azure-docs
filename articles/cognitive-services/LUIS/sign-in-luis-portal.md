@@ -1,6 +1,6 @@
 ---
-title: Signing up to LUIS
-description: Signing up to LUIS as a new user
+title: Sign in to LUIS portal
+description: If you are a new user signing in to the LUIS portal, the sign-in experience will slightly differ based on your current user account.
 services: cognitive-services
 ms.custom:
 ms.service: cognitive-services
