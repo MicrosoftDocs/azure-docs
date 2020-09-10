@@ -43,28 +43,30 @@ landingContent:
             url: install-client-tools.md
 
   # Card (optional)
-  - title: Azure Arc enabled PostgreSQL Hyperscale
+  - title: Azure Arc enabled PostgreSQL Hyperscale (preview)
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create PostgreSQL Hyperscale server group
+          - text: Create
             url: create-postgresql-hyperscale-server-group.md
-          - text: Connect to Azure Arc enabled PostgreSQL Hyperscale
+          - text: Connect
             url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
-          - text: Migrate to Azure Arc enabled PostgreSQL Hyperscale
+          - text: Migrate to
             url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-          - text: Restore sample database
+          - text: Restore
             url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
 
 
   # Card (optional)
-  - title: Azure Arc enabled SQL Managed Instance
+  - title: Azure Arc enabled SQL Managed Instance (preview)
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create Managed Instance
+          - text: Create
             url: create-sql-managed-instance.md
-          - text: Migrate to Managed Instance
+          - text: Connect
+            url: connect-managed-instance.md
+          - text: Migrate
             url: migrate-to-managed-instance.md
-          - text: Restore sample database
+          - text: Restore
             url: restore-adventureworks-sample-db.md
