@@ -1,6 +1,6 @@
 ---
-title: Temporarily boost Azure managed disk performance
-description: Learn about performance tiers for managed disks, as well as how to temporarily upgrade performance tiers for your managed disks.
+title: Boost Azure managed disk performance
+description: Learn about performance tiers for managed disks, as well as how to upgrade performance tiers for your managed disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
@@ -12,11 +12,11 @@ ms.custom: references_regions
 
 # Performance tiers for managed disks (preview)
 
-Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to temporarily increase disk performance without increasing the actual disk size, allowing you to match your workload performance needs and reduce costs. This is ideal for events that temporarily require a consistently higher level of performance, such as holiday shopping, performance testing, or running a training environment. To handle these events, you can temporarily select a higher performance tier as long as necessary, and return to the original tier when the additional performance is no longer necessary.
+Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size, allowing you to match your workload performance needs and reduce costs. This is ideal for events that temporarily require a consistently higher level of performance, such as holiday shopping, performance testing, or running a training environment. To handle these events, you can select a higher performance tier as long as necessary, and return to the original tier when the additional performance is no longer necessary.
 
 ## How it works
 
-When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. A higher performance tier can be temporarily selected to meet higher demand and, when that performance is no longer required, you can return to the initial baseline performance tier. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MB/s). You can update the tier to match the performance of P50 (7500 IOPS and 250 MB/s) without increasing the disk size and return to P10 when the higher performance is no longer needed.
+When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. A higher performance tier can be selected to meet higher demand and, when that performance is no longer required, you can return to the initial baseline performance tier. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MB/s). You can update the tier to match the performance of P50 (7500 IOPS and 250 MB/s) without increasing the disk size and return to P10 when the higher performance is no longer needed.
 
 | Disk size | Baseline performance tier | Can be upgraded to |
 |----------------|-----|-------------------------------------|
@@ -51,10 +51,6 @@ Adjusting the performance tier of a managed disk is currently only available to 
 - East Australia 
 - South East Australia 
 - South India
-
-## Prerequisite
-
-You must get the feature enabled for your subscriptions before you can use performance tier. Sign up](https://aka.ms/perftiersignup) for access to the preview.
 
 ## Create/update a data disk with a tier higher than the baseline tier
 
