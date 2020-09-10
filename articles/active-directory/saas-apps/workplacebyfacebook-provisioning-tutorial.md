@@ -120,8 +120,16 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
    |preferredLanguage|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|String|
+   |urn:scim:schemas:extension:enterprise:1.0.department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.division|String|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
+   |urn:scim:schemas:extension:facebook:auth_method:1.0:auth_method|String|
+   |urn:scim:schemas:extension:facebook:frontline:1.0.is_frontline|Boolean|
+   |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Integer|
+
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
