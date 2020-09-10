@@ -300,6 +300,8 @@ Once you update the [sample deployment manifest file](https://go.microsoft.com/f
 ```azurecli
 az login
 az extension add --name azure-iot
+az login
+az extension add --name azure-iot
 az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
 ```
 
