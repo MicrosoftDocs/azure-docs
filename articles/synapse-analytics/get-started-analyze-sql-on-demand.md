@@ -19,6 +19,8 @@ In this tutorial, you'll learn how to analyze data with SQL on-demand using data
 
 1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT TIO 100 rows**
 1. This will create a new SQL script with the following code:
+
+    ```
     SELECT
         TOP 100 *
     FROM
@@ -26,6 +28,7 @@ In this tutorial, you'll learn how to analyze data with SQL on-demand using data
             BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
             FORMAT = 'parquet'
         ) AS [result];
+    ```
 1. Click **Run**
 
 ## Analyze NYC Taxi data in Spark databases using SQL on-demand
