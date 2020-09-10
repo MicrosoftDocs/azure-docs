@@ -1,6 +1,6 @@
 ---
-title: Connect your machines to Azure Security Center
-description: Monitoring your machines from Azure Security Center
+title: Connect your non-Azure machines to Azure Security Center
+description: Learn how to connect your non-Azure machines to Security Center
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
@@ -51,7 +51,7 @@ To add Azure Stack VMs, you need the information on the **Agents management** pa
     > For information on how to create a virtual machine on Azure Stack, see [this quickstart for Windows virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
 1. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 1. Select the **Add** tab. The **New Resource** menu shows the list of available virtual machine extensions.
-1. Select the **Azure Monitor, Update and Configuration Management** extension and select **Create**. The **Install extension** configuration blade opens up.
+1. Select the **Azure Monitor, Update and Configuration Management** extension and select **Create**. The **Install extension** configuration page opens.
     >[!NOTE]
     > If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, please reach out to your Azure Stack operator to make it available.
 1. On the **Install extension** configuration page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous step.
