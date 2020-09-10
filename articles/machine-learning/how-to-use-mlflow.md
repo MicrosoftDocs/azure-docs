@@ -43,7 +43,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 
 | Capability | MLflow&nbsp;Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
-|---|---|---|---|---|?view=azure-ml-py&preserve-view=true)
+|---|---|---|---|---|
 | Manage workspace |   | ✓ | ✓ | ✓ |
 | Use data stores  |   | ✓ | ✓ | |
 | Log metrics      | ✓ | ✓ |   | |
@@ -60,7 +60,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) on your local computer  The SDK provides the connectivity for MLflow to access your workspace.
 * [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
 
-## Track local runs?view=azure-ml-py&preserve-view=true)
+## Track local runs
 
 MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your local runs into your Azure Machine Learning workspace.
 
@@ -73,7 +73,7 @@ pip install azureml-mlflow
 Import the `mlflow` and [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) classes to access MLflow's tracking URI and configure your workspace.
 
 In the following code, the `get_mlflow_tracking_uri()` method assigns a unique tracking URI address to the workspace, `ws`, and `set_tracking_uri()` points the MLflow tracking URI to that address.
-?view=azure-ml-py&preserve-view=true)
+
 ```Python
 import mlflow
 from azureml.core import Workspace
@@ -105,7 +105,7 @@ Remote runs let you train your models on more powerful computes, such as GPU ena
 Configure your compute and training run environment with the [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class. Include `mlflow` and `azureml-mlflow` pip packages in environment's [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) section. Then construct  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) with your remote compute as the compute target.
 
 ```Python
-from azureml.core.environment import Environment?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
+from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core import ScriptRunConfig
 
@@ -154,7 +154,7 @@ To install libraries on your cluster, navigate to the **Libraries** tab and clic
  ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
 
 In the **Package** field, type azureml-mlflow and then click install. Repeat this step as necessary to install other additional packages to your cluster for your experiment.
-?view=azure-ml-py&preserve-view=true)
+
  ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/install-libraries.png)
 
 ### Set up your notebook and workspace
