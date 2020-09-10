@@ -30,7 +30,7 @@ Metrics Advisor can connect to, and [ingest multi-dimensional metric](how-tos/on
 ## Easy-to-use and customizable anomaly detection
 
 * Metrics Advisor automatically selects the best model for your data, without needing to know any machine learning. 
-* Automatically monitor every time series within [multi-dimensional metrics](glossary.md#multi-dimensional-metrics).
+* Automatically monitor every time series within [multi-dimensional metrics](glossary.md#multi-dimensional-metric).
 * Use [parameter tuning](how-tos/configure-metrics.md) and [interactive feedback](how-tos/anomaly-feedback.md) to customize the model applied on your data, and future anomaly detection results.
 
 

@@ -92,7 +92,7 @@ Once the data schema is loaded and shown like below, select the appropriate fiel
 > If you'd like to enable **root cause analysis** and other diagnostic capabilities, 'automatic roll up setting' needs to be configured. 
 > Once enabled, the automatic roll up settings cannot be changed.
 
-Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. See [Automatic roll up settings](onboard-your-data.md#automatic-roll-up-settings) for more details.
+Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. See [Automatic roll up settings](../how-tos/onboard-your-data.md#automatic-roll-up-settings) for more details.
 
 Give a custom name for the data feed, which will be displayed in your workspace. Click on **Submit**. 
 

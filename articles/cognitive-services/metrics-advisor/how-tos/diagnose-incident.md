@@ -125,11 +125,11 @@ After selecting a shifted comparison, you can select whether you want to compare
 > 2. Delta value is the difference between raw value and compared value.
 > 3. Percentage delta value is the difference between raw value and compared value divided by compared value.
 
-## Related incidents cross metrics
+## Related incidents across metrics
 
 Sometimes you may need to check the incidents of different metrics at the same time, or related incidents in other metrics. You can find a list of related incidents in the **Cross Metrics Analysis** section. 
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Add series to compare":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="related incidents across metrics":::
 
 Before you can see related incidents for current metric, you need to add a relationship between metrics. Click **Metrics Graph Settings** to add a relationship. Only metrics with same dimension names can be related. Use the following parameters.
 

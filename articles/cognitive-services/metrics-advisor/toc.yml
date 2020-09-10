@@ -44,6 +44,7 @@
   - name: PowerShell reference
     href: https://aka.ms/azure-powershell-cognitiveservices
 - name: Resources
+  items:
   - name: Pricing
     href: http://go.microsoft.com/fwlink/?LinkID=761229
   - name: Regional Availability
