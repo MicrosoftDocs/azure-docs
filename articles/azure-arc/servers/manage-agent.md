@@ -17,7 +17,7 @@ Before removing the Connected Machine agent from your Arc enabled server, consid
 
 * If you delete the resource representing the Arc enabled server in your resource group, but you don't uninstall the VM extensions, when you re-register the machine, you won't be able to manage the installed VM extensions.
 
-For servers or machines you no longer want to register and manage with Azure Arc enabled servers, it is necessary to follow these steps to successfully stop managing it:
+For servers or machines you no longer want to manage with Azure Arc enabled servers, it is necessary to follow these steps to successfully stop managing it:
 
 1. Remove the VM extensions from the machine or server. Steps are provided below.
 
@@ -160,7 +160,7 @@ You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while 
 
 ### Connect
 
-This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of this machine if not specified.
+This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of the machine if not specified.
 
 A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc enabled servers.
 
@@ -218,7 +218,7 @@ To reconnect with your elevated logged-on credentials (interactive), run the fol
 
 ## Remove the agent
 
-Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. These are separate process you perform when you no longer need to manage the machine in Azure, and they should be completed prior to uinstalling the agent.
+Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. These are separate process you perform when you no longer need to manage the machine in Azure, and they should be completed prior to uninstalling the agent.
 
 ### Windows agent
 
