@@ -1,14 +1,13 @@
 ---
 title: "Quickstart: Configure and enable the Security Module for Azure RTOS"
 description: Learn how to onboard and enable the Security Module for Azure RTOS service in your Azure IoT Hub.
-services: asc-for-iot
-ms.service: asc-for-iot
+services: defender-for-iot
+ms.service: defender-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na

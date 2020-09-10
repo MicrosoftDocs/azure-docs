@@ -1,6 +1,6 @@
 ---
 title: Service overview
-description: Learn more about Defender for IoT features and services, and understand how Defender for IoT provides comprehensive IoT security.
+description: Learn more about Defender for IoT features and services, and understand how Azure Defender for IoT provides comprehensive IoT security.
 
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -9,7 +9,6 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.subservice: defender-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -18,13 +17,13 @@ ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Introducing Defender for IoT
+# Introducing Azure Defender for IoT
 
 Unify security management and enable end-to-end threat detection and analysis across hybrid cloud workloads and your Azure IoT solution.
 
 ## Secure your entire IoT solution from IoT devices to Azure cloud
 
-Choose from our seamless agentless solution or take advantage of agent-based comprehensive security, Defender for IoT provides threat prevention and analysis for every device, IoT Edge and IoT Hub, across your IoT assets.
+Choose from our seamless agentless solution or take advantage of agent-based comprehensive security, Azure Defender for IoT provides threat prevention and analysis for every device, IoT Edge and IoT Hub, across your IoT assets.
 
 As billions of new devices are connected to the internet, and integrated into our daily lives and our businesses, your security operations teams must ensure their security strategies evolve quickly enough to cover each new attack surface. Like any other system, to comprehensively secure your IoT solution, it requires  protection at every stage of implementation.
 

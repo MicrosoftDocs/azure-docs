@@ -8,7 +8,6 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na

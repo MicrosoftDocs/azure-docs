@@ -1,6 +1,6 @@
 ---
 title: Defender for IoT Security Module for IoT Edge
-description: Understand the architecture and capabilities of Defender for IoT Security Module for IoT Edge.
+description: Understand the architecture and capabilities of Azure Defender for IoT Security Module for IoT Edge.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,8 +8,7 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
-ms.subservice: defender-for-iot
+
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -18,7 +17,7 @@ ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Defender for IoT Edge security module
+# Azure Defender for IoT Edge security module
 
 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) provides powerful capabilities to manage and perform business workflows at the edge.
 The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.

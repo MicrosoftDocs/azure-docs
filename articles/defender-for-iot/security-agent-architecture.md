@@ -1,6 +1,6 @@
 ---
 title: Security agent architecture
-description: Understand security agent architecture for the agents used in the Defender for IoT service.
+description: Understand security agent architecture for the agents used in the Azure Defender for IoT service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,8 +8,7 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
-ms.subservice: defender-for-iot
+
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -20,7 +19,7 @@ ms.author: mlottner
 
 # Security agent reference architecture
 
-Defender for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT Hub.
+Azure Defender for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT Hub.
 
 Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
 

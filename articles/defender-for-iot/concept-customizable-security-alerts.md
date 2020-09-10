@@ -8,7 +8,6 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.subservice: defender-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

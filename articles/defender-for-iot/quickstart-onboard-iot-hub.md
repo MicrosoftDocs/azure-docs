@@ -8,8 +8,7 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
-ms.subservice: defender-for-iot
+
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -18,7 +17,7 @@ ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
-# Quickstart: Onboard Defender for IoT service in IoT Hub
+# Quickstart: Onboard Azure Defender for IoT service in IoT Hub
 
 This article provides an explanation of how to enable the Defender for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to get started.
 

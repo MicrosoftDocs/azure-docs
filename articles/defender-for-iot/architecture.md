@@ -1,6 +1,6 @@
 ---
 title: Solution architecture
-description: Learn about the flow of information in the Defender  for IoT service.
+description: Learn about the flow of information in the Azure Defender for IoT service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,8 +8,6 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.subservice: defender-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -18,22 +16,22 @@ ms.date: 07/23/2019
 ms.author: mlottner
 ---
 
-# Defender  for IoT architecture
+# Azure Defender for IoT architecture
 
-This article explains the functional system architecture of the Defender  for IoT solution.
+This article explains the functional system architecture of the Defender for IoT solution.
 
-## Defender  for IoT components
+## Defender for IoT components
 
-Defender  for IoT is composed of the following components:
+Defender for IoT is composed of the following components:
 
 - IoT Hub integration
 - Device agents (optional)
 - Send security message SDK
 - Analytics pipeline
 
-### Defender  for IoT workflows
+### Defender for IoT workflows
 
-Defender  for IoT works in one of two feature workflows: Built-in and Enhanced
+Defender for IoT works in one of two feature workflows: Built-in and Enhanced
 
 ### Built-in
 

@@ -1,6 +1,6 @@
 ---
 title: Components & prerequisites
-description: Details of everything needed to get started with Defender for IoT service prerequisites.
+description: Details of everything needed to get started with Azure Defender for IoT service prerequisites.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,8 +8,7 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: 790cbcb7-1340-4cc1-9509-7b262e7c3181
-ms.subservice: defender-for-iot
+
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -19,7 +18,7 @@ ms.author: mlottner
 ms.custom: references_regions
 ---
 
-# Defender for IoT prerequisites
+# Azure Defender for IoT prerequisites
 
 This article provides an explanation of the different components of the Defender for IoT service, what you need to begin, and explains the basic concepts to help understand the service.
 

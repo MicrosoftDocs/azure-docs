@@ -9,7 +9,6 @@ manager: rkarlin
 editor: ''
 
 
-ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

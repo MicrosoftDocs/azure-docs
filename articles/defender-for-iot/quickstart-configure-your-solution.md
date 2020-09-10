@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Configure your solution"
-description: In this quickstart, learn how to configure your end-to-end IoT solution using Defender for IoT.
+description: In this quickstart, learn how to configure your end-to-end IoT solution using Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,8 +8,6 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: ae2207e8-ac5b-4793-8efc-0517f4661222
-ms.subservice: defender-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -18,7 +16,7 @@ ms.date: 09/06/2020
 ms.author: mlottner
 ---
 
-# Quickstart: Configure your Defender for IoT solution
+# Quickstart: Configure your Azure Defender for IoT solution
 
 This article provides an explanation of how to perform initial configuration of your IoT security solution using Defender for IoT.
 

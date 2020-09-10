@@ -1,6 +1,6 @@
 ---
 title: Security agent overview
-description: Get started with understanding, configuring, deploying and using Defender for IoT security service agents on your IoT devices.
+description: Get started with understanding, configuring, deploying and using Azure Defender for IoT security service agents on your IoT devices.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,8 +8,7 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: 55c8d3b6-3126-4246-8d07-ef88fe5ea84f
-ms.subservice: defender-for-iot
+
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -18,7 +17,7 @@ ms.date: 07/23/2019
 ms.author: mlottner
 ---
 
-# Get started with Defender for IoT device security agents
+# Get started with Azure Defender for IoT device security agents
 
 Defender for IoT security agents offer enhanced security capabilities, such as monitoring remote connections, active applications, login events, and operating system configuration best practices. Take control of your device field threat protection and security posture with a single service.
 

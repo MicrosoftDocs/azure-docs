@@ -1,6 +1,6 @@
 ---
 title: Defender for IoT frequently asked questions
-description: Find answers to the most frequently asked questions about Defender for IoT features and service.
+description: Find answers to the most frequently asked questions about Azure Defender for IoT features and service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,8 +8,7 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: 97fda6c2-1ecb-491f-b48d-41788bd7e0d3
-ms.subservice: defender-for-iot
+
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -18,7 +17,7 @@ ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Defender for IoT frequently asked questions
+# Azure Defender for IoT frequently asked questions
 
 This article provides a list of frequently asked questions and answers about Defender for IoT.
 

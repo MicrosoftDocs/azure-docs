@@ -8,8 +8,6 @@ author: mlottner
 manager: rkarlin
 editor: ''
 
-ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.subservice: defender-for-iot
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
