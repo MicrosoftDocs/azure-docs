@@ -17,11 +17,11 @@ Azure Synapse Analytics provides you with the capability to analyze data with SQ
 
 ## Link the NYC Taxi sample data into the SQLDB1 database
 
-1. In Synapse Studio, navgiate to the **Data** hub on the left.
+1. In Synapse Studio, navigate to the **Data** hub on the left.
 1. Click **+**, then select **Browse samples**. This will open the **Sample center** and open the **Datasets** tab.
 1. Select **NYC Taxi & Limousine Commission - yellow taxi trip records**. This dataset contains over 1.5 billion rows.
 1. Click **Add dataset**
-1. In the **Data** hub under **Linked** you will see a new data set in this location **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow **   
+1. In the **Data** hub under **Linked** you will see a new data set in this location **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow**   
 1. On the card labeled **Query sample data**, select the SQL pool named **SQLDB1**.
 
 
