@@ -89,9 +89,9 @@ Unlike the other kinds of pools, billing for SQL on-demand is based on the amoun
 * SQL on-demand has its own SQL on-demand databases that exist independently from any SQL on-demand pool.
 * A workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
 
-## Prepareing a ADLSGEN2 storage account
+## Preparing a ADLSGEN2 storage account
 
-### Perform the following steps BEFORE you create your workspace:
+### Perform the following steps BEFORE you create your workspace
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Navigate to your existing storage account
@@ -103,7 +103,7 @@ Unlike the other kinds of pools, billing for SQL on-demand is based on the amoun
 1. You can give the container a name. In this document, we use the name  **users**.
 1. Accept the default setting **Public access level**, and then select **Create**.
 
-### Perform the following steps AFTER you create your workspace:
+### Perform the following steps AFTER you create your workspace
 
 Configure access to the storage account from your workspace. Managed identities for your Azure Synapse workspace might already have access to the storage account. Follow these steps to make sure:
 
