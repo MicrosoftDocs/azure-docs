@@ -28,10 +28,12 @@ The following is the new functionality included in version 3.6:
 - Support for Compound Indexes
 - Cross-partition support for the following operations: update, delete, count and sort
 - Improved performance for the following aggregate operations: $count, $skip, $limit and $group
+- Wildcard indexing is now supported
 
 ### Changes from version 3.2
-- MongoDB collections created on the new wire protocol version will only have the `_id` property indexed by default.
+- **RequestRateIsLarge errors have been removed**. The client application will not get 16500 errors, instead requests will resume until they complete or timeout.
 - Per request timeout is set to 60 seconds.
+- MongoDB collections created on the new wire protocol version will only have the `_id` property indexed by default.
 
 ### Action required
 For the upgrade to version 3.6, the database account endpoint suffix will be updated to the following format:
@@ -41,6 +43,9 @@ For the upgrade to version 3.6, the database account endpoint suffix will be upd
 ```
 
 This new endpoint will need to be replace the existing one in the applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the MongoDB version 3.6.**
+
+>[!Note]
+> You need to update the endpoint in your application to use the newest version of the server.
 
 ### How to upgrade
 
@@ -52,7 +57,7 @@ This new endpoint will need to be replace the existing one in the applications a
 
     :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal with MongoDB account overview with Features blade highlighted" border="false":::
 
-3. Click on the `Upgrade to Mongo server version 3.6` row. If you don't see this option, your account might not be eligible for this upgrade.
+3. Click on the `Upgrade to Mongo server version 3.6` row. If you don't see this option, your account might not be eligible for this upgrade. Please file [a support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) if that is the case.
 
     :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Features blade with options." border="false":::
 
@@ -64,11 +69,11 @@ This new endpoint will need to be replace the existing one in the applications a
 
     :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Upgrade status after initiating." border="false":::
 
-6. Once the upgrade is completed, the status will show as `Upgraded`. Click on it to learn more about the next steps and actions you need to take to finalize the process.
+6. Once the upgrade is completed, the status will show as `Upgraded`. Click on it to learn more about the next steps and actions you need to take to finalize the process. Please [contact support](https://azure.microsoft.com/en-us/support/create-ticket/) if there was an issue processing your request.
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Upgraded account status." border="false":::
 
-7. **To start using the upgraded version of your database account**, go back to the `Overview` blade, and copy the new connection string to use in your application. The applications will start using the upgraded version as soon as they connect to the new endpoint. Existing connections will not be interrupted and can be updated at your convenience.
+7. **To start using the upgraded version of your database account**, go back to the `Overview` blade, and copy the new connection string to use in your application. The applications will start using the upgraded version as soon as they connect to the new endpoint. Existing connections will not be interrupted and can be updated at your convenience. To ensure a consistent experience, all your applications must use the new endpoint.
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="New overview blade." border="false":::
 
