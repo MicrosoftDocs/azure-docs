@@ -221,6 +221,8 @@
       href: security-center-managing-and-responding-alerts.md
     - name: Create and manage alerts suppression rules
       href: alerts-suppression-rules.md
+    - name: Respond to alerts from Azure Defender for Key Vault
+      href: defender-for-key-vault-usage.md
     - name: Manage security incidents
       href: security-center-incident.md
     - name: Generate threat intelligence reports
