@@ -159,7 +159,7 @@ For workspaces created by Azure Security Center, data is retained for 30 days. F
 
 ## Onboarding non-Azure resources
 
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboard non-Azure computers](security-center-get-started.md#onboard-non-azure-computers) for more information on how to onboarding non-Azure resources.
+Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboarding non-Azure resources.
 
 ## Ongoing security monitoring
 After initial configuration and application of Security Center recommendations, the next step is considering Security Center operational processes.
@@ -195,7 +195,7 @@ Security Center detects and alerts you to threats as they occur. Organizations s
 
 While this article doesn't have the intent to assist you creating your own Incident Response plan, we are going to use Microsoft Azure Security Response in the Cloud lifecycle as the foundation for incident response stages. The stages are shown in the following diagram:
 
-![Suspicious activity](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Stages of the incident response in the cloud lifecycle](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > You can use the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) as a reference to assist you building your own.

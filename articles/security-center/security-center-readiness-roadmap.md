@@ -16,7 +16,7 @@ ms.date: 04/03/2018
 ms.author: memildin
 
 ---
-# Azure Security Center Readiness Roadmap
+# Azure Security Center readiness roadmap
 This document provides you a readiness roadmap that will assist you to get started with Azure Security Center.
 
 ## Understanding Security Center
@@ -25,12 +25,12 @@ Azure Security Center provides unified security management and advanced threat p
 Use the following resources to get started with Security Center.
 
 Articles
-* [Introduction to Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* [Azure Security Center quickstart guide](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introduction to Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure Security Center quickstart guide](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
 Videos
-* [Quick Introduction Video](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
-* [Overview of Security Center Prevention, Detection and Response Capabilities](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
+- [Quick Introduction Video](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
+- [Overview of Security Center Prevention, Detection and Response Capabilities](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## Planning and operations
 
@@ -38,8 +38,7 @@ To take full advantage of Security Center, it is important to understand how dif
 
 Use the following resources to assist you during the planning and operations processes.
 
-Article
-* [Azure Security Center planning and operations guide](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Azure Security Center planning and operations guide](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 
 ### Onboarding computers to Security Center
@@ -47,10 +46,8 @@ Security Center automatically detects any Azure subscriptions or workspaces not 
 
 Use the following resources to assist you during the onboarding processes.
 
-Article
-* [Onboard non-Azure computers](security-center-get-started.md#onboard-non-azure-computers)
-
-* [Azure Security Center Hybrid - Overview](https://youtu.be/NMa4L_M597k)
+- [Onboard non-Azure computers](quickstart-onboard-machines.md)
+- [Azure Security Center Hybrid - Overview](https://youtu.be/NMa4L_M597k)
 
 ## Mitigating security issues using Security Center
 Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives.
@@ -58,13 +55,13 @@ Security Center automatically collects, analyzes, and integrates log data from y
 Use the following resources to assist you to manage security alerts and protect your resources.
 
 Articles    
-* [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Protecting your network in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Protecting Azure SQL service and data in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+- [Protecting your network in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Protecting Azure SQL service and data in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
 Video    
-* [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
+- [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### Security Center for incident response
 To reduce costs and damage, it's important to have an incident response plan in place before an attack takes place. You can use Azure Security Center in different stages of an incident response.
@@ -114,5 +111,3 @@ Articles
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
 * [Microsoft Q&A question page for Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
-
-
