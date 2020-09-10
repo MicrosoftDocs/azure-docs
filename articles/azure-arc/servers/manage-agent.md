@@ -9,6 +9,28 @@ ms.topic: conceptual
 
 After initial deployment of the Azure Arc enabled servers Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
+## Before uninstalling agent
+
+Before removing the Connected Machine agent from your Arc enabled server, consider the following to avoid unexpected costs added to your Azure bill:
+
+* If you have deployed Azure VM extensions to an enabled server and you remove the Connected Machine agent or you delete the resource representing the Arc enabled server in the resource group, those extensions continue to run and perform their normal operation.
+
+* If you delete the resource representing the Arc enabled server in your resource group, but you don't uninstall the VM extensions, when you re-register the machine, you won't be able to manage the installed VM extensions.
+
+For servers or machines you no longer want to register and manage with Azure Arc enabled servers, it is necessary to follow these steps to successfully stop managing it:
+
+1. Remove the VM extensions from the machine or server.
+
+2. Disconnect the machine from Azure Arc using one of the following methods:
+
+    * Running `azcmagent disconnect` command on the machine or server.
+
+    * From the selected registered Arc enabled server in the Azure portal by selecting **Delete** from the top bar.
+
+    * Using the [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) or [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). For the`ResourceType` parameter use `Microsoft.HybridCompute/machines`.
+
+3. Uninstall the agent from the machine or server.
+
 ## Upgrading agent
 
 The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. The following table describes the methods supported to perform the agent upgrade.
@@ -196,7 +218,7 @@ To reconnect with your elevated logged-on credentials (interactive), run the fol
 
 ## Remove the agent
 
-Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. These are separate process you perform when you no longer need to manage the machine in Azure.
+Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. These are separate process you perform when you no longer need to manage the machine in Azure, and they should be completed prior to uinstalling the agent.
 
 ### Windows agent
 
