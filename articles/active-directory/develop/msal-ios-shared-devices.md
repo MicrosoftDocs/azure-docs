@@ -61,7 +61,7 @@ Your device needs to be configured to support shared device mode. It must have i
     - Additional Data to configure:
       - Key: sharedDeviceMode
       - Type: Boolean
-      - Value: True
+      - Value: true
 
     For more information about configuring with Intune, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
 
@@ -72,7 +72,7 @@ Your device needs to be configured to support shared device mode. It must have i
     - Configuration 1:
       - Key: sharedDeviceMode
       - Type: Boolean
-      - Value: True
+      - Value: true
 
 ## Modify your iOS application to support shared device mode
 
