@@ -1,5 +1,5 @@
 ---
-title: Create training & deploy computes (studio)
+title: Create training & deploy computes (Python)
 titleSuffix: Azure Machine Learning
 description: Use the Azure Machine Learning Python SDK to create training and deployment compute resources (compute targets) for machine learning
 services: machine-learning
