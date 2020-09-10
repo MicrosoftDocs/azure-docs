@@ -183,8 +183,8 @@ GO
 
 ## Next steps
 
-Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
+[Learn more about Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
 
 [Start by deploying a Data Controller](create-data-controller.md)
 
-Already deployed a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Already deployed a Data Controller? Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
