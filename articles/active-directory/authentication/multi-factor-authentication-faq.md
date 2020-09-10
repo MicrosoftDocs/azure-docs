@@ -99,7 +99,7 @@ Billing is based on the number of users configured to use Multi-Factor Authentic
 
 When you create a per-user or per-authentication MFA provider, your organization's Azure subscription is billed monthly based on usage. This billing model is similar to how Azure bills for usage of virtual machines and Web Apps.
 
-When you purchase a subscription for Azure Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Office 365, Azure AD Premium, or Enterprise Mobility + Security bundles are billed this way.
+When you purchase a subscription for Azure Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security bundles are billed this way.
 
 For more information, see [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 

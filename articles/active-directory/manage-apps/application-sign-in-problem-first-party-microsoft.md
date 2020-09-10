@@ -1,6 +1,6 @@
 ---
 title: Problems signing in to a Microsoft application | Microsoft Docs
-description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Office 365)
+description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Microsoft 365).
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -20,11 +20,11 @@ ms.collection: M365-identity-device-management
 
 # Problems signing in to a Microsoft application
 
-Microsoft Applications (like Office 365 Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
+Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
 
 There are three main ways that a user can get access to a Microsoft-published application.
 
--   For applications in the Office 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
+-   For applications in the Microsoft 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
 
 -   For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
 

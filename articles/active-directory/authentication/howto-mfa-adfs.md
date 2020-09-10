@@ -47,7 +47,7 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 
 Trusted IPs allow administrators to by-pass two-step verification for specific IP addresses, or for federated users that have requests originating from within their own intranet. The following sections describe how to configure Azure Multi-Factor Authentication Trusted IPs with federated users and by-pass two-step verification when a request originates from within a federated users intranet. This is achieved by configuring AD FS to use a pass-through or filter an incoming claim template with the Inside Corporate Network claim type.
 
-This example uses Office 365 for our Relying Party Trusts.
+This example uses Microsoft 365 for our Relying Party Trusts.
 
 ### Configure the AD FS claims rules
 
@@ -94,4 +94,4 @@ Now that the claims are in place, we can configure trusted IPs.
 4. On the Service Settings page, under **trusted IPs**, select **Skip multi-factor-authentication for requests from federated users on my intranet**.  
 5. Click **save**.
 
-That's it! At this point, federated Office 365 users should only have to use MFA when a claim originates from outside the corporate intranet.
+That's it! At this point, federated Microsoft 365 users should only have to use MFA when a claim originates from outside the corporate intranet.
