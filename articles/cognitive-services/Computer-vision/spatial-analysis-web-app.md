@@ -100,7 +100,6 @@ The first step is to update the sample [deployment manifest](https://go.microsof
         "VIDEO_URL": "<Replace RTSP URL here>",
         "VIDEO_SOURCE_ID": "<Replace with friendly name>",
         "VIDEO_IS_LIVE":true,
-        "TRACKER_NODE_CONFIG": "{ \"gpu_index\": 0 }",
         "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0 }",
         "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[<Replace with your values>], \"events\": [{\"type\":\"count\"}], \"threshold\":<use 0 for no threshold.}]}"
     }
