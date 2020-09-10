@@ -71,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Palo Alto Networks - Aperture Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Palo Alto Networks - Aperture Domain and URLs single sign-on information IDP](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Palo Alto Networks - Aperture Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Palo Alto Networks - Aperture Domain and URLs single sign-on information SP](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
