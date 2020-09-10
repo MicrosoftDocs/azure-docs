@@ -21,18 +21,19 @@ You can enable diagnostic settings for your Postgres server using the Azure port
 
 To enable resource logs using the Azure portal:
 
-   1. In the portal, go to *Diagnostic Settings* in the navigation menu of your Postgres server.
-   2. Select *Add Diagnostic Setting*.
-
+1. In the portal, go to *Diagnostic Settings* in the navigation menu of your Postgres server.
+   
+2. Select *Add Diagnostic Setting*.
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Add diagnostic settings button":::
 
-   3. Name this setting. 
-   4. Select your preferred endpoint (storage account, event hub, log analytics). 
-   5. Select the log type **PostgreSQLLogs**.
+3. Name this setting. 
 
+4. Select your preferred endpoint (storage account, event hub, log analytics). 
+
+5. Select the log type **PostgreSQLLogs**.
    :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Choose PostgreSQL logs":::
 
-   7. Save your setting.
+7. Save your setting.
 
 To enable resource logs using PowerShell, CLI, or REST API, visit the [diagnostic settings](../../azure-monitor/platform/diagnostic-settings.md) article.
 
@@ -46,7 +47,7 @@ The following are queries you can try to get started. You can configure alerts b
 
 Search for all Postgres logs for a particular server in the last day
 
-```
+```kusto
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
 | where Category == "PostgreSQLLogs"
@@ -55,7 +56,7 @@ AzureDiagnostics
 
 Search for all non-localhost connection attempts
 
-```
+```kusto
 AzureDiagnostics
 | where Message contains "connection received" and Message !contains "host=127.0.0.1"
 | where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)

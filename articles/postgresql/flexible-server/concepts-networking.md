@@ -59,6 +59,8 @@ Here are some concepts to be familiar with when using virtual networks with Post
 
    Your PostgreSQL flexible server must be in a subnet that is **delegated** for PostgreSQL flexible server use only. This delegation means that only Azure Database for PostgreSQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforPostgreSQL/flexibleServers.
 
+Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
+
 
 ### Unsupported virtual network scenarios
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint
@@ -76,14 +78,14 @@ Characteristics of the public access method include:
 ### Firewall rules
 Granting permission to an IP address is called a firewall rule. If a connection attempt comes from an IP address you have not allowed, the originating client will see an error.
 
+Learn how to create a flexible server with public access (allowed IP addresses) in [the Azure portal](how-to-manage-firewall-portal.md) or [the Azure CLI](how-to-manage-firewall-cli.md).
+
 
 ### Allowing all Azure IP addresses
 If a fixed outgoing IP address isn't available for your Azure service, you can consider enabling connections from all Azure datacenter IP addresses.
 
 > [!IMPORTANT]
 > The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
-
-
 
 ### Troubleshooting public access issues
 Consider the following points when access to the Microsoft Azure Database for PostgreSQL Server service does not behave as you expect:
@@ -114,3 +116,6 @@ Azure Database for PostgreSQL - Flexible Server supports connecting your client 
 
 Azure Database for PostgreSQL - Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2). All incoming connections with TLS 1.0 and TLS 1.1 will be denied. You cannot disable or change the TLS version for connecting to Azure Database for PostgreSQL - Flexible Server.
 
+## Next steps
+*Learn how to create a flexible server with **private access (VNet integration)** in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
+* Learn how to create a flexible server with **public access (allowed IP addresses)** in [the Azure portal](how-to-manage-firewall-portal.md) or [the Azure CLI](how-to-manage-firewall-cli.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy Django app with App Serice and Azure Database for PostgreSQL - Flexible Server (Preview) in virtual network'
+title: 'Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server (Preview) in virtual network'
 description:  Deploy Django app with App Serice and Azure Database for PostgreSQL - Flexible Server (Preview)  in virtual network
 author: mksuni
 ms.author: sumuth

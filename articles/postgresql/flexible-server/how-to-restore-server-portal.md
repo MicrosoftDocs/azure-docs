@@ -30,13 +30,13 @@ existing backup.
 
 2.  Click **Overview** from the left panel and click **Restore**
    
- :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Restore overview":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Restore overview":::
 
 3.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
 4.  Select **Earliest restore point** and provide a new server name in the **Restore to new server** field. The earliest timestamp that you can restore to is displayed. 
    
- :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Earliest restore time":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Earliest restore time":::
 
 5.  Click **OK**.
 

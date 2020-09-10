@@ -236,5 +236,5 @@ az group delete --name ExampleResourceGroup
 ----
 
 ## Next Steps 
-- [Migrate data using dump and restore](../howto-migrate-using-dump-and-restore.md)
-- [Migrate data using import and export](../howto-migrate-using-export-and-import.md)
+> [!div class="nextstepaction"]
+> [Migrate your database using dump and restore](howto-migrate-using-dump-and-restore.md)
