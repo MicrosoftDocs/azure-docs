@@ -18,17 +18,17 @@ The query scope defines the records that are evaluated by the query. This will u
 
 The scope is always displayed at the top left of the Log Analytics window. An icon indicates whether the scope is a Log Analytics workspace or an Application Insights application. No icon indicates another Azure resource.
 
-![Scope](media/scope/scope.png)
+![Scope displayed in portal](media/scope/scope.png)
 
 The scope is determined by the method you use to start Log Analytics, and in some cases you can change the scope by clicking on it. The following table lists the different types of scope used and different details for each.
 
 > [!IMPORTANT]
-> If you're using a workspace-based application in Application Insights, then its data is stored in a Log Analytics workspace with all other log data, and the Application Insights scope is not available. If you select **Logs** from the Application Insights menu, then it acts the same as the **Other Azure resources** scope, and only the data fro that application in the Application Insights tables is available.
+> If you're using a workspace-based application in Application Insights, then its data is stored in a Log Analytics workspace with all other log data. For backward compatibility you will get the classic Application Insights experience when you select the application as your scope. To see this data in the Log Analytics workspace, set the scope to the workspace.
 
 | Query scope | Records in scope | How to select | Changing Scope |
 |:---|:---|:---|:---|
 | Log Analytics workspace | All records in the Log Analytics workspace. | Select **Logs** from the **Azure Monitor** menu or the **Log Analytics workspaces** menu.  | Can change scope to any other resource type. |
-| Application Insights application | All records in the Application Insights application. | Select **Analytics** from **Overview** page of Application Insights. | Can only change scope to another Application Insights application. |
+| Application Insights application | All records in the Application Insights application. | Select **Logs** from the **Application Insights** menu for the application. | Can only change scope to another Application Insights application. |
 | Resource group | Records created by all resources in the resource group. May include data from multiple Log Analytics workspaces. | Select **Logs** from the resource group menu. | Cannot change scope.|
 | Subscription | Records created by all resources in the subscription. May include data from multiple Log Analytics workspaces. | Select **Logs** from the subscription menu.   | Cannot change scope. |
 | Other Azure resources | Records created by the resource. May include data from multiple Log Analytics workspaces.  | Select **Logs** from the resource menu.<br>OR<br>Select **Logs** from the **Azure Monitor** menu and then select a new scope. | Can only change scope to same resource type. |
