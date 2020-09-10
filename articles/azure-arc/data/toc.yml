@@ -106,14 +106,6 @@
           items:
             - name: Backup & restore
               href: backup-restore-postgresql-hyperscale.md
-            - name: Secure
-              href: configure-security-postgres-hyperscale.md
-            - name: Manage server group (Azure Data Studio)
-              href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
-            - name: List server groups
-              href: list-server-groups-postgres-hyperscale.md
-            - name: Use Postgres extensions
-              href: using-extensions-in-postgresql-hyperscale-server-group.md
             - name: Configure & scale
               items:
                 - name: Show configuration
@@ -126,14 +118,22 @@
                   href: configure-server-parameters-postgresql-hyperscale.md
             - name: Delete
               href: delete-postgresql-hyperscale-server-group.md
+            - name: List server groups
+              href: list-server-groups-postgres-hyperscale.md
+            - name: Monitoring, log analytics, billing information, Azure portal
+              href: monitoring-log-analytics-azure-portal-postgresql.md
+            - name: Secure
+              href: configure-security-postgres-hyperscale.md
+            - name: Manage server group (Azure Data Studio)
+              href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
+            - name: Use Postgres extensions
+              href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Migrate
           items:
             - name: Migrate PostgreSQL data into a Postgres Hyperscale server group
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
             - name: Restore the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
-        - name: Monitoring, log analytics, billing information, Azure portal
-          href: monitoring-log-analytics-azure-portal-postgresql.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-hyperscale-server-group.md
 - name: Azure Arc enabled SQL Managed Instance (preview)
