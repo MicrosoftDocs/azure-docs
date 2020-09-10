@@ -64,13 +64,14 @@ You may now implement the next step.
 To create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc, use the following command:
 
 ```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name>
+azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
 
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
 > [!NOTE]
-> - There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.
+> - **There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.**
+> - The unit accepted by the --volume-size-* parameters is a Kubernetes resource quantity (an integer followed by one of these SI suffices (T, G, M, K, m) or their power-of-two equivalents (Ti, Gi, Mi, Ki)).
 > - Names must be 10 characters or fewer in length and conform to DNS naming conventions.
 > - Namespace must not be reserved namespaces.
 > - You will be prompted to enter the password for the _postgresql_ standard administrative user.  You can skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
