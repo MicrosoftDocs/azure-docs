@@ -81,7 +81,7 @@ An account associated with an Azure subscription allows you to select your subsc
 
 1. Sign in to [LUIS portal](https://www.luis.ai) and check that you agree to the terms of use.
 
-1. Finish by selecting **Continue**. You will automatically sign in with a trial/starter key. This means that eventually you will eventually be required to [migrate your account](luis-migration-authoring.md#migration-steps) and link your applications to an authoring resource. To undergo the migration process, you will need to sign in for an [Azure Free Trial](https://azure.microsoft.com/free/).
+1. Finish by selecting **Continue**. You will automatically sign in with a trial/starter key. This means that eventually you will be required to [migrate your account](luis-migration-authoring.md#migration-steps) and link your applications to an authoring resource. To undergo the migration process, you will need to sign in for an [Azure Free Trial](https://azure.microsoft.com/free/).
 
     :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="No subscription scenario":::
 
