@@ -264,7 +264,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 * Kubernetes API Access (kubectl).
 
     * Follow the documentation to configure your machine for [access to the Kubernetes cluster](https://review.docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-create-kubernetes-cluster?toc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Ftoc.json&bc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Fbreadcrumb%2Ftoc.json&branch=release-tzl#debug-kubernetes-issues).
-    * All deployed IoTEdge modules use the `iotedge` namespace. Make sure to include that when using kubectl.
+    * All deployed IoT Edge modules use the `iotedge` namespace. Make sure to include that when using kubectl.
 * Module Logs
 
     The `iotedge` tool is not accessible to obtain logs. You must use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)  to view the logs or pipe to a file. Example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`
