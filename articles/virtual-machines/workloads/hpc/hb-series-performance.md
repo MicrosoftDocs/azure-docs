@@ -1,13 +1,8 @@
 ---
-title: HB-series VM size performance - Azure Virtual Machines | Microsoft Docs
+title: HB-series VM size performance
 description: Learn about performance testing results for HB-series VM sizes in Azure. 
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
@@ -35,8 +30,8 @@ MPI latency test from the OSU microbenchmark suite is run. Sample scripts are on
 ```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
-![MPI latency on Azure HB](./media/latency-hb.png)
 
+:::image type="content" source="./media/latency-hb.png" alt-text="MPI latency on Azure HB.":::
 
 ## MPI bandwidth
 
@@ -46,7 +41,7 @@ MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are 
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-![MPI bandwidth on Azure HB](./media/bandwidth-hb.png)
+:::image type="content" source="./media/bandwidth-hb.png" alt-text="MPI bandwidth on Azure HB.":::
 
 
 ## Mellanox Perftest
@@ -59,5 +54,5 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## Next steps
 
-- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+- Read about the latest announcements and some High Performance Computing (HPC) examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
