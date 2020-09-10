@@ -138,7 +138,7 @@
     - name: Manage device
       items:
       - name: Power, access, connectivity
-        href: azure-stack-edge-manage-access-power-connectivity-mode.md 
+        href: azure-stack-edge-gpu-manage-access-power-connectivity-mode.md 
       - name: Via PowerShell
         href: azure-stack-edge-gpu-connect-powershell-interface.md 
       - name: Apply updates
