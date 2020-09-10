@@ -41,7 +41,7 @@ As a managed service, Azure Blockchain Service ensures that your blockchain memb
 
 In addition, Azure Blockchain Service provides rich metrics through Azure Monitor Service providing insights into nodes' CPU, memory, and storage usage.  Azure Monitor also provides helpful insights into blockchain network activity such as transactions and blocks mined, transaction queue depth, and active connections.  Metrics can be customized to provide views into the insights that are important to your blockchain application.  In addition, thresholds can be defined through alerts enabling users to trigger actions such as sending an email or text message, running a Logic App, Azure Function or sending to a custom-defined webhook.
 
-![Metrics](./media/overview/metrics.png)
+![Screen capture shows monitoring, with values for blocks, transactions, pending transactions, and handled requests.](./media/overview/metrics.png)
 
 Through Azure Log Analytics, users can view logs related to the Quorum ledger, or other important information such as attempted connections to the transaction nodes.
 

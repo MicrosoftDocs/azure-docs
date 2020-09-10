@@ -323,7 +323,7 @@ For security reasons, the SSH port access is denied by a network group security 
 
 1. Select the **allow-ssh** rule.
 
-    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![Screen capture shows an overview window the the ssh-allow selected.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Change **Action** to **Allow**
 

@@ -47,7 +47,7 @@ There are plenty of ways to explore your data. Check out these articles:
 | --- | --- |
 | [**Smart detection and manual alerts**](./proactive-diagnostics.md)<br/>Set up automatic alerts that adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also [set alerts](../platform/alerts-log.md) on particular levels of custom or standard metrics. |![Alert sample](./media/app-insights-overview/alerts-tn.png) |
 | [**Application map**](./app-map.md)<br/>Explore the components of your app, with key metrics and alerts. |![Application map](./media/app-insights-overview/appmap-tn.png)  |
-| [**Profiler**](./profiler.md)<br/>Inspect the execution profiles of sampled requests. |![Profiler](./media/app-insights-overview/profiler.png) |
+| [**Profiler**](./profiler.md)<br/>Inspect the execution profiles of sampled requests. |![Screen capture shows execution profiles of sampled requests.](./media/app-insights-overview/profiler.png) |
 | [**Usage analysis**](./usage-overview.md)<br/>Analyze user segmentation and retention.|![Retention tool](./media/app-insights-overview/retention.png) |
 | [**Diagnostic search for instance data**](./diagnostic-search.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.  |![Search telemetry](./media/app-insights-overview/search-tn.png) |
 | [**Metrics Explorer for aggregated data**](../platform/metrics-charts.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times. |![Metrics](./media/app-insights-overview/metrics-tn.png) |
