@@ -1,6 +1,6 @@
 ---
-title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Stack Edge | Microsoft Docs
-description: The first tutorial about deploying Azure Stack Edge involves preparing the Azure portal.
+title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Stack Edge GPU | Microsoft Docs
+description: The first tutorial about deploying Azure Stack Edge GPU involves preparing the Azure portal.
 services: databox
 author: alkohli
 

@@ -19,6 +19,8 @@ ms.custom: devx-track-csharp
 ---
 # Managing Media Services assets across multiple storage accounts  
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 You can attach multiple storage accounts to a single Media Services account. Ability to attach multiple storage accounts to a Media Services account provides the following benefits:
 
 * Load balancing your assets across multiple storage accounts.

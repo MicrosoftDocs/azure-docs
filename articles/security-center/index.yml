@@ -43,7 +43,7 @@ landingContent:
           - text: Full descriptions of the new security controls
             url: secure-score-security-controls.md#security-controls-and-their-recommendations
           - text: Secure score API
-            url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
+            url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
  
   # Card
   - title: Get started
@@ -71,7 +71,7 @@ landingContent:
           - text: Use recommendations to enhance security
             url: security-center-using-recommendations.md
           - text: Track with the secure score API
-            url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
+            url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
 
   # Card
   - title: Mitigate threats

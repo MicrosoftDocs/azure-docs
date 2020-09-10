@@ -15,7 +15,7 @@ ms.custom: "devx-track-azurecli, devx-track-csharp"
 
 # Enable and manage soft delete for blobs
 
-Blob soft delete protects your data from being accidentally or erroneously modified or deleted. When blob soft delete is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
+Blob soft delete protects your data from being accidentally or erroneously modified or deleted. When blob soft delete is enabled for a storage account, blobs, blob versions, and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
 
 If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on blob soft delete. This article shows how to enable soft delete for blobs. For more details about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
@@ -191,4 +191,4 @@ blockBlob.StartCopy(copySource);
 ## Next steps
 
 - [Soft delete for Blob storage](soft-delete-overview.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)

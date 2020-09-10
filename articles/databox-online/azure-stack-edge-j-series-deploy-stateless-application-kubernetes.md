@@ -6,12 +6,12 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
-# Run and manage a Kubernetes stateless application on your Azure Stack Edge device
+# Deploy a Kubernetes stateless application via kubectl on your Azure Stack Edge GPU device
 
 This article describes how to deploy a stateless application using kubectl commands on an existing Kubernetes cluster. This article also walks you through the process of creating and setting up pods in your stateless application.
 

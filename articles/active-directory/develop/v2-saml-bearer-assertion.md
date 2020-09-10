@@ -22,7 +22,7 @@ SAML Bearer Assertion flow is useful when fetching data from Microsoft Graph API
 
 For applications that do interactive browser-based sign-in to get a SAML assertion and then want to add access to an OAuth protected API (such as Microsoft Graph), you can make an OAuth request to get an access token for the API. When the browser is redirected to Azure AD to authenticate the user, the browser will pick up the session from the SAML sign-in and the user doesn't need to enter their credentials.
 
-The OAuth SAML Bearer Assertion flow is also supported for users authenticating with identity providers such as Active Directory Federation Services (ADFS) federated to Azure Active Directory.  The SAML assertion obtained from ADFS can be used in an OAuth flow to authenticate the user.
+The OAuth SAML Bearer Assertion flow is only supported for users authenticating with identity providers such as Active Directory Federation Services (ADFS) federated to Azure Active Directory.  The SAML assertion obtained from ADFS can be used in an OAuth flow to authenticate the user.
 
 ![OAuth flow](./media/v2-saml-bearer-assertion/1.png)
 
