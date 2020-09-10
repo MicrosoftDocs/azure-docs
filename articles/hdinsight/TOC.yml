@@ -397,8 +397,8 @@
         - name: Manage Spark application dependencies
           href: ./spark/apache-spark-manage-dependencies.md
         - name: Safely manage jar dependencies
-          href: ./spark/manage-jar-dependency.md
-        - name: Safely manage Python environment on Azure HDInsight using Script Action
+          href: ./spark/safely-manage-jar-dependency.md
+        - name: Safely manage Python environment
           href: ./spark/apache-spark-python-package-installation.md
       - name: Manage cluster resources
         href: ./spark/apache-spark-resource-manager.md
