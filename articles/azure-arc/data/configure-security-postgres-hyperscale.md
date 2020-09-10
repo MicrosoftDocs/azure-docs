@@ -161,7 +161,7 @@ printenv AZDATA_PASSWORD
 You may want to delete its value if you prefer being prompted to enter a new password.
 
 
-## Next step
+## Next steps
 - Read details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
 - Read details about how to use Postgres extensions [here](using-extensions-in-postgresql-hyperscale-server-group.md).
 
