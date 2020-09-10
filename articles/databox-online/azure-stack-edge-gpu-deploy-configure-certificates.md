@@ -160,7 +160,7 @@ Follow these steps to add your own certificates including the signing chain.
     > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
 
 
-Your device is now ready to be activated.
+Your device is now ready to be activated. Select **< Back to Get started**.
 
 
 ## Next steps
