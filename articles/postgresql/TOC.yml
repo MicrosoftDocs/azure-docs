@@ -478,6 +478,10 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-restore-server-portal.md
+    - name: Stop/start a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-stop-start-server-portal.md
     - name: Manage high availability
       items:
       - name: Azure portal
