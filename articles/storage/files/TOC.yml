@@ -27,7 +27,7 @@
     items: 
     - name: Planning for an Azure Files deployment
       href: storage-files-planning.md
-    - name: Select a protocol
+    - name: Available file share protocols
       href: storage-files-compare-protocols.md
     - name: Identity-based authentication and authorization
       href: storage-files-active-directory-overview.md
