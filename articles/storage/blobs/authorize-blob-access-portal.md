@@ -61,7 +61,7 @@ Custom roles can support different combinations of the same permissions provided
 
 To view blob data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Blobs**. Alternatively you can navigate to the **Blob service** section in the menu.
 
-![Navigate to blob data in the Azure portal](media/authorize-blob-access-portal/blob-access-portal.png)
+:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to navigate to blob data in the Azure portal":::
 
 ## Determine the current authentication method
 
@@ -71,11 +71,11 @@ When you navigate to a container, the Azure portal indicates whether you are cur
 
 If you are authenticating using the account access key, you'll see **Access Key** specified as the authentication method in the portal:
 
-![Currently accessing container data with the account key](media/authorize-blob-access-portal/auth-method-access-key.png)
+:::image type="content" source="media/authorize-blob-access-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing containers with the account key":::
 
 To switch to using Azure AD account, click the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the right permissions, you'll see an error message like the following one:
 
-![Error shown if Azure AD account does not support access](media/authorize-blob-access-portal/auth-error-azure-ad.png)
+:::image type="content" source="media/authorize-blob-access-portal/auth-error-azure-ad.png" alt-text="Error shown if Azure AD account does not support access":::
 
 Notice that no blobs appear in the list if your Azure AD account lacks permissions to view them. Click on the **Switch to access key** link to use the access key for authentication again.
 
@@ -83,11 +83,11 @@ Notice that no blobs appear in the list if your Azure AD account lacks permissio
 
 If you are authenticating using your Azure AD account, you'll see **Azure AD User Account** specified as the authentication method in the portal:
 
-![Currently accessing container data with Azure AD account](media/authorize-blob-access-portal/auth-method-azure-ad.png)
+:::image type="content" source="media/authorize-blob-access-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing containers with Azure AD account":::
 
 To switch to using the account access key, click the link highlighted in the image. If you have access to the account key, then you'll be able to proceed. However, if you lack access to the account key, you'll see an error message like the following one:
 
-![Error shown if you do not have access to account key](media/authorize-blob-access-portal/auth-error-access-key.png)
+:::image type="content" source="media/authorize-blob-access-portal/auth-error-access-key.png" alt-text="Error shown if you do not have access to account key":::
 
 Notice that no blobs appear in the list if you do not have access to the account keys. Click on the **Switch to Azure AD User Account** link to use your Azure AD account for authentication again.
 
