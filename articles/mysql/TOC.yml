@@ -472,6 +472,10 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-restore-server-portal.md
+    - name: High Availability
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-configure-high-availability.md
     - name: Networking
       items:
       - name: Private access (VNet Integration)
