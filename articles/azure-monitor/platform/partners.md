@@ -3,7 +3,7 @@ title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 ms.subservice: ""
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 09/10/2020
 
 ---
 
@@ -73,6 +73,8 @@ CloudMonix offers monitoring, automation, and self-healing services for Microsof
 Datadog is the world's leading monitoring service for cloud-scale applications. It brings together data from servers, databases, tools, and services to present a unified view of your entire stack. These capabilities are provided on a SaaS-based data analytics platform. This service enables Dev and Ops teams to work collaboratively to avoid downtime, resolve performance problems, and ensure that development and deployment cycles finish on time. By integrating Datadog and Azure, you can collect and view metrics from across your infrastructure. Correlate VM metrics with application-level metrics. Slice and dice your metrics using any combination of properties and custom tags.
 
 [Go to the documentation.][datadog-doc]
+
+A new Azure marketplace integration of Datadog is scheduled for release in early October 2020. A link will be added here upon release. 
 
 ## Dynatrace
 
