@@ -124,7 +124,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-   ![Certificate](./media/atlassian-cloud-tutorial/certificate.png)
+   ![signing Certificate](./media/atlassian-cloud-tutorial/certificate.png)
 
    ![Certificate 1](./media/atlassian-cloud-tutorial/certificate-1.png)
 
