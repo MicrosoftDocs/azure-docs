@@ -24,7 +24,7 @@ Here are the various scenarios where Azure Stack Edge Pro can be used for rapid 
 - **Inference with Azure Machine Learning** - With Azure Stack Edge Pro, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro device, see 
 [Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
-- **Preprocess data** - Transform data before sending it to Azure via a variety of compute options such as containerized workloads, Azure IoT modules, and Virtual Machines, to create a more actionable dataset. Preprocessing can be used to: 
+- **Preprocess data** - Transform data before sending it to Azure via compute options such as containerized workloads and Virtual Machines to create a more actionable dataset. Preprocessing can be used to: 
 
     - Aggregate data.
     - Modify data, for example to remove personal data.
@@ -40,7 +40,7 @@ Azure Stack Edge Pro has the following capabilities:
 |Capability |Description  |
 |---------|---------|
 |Accelerated AI inferencing| Enabled by the built-in GPU (one or two depending on the model).|
-|Edge computing      |Compute options such as Kubernetes, IoT Edge, and Virtual Machines to allow analysis, processing, and filtering of data. |
+|Edge computing      |Supports VM and containerized workloads to allow analysis, processing, and filtering of data. |
 |High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.  |

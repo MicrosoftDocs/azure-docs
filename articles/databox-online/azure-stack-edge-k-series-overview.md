@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 09/10/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 
 # What is the Azure Stack Edge Mini R?
 
-The Azure Stack Edge Mini R is a Hardware-as-a-service solution. Microsoft ships you a rugged, cloud-managed, portable device with a built-in Vision Processing Unit (VPU) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway. These are durable, rugged, and portable edge devices appropriate for use by mounted and dismounted patrols and expeditionary forces. These devices are optimized for AI, analytics, and serverless computing.
+The Azure Stack Edge Mini R is a Hardware-as-a-service solution. Microsoft ships you a rugged, cloud-managed, ultra portable device with a built-in Vision Processing Unit (VPU) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway. These devices are appropriate for use in the harshest environments and are optimized for AI, analytics, and serverless computing.
 
 This article provides you an overview of the Azure Stack Edge Mini R solution, key capabilities, and the scenarios where you can deploy this device.
 
@@ -25,14 +25,14 @@ Azure Stack Edge Mini R has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Rugged hardware| Rugged hardware designed for harsh environmental conditions.|
-|Portable| Portable, battery-operated form factor.|
+|Rugged hardware| Rugged hardware designed for harshest environments.|
+|Ultra portable| Ultra portable, battery-operated form factor.|
 |Cloud-managed|Device and service are managed via the Azure portal.|
-|Edge compute workloads|Allows analysis, processing, filtering of data.<br>Supports VMs and Kubernetes clusters.|
+|Edge compute workloads|Allows analysis, processing, filtering of data.<br>Supports VMs and containerized workloads. |
 |Accelerated AI inferencing| Enabled by the Intel Movidius Myriad X VPU.|
 |Wired and wireless | Allows wired and wireless data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
-|Disconnected mode| Device and service are managed via Azure Stack. <br> Disconnected mode supports offline upload scenarios.|
+|Disconnected mode| Device and service can be optionally managed via Azure Stack. <br> Deploy, run, manage applications in offline mode. <br> Disconnected mode supports offline upload scenarios.|
 |Supported protocols     |Supports standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
@@ -45,7 +45,7 @@ Here are the various scenarios where Azure Stack Edge Mini R can be used for rap
 - **Inference with Azure Machine Learning** - With Azure Stack Edge Mini R, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Mini R device, see 
 [Deploy Azure ML hardware accelerated models on Azure Stack Edge Mini R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
-- **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to:
+- **Preprocess data** - Transform data via compute options such as containers or virtual machines before sending it to Azure to create a more actionable dataset. Preprocessing can be used to:
 
     - Aggregate data.
     - Modify data, for example to remove personal data.
@@ -56,9 +56,9 @@ Here are the various scenarios where Azure Stack Edge Mini R can be used for rap
 
 ## Components
 
-The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, Azure Stack Edge Mini R rugged, portable physical device, and a local web UI.
+The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, Azure Stack Edge Mini R rugged, ultra portable physical device, and a local web UI.
 
-* **Azure Stack Edge Mini R physical device** - A portable device with an onboard battery and a rugged encasing supplied by Microsoft that can be configured to send data to Azure. 
+* **Azure Stack Edge Mini R physical device** - An ultra portable device with an onboard battery and a rugged encasing supplied by Microsoft that can be configured to send data to Azure. The device with the battery weighs less than 7 lbs.
 
     ![Azure Stack Edge Mini R device](media/azure-stack-edge-k-series-overview/perspective-view-1.png)
 
