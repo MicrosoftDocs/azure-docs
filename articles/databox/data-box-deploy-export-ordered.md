@@ -7,7 +7,7 @@ author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/10/2020
 ms.author: twooley
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
