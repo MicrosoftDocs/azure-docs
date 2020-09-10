@@ -16,6 +16,8 @@ This article provides you with information about:
 * Bug fixes
 * Deprecated functionality
 
+<hr width=100%>
+
 ## September 22, 2020
 
 This release tag for the September 2020 refresh of the module is:
@@ -36,6 +38,8 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 * [Instructions](deploy-azure-stack-edge-how-to.md) are available for using Live Video Analytics on IoT Edge on Azure Stack Edge devices.
 * New tutorial on developing scenario specific computer vision models using [Custom Vision service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) and using it to [analyze live video](custom-vision-tutorial.md) in real time.
+
+<hr width=100%>
 
 ## August 19, 2020
 
@@ -60,6 +64,8 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 * Remove the use of a deprecated azure extension in the set up script
 
+<hr width=100%>
+
 ## July 13, 2020
 
 This release tag for the July 2020 refresh of the module is:
@@ -78,6 +84,8 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 ### Bug fixes
 
 * Improvements to validation of desired properties
+
+<hr width=100%>
 
 ## June 1, 2020
 
