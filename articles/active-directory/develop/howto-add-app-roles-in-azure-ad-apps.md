@@ -43,7 +43,7 @@ To create an app role:
 
     | Field | Description | Example |
     |-------|-------------|---------|
-    | **Display name** | Display name for the app role that appears in the admin consent and app assignment experiences. This value may contain spaces.  | `Writer` |
+    | **Display name** | Display name for the app role that appears in the admin consent and app assignment experiences. This value may contain spaces.  | `Survey Writer` |
     | **Allowed member types** | Specifies whether this app role can be assigned to users, applications, or both. | `Users/Groups` |
     | **Value** | Specifies the value of the roles claim that the application should expect in the token. The value should exactly match the string referenced in the application's code. The value cannot contain spaces. | `Survey.Create` |
     | **Description** | A more detailed description of the app role displayed during admin app assignment and consent experiences. | `Writers can create surveys.` |
@@ -97,7 +97,6 @@ Learn more about app roles with the following resources:
 
 - Code sample: [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles) (GitHub)
 - Video: [Implement authorization in your applications with Microsoft identity platform ](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
-- Blog post: [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory app manifest](./reference-app-manifest.md)
 - [Azure AD Access tokens](access-tokens.md)
 - [Azure AD `id_tokens`](id-tokens.md)
