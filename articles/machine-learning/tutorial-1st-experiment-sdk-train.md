@@ -218,9 +218,9 @@ if __name__ == "__main__":
 
 ### Understand these two additional lines
 
-1. **`env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')`** AzureML provides the concept of an `Environment` to represent a reproducible, versioned
+- **`env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')`** AzureML provides the concept of an `Environment` to represent a reproducible, versioned
 Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
-1. **`config.run_config.environment = env`** adds the environment to the ScriptRunConfig.
+- **`config.run_config.environment = env`** adds the environment to the ScriptRunConfig.
 
 > [!TIP]
 > There are many ways to create AML environments, including [from a pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-),
