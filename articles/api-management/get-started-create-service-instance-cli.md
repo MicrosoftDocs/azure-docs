@@ -5,7 +5,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: quickstart
 ms.custom: 
-ms.date: 09/09/2020
+ms.date: 09/10/2020
 ms.author: apimpm
 ---
 
@@ -35,7 +35,7 @@ az group create --name myResourceGroup --location centralus
 
 Now that you have a resource group, you can create an API Management service instance. Create one by using the [az apim create](/cli/azure/apim#az-apim-create) command and provide a service name and publisher details. The service name must be unique within Azure. 
 
-In the following example, *myapim* is used. Update the name to a unique value. Also provide the organization name of the API publisher and the email address to receive notifications.
+In the following example, *myapim* is used for the service name. Update the name to a unique value. Also update the name of the API publisher's organization and the email address to receive notifications. 
 
 ```azurecli-interactive
 az apim create --name myapim --resource-group myResourceGroup \
@@ -43,10 +43,10 @@ az apim create --name myapim --resource-group myResourceGroup \
   --no-wait
 ```
 
-> [!TIP]
-> It usually takes between 20 and 30 minutes to create and activate an API Management service. The previous example uses the `--no-wait` option so that the command returns immediately while the service is created.
-
 By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md). 
+
+> [!TIP]
+> It usually takes between 20 and 30 minutes to create and activate an API Management service in this tier. The previous command uses the `--no-wait` option so that the command returns immediately while the service is created.
 
 Check the status of the deployment by running the [az apim show](/cli/azure/apim#az-apim-show) command:
 
