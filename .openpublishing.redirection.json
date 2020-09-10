@@ -181,6 +181,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/common/storage-access-blobs-queues-portal.md",
+      "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": false
