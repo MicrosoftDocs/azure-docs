@@ -651,6 +651,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-network/security-overview.md",
+      "redirect_url": "/azure/virtual-network/network-security-groups-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal",
       "redirect_document_id": false
@@ -17443,6 +17448,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-enable-virtual-network.md",
+      "redirect_url": "/azure/machine-learning/how-to-network-security-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
@@ -29493,11 +29503,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sentinel/connect-logstash.md",
-      "redirect_url": "/azure/sentinel/connect-data-sources",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/sentinel/connect-microsoft-waf.md",
       "redirect_url": "/azure/sentinel/connect-azure-waf",
       "redirect_document_id": false
@@ -33834,8 +33839,8 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
-      "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-troubleshoot",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/multi-factor-authentication/nps-extension-vpn.md",
@@ -56831,6 +56836,11 @@
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/objectivec-macos.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/text-to-speech",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
+      "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/aks/windows-node-limitations.md",

@@ -1,5 +1,5 @@
 ---
-title: Snapshot of managed disk to subscription (Windows) - PowerShell
+title: Copy snapshot of managed disk to subscription (Windows) - PowerShell 
 description: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed disk to same or different subscription
 services: virtual-machines-windows
 documentationcenter: storage
