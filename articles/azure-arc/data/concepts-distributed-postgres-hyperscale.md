@@ -29,6 +29,8 @@ This is the hyperscale form factor of the Postgres database engine offered avail
 
 The key concepts around Azure Arc enabled PostgreSQL Hyperscale are:
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Nodes and tables
 
 This article demonstrates:

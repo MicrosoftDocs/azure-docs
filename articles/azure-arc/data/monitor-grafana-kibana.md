@@ -15,6 +15,8 @@ ms.topic: how-to
 
 Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc enabled data services.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Retrieve the IP address of your cluster
 
 To access the dashboards you will need to retrieve your cluster's IP address. The method for retrieving the correct IP address varies depending on how you have chosen to deploy Kubernetes. Step through the options below to find the right one for you.

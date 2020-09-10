@@ -16,6 +16,8 @@ ms.topic: how-to
 
 This document describes the steps to get your existing PostgreSQL database (one that not hosted in Azure Arc enabled Data Services) into your Azure Arc enabled PostgreSQL Hyperscale server group.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Considerations
 
 Azure Arc enabled PostgreSQL Hyperscale server group is the community version of PostgreSQL and runs with the CitusData extension enabled. So any tool that that works on PostgreSQL outside of Azure Arc should work with Azure Arc enabled PostgreSQL Hyperscale server group.

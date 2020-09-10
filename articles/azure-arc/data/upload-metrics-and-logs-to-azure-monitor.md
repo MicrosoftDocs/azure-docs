@@ -15,6 +15,8 @@ ms.topic: how-to
 
 With Azure Arc data services you can *optionally* upload your metrics and logs to Azure Monitor so you can aggregate and analyze metrics, logs, raise alerts, send notifications or trigger automated actions. Sending your data to Azure Monitor also allows you to store monitoring and logs data off site and at huge scale enabling long-term storage of the data for advanced analytics.  If you have multiple sites which have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Before you begin
 
 There are a few one-time setup steps required to enable the logs and metrics upload scenarios:

@@ -17,6 +17,8 @@ ms.topic: how-to
 
 This document describes a simple process to get the AdventureWorks sample database restored into your SQL Managed Instance - Azure Arc.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Download the AdventureWorks backup file
 
 Download the AdventureWorks backup (.bak) file into your SQL Managed Instance container. In this example, use the `kubectl exec` command to remotely execute a command inside of the SQL Managed Instance container to download the .bak file into the container. Download this file from any location accessible by `wget` if you have other database backup files you want to pull to be inside of the SQL Managed Instance container. Once it is inside of the SQL Managed Instance container it is easy to restore using standard `RESTORE DATABASE` T-SQL.

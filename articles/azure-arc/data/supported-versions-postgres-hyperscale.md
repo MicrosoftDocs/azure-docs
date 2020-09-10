@@ -18,6 +18,8 @@ The list of supported versions evolves over time. Today, the major versions that
 - Postgres 12 (default)
 - Postgres 11
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## How to chose between versions?
 It is recommend you look at what versions your applications have been designed for and what are the capabilities of each of the versions. 
 To learn more, read about each version on the official Postgres site:

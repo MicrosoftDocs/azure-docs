@@ -19,6 +19,8 @@ This document describes various aspects related to security of your server group
    - General perspectives
    - Change the password of the _postgres_ administrative user
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Encryption at rest
 There are two ways you can implement encryption at rest for your server group. You can implement either of them or combine them.
 

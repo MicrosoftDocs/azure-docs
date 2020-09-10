@@ -15,6 +15,8 @@ ms.topic: how-to
 
 This article explains how to configure Azure Arc enabled SQL managed instance.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Configure Resources for Azure Arc enabled SQL Managed Instance
 
 ### Configure using azdata

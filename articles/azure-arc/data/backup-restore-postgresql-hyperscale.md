@@ -16,6 +16,8 @@ ms.topic: how-to
 You can do full backup/restore of your Azure Arc enabled PostgreSQL Hyperscale server group. When you do so, the entire set of databases on all the nodes of your Azure Arc enabled PostgreSQL Hyperscale server group is backed-up and/or restored.
 To take a backup and restore it, you need to make sure that a backup storage class is configured for your server group. For now, you need to indicate a backup storage class at the time you create the server group. It is not yet possible to configure your server group to use a backup storage class after it has been created.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Verify configuration
 
 First, verify if your existing server group has been configured to use backup storage class.

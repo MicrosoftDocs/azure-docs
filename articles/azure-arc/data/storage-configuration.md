@@ -13,6 +13,8 @@ ms.topic: conceptual
 
 # Storage Configuration
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Kubernetes storage concepts
 
 Kubernetes provides an infrastructure abstraction layer over the underlying virtualization tech stack (optional) and hardware. The way that Kubernetes abstracts away storage is through **[Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)**. At the time of provisioning a pod, a storage class can be specified to be used for each volume. At the time the pod is provisioned, the storage class **[provisioner](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)** is called to provision the storage and then a **[persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)** is created on that provisioned storage and then the pod is mounted to the persistent volume by a **[persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)**.
