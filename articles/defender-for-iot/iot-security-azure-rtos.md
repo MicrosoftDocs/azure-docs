@@ -30,15 +30,15 @@ Security Module for Azure RTOS offers the following features:
 - Custom alert based, device behavior baselining
 - Improve device security hygiene
 
-### Detection of malicious network activities
+## Detection of malicious network activities
 
 Inbound and outbound network activity of each device is monitored (supported protocols: TCP, UDP, ICMP on IPv4 and IPv6). Defender  for IoT inspects each of these network activities against the Microsoft Threat Intelligence feed. The feed gets updated in real-time with millions of unique threat indicators collected worldwide. 
 
-### Device behavior baselining based on custom alerts
+## Device behavior baselining based on custom alerts
 
 Baselining allows for clustering of devices into security groups and defining the expected behavior of each group. As IoT devices are typically designed to operate in well-defined and limited scenarios, it is easy to create a baseline that defines their expected behavior using a set of parameters. Any deviation from the baseline, triggers an alert. 
 
-### Improve your device security hygiene
+## Improve your device security hygiene
 
 By leveraging the recommended infrastructure Defender for IoT provides, gain knowledge and insights about issues in your environment that impact and damage the security posture of your devices. Weak IoT device security posture can allow potential attacks to succeed if left unchanged, as security is always measured by the weakest link within any organization. 
 
