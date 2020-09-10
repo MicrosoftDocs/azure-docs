@@ -63,7 +63,7 @@ Specifies the name of the external data source object that contains the location
 
 FILE_FORMAT = *external_file_format_name*
 
-Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Only external file formats with FORMAT='PARQUET' are currently supported.
+Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Only external file formats with FORMAT_TYPE=PARQUET and FORMAT_TYPE=DELIMITEDTEXT are currently supported.
 
 WITH *<common_table_expression>*
 
