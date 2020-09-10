@@ -38,7 +38,7 @@ Follow these steps to restart your flexible server.
 
 4.  Click **Yes** if you want to continue.
    
- :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Restart confirm":::
+     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Restart confirm":::
  
 6.  A notification will be shown that the restart operation has been
     initiated.
