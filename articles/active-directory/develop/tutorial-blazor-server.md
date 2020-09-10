@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. You can create a new registration and then use the [.NET CLI](https://docs.microsoft.com/dotnet/core/tools/) to create a new Blazor app using the following instructions. If you are using Visual Studio 2019, you can skip this step and complete step two. 
 
-First, follow the instructions in [Register an application in the Azure portal](quickstart-register-app.md) with the following settings:
+First, follow the instructions in [Register a new application using the Azure portal](https://review.docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) with the following settings:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Leave the **Redirect URI** drop down set to **Web** and provide the following redirect URI: `https://localhost:{PORT}/signin-oidc`. The default port for an app running on Kestrel is 5001. If the app is run on a different Kestrel port, use the app's port. For IIS Express, the randomly generated port for the app can be found in the app's properties in the **Debug** panel. Since the app doesn't exist at this point and the IIS Express port isn't known, you can update the redirect URI after the app is created and you have the port number. 
@@ -150,7 +150,7 @@ Then, ensure that your app can use the right v2 endpoints for signin and signout
 </AuthorizeView>
 ```
 
-You will notice that there are no dedicated pages for sign-in and sign out. Instead, they are built into the Microsoft.Identity.Web library. So as long as you update the Area to be “MicrosoftIdentity”, no other change is needed.
+You will notice that there are no dedicated pages for sign-in and sign out. Instead, they are built into the Microsoft.Identity.Web library. So as long as you update the Area to be "MicrosoftIdentity", no other change is needed.
 
 As you can see, with a couple of lines of code, you are able to leverage the Microsoft.Identity.Web library to authenticate against Azure AD and take advantage of easy authentication and authorization with MSAL. 
 
@@ -166,7 +166,7 @@ In the following steps, you pull user's emails and display them within the app. 
 2. Under **Manage**, select **App registrations** and select your new app. 
 3. Go to **API Permissions**. 
 4. Select Add New Permission and then select **Microsoft Graph**. 
-5. Select **Delegated Permissions** and select the “Mail.Read” permission. 
+5. Select **Delegated Permissions** and select the "Mail.Read" permission. 
 
 You also need to create a User Secret since our app will need a way to validate the token and retrieve the data without any user interaction: 
 
@@ -177,7 +177,7 @@ You also need to create a User Secret since our app will need a way to validate 
 Navigate back to your Blazor app. Add the client secret in *appsettings.json*. Inside the AzureAD config section, add the following line:
 
 ```yaml
-“ClientSecret”: “<your secret>”
+"ClientSecret": "<your secret>"
 ```
 
 In the *Startup.cs* class, you need to update your code to ensure that it fetches the appropriate token with the right permissions and stores it in a cache so that you can use it later when you make the call to Microsoft Graph. You will also add **HttpClient** to the services pipeline to efficiently make HTTP calls to Microsoft Graph later. Add the following to the end of the **ConfigureServices** method.
@@ -290,7 +290,7 @@ Let’s launch our app and ensure that you are logged out first as the current t
 
 ![Image of a dialog box asking the user permission for the Blazor app to maintain access to data you have given it access to, sign you in and read your profile, and read your mail.](./media/tutorial-blazor-server/consent-dialog-2.png)
 
-After granting consent you can navigate to the “Fetch Data” page to read some emails!
+After granting consent you can navigate to the "Fetch Data" page to read some emails!
 
 ![Screenshot of the final app. The webpage is titled "Weather forecast". It has a heading that says "Hello Christos Matskas" and it shows a list of emails belonging to Christos.](./media/tutorial-blazor-server/final-app-2.png)
 
