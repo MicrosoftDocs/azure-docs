@@ -3,7 +3,7 @@ title: Migrate manually from Windows Virtual Desktop (classic) - Azure
 description: How to migrate manually from Windows Virtual Desktop (classic) to Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -39,8 +39,8 @@ There are a few scenarios in particular where we recommend you manually migrate:
 - You have a production host pool setup with a small number of users, but plan to eventually ramp up to hundreds of users.
 - You have a simple setup that can be easily replicated. For example, if your VMs use a gallery image.
 
-> [!NOTE]
-> If you're using an advanced configuration that took a long time to stabilize or have a lot of users, you would benefit from the automation tool.
+> [!IMPORTANT]
+> If you're using an advanced configuration that took a long time to stabilize or has a lot of users, we don't recommend manually migrating.
 
 ## Prepare for migration
 
