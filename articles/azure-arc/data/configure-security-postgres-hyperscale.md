@@ -22,7 +22,7 @@ This document describes various aspects related to security of your server group
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Encryption at rest
-There are two ways you can implement encryption at rest for your server group. You can implement either of them or combine them.
+You can implement encryption at rest either by encrypting the disks on which you store your databases and/or by using database functions to encrypt the data you insert or update.
 
 ### Hardware: Linux host volume encryption
 Implement system data encryption to secure any data that resides on the disks used by your Azure Arc enabled Data Services setup. You can read more about this topic:
@@ -33,8 +33,6 @@ Implement system data encryption to secure any data that resides on the disks us
 In addition of encrypting the disks used to host your Azure Arc setup, you can configure your Azure Arc enabled PostgreSQL Hyperscale server group to expose mechanisms that your applications can use to encrypt data in your database(s). The `pgcrypto` extension is part of the `contrib` extensions of Postgres and is available in your Azure Arc enabled PostgreSQL Hyperscale server group. You find details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
 In summary, with the following commands, you enable the extension, you create it and you use it:
 
-#### Enable the `pgcrypto` extension
-This step is not needed because `pgcrypto` is part of `contrib`.
 
 #### Create the `pgcrypto` extension
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
@@ -42,7 +40,9 @@ Connect to your server group with the client tool of your choice and run the sta
 CREATE EXTENSION pgcrypto;
 ```
 
-#### Verify List the extensions ready to use in your server group
+> You find details [here](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md) about how to connect.
+
+#### Verify the list the extensions ready to use in your server group
 You can verify that the `pgcrypto` extension is ready to use by listing the extensions available in your server group.
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
 ```console
@@ -161,7 +161,7 @@ printenv AZDATA_PASSWORD
 You may want to delete its value if you prefer being prompted to enter a new password.
 
 
-## Next step
+## Next steps
 - Read details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
-- Read details about how to use Postgres extensions, read [here](using-extensions-in-postgresql-hyperscale-server-group.md).
+- Read details about how to use Postgres extensions [here](using-extensions-in-postgresql-hyperscale-server-group.md).
 
