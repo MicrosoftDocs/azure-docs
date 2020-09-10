@@ -35,8 +35,22 @@ With phone sign-up and sign-in, the user can sign up for the app using a phone n
 >
 > *&lt;link to your Privacy Statement&gt;*<br/>*&lt;link to your Terms of Service&gt;*
 
+To add your own consent information, customize the following sample and include it in the LocalizedResources for the ContentDefinition used by the self-asserted page with the display control (the Phone-Email-Base.xml file in the phone sign-up & sign-in starter pack):
 
-### Phone sign-up
+```xml
+<LocalizedResources Id="phoneSignUp.en">        
+    <LocalizedStrings>
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString>          
+    <LocalizedString ElementType="UxElement" StringId="initial_intro">Please verify your country code and phone number</LocalizedString>        
+    </LocalizedStrings>      
+</LocalizedResources>
+   ```
+
+### Phone sign-up experience
 
 If the user doesn't already have an account for your application, they can create one by choosing the **Sign up now** link. A sign-up page appears, where the user selects their **Country**, enters their phone number, and selects **Send Code**.
 
@@ -56,7 +70,7 @@ Once the code is verified, the user selects **Create** to create their account. 
 
 ![User creates account](media/phone-authentication/email-verification.png)
 
-### Phone sign-in
+### Phone sign-in experience
 
 If the user has an existing account with phone number as their identifier, the user enters their phone number and selects **Continue**. They confirm the country and phone number by selecting **Continue**, and a one-time verification code is sent to their phone. The user enters the verification code and selects **Continue** to sign in.
 
@@ -64,7 +78,7 @@ If the user has an existing account with phone number as their identifier, the u
 
 ## Deleting a user account
 
-There might be scenarios in which you want to manually delete an account in your Azure AD B2C directory. For details, see [Delete a consumer user](manage-users-portal.md#delete-a-consumer-user).
+There might be scenarios in which you need to manually delete an account in your Azure AD B2C directory, for example to support your obligations under the GDPR. For details, see [Delete a consumer user](manage-users-portal.md#delete-a-consumer-user). If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## Prerequisites
 
