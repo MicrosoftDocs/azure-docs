@@ -37,7 +37,7 @@ xhost +
 Telegraf is open source and the spatial-analysis-telegraf image available in Microsoft Container Registry takes the following inputs and sends them to Azure Monitor. The spatial-analysis-telegraf module can be built with desired custom Inputs and Outputs by the end user. The spatial-analysis-telegraf module configuration in spatial analysis is part of the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179). This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
-1. spatial analysis Metrics
+1. Spatial analysis Metrics
 2. Disk Metrics
 3. CPU Metrics
 4. Docker Metrics
@@ -194,7 +194,7 @@ The `diagnostics` collection is on-demand and controlled via an IoT Edge direct 
 
 ### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **diagnostics** module. In the **Environment Variables** section, add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the DeploymentManifes.json, look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
 
 **Configure Upload to Azure Blob Storage**
 
@@ -203,7 +203,7 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 3. Spatial analysis logs will be automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
 
 ```json
-{
+"env":{
 	"IOTEDGE_WORKLOADURI":"fd://iotedge.socket",
 	"AZURE_STORAGE_CONNECTION_STRING":"XXXXXX",   //from the Azure Blob Storage account
 	"ARCHON_LOG_LEVEL":"info"
