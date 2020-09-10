@@ -91,7 +91,7 @@ This table specifies the child workflow's behavior based on whether the parent a
     > `Workflow design time could not be started` when you try to open your workflow app in the Logic App Designer. For more 
     > information, see [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
     >
-    > ![Screenshot that shows Azure Storage Emulator running](./media/create-stateless-stateful-workflows/start-storage-emulator.png)
+    > ![Screenshot that shows Azure Storage Emulator running.](./media/create-stateless-stateful-workflows/start-storage-emulator.png)
 
   * [Azure Functions for Visual Studio Code 0.22.1-alpha (ZIP)](https://workflowscdn.azureedge.net/2020-05-preview/VsExtension/LogicAppsVSCodeExtension-0.22.1-alpha.zip)
 
@@ -101,7 +101,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
     1. In Visual Studio Code, on the left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button > **Install from VSIX**.
 
-       ![Screenshot that shows Visual Studio extension menu with selected ellipsis button and Install from VSIX menu command](./media/create-stateless-stateful-workflows/install-from-vsix.png)
+       ![Screenshot that shows Visual Studio extension menu with selected ellipses button and the "Install from VSIX menu command".](./media/create-stateless-stateful-workflows/install-from-vsix.png)
 
 * Before you can connect to any services or systems in workflow apps that you build with Visual Studio Code, you have to first create these connections by using the Logic App Designer in [Azure portal](https://portal.azure.com).
 
@@ -122,7 +122,7 @@ After you install all the extensions, disable automatic extension updates for Vi
 
 1. Under **Auto Update**, clear **When enabled, automatically installs updates for extensions. The updates are fetched from a Microsoft online service**.
 
-   ![Screenshot that shows Visual Studio extension settings with cleared checkbox for auto update](./media/create-stateless-stateful-workflows/disable-extension-auto-update.png)
+   ![Screenshot that shows Visual Studio extension settings with cleared checkbox for auto update.](./media/create-stateless-stateful-workflows/disable-extension-auto-update.png)
 
 1. To make sure that all the extensions are correctly installed, reload or restart Visual Studio Code.
 
@@ -134,9 +134,9 @@ After you install all the extensions, disable automatic extension updates for Vi
 
    1. Under **Azure Functions Project Runtime**, select **~3**.
 
-      ![Screenshot that shows Visual Studio Code extension settings with Azure Functions Project Runtime set to ~3](./media/create-stateless-stateful-workflows/azure-functions-project-runtime-version.png)
+      ![Screenshot that shows Visual Studio Code extension settings with Azure Functions Project Runtime set to "~3".](./media/create-stateless-stateful-workflows/azure-functions-project-runtime-version.png)
 
-      For more information, see [Azure Functions runtime versions overview](../azure-functions/functions-versions.md).
+      For more information, see [Azure Functions runtime versions overview.](../azure-functions/functions-versions.md).
 
 1. If you have a previous version of the extension bundle, clean up any existing bundle binaries in this location:
 
@@ -148,17 +148,17 @@ After you install all the extensions, disable automatic extension updates for Vi
 
 1. On the Visual Studio Code toolbar, select the Azure icon.
 
-   ![Screenshot that shows Visual Studio Code toolbar and selected Azure icon](./media/create-stateless-stateful-workflows/visual-studio-code-azure-icon.png)
+   ![Screenshot that shows Visual Studio Code toolbar and selected Azure icon.](./media/create-stateless-stateful-workflows/visual-studio-code-azure-icon.png)
 
 1. In the Azure pane, under **Azure: Functions**, select **Sign in to Azure**. When the Microsoft sign-in page prompts you, sign in with your Azure account.
 
-   ![Screenshot that shows Azure pane and selected link for Azure sign in](./media/create-stateless-stateful-workflows/sign-in-azure-subscription.png)
+   ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-stateless-stateful-workflows/sign-in-azure-subscription.png)
 
    After you sign in, the Azure pane shows your account's Azure subscriptions. If the expected subscriptions don't appear, or you want to view only specific subscriptions, follow these steps:
 
    1. Move your pointer over the first subscription in the list so that the **Select subscriptions** filter icon appears. Select the filter icon.
 
-      ![Screenshot that shows Azure pane and selected filter icon](./media/create-stateless-stateful-workflows/filter-subscription-list.png)
+      ![Screenshot that shows Azure pane and selected filter icon.](./media/create-stateless-stateful-workflows/filter-subscription-list.png)
 
    1. From the list that appears, select the subscriptions that you want to appear, and select **OK**.
 
@@ -173,31 +173,31 @@ Before you create your workflow, create a local Azure Functions project ([functi
 
 1. In the Azure pane, next to **Azure: Functions**, select **Create new project** (folder with lightning bolt icon).
 
-   ![Screenshot that shows Azure pane toolbar with "Create new project" selected](./media/create-stateless-stateful-workflows/create-new-project-folder.png)
+   ![Screenshot that shows Azure pane toolbar with "Create new project" selected.](./media/create-stateless-stateful-workflows/create-new-project-folder.png)
 
 1. Browse to the location where you want to save your project. Create a folder for your project, select that folder, and select **Select**.
 
-   ![Screenshot that shows dialog box with "Create new project" selected](./media/create-stateless-stateful-workflows/select-project-folder.png)
+   ![Screenshot that shows dialog box with "Create new project" selected.](./media/create-stateless-stateful-workflows/select-project-folder.png)
 
 1. From the languages list that appears, select **C#** for this example.
 
-   ![Screenshot that shows a languages list with C# selected](./media/create-stateless-stateful-workflows/select-language-for-project.png)
+   ![Screenshot that shows a languages list with C# selected.](./media/create-stateless-stateful-workflows/select-language-for-project.png)
 
 1. From the templates list that appears, select **Skip for now** so that you can continue without having to create a function at this time. You'll create a function later.
 
    <!--
-   ![Screenshot that shows a templates list with "Skip for now" selected](./media/create-stateless-stateful-workflows/select-project-template.png)
+   ![Screenshot that shows a templates list with "Skip for now" selected.](./media/create-stateless-stateful-workflows/select-project-template.png)
    -->
 
 1. From the locations list, select **Open in current window**.
 
    <!--
-   ![Screenshot that shows locations list with "Open in current window" selected](./media/create-stateless-stateful-workflows/select-project-location.png)
+   ![Screenshot that shows locations list with "Open in current window" selected.](./media/create-stateless-stateful-workflows/select-project-location.png)
    -->
 
    After Visual Studio Code reloads, the Explorer pane opens and shows your local function app project.
 
-   ![Screenshot that shows Explorer pane and function app project](./media/create-stateless-stateful-workflows/function-app-project-created.png)
+   ![Screenshot that shows Explorer pane and function app project.](./media/create-stateless-stateful-workflows/function-app-project-created.png)
 
 Now, continue creating your workflow app.
 
@@ -209,25 +209,25 @@ Now, continue creating your workflow app.
 
 1. In the Azure pane, next to **Azure: Functions**, select **Create workflow**.
 
-   ![Screenshot that shows Azure pane toolbar with "Create workflow" selected](./media/create-stateless-stateful-workflows/create-function-app-project.png)
+   ![Screenshot that shows Azure pane toolbar with "Create workflow" selected.](./media/create-stateless-stateful-workflows/create-function-app-project.png)
 
 1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. Provide a name for your workflow app.
 
    This example selects **Stateful Workflow** and uses `example-workflow` as the name.
 
-   ![Screenshot that shows a templates list with "Stateful Workflow" and "Stateless Workflow"](./media/create-stateless-stateful-workflows/select-stateful-stateless-workflow.png)
+   ![Screenshot that shows a templates list with "Stateful Workflow" and "Stateless Workflow".](./media/create-stateless-stateful-workflows/select-stateful-stateless-workflow.png)
 
    In your project folder, Visual Studio Code adds a workflow app folder that has the specified name and a `workflow.json` file, which stores your workflow's JSON definition.
 
-   ![Screenshot that shows Explorer window with project folder, workflow folder, and .json file](./media/create-stateless-stateful-workflows/sample-workflow-folder.png)
+   ![Screenshot that shows Explorer window with project folder, workflow folder, and .json file.](./media/create-stateless-stateful-workflows/sample-workflow-folder.png)
 
 1. From the `workflow.json` file's shortcut menu, select **Open in Designer**.
 
-   ![Screenshot that shows Explorer pane and shortcut window for workflow.json file with Open in Designer selected](./media/create-stateless-stateful-workflows/open-definition-file-in-designer.png)
+   ![Screenshot that shows Explorer pane and shortcut window for workflow.json file with Open in Designer selected.](./media/create-stateless-stateful-workflows/open-definition-file-in-designer.png)
 
    If Windows Defender Firewall prompts you to grant access for the `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** > **Allow access**.
 
-   ![Screenshot that shows Windows Defender Firewall with "Private networks, such as my home or work network" selected and "Allow access" selected](./media/create-stateless-stateful-workflows/windows-defender-firewall.png)
+   ![Screenshot that shows Windows Defender Firewall with "Private networks, such as my home or work network" selected and "Allow access" selected.](./media/create-stateless-stateful-workflows/windows-defender-firewall.png)
 
    > [!NOTE]
    > If you get the message that `Workflow design time could not be started`, try these steps:
@@ -241,7 +241,7 @@ Now, continue creating your workflow app.
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available in the Azure portal, not only connectors for Azure services.
 
-   ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected](./media/create-stateless-stateful-workflows/use-connectors-from-azure.png)
+   ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-stateless-stateful-workflows/use-connectors-from-azure.png)
 
    > [!NOTE]
    > Currently, stateless workflows support only actions, not triggers, for managed connectors. For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
@@ -252,7 +252,7 @@ Now, continue creating your workflow app.
 
 1. From the locations list, select the Azure region to use for your resource group and resources. This example uses **West Central US**.
 
-   ![Screenshot that shows Explorer pane with locations list and "West Central US" selected](./media/create-stateless-stateful-workflows/select-azure-region.png)
+   ![Screenshot that shows Explorer pane with locations list and "West Central US" selected.](./media/create-stateless-stateful-workflows/select-azure-region.png)
 
    After you perform this step, Visual Studio Code opens the Logic App Designer.
 
@@ -262,7 +262,7 @@ Now, continue creating your workflow app.
 
    After the Logic App Designer appears, the **Choose an operation** prompt appears on the designer and is selected by default, which shows the **Add an action** pane.
 
-   ![Screenshot that shows Logic App Designer](./media/create-stateless-stateful-workflows/workflow-app-designer.png)
+   ![Screenshot that shows Logic App Designer.](./media/create-stateless-stateful-workflows/workflow-app-designer.png)
 
 1. Next, [add a trigger and actions](#add-trigger-actions) to your workflow app.
 
@@ -291,7 +291,7 @@ The workflow in this example uses this trigger and these actions:
 
 1. Next to the designer, in the **Add an action** pane, under the **Choose an operation** search box, make sure that **Built-in** is selected. In the search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
 
-   ![Screenshot that shows Logic App Designer and **Add an action** pane with "When a HTTP request is received" trigger selected](./media/create-stateless-stateful-workflows/add-request-trigger.png)
+   ![Screenshot that shows Logic App Designer and **Add an action** pane with "When a HTTP request is received" trigger selected.](./media/create-stateless-stateful-workflows/add-request-trigger.png)
 
    > [!TIP]
    > If you have to delete an item that you added to the designer, follow these steps:
@@ -300,7 +300,7 @@ The workflow in this example uses this trigger and these actions:
    >
    > 1. In the item's details pane that opens to the right side, select the ellises (**...**) button > **Delete**.
    > 
-   >    ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option](./media/create-stateless-stateful-workflows/delete-item-from-designer.png)
+   >    ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateless-stateful-workflows/delete-item-from-designer.png)
 
 1. Under the trigger that now appears on the designer, select **New step**.
 
@@ -310,28 +310,28 @@ The workflow in this example uses this trigger and these actions:
 
    For this example, select the Office 365 Outlook action, **Send an email (V2)**.
 
-   ![Screenshot that shows Logic App Designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected](./media/create-stateless-stateful-workflows/add-send-email-action.png)
+   ![Screenshot that shows Logic App Designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected.](./media/create-stateless-stateful-workflows/add-send-email-action.png)
 
 1. On the designer, select the Office 365 Outlook action. When the **Send an email (V2)** pane appears, select **Sign in** so that you can create a connection to your email account.
 
-   ![Screenshot that shows Logic App Designer and **Send an email (V2)** pane with "Sign in" selected](./media/create-stateless-stateful-workflows/send-email-action-sign-in.png)
+   ![Screenshot that shows Logic App Designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-stateless-stateful-workflows/send-email-action-sign-in.png)
 
 1. Follow the prompts to permit access from Visual Studio Code and the extension to your email account and finish signing in.
 
-   ![Screenshot that shows Visual Studio Code prompt to open website for sign-in](./media/create-stateless-stateful-workflows/visual-studio-code-open-external-website.png)
+   ![Screenshot that shows Visual Studio Code prompt to open authentication website to sign in.](./media/create-stateless-stateful-workflows/visual-studio-code-open-external-website.png)
 
    > [!TIP]
    > To prevent this prompt from appearing again, select **Configure Trusted Domains** 
    > so that you can add the authentication page as a trusted domain.
 
-   ![Screenshot that shows Visual Studio Code prompt to open Azure Functions extension](./media/create-stateless-stateful-workflows/allow-extension-azure-functions.png)
+   ![Screenshot that shows Visual Studio Code prompt to open Azure Functions extension.](./media/create-stateless-stateful-workflows/allow-extension-azure-functions.png)
 
    > [!TIP]
    > To prevent this prompt from appearing again, select **Don't ask again for this extension**.
 
 1. On the **Parameters** tab, provide the required information for the email action, for example:
 
-   ![Screenshot that shows Logic App Designer with details for Office 365 Outlook "Send an email" action](./media/create-stateless-stateful-workflows/send-email-action-details.png)
+   ![Screenshot that shows Logic App Designer with details for Office 365 Outlook "Send an email" action.](./media/create-stateless-stateful-workflows/send-email-action-details.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -358,11 +358,11 @@ To add your own code that you can directly call and run from your workflow app, 
 
 1. In the Azure pane, next to **Azure: Functions**, select **Create Function** (lightning icon).
 
-   ![Screenshot that shows Azure pane with "Create Function" selected](./media/create-stateless-stateful-workflows/select-create-function.png)
+   ![Screenshot that shows Azure pane with "Create Function" selected.](./media/create-stateless-stateful-workflows/select-create-function.png)
 
 1. From the templates list, select **Workflow Action Trigger**, which currently supports only C#. For more information, see [Workflow Action Trigger Function Template - GitHub Issue #92](https://github.com/Azure/logicapps/issues/92).
 
-   ![Screenshot that shows templates list with "Workflow Action Trigger" selected](./media/create-stateless-stateful-workflows/select-function-template.png)
+   ![Screenshot that shows templates list with "Workflow Action Trigger" selected.](./media/create-stateless-stateful-workflows/select-function-template.png)
 
 1. Provide a name for the function, for example, `MyExampleFunction`.
 
@@ -370,7 +370,7 @@ To add your own code that you can directly call and run from your workflow app, 
 
    Visual Studio Code opens a `MyExampleFunction.cs` file, which is a new C# class library (.cs) file that is now included in your function app project. Currently, this .cs file contains sample code that you replace with your own code.
 
-   ![Screenshot that shows open "MyExampleFunction.cs" file open](./media/create-stateless-stateful-workflows/myexamplefunction-csharp-code-file.png)
+   ![Screenshot that shows open "MyExampleFunction.cs" file open.](./media/create-stateless-stateful-workflows/myexamplefunction-csharp-code-file.png)
 
 1. Save your function's class library file.
 
@@ -382,9 +382,9 @@ To add your own code that you can directly call and run from your workflow app, 
 
 1. On the **Add an action** pane, under the **Choose an action** search box, make sure that **Built-in** is selected. In the search box, enter `local function operations`. Select the Local Function Operations action, **Invoke a function in this function app**.
 
-   ![Screenshot that shows Logic App Designer with Local Function Operations "Invoke a function in this function app" action selected](./media/create-stateless-stateful-workflows/add-local-function-operations.png)
+   ![Screenshot that shows Logic App Designer with Local Function Operations "Invoke a function in this function app" action selected.](./media/create-stateless-stateful-workflows/add-local-function-operations.png)
 
-1. On the designer, select the **Invoke a function in this function app** action so that the action details pane appears.
+1. On the designer, select the **Invoke a function in this function app** action so that the action's details pane appears.
 
 1. On the **Parameters** tab, provide the required information for the function that you want to call, for example:
 
@@ -393,7 +393,7 @@ To add your own code that you can directly call and run from your workflow app, 
    | **Function Name** | Yes | `<function-name>` | The name for your previously created function. This example specifies the previously created function, `MyExampleFunction`. |
    ||||
 
-   ![Screenshot that shows Logic App Designer with the "Invoke a function in this function app" action details pane open and the "Function Name" property set to the function name](./media/create-stateless-stateful-workflows/invoke-function-details.png)
+   ![Screenshot that shows Logic App Designer with the "Invoke a function in this function app" action's details pane open and the "Function Name" property set to the function name.](./media/create-stateless-stateful-workflows/invoke-function-details.png)
 
 1. When you're done, on the designer, select **Save**.
 
@@ -404,6 +404,24 @@ To add your own code that you can directly call and run from your workflow app, 
 To send a reply and return data back to the caller of your workflow app, add the built-in [Response action](../connectors/connectors-native-reqres.md).
 
 1. On the Logic App Designer, under the **Send an email** action, select **New step**.
+
+   The **Choose an operation** prompt appears on the designer, and the **Add an action pane** reopens so that you can select the next action.
+
+1. On the **Add an action** pane, under the **Choose an action** search box, make sure that **Built-in** is selected. In the search box, enter `response`, and select the **Response** action.
+
+   ![Screenshot that shows Logic App Designer with the Response action selected.](./media/create-stateless-stateful-workflows/add-response-action.png)
+
+1. On the designer, select the **Response** action so that the action's details pane appears.
+
+   ![Screenshot that shows Logic App Designer with the "Response" action's details pane open and the "Body" property set to the "Invoke a function in this function app" action's "Body" property value.](./media/create-stateless-stateful-workflows/response-action-details.png)
+
+1. On the **Parameters** tab, provide the required information for the function that you want to call.
+
+   This example returns the **Body** property value that's output from the **Invoke a function in this function app** action.
+
+   1. Click inside the **Body** property box so that the dynamic content list appears and shows the available output values from the preceding trigger and actions in the workflow.
+
+      ![Screenshot that shows the "Response" action's details pane with the mouse pointer inside the "Body" property. In the dynamic content list that is open, under the "Invoke a function in this function app" action, the "Body" value is selected.](./media/create-stateless-stateful-workflows/select-function-action-body-output-value.png)
 
 1. 
 
