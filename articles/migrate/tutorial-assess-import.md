@@ -141,7 +141,7 @@ For example, to specify all fields for a second disk, add these columns:
 - Disk 2 read throughput
 - Disk 2 write throughput
 
-If you are not able to provide disk level data, you can provide disk performance data per server using the following fields. See [this](#Add-server-information) section for details on each field.
+If you are not able to provide disk level data, you can provide disk performance data per server using the following fields. See [this](#add-server-information) section for details on each field.
 - Total disks read ops
 - Total disks write ops
 - Total disks read throughput
