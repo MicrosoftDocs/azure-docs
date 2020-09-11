@@ -109,7 +109,7 @@ Check that the OVA file is secure, before you deploy it:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 7dab9445a89b47302994d6de4caddaa092c1c582c8f3c1fc5b9c4908c7d2f9f7
+        VMware (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba2842337bbe533c424dd1da56baccdcf68b1d87b71a5a4280108c2
 
 
 ### Create the appliance VM

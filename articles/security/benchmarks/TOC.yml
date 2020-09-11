@@ -76,6 +76,8 @@
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Azure Resource Graph security baseline
     href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+  - name: Azure Sentinel security baseline
+    href: ../../sentinel/security-baseline.md
   - name: Azure SQL Database security baseline
     href: ../../sql-database/security-baseline.md
   - name: Azure Storage security baseline

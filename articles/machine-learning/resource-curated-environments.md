@@ -8,8 +8,8 @@ ms.author: luquinta
 ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 09/02/2020
+ms.topic: reference
+ms.date: 09/03/2020
 ---
 
 # Azure Machine Learning Curated Environments
@@ -27,7 +27,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * conda-forge
 * pytorch
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 * numpy
@@ -62,7 +62,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * conda-forge
 * pytorch
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 * numpy
@@ -102,7 +102,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * conda-forge
 * pytorch
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 * numpy
@@ -136,7 +136,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 ## AzureML-AutoML-DNN-Vision-GPU
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -164,7 +164,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * conda-forge
 * pytorch
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 * numpy
@@ -196,7 +196,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -216,7 +216,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -239,7 +239,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * pytorch
 * defaults
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -266,7 +266,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 * matplotlib
@@ -290,7 +290,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 ## AzureML-Hyperdrive-ForecastDNN
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -312,7 +312,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -327,7 +327,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -345,7 +345,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -367,7 +367,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -389,7 +389,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -413,7 +413,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -437,7 +437,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -461,7 +461,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -485,7 +485,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -509,7 +509,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -533,7 +533,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -557,7 +557,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -581,7 +581,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -605,7 +605,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -629,7 +629,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -653,7 +653,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -677,7 +677,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -698,7 +698,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -718,7 +718,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -738,7 +738,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -758,7 +758,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -778,7 +778,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -798,7 +798,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -818,7 +818,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -838,7 +838,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -858,7 +858,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -878,7 +878,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -898,7 +898,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -918,7 +918,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
@@ -939,7 +939,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 * anaconda
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 * pandas
@@ -978,7 +978,7 @@ This article lists the curated environments in Azure Machine Learning, and the p
 
 * conda-forge
 
-**Conda Packages:**
+**Conda packages:**
 
 * python
 
