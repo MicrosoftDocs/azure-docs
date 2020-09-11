@@ -1,27 +1,26 @@
 ---
-title: Standard properties in Azure Monitor log records | Microsoft Docs
-description: Describes properties that are common to multiple data types in Azure Monitor logs.
+title: Standard columns in Azure Monitor log records | Microsoft Docs
+description: Describes columns that are common to multiple data types in Azure Monitor logs.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/01/2020
+ms.date: 09/09/2020
 
 ---
 
-# Standard properties in Azure Monitor Logs
-Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+# Standard columns in Azure Monitor Logs
+Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of columns. Many data types will have standard columns that are common across multiple types. This article describes these columns and provides examples of how you can use them in queries.
 
-> [!IMPORTANT]
-> If you are using APM 2.1, then Application Insights applications are stored in a Log Analytics workspace with all other log data. The tables have been renamed and restructured but have the same information as the tables in the Application Insights application. These new tables have the same standard properties as other tables in the Log Analytics workspace.
+Workspace-based applications in Application Insights store their data in a Log Analytics workspace and use the same standard columns as other other tables in the workspace. Classic applications store their data separately and have different standard columns as specified in this article.
 
 > [!NOTE]
-> Some of the standard properties will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the property in the output.
+> Some of the standard columns will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the column in the output.
 
 ## TimeGenerated and timestamp
-The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
+The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) columns contain the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
 
-**TimeGenerated** and **timestamp** provide a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results. 
+**TimeGenerated** and **timestamp** provide a common column to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results. 
 
 ### Examples
 
@@ -45,7 +44,7 @@ exceptions
 ```
 
 ## \_TimeReceived
-The **\_TimeReceived** property contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
+The **\_TimeReceived** column contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
 
 The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and the total time for the record to be available for log queries.
 
@@ -59,7 +58,7 @@ Event
 ``` 
 
 ## Type and itemType
-The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) properties hold the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple tables, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
+The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) columns hold the name of the table that the record was retrieved from which can also be thought of as the record type. This column is useful in queries that combine records from multiple tables, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
 
 ### Examples
 The following query returns the count of records by type collected over the past hour.
@@ -71,13 +70,13 @@ search *
 
 ```
 ## \_ItemId
-The **\_ItemId** property holds a unique identifier for the record.
+The **\_ItemId** column holds a unique identifier for the record.
 
 
 ## \_ResourceId
-The **\_ResourceId** property holds a unique identifier for the resource that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
+The **\_ResourceId** column holds a unique identifier for the resource that the record is associated with. This gives you a standard column to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
 
-For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The property is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers.
+For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The column is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers.
 
 > [!NOTE]
 > Some data types already have fields that contain Azure resource ID or at least parts of it like subscription ID. While these fields are kept for backward compatibility, it is recommended to use the _ResourceId to perform cross correlation since it will be more consistent.
@@ -121,7 +120,7 @@ union withsource = tt *
 Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute.
 
 ## \_IsBillable
-The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to `false` are collected for free and not billed to your Azure account.
+The **\_IsBillable** column specifies whether ingested data is billable. Data with **\_IsBillable** equal to `false` are collected for free and not billed to your Azure account.
 
 ### Examples
 To get a list of computers sending billed data types, use the following query:
@@ -148,11 +147,11 @@ union withsource = tt *
 ```
 
 ## \_BilledSize
-The **\_BilledSize** property specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true.
+The **\_BilledSize** column specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true.
 
 
 ### Examples
-To see the size of billable events ingested per computer, use the `_BilledSize` property which provides the size in bytes:
+To see the size of billable events ingested per computer, use the `_BilledSize` column which provides the size in bytes:
 
 ```Kusto
 union withsource = tt * 
