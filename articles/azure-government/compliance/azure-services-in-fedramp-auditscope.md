@@ -15,7 +15,7 @@ Microsoft’s government cloud services meet the demanding requirements of the U
 
 This article provides a detailed list of in-scope cloud services across Azure Public and Azure Government for FedRAMP and DoD CC SRG compliance offerings.
 
-#### Terminology/Symbols used
+#### Terminology/symbols used
 
 * DoD CC SRG = Department of Defense Cloud Computing Security Requirements Guide
 * IL = Impact Level
