@@ -444,7 +444,8 @@ When you are done and if you want to, you can delete the resource group. The act
 
 None.
 
-Use the [Azure portal](#tabsazure-portal), PowerShell, or the Azure CLI to delete the resource group.
+Use the Azure portal, PowerShell, or the Azure CLI to delete the resource group.   
+See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more information. 
 
 ---
 
