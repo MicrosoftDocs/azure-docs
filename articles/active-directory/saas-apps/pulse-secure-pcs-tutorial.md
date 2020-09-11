@@ -148,11 +148,11 @@ Perform the following steps in the following page:
 1. Navigate to **Authentication -> Auth Servers**
 1. Select **New: SAML Server** and click **New Server**
 
-    ![Pulse Connect Secure configuration](./media/pulse-secure-pcs-tutorial/new-saml-server.png)
+    ![Pulse Connect Secure auth server](./media/pulse-secure-pcs-tutorial/new-saml-server.png)
 
 1. Perform the following steps in the settings page:
 
-    ![Pulse Connect Secure configuration](./media/pulse-secure-pcs-tutorial/server-settings.png)
+    ![Pulse Connect Secure auth server settings](./media/pulse-secure-pcs-tutorial/server-settings.png)
 
     a. Provide **Server Name** in the textbox.
 
