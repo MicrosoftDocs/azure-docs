@@ -66,7 +66,7 @@ During your discovery process, you may have found applications that are untracke
 
 We have published guidance for managing the business process of integrating apps with Azure AD, including a [poster](https://aka.ms/AppOnePager) and [presentation](https://aka.ms/AppGuideline) you can use to make business and application owners aware and interested. You can modify those samples with your own branding and publish them to your organization through your company portal, newsletter, or other medium as you go about completing this process.
 
-A good place to start is by evaluating your use of Active Directory Federation Services (ADFS). Many organizations use ADFS for authentication with SaaS apps, custom Line-of-Business apps, and Office 365 and Azure AD-based apps:
+A good place to start is by evaluating your use of Active Directory Federation Services (ADFS). Many organizations use ADFS for authentication with SaaS apps, custom Line-of-Business apps, and Microsoft 365 and Azure AD-based apps:
 
 ![Diagram shows on-premises apps, line of business apps, SaaS apps, and, via Azure AD, Office 365 all connecting with dotted lines into Active Directory and AD FS.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 

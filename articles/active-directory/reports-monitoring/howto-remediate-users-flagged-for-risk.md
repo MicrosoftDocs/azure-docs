@@ -39,9 +39,9 @@ From the users flagged for risk report, you can take the following actions for e
 
 For more information, see [Users flagged for risk security report](../identity-protection/overview-identity-protection.md).
 
-### Azure AD subscription for Office 365 customers
+### Azure AD subscription for Microsoft 365 customers
 
-You can also use your Office 365 credentials to access the **Azure Admin Center**. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
+You can also use your Microsoft 365 credentials to access the **Azure Admin Center**. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
 
 To access the **Users flagged for risk** reports in the Microsoft 365 admin center:
 
@@ -76,7 +76,7 @@ Take the following actions to help rectify the impacted accounts and secure your
 
     h. Produce an audit log for the administrator to review.
 
-4. Investigate your Office 365 tenant and other IT infrastructure, including a review of all tenant settings, user accounts, and the per-user configuration settings for possible modification. Check for indicators of methods of persistence, as well as indicators an intruder may have leveraged an initial foothold to get VPN credentials, or access to other organizational resources. 
+4. Investigate your Microsoft 365 tenant and other IT infrastructure, including a review of all tenant settings, user accounts, and the per-user configuration settings for possible modification. Check for indicators of methods of persistence, as well as indicators an intruder may have leveraged an initial foothold to get VPN credentials, or access to other organizational resources. 
 
 5.	As part of your investigation, consider whether you should notify government authorities, including law enforcement.
 
