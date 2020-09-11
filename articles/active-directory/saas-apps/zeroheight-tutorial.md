@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.zeroheight.com/sso/acs/<CUSTOM_ID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [zeroheight Client support team](mailto:walker@xbox.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [zeroheight Client support team](mailto:support@zeroheight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. zeroheight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -123,11 +123,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure zeroheight SSO
 
-To configure single sign-on on **zeroheight** side, you need to send the **App Federation Metadata Url** to [zeroheight support team](mailto:walker@xbox.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **zeroheight** side, you need to send the **App Federation Metadata Url** to [zeroheight support team](mailto:support@zeroheight.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create zeroheight test user
 
-In this section, you create a user called Britta Simon in zeroheight. Work with [zeroheight support team](mailto:walker@xbox.com) to add the users in the zeroheight platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in zeroheight. Work with [zeroheight support team](mailto:support@zeroheight.com) to add the users in the zeroheight platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -137,7 +137,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. Go to zeroheight Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the zeroheight tile in the Access Panel, you should be automatically signed in to the zeroheight for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. You can use Microsoft Access Panel. When you click the zeroheight tile in the Access Panel, this will redirect to zeroheight Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next Steps
 
