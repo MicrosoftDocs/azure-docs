@@ -7,7 +7,7 @@ ms.date: 05/29/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, device-developer, iot-edge]
 ---
 
 # Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application
