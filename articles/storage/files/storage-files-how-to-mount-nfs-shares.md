@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System share.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ---
