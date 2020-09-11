@@ -13,13 +13,18 @@ ms.date: 09/09/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Submit "Hello world" Script to a Compute Cluster
+# Tutorial: Submit a "Hello World" script to a compute cluster with Azure Machine Learning  (Part 2 of 4)
 
-In this tutorial, you will see how to submit a trivial "hello world" python script to the cloud. By the end of this tutorial you can:
+In **part 2 of this tutorial series**, you will submit a trivial "hello world" python script to the cloud by:
 
-- Execute python code in the cloud with the Azure Machine Learning Python SDK
-- Switch between debugging locally on (say) your laptop, and submitting remote runs in the cloud
-- Use the Azure Machine Learning Studio to monitor and record runs
+> [!div class="checklist"]
+> * Running Python code in the cloud with Azure Machine Learning SDK
+> * Switching between debugging locally on (say) your laptop
+> * Submitting remote runs in the cloud
+> * Monitoring and recording runs in the Azure Machine Learning studio
+
+This tutorial is part of a **four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete simple jobs-based machine learning tasks in the Azure cloud. It builds off the work you completed in (Tutorial part 1: set up your local machine for Azure Machine Learning)(
+tutorial-1st-experiment-sdk-setup-local.md).
 
 This tutorial introduces you to the core Azure Machine Learning concepts needed to run your code in the cloud:
 
