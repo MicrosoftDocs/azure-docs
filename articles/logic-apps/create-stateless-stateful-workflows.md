@@ -1,16 +1,34 @@
 ---
-title: Create stateful and stateless workflows with Visual Studio Code
+title: Create workflow apps with Visual Studio Code (preview)
 description: Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code
 services: logic-apps
 ms.suite: integration
-ms.reviewer: vikanand, logicappspm
+ms.reviewer: deli, vikanand, absaafan, hongzili, logicappspm
 ms.topic: conceptual
 ms.date: 09/10/2020
 ---
 
-# Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code - Public Preview
+# Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code (preview)
 
-When you use Visual Studio Code and the preview extension, Azure Functions for Visual Studio Code, you can build stateful or stateless workflow apps that are powered by [Azure Functions](../azure-functions/functions-overview.md). You can test your workflow apps on your local computer and deploy to multiple hosting environments, such as Azure App Service, Azure function apps, or as Docker containers that can run anywhere that you want. The preview extension brings many Azure Logic Apps capabilities to your local development experience and provides additional capabilities, for example:
+When you use Visual Studio Code and the public preview Azure Logic Apps for Visual Studio Code extension, you can build [*stateful* and *stateless* workflow apps](#stateful-stateless) that are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime.
+
+![Screenshot that shows Visual Studio Code and workflow app.](./media/create-stateless-stateful-workflows/visual-studio-code-logic-apps-overview.png)
+
+This preview extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
+
+* Integrate your workflows by choosing from [hundreds of managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors.md) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services along with managed connectors for on-premises systems.
+
+  * Some managed connectors, such as Azure Service Bus, Azure Event Hubs, and SQL Server, run similarly to built-in native triggers and actions, for example, Azure Functions and Azure API Management.
+
+  * Create and deploy workflow apps that can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these workflows can use for sending requests to the cloud connection runtime endpoint. Logic Apps saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
+
+* Create stateless workflows that respond faster, have higher throughput, and cost less to run because run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [What are stateful and stateless?](#stateful-stateless).
+
+* Call Azure functions natively and directly from your workflow apps.
+
+* Test your workflow apps using your local development environment in Visual Studio Code.
+
+* Publish and deploy your workflow apps directly from Visual Studio Code to multiple hosting environments, such as Azure App Service, Azure function apps, or as Docker containers that you can run anywhere you want.
 
 <a name="stateful-stateless"></a>
 
@@ -22,7 +40,7 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
 
 * *Stateless*
 
-  Create stateless workflow apps when you don't need to keep, review, or reference data from previous events. These workflows save the input and output for each action only in memory, rather than in external storage. Stateless workflows provide faster performance with quicker response times, higher throughput, and reduced running costs because run details and history aren't kept. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#enable-run-history) for stateless workflows.
+  Create stateless workflow apps when you don't need to keep, review, or reference data from previous events. These workflows save the input and output for each action only in memory, rather than in external storage. Stateless workflows provide faster performance with quicker response times, higher throughput, and reduced running costs because run details and history aren't kept. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#run-history) for stateless workflows.
 
   Currently, stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
@@ -74,9 +92,9 @@ This table specifies the child workflow's behavior based on whether the parent a
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* [Visual Studio Code 1.25.1 or higher](https://code.visualstudio.com/), which is free, along with these tools for Visual Studio Code:
+* [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/), which is free, along with these tools for Visual Studio Code:
 
-  * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
+  * [C# for Visual Studio Code extension 1.23.2 or higher](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your workflow
 
   * [Azure Functions Core Tools 3.0.2569 or higher](../azure-functions/functions-run-local.md). If you have an earlier installation, uninstall that version first, or make sure that the PATH environment variable points at the appropriate version specified here after you download and install the core tools:
 
@@ -84,23 +102,28 @@ This table specifies the child workflow's behavior based on whether the parent a
 
     * [Win x86 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x86.msi)
 
-  * [Azure Functions for Visual Studio Code 0.22.1-alpha (ZIP)](https://workflowscdn.azureedge.net/2020-05-preview/VsExtension/LogicAppsVSCodeExtension-0.22.1-alpha.zip)
+  * [Azure Logic Apps for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps)
+    <!---Need official download URL--->
 
-    This public preview extension provides the capability for you to create stateless and stateful workflow apps and replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions. For other information about the Azure Functions extension for Visual Studio Code.
+    This public preview extension provides the capability for you to create stateless and stateful workflow apps and replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions.
 
     1. Download the ZIP file to your local computer and extract file.
 
     1. In Visual Studio Code, on the left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button **>** **Install from VSIX**.
 
-       ![Screenshot that shows Visual Studio extension menu with selected ellipses button and the "Install from VSIX menu command".](./media/create-stateless-stateful-workflows/install-from-vsix.png)
+       ![Screenshot that shows Visual Studio Code's extension menu with selected ellipses button and the "Install from VSIX menu command".](./media/create-stateless-stateful-workflows/install-from-vsix.png)
 
-* Based on the operating system where you are running Visual Studio Code, set up the corresponding storage:
+       After installation finishes, the preview extension appears in **Extensions: Installed** list.
+
+       ![Screenshot that shows Visual Studio extension menu with selected ellipses button and the "Install from VSIX menu command".](./media/create-stateless-stateful-workflows/azure-logic-apps-extension-installed.png)
+
+* Based on the operating system where you are running Visual Studio Code, set up the corresponding storage requirement:
 
   **Mac OS**
 
   1. Sign in to the [Azure portal](https://portal.azure.com).
   
-  1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+  1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for working with Azure Functions](../azure-functions/storage-considerations.md).
 
   1. [Find and copy the storage account's connection string](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys), for example:
 
@@ -157,7 +180,7 @@ After you install all the extensions, disable automatic extension updates for Vi
 
       ![Screenshot that shows Visual Studio Code extension settings with Azure Functions Project Runtime set to "~3".](./media/create-stateless-stateful-workflows/azure-functions-project-runtime-version.png)
 
-      For more information, see [Azure Functions runtime versions overview.](../azure-functions/functions-versions.md).
+      For more information, see [Azure Functions runtime versions overview](../azure-functions/functions-versions.md).
 
 1. If you have a previous version of the extension bundle, clean up any existing bundle binaries in this location:
 
@@ -519,7 +542,7 @@ To send a reply and return data back to the caller of your workflow app, add the
 
 ## Debug and test your workflow
 
-1. To help you more easily debug stateless workflows, you can [enable the run history capability on the workflow](#enable-run-history).
+1. To help you more easily debug a stateless workflow, you can [enable the run history for that workflow](#run-history).
 
 1. On the Visual Studio Code toolbar, on the **Run** menu, select **Start Debugging** (F5).
 
@@ -583,13 +606,13 @@ To send a reply and return data back to the caller of your workflow app, add the
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
-<a name="deploy-to-function-app"></a>
+<a name="publish-to-function-app"></a>
 
-## Deploy to function app in Azure
+## Publish to function app in Azure
 
-You can publish your function app project directly to Azure from Visual Studio Code. This process either creates a function app and the related resources in your Azure subscription or deploys to an existing function app.
+You can publish your function app project in Visual Studio Code directly to Azure. This process either creates a function app and the related resources, such as an Azure storage account, in your Azure subscription or deploys to an existing function app.
 
-* If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app.
+* If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app. This path automatically creates an Azure storage account for your function app.
 
 * If you publish to an existing function app in Azure, you overwrite the contents for that app in Azure. To enable the workflow app's run history when you deploy to a function app, follow these steps:
 
@@ -621,7 +644,7 @@ By using the .NET Core command-line interface (CLI), you can build a Docker cont
 
    `docker build --tag local/workflowcontainer .`
 
-   For example, here's a sample Docker file for a .NET workflow, but replace the <*storage-connection-string*> value with your connection string to Azure Storage:
+   For example, here's a sample Docker file for a .NET workflow, but replace the <*storage-account-connection-string*> value with your Azure storage account's connection string:
 
    ```text
    FROM mcr.microsoft.com/azure-functions/dotnet:3.0.13614-appservice
@@ -654,11 +677,11 @@ By using the .NET Core command-line interface (CLI), you can build a Docker cont
 
    For more information about the master key value, see [Using Docker Compose - GitHub Issue #84](https://github.com/Azure/azure-functions-docker/issues/84).
 
-<a name="enable-run-history"></a>
+<a name="run-history"></a>
 
-## Enable run history for stateless workflows
+## Run history for stateless workflows
 
-For easier debugging when you work with a stateless workflow, you can enable the run history capability for that workflow so that you can save and inspect the run in detail.
+To more easily debug a stateless workflow, you can enable the run history for that workflow, and then disable the run history when you're done.
 
 ### For a stateless workflow running in Visual Studio Code
 
@@ -668,7 +691,7 @@ If you are working on and running the stateless workflow locally in Visual Studi
 
 1. In the `workflow-designtime` folder, open the `local.settings.json` file.
 
-1. Add and set the `operationOptions` property value to `WithStatelessRunHistory`, for example:
+1. Add the `Workflow.<yourWorkflowName>.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
 
    **Mac OS**
 
@@ -679,7 +702,7 @@ If you are working on and running the stateless workflow locally in Visual Studi
          "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
          "FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://workflowscdn.azureedge.net/2020-05-preview",
-         "Workflow.<your-workflow-name>.OperationOptions": "WithStatelessRunHistory"
+         "Workflow.<yourWorkflowName>.OperationOptions": "WithStatelessRunHistory"
       }
    }
    ```
@@ -693,10 +716,12 @@ If you are working on and running the stateless workflow locally in Visual Studi
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
          "FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://workflowscdn.azureedge.net/2020-05-preview",
-         "Workflow.<your-workflow-name>.OperationOptions": "WithStatelessRunHistory"
+         "Workflow.<yourWorkflowName>.OperationOptions": "WithStatelessRunHistory"
       }
    }
    ```
+
+1. To disable the run history when you're done, either delete the `Workflow.<yourWorkflowName>.OperationOptions` property and its value, or set the property to `None`.
 
 ### For a stateless workflow running in the Azure portal
 
@@ -708,7 +733,7 @@ If you already deployed your function app project to the Azure portal, follow th
 
 1. Under **Application Settings**, select **New application setting**.
 
-1. On the **Add/Edit application setting** pane, in the **Name** box, enter `Workflow.<your-workflow-name>.OperationOptions`.
+1. On the **Add/Edit application setting** pane, in the **Name** box, enter this string, `Workflow.<yourWorkflowName>.OperationOptions`.
 
 1. In the **Value** box, enter `WithStatelessRunHistory`. When you're done, select **OK**.
 
