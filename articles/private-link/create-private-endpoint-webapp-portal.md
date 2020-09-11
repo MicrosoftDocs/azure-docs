@@ -181,13 +181,14 @@ In this section, you connect privately to the web app by using the private endpo
 
    For the DNS, do either of the following:
  
-   - Use the *hosts* file of the VM.  
+   - Use the Azure DNS private zone service.  
 
      a. Create a DNS private zone named *`privatelink.azurewebsites.net`*, and then link it to the virtual network.  
      b. Create the two A records (that is, the app name and the Service Control Manager [SCM] name) with the IP address of your private endpoint.  
      > [!div class="mx-imgBorder"]
      > ![Screenshot of DNS private zone records.][21]  
-   - Use the Azure DNS private zone service.  
+
+   - Use the *hosts* file of the VM.  
 
      a. Create the hosts entry, open File Explorer, and look for the *hosts* file.  
      > [!div class="mx-imgBorder"]
