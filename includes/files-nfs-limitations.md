@@ -15,7 +15,6 @@ While in preview, NFS has the following limitations:
 - If the majority of your requests are metadata centric, then the latency will be worse when compared to open/close operations.
 - Must create a new storage account in order to create an NFS share.
 - Does not currently support storage explorer, Data Box, or AzCopy.
-- Only available for Linux clients.
 - Only available for the premium tier.
 
 ### Azure Storage features not yet supported
