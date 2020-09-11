@@ -23,7 +23,7 @@ If your app or business depends on the use of a Custom Vision project, we recomm
 
 ##  Prerequisites
 
-- Two Azure Custom Vision resources. If you don't have them, go to the Azure portal and <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision" title="Create a new Custom Vision resource" target="_blank">create a new Custom Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+- Two Azure Custom Vision resources. If you don't have them, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - The training keys and endpoint URLs of your Custom Vision resources. You can find these values on the resource's **Overview** tab on the Azure portal.
 - A created Custom Vision project. See [Build a classifier](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier) for instructions on how to do this.
 
