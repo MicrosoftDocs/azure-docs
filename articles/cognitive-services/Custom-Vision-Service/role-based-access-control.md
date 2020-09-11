@@ -21,7 +21,7 @@ Custom Vision supports Azure role-based access control (Azure RBAC), an authoriz
 Azure RBAC can be assigned to a Custom Vision resource. To grant access to an Azure resource, you add a role assignment.
 1. In the [Azure portal](https://ms.portal.azure.com/), select **All services**. 
 1. Then select the **Cognitive Services**, and navigate to your specific Custom Vision training resource.
-   > [!NOTE
+   > [!NOTE]
    > You can also set up RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item (for example, selecting **Resource groups** and then clicking through to your wanted resource group).
 1. Select **Access control (IAM)** on the left navigation pane.
 1. Select the **Role assignments** tab to view the role assignments for this scope.
