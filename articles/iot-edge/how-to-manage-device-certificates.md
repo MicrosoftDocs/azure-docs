@@ -121,7 +121,7 @@ certificates:
 ```
 
 > [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050.
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 After you specify the value in the config.yaml file, take the following steps:
 
