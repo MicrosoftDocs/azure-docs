@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -28,6 +28,7 @@ A technical profile enables these types of scenarios:
 - [Azure Active Directory](active-directory-technical-profile.md) - Provides support for the Azure Active Directory B2C user management.
 - [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) -  provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). 
 - [Claims transformation](claims-transformation-technical-profile.md) - Call output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
+- [ID token hint](id-token-hint.md) - Validates `id_token_hint` JWT token signature, the issuer name and the token audience and extracts the claim from the inbound token.
 - [JWT token issuer](jwt-issuer-technical-profile.md) -  Emits a JWT token that is returned back to the relying party application.
 - [OAuth1](oauth1-technical-profile.md) - Federation with any OAuth 1.0 protocol identity provider.
 - [OAuth2](oauth2-technical-profile.md) - Federation with any OAuth 2.0 protocol identity provider.
