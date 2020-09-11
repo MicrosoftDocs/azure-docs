@@ -79,7 +79,7 @@ If you are using the Azure Database for MySQL issued certificate as documented h
 No actions required if you are not using SSL/TLS. 
 
 ### 2. If I am using SSL/TLS, do I need to restart my database server to update the root CA?
-No, you do not need to restart the database server to start using the new certificate. This is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
+No, you do not need to restart the database server to start using the new certificate. This root certificate is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
 
 ### 3. What will happen if I do not update the root certificate before October 26, 2020 (10/26/2020)?
 If you do not update the root certificate before November 30, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the MySQL database server and application will experience connectivity issues to your MySQL database server.
@@ -90,11 +90,11 @@ No. Since the change here is only on the client side to connect to the database 
 ### 5.  What if I cannot get a scheduled downtime for this change before October 26, 2020 (10/26/2020)?
 Since the clients used for connecting to the server needs to be updating the certificate information as described in the fix section [here](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), we do not need to a downtime for the server in this case.
 
-###  6. If I create a new server after Nov 30th, will I be impacted?
+###  6. If I create a new server after Nov 30, 2020, will I be impacted?
 For servers created after October 26, 2020 (10/26/2020), you can use the newly issued certificate for your applications to connect using SSL.
 
 ###	7. How often does Microsoft update their certificates or what is the expiry policy?
-These certificates used by Azure Database for MySQL are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for MySQL is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates which need to be fixed at the earliest.
+These certificates used by Azure Database for MySQL are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for MySQL is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates, which need to be fixed at the earliest.
 
 ###	8. If I am using read replicas, do I need to perform this update only on master server or all the read replicas?
 Since this update is a client-side change, if the client used to read data from the replica server, we will need to apply the changes for those clients as well. 
