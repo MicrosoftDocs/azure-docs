@@ -12,7 +12,7 @@ ms.subservice: files
 # Troubleshoot Azure Files performance issues (SMB)
 
 > [!IMPORTANT]
-> The content of this article only applies to SMB shares. For troubleshooting information on NFS shares, see [Troubleshoot Azure file shares using SMB](storage-troubleshooting-files-nfs.md).
+> The content of this article only applies to SMB shares.
 
 This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
 
