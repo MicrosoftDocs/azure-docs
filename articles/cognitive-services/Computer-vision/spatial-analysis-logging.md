@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/11/2020
 ms.author: aahi
 ---
 
@@ -16,7 +16,7 @@ ms.author: aahi
 
 Spatial analysis includes a set of features to monitor the health of the system and help with diagnosing issues.
 
-## Enable video frame and JSON output visualization on the host computer
+## Enable visualizations
 
 To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md). There are four debug operations available.
 
@@ -32,9 +32,9 @@ xhost +
 ```
 
 
-## Collecting System Health Telemetry with Telegraf
+## Collect system health telemetry
 
-Telegraf is open source and the spatial analysis telegraf image available in Microsoft Container Registry takes the following inputs and sends them to Azure Monitor. The telegraf module can be built with desired custom Inputs and Outputs by the end user. The telegraf module configuration in spatial analysis is part of the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179). This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is an open source image that works with spatial analysis, and is available in the Microsoft Container Registry. It takes the following inputs and sends them to Azure Monitor. The telegraf module can be built with desired custom inputs and outputs. The telegraf module configuration in spatial analysis is part of the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179). This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
 1. Spatial analysis Metrics
@@ -94,7 +94,7 @@ In the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), l
 
 Once the telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
 
-![Azure Monitor telemetry report](./media/spatial-analysis/iot-hub-telemetry.png)
+:::image type="content" source="./media/spatial-analysis/iot-hub-telemetry.png" alt-text="Azure Monitor telemetry report":::
 
 ### System health events
 
@@ -210,7 +210,7 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 }
 ```
 
-### Uploading spatial analysis Logs
+### Uploading spatial analysis logs
 
 Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `diagnostics` module. 
 
@@ -224,7 +224,7 @@ Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `diag
 >[!NOTE]
 > Invoking the `getRTCVLogs` method with an empty payload will return a list of all containers deployed on the device. The method name is case sensitive. You will get a 501 error if an incorrect method name is given.
 
-
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Invoking the getRTCVLogs method ":::
 ![getRTCVLogs Direct method page](./media/spatial-analysis/direct-log-collection.png)
 
  

@@ -8,16 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/11/2020
 ms.author: aahi
 ---
 
 
-# Camera Placement Guide
+# Camera placement guide
 
 This article provides camera placement recommendations for spatial analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operations. 
 
-NOTE: This guide is designed for the Axis M3045-V camera. This camera will use resolution 1920x1080, 106 degree horizontal field of view, 59 degree vertical field of view and a fixed 2.8mm focal length. The principles below will apply to all cameras, but specific guidelines around camera height and camera-to-focal-point distance will need to be adjusted for use with other cameras. 
+> [!NOTE]: 
+> This guide is designed for the Axis M3045-V camera. This camera will use resolution 1920x1080, 106 degree horizontal field of view, 59 degree vertical field of view and a fixed 2.8mm focal length. The principles below will apply to all cameras, but specific guidelines around camera height and camera-to-focal-point distance will need to be adjusted for use with other cameras. 
 
 ## General guidelines
 
@@ -84,7 +85,7 @@ The following illustration simulates camera views from the closest and farthest 
 
 This section describes acceptable camera angle mounting ranges. These mounting ranges show the acceptable range for optimal placement.
 
-### Line Configuration
+### Line configuration
 
 The following table shows recommendations for cameras configured for the **cognitiveservices.vision.spatialanalysis-personcrossingline** operation. 
 
@@ -106,7 +107,7 @@ The following illustration shows camera placement and mounting angles from a bir
 
 ![Bird's eye view](./media/spatial-analysis/camera-angle-top.png)
 
-### Zone Configuration
+### Zone configuration
 
 We recommend that you place cameras at 10 feet or more above ground to guarantee the covered area is big enough. 
 

@@ -29,7 +29,7 @@ In this tutorial you will learn how to:
 * Basic understanding of Azure IoT Edge deployment configurations, and an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)
 * A configured [host computer](spatial-analysis-container.md).
 
-## Deploy the spatial analysis container to the host computer
+## Deploy the spatial analysis container
 
 Fill out the [request application](https://aka.ms/csgate) to get access to run the container. 
 
@@ -131,9 +131,9 @@ Fill in the required parameters:
 * IoT Hub Name: Your Azure IoT Hub name
 * Deployment.json: The name of your deployment file
 * IoT Edge device name: The IoT Edge device name of your host computer
-* Subscription: Your subscription Id or name
+* Subscription: Your subscription ID or name
 
-This command will begin the deployment, and you can view the deployment status in your Azure IoT Hub instance in the Azure Portal. The status may show as *417 – The device’s deployment configuration is not set* until the device finishes downloading the container images and starts running.
+This command will begin the deployment, and you can view the deployment status in your Azure IoT Hub instance in the Azure portal. The status may show as *417 – The device’s deployment configuration is not set* until the device finishes downloading the container images and starts running.
 
 ### Validate that the deployment was successful
 
