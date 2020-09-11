@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Integrate Azure storage for notifications and backup
 
-You can integrate your Custom Vision project with an Azure blob storage queue to get push notifications of project training/export activity and backup copies of published models. This is useful to avoid continually polling the service for results when long operations are running. Instead, you can integrate the storage queue notifications into your workflow.
+You can integrate your Custom Vision project with an Azure blob storage queue to get push notifications of project training/export activity and backup copies of published models. This feature is useful to avoid continually polling the service for results when long operations are running. Instead, you can integrate the storage queue notifications into your workflow.
 
 This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
@@ -22,7 +22,7 @@ This guide shows you how to use these REST APIs with cURL. You can also use an H
 
 ## Prerequisites
 
-- A Custom Vision resource in Azure. If you don't have one, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). This feature does not currently support the Cognitive Service resource (all in one key).
+- A Custom Vision resource in Azure. If you don't have one, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). This feature doesn't currently support the Cognitive Service resource (all in one key).
 - An Azure Storage account with a blob container. Follow [Exercises 1 of the Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) if you need help with this step.
 
 ## Set up Azure storage integration
@@ -31,13 +31,13 @@ Go to your Custom Vision training resource on the Azure portal, select the **Ide
 
 Next, go to your storage resource in the Azure portal. Go to the **Access control (IAM)** page and add a role assignment for each integration feature:
 * Select your Custom Vision training resource and assign the **Storage Blob Data Contributor** role if you plan to use the model backup feature. 
-* Select your Custom Vision training resource and assign the **Storage Queue Data Contributor** if you plan to use the notification queue feature.
+* Then select your Custom Vision training resource and assign the **Storage Queue Data Contributor** if you plan to use the notification queue feature.
 
 ![Storage account add role assignment page](./media/storage-integration/storage-access.png)
 
 ### Get integration URLs
 
-Next, you'll get the URLs that were just generated when you assigned these roles.
+Next, you'll get the URLs that allow your Custom Vision resource to access these endpoints.
 
 For the notification queue integration URL, go to the **Queues** page of your storage account, add a new queue, and save its URL to a temporary location.
 
@@ -131,7 +131,7 @@ If you receive a `200/OK` response, that means the URLs have been set up success
 
 Your API call in the previous section should have already triggered new information in your Azure storage account. 
 
-In your designated container, there should be a test blob inside a **CustomVision-TestPermission** folder. This will only exist temporarily.
+In your designated container, there should be a test blob inside a **CustomVision-TestPermission** folder. This blob will only exist temporarily.
 
 In your notification queue, you should see a test notification in the following format:
  
@@ -193,7 +193,7 @@ Also, you'll receive a notification in your queue when the export finishes.
 }
 ```
 
-The `"exportStatus"` field may be either `"ExportCompleted"` or `"ExportFailed"`. The `"modelUri"` field will contain the URL of the backup model stored in your container, assuming you integrated queue notifications in the beginning. If you did not, the `"modelUri"` field will show the SAS URL for your Custom Vision model blob.
+The `"exportStatus"` field may be either `"ExportCompleted"` or `"ExportFailed"`. The `"modelUri"` field will contain the URL of the backup model stored in your container, assuming you integrated queue notifications in the beginning. If you didn't, the `"modelUri"` field will show the SAS URL for your Custom Vision model blob.
 
 ## Next steps
 
