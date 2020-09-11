@@ -55,6 +55,41 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
     - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
 
+## Understand the deployment processes
+
+The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning).
+
+In Azure Machine Learning, "deployment" is used in the more general sense of making available and cleaning up your project resources. The steps that Azure Machine Learning considers part of deployment are:
+
+1. Zipping the files in your project folder, ignoring those specified in .amlignore or .gitignore
+1. Scaling up your compute cluster (Relates to Kubernetes)
+1. Building or downloading the dockerfile to the compute node (Relates to Kubernetes)
+    1. The system calculates a hash of: 
+        - The base image 
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
+    1. If it is not found, it looks for a match in the global ACR
+    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
+1. Downloading your zipped project file to temporary storage on the compute node
+1. Unzipping the project file
+1. The compute node executing `python <entry script> <arguments>`
+1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
+1. Scaling down compute, including removing temporary storage (Relates to Kubernetes)
+
+When you're using AKS, the scaling up and down of the compute is controlled by Kubernetes, using the dockerfile built or found as described above. 
+
+### Front-end scaling
+
+The front-end component of the deployed service automatically scales as needed. Scaling of the front-end is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md).
+
+> [!IMPORTANT]
+> When using a cluster configured as __dev-test__, the self-scaler is **disabled**.
+
+The front-end scales both up (vertically) to use more cores, and out (horizontally) to use more pods. When making the decision to scale-out, the time that it takes to route incoming inference requests is used. If this time exceeds the threshold, a scale-out occurs. If the time to route incoming requests continues to exceed the threshold, a scale-out occurs.
+
+When scaling the front-end down and in, CPU usage is used. If the CPU usage threshold is met, the front-end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens.
+
 ## Deploy to AKS
 
 To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
@@ -104,30 +139,6 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 
 > [!IMPORTANT]
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
-
-### Understand the deployment processes
-
-The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning).
-
-In Azure Machine Learning, "deployment" is used in the more general sense of making available and cleaning up your project resources. The steps that Azure Machine Learning considers part of deployment are:
-
-1. Zipping the files in your project folder, ignoring those specified in .amlignore or .gitignore
-1. Scaling up your compute cluster (Relates to Kubernetes)
-1. Building or downloading the dockerfile to the compute node (Relates to Kubernetes)
-    1. The system calculates a hash of: 
-        - The base image 
-        - Custom docker steps (see [Deploy a model using a custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
-    1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
-    1. If it is not found, it looks for a match in the global ACR
-    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
-1. Downloading your zipped project file to temporary storage on the compute node
-1. Unzipping the project file
-1. The compute node executing `python <entry script> <arguments>`
-1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
-1. Scaling down compute, including removing temporary storage (Relates to Kubernetes)
-
-When you're using AKS, the scaling up and down of the compute is controlled by Kubernetes, using the dockerfile built or found as described above. 
 
 ## Deploy models to AKS using controlled rollout (preview)
 
