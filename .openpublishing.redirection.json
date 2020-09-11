@@ -841,6 +841,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-director/users-groups-roles/custom-enterprise-apps",
+      "redirect_url": "/azure/active-directory/users-groups-roles/roles-custom-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/users-groups-roles/groups-update-rule.md",
       "redirect_url": "/articles/active-directory/users-groups-roles/groups-create-rule",
       "redirect_document_id": false
