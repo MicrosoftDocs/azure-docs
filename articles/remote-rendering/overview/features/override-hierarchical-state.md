@@ -42,7 +42,7 @@ The fixed set of states that can be overridden are:
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
 > [!TIP]
-As an alternative to turning off the visibility and spatial queries for a full sub graph, the `enabled` state of a game object can be toggled. If a hierarchy is disabled, this has preference over any `HierarchicalStateOverrideComponent`.
+> As an alternative to turning off the visibility and spatial queries for a full sub graph, the `enabled` state of a game object can be toggled. If a hierarchy is disabled, this has preference over any `HierarchicalStateOverrideComponent`.
 
 ## Hierarchical overrides
 
