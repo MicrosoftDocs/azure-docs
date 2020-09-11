@@ -401,7 +401,7 @@ In this table, we've listed some useful Permit and Except options and how they m
 | With Specific Claims in the Request| This setting can't be migrated| This setting can't be migrated |
 
 
-An example of how to configure the Exclude option for trusted locations in the Azure Portal:
+An example of how to configure the Exclude option for trusted locations in the Azure portal:
 
 ![Screenshot of mapping access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
 

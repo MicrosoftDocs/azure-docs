@@ -31,7 +31,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Define the process how to create Azure subscriptions | Varies by organization |
 | Decide who gets Enterprise Mobility + Security licenses | IAM Operations Team |
 | Decide who gets Microsoft 365 licenses | Productivity Team |
-| Decide who gets other licenses, for example, Dynamics, VSO | Application Owner |
+| Decide who gets other licenses, for example, Dynamics, Visual Studio Codespaces | Application Owner |
 | Assign licenses | IAM Operations Team |
 | Troubleshoot and remediate license assignment errors | IAM Operations Team |
 | Provision identities to applications in Azure AD | IAM Operations Team |
