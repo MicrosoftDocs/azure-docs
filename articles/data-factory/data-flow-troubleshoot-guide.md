@@ -1,19 +1,19 @@
 ---
-title: Troubleshoot data flows
+title: Troubleshoot mapping data flows
 description: Learn how to troubleshoot data flow issues in Azure Data Factory.
 services: data-factory
 ms.author: makromer
 author: kromerm
-manager: anandsub
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/08/2020
+ms.date: 09/11/2020
 ---
-# Troubleshoot data flows in Azure Data Factory
+# Troubleshoot mapping data flows in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article explores common troubleshooting methods for data flows in Azure Data Factory.
+This article explores common troubleshooting methods for mapping data flows in Azure Data Factory.
 
 ## Common errors and messages
 
@@ -53,6 +53,46 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 - **Message**: Column name needs to be specified in the query, set an alias if using a SQL function
 - **Causes**: No column name was specified
 - **Recommendation**: Set an alias if using a SQL function such as min()/max(), etc.
+
+ ### Error code: DF-Executor-DriverError
+- **Message**: INT96 is legacy timestamp type which is not supported by ADF Dataflow. Please consider upgrading the column type to the latest types.
+- **Causes**: Driver error
+- **Recommendation**: INT96 is legacy timestamp type which is not supported by ADF Dataflow. Please consider upgrading the column type to the latest types.
+
+ ### Error code: DF-Executor-BlockCountExceedsLimitError
+- **Message**: The uncommitted block count cannot exceed the maximum limit of 100,000 blocks. Check blob configuration.
+- **Causes**: There can be a maximum of 100,000 uncommitted blocks in a blob.
+- **Recommendation**: Please contact Microsoft product team regarding this issue for more details
+
+ ### Error code: DF-Executor-PartitionDirectoryError
+- **Message**: The specified source path has either multiple partitioned directories (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
+- **Causes**: Source path has either multiple partitioned directories or partitioned directory with other file or non-partitioned directory.
+- **Recommendation**: Remove partitioned root directory from source path and read it through separate source transformation.
+
+ ### Error code: DF-Executor-OutOfMemoryError
+- **Message**: Cluster ran into out of memory issue during execution, please retry using an integration runtime with bigger core count and/or memory optimized compute type
+- **Causes**: Cluster is running out of memory
+- **Recommendation**: Debug clusters are meant for development purposes. Leverage data sampling, appropriate compute type, and size to run the payload. Refer to the [mapping data flow performance guide](concepts-data-flow-performance.md) for tuning to achieve best performance.
+
+ ### Error code: DF-Executor-illegalArgument
+- **Message**: Please make sure that the access key in your Linked Service is correct
+- **Causes**: Account Name or Access Key incorrect
+- **Recommendation**: Ensure the account name or access key specified in your linked service is correct. 
+
+ ### Error code: DF-Executor-InvalidType
+- **Message**: Please make sure that the type of parameter matches with type of value passed in. Passing float parameters from pipelines isn't currently supported.
+- **Causes**: Incompatible data types between declared type and actual parameter value
+- **Recommendation**: Check that your parameter values passed into a data flow match the declared type.
+
+ ### Error code: DF-Executor-ColumnUnavailable
+- **Message**: Column name used in expression is unavailable or invalid
+- **Causes**: Invalid or unavailable column name used in expressions
+- **Recommendation**: Check column name(s) used in expressions
+
+ ### Error code: DF-Executor-ParseError
+- **Message**: Expression cannot be parsed
+- **Causes**: Expression has parsing errors due to formatting
+- **Recommendation**: Check formatting in expression
 
 ### Error code: GetCommand OutputAsync failed
 
