@@ -90,7 +90,7 @@ landingContent:
           - text: Deploy a policy that can be remediated
             url: ./how-to/deploy-policy-remediation.md
           - text: Manage hybrid machines with Azure Arc
-            url: ./how-to/manage-hybrid-infrastructure.md
+            url: ./how-to/manage-hybrid-infrastructure-arc.md
 
   - title: Reference - SDKs
     linkLists:

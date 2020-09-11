@@ -29,6 +29,8 @@ When you connect your machine to Azure Arc enabled servers (preview), it enables
 
 Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
 
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
 ## Supported regions
 
 With Azure Arc enabled servers (preview), only certain regions are supported:
