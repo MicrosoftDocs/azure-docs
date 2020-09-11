@@ -165,11 +165,11 @@ AzureDiagnostics
 
 The following log samples show the data included in a log entry.
 
-![log entry](media/log-analytics-samples/log1.png)
+![log entry one](media/log-analytics-samples/log1.png)
 
-![log entry](media/log-analytics-samples/log2.png)
+![log entry two ](media/log-analytics-samples/log2.png)
 
-![log entry](media/log-analytics-samples/log3.png)
+![log entry three](media/log-analytics-samples/log3.png)
 ## Next steps
 
 To learn about Azure Firewall monitoring and diagnostics, see [Tutorial: Monitor Azure Firewall logs and metrics](tutorial-diagnostics.md).
