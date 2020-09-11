@@ -14,6 +14,8 @@ When you use Visual Studio Code and the public preview Azure Logic Apps for Visu
 
 ![Screenshot that shows Visual Studio Code and workflow app.](./media/create-stateless-stateful-workflows/visual-studio-code-logic-apps-overview.png)
 
+## What's new in this preview?
+
 This preview extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
 
 * Integrate your workflows by choosing from [hundreds of managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors.md) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services along with managed connectors for on-premises systems.
