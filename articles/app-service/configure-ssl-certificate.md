@@ -14,6 +14,9 @@ ms.custom: seodec18
 
 Once the certificate is added to your App Service app or [function app](../azure-functions/index.yml), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-certificate-in-code.md).
 
+> [!NOTE]
+> The certificates uploaded into an App Service are stored in the webspace which is bound to the resource group. This makes the certificates accessible to all web apps in the same resource group. You can [control the access to certificates](configure-ssl-certificate-in-code#make-the-certificate-accessible) from app service code using app settings.
+
 The following table lists the options you have for adding certificates in App Service:
 
 |Option|Description|
