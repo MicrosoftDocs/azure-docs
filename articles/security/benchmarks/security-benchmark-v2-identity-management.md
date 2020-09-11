@@ -1,6 +1,6 @@
 ---
-title: Azure Security Control - Identity Management
-description: Azure Security Control Identity Management
+title: Azure Security Benchmark V2 - Identity Management
+description: Azure Security Benchmark V2 Identity Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -16,7 +16,7 @@ Identity Management covers controls to establish a secure identity and access co
 
 ## ID-1: Standardize Azure Active Directory as the central identity and authentication system
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ID-1 | 16.1, 16.2, 16.4, 16.5 | IA-2, IA-8, AC-2, AC-3 |
 
@@ -53,7 +53,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 
 ## ID-2: Manage application identities securely and automatically
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ID-2 | N/A | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
@@ -80,7 +80,7 @@ For services that do not support managed identities, use Azure AD to create a se
 
 ## ID-3: Use Azure AD single sign-on (SSO) for application access
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ID-3 | 4.4 | IA-2, IA-4 |
 
@@ -102,7 +102,7 @@ Use Azure AD single sign-on (SSO) to manage and secure access to your organizati
 
 ## ID-4: Use strong authentication controls for all Azure Active Directory based access
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ID-4 | 4.2, 4.4 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
 
@@ -137,7 +137,7 @@ Note: Authentication based on password credentials alone is susceptible to popul
 
 ## ID-5: Monitor and alert on account anomalies
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ID-5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AU-6 |
 
@@ -182,7 +182,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use on-pr
 
 ## ID-6: Restrict Azure resource access based on conditions
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ID-6 | N/A | AC-2, AC-3 |
 
@@ -208,7 +208,7 @@ Use Azure AD conditional access for more granular access control based on user-d
 
 ## ID-7: Eliminate unintended credential exposure
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ID-7 | 18.1, 18.7 | IA-5 |
 
@@ -226,7 +226,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 ## ID-8: Secure user access to legacy applications
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ID-8 | 14.6 | AC-2, AC-3, SC-11 |
 

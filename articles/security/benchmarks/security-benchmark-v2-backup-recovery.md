@@ -1,6 +1,6 @@
 ---
-title: Azure Security Control - Backup and Recovery
-description: Azure Security Control Backup and Recovery
+title: Azure Security Benchmark V2 - Backup and Recovery
+description: Azure Security Benchmark V2 Backup and Recovery
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -16,7 +16,7 @@ Backup and Recovery covers controls to ensure that data and configuration backup
 
 ## BR-1: Ensure regular automated backups
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
@@ -44,7 +44,7 @@ For a higher level of redundancy, you can enable geo-redundant storage option to
 
 ## BR-2: Encrypt backup data
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-2 | 10.2 | CP-9 |
 
@@ -72,7 +72,7 @@ Use role-based access control in Azure Backup, Azure Key Vault, or other resourc
 
 ## BR-3: Validate all backups including customer-managed keys
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-3 | 10.3 | CP-4, CP-9 |
 
@@ -92,7 +92,7 @@ Periodically perform data restoration of your backup. Ensure that you can restor
 
 ## BR-4: Mitigate risk of lost keys
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 

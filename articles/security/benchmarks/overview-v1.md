@@ -15,7 +15,7 @@ ms.custom: security-benchmark
 # Overview of the Azure Security Benchmark (v1)
 
 > [!NOTE]
-> The most up-to-date Azure Security Benchmark is available [here](overview-v2.md).
+> The most up-to-date Azure Security Benchmark is available [here](overview.md).
 
 The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
 

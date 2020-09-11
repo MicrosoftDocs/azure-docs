@@ -1,6 +1,6 @@
 ---
-title: Azure Security Control - Endpoint Security
-description: Azure Security Control Endpoint Security
+title: Azure Security Benchmark V2 - Endpoint Security
+description: Azure Security Benchmark V2 Endpoint Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -16,7 +16,7 @@ Endpoint Security covers controls in endpoint detection and response. This inclu
 
 ## ES-1: Use Endpoint Detection and Response (EDR)
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ES-1 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -44,7 +44,7 @@ Microsoft Defender Advanced Threat Protection provides EDR capability as part of
 
 ## ES-2: Use centrally managed modern anti-malware software
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ES-2 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -72,7 +72,7 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 ## ES-3: Ensure anti-malware software and signatures are updated
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | ES-3 | 8.2 | SI-2, SI-3 |
 

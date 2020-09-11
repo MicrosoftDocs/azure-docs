@@ -1,6 +1,6 @@
 ---
-title: Azure Security Control - Privileged Access
-description: Azure Security Control Privileged Access
+title: Azure Security Benchmark V2 - Privileged Access
+description: Azure Security Benchmark V2 Privileged Access
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -16,7 +16,7 @@ Privileged Access covers controls to protect privileged access to your Azure ten
 
 ## PA-1: Protect and limit the global administrators
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-1 | 4.3, 4.8 | AC-2 |
 
@@ -51,7 +51,7 @@ Note: Some Azure services such as Azure SQL support local user authentication in
 
 ## PA-2: Review and reconcile user access regularly
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-2 | 4.1, 16.9, 16.10 | AC-2 |
 
@@ -93,7 +93,7 @@ Note: Some Azure services such as Azure SQL support local users which not manage
 
 ## PA-3: Set up an emergency access account in Azure AD
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-3 | 12.3 | AC-2 |
 
@@ -117,7 +117,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ## PA-4: Automate Azure identity and access request workflow
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-4 | N/A | AC-2, AC-5, PM-10 |
 
@@ -139,7 +139,7 @@ Use Azure AD entitlement management features to automate Azure access request wo
 
 ## PA-5: Use highly secured machines for administrative tasks
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-5 | 4.6, 11.6, 12.12 | AC-2, SC-7 |
 
@@ -166,7 +166,7 @@ Secured, isolated workstations are critically important for the security of sens
 
 ## PA-6: Assign privileges to resources using Azure RBAC
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-6 | 14.6 | AC-2, AC-3 |
 
@@ -190,7 +190,7 @@ Azure role-based access control (RBAC) allows you to manage privileges to Azure 
 
 ## PA-7: Choose approval process for Microsoft support
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-7 | 16 | AC-2, AC-3, AC-4 |
 

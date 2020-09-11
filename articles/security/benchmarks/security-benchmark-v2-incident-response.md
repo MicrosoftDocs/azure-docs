@@ -1,6 +1,6 @@
 ---
-title: Azure Security Control - Incident Response
-description: Azure Security Control Incident Response
+title: Azure Security Benchmark V2 - Incident Response
+description: Azure Security Benchmark V2 Incident Response
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -16,7 +16,7 @@ Incident Response covers controls in incident response life cycle - preparation,
 
 ## IR-1: Preparation – update incident response process for Azure
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | IR-1 | 19 | IR-4, IR-8 |
 
@@ -38,7 +38,7 @@ Ensure your organization has processes to respond to security incidents, has upd
 
 ## IR-2: Preparation – setup incident notification
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | IR-2 | 19.5 | IR-4, IR-5, IR-6, IR-8 |
 
@@ -56,7 +56,7 @@ Set up security incident contact information in Azure Security Center. This cont
 
 ## IR-3: Detection and analysis – create incidents based on high quality alerts
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | IR-3 | 19.6 | IR-4, IR-5 |
 
@@ -84,7 +84,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 
 ## IR-4: Detection and analysis – investigate an incident
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
@@ -122,7 +122,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ## IR-5: Detection and analysis – prioritize incidents
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | IR-5 | 19.8 | CA-2, IR-4 |
 
@@ -148,7 +148,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 ## IR-6: Containment, eradication and recovery – automate the incident handling
 
-| Azure ID | CIS IDs | NIST IDs |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | IR-6 | 19 | IR-4, IR-5, IR-6 |
 
