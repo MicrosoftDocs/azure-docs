@@ -63,7 +63,6 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-
 In the above example, we are instructing SQL on-demand to connect to the `covid` database in Azure Cosmos DB account `MyCosmosDbAccount` authenticated using the Azure Cosmos DB key (dummy in the above example). We are then accessing the container `EcdcCases`'s analytical store in the `West US 2` region. Since there is no projection of specific properties, `OPENROWSET` function will return all properties from the Azure Cosmos DB items.
 
 If you need to explore data from the other container in the same Azure Cosmos DB database, you can use the same connection string and reference required container as third parameter:
@@ -108,7 +107,7 @@ The result of this query might look like:
 | 2020-08-12 | 235 | RS |
 | 2020-08-11 | 163 | RS |
 
-Look at the [rules for Cosmos DB to SQL type mappings](#azure-cosmos-db-to-sql-type-mappings) at the end of this article for more information about the SQL types that should be used for Azure Cosmos DB data.
+Review the [rules for SQL type mappings](#azure-cosmos-db-to-sql-type-mappings) at the end of the article for more information about the SQL types that should be used for Azure Cosmos DB value.
 
 ## Querying nested objects and arrays
 
