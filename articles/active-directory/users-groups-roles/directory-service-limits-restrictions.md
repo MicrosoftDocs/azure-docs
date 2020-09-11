@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/21/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
@@ -25,5 +25,6 @@ This article contains the usage constraints and other service limits for the Azu
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
 ## Next steps
+
 * [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md)
 * [How Azure subscriptions are associated with Azure AD](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
