@@ -69,21 +69,6 @@ SQL Managed Instance **is available during update operations**, except a short d
 > [!IMPORTANT]
 > It's not recommended to scale compute or storage of Azure SQL Managed Instance or to change the service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel all ongoing transactions.
 
-SQL Managed Instance is not available to client applications during deployment and deletion operations.
-
-## Management operations cross-impact
-
-Management operations on a managed instance can affect other management operations of the instances placed inside the same virtual cluster:
-
-- **Long-running restore operations** in a virtual cluster will put on hold other instance creation or scaling operations in the same subnet.<br/>**Example:** If there is a long-running restore operation and there is a create or scale request in the same subnet, this request will take longer to complete as it will wait for the restore operation to complete before it continues.
-	
-- **A subsequent instance creation or scaling** operation is put on hold by a previously initiated instance creation or instance scale that initiated the virtual cluster resize.<br/>**Example:** If there are multiple create and/or scale requests in the same subnet under the same virtual cluster, and one of them initiates a virtual cluster resize, all requests that were submitted 5+ minutes after the one that required the virtual cluster resize will last longer than expected, as these requests will have to wait for the resize to complete before resuming.
-
-- **Create/scale operations submitted in a 5-minute window** will be batched and executed in parallel.<br/>**Example:** Only one virtual cluster resize will be performed for all operations submitted in a 5-minute window (measuring from the moment of executing the first operation request). If another request is submitted more than 5 minutes after the first one is submitted, it will wait for the virtual cluster resize to complete before execution starts.
-
-> [!IMPORTANT]
-> Management operations that are put on hold because of another operation that is in progress will be automatically resumed once conditions to proceed are met. There is no user action needed to resume temporarily paused management operations.
-
 ## Management operations steps
 Management operations consist of multiple steps. With [Operations API introduced](monitoring-management-operations.md) these steps are exposed for subset of operations (deployment and update). Deployment operation consists of 3 steps while update operation is performed in 6 steps. For details on operations duration check [management operations duration](#management-operations-duration) section.
 
@@ -103,11 +88,26 @@ Management operations consist of multiple steps. With [Operations API introduced
 |Virtual cluster resizing / creation |Depending on the state of subnet, virtual cluster goes into creation or resizing |
 |New SQL instance startup | SQL process is started on deployed virtual cluster |
 |Seeding database files / attaching database files |Depending on the type of the update operation, either database seeding or attaching database files is performed |
-|Preparing failover and failover |After data has been seeded or database files re-attached, system is being prepared for the failover. When everything is set, failover is performed. During this step [managed instance is available](#instance-availability-during-management-operations) **except a short downtime caused by the failover**. |
+|Preparing failover and failover |After data has been seeded or database files re-attached, system is being prepared for the failover. When everything is set, failover is performed **with a short downtime**. |
 |Old SQL instance cleanup |Removing old SQL process from the virtual cluster |
 
 > [!NOTE]
 > In case of multiple instances placed inside the same virtual cluster, as a result of create or update operation performed and **virtual cluster shrinking**, there is a scheduled job triggered every 60 minutes for removing unused virtual machines from the virtual cluster that can cause additional failover.
+
+SQL Managed Instance is not available to client applications during deployment and deletion operations.
+
+## Management operations cross-impact
+
+Management operations on a managed instance can affect other management operations of the instances placed inside the same virtual cluster:
+
+- **Long-running restore operations** in a virtual cluster will put on hold other instance creation or scaling operations in the same subnet.<br/>**Example:** If there is a long-running restore operation and there is a create or scale request in the same subnet, this request will take longer to complete as it will wait for the restore operation to complete before it continues.
+	
+- **A subsequent instance creation or scaling** operation is put on hold by a previously initiated instance creation or instance scale that initiated the virtual cluster resize.<br/>**Example:** If there are multiple create and/or scale requests in the same subnet under the same virtual cluster, and one of them initiates a virtual cluster resize, all requests that were submitted 5+ minutes after the one that required the virtual cluster resize will last longer than expected, as these requests will have to wait for the resize to complete before resuming.
+
+- **Create/scale operations submitted in a 5-minute window** will be batched and executed in parallel.<br/>**Example:** Only one virtual cluster resize will be performed for all operations submitted in a 5-minute window (measuring from the moment of executing the first operation request). If another request is submitted more than 5 minutes after the first one is submitted, it will wait for the virtual cluster resize to complete before execution starts.
+
+> [!IMPORTANT]
+> Management operations that are put on hold because of another operation that is in progress will be automatically resumed once conditions to proceed are met. There is no user action needed to resume temporarily paused management operations.
 
 ## Monitoring management operations
 For detailed explanation on how to monitor management operation progress and status visit [Monitoring management operations](monitoring-management-operations.md).
