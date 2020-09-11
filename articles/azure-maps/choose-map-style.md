@@ -93,7 +93,7 @@ The style picker has two different layout options: `icon` and `list`. Also, the 
 
 The image below shows the style picker control displayed in `icon` layout.
 
-:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Style picker list layout":::
+:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Style picker icon layout":::
 
 The image below shows the style picker control displayed in `list` layout.
 
