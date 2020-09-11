@@ -44,7 +44,7 @@ After you've verified that your source environment is supported, start with the 
 
 In the Discover phase, scan the network to identify all SQL Server instances and features used by your organization. 
 
-Use [Azure Migrate](../../../migrate/migrate-services-overview) to assesses migration suitability of on-premises servers, perform performance-based sizing, and provide cost estimations for running them in Azure. 
+Use [Azure Migrate](../../../migrate/migrate-services-overview.md) to assesses migration suitability of on-premises servers, perform performance-based sizing, and provide cost estimations for running them in Azure. 
 
 Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP Toolkit")](https://www.microsoft.com/download/details.aspx?id=7826) to assess your current IT infrastructure. The toolkit provides a powerful inventory, assessment, and reporting tool to simplify the migration planning process. 
 
@@ -79,7 +79,7 @@ If SQL Managed Instance is not a suitable target for your workload, SQL Server o
 
 ### Create a performance baseline
 
-If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, create a performance baseline to use for comparison. See [performance baseline](sql-server-to-managed-instance-perforamnce-baseline.md) to learn more. 
+If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, create a performance baseline to use for comparison. See [performance baseline](sql-server-to-managed-instance-performance-baseline.md) to learn more. 
 
 ## Create SQL Managed Instance 
 
@@ -102,7 +102,7 @@ However, when using online migration options (DMS, transactional replication), t
 After you verify that data is the same at both source and target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
 
 > [!IMPORTANT]
-> For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-managed-instance-online#performing-migration-cutover).
+> For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-managed-instance-online.md#performing-migration-cutover).
 
 
 ## Post-migration
@@ -135,7 +135,7 @@ Be sure to take advantage of the advanced cloud-based features offered by SQL Ma
 
 [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized manner.
 
-Some SQL Server features are only available once the [database compatibility level](sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
+Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 
 
 ## Next steps
@@ -143,8 +143,8 @@ Some SQL Server features are only available once the [database compatibility lev
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
 - To learn more about Azure SQL Managed Instance see:
-   - [Service Tiers in Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/sql-managed-instance-paas-overview#service-tiers)
-   - [Differences between SQL Server and Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server)
+   - [Service Tiers in Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)
+   - [Differences between SQL Server and Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 

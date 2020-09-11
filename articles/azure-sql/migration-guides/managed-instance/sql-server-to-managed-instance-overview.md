@@ -52,7 +52,7 @@ One of the key benefits of migrating your SQL Servers to SQL Managed Instance is
 Some general guidelines to help you choose the right service tier and characteristics of SQL Managed Instance: 
 
 - Use the CPU usage baseline to provision a managed instance that matches the number of cores your instance of SQL Server uses. It may be necessary to scale resources to match the [hardware generation characteristics](../../managed-instance/resource-limits.md#hardware-generation-characteristics). 
-- Use the memory usage baseline to choose a [vCore option](../../managed-instance/resource-limits.md#service-tier-generation-characteristics) that appropriately matches your memory allocation. 
+- Use the memory usage baseline to choose a [vCore option](../../managed-instance/resource-limits.md#service-tier-characteristics) that appropriately matches your memory allocation. 
 - Use the baseline IO latency of the file subsystem to choose between General Purpose (latency greater than 5ms) and Business Critical (latency less than 3ms) service tiers. 
 - Use the baseline throughput to preallocate the size of the data and log files to achieve expected IO performance. 
 
@@ -94,7 +94,7 @@ SQL Server Reporting Services (SSRS) reports can be migrated to paginated report
 
 ### High availability
 
-SQL Server instances that rely on the high availability features Always On failover cluster instances and Always On availability groups become obsolete on the target Azure SQL Managed Instance as high availability architecture is already built into both [General Purpose (standard availability model)](../../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability.md) and [Business Critical (premium availability model)](../../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) SQL Managed Instance. The premium availability model also provides read scale out that allows connecting into one of the secondary nodes for read only purposes. 
+SQL Server instances that rely on the high availability features Always On failover cluster instances and Always On availability groups become obsolete on the target Azure SQL Managed Instance as high availability architecture is already built into both [General Purpose (standard availability model)](../../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical (premium availability model)](../../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) SQL Managed Instance. The premium availability model also provides read scale out that allows connecting into one of the secondary nodes for read only purposes. 
 
 Beyond the high availability architecture that is included in SQL Managed Instance, there is also the [auto-failover groups](../../database/auto-failover-group-overview.md) feature that allows you to manage the replication and failover of databases in a managed instance to another region. 
 
@@ -130,7 +130,7 @@ To strengthen security, consider using [Azure Active Directory Authentication]
 
 In addition to advanced management and security features, SQL Managed Instance provides a set of advanced tools that can help you [monitor and tune your workload](../../database/monitor-tune-overview.md). [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized manner. [Automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues. 
 
-Some features are only available once the [database compatibility level](sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
+Some features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 
 ## SQL VM alternative
 
@@ -212,8 +212,8 @@ To start migrating your SQL Server to Azure SQL Managed Instance, see the [Datab
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
 - To learn more about Azure SQL Managed Instance see:
-   - [Service Tiers in Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/sql-managed-instance-paas-overview#service-tiers)
-   - [Differences between SQL Server and Azure SQL Managed Instance](../../azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server)
+   - [Service Tiers in Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)
+   - [Differences between SQL Server and Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
