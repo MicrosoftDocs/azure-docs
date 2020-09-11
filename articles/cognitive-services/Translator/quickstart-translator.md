@@ -39,6 +39,16 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory: ``dotnet run``
 
+# [Go](#tab/go)
+
+* Create a new Go project in your favorite code editor.
+* Add the code provided below.
+* Replace the `subscriptionKey` value with an access key valid for your subscription.
+* Save the file with a '.go' extension.
+* Open a command prompt on a computer with Go installed.
+* Build the file, for example: 'go build example-code.go'.
+* Run the file, for example: 'example-code'.
+
 # [Java](#tab/java)
 
 * Create a working directory for your project. For example: `mkdir sample-project`.
@@ -146,6 +156,67 @@ class Program
             Console.WriteLine(result);
         }
     }
+}
+```
+
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/translate?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("from", "en")
+    q.Add("to", "de")
+    q.Add("to", "it")
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "Hello, world!"},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
 }
 ```
 
@@ -344,6 +415,67 @@ class Program
 }
 ```
 
+
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/translate?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("to", "de")
+    q.Add("to", "it")
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "Hello, world!"},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
+}
+```
+
 # [Java](#tab/java)
 
 ```java
@@ -534,6 +666,64 @@ class Program
             Console.WriteLine(result);
         }
     }
+}
+```
+
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/detect?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal."},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+         log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
 }
 ```
 
@@ -736,6 +926,66 @@ class Program
 }
 ```
 
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/translate?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("to", "th")
+    q.Add("toScript", "latn")
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "Hello"},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
+}
+```
+
 # [Java](#tab/java)
 
 ```java
@@ -932,6 +1182,67 @@ class Program
 }
 ```
 
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/transliterate?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("language", "th")
+    q.Add("fromScript", "thai")
+    q.Add("toScript", "latn")
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "สวัสดี"},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
+}
+```
+
 # [Java](#tab/java)
 
 ```java
@@ -1118,6 +1429,66 @@ class Program
             Console.WriteLine(result);
         }
     }
+}
+```
+
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/translate?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("to", "es")
+    q.Add("includeSentenceLength", "true")
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine."},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
 }
 ```
 
@@ -1322,6 +1693,64 @@ class Program
 }
 ```
 
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/breaksentence?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine."},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
+}
+```
+
 # [Java](#tab/java)
 
 ```java
@@ -1501,6 +1930,66 @@ class Program
             Console.WriteLine(result);
         }
     }
+}
+```
+
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/dictionary/lookup?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("from", "en")
+    q.Add("to", "es")
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "shark"},
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
 }
 ```
 
@@ -1712,6 +2201,70 @@ class Program
             Console.WriteLine(result);
         }
     }
+}
+```
+
+# [Go](#tab/go)
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    subscriptionKey := "151526a0d75d472fa4aef87aa4cf3bd9"
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/dictionary/lookup?api-version=3.0"
+
+    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("from", "en")
+    q.Add("to", "es")
+    u.RawQuery = q.Encode()
+
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+        Translation string
+    }{
+        {
+          Text: "How are you? I am fine. What did you do today?",
+          Translation: "¿Cómo estás? Estoy bien. ¿Qué hiciste hoy?",
+        },
+    }
+    b, _ := json.Marshal(body)
+
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Content-Type", "application/json")
+
+    // Call the Translator Text API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
 }
 ```
 
