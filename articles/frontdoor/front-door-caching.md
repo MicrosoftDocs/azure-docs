@@ -91,6 +91,9 @@ Front Door will cache assets until the asset's time-to-live (TTL) expires. After
 2. **Wildcard purge**: Asterisk (\*) may be used as a wildcard. Purge all folders, subfolders, and files under an endpoint with /\* in the path or purge all subfolders and files under a specific folder by specifying the folder followed by /\*, for example, /pictures/\*.
 3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
 
+</br> Special Case for Purging Wildcard Domains
+Note that specifying the above paths will not apply to any wildcard domains associated with the front door. At this time, we do not support directly purging wildcard domains. You may purge paths from specific subdomains by specifying that specfic subdomain and the purge path. For example, if my front door has "*.contoso.com", I can purge assets of my subdomain "foo.contoso.com" by typing "foo.contoso.com/path/*". Note, that specifying hostnames in the purge content paths is currently limited to subdomains of wildcard domains, if applicable.
+
 Cache purges on the Front Door are case-insensitive. Additionally, they are query string agnostic, meaning purging a URL will purge all query-string variations of it. 
 
 ## Cache expiration
