@@ -28,10 +28,10 @@ To complete this quickstart, you need Python 3.7 on your development machine. Yo
 python --version
 ```
 
-Install the [Python service SDK preview package](https://pypi.org/project/azure-iot-hub/2.2.1rc0/) by running the following command:
+Install the [Python service SDK preview package](https://pypi.org/project/azure-iot-hub/2.2.2rc0/) by running the following command:
 
 ```cmd/sh
-pip3 install azure-iot-hub==2.2.1rc0
+pip3 install azure-iot-hub==2.2.2rc0
 ```
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
@@ -78,13 +78,9 @@ In this quickstart, you use a sample thermostat device, written in Python, as th
 
 In this quickstart, you use a sample IoT solution in Python to interact with the sample device you just set up.
 
-1. Open another terminal window to use as your **service** terminal. The service SDK is in preview, so you need to clone the samples from a [preview branch of the Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh):
+1. Open another terminal window to use as your **service** terminal. 
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
-    ```
-
-1. Go to the folder of this cloned repository branch, and navigate to the */azure-iot-sdk-python/azure-iot-hub/samples* folder.
+1. Go to the service samples of the cloned Python SDK repository by navigating to the */azure-iot-sdk-python/azure-iot-hub/samples* folder.
 
 1. Configure environment variables for your device ID and _IoT Hub connection string_:
 
