@@ -23,7 +23,7 @@ In **part 2 of this get started series**, you will submit a trivial "hello world
 > * Submitting remote runs in the cloud
 > * Monitoring and recording runs in the Azure Machine Learning studio
 
-This tutorial is part of a **four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete simple jobs-based machine learning tasks in the Azure cloud. It builds off the work you completed in (Tutorial part 1: set up your local machine for Azure Machine Learning)(
+This tutorial is part of a **four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete simple jobs-based machine learning tasks in the Azure cloud. It builds off the work you completed in [Tutorial part 1: set up your local machine for Azure Machine Learning](
 tutorial-1st-experiment-sdk-setup-local.md).
 
 This tutorial introduces you to the core Azure Machine Learning concepts needed to run your code in the cloud:
