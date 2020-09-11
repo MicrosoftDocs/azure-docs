@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure storage for notifications and backup
+title: Integrate Azure storage for notifications and model backup
 titleSuffix: Azure Cognitive Services
 description: Learn how to integrate Azure storage to receive push notifications when you train or export Custom Vision models. You can also save a backup of exported models.
 author: PatrickFarley
@@ -13,14 +13,12 @@ ms.author: pafarley
 
 # Integrate Azure storage for notifications and backup
 
-You can integrate your Custom Vision project with an Azure blob storage queue to get push notifications of project activity and backup copies of published models.
-
-You can get notifications in an Azure Storage queue when ever a project is updated, or model iteration is trained or published. 
+You can integrate your Custom Vision project with an Azure blob storage queue to get push notifications of project training/export activity and backup copies of published models. This is useful to avoid continually polling the service for results when long operations are running. Instead, you can integrate the storage queue notifications into your workflow.
 
 This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
 > [!NOTE]
-> Push notifications depend on the optional _notificationQueueUri_ parameter in the **CreateProject** API. Model backup copies require that you also use the optional _exportModelContainerUri_ parameter. This guide will show you how to use both for the full set of features.
+> Push notifications depend on the optional _notificationQueueUri_ parameter in the **CreateProject** API, and model backups require that you also use the optional _exportModelContainerUri_ parameter. This guide will use both for the full set of features.
 
 ## Prerequisites
 
