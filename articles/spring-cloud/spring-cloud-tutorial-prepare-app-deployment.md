@@ -123,9 +123,9 @@ The following table lists the correct Azure Spring Cloud versions for your app t
 
 Spring Boot version | Spring Cloud version | Azure Spring Cloud client starter version
 ---|---|---
-2.1 | Greenwich.RELEASE | 2.1.2
-2.2 | Hoxton.SR8 | Not needed
-2.3	| Hoxton.SR8 | Not needed
+2.1.x | Greenwich.RELEASE | 2.1.2
+2.2.x | Hoxton.SR8 | Not needed
+2.3.x | Hoxton.SR8 | Not needed
 
 Include the following dependenciy in your pom.xml file if you are using Spring Boot 2.1.
 
