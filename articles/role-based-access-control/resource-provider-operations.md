@@ -5187,7 +5187,7 @@ Azure service: [Machine Learning Service](../machine-learning/index.yml)
 
 ### Microsoft.MachineLearning
 
-Azure service: [Machine Learning Studio (classic)](../machine-learning/studio/index.yml)
+Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
