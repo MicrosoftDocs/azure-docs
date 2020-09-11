@@ -1,14 +1,14 @@
 ---
-title: Metrics Advisor service encryption of data at rest
+title: Metrics Advisor service encryption
 titleSuffix: Azure Cognitive Services
 description: Metrics Advisor service encryption of data at rest.
-author: zhli2
-manager: bix
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metricsadvisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: zhli2
+ms.author: aahi
 #Customer intent: As a user of the Metrics Advisor service, I want to learn how encryption at rest works.
 ---
 
