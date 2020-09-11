@@ -2,14 +2,14 @@
 title: Azure AD secure hybrid access | Microsoft Docs
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. Secure your legacy apps by connecting app delivery controllers or networks to Azure AD. 
 services: active-directory
-author: kenwith
-manager: celestedg
+author: gasinh
+manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/18/2019
-ms.author: kenwith
+ms.date: 9/10/2020
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
