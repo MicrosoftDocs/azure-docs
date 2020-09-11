@@ -117,7 +117,7 @@ Perform the following steps in the Azure portal to order a device.
 
 1. In **Security**, if you want to enable software-based double encryption, select **Enable double encryption for the order**. 
 
-   The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the data box.
+   The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
 
    > [!NOTE]
    > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
