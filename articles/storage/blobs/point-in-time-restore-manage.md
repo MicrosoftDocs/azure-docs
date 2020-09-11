@@ -1,7 +1,7 @@
 ---
 title: Enable and manage point-in-time restore for block blobs (preview)
 titleSuffix: Azure Storage
-description: Learn how to use point-in-time restore (preview) to restore block blobs to a state at an earlier point in time.
+description: Learn how to use point-in-time restore (preview) to restore a set of block blobs to a previous state.
 services: storage
 author: tamram
 
@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Enable and manage point-in-time restore for block blobs (preview)
 
-You can use point-in-time restore (preview) to restore block blobs to their state at an earlier point in time. This article describes how to enable point-in-time restore for a storage account with PowerShell. It also shows how to perform a restore operation with PowerShell.
+You can use point-in-time restore (preview) to restore a set of block blobs to a previous state. This article describes how to enable point-in-time restore for a storage account with PowerShell. It also shows how to perform a restore operation with PowerShell.
 
 For more information and to learn how to register for the preview, see [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md).
 
@@ -50,7 +50,7 @@ The following image shows a storage account configured for point-in-time restore
 
 To configure point-in-time restore with PowerShell, first install the Az.Storage preview module version 1.14.1-preview or a later version of the preview module. Remove any other versions of the Az.Storage module.
 
-Verify that you have installed version 2.2.4.1 or later of PowerShellGet. To determine what version you currently have loaded:
+Verify that you have installed version 2.2.4.1 or later of PowerShellGet. To determine what version you currently have installed, run the following command:
 
 ```powershell
 Get-InstalledModule PowerShellGet
@@ -76,21 +76,22 @@ Connect-AzAccount
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 
-# Enable soft delete with a retention of 6 days.
+# Enable soft delete with a retention of 14 days.
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -RetentionDays 6
+    -RetentionDays 14
 
 # Enable change feed.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -EnableChangeFeed $true
 
-# Enable point-in-time restore with a retention period of 5 days.
-# The retention period for point-in-time restore must be at least one day less than that set for soft delete.
+# Enable point-in-time restore with a retention period of 7 days.
+# The retention period for point-in-time restore must be at least
+# one day less than that set for soft delete.
 Enable-AzStorageBlobRestorePolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -RestoreDays 5
+    -RestoreDays 7
 
 # View the service settings.
 Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
@@ -101,14 +102,19 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## Perform a restore operation
 
-To initiate a restore operation, call the **Restore-AzStorageBlobRange** command, specifying the restore point as a UTC **DateTime** value. You can specify lexicographical ranges of blobs to restore, or omit a range to restore all blobs in all containers in the storage account. Up to 10 lexicographical ranges are supported per restore operation. Page blobs and append blobs are not included in the restore. The restore operation may take several minutes to complete.
+When you perform a restore operation, you must specify the restore point as a UTC **DateTime** value. Containers and blobs will be restored to their state at that day and time.
 
-Keep in mind the following rules when specifying a range of blobs to restore:
+You can restore all containers in the storage account, or you can restore a range of blobs in one or more containers. A range of blobs is defined lexicographically, meaning in dictionary order. Up to 10 lexicographical ranges are supported per restore operation. The start of the range is inclusive, and the end of the range is exclusive.
 
-- The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
-- Up to 10 ranges can be specified per restore operation.
-- Wildcard characters are not supported. They are treated as standard characters.
-- You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range passed to a restore operation. The `$root` and `$web` containers are restored only if they are explicitly specified. Other system containers cannot restored.
+The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
+
+Wildcard characters are not supported in a lexicographical range. Any wildcard characters are treated as standard characters.
+
+You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range passed to a restore operation. The `$root` and `$web` containers are restored only if they are explicitly specified. Other system containers cannot restored.
+
+Only block blobs are restored. Page blobs and append blobs are not included in a restore operation.
+
+The restore operation may take several minutes to complete.
 
 > [!IMPORTANT]
 > When you perform a restore operation, Azure Storage blocks data operations on the blobs in the ranges being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. For this reason, operations such as listing containers in the Azure portal may not perform as expected while the restore operation is underway.
