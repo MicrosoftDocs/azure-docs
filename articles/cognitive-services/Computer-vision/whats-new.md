@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ---
 
@@ -18,7 +18,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## September 2020
 
-The [spatial analysis container](spatial-analysis-container.md) is now in preview. The spatial analysis feature of Computer Vision lets you understand people’s movements and interactions with physical spaces. Use the container on real-time video, pre-recorded video, and images.
+The [spatial analysis container](spatial-analysis-container.md) is now in preview. The spatial analysis feature of Computer Vision lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. Use the container on real-time video, pre-recorded video, and images.
 
 ## July 2020
 

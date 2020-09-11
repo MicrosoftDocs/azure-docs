@@ -91,7 +91,7 @@ Use Computer Vision Docker containers to use the service on-premises. Currently 
 
 * The [Computer Vision read container](computer-vision-how-to-install-containers.md) lets you recognize printed and handwritten text in images.
 
-* The [Computer Vision spatial analysis container](spatial-analysis-container.md) lets you to analyze real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments.
+* The [Computer Vision spatial analysis container](spatial-analysis-container.md) lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments.
 
 ## Image requirements
 
