@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information see the [migration overview](sql-server-to-managed-instance-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For more migration information, see the [migration overview](sql-server-to-managed-instance-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow.png" alt-text="Migration process flow":::
 
@@ -81,7 +81,7 @@ If SQL Managed Instance is not a suitable target for your workload, SQL Server o
 
 If you need to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server, create a performance baseline to use for comparison. See [performance baseline](sql-server-to-managed-instance-performance-baseline.md) to learn more. 
 
-## Create SQL Managed Instance 
+### Create SQL Managed Instance 
 
 Based on the information in the discover and assess phase, create your target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [ARM Template](/../../managed-instance/create-template-quickstart.md). 
 
@@ -97,7 +97,7 @@ Migrate your data using your chosen [migration method](sql-server-to-managed-ins
 
 During offline migrations, the data on the source and target is static so skip data sync for these scenarios. 
 
-However, when using online migration options (DMS, transactional replication), the source data and schema continues to change and drift from the target. During data sync, ensure that all changes on the source are captured and applied to the target during the online migration process. 
+However, when using online migration options (DMS, transactional replication, etc.), the source data and schema continues to change and drift from the target. During data sync, ensure that all changes on the source are captured and applied to the target during the online migration process. 
 
 After you verify that data is the same at both source and target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
 

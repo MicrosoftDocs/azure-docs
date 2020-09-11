@@ -63,7 +63,7 @@ SQL Managed Instance provides advanced tools for monitoring and troubleshooting,
 
 When comparing performance, consider the following: 
 
-- Settings match between source and target. Validate that various instance, database and tempdb settings are equivalent between the two environments. Differences in configuration, compatibility levels, encryption settings, trace flags etc., can all skew performance. 
+- Settings match between source and target. Validate that various instance, database, and tempdb settings are equivalent between the two environments. Differences in configuration, compatibility levels, encryption settings, trace flags etc., can all skew performance. 
 
 - Storage is configured according to [best practices](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525). For example, for General Purpose, you may need to pre-allocate the size of the files to improve performance. 
 
