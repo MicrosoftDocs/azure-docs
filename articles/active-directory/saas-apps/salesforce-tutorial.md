@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Salesforce | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Salesforce.
+description: Learn how to configure the single sign-on between Azure Active Directory and Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
