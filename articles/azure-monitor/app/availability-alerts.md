@@ -1,6 +1,6 @@
 ---
 title: Set up availability alerts with Azure Application Insights | Microsoft Docs
-description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
+description: Learn how to set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
