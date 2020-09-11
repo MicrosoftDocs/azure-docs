@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 
 You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (AD) with:
 
-- [Azure AD Application Proxy](#Secure-hybrid-access-through-Azure-AD-Application-Proxy)
+- [Azure AD Application Proxy](#secure-hybrid-access-through-azure-ad-application-proxy)
 
-- [Your existing application delivery controllers and networks](#Secure-hybrid-access-through-networking-and-delivery-controllers)
+- [Your existing application delivery controllers and networks](#secure-hybrid-access-through-networking-and-delivery-controllers)
 
-- [Virtual private network (VPN) applications](#Secure-hybrid-access-through-VPN-applications)
+- [Virtual private network (VPN) applications](#secure-hybrid-access-through-vpn-applications)
 
 You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like Azure AD [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) and Azure AD [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection).
 
