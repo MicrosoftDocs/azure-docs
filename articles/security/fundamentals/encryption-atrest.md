@@ -83,7 +83,7 @@ Microsoft Cloud services are used in all three cloud models: IaaS, PaaS, SaaS. B
 
 ### Encryption at rest for SaaS customers
 
-Software as a Service (SaaS) customers typically have encryption at rest enabled or available in each service. Microsoft 365 has several options for customers to verify or enable encryption at rest. For information about Microsoft 365 services, see [Encryption in Microsoft 365](/office365/securitycompliance/encryption).
+Software as a Service (SaaS) customers typically have encryption at rest enabled or available in each service. Microsoft 365 has several options for customers to verify or enable encryption at rest. For information about Microsoft 365 services, see [Encryption in Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### Encryption at rest for PaaS customers
 
