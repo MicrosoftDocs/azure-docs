@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 In this section, we will describe how to use the API for authentication and session management.
 
 > [!CAUTION]
-The functions described in this chapter issue REST calls on the server internally. As for all REST calls, sending these commands too frequently will cause the server to throttle and return failure eventually. The value of the `SessionGeneralContext.HttpResponseCode` member in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+> The functions described in this chapter issue REST calls on the server internally. As for all REST calls, sending these commands too frequently will cause the server to throttle and return failure eventually. The value of the `SessionGeneralContext.HttpResponseCode` member in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
 
 ## AzureFrontendAccountInfo

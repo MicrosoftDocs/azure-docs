@@ -2,22 +2,22 @@
 title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/11/2020
 ms.custom: devx-track-javascript
 ---
 
 # Geolocation and IP address handling
 
-This article explains how geolocation lookup and IP address handling occur in Application Insights along with how to modify the default behavior.
+This article explains how geolocation lookup and IP address handling work in Application Insights along with how to modify the default behavior.
 
 ## Default behavior
 
 By default IP addresses are temporarily collected, but not stored in Application Insights. The basic process is as follows:
 
-IP addresses are sent to Application Insights as part of telemetry data. Upon reaching the ingestion endpoint in Azure, the IP address is used to perform a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup are used to populate the following fields `client_City`, `client_StateOrProvince`, `client_CountryOrRegion`. At this point, the IP address is discarded and `0.0.0.0` is written to the `client_IP` field.
+IP addresses are sent to Application Insights as part of telemetry data. Upon reaching the ingestion endpoint in Azure, the IP address is used to perform a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup are used to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The IP address is then discarded and `0.0.0.0` is written to the `client_IP` field.
 
 * Browser telemetry: We temporarily collect the sender's IP address. IP address is calculated by the ingestion endpoint.
-* Server telemetry: The Application Insights module temporarily collects the client IP address. It is not collected if `X-Forwarded-For` is set.
+* Server telemetry: The Application Insights telemetry module temporarily collects the client IP address. It is not collected if the `X-Forwarded-For` property is set.
 
 This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we recommend avoiding the collection of personal data. 
 
@@ -118,6 +118,8 @@ Content-Length: 54
 
 If you need a more flexible alternative than `DisableIpMasking` to  record all or part of IP addresses, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part the IP to a custom field. 
 
+# [.NET](#tab/net)
+
 ### ASP.NET / ASP.NET Core
 
 ```csharp
@@ -178,6 +180,7 @@ You can create your telemetry initializer the same way for ASP.NET Core as ASP.N
     services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
 }
 ```
+# [Node.js](#tab/nodejs)
 
 ### Node.js
 
@@ -192,10 +195,11 @@ appInsights.defaultClient.addTelemetryProcessor((envelope) => {
     }
 });
 ```
+# [Client-side JavaScript](#tab/javascript)
 
 ### Client-side JavaScript
 
-Unlike the server-side SDKs, the client-side Javascript SDK does not calculate IP address. By default IP address calculation for client-side telemetry is performed at the ingestion endpoint in Azure upon telemetry arrival. This means that if you were sending client-side data to a proxy and then forwarding to the ingestion endpoint, IP address calculation may show the IP address of the proxy and not the client. If no proxy is used this should not be an issue.
+Unlike the server-side SDKs, the client-side JavaScript SDK does not calculate IP address. By default IP address calculation for client-side telemetry is performed at the ingestion endpoint in Azure upon telemetry arrival. This means that if you were sending client-side data to a proxy and then forwarding to the ingestion endpoint, IP address calculation may show the IP address of the proxy and not the client. If no proxy is used this should not be an issue.
 
 If you wish to calculate IP address directly on the client-side you would need to add your own custom logic to perform this calculation and use the result to set the `ai.location.ip` tag. When `ai.location.ip` is set, IP address calculation is not performed by the ingestion endpoint and the provided IP address is honored and used for performing the geo lookup. In this scenario, IP address will still be zeroed out by default. 
 
@@ -214,6 +218,7 @@ appInsights.addTelemetryInitializer((item) => {
 });
 
 ```  
+---
 
 ### View the results of your telemetry initializer
 
