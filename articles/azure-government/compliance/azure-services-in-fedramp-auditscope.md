@@ -309,6 +309,5 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-**&ast;** Some services such as the Azure portal and Azure Resource Manager do not store or process DoD CC SRG IL 5 content, however still inherit the IL5 control set.
 
 **&ast;&ast;** IL5 status in the above table refers to DISA IL5 certification achieved by services in Azure Government DoD regions. For list of services that have achieved IL5 in Azure Government by meeting isolation requirements, please refer to [Azure Government Isolation Guidelines for Impact Level 5](https://docs.microsoft.com/azure/azure-government/documentation-government-impact-level-5)
