@@ -22,23 +22,7 @@ For more information and to learn how to register for the preview, see [Point-in
 > Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation. During the preview, instead of deleting a container, delete individual blobs if you may want to restore them.
 
 > [!IMPORTANT]
-> The point-in-time restore preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
-
-## Install the preview module
-
-To configure Azure point-in-time restore with PowerShell, first install the Az.Storage preview module version 1.14.1-preview or later. Using the latest preview version is recommended, but point-in-time restore is supported in version 1.14.1-preview and later. Remove any other versions of the Az.Storage module.
-
-The following command installs Az.Storage [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) module:
-
-```powershell
-Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
-```
-
-The above command requires Version 2.2.4.1 or greater of PowerShellGet to install. To determine what version you currently have loaded:
-```powershell
-Get-Module PowerShellGet
-```
-For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+> The point-in-time restore preview is intended for non-production use only.
 
 ## Enable and configure point-in-time restore
 
@@ -47,6 +31,38 @@ Before you enable and configure point-in-time restore, enable its prerequisites 
 - [Enable soft delete for blobs](soft-delete-enable.md)
 - [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Enable and manage blob versioning](versioning-enable.md)
+
+# [Azure portal](#tab/portal)
+
+To configure point-in-time restore with the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Under **Settings**, choose **Data Protection**.
+1. Select **Turn on point-in-time** restore. When you select this option, soft delete for blobs, versioning, and change feed are also enabled.
+1. Set the maximum restore point for point-in-time restore, in days. This number must be at least one day less than the retention period specified for blob soft delete.
+1. Save your changes.
+
+The following image shows a storage account configured for point-in-time restore with a restore point of seven days ago, and a retention period for blob soft delete of 14 days.
+
+:::image type="content" source="media/point-in-time-restore-manage/configure-point-in-time-restore-portal.png" alt-text="Screenshot showing how to configure point-in-time restore in the Azure portal":::
+
+# [PowerShell](#tab/powershell)
+
+To configure point-in-time restore with PowerShell, first install the Az.Storage preview module version 1.14.1-preview or a later version of the preview module. Remove any other versions of the Az.Storage module.
+
+Verify that you have installed version 2.2.4.1 or later of PowerShellGet. To determine what version you currently have loaded:
+
+```powershell
+Get-InstalledModule PowerShellGet
+```
+
+Next, install the Az.Storage preview module. The following command installs version [2.5.2-preview](https://www.powershellgallery.com/packages/Az.Storage/2.5.2-preview) of the Az.Storage module:
+
+```powershell
+Install-Module -Name Az.Storage -RequiredVersion 2.5.2-preview -AllowPrerelease
+```
+
+For more information about installing Azure PowerShell, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget) and [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
 To configure Azure point-in-time restore with PowerShell, call the Enable-AzStorageBlobRestorePolicy command. The following example enables soft delete and sets the soft-delete retention period, enables change feed, and then enables point-in-time restore. Before running the example, use the Azure portal or an Azure Resource Manager template to also enable blob versioning.
 
@@ -80,6 +96,8 @@ Enable-AzStorageBlobRestorePolicy -ResourceGroupName $rgName `
 Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
+
+---
 
 ## Perform a restore operation
 
