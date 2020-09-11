@@ -48,7 +48,6 @@ The following table summarizes operations and typical overall durations:
 |---------|---------|---------|---------|
 |**Deployment** |First instance in an empty subnet|Virtual cluster creation|90% of operations finish in 4 hours.|
 |Deployment |First instance of another hardware generation in a non-empty subnet (for example, first Gen 5 instance in a subnet with Gen 4 instances)|Virtual cluster creation*|90% of operations finish in 4 hours.|
-|Deployment |First instance creation of 4 vCores in an empty, or non-empty subnet|Virtual cluster creation**|90% of operations finish in 4 hours.|
 |Deployment |Subsequent instance creation within the non-empty subnet (2nd, 3rd, etc. instance)|Virtual cluster resizing|90% of operations finish in 2.5 hours.|
 |**Update** |Instance property change (admin password, Azure AD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute.|
 |Update |Instance storage scaling up/down (General Purpose service tier)|Attaching database files|90% of operations finish in 5 minutes.|
@@ -84,6 +83,31 @@ Management operations on a managed instance can affect other management operatio
 
 > [!IMPORTANT]
 > Management operations that are put on hold because of another operation that is in progress will be automatically resumed once conditions to proceed are met. There is no user action needed to resume temporarily paused management operations.
+
+## Management operations steps
+Management operations consist of multiple steps. With [Operations API introduced](monitoring-management-operations.md) these steps are exposed for subset of operations (deployment and update). Deployment operation consists of 3 steps while update operation is performed in 6 steps. For details on operations duration check [management operations duration](#management-operations-duration) section.
+
+### Managed instance deployment steps
+
+|Step name  |Step description  |
+|----|---------|
+|Request validation |Submitted parameters are validated. In case of missconfiguration operation will fail with an error |
+|Virtual cluster resizing / creation |Depending on the state of subnet, virtual cluster goes into creation or resizing |
+|New SQL instance startup |SQL process is started on deployed virtual cluster |
+
+### Managed instance update steps
+
+|Step name  |Step description  |
+|----|---------|
+|Request validation | Submitted parameters are validated. In case of missconfiguration operation will fail with an error |
+|Virtual cluster resizing / creation |Depending on the state of subnet, virtual cluster goes into creation or resizing |
+|New SQL instance startup | SQL process is started on deployed virtual cluster |
+|Seeding database files / attaching database files |Depending on the type of the update operation, either database seeding or attaching database files is performed |
+|Preparing failover and failover |After data has been seeded or database files re-attached, system is being prepared for the failover. When everything is set, failover is performed. During this step [managed instance is available](#instance-availability-during-management-operations) **except a short downtime caused by the failover**. |
+|Old SQL instance cleanup |Removing old SQL process from the virtual cluster |
+
+> [!NOTE]
+> In case of multiple instances placed inside the same virtual cluster, as a result of create or update operation performed and **virtual cluster shrinking**, there is a scheduled job triggered every 60 minutes for removing unused virtual machines from the virtual cluster that can cause additional failover.
 
 ## Monitoring management operations
 For detailed explanation on how to monitor management operation progress and status visit [Monitoring management operations](monitoring-management-operations.md).
