@@ -159,7 +159,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 The following code snippet shows how to create a NetApp account in an Azure Resource Manager template (ARM template), using the [Microsoft.NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
 
-:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="178-182":::
 
 <!-- Block begins with -- "type": "Microsoft.NetApp/netAppAccounts", -->
 
@@ -234,7 +234,7 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 
 The following code snippet shows how to create a capacity pool in an Azure Resource Manager template (ARM template), using the [Microsoft.NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
 
-:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="185-195":::
 
 <!-- LN 185, block begins with --  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
@@ -386,7 +386,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
 The following code snippet shows how to create an Azure NetApp Files volume in an Azure Resource Manager template (ARM template), using the [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
 
-:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="197-229":::
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="198-228":::
 
 <!-- Block begins with --  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
 
