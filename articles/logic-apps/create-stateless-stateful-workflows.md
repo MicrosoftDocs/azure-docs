@@ -14,6 +14,8 @@ When you use Visual Studio Code and the public preview Azure Logic Apps for Visu
 
 ![Screenshot that shows Visual Studio Code and workflow app.](./media/create-stateless-stateful-workflows/visual-studio-code-logic-apps-overview.png)
 
+<a name="whats-new"></a>
+
 ## What's new in this preview?
 
 This preview extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
@@ -190,6 +192,8 @@ After you install all the extensions, disable automatic extension updates for Vi
 
 1. For deployment to Azure, check that you can browse for your app in the Azure portal by using the [preview URL](https://portal.azure.com/?websitesextension_workflowspreview=true).
 
+<a name="connect-azure-account"></a>
+
 ## Connect to your Azure account
 
 1. On the Visual Studio Code toolbar, select the Azure icon.
@@ -211,9 +215,11 @@ After you install all the extensions, disable automatic extension updates for Vi
    > [!TIP]
    > Later, if Visual Studio Code signs you out from Azure, you're prompted to sign back in when necessary.
 
-## Create an Azure Functions project
+<a name="create-functions-project"></a>
 
-Before you create your workflow, create a local Azure Functions project ([function app project](../azure-functions/functions-develop-vs-code.md#create-an-azure-functions-project)) for deploying and managing your workflow app using Visual Studio Code. This project is similar to the function app that you'd create in the Azure portal to use for organizing and managing functions. For more information, see [Develop Azure functions by using Visual Studio Code](../azure-functions/functions-develop-vs-code.md).
+## Create function app project
+
+Before you create your workflow, create a local [Azure Functions project (or function app project)](../azure-functions/functions-develop-vs-code.md#create-an-azure-functions-project) for deploying and managing your workflow app using Visual Studio Code. This project is similar to the function app that you'd create in the Azure portal to use for organizing and managing functions. For more information, see [Develop Azure functions by using Visual Studio Code](../azure-functions/functions-develop-vs-code.md).
 
 1. Before you start, make sure that you close any open folders or files in Visual Studio Code.
 
