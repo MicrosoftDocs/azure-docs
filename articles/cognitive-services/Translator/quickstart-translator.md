@@ -10,6 +10,7 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 09/10/2020
 ms.author: erhopf
+keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
 # Quickstart: Get started with Translator
@@ -2440,3 +2441,4 @@ After a successful call, you should see the following response. For more informa
 ## See also
 
 * [Translator v3 API reference](reference/v3-0-reference.md)
+* [Language support](language-support.md)
