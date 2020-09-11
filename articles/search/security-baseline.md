@@ -30,7 +30,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: Ensure that all Microsoft Azure Virtual Network subnet deployments have a network security group applied with rules to implement a "least privileged" access scheme. Allow access only to your application's trusted ports and IP address ranges. Deploy Azure Cognitive Search with an Azure private endpoint, where feasible, to enable private access to your services from your virtual network.
 
-Azure Cognitive Search also supports additional network security functionality for managing network access control lists. Configure your search service to only allow communication with trusted sources by restricting access from specific public IP address ranges using its firewall capability.
+Cognitive Search also supports additional network security functionality for managing network access control lists. Configure your search service to only allow communication with trusted sources by restricting access from specific public IP address ranges using its firewall capability.
 
 - [How to configure Private Endpoints for Azure Cognitive Search](service-create-private-endpoint.md)
 
@@ -45,9 +45,7 @@ Azure Cognitive Search also supports additional network security functionality f
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33329.).
 
-**Guidance**: 
-
-Cognitive Search cannot be deployed directly into a virtual network, but if your client application or data sources are in a virtual network, you can monitor and log traffic for those in-network components, including requests sent to a search service in the cloud. Standard recommendations include enabling a network security group flow log and sending logs to either Azure Storage or a Log Analytics workspace. You could optionally use Traffic Analytics for insights into traffic patterns.
+**Guidance**: Cognitive Search cannot be deployed directly into a virtual network. However, if your client application or data sources are in a virtual network, you can monitor and log traffic for those in-network components, including requests sent to a search service in the cloud. Standard recommendations include enabling a network security group flow log and sending logs to either Azure Storage or a Log Analytics workspace. You could optionally use Traffic Analytics for insights into traffic patterns.
 
 - [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -64,7 +62,7 @@ Cognitive Search cannot be deployed directly into a virtual network, but if your
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33330.).
 
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -75,7 +73,7 @@ Cognitive Search cannot be deployed directly into a virtual network, but if your
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33331.).
 
-**Guidance**: Cognitive Search does not provide a specific feature to combat a distributed denial-of-service attack, but you can enable DDoS Protection Standard on the virtual networks associated with your search service for general protection.
+**Guidance**: Cognitive Search does not provide a specific feature to combat a distributed denial-of-service attack, but you can enable DDoS Protection Standard on the virtual networks associated with your Cognitive Search service for general protection.
 
 - [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
@@ -88,7 +86,9 @@ Cognitive Search cannot be deployed directly into a virtual network, but if your
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33332.).
 
-**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Cognitive Search service, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
+**Guidance**: Enable network security group flow logs for the network security groups protecting Azure Virtual Machines (VM) that will be connecting to your Cognitive Search service. Send logs into an Azure Storage account for traffic audit. 
+
+Enable Network Watcher packet capture if required for investigating anomalous activity.
 
 - [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -103,7 +103,7 @@ Cognitive Search cannot be deployed directly into a virtual network, but if your
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33333.).
 
-**Guidance**: Cognitive Search does not support network intrusion detection, but as an intrusion mitigation, you can configure firewall rules to specify which IP addresses the search service accepts requests from. You can also configure a private endpoint to keep search traffic off the public internet.
+**Guidance**: Cognitive Search does not support network intrusion detection, but as an intrusion mitigation, you can configure firewall rules to specify the IP addresses accepted by the Cognitive Search service. Configure a private endpoint to keep search traffic away from the public internet.
 
 - [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md)
 
@@ -118,18 +118,20 @@ Cognitive Search cannot be deployed directly into a virtual network, but if your
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33334.).
 
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33335.).
 
-**Guidance**: If you are leveraging indexers and skillsets in Cognitive Search, you can use service tags to represent a range of IP addresses that have permission to connect to external resources. By specifying the service tag name (for example, AzureCognitiveSearch) in the appropriate source or destination field of a rule, you can allow or deny traffic to that resource. 
+**Guidance**: Use service tags, if you are leveraging indexers and skillsets in Cognitive Search, to represent a range of IP addresses that have permission to connect to external resources. 
+
+Allow or deny traffic to resources by specifying the service tag name (for example, AzureCognitiveSearch) in the appropriate source or destination field of a rule. 
 
 - [Virtual network service tags](../virtual-network/service-tags-overview.md)
 
@@ -153,9 +155,9 @@ Cognitive Search cannot be deployed directly into a virtual network, but if your
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33337.).
 
-**Guidance**: You can configure Azure Cognitive Search with an Azure private endpoint to integrate your search service with a virtual network.  Use resource tags for network security groups and other resources related to network security and traffic flow. For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network. 
+**Guidance**: You can configure Cognitive Search with an Azure private endpoint to integrate your search service with a virtual network.  Use resource tags for network security groups and other resources related to network security and traffic flow. For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network. 
 
-Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources. 
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" effects, to ensure that all resources are created with tags and to notify you of existing untagged resources. 
 
 You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
 
@@ -220,7 +222,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33341.).
 
-**Guidance**: Diagnostic and operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring the service and for workloads that access your service.  If you want to capture diagnostic data, enable logging by specifying where logging information is stored:
+**Guidance**: Diagnostic and operational logs provide insight into the detailed operations of Cognitive Search and are useful for monitoring the service and for workloads that access your service.  To capture diagnostic data, enable logging by specifying where logging information is stored.
 
 - [How to collect and analyze log data for Azure Cognitive Search](search-monitor-logs.md)
 
@@ -235,7 +237,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33342.).
 
-**Guidance**: Not applicable; this benchmark is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -246,7 +248,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33343.).
 
-**Guidance**: Historical data that feeds into diagnostic metrics is preserved by Azure Cognitive Search for 30 days by default. For longer retention, be sure to enable the setting that specifies a storage option for persisting logged events and metrics.
+**Guidance**: Historical data that feeds into diagnostic metrics is preserved by Cognitive Search for 30 days by default. For longer retention, be sure to enable the setting that specifies a storage option for persisting logged events and metrics.
 
 In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term and archival storage. 
 
@@ -284,7 +286,7 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33345.).
 
-**Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
+**Guidance**: Use Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -301,7 +303,7 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33346.).
 
-**Guidance**: Not applicable; for Cognitive Search, the anti-malware solution is managed by Microsoft on the underlying platform.
+**Guidance**: Not applicable to Cognitive Search. Microsoft manages the anti-malware solution for the underlying platform.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -312,7 +314,7 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33347.).
 
-**Guidance**: Not applicable; DNS logging is not applicable to Cognitive Search.
+**Guidance**: Not applicable to Cognitive Search. It does not produce or consume DNS logs.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -323,7 +325,7 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33348.).
 
-**Guidance**: Not applicable; command-line auditing is not applicable to Cognitive Search.
+**Guidance**: Not applicable to Cognitive Search. Command-line auditing is not available for Cognitive Search.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -338,9 +340,9 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33349.).
 
-**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
+**Guidance**: Azure role-based access control (Azure RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-Azure Cognitive Search roles are associated with permissions that support service level management tasks.  These roles do not grant access to the service endpoint.  Access to operations against the endpoint, such as index management, index population, and queries on search data, use api-keys to authenticate the request.
+Cognitive Search roles are associated with permissions that support service level management tasks.  These roles do not grant access to the service endpoint. Access to operations against the endpoint, (such as index management, index population, and queries on search data), use API keys to authenticate the request.
 
 - [Set roles for administrative access to Azure Cognitive Search](search-security-rbac.md)
 
@@ -358,7 +360,7 @@ Azure Cognitive Search roles are associated with permissions that support servic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33350.).
 
-**Guidance**: Not Applicable; Cognitive Search doesn't have the concept of default passwords.
+**Guidance**: Not Applicable to Cognitive Search. It does not have a concept of default passwords.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -369,7 +371,9 @@ Azure Cognitive Search roles are associated with permissions that support servic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33351.).
 
-**Guidance**: For content, Cognitive Search does not have the concept of any local-level or Azure Active Directory administrator accounts that can be used to manage indexes and operations. For management operations, use the Azure built-in roles which must be explicitly assigned. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Cognitive Search does not have the concept of any local-level or Azure Active Directory (Azure AD) administrator accounts that can be used to manage indexes and operations. 
+
+Use the Azure AD built-in roles which must be explicitly assigned for management operations. Invoke the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
 
 - [How to use roles for administrative access in Cognitive Search](search-security-rbac.md)
 
@@ -384,7 +388,9 @@ Azure Cognitive Search roles are associated with permissions that support servic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33352.).
 
-**Guidance**: For management operations supported through Azure Resource Manager, you can use SSO authentication with Azure Active Directory to access search service information. Reduce the number of identities and credentials users must manage by enabling SSO for the service with your organization's pre-existing identities.
+**Guidance**: Use SSO authentication with Azure Active Directory (Azure AD) to access search service information for management operations supported through Azure Resource Manager. 
+
+Establish a process to reduce the number of identities and credentials by enabling SSO for the service with your organization's pre-existing identities.
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -397,7 +403,7 @@ Azure Cognitive Search roles are associated with permissions that support servic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33353.).
 
-**Guidance**: Enable Azure AD MFA and follow Azure Security Center identity and access recommendations.
+**Guidance**: Enable Azure Active Directory's (Azure AD) Multi-Factor Authentication (MFA) feature and follow Security Center's Identity and Access recommendations.
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
@@ -412,7 +418,7 @@ Azure Cognitive Search roles are associated with permissions that support servic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33354.).
 
-**Guidance**: Use a Privileged Access Workstation, (or PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
+**Guidance**: Use a Privileged Access Workstation (PAW) with Multi-Factor Authentication (MFA) configured to log into and access Azure resources.
 
 - [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
  
@@ -430,7 +436,7 @@ Azure Cognitive Search roles are associated with permissions that support servic
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33355.).
 
 **Guidance**: 
-Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
+Use Azure Active Directory (Azure AD) security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Security Center to monitor identity and access activity.
 
 - [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
@@ -445,7 +451,7 @@ Use Azure Active Directory security reports and monitoring to detect when suspic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33356.).
 
-**Guidance**: Not applicable; Cognitive Search doesn't support capability of approved location as condition for access.
+**Guidance**: Not applicable to Cognitive Search. It does not support using approved location as condition for access.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -456,7 +462,7 @@ Use Azure Active Directory security reports and monitoring to detect when suspic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33357.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for service level management tasks in Azure Cognitive Search.  Azure AD identities do not grant access to the search service endpoint.  Access to operations such as index management, index population, and queries on search data are available via api-keys.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for service level management tasks in Azure Cognitive Search. Azure AD identities do not grant access to the search service endpoint.  Access to operations such as index management, index population, and queries on search data are available via API keys.
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -471,7 +477,9 @@ Use Azure Active Directory security reports and monitoring to detect when suspic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33358.).
 
-**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.  You can also review diagnostic logs from Azure Cognitive Search for activity in the search service endpoint such as index management, index population, and queries.
+**Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. Use Azure AD's Identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. 
+
+Review diagnostic logs from Cognitive Search for activity in the search service endpoint such as index management, index population, and queries.
 
 - [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
@@ -488,8 +496,9 @@ Use Azure Active Directory security reports and monitoring to detect when suspic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33359.).
 
-**Guidance**: You have access to Azure AD sign-in activity, audit, and risk event log sources, which allow you to integrate with any SIEM/monitoring tool.
-You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
+**Guidance**: Access to Azure Active Directory (Azure AD) sign-in activity, audit, and risk event log sources, allow you to integrate with any SIEM or monitoring tool.
+
+Streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired alerts within Log Analytics workspace.
 
 - [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) 
 
@@ -502,7 +511,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33360.).
 
-**Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure Active Directory (Azure AD) Identity Protection features to configure automated responses to detected suspicious actions related to user identities. Ingest data into Azure Sentinel for further investigation, as required.
 
 - [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
 
@@ -519,7 +528,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33361.).
 
-**Guidance**: Not applicable; Cognitive Search doesn't support customer lockbox.
+**Guidance**: Not applicable to Cognitive Search. Customer Lockbox does not support Cognitive Search.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -549,8 +558,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription) 
 
-- [How to create management groups](/azure/governance/management-groups/create) 
-
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 - [How to create a private endpoint for Cognitive Search](service-create-private-endpoint.md)
@@ -566,7 +573,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use a third-party solution from Azure Marketplace in network perimeters to monitor for unauthorized transfer of sensitive information and block such transfers while alerting information security professionals.
 
-For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
+Microsoft manages the underlying platform and treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md) 
 
@@ -579,7 +586,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33365.).
 
-**Guidance**: Cognitive Search encrypts g data in motion with Transport Layer Security 1.2 and enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and the service.
+**Guidance**: Cognitive Search encrypts data in transit with Transport Layer Security 1.2 and enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and the service.
 
 - [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
@@ -594,7 +601,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Cognitive Search. Implement a third-party solution if necessary for compliance purposes. 
 
-For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
+Microsoft manages the underlying platform and treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -608,7 +615,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33367.).
 
 **Guidance**: 
-For service administration, use Azure role-based access control (Azure RBAC) to manage access to keys and configuration. For content operations, such as indexing and queries, Cognitive Search uses keys instead of an identity-based access control model. Use RBAC to control access to keys.
+For service administration, use Azure role-based access control (Azure RBAC) to manage access to keys and configuration. For content operations, such as indexing and queries, Cognitive Search uses keys instead of an identity-based access control model. Use Azure RBAC to control access to keys.
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
  
@@ -623,7 +630,9 @@ For service administration, use Azure role-based access control (Azure RBAC) to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33368.).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft manages the underlying infrastructure for Cognitive Search and has implemented strict controls to prevent the loss or exposure of customer data.
+**Guidance**: Not applicable to Cognitive Search. This guideline is intended for compute resources. 
+
+Microsoft manages the underlying infrastructure for Cognitive Search and has implemented strict controls to prevent the loss or exposure of customer data.
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -636,7 +645,7 @@ For service administration, use Azure role-based access control (Azure RBAC) to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33369.).
 
-**Guidance**: Azure Cognitive Search automatically encrypts indexed content at rest with Microsoft-managed keys.  If more protection is needed, you can supplement default encryption with a second encryption layer using keys that you create and manage in Azure Key Vault.
+**Guidance**: Cognitive Search automatically encrypts indexed content at rest with Microsoft-managed keys. If more protection is needed, you can supplement default encryption with a second encryption layer using keys that you create and manage in Azure Key Vault.
 
 - [Configure customer-managed keys for data encryption in Azure Cognitive Search](search-security-manage-encryption-keys.md)
 
@@ -670,18 +679,18 @@ For service administration, use Azure role-based access control (Azure RBAC) to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33371.).
 
-**Guidance**: Currently not available; Azure Security Center does not yet support vulnerability assessment for Cognitive Search. Should support become available, you would be responsible for conducting the assessment. For clusters that store search service content, Microsoft is responsible for vulnerability management of those clusters.
+**Guidance**: Currently not available to Cognitive Search.  For clusters that store search service content, Microsoft is responsible for vulnerability management of those clusters.
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Shared
+**Responsibility**: Microsoft
 
 ### 5.2: Deploy automated operating system patch management solution
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33372.).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -692,7 +701,7 @@ For service administration, use Azure role-based access control (Azure RBAC) to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33373.).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -703,7 +712,7 @@ For service administration, use Azure role-based access control (Azure RBAC) to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33374.).
 
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support search services.
+**Guidance**: Not applicable to Cognitive Search. Microsoft performs vulnerability management on the underlying systems that support Cognitive Search services.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -714,7 +723,7 @@ For service administration, use Azure role-based access control (Azure RBAC) to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33375.).
 
-**Guidance**:  Cognitive Search does not have any standard risk-rating or scoring system in place for vulnerability scan results.
+**Guidance**: Not applicable to Cognitive Search. It does not have any standard risk-rating or scoring system in place for vulnerability scan results.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -729,7 +738,9 @@ For service administration, use Azure role-based access control (Azure RBAC) to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33376.).
 
-**Guidance**: Use Azure Resource Graph to query for and discover all resources (such as compute, storage, network, ports, and protocols etc.) in your subscriptions.  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources in your subscriptions.  
+**Guidance**: Use Azure Resource Graph to query for and discover all resources (such as compute, storage, network, ports, protocols, and so on) in your subscriptions.  
+
+Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources in your subscriptions.  
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
 
@@ -746,9 +757,9 @@ For service administration, use Azure role-based access control (Azure RBAC) to 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33377.).
 
-**Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
+**Guidance**: Apply tags to Azure resources with metadata to logically organize them into a taxonomy.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -802,9 +813,11 @@ Use tagging, management groups, and separate subscriptions where appropriate, to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33381.).
 
-**Guidance**: Not applicable. This guidance is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This guidance is intended for compute resources.
 
-**Azure Security Center monitoring**: It is recommended that you have an inventory of software applications which have been deemed approved as per your organizational policies and security standards, and then monitoring for any unapproved software titles within your Azure compute resources
+It is recommended that you have an inventory of software applications which have been deemed approved as per your organizational policies and security standards, and monitor for any unapproved software titles installed on your Azure compute resources.
+
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -813,7 +826,7 @@ Use tagging, management groups, and separate subscriptions where appropriate, to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33382.).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -824,7 +837,7 @@ Use tagging, management groups, and separate subscriptions where appropriate, to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33383.).
 
-**Guidance**: Not applicable; Cognitive Search  does not expose any compute resources or allow you to install software applications on any of its resources.
+**Guidance**: Not applicable to Cognitive Search. It does not expose any compute resources or allows installation of software applications on any of its resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -835,12 +848,12 @@ Use tagging, management groups, and separate subscriptions where appropriate, to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33384.).
 
-**Guidance**: Use Azure Policy to place restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to place restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
-+ Not allowed resource types
-+ Allowed resource types
+- Not allowed resource types
+- Allowed resource types
 
-Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
+Use Azure Resource Graph to query or discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -855,7 +868,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33385.).
 
-**Guidance**: Not applicable; this recommendation is intended for applications running on compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for applications running on compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -866,7 +879,9 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33386.).
 
-**Guidance**: For service management, use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. For all other operations, particularly those related to content, you must control access to the keys used to authenticate requests.
+**Guidance**: For service management, use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. 
+
+Control access to the keys used to authenticate requests for all other operations, particularly those related to content with Cognitive Search.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -877,7 +892,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33387.).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -888,7 +903,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33388.).
 
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -924,7 +939,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33390.).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -935,7 +950,9 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33391.).
 
-**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Cognitive Search service resources.  In addition, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] effects, to enforce secure settings across your Cognitive Search service resources. 
+
+Azure Resource Manager templates can be used to maintain the security configuration of your Azure resources required by your organization. 
 
 - [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
 
@@ -954,7 +971,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33392.).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -980,7 +997,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33394.).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -991,7 +1008,11 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33395.).
 
-**Guidance**: Define and implement standard security configurations for your Cognitive Search service resources using Azure Policy. Use aliases to create custom policies to audit or enforce the network configurations. You can also make use of built-in policy definitions related to your specific resources.  Additionally, you can use Azure Automation to deploy configuration changes and manage policy exceptions. 
+**Guidance**: Define and implement standard security configurations for your Cognitive Search service resources using Azure Policy. 
+
+Use aliases to create custom policies to audit or enforce the network configurations. You can also make use of built-in policy definitions related to your specific resources. 
+
+Additionally, you can use Azure Automation to deploy configuration changes and manage policy exceptions. 
 
 - [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md)
 
@@ -1006,7 +1027,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33396.).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1017,7 +1038,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33397.).
 
-**Guidance**: Use Azure Security Center to perform baseline scans of your Cognitive Search service resources.  Additionally, use Azure Policy to alert and audit your resource configurations. 
+**Guidance**: Use Security Center to perform baseline scans of your Cognitive Search service resources.  Additionally, use Azure Policy to alert and audit your resource configurations. 
 
 - [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
@@ -1032,7 +1053,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33398.).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1044,7 +1065,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33399.).
 
 **Guidance**: 
-Use managed identities in conjunction with Azure Key Vault to simplify secret management for your cloud applications.
+Use Azure Managed Identities in conjunction with Azure Key Vault to simplify secret management for your cloud applications.
 - [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md) 
 - [How to create a Key Vault](/azure/key-vault/quick-create-portal) 
 
@@ -1059,7 +1080,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33400.).
 
-**Guidance**: Use a managed identity to give Cognitive Search access to other Azure services such as Key Vault and indexer data sources using an automatically-managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code. 
+**Guidance**: Use an Azure Managed Identity to give Cognitive Search access to other Azure services such as Key Vault and indexer data sources using an automatically-managed identity in Azure Active Directory (Azure AD). Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Azure Key Vault, without any credentials in your code. 
 
 - [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md)
 
@@ -1074,7 +1095,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33401.).
 
-**Guidance**: Azure Cognitive Search does not host code and thus would not have any credentials to identify.
+**Guidance**: Not applicable to Cognitive Search. It does not host code and does not have any credentials to identify.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1089,7 +1110,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33402.).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable to Cognitive Search. This recommendation is intended for compute resources.
 
 Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Cognitive Search), however it does not run on customer content.
 
@@ -1115,9 +1136,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33404.).
 
-**Guidance**: Not applicable; Cognitive Search does not allow for anti-malware solutions to be installed on it's resources. For the underlying platform Microsoft handles updating any anti-malware software and signatures. 
+**Guidance**: Not applicable to Cognitive Search. It does not allow for anti-malware solutions to be installed on it's resources. For the underlying platform Microsoft handles updating any anti-malware software and signatures. 
 
-For any compute resources that are owned by your organization and used in your search solution, follow recommendations in Azure Security Center, Compute &amp; Apps to ensure all endpoints are up to date with the latest signatures. For Linux, use third-party anti-malware solution.
+For any compute resources that are owned by your organization and used in your search solution, follow recommendations in Security Center, Compute &amp; Apps to ensure all endpoints are up to date with the latest signatures. For Linux, use a third-party anti-malware solution.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1134,7 +1155,7 @@ For any compute resources that are owned by your organization and used in your s
 
 **Guidance**: Content stored in a search service cannot be be backed up through Azure Backup or any other built-in mechanism, but you can rebuild an index from application source code and primary data sources, or build a custom tool to retrieve and store indexed content.
 
-- [GitHub: Index-backup-restore sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore)
+- [GitHub Index-backup-restore sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1175,9 +1196,9 @@ For any compute resources that are owned by your organization and used in your s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33408.).
 
-**Guidance**: Cognitive Search currently doesn't support automated backup for data in a search service and must be backed up via a manual process.  You can also backup customer-managed keys in Azure Key Vault. 
+**Guidance**: Cognitive Search currently does not support automated backup for data in a search service and must be backed up via a manual process.  You can also backup customer-managed keys in Azure Key Vault. 
 
-Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion.  If Azure Storage is used to store manual backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted. 
+Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store manual backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted. 
 
 - [Back up and restore an Azure Cognitive Search index](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
@@ -1215,7 +1236,7 @@ Enable soft delete and purge protection in Key Vault to protect keys against acc
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33410.).
 
-**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytically used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytically used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
@@ -1258,7 +1279,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33412.).
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or on a continuous basis. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
+**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or on a continuous basis. You can use the Security Center data connector to stream the alerts to Azure Sentinel.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 
