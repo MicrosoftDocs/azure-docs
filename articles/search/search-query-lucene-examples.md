@@ -36,13 +36,13 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 After you specify the request header, you can reuse it for all of the queries in this article, swapping out only the **search=** string. 
 
-  ![Postman request header](media/search-query-lucene-examples/postman-header.png)
+  ![Postman request header set parameters](media/search-query-lucene-examples/postman-header.png)
 
 ### Set the request URL
 
 Request is a GET command paired with a URL containing the Azure Cognitive Search endpoint and search string.
 
-  ![Postman request header](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Postman request header GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL composition has the following elements:
 
@@ -107,7 +107,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Response for this query should look similar to the following screenshot.
 
-  ![Postman sample response](media/search-query-lucene-examples/postman-sample-results.png)
+  ![Postman sample response with scores](media/search-query-lucene-examples/postman-sample-results.png)
 
 You might have noticed the search score in the response. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because no criteria was applied. For null search with no criteria, rows come back in arbitrary order. When you include actual search criteria, you will see search scores evolve into meaningful values.
 
@@ -133,7 +133,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Postman sample response](media/search-query-lucene-examples/intrafieldfilter.png)
+  ![Postman sample response search expression](media/search-query-lucene-examples/intrafieldfilter.png)
 
 You can define a fielded search operation with the **fieldName:searchExpression** syntax, where the search expression can be a single word or a phrase, or a more complex expression in parentheses, optionally with Boolean operators. Some examples include the following:
 
@@ -143,7 +143,7 @@ You can define a fielded search operation with the **fieldName:searchExpression*
 
 Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct locations in the `state` field. Also, ensure the operator is capitalized as you see with NOT and AND.
 
-The field specified in **fieldName:searchExpression** must be a searchable field. See [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
+The field specified in **fieldName:searchExpression** must be a searchable field. See [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
 
 > [!NOTE]
 > In the example above, we did not need to use the `searchFields` parameter because each part of the query has a field name explicitly specified. However, you can still use the `searchFields` parameter if you want to run a query where some parts are scoped to a specific field, and the rest could apply to several fields. For example, the query `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` would match `senior NOT junior` only to the `business_title` field, while it would match "external" with the `posting_type` field. The field name provided in **fieldName:searchExpression** always takes precedence over the `searchFields` parameter, which is why in this example, we do not need to include `business_title` in the `searchFields` parameter.
@@ -253,7 +253,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Regex query](media/search-query-lucene-examples/regex.png)
 
 > [!Note]
-> Regex queries are not [analyzed](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). The only transformation performed on incomplete query terms is lowercasing.
+> Regex queries are not [analyzed](./search-lucene-query-architecture.md#stage-2-lexical-analysis). The only transformation performed on incomplete query terms is lowercasing.
 >
 
 ## Example 7: Wildcard search
@@ -275,18 +275,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Wildcard query](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
-> Wildcard queries are not [analyzed](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). The only transformation performed on incomplete query terms is lowercasing.
+> Wildcard queries are not [analyzed](./search-lucene-query-architecture.md#stage-2-lexical-analysis). The only transformation performed on incomplete query terms is lowercasing.
 >
 
 ## Next steps
 Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
 
-* [Query your index using the .NET SDK](search-query-dotnet.md)
-* [Query your index using the REST API](search-create-index-rest-api.md)
+* [Query your index using the .NET SDK](./search-get-started-dotnet.md)
+* [Query your index using the REST API](./search-get-started-powershell.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 
 + [Simple syntax query examples](search-query-simple-examples.md)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Full Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

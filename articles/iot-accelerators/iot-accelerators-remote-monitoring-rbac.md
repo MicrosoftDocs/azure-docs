@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.custom: "has-adal-ref, devx-track-csharp"
 
 # As an administrator, I want to understand how I can configure access rights in the Remote Monitoring solution accelerator.
 ---

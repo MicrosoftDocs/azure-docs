@@ -29,7 +29,7 @@ The WAR file deployment deploys your [WAR](https://wikipedia.org/wiki/WAR_(file_
 
 ## Prerequisites
 
-To complete the steps in this article, [create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
+To complete the steps in this article, [create an App Service app](./index.yml), or use an app that you created for another tutorial.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

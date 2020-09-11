@@ -6,6 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
+ms.custom: devx-track-csharp
 
 ---
 # Secure access to data in Azure Cosmos DB

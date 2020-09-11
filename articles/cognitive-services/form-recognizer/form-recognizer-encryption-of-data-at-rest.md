@@ -7,7 +7,7 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 08/28/2020
 ms.author: egeaney
 #Customer intent: As a user of the Form Recognizer service, I want to learn how encryption at rest works.
 ---

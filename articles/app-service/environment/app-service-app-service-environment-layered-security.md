@@ -100,7 +100,7 @@ Understanding [outbound IP addresses][NetworkArchitecture] and App Service Envir
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [NetworkArchitecture]:  app-service-app-service-environment-network-architecture-overview.md
 [InboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 

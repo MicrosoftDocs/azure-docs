@@ -113,7 +113,7 @@ You can use the sign-ins report to view details about application usage, by filt
 Anomalous activity reports provide information on security-related risk detections that Azure AD can detect and report on.
 
 The following table lists the Azure AD anomalous activity security reports, and corresponding risk detection types in the Azure portal. For more information, see
-[Azure Active Directory risk detections](concept-risk-events.md).  
+[Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md).  
 
 
 | Azure AD anomalous activity report |  Identity protection risk detection type|
@@ -135,8 +135,8 @@ The following Azure AD anomalous activity security reports are not included as r
 
 You can access reports about detected risk detections in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk detections are tracked in the following reports:   
 
-- [Users at risk](concept-user-at-risk.md)
-- [Risky sign-ins](concept-risky-sign-ins.md)
+- [Users at risk](../identity-protection/overview-identity-protection.md)
+- [Risky sign-ins](../identity-protection/overview-identity-protection.md)
 
     ![Security reports](./media/howto-find-activity-reports/04.png "Security reports")
 
@@ -227,4 +227,4 @@ You have two options to retain the data for longer than 30 days. You can use the
 
 * [Audit logs overview](concept-audit-logs.md)
 * [Sign-ins overview](concept-sign-ins.md)
-* [Risky events overview](concept-risk-events.md)
+* [Risky events overview](../identity-protection/overview-identity-protection.md)
