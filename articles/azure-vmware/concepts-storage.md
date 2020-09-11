@@ -23,7 +23,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 
 ## Data-at-rest encryption
 
-vSAN datastores use data-at-rest encryption by default. The encryption solution is KMS-based and supports vCenter operations for key management. Keys are stored encrypted, wrapped by an HSM-based Azure Key Vault master key. When a host is removed from a cluster for any reason, data on SSDs is invalidated immediately.
+vSAN datastores use data-at-rest encryption by default. The encryption solution is KMS-based and supports vCenter operations for key management. The key encryption keys are stored in an Azure Key Vault and when a host is removed from a cluster for any reason, data on SSDs is invalidated immediately.
 
 ## Scaling
 
