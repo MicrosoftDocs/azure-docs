@@ -129,14 +129,21 @@ Drive all application traffic outbound through an Azure Firewall device and moni
 
 **Guidance**: Secure the App Service Environment (ASE) as described in Locking down an App Service Environment.
 Use Security Center's Integrated Threat Intelligence to deny communications with known malicious or unused public IP addresses. 
+
 Deploy a Web Application Firewall (WAF) enabled application gateway in front of your internet facing apps
+
 Use access restrictions to secure inbound traffic to the application gateway
+
 For the Multi-tenant App Service:
 
 use a public internet facing endpoint to allow traffic only from a specific subnet within an Azure Virtual Network and block everything else. 
+
 Use Access Restrictions to configure network ACLs (IP Restrictions) to lock down allowed inbound traffic. 
+
 Define priority among the ordered allow/deny list to control network access to your app. This list can include IP addresses or Virtual Network subnets. An implicit "deny all" rule exists at the end of the list when it contains one or more entries. This capability works with all App Service hosted work loads including, Web Apps, API apps, Linux apps, Linux container apps, and Functions. 
+
 Use service endpoints. The ability to restrict access to your web app from an Azure Virtual Network is called service endpoint. Restrict access to a multi-tenant App Service from selected subnets with service endpoints. It must be enabled on both the networking side as well as the service that it is being enabled. 
+
 Note that this does not work to restrict traffic to apps that are hosted in an ASE. If you are in an ASE, you can control access to your app with IP address rules.
 
 - [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md)
@@ -241,7 +248,9 @@ Maintain security configurations using Azure Policy aliases in the "Microsoft.We
 Use built-in policy definitions for App Service, such as:
 
 App Service should use a virtual network service endpoint
+
 Web Application should only be accessible over HTTPS
+
 Latest TLS version should be used in your Web App
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
