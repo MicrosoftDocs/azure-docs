@@ -4,9 +4,9 @@ description: The Microsoft Partner Center co-sell program for partners can help 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: palanis-MSFT
-ms.author: palanis
-ms.date: 09/09/2020
+author: vamahtan-MSFT
+ms.author: vamahtan
+ms.date: 09/11/2020
 ---
 
 # Co-sell partner engagement
@@ -43,7 +43,7 @@ The table below lists the steps and requirements to get your marketplace offer c
 |<ol start=2><li>Submit required Co-sell materials.</li>|IP offers *with* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Upload required materials in Partner Center](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Sales contact for each eligible country.</li><li>Bill of materials: customer one-pager, customer presentation deck (optional), solution landing page URL, social media channel URL, or other (for example, a case study).|Co-sell ready|
 ||IP offers *without* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.|Co-sell ready|
 ||Consulting Services|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.</li><li>Active Gold competency.</li>|Co-sell ready|
-|<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Modules, SaaS, VMs|Achieve either:<ul><li>*At the organization level:* meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>*At the offer level:* cumulative marketplace billed revenue of $100,000 USD.</li></ul><br>Additional for SaaS offers: more than 50% of your offer's infrastructure running on Azure. Upload an architecture diagram with your Co-sell documents in Partner Center for review.|Azure IP Co-sell incentivized|
+|<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Modules, SaaS, VMs|After achieving Co-sell ready, there are two additional requirements: <ul> Requirement 1: achieve either:<ul><li>*At the organization level:* meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>*At the offer level:* cumulative marketplace billed revenue of $100,000 USD.</li></ul><br>Requirement 2: more than 50% of your offer's infrastructure must run on Azure:<ul><li>IP offers *with* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): upload an architecture diagram with your Co-sell documents in Partner Center for review.</li><li>IP offers *without* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): upload an architecture diagram to OCP GTM.|Azure IP Co-sell incentivized|
 ||Dynamics|<li>You have an active enrollment in ISV Connect premium tier.</li>|Business Applications Co-sell incentivized|
 
 ## How to submit Co-sell materials in Partner Center
