@@ -31,6 +31,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Azure CLI
+            url: get-started-create-service-instance-cli.md
           - text: Azure portal
             url: get-started-create-service-instance.md
           - text: Azure PowerShell
