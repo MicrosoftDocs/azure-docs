@@ -32,7 +32,7 @@ Log data from Application Insights is also stored in Azure Monitor Logs, but it'
 
 
 > [!NOTE]
-> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. See [Query scope](../log-query/scope.md) for more details.
+> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](../app/apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. See [Query scope](../log-query/scope.md) for more details.
 
 
 ![Azure Monitor Logs structure for Application Insights](media/data-platform-logs/logs-structure-ai.png)
