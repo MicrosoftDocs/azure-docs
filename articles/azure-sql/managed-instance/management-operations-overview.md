@@ -91,7 +91,7 @@ Management operations consist of multiple steps. With [Operations API introduced
 
 |Step name  |Step description  |
 |----|---------|
-|Request validation |Submitted parameters are validated. In case of missconfiguration operation will fail with an error |
+|Request validation |Submitted parameters are validated. In case of misconfiguration operation will fail with an error |
 |Virtual cluster resizing / creation |Depending on the state of subnet, virtual cluster goes into creation or resizing |
 |New SQL instance startup |SQL process is started on deployed virtual cluster |
 
@@ -99,7 +99,7 @@ Management operations consist of multiple steps. With [Operations API introduced
 
 |Step name  |Step description  |
 |----|---------|
-|Request validation | Submitted parameters are validated. In case of missconfiguration operation will fail with an error |
+|Request validation | Submitted parameters are validated. In case of misconfiguration operation will fail with an error |
 |Virtual cluster resizing / creation |Depending on the state of subnet, virtual cluster goes into creation or resizing |
 |New SQL instance startup | SQL process is started on deployed virtual cluster |
 |Seeding database files / attaching database files |Depending on the type of the update operation, either database seeding or attaching database files is performed |
