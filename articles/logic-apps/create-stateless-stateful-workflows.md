@@ -94,7 +94,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
        ![Screenshot that shows Visual Studio extension menu with selected ellipses button and the "Install from VSIX menu command".](./media/create-stateless-stateful-workflows/install-from-vsix.png)
 
-* Based on the operating system where you are running Visual Studio Code, set up the corresponding storage solution:
+* Based on the operating system where you are running Visual Studio Code, set up the corresponding storage:
 
   **Mac OS**
 
@@ -250,26 +250,72 @@ Now, continue creating your workflow app.
 
    ![Screenshot that shows Windows Defender Firewall with "Private networks, such as my home or work network" selected and "Allow access" selected.](./media/create-stateless-stateful-workflows/windows-defender-firewall.png)
 
-   Based on the operating system that you use, the message that the `Workflow design time could not be started` might appear.
+   If you get the error message that the `Workflow design time could not be started`, follow these steps based on the operating system that you use:
 
-   * For Mac OS, follow these steps:
+   **Mac OS**
 
-     1. In your function app project, find the `local.settings.json` file in your project's root folder and in the `workflow-designtime` folder.
+   1. In your function app project, find and open the `local.settings.json` files, which are in your project's root folder and the `workflow-designtime` folder.
 
-        ![Screenshot that shows Explorer pane and 'local.settings.json` files in your function app project.](./media/create-stateless-stateful-workflows/local-settings-json-files.png)
+      ![Screenshot that shows Explorer pane and 'local.settings.json` files in your function app project.](./media/create-stateless-stateful-workflows/local-settings-json-files.png)
 
-     1. Add the storage account connection string that you previously saved to each `local.settings.json` file.
+   1. In each file, find the `AzureWebJobsStorage` property, for example:
 
-     1. Save your changes, and try reopening the `workflow.json` file in the designer.
+      ```json
+      {
+        "IsEncrypted": false,
+        "Values": {
+          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+          "FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://workflowscdn.azureedge.net/2020-05-preview"
+        }
+      }
+      ```
 
-   * For Windows or another OS, try these steps:
+   1. Replace the `AzureWebJobsStorage` property value with the connection string that you saved earlier from your storage account, for example:
 
-     * Make sure that the Azure Storage Emulator is running. For more information, see 
+      ```json
+      {
+        "IsEncrypted": false,
+        "Values": {
+          "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
+          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+          "FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://workflowscdn.azureedge.net/2020-05-preview"
+        }
+      }
+      ```
+
+   1. Save your changes, and try reopening the `workflow.json` file in the designer.
+
+   **Windows or another OS**
+
+   * Make sure that the Azure Storage Emulator is running. For more information, see 
    [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
 
-     * Delete the `ExtensionBundles` folder at this location `...\Users\<your-username>\AppData\Local\Temp\Functions\ExtensionBundles`, and retry opening the `workflow.json` file in the designer.
+   **Additional troubleshooting**
 
-     * Close everything, restart your computer, reopen your workflow project, and retry opening the `workflow.json` file in the designer.
+   * In Visual Studio Code, check the output from the Azure Functions extension.
+
+     1. From the **View** menu, select **Output**.
+
+     1. From the list on the **Output** title bar, select **Azure Functions** so that you can view the output for the Azure Functions extension.
+
+        ![Screenshot that shows Visual Studio Code's Output window with "Azure Functions" selected.](./media/create-stateless-stateful-workflows/check-outout-window-azure-functions.png)
+
+     1. Review the output for whether this error message appears:
+
+        ```text
+        A host error has occurred during startup operation '83b2e8e8-fdec-4b01-98a0-a592b73bfe4e'.
+        System.Private.CoreLib: The file 'C:\Users\sophiaowen\AppData\Local\Temp\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\DurableTask.AzureStorage.dll' already exists.
+        Value cannot be null. (Parameter 'provider')
+        Application is shutting down...
+        Initialization cancellation requested by runtime.
+        Stopping host...
+        Host shutdown completed.
+        ```
+
+        This error can happen if you you previously tried to open the designer, and then discontinued or deleted your function app project. To resolve this error, delete the `ExtensionBundles` folder at this location `...\Users\<your-username>\AppData\Local\Temp\Functions\ExtensionBundles`, and retry opening the `workflow.json` file in the designer.
+
+   * Try closing and reopening Visual Studio Code, and then your function app project. Retry opening the `workflow.json` file in the Logic App Designer.
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available in the Azure portal, not only connectors for Azure services.
 
