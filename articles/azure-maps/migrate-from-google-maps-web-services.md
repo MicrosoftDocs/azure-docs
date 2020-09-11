@@ -494,4 +494,7 @@ Learn more about the Azure Maps REST services.
 > [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
+> [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

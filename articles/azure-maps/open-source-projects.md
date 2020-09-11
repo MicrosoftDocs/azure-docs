@@ -24,6 +24,8 @@ The following lists some of the most popular Azure Maps open-source projects and
 | [Bot Framework - Point of Interest skill](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | The Point of Interest Skill provides POI related capabilities to a Virtual Assistant using Azure Maps with Azure Bot Service and Bot Framework. |
 | [BotBuilder Location](https://github.com/Microsoft/BotBuilder-Location) | An open-source location picker control for Microsoft Bot Framework powered by Bing Maps REST services. |
 
+<a name="open-web-sdk-modules"></a>
+
 **Open Web SDK modules**
 
 The following is a list of open-source projects that extend the capabilities of the Azure Maps Web SDK.
@@ -32,6 +34,8 @@ The following is a list of open-source projects that extend the capabilities of 
 |-|-|
 | [Azure Maps Animation module](https://github.com/Azure-Samples/azure-maps-animations) | A rich library of animations for use with the Azure Maps Web SDK. |
 | [Azure Maps Geolocation Control module](https://github.com/Azure-Samples/azure-maps-geolocation-control) | An Azure Maps Web SDK module that provides a control that uses the browser's geolocation API to locate the user on the map. |
+| [Azure Maps Fullscreen Control module](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | An Azure Maps Web SDK module that provides a control to display the map in fullscreen mode. |
+| [Azure Maps Selection Control module](https://github.com/Azure-Samples/azure-maps-selection-control) | An Azure Maps Web SDK module that provides controls for selecting data in a data source using drawing tools or by requesting a route range polygon. |
 | [Azure Maps Sync Map module](https://github.com/Azure-Samples/azure-maps-sync-maps) | An Azure Maps Web SDK module that synchronizes the cameras of two or more maps. |
 | [Azure Maps Services UI module](https://github.com/Azure-Samples/azure-maps-services-ui) | A set of web UI controls that wrap the Azure Maps REST services. |
 
