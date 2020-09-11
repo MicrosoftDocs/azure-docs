@@ -162,7 +162,7 @@ Cosmos DB supports execution of triggers during writes. The service supports a m
 
 ## Metadata request limits
 
-Azure Cosmos DB maintains system metadata for each account. This metadata allows you to enumerate collections, databases, etc., and their configurations, free of charge.
+Azure Cosmos DB maintains system metadata for each account. This metadata allows you to enumerate collections, databases, other Azure Cosmos DB resources, and their configurations for free of charge.
 
 | Resource | Default limit |
 | --- | --- |
