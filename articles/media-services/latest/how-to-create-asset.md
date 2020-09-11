@@ -13,12 +13,14 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ---
 
 # Create an Asset
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article shows how to create a Media Services Asset.  You will use an asset to hold media content for encoding and streaming.  To learn more about Media Services assets, read [Assets in Azure Media Services v3](assets-concept.md)
 
@@ -31,10 +33,6 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 ## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
-
-## [CLI Shell](#tab/clishell/)
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## Example script
 

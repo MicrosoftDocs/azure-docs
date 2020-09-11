@@ -4,11 +4,12 @@ description: Learn how to request billing ownership of Azure subscriptions from 
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Get billing ownership of Azure subscriptions from other accounts
 
 You might want to take over ownership of Azure subscriptions if the existing billing owner is leaving your organization, or when you want to pay for the subscriptions through your billing account. Taking ownership transfers subscription billing responsibilities to your account.

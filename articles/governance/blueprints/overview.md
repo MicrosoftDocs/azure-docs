@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: overview
 ---
 # What is Azure Blueprints?

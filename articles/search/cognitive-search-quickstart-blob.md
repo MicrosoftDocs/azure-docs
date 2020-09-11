@@ -24,7 +24,7 @@ Before you begin, you must have the following:
 
 + An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-+ An Azure Storage account with [Blob storage](https://docs.microsoft.com/azure/storage/blobs/).
++ An Azure Storage account with [Blob storage](../storage/blobs/index.yml).
 
 > [!NOTE]
 > This quickstart also uses [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
@@ -35,7 +35,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. Unzip the files.
 
-1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
 
@@ -71,7 +71,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
 1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
 
-   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Attach Cognitive Services attach base service](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 1. Expand **Add enrichments** and make four selections. 
 
@@ -81,7 +81,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
    Choose entity recognition (people, organizations, locations) and image analysis skills.
 
-   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Attach Cognitive Services select services for skillset](media/cognitive-search-quickstart-blob/skillset.png)
 
    Continue to the next page.
 
@@ -165,7 +165,7 @@ Another important concept is that skills operate over content types, and when wo
 
 Output is directed to a search index, and there is a mapping between name-value pairs created during indexing and individual fields in your index. Internally, the portal sets up [annotations](cognitive-search-concept-annotations-syntax.md) and defines a [skillset](cognitive-search-defining-skillset.md), establishing the order of operations and general flow. These steps are hidden in the portal, but when you start writing code, these concepts become important.
 
-Finally, you learned that can verify content by querying the index. In the end, what Azure Cognitive Search provides is a searchable index, which you can query using either the [simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Cognitive Search feature, you can certainly do so.
+Finally, you learned that can verify content by querying the index. In the end, what Azure Cognitive Search provides is a searchable index, which you can query using either the [simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Cognitive Search feature, you can certainly do so.
 
 ## Clean up resources
 

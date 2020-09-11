@@ -31,7 +31,7 @@ Azure Data Factory Copy Activity delivers a first-class secure, reliable, and hi
 
 Azure provides a set of enterprise-grade data storage and data warehouse solutions, and Copy Activity offers a highly optimized data loading experience that is easy to configure and set up. With just a single copy activity, you can achieve:
 
-* Loading data into **Azure SQL Data Warehouse** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+* Loading data into **Azure Synapse Analytics** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics (formerly SQL Data Warehouse) under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Loading data into **Azure Blob storage** at **1.0 GBps**
 * Loading data into **Azure Data Lake Store** at **1.0 GBps**
 
@@ -182,9 +182,9 @@ It's **important** to remember that you are charged based on the total time of t
 ## Staged copy
 When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store. Staging is especially useful in the following cases:
 
-1. **You want to ingest data from various data stores into SQL Data Warehouse via PolyBase**. SQL Data Warehouse uses PolyBase as a high-throughput mechanism to load a large amount of data into SQL Data Warehouse. However, the source data must be in Blob storage, and it must meet additional criteria. When you load data from a data store other than Blob storage, you can activate data copying via interim staging Blob storage. In that case, Data Factory performs the required data transformations to ensure that it meets the requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse. For more details, see [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse). For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+1. **You want to ingest data from various data stores into Azure Synapse Analytics via PolyBase**. Azure Synapse Analytics uses PolyBase as a high-throughput mechanism to load a large amount of data into Azure Synapse Analytics. However, the source data must be in Blob storage, and it must meet additional criteria. When you load data from a data store other than Blob storage, you can activate data copying via interim staging Blob storage. In that case, Data Factory performs the required data transformations to ensure that it meets the requirements of PolyBase. Then it uses PolyBase to load data into Azure Synapse Analytics. For more details, see [Use PolyBase to load data into Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics). For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 2. **Sometimes it takes a while to perform a hybrid data movement (that is, to copy between an on-premises data store and a cloud data store) over a slow network connection**. To improve performance, you can compress the data on-premises so that it takes less time to move data to the staging data store in the cloud. Then you can decompress the data in the staging store before you load it into the destination data store.
-3. **You don't want to open ports other than port 80 and port 443 in your firewall, because of corporate IT policies**. For example, when you copy data from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In this scenario, take advantage of the gateway to first copy data to a Blob storage staging instance over HTTP or HTTPS on port 443. Then, load the data into SQL Database or SQL Data Warehouse from Blob storage staging. In this flow, you don't need to enable port 1433.
+3. **You don't want to open ports other than port 80 and port 443 in your firewall, because of corporate IT policies**. For example, when you copy data from an on-premises data store to an Azure SQL Database sink or an Azure Synapse Analytics sink, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In this scenario, take advantage of the gateway to first copy data to a Blob storage staging instance over HTTP or HTTPS on port 443. Then, load the data into SQL Database or Azure Synapse Analytics from Blob storage staging. In this flow, you don't need to enable port 1433.
 
 ### How staged copy works
 When you activate the staging feature, first the data is copied from the source data store to the staging data store (bring your own). Next, the data is copied from the staging data store to the sink data store. Data Factory automatically manages the two-stage flow for you. Data Factory also cleans up temporary data from the staging storage after the data movement is complete.
@@ -207,7 +207,7 @@ Configure the **enableStaging** setting in Copy Activity to specify whether you 
 | Property | Description | Default value | Required |
 | --- | --- | --- | --- |
 | **enableStaging** |Specify whether you want to copy data via an interim staging store. |False |No |
-| **linkedServiceName** |Specify the name of an [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) or [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) linked service, which refers to the instance of Storage that you use as an interim staging store. <br/><br/> You cannot use Storage with a shared access signature to load data into SQL Data Warehouse via PolyBase. You can use it in all other scenarios. |N/A |Yes, when **enableStaging** is set to TRUE |
+| **linkedServiceName** |Specify the name of an [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) or [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) linked service, which refers to the instance of Storage that you use as an interim staging store. <br/><br/> You cannot use Storage with a shared access signature to load data into Azure Synapse Analytics via PolyBase. You can use it in all other scenarios. |N/A |Yes, when **enableStaging** is set to TRUE |
 | **path** |Specify the Blob storage path that you want to contain the staged data. If you do not provide a path, the service creates a container to store temporary data. <br/><br/> Specify a path only if you use Storage with a shared access signature, or you require temporary data to be in a specific location. |N/A |No |
 | **enableCompression** |Specifies whether data should be compressed before it is copied to the destination. This setting reduces the volume of data being transferred. |False |No |
 
@@ -281,7 +281,7 @@ Be sure that the underlying data store is not overwhelmed by other workloads tha
 
 For Microsoft data stores, see [monitoring and tuning topics](#performance-reference) that are specific to data stores, and help you understand data store performance characteristics, minimize response times, and maximize throughput.
 
-If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+If you copy data from Blob storage to Azure Synapse Analytics, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) for details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### File-based data stores
 *(Includes Blob storage, Data Lake Store, Amazon S3, on-premises file systems, and on-premises HDFS)*
@@ -291,7 +291,7 @@ If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyB
 * For the **on-premises file system** scenario, in which **Data Management Gateway** is required, see the [Considerations for Data Management Gateway](#considerations-for-data-management-gateway) section.
 
 ### Relational data stores
-*(Includes SQL Database; SQL Data Warehouse; Amazon Redshift; SQL Server databases; and Oracle, MySQL, DB2, Teradata, Sybase, and PostgreSQL databases, etc.)*
+*(Includes SQL Database; Azure Synapse Analytics; Amazon Redshift; SQL Server databases; and Oracle, MySQL, DB2, Teradata, Sybase, and PostgreSQL databases, etc.)*
 
 * **Data pattern**: Your table schema affects copy throughput. A large row size gives you a better performance than small row size, to copy the same amount of data. The reason is that the database can more efficiently retrieve fewer batches of data that contain fewer rows.
 * **Query or stored procedure**: Optimize the logic of the query or stored procedure you specify in the Copy Activity source to fetch data more efficiently.
@@ -303,7 +303,7 @@ Be sure that the underlying data store is not overwhelmed by other workloads tha
 
 For Microsoft data stores, refer to [monitoring and tuning topics](#performance-reference) that are specific to data stores. These topics can help you understand data store performance characteristics and how to minimize response times and maximize throughput.
 
-If you are copying data from **Blob storage** to **SQL Data Warehouse**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+If you are copying data from **Blob storage** to **Azure Synapse Analytics**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) for details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### File-based data stores
 *(Includes Blob storage, Data Lake Store, Amazon S3, on-premises file systems, and on-premises HDFS)*
@@ -314,7 +314,7 @@ If you are copying data from **Blob storage** to **SQL Data Warehouse**, conside
 * For **on-premises file systems** scenarios that require the use of **Data Management Gateway**, see the [Considerations for Data Management Gateway](#considerations-for-data-management-gateway) section.
 
 ### Relational data stores
-*(Includes SQL Database, SQL Data Warehouse, SQL Server databases, and Oracle databases)*
+*(Includes SQL Database, Azure Synapse Analytics, SQL Server databases, and Oracle databases)*
 
 * **Copy behavior**: Depending on the properties you've set for **sqlSink**, Copy Activity writes data to the destination database in different ways.
   * By default, the data movement service uses the Bulk Copy API to insert data in append mode, which provides the best performance.
@@ -419,7 +419,7 @@ Here are performance monitoring and tuning references for some of the supported 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: You can [monitor the performance](../../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage
-* Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure SQL Data Warehouse (Overview)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure Synapse Analytics: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure Synapse Analytics (Overview)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
 * On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)

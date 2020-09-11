@@ -1,6 +1,6 @@
 ---
 title: How to move Azure Backup Recovery Services vaults 
-description: Instructions on how to move recovery services vault across Azure subscriptions and resource groups.
+description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions 
@@ -12,7 +12,7 @@ This article explains how to move a Recovery Services vault configured for Azure
 
 ## Supported regions
 
-Resource move for Recovery Services vault is supported in Australia East, Australia South East, Canada Central, Canada East, South East Asia, East Asia, Central US, North Central US, East US, East US 2, South Central US, West Central US, West Central US 2, West US, West US 2, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Europe, West Europe, South Africa North, South Africa West, UK South, and UK West.
+Resource move for Recovery Services vault is supported in Australia East, Australia South East, Canada Central, Canada East, South East Asia, East Asia, Central US, North Central US, East US, East US 2, South Central US, West Central US, West Central US 2, West US, West US 2, Brazil South, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Europe, West Europe, South Africa North, South Africa West, UK South, and UK West.
 
 ## Unsupported regions
 
@@ -41,16 +41,16 @@ France Central, France South, Germany Northeast, Germany Central, US Gov Iowa, C
 
 > [!NOTE]
 > Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br><br>
-> If you have configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using **Azure Site Recovery**, the move operation will be blocked. If you want to move vaults for Azure Site Recovery, review [this article](../site-recovery/move-vaults-across-regions.md) to learn about moving vaults manually.
+> If you've configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using **Azure Site Recovery**, the move operation will be blocked. If you want to move vaults for Azure Site Recovery, review [this article](../site-recovery/move-vaults-across-regions.md) to learn about moving vaults manually.
 
 ## Use Azure portal to move Recovery Services vault to different resource group
 
-To move a recovery services vault and its associated resources to different resource group
+To move a Recovery Services vault and its associated resources to different resource group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Open the list of **Recovery Services vaults** and select the vault you want to move. When the vault dashboard opens, it appears as shown in the following image.
 
-   ![Open Recover Service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Open Recovery Services Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
    If you don't see the **Essentials** information for your vault, select the drop-down icon. You should now see the Essentials information for your vault.
 
@@ -79,7 +79,7 @@ You can move a Recovery Services vault and its associated resources to a differe
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Open the list of Recovery Services vaults and select the vault you want to move. When the vault dashboard opens, it appears as shown the following image.
 
-    ![Open Recover Service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+    ![Open Recovery Services Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
     If you don't see the **Essentials** information for your vault, select the drop-down icon. You should now see the Essentials information for your vault.
 
@@ -101,7 +101,7 @@ You can move a Recovery Services vault and its associated resources to a differe
 7. Select **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option to confirm, and then select **OK**.
 
 > [!NOTE]
-> Cross subscription backup (RS vault and protected VMs are in different subscriptions) is not a supported scenario. Also, storage redundancy option from local redundant storage (LRS) to global redundant storage (GRS) and vice versa cannot be modified during the vault move operation.
+> Cross subscription backup (RS vault and protected VMs are in different subscriptions) isn't a supported scenario. Also, storage redundancy option from local redundant storage (LRS) to global redundant storage (GRS) and vice versa can't be modified during the vault move operation.
 >
 >
 
@@ -136,7 +136,7 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 ## Post migration
 
 1. Set/verify the access controls for the resource groups.  
-2. The Backup reporting and monitoring feature needs to be configured again for the vault post the move completes. The previous configuration will be lost during the move operation.
+2. The Backup reporting and monitoring feature needs to be configured again for the vault after the move completes. The previous configuration will be lost during the move operation.
 
 ## Next steps
 

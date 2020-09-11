@@ -106,8 +106,8 @@ API. The values are passed through a JSON string that also includes the name of 
 To use this string with each SDK, use the following commands:
 
 - Azure CLI: Command
-  [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-  with parameter **params**
+  [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) with
+  parameter **params**
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment)
   with parameter **PolicyParameter**
 - REST API: In the _PUT_ [create](/rest/api/resources/policyassignments/create) operation as part of

@@ -122,7 +122,7 @@ The device must add the `{"__t": "c"}` marker to indicate that the element refer
 
 The device should confirm that it received the property by sending a reported property. The reported property should include:
 
-- `value` - the value that the device received.
+- `value` - the actual value of the property (typically the received value, but the device may decide to report a different value).
 - `ac` - an acknowledgment code that uses an HTTP status code.
 - `av` - an acknowledgment version that refers to the `$version` of the desired property.
 - `ad` - an optional acknowledgment description.

@@ -19,7 +19,7 @@ Durable Functions currently supports the following languages:
 
 * **C#**: both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
 * **JavaScript**: supported only for version 2.x of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
-* **Python**: requires version 1.8.5 of the Durable Functions extension, or a later version. 
+* **Python**: requires version 1.8.5 of the Durable Functions extension, or a later version. Support for Durable Functions is currently in public preview.
 * **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
 * **PowerShell**: support for Durable Functions is currently in public preview. Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.2.2 of the Durable Functions extension, or a later version. Only the following patterns are currently supported: [Function chaining](#chaining), [Fan-out/fan-in](#fan-in-out), [Async HTTP APIs](#async-http).
 
@@ -700,8 +700,9 @@ You can get started with Durable Functions in under 10 minutes by completing one
 * [C# using Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)
+* [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
 
-In both quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
+In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
 ## Learn more
 

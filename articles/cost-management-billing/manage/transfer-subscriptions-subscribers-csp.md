@@ -4,8 +4,9 @@ description: Learn how you can transfer Azure subscriptions between subscribers 
 author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -18,6 +19,9 @@ This article provides high-level steps used to transfer Azure subscriptions to a
 CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure subscriptions for their customers that have a Direct Enterprise Agreement (EA). Subscription transfers are allowed only for customers who have accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan.
 
 When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your MPA account](mpa-request-ownership.md).
+
+>[!IMPORTANT]
+> After transfering an EA subscription to a CSP partner, any quota increases previously applied to the EA subscription will be reset to the default value. If additional quota is required after the subscription transfer, have your CSP provider submit a [quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests) request. 
 
 ## Other subscription transfers to a CSP partner
 

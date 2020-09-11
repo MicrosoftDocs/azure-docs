@@ -26,12 +26,8 @@ landingContent:
         url: spx-overview.md
     - linkListType: quickstart
       links:
-        - text: Translate speech-to-text
-          url: quickstarts/translate-speech-to-text.md
-        - text: Translate speech into multiple target languages
-          url: quickstarts/translate-speech-to-text-multiple-languages.md
-        - text: Translate speech-to-speech
-          url: quickstarts/translate-speech-to-speech.md
+        - text: Get started with speech translation
+          url: get-started-speech-translation.md
 - title: Develop with speech translation
   linkLists:
     - linkListType: learn

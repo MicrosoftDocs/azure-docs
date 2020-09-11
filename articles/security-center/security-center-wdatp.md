@@ -17,6 +17,19 @@ ms.author: memildin
 
 Azure Security Center integrates with [Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) to provide comprehensive Endpoint Detection and Response (EDR) capabilities.
 
+
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|**General availability**|
+|Pricing:|Standard tier|
+|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure machines running Windows<br>![Yes](./media/icons/yes-icon.png) Azure Arc machines running Windows|
+|Required roles and permissions:|To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds.<br>![No](./media/icons/no-icon.png) GCC customers running workloads in public Azure clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
+
+
 ## Microsoft Defender ATP features in Security Center
 
 Microsoft Defender ATP provides:
@@ -49,7 +62,7 @@ When you use Azure Security Center to monitor servers, a Microsoft Defender ATP 
 Once configured, you cannot change the location where your data is stored. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
 
 
-## Onboarding servers to Security Center 
+## Onboard servers to Security Center 
 
 To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the Microsoft Defender ATP server onboarding.
 

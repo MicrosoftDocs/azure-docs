@@ -36,15 +36,15 @@ conceptualContent:
   items:
     - title: Speech-to-text
       links:
+        - itemType: overview
+          text: About speech-to-text
+          url: speech-to-text.md
         - itemType: quickstart
-          text: Recognize speech from a microphone
-          url: quickstarts/speech-to-text-from-microphone.md
-        - itemType: quickstart
-          text: Recognize speech from an audio file
-          url: quickstarts/speech-to-text-from-file.md
+          text: Get started with speech-to-text
+          url: get-started-speech-to-text.md
         - itemType: how-to-guide
-          text: Speech recognition basics
-          url: speech-to-text-basics.md          
+          text: Improve accuracy with Custom Speech
+          url: how-to-custom-speech.md       
       footerLink:
         text: More
         url: index-speech-to-text.yml
@@ -64,15 +64,12 @@ conceptualContent:
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
+      - itemType: overview
+        text: About speech translation
+        url: speech-translation.md
       - itemType: quickstart
-        text: Translate speech-to-text
-        url: quickstarts/translate-speech-to-text.md
-      - itemType: quickstart
-        text: Translate speech to multiple languages
-        url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: how-to-guide
-        text: Speech translation basics
-        url: speech-translation-basics.md        
+        text: Get started with speech translation
+        url: get-started-speech-translation.md      
       footerLink:
         text: More
         url: index-speech-translation.yml

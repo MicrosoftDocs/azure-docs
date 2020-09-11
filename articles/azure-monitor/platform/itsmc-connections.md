@@ -298,6 +298,10 @@ Once the user is successfully created, the status of **Check Installation Checkl
 
 The following sections provide details about how to connect your Provance product to ITSMC in Azure.
 
+> [!NOTE]
+> 
+> As of 1-Oct-2020 Provance ITSM integration with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
+> Existing ITSM connections will be supported.
 
 ### Prerequisites
 
@@ -352,6 +356,11 @@ Learn more: [Create ITSM work items from Azure alerts](./itsmc-overview.md#creat
 
 The following sections provide details about how to connect your Cherwell product to ITSMC in Azure.
 
+> [!NOTE]
+> 
+> As of 1-Oct-2020 Cherwell  ITSM integration with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
+> Existing ITSM connections will be supported.
+
 ### Prerequisites
 
 Ensure the following prerequisites are met:
@@ -362,7 +371,7 @@ Ensure the following prerequisites are met:
 
 ### Connection Procedure
 
-Use the following procedure to create a Provance connection:
+Use the following procedure to create a Cherwell connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 

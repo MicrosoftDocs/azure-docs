@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2019
+ms.date: 09/04/2020
 ms.author: mlottner
 ---
 
@@ -44,9 +44,9 @@ To change your settings:
 
 1. Open IoT Hub.
 
-1. Under **Security**, click **Overview**.
+1. Under **Security**, click **Settings**.
 
-1. Click **Settings**.
+1. Click **Data Collection**.
 
 The following table provides a summary of associated costs and implications of each option.
 

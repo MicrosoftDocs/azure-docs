@@ -33,8 +33,6 @@
        href: concept-conditional-access-grant.md
      - name: Session
        href: concept-conditional-access-session.md
-  - name: Insights and reporting
-    href: howto-conditional-access-insights-reporting.md
   - name: Report-only mode
     href: concept-conditional-access-report-only.md
   - name: Service dependencies
@@ -43,6 +41,8 @@
     href: location-condition.md
   - name: What if tool
     href: what-if-tool.md
+  - name: Continuous access evaluation
+    href: concept-continuous-access-evaluation.md
   - name: Custom controls
     href: controls.md
   - name: Classic policy migrations
@@ -52,8 +52,8 @@
   items:
   - name: Plan your Conditional Access deployment
     href: plan-conditional-access.md
-  - name: Best practices
-    href: best-practices.md
+  - name: Conditional Access APIs
+    href: howto-conditional-access-apis.md
   - name: Common Conditional Access policies
     items: 
     - name: Block legacy authentication
@@ -78,6 +78,8 @@
       href: howto-conditional-access-policy-block-access.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
+  - name: Configure report only mode
+    href: howto-conditional-access-insights-reporting.md
   - name: Require approved client apps
     href: app-based-conditional-access.md
   - name: Require app protection policy
@@ -88,12 +90,10 @@
     href: untrusted-networks.md
   - name: Require terms of use
     href: terms-of-use.md
-  - name: Configure report-only mode
-    href: howto-conditional-access-report-only.md
   - name: Sign-in frequency and browser persistence controls
     href: howto-conditional-access-session-lifetime.md
-  - name: Migrate classic policies
-    href: policy-migration-mfa.md
+  - name: Best practices
+    href: best-practices.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot sign-in problems
@@ -102,6 +102,8 @@
       href: troubleshoot-conditional-access-what-if.md
     - name: FAQ
       href: faqs.md
+  - name: Migrate classic policies
+    href: policy-migration-mfa.md
 - name: Reference
   items:
   - name: Beta Graph APIs
@@ -119,7 +121,7 @@
   - name: Azure feedback forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
+    href: /answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Service updates

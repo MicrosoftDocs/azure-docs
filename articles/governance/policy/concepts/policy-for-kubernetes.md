@@ -66,14 +66,14 @@ must enable the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** 
         providers. For steps, see
         [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-     1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then
+     1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then
         searching for and selecting **Policy**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Screenshot of searching for Policy in All Services." border="false":::
 
      1. Select **Join Preview** on the left side of the Azure Policy page.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Join the Policy for AKS preview" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Screenshot of the 'Join Preview' node on the Policy page." border="false":::
 
      1. Select the row of the subscription you want added to the preview.
 
@@ -134,18 +134,18 @@ you want to manage.
 
 - Azure portal
 
-  1. Launch the AKS service in the Azure portal by clicking **All services**, then searching for and
-     selecting **Kubernetes services**.
+  1. Launch the AKS service in the Azure portal by selecting **All services**, then searching for
+     and selecting **Kubernetes services**.
 
   1. Select one of your AKS clusters.
 
   1. Select **Policies (preview)** on the left side of the Kubernetes service page.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Policy definitions from the AKS cluster" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Screenshot of the 'Policies (preview)' node on the Kubernetes service page." border="false":::
 
   1. In the main page, select the **Enable add-on** button.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Enable the Azure Policy for AKS add-on":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Screenshot of the 'Enable add-on' button on the 'Onboard to Azure Policy for Azure Kubernetes Services (A K S) page.":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -569,18 +569,18 @@ To remove the Azure Policy Add-on from your AKS cluster, use either the Azure po
 
 - Azure portal
 
-  1. Launch the AKS service in the Azure portal by clicking **All services**, then searching for and
-     selecting **Kubernetes services**.
+  1. Launch the AKS service in the Azure portal by selecting **All services**, then searching for
+     and selecting **Kubernetes services**.
 
   1. Select your AKS cluster where you want to disable the Azure Policy Add-on.
 
   1. Select **Policies (preview)** on the left side of the Kubernetes service page.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Policy definitions from the AKS cluster" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Screenshot of the 'Policies (preview)' node on the Kubernetes service page." border="false":::
 
   1. In the main page, select the **Disable add-on** button.
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Disable the Azure Policy for AKS add-on" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Screenshot of the 'Disable add-on' button on the 'Onboard to Azure Policy for Azure Kubernetes Services (A K S) page." border="false":::
 
 - Azure CLI
 

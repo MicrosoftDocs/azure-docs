@@ -158,7 +158,7 @@ For more information about this deployment scenario, see [how to configure domai
 To get started, [Create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance].
 
 <!-- INTERNAL LINKS -->
-[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
+[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md
 [tutorial-create-instance]: tutorial-create-instance.md
 [custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md
