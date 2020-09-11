@@ -79,14 +79,14 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
 
 When you're using AKS, the scaling up and down of the compute is controlled by Kubernetes, using the dockerfile built or found as described above. 
 
-### Front-end scaling
+### Azure ML router
 
-The front-end component of the deployed service automatically scales as needed. Scaling of the front end is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md).
+The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. Scaling of azureml-fe is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md). There is one azureml-fe per cluster.
 
 > [!IMPORTANT]
 > When using a cluster configured as __dev-test__, the self-scaler is **disabled**.
 
-The front-end scales both up (vertically) to use more cores, and out (horizontally) to use more pods. When making the decision to scale out, the time that it takes to route incoming inference requests is used. If this time exceeds the threshold, a scale-out occurs. If the time to route incoming requests continues to exceed the threshold, a scale-out occurs.
+Azureml-fe scales both up (vertically) to use more cores, and out (horizontally) to use more pods. When making the decision to scale up, the time that it takes to route incoming inference requests is used. If this time exceeds the threshold, a scale-up occurs. If the time to route incoming requests continues to exceed the threshold, a scale-out occurs.
 
 When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens.
 
