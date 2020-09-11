@@ -101,6 +101,10 @@ Below data sources are supported to connect through private link from ADF Manage
 - Only port 443 is opened for outbound communications.
 - Azure Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network.
 
+### Linked Service creation of Azure Key Vault 
+- When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 
+- **Test connection** operation for Linked Service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
+
 ## Next steps
 
 - Tutorial: [Build a copy pipeline using managed Virtual Network and private endpoints](tutorial-copy-data-portal-private.md) 
