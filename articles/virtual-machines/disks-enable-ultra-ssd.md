@@ -166,11 +166,65 @@ Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$pa
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
 ```
 
-### Enable ultra disk compatibility on an existing VM
+# [PowerShell](#tab/azure-powershell)
+
+First, determine the VM size to deploy. See the [GA scope and limitations](#ga-scope-and-limitations) section for a list of supported VM sizes.
+
+To use ultra disks, you must create a VM that is capable of using ultra disks. Replace or set the **$resourcegroup** and **$vmName** variables with your own values. Set **$zone** to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create an ultra enabled VM:
+
+```powershell
+New-AzVm `
+    -ResourceGroupName $resourcegroup `
+    -Name $vmName `
+    -Location "eastus2" `
+    -Image "Win2016Datacenter" `
+    -EnableUltraSSD $true `
+    -size "Standard_D4s_v3" `
+    -zone $zone
+```
+---
+## Attach an ultra disk
+
+# [Portal](#tab/azure-portal)
+
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM. By enabling ultra disks on your existing VM, then attaching them as data disks. To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, then restart the VM. Once compatibility is enabled you can attach an ultra disk:
+
+- Navigate to your VM and stop it, wait for it to deallocate.
+- Once your VM has been deallocated, select **Disks**.
+- Select **Edit**.
+
+![Screenshot of an existing vm disk blade, edit is highlighted.](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+
+- Select **Yes** for **Enable Ultra Disk compatibility**.
+
+![Screenshot of enable ultra disk compatibility.](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+
+- Select **Save**.
+- Select **Add data disk** then in the dropdown for **Name** select **Create disk**.
+
+![Screenshot of disk blade, adding a new disk.](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+
+- Fill in a name for your new disk, then select **Change size**.
+- Change the **Account type** to **Ultra Disk**.
+- Change the values of **Custom disk size (GiB)**, **Disk IOPS**, and **Disk throughput** to ones of your choice.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot of the select a disk size blade, ultra disk selected for storage type, other values highlighted.":::
+
+- Select **OK** then select **Create**.
+- After you are returned to your disk's blade, select **Save**.
+- Start your VM again.
+
+![Screenshot of the disks blade on your vm.](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+
+# [Azure CLI](#tab/azure-cli)
+
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
+
+### Enable ultra disk compatibility on an existing VM - CLI
 
 If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability), then you can enable ultra disk compatibility on your VM.
 
-To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, attach an ultra disk, then restart the VM:
+To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, then restart the VM. Once compatibility is enabled you can attach an ultra disk:
 
 ```azurecli
 az vm deallocate -n $vmName -g $rgName
@@ -178,7 +232,7 @@ az vm update -n $vmName -g $rgName --ultra-ssd-enabled true
 az vm start -n $vmName -g $rgName
 ```
 
-### Create an ultra disk using CLI
+### Create an ultra disk - CLI
 
 Now that you have a VM that is capable of attaching ultra disks, you can create and attach an ultra disk to it.
 
@@ -203,28 +257,26 @@ az disk create `
 --disk-mbps-read-write 50
 ```
 
-# [PowerShell](#tab/azure-powershell)
+### Attach the disk - CLI
 
-First, determine the VM size to deploy. See the [GA scope and limitations](#ga-scope-and-limitations) section for a list of supported VM sizes.
+```azurecli
+rgName="<yourResourceGroupName>"
+vmName="<yourVMName>"
+diskName="<yourDiskName>"
+subscriptionId="<yourSubscriptionID>"
 
-To use ultra disks, you must create a VM that is capable of using ultra disks. Replace or set the **$resourcegroup** and **$vmName** variables with your own values. Set **$zone** to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create an ultra enabled VM:
-
-```powershell
-New-AzVm `
-    -ResourceGroupName $resourcegroup `
-    -Name $vmName `
-    -Location "eastus2" `
-    -Image "Win2016Datacenter" `
-    -EnableUltraSSD $true `
-    -size "Standard_D4s_v3" `
-    -zone $zone
+az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
 ```
 
-### Enable ultra disk compatibility on an existing VM
+# [PowerShell](#tab/azure-powershell)
+
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
+
+### Enable ultra disk compatibility on an existing VM - PowerShell
 
 If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability), then you can enable ultra disk compatibility on your VM.
 
-To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, attach an ultra disk, then restart the VM:
+To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, then restart the VM. Once compatibility is enabled you can attach an ultra disk:
 
 ```azurepowershell
 #stop the VM
@@ -233,7 +285,7 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled 1
 #start the VM
 ```
 
-### Create an ultra disk using PowerShell
+### Create an ultra disk - PowerShell
 
 Now that you have a VM that is capable of using ultra disks, you can create and attach an ultra disk to it:
 
@@ -252,54 +304,8 @@ New-AzDisk `
 -DiskName 'Disk02' `
 -Disk $diskconfig;
 ```
----
-## Attach an ultra disk
 
-# [Portal](#tab/azure-portal)
-
-Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM. By enabling ultra disks on your existing VM, then attaching them as data disks.
-
-- Navigate to your VM and select **Disks**.
-- Select **Edit**.
-
-![Screenshot of an existing vm disk blade, edit is highlighted.](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
-
-- Select **Yes** for **Enable Ultra Disk compatibility**.
-
-![Screenshot of enable ultra disk compatibility.](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
-
-- Select **Save**.
-- Select **Add data disk** then in the dropdown for **Name** select **Create disk**.
-
-![Screenshot of disk blade, adding a new disk.](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
-
-- Fill in a name for your new disk, then select **Change size**.
-- Change the **Account type** to **Ultra Disk**.
-- Change the values of **Custom disk size (GiB)**, **Disk IOPS**, and **Disk throughput** to ones of your choice.
-
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot of the select a disk size blade, ultra disk selected for storage type, other values highlighted.":::
-
-- Select **OK** then select **Create**.
-- After you are returned to your disk's blade, select **Save**.
-
-![Screenshot of the disks blade on your vm.](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
-
-# [Azure CLI](#tab/azure-cli)
-
-Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
-
-```azurecli
-rgName="<yourResourceGroupName>"
-vmName="<yourVMName>"
-diskName="<yourDiskName>"
-subscriptionId="<yourSubscriptionID>"
-
-az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
+### Attach the disk - PowerShell
 
 ```powershell
 # add disk to VM
