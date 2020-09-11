@@ -583,6 +583,28 @@ To send a reply and return data back to the caller of your workflow app, add the
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
+<a name="deploy-to-function-app"></a>
+
+## Deploy to function app in Azure
+
+You can publish your function app project directly to Azure from Visual Studio Code. This process either creates a function app and the related resources in your Azure subscription or deploys to an existing function app.
+
+* If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app.
+
+* If you publish to an existing function app in Azure, you overwrite the contents for that app in Azure. To enable the workflow app's run history when you deploy to a function app, follow these steps:
+
+  1. In the [Azure portal](https://portal.azure.com), find and select your function app.
+
+  1. On the function app's menu, under **API**, select **CORS**.
+
+  1. On the **CORS** pane, under **Allowed Origins**, add the wildcard character (*).
+
+  1. When you're done, on the **CORS** toolbar, select **Save**.
+
+     For more information, see [Run history of function apps - GitHub Issue #104](https://github.com/Azure/logicapps/issues/104).
+
+<a name="deploy-to-docker"></a>
+
 ## Deploy to Docker container
 
 By using the .NET Core command-line interface (CLI), you can build a Docker container for deploying your workflow app.
@@ -603,7 +625,7 @@ By using the .NET Core command-line interface (CLI), you can build a Docker cont
 
    ```text
    FROM mcr.microsoft.com/azure-functions/dotnet:3.0.13614-appservice
-   ENV AzureWebJobsStorage <storage-connection-string>
+   ENV AzureWebJobsStorage <storage-account-connection-string>
    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \ AzureFunctionsJobHost__Logging__Console__IsEnabled=true
    COPY ./bin/Release/netcoreapp3.1/publish/ /home/site/wwwroot
    ```
@@ -632,22 +654,6 @@ By using the .NET Core command-line interface (CLI), you can build a Docker cont
 
    For more information about the master key value, see [Using Docker Compose - GitHub Issue #84](https://github.com/Azure/azure-functions-docker/issues/84).
 
-## Deploy to function app in Azure
-
-You can publish your function app project directly to Azure from Visual Studio Code. This process either creates a function app and the related resources in your Azure subscription or deploys to an existing function app.
-
-* If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app.
-
-* If you publish to an existing function app in Azure, you overwrite the contents for that app in Azure. To enable the workflow app's run history when you deploy to a function app, follow these steps:
-
-  1. In the [Azure portal](https://portal.azure.com), find and select your function app.
-
-  1. On the function app's menu, under **API**, select **CORS**.
-
-  1. On the **CORS** pane, under **Allowed Origins**, add the wildcard character (*).
-
-     For more information, see [Run history of function apps - GitHub Issue #104](https://github.com/Azure/logicapps/issues/104).
-
 <a name="enable-run-history"></a>
 
 ## Enable run history for stateless workflows
@@ -656,26 +662,45 @@ For easier debugging when you work with a stateless workflow, you can enable the
 
 ### For a stateless workflow running in Visual Studio Code
 
-If you are working on and running the stateless workflow locally in Visual Studio Code, open the `local.settings.json` file, add the `operationOptions` property, and set the property value to `WithStatelessRunHistory`, for example:
+If you are working on and running the stateless workflow locally in Visual Studio Code, follow these steps:
 
-In your workflow app's JSON definition (`workflow.json`) file, you can change the trigger's default behavior by adding the [**`operationOptions`** property](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the [trigger's JSON definition](../logic-apps/logic-apps-workflow-actions-triggers.md#triggers-overview).
+1. In your function app project, find and open the `workflow-designtime` folder.
 
-```json
-"triggers": {
-   "manual": {
-      "kind": "Http",
-      "type": "Request",
-      "inputs": {
-         "schema": {},
-      },
-      "operationOptions": "WithStatelessRunHistory"
+1. In the `workflow-designtime` folder, open the `local.settings.json` file.
+
+1. Add and set the `operationOptions` property value to `WithStatelessRunHistory`, for example:
+
+   **Mac OS**
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://workflowscdn.azureedge.net/2020-05-preview",
+         "Workflow.<your-workflow-name>.OperationOptions": "WithStatelessRunHistory"
+      }
    }
-},
-```
+   ```
+
+   **Windows or other OS**
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://workflowscdn.azureedge.net/2020-05-preview",
+         "Workflow.<your-workflow-name>.OperationOptions": "WithStatelessRunHistory"
+      }
+   }
+   ```
 
 ### For a stateless workflow running in the Azure portal
 
-If you've deployed the function app project for your workflow to the Azure portal, follow these steps:
+If you already deployed your function app project to the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), find and open your function app.
 
