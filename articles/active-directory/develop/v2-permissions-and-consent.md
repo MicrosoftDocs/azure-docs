@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform scopes, permissions, and consent
-description: A description of authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
+description: Learn about authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
 services: active-directory
 author: rwike77
 manager: CelesteDG
