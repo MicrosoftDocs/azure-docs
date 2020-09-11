@@ -30,7 +30,7 @@ Many of the existing Microsoft cloud applications are included in the list of ap
 
 Administrators can assign a Conditional Access policy to the following cloud apps from Microsoft. Some apps like the Microsoft 365 (preview) and Microsoft Azure Management include multiple related child apps or services. The following list is not exhaustive and is subject to change.
 
-- [Microsoft 365 (preview)](#Microsoft-365-preview)
+- [Microsoft 365 (preview)](#microsoft-365-preview)
 - Azure Analysis Services
 - Azure DevOps
 - [Azure SQL Database and Data Warehouse](../../azure-sql/database/conditional-access-configure.md)

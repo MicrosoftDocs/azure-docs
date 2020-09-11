@@ -58,13 +58,13 @@ This process enables the scenario where users lose access to organizational file
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Supported | Supported | Not Supported | Not Supported | Supported |
-| Exchange Online | Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Supported | Supported | Not Supported | Not Supported | Supported |
+| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Supported | Supported | Not Supported | Supported | Supported |
-| Exchange Online | Supported | Supported | Not Supported | Supported | Supported |
+| **SharePoint Online** | Supported | Supported | Not Supported | Supported | Supported |
+| **Exchange Online** | Supported | Supported | Not Supported | Supported | Supported |
 
 ### Client-side claim challenge
 

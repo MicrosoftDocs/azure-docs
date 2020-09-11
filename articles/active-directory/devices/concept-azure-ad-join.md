@@ -1,6 +1,6 @@
 ---
 title: What is an Azure AD joined device?
-description: Learn how device identity management can help you to manage devices that are accessing resources in your environment.
+description: Learn about Azure AD joined devices, and how device identity management can help you to manage devices that are accessing resources in your environment.
 
 services: active-directory
 ms.service: active-directory

@@ -50,7 +50,7 @@ Microsoft Teams also is supported separately as a cloud app in Conditional Acces
 
 Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms.
 
-For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Microsoft 365 app](concept-conditional-access-cloud-apps.md#Microsoft-365-preview) instead.
+For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Microsoft 365 app](concept-conditional-access-cloud-apps.md#microsoft-365-preview) instead.
 
 ## Why are some tabs not working in Microsoft Teams after enabling Conditional Access policies?
 
