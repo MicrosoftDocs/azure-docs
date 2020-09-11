@@ -76,7 +76,7 @@ This section guides you through connecting your Azure AD to Slack's user account
 
 5. Under the **Admin Credentials** section, click **Authorize**. This opens a Slack authorization dialog in a new browser window.
 
-	![Authorization](media/slack-provisioning-tutorial/authorization.png)
+	![Screenshot shows the Authorize Admin Credentials button.](media/slack-provisioning-tutorial/authorization.png)
 
 
 6. In the new window, sign into Slack using your Team Admin account. in the resulting authorization dialog, select the Slack team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.

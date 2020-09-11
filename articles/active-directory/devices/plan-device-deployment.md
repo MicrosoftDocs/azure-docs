@@ -104,24 +104,24 @@ iOS and Android devices may only be Azure AD registered. The following table pre
 | Consideration | Azure AD registered| Azure AD join| Hybrid Azure AD join |
 | - | - | - | - |
 | **Client operating systems**| | |  |
-| Windows 10 devices| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Windows down-level devices (Windows 8.1 or Windows 7)| | | ![check](./media/plan-device-deployment/check.png) |
+| Windows 10 devices| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Windows down-level devices (Windows 8.1 or Windows 7)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 |**Sign in options**| | |  |
-| End-user local credentials| ![check](./media/plan-device-deployment/check.png)| |  |
-| Password| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Device PIN| ![check](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![check](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello for Business| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| FIDO 2.0 security keys| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Microsoft Authenticator App (passwordless)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| End-user local credentials| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| |  |
+| Password| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Device PIN| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello for Business| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| FIDO 2.0 security keys| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Microsoft Authenticator App (passwordless)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 |**Key capabilities**| | |  |
-| SSO to cloud resources| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| SSO to on-premises resources| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Conditional Access <br> (Require devices be marked as compliant) <br> (Must be managed by MDM)| ![check](./media/plan-device-deployment/check.png) | ![check](./media/plan-device-deployment/check.png)|![check](./media/plan-device-deployment/check.png) |
-Conditional Access <br>(Require hybrid Azure AD joined devices)| | | ![check](./media/plan-device-deployment/check.png)
-| Self-service password reset from windows login screen| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Windows hello PIN reset| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Enterprise state roaming across devices| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| SSO to cloud resources| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| SSO to on-premises resources| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Conditional Access <br> (Require devices be marked as compliant) <br> (Must be managed by MDM)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png)|![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+Conditional Access <br>(Require hybrid Azure AD joined devices)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)
+| Self-service password reset from windows login screen| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Windows hello PIN reset| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Enterprise state roaming across devices| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 
 
 ## Azure AD Registration 
@@ -238,9 +238,9 @@ Review supported and unsupported platforms for integrated devices:
 
 | Device management tools| Azure AD registered| Azure AD join| Hybrid Azure AD join|
 | - | - | - | - |
-| [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
-| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later)| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
-| [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only)| | | ![check](./media/plan-device-deployment/check.png)|  |
+| [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
+| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later)| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
+| [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
 
 
 

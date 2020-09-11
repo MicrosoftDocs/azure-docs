@@ -34,7 +34,7 @@ You define a region or location when you first create the StorSimple Device Mana
 
 Here is a list of regions where StorSimple Device Manager service is available for Azure public cloud and can be deployed.
 
-![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![Screenshot shows the StorSimple Device Manager with the Location list highlighted.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 For Azure Government cloud, the StorSimple Device Manager service is available in US Gov Iowa and US Gov Virginia datacenters.
 

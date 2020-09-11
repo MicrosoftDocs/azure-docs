@@ -45,7 +45,7 @@ mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p
 ## Enforcing SSL connections in Azure 
 ### Using the Azure portal
 Using the Azure portal, visit your Azure Database for MariaDB server, and then click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting, and then click **Save**. Microsoft recommends to always enable the **Enforce SSL connection** setting for enhanced security.
-![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
+![Screenshot shows an Azure Database instance with Connection Security selected and, under S S L setting, Enforce S S L connection is enabled.](./media/howto-configure-ssl/enable-ssl.png)
 
 ### Using Azure CLI
 You can enable or disable the **ssl-enforcement** parameter by using Enabled or Disabled values respectively in Azure CLI.

@@ -51,7 +51,7 @@ Follow the steps to configure the secrets:
 
 1. In [GitHub](https://github.com/), browse to your repository, select **Settings > Secrets > Add a new secret**.
 
-    ![secrets](media/kubernetes-action/secrets.png)
+    ![Screenshot shows the Add a new secret link for a repository.](media/kubernetes-action/secrets.png)
 
 2. Paste the contents of the above `az cli` command as the value of secret variable. For example, `AZURE_CREDENTIALS`.
 
@@ -62,7 +62,7 @@ Follow the steps to configure the secrets:
 
 4. You will see the secrets as shown below once defined.
 
-    ![kubernetes-secrets](media/kubernetes-action/kubernetes-secrets.png)
+    ![Screenshot shows existing secrets for a repository.](media/kubernetes-action/kubernetes-secrets.png)
 
 ##  Build a container image and deploy to Azure Kubernetes Service cluster
 
