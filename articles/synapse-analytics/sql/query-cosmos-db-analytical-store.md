@@ -107,7 +107,7 @@ The result of this query might look like:
 | 2020-08-12 | 235 | RS |
 | 2020-08-11 | 163 | RS |
 
-Review the [rules for SQL type mappings](#data-type-mappings) at the end of the article for more information about the SQL types that should be used for Azure Cosmos DB value.
+Review the [rules for SQL type mappings](#azure-cosmos-db-to-sql-type-mappings) at the end of the article for more information about the SQL types that should be used for Azure Cosmos DB value.
 
 ## Querying nested objects and arrays
 
@@ -229,13 +229,9 @@ Supplementary Information An eco-epidemi… | `[{"first":"Nicolas","last":"4#","
 > If you see unexpected characters in your text like `MÃƒÂ©lade` instead of `Mélade` then your database collation is not set to [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation. 
 > [Change collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to some UTF8 collation using some SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
-<<<<<<< HEAD
-## Data type mappings
-=======
 ## Azure Cosmos DB to SQL type mappings
 
 It is important to first note that while Azure Cosmos DB transactional store is schema-agnostic, the analytical store is schematized to optimize for analytical query performance. With the auto-sync capability of Synapse Link, Azure Cosmos DB manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types. Since SQL on-demand queries the analytical store, it is important to understand how to map Azure Cosmos DB input data types to SQL data types.
->>>>>>> 0aea6ace30fbcbbeab70eda4961348e9fb8d1739
 
 Azure Cosmos DB accounts of SQL (Core) API support JSON property types of number, string, boolean, null, nested object or array. You would need to
 choose SQL types that match these JSON types if you are using `WITH` clause in `OPENROWSET`. See below the SQL column types that should be used for different property types in Azure Cosmos DB.
