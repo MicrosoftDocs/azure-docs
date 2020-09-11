@@ -301,11 +301,11 @@ Now, continue creating your workflow app.
 
         ![Screenshot that shows Visual Studio Code's Output window with "Azure Functions" selected.](./media/create-stateless-stateful-workflows/check-outout-window-azure-functions.png)
 
-     1. Review the output for whether this error message appears:
+     1. Review the output and check whether this error message appears:
 
         ```text
-        A host error has occurred during startup operation '83b2e8e8-fdec-4b01-98a0-a592b73bfe4e'.
-        System.Private.CoreLib: The file 'C:\Users\sophiaowen\AppData\Local\Temp\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\DurableTask.AzureStorage.dll' already exists.
+        A host error has occurred during startup operation '<operation-ID>'.
+        System.Private.CoreLib: The file 'C:\Users\<your-username>\AppData\Local\Temp\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\DurableTask.AzureStorage.dll' already exists.
         Value cannot be null. (Parameter 'provider')
         Application is shutting down...
         Initialization cancellation requested by runtime.
@@ -313,7 +313,7 @@ Now, continue creating your workflow app.
         Host shutdown completed.
         ```
 
-        This error can happen if you you previously tried to open the designer, and then discontinued or deleted your function app project. To resolve this error, delete the `ExtensionBundles` folder at this location `...\Users\<your-username>\AppData\Local\Temp\Functions\ExtensionBundles`, and retry opening the `workflow.json` file in the designer.
+        This error can happen if you previously tried to open the designer, and then discontinued or deleted your function app project. To resolve this error, delete the `ExtensionBundles` folder at this location `...\Users\<your-username>\AppData\Local\Temp\Functions\ExtensionBundles`, and retry opening the `workflow.json` file in the designer.
 
    * Try closing and reopening Visual Studio Code, and then your function app project. Retry opening the `workflow.json` file in the Logic App Designer.
 
@@ -583,45 +583,6 @@ To send a reply and return data back to the caller of your workflow app, add the
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
-<a name="enable-run-history"></a>
-
-## Enable run history for stateless workflows
-
-For easier debugging when you work with a stateless workflow, you can enable the run history capability for that workflow so that you can save and inspect the run in detail.
-
-### For a stateless workflow running in Visual Studio Code
-
-If you are working on and running the stateless workflow locally in Visual Studio Code, open the `local.settings.json` file, add the `operationOptions` property, and set the property value to `WithStatelessRunHistory`, for example:
-
-In your workflow app's JSON definition (`workflow.json`) file, you can change the trigger's default behavior by adding the [**`operationOptions`** property](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the [trigger's JSON definition](../logic-apps/logic-apps-workflow-actions-triggers.md#triggers-overview).
-
-```json
-"triggers": {
-   "manual": {
-      "kind": "Http",
-      "type": "Request",
-      "inputs": {
-         "schema": {},
-      },
-      "operationOptions": "WithStatelessRunHistory"
-   }
-},
-```
-
-### For a stateless workflow running in the Azure portal
-
-If you've deployed the function app project for your workflow to the Azure portal, follow these steps:
-
-1. In the [Azure portal](https://portal.azure.com), find and open your function app.
-
-1. On the function app menu, under **Settings**, select **Configuration**.
-
-1. Under **Application Settings**, select **New application setting**.
-
-1. On the **Add/Edit application setting** pane, in the **Name** box, enter `Workflow.<your-workflow-name>.OperationOptions`.
-
-1. In the **Value** box, enter `WithStatelessRunHistory`. When you're done, select **OK**.
-
 ## Deploy to Docker container
 
 By using the .NET Core command-line interface (CLI), you can build a Docker container for deploying your workflow app.
@@ -675,12 +636,56 @@ By using the .NET Core command-line interface (CLI), you can build a Docker cont
 
 You can publish your function app project directly to Azure from Visual Studio Code. This process either creates a function app and the related resources in your Azure subscription or deploys to an existing function app.
 
-* If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app. 
+* If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app.
 
-* If you publish to an existing function app in Azure, you overwrite the contents for that app in Azure.
+* If you publish to an existing function app in Azure, you overwrite the contents for that app in Azure. To enable the workflow app's run history when you deploy to a function app, follow these steps:
 
-1. To include and enable run history for stateful workflow apps in your deployment, check or set the function app's CORS property is set to the wildcard (**\***) character. For more information, see [Run history of function apps - GitHub Issue #104](https://github.com/Azure/logicapps/issues/104).
+  1. In the [Azure portal](https://portal.azure.com), find and select your function app.
 
+  1. On the function app's menu, under **API**, select **CORS**.
+
+  1. On the **CORS** pane, under **Allowed Origins**, add the wildcard character (*).
+
+     For more information, see [Run history of function apps - GitHub Issue #104](https://github.com/Azure/logicapps/issues/104).
+
+<a name="enable-run-history"></a>
+
+## Enable run history for stateless workflows
+
+For easier debugging when you work with a stateless workflow, you can enable the run history capability for that workflow so that you can save and inspect the run in detail.
+
+### For a stateless workflow running in Visual Studio Code
+
+If you are working on and running the stateless workflow locally in Visual Studio Code, open the `local.settings.json` file, add the `operationOptions` property, and set the property value to `WithStatelessRunHistory`, for example:
+
+In your workflow app's JSON definition (`workflow.json`) file, you can change the trigger's default behavior by adding the [**`operationOptions`** property](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the [trigger's JSON definition](../logic-apps/logic-apps-workflow-actions-triggers.md#triggers-overview).
+
+```json
+"triggers": {
+   "manual": {
+      "kind": "Http",
+      "type": "Request",
+      "inputs": {
+         "schema": {},
+      },
+      "operationOptions": "WithStatelessRunHistory"
+   }
+},
+```
+
+### For a stateless workflow running in the Azure portal
+
+If you've deployed the function app project for your workflow to the Azure portal, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), find and open your function app.
+
+1. On the function app menu, under **Settings**, select **Configuration**.
+
+1. Under **Application Settings**, select **New application setting**.
+
+1. On the **Add/Edit application setting** pane, in the **Name** box, enter `Workflow.<your-workflow-name>.OperationOptions`.
+
+1. In the **Value** box, enter `WithStatelessRunHistory`. When you're done, select **OK**.
 
 ## Next steps
 
