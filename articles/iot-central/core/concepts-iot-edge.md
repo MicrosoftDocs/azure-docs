@@ -7,6 +7,7 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: [device-developer, iot-edge]
 ---
 
 # Connect Azure IoT Edge devices to an Azure IoT Central application
