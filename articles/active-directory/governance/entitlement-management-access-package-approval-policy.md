@@ -1,6 +1,6 @@
 ---
-title: Change request and approval settings for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to change request and approval settings for an access package in Azure Active Directory entitlement management.
+title: Change approval settings for an access package in Azure AD entitlement management - Azure Active Directory
+description: Learn how to change approval and requestor information settings for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -21,11 +21,11 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change approval settings for an access package in Azure AD entitlement management
+# Change approval and requestor information (preview) settings for an access package in Azure AD entitlement management
 
-As an access package manager, you can change the approval settings for an access package at any time by editing an existing policy or adding a new policy. You can also change the approval settings.
+As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy.
 
-This article describes how to change the request and approval settings for an existing access package.
+This article describes how to change the approval and requestor information settings for an existing access package.
 
 ## Approval
 
@@ -45,7 +45,22 @@ For a demonstration of how to add a multi-stage approval to a request policy, wa
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
 
+
+## Change approval settings of an existing access package
+
 Follow these steps to specify the approval settings for requests for the access package:
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Either select a policy to edit or add a new policy to the access package
+    1. Click **Policies** and then **Add policy** if you want to create a new policy.
+    1. Click the policy you wish to edit and then click **edit**.
+
+1. Go to the **Request** tab.
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
 
@@ -138,3 +153,29 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
     ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
 1. Click **Next**.
+
+## Add Requestor information (preview) to an access package
+
+1. Go to the **Requestor information** tab and click the **Questions** sub tab.
+ 
+1. Type in what you want to ask the requestor, also known as the display string, for the question in the **Question** box.
+
+1. If you would like to add your own localization options, click **add localization**.
+    1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
+    1. In the language you configured, type the question in the **Localized Text** box.
+    1. Once you have added all the localizations needed, click **Save**.
+
+1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *short text*, *multiple choice*, and *long text*.
+ 
+1. If selecting multiple choice, click on the **view and edit** button to configure the answer options.
+    1. After selecting view and edit the **View/edit question** pane will open.
+    1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
+    1. Type in as many responses as you need then click **Save**.
+
+1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
+
+1. Fill out the remaining tabs (e.g., Lifecycle) based on your needs.
+
+## Next steps
+- [Change lifecycle settings for an access package](entitlement-management-access-package-lifecycle-policy.md)
+- [View requests for an access package](entitlement-management-access-package-requests.md)
