@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 09/10/2020
 ms.author: alkohli
 ---
 
@@ -35,7 +35,7 @@ The following table provides a summary of known issues for the Azure Stack Edge 
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|Preview features |For this GA release, the following features: Local Azure Resource Manager, VMs, Kubernetes, and Azure Arc enabled Kubernetes  - are all available in preview for your Azure Stack Edge Pro device.  |These features will be generally available in a later release. |
+|**1.**|Preview features |For this GA release, the following features: Local Azure Resource Manager, VMs, Kubernetes, Azure Arc enabled Kubernetes, Multi-Process service (MPS) for GPU - are all available in preview for your Azure Stack Edge Pro device.  |These features will be generally available in a later release. |
 | **2.** |Azure Stack Edge Pro + Azure SQL | Creating SQL database requires Administrator access.   |Do the following steps instead of Steps 1-2 in [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database). <ul><li>In the local UI of your device, enable compute interface. Select **Compute > Port # > Enable for compute > Apply.**</li><li>Download `sqlcmd` on your client machine from https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Connect to your compute interface IP address (the port that was enabled), adding a ",1401" to the end of the address.</li><li>Final command will look like this: sqlcmd -S {Interface IP},1401 -U SA -P "Strong!Passw0rd".</li>After this, steps 3-4 from the current documentation should be identical. </li></ul> |
 | **3.** |Refresh| Incremental changes to blobs restored via **Refresh** are NOT supported |For Blob endpoints, partial updates of blobs after a Refresh, may result in the updates not getting uploaded to the cloud. For example, sequence of actions such as:<ul><li>Create blob in cloud. Or delete a previously uploaded blob from the device.</li><li>Refresh blob from the cloud into the appliance using the refresh functionality.</li><li>Update only a portion of the blob using Azure SDK REST APIs.</li></ul>These actions can result in the updated sections of the blob to not get updated in the cloud. <br>**Workaround**: Use tools such as robocopy, or regular file copy through Explorer or command line, to replace entire blobs.|
 |**4.**|Throttling|During throttling, if new writes are not allowed into the device, writes done by NFS client fail with "Permission Denied" error.| The error will show as below:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: cannot create directory 'test': Permission denied​|

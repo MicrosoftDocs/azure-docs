@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -54,23 +54,25 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
     
     ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
-    Select **Download key file** and save the *keys.json* file in a safe location outside of the device. **This key file contains the recovery keys for the OS disk and data disks on your device**. Here are the contents of the *keys.json* file:
+    Select **Download and continue** and save the *device-serial-no.json* file in a safe location outside of the device. **This key file contains the recovery keys for the OS disk and data disks on your device**. These keys may be needed to facilitate a future system recovery.
+
+    Here are the contents of the *json* file:
 
         
     ```json
     {
-      "Id": "1ab3fe39-26e6-4984-bb22-2e02d3fb147e",
+      "Id": "<Device ID>",
       "DataVolumeBitLockerExternalKeys": {
-        "hcsinternal": "C086yg1DrPo0DuZB/a7hUh+kBWj804coJfBA9LDzZqw=",
-        "hcsdata": "8ohX9bG3YSZl9DZmZLkYl//L9dXi1XiQrqza+iSd64Q="
+        "hcsinternal": "<BitLocker key for data disk>",
+        "hcsdata": "<BitLocker key for data disk>"
       },
-      "SystemVolumeBitLockerRecoveryKey": "105347-156739-594473-151107-005082-252604-471955-439395",
-      "ServiceEncryptionKey": "oEwxNJeULzGRFt6DsLgcLw=="
+      "SystemVolumeBitLockerRecoveryKey": "<BitLocker key for system volume>",
+      "ServiceEncryptionKey": "<Azure service encryption key>"
     }
     ```
         
  
-    The following table explains the various keys here:
+    The following table explains the various keys:
     
     |Field  |Description  |
     |---------|---------|

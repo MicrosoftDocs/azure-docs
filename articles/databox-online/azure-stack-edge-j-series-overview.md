@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # What is the Azure Stack Edge Pro R?
 
-The Azure Stack Edge Pro R is a Hardware-as-a-service solution. Microsoft ships you a durable, rugged, server class edge device for over the network data transfer to Azure. Equipped with a Graphical Processing Unit (GPU), these devices are optimized for AI, analytics, and serverless computing. The rugged devices are appropriate for use in harsh environmental or field conditions and target defense, disaster relief, energy and geological surveys.
+The Azure Stack Edge Pro R is a Hardware-as-a-service solution. Microsoft ships you a durable, rugged, server class, portable edge device for over the network data transfer to Azure. Equipped with a Graphical Processing Unit (GPU), these devices are optimized for AI, analytics, and serverless computing. The rugged devices are appropriate for use in the harshest environments.
 
 This article provides you an overview of the Azure Stack Edge Pro R solution, key capabilities, and the scenarios where you can deploy this device.
 
@@ -25,13 +25,13 @@ Azure Stack Edge Pro R has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Rugged hardware| Rugged server class hardware designed for harsh environmental conditions.|
+|Rugged, portable hardware| Rugged 85 lb. server class hardware designed for harshest environments. Device portable in a 2-person carry case. |
 |Cloud-managed     |Device and service are managed via the Azure portal.|
-|Edge compute workloads   |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
+|Edge compute workloads   |Allows analysis, processing, filtering of data. Supports VMs and containerized workloads.|
 |Accelerated AI inferencing| Enabled by an Nvidia T4 GPU.|
 |High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
-|Disconnected mode| Device and service are managed via Azure Stack. <br> Disconnected mode supports offline upload scenarios.|
+|Disconnected mode| Device and service can be optionally managed via Azure Stack. <br> Deploy, run, manage applications in offline mode. <br> Disconnected mode supports offline upload scenarios.|
 |Supported protocols     |Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Pro R system requirements](azure-stack-edge-gpu-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Double encryption    | Use of self-encrypting drives provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
