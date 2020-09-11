@@ -276,7 +276,8 @@ sudo apt-get update
 ```
 
 Install the 1.0.8 release:
-```
+
+```bash
 sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
 ```
 
