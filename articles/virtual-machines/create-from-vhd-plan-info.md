@@ -20,12 +20,12 @@ This article walks you through the steps to create a new VM from an existing VHD
 - Before you create a new VM using the VHD, ensure you have the plan information with which the VM was initially deployed.
 - You can also use the plan information of any other VM provided it was made using the same image. (The steps below will talk about gathering plan information for a VM)
 
-# Get the VM plan information
+## Get the VM plan information
 
 Follow the steps below to gather the plan information for an exitsing VM.
 
-1. Navigate to the Virtual Machine on the Azure Portal.
-2. Next, go to to the Export Template blade for the VM.
+1. Navigate to the VM in the [Azure portal](https://portal.azure.com).
+2. In the left menu, select **Export template**.
 3. Search for plan in the template that appears on the screen.
 4. Below is the structure of plan information for a VM.
 
@@ -38,9 +38,10 @@ Follow the steps below to gather the plan information for an exitsing VM.
 ```
 5. Copy the plan information for use in the script later.
 
-### Note: The images and the plan information for third party images are managed, updated and changed by the respective vendors.
+> [NOTE]
+> The VHDs and plan information for third party images are managed, updated and changed by the respective vendors.
 
-# Create a Windows VM with an existing VHD using plan information
+## Create a Windows VM with an existing VHD using plan information
 
 ```
 $ResourceGroupName = "myResourceGroup"
@@ -71,7 +72,8 @@ $vm.Plan.Publisher = 'Publisher'
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $vm
 ```
 
-# Create a Linux VM with an existing VHD using plan information
+## Create a Linux VM with an existing VHD using plan information
+
 ```
 $ResourceGroupName = "myResourceGroup"
 $Location = "WestEurope"
@@ -101,7 +103,7 @@ $vm.Plan.Publisher = 'Publisher'
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $vm
 ```
 
-# Create a VM with plan info in an availability set
+## Create a VM with plan info in an availability set
 
 The VM can be deployed in an availability set using the same script above with some modifications. The only changes you need to do is to add --availabilitysetid "ResourceURI", to the $vm argument above.
 
@@ -111,7 +113,7 @@ For example inorder to create a VM in an availability set, the only changes that
 $vm = New-AzureRmVMConfig -VMName $vmname -VMSize $vmsize -availabilitysetid "/subscriptions/858xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/rgName/providers/Microsoft.Compute/availabilitySets/avsetName"
 ```
 
-# Create a Windows VM with using plan info of another VM which was created using the same image as our deleted VM
+## Create a Windows VM using plan info of another VM 
 
 The below script uses the plan information of another VM that was originally deployed using the same image. In this PowerShell we donot enter the plan information exclusively but the plan information is collected from another VM in the same subscription.
 
