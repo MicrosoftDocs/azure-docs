@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with DocuSign | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and DocuSign.
+description: Learn how to configure the single sign-on between Azure Active Directory and DocuSign.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -86,9 +86,12 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
-    c. In the **Reply URL** textbox, enter a URL using the following pattern:
+    c. In the **Reply URL** textbox, enter anyone of the following URL patterns:
     
-    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
+    | Reply URL |
+    |-------------|
+    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
+    |`https://<subdomain>.docusign.net/SAML/`|
 
 	> [!NOTE]
 	> These bracketed values are placeholders. Replace them with the values in the actual sign-on URL, Identifier and Reply URL. These details are explained in the "View SAML 2.0 Endpoints" section later in this tutorial.
