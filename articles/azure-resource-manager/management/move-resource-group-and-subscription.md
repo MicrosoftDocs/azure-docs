@@ -189,7 +189,7 @@ Select the destination resource group. Acknowledge that you need to update scrip
 
 After validating that the resources can be moved, you see a notification that the move operation is running.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="select destination":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notification":::
 
 When it has completed, you're notified of the result.
 
@@ -211,7 +211,7 @@ If you get an error, see [Troubleshoot moving Azure resources to new resource gr
 
 ## Use Azure CLI
 
-To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
+To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
