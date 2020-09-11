@@ -27,7 +27,7 @@ All requests for control plane operations are sent to the Azure Resource Manager
 * For Azure Germany, the URL is `https://management.microsoftazure.de/`.
 * For Microsoft Azure China 21Vianet, the URL is `https://management.chinacloudapi.cn`.
 
-To discover which operations use `https://management.azure.com`, see the [Azure REST API](/rest/api/azure/). For example, the [create or update operation](/rest/api/mysql/databases/createorupdate) for MySql is a control plane operation because the request URL is:
+To discover which operations use the Azure Resource Manager URL, see the [Azure REST API](/rest/api/azure/). For example, the [create or update operation](/rest/api/mysql/databases/createorupdate) for MySql is a control plane operation because the request URL is:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
@@ -54,7 +54,9 @@ POST {Endpoint}/text/analytics/v2.0/languages
 
 Data plane operations aren't limited to REST API. They may require additional credentials such as logging in to a virtual machine or database server.
 
-Features that enforce management and governance might not applied to data plane operations. You need to consider the different ways users might interact with your solutions. For example, a lock that prevents users from deleting a database doesn't prevent users from deleting data through queries. However, you can use some policies to govern data plane operations. For more information, see [Resource Provider modes (preview) in Azure Policy](../../governance/policy/concepts/definition-structure.md#resource-provider-modes).
+Features that enforce management and governance might not applied to data plane operations. You need to consider the different ways users interact with your solutions. For example, a lock that prevents users from deleting a database doesn't prevent users from deleting data through queries.
+
+You can use some policies to govern data plane operations. For more information, see [Resource Provider modes (preview) in Azure Policy](../../governance/policy/concepts/definition-structure.md#resource-provider-modes).
 
 ## Next steps
 
