@@ -11,6 +11,8 @@
 - name: Quickstarts
   expanded: true
   items:
+      - name: Create an instance - CLI
+        href: get-started-create-service-instance-cli.md
       - name: Create an instance - Portal
         href: get-started-create-service-instance.md
       - name: Create an instance - PowerShell

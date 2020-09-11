@@ -130,7 +130,7 @@ The example creates a flow that automatically sends an email notification when a
    In the next few steps, you set up the action to take based on the result of the condition:
 
    * If the condition resolves to **If no**, don't do anything.
-   * If the condition resolves to **If yes**, trigger an action that connects your Office 365 account to send an email.
+   * If the condition resolves to **If yes**, trigger an action that connects your work or school account to send an email. 
 
 1. Select **Add an action** under **If yes**.
 
