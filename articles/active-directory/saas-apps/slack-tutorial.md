@@ -91,6 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://slack.com`
 	
     c. For **Reply URL**, enter one of the following URL pattern:
+    
 	| Reply URL|
 	|----------|
 	| `https://<DOMAIN NAME>.slack.com/sso/saml` |
