@@ -218,17 +218,17 @@ If you cannot change the access control mode for security reasons for your curre
 
 The legacy continuous export functionality is not supported for workspace-based resources. Prior to migrating you need to disable continuous export.
 
-From your Application Insights resource view, under the **Configure** heading select **Continuous Export**.
+1. From your Application Insights resource view, under the **Configure** heading select **Continuous Export**.
 
-![Continuous export menu item](./media/convert-classic-resource/continuous-export.png)
+    ![Continuous export menu item](./media/convert-classic-resource/continuous-export.png)
 
-Select **Disable**.
+2. Select **Disable**.
 
-![Continuous export disable button](./media/convert-classic-resource/disable.png)
+    ![Continuous export disable button](./media/convert-classic-resource/disable.png)
 
-Once you have selected disable, you can navigate back to the migration UI. If the edit continuous export page prompts you that your settings won't be saved, you can select ok for this prompt as it does not pertain to disabling/enabling continuous export.
+- Once you have selected disable, you can navigate back to the migration UI. If the edit continuous export page prompts you that your settings won't be saved, you can select ok for this prompt as it does not pertain to disabling/enabling continuous export.
 
-Once you have successfully migrated your Application Insights resource to workspace-based, you can use Diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub. For detailed guidance on diagnostic settings, refer to the [Azure Monitor diagnostic settings guidance](../platform/diagnostic-settings.md).
+- Once you have successfully migrated your Application Insights resource to workspace-based, you can use Diagnostic settings to replace the functionality that continuous export used to provide. Select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub. For detailed guidance on diagnostic settings, refer to the [Azure Monitor diagnostic settings guidance](../platform/diagnostic-settings.md).
 
 ### Retention settings
 

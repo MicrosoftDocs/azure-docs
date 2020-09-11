@@ -419,7 +419,7 @@
           items:   
           - name: Virtual Machine 
             href: platform/collect-custom-metrics-guestos-resource-manager-vm.md 
-          - name: VM scale set 
+          - name: Virtual machine scale set 
             href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
           - name: VM classic 
             href: platform/collect-custom-metrics-guestos-vm-classic.md  
@@ -469,9 +469,9 @@
       href: platform/autoscale-common-scale-patterns.md
     - name: Scale with custom metrics
       href: platform/autoscale-custom-metric.md
-    - name: Scale VM scale sets
+    - name: Scale virtual machine scale sets
       href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-    - name: Scale VM scale sets using Resource Manager templates
+    - name: Scale virtual machine scale sets using Resource Manager templates
       href: platform/autoscale-virtual-machine-scale-sets.md
     - name: Use webhooks and email notifications
       href: platform/autoscale-webhook-email.md
@@ -679,7 +679,7 @@
       items: 
       - name: Overview
         href: app/codeless-overview.md
-      - name: Azure VM and scale set
+      - name: Azure VM and virtual machine scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
         displayname: App Service, web app, PaaS, Azure web app
