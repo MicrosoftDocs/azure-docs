@@ -136,4 +136,5 @@ You can see the notification codes and set alerts on them via **LogAnalytics**. 
  
 
 ## Next steps
-[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.
+[Search logs](../log-query/log-query-overview.md) to view detailed network performance data records.
+

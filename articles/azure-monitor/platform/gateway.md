@@ -85,7 +85,7 @@ The Log Analytics gateway is available in these languages:
 
 The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, and 1.2.  It doesn't support Secure Sockets Layer (SSL).  To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.2. Older versions of TLS or SSL are vulnerable. Although they currently allow backward compatibility, avoid using them.  
 
-For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+For additional information, review [Sending data securely using TLS 1.2](./data-security.md#sending-data-securely-using-tls-12). 
 
 ### Supported number of agent connections
 
@@ -388,4 +388,5 @@ To get help, select the question mark icon in the upper-right corner of the port
 
 ## Next steps
 
-[Add data sources](../../azure-monitor/platform/agent-data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.
+[Add data sources](./agent-data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.
+

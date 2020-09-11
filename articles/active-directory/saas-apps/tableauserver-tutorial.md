@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Server | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Tableau Server.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c1917375-08aa-445c-a444-e22e23fa19e0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Server
@@ -145,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	b. Select the checkbox of **Enable SAML Authentication for the server**.
 
-	c. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as <http://tableau_server>. Using `http://localhost` is not recommended. Using a URL with a trailing slash (for example, `http://tableau_server/`) is not supported. Copy **Tableau Server return URL** and paste it in to **Sign On URL** textbox in **Basic SAML Configuration** section in the Azure portal
+	c. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as `http://tableau_server`. Using `http://localhost` is not recommended. Using a URL with a trailing slash (for example, `http://tableau_server/`) is not supported. Copy **Tableau Server return URL** and paste it in to **Sign On URL** textbox in **Basic SAML Configuration** section in the Azure portal
 
 	d. SAML entity ID—The entity ID uniquely identifies your Tableau Server installation to the IdP. You can enter your Tableau Server URL again here, if you like, but it does not have to be your Tableau Server URL. Copy **SAML entity ID** and paste it in to **Identifier** textbox in **Basic SAML Configuration** section in the Azure portal
 

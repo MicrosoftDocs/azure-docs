@@ -15,9 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
+ms.custom: devx-track-csharp
 
 ---
-# Use Azure Media Content Moderator to detect possible adult and racy content 
+# Use Azure Media Content Moderator to detect possible adult and racy content
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > The **Azure Media Content Moderator** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.

@@ -79,7 +79,7 @@ To instantiate a Storage Table service client, you must first have a valid conne
 $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
-### Add a Storage emulator connection
+### Add a Storage Emulator connection
 
 To access the emulator storage:
 

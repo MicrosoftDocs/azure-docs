@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.custom: mqtt
+ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
 # Understand and use device twins in IoT Hub

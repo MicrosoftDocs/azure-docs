@@ -45,7 +45,7 @@ To complete this tutorial:
 
 ## Create the web app
 
-To create the web app that you'll work with, follow the [static HTML quickstart](../app-service/app-service-web-get-started-html.md) through the **Browse to the app** step.
+To create the web app that you'll work with, follow the [static HTML quickstart](../app-service/quickstart-html.md) through the **Browse to the app** step.
 
 ## Log in to the Azure portal
 
@@ -57,7 +57,7 @@ Otherwise, if you don't want to optimize your new endpoint, you can use the web 
 
 ## Create a CDN profile and endpoint
 
-In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/app-service-web-get-started-html.md).
+In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/quickstart-html.md).
 
 ![Select App Service app in the portal](media/cdn-add-to-web-app/portal-select-app-services.png)
 

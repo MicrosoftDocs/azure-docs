@@ -20,7 +20,7 @@ This article provides an overview of TDSP and its main components. We provide a 
 
 ## Key components of the TDSP
 
-TDSP hads the following key components:
+TDSP has the following key components:
 
 - A **data science lifecycle** definition
 - A **standardized project structure**

@@ -4,7 +4,8 @@ description: Add tags to resources that you deploy in your Azure Resource Manage
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Add tags in your ARM template

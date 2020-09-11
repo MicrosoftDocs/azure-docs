@@ -39,6 +39,8 @@ Many server parameters and settings can inadvertently degrade server performance
 Similarly [SUPER privilege](https://mariadb.com/kb/en/library/grant/#global-privileges) is also restricted.
 - DEFINER: 
 Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
+- System databases:
+In Azure Database for MariaDB, the [mysql system database](https://mariadb.com/kb/en/the-mysql-database-tables/) is read-only as it is used to support various PaaS service functionality. Please note that you cannot change anything in the `mysql` system database.
 
 ## Data manipulation statement support
 

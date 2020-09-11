@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 
 # Tutorial: Enroll the device to an IoT hub using the Azure IoT Hub Provisioning Service Client (.NET)

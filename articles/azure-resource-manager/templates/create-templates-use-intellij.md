@@ -4,6 +4,7 @@ description: Learn how to create your first Azure Resource Manager template usin
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
+ms.custom: devx-track-java
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the IntelliJ IDEA to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 

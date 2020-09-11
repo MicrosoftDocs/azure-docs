@@ -20,7 +20,7 @@ Learn how to deploy the language detection container. This procedure shows you h
 
 This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud shell.
 
-* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 * [Git](https://git-scm.com/downloads) for your operating system so you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a console window.

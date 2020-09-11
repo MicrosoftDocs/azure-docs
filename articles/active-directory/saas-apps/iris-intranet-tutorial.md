@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Iris Intranet | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Iris Intranet.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a97cb2c6-a2a1-48f9-bf0f-d8434c0e0e0e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Iris Intranet
 

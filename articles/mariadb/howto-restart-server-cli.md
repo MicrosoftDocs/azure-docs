@@ -5,7 +5,8 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 3/18/2020
+ms.date: 3/18/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Restart Azure Database for MariaDB server using the Azure CLI

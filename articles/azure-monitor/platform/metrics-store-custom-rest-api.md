@@ -14,7 +14,7 @@ ms.subservice: metrics
 This article shows you how to send custom metrics for Azure resources to the Azure Monitor metrics store via a REST API. After the metrics are in Azure Monitor, you can do all the things with them that you do with standard metrics. Examples are charting, alerting, and routing them to other external tools.  
 
 >[!NOTE]  
->The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in different environments or on-premises, you can use [Application Insights](../../azure-monitor/app/api-custom-events-metrics.md).    
+>The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in different environments or on-premises, you can use [Application Insights](../app/api-custom-events-metrics.md).    
 
 
 ## Create and authorize a service principal to emit metrics 
@@ -88,7 +88,7 @@ If you receive an error message with some part of the process, consider the foll
 1. You can't issue metrics against a subscription or resource group as your Azure resource. 
 1. You can't put a metric into the store that's over 20 minutes old. The metric store is optimized for alerting and real-time charting. 
 2. The number of dimension names should match the values and vice versa. Check the values. 
-2. You might be emitting metrics against a region that doesn’t support custom metrics. See [supported regions](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
+2. You might be emitting metrics against a region that doesn’t support custom metrics. See [supported regions](./metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -112,5 +112,5 @@ If you receive an error message with some part of the process, consider the foll
 
  
 ## Next steps
-- Learn more about [custom metrics](../../azure-monitor/platform/metrics-custom-overview.md).
+- Learn more about [custom metrics](./metrics-custom-overview.md).
 

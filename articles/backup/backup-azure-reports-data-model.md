@@ -15,7 +15,7 @@ This table provides information about core backup entities, such as vaults and b
 | ResourceId                        | Text          | Resource identifier for data being collected. For example, Recovery Services vault resource ID. |
 | OperationName                     | Text          | This field represents the name of the current operation - BackupItem, BackupItemAssociation, or  ProtectedContainer. |
 | Category                          | Text          | This field represents the category of diagnostics data pushed to Azure Monitor logs. For example, CoreAzureBackup. |
-| AgentVersion                      | Text          | Version number of  Agent Backup or the Protection Agent (in case of SC DPM and MABS) |
+| AgentVersion                      | Text          | Version number of  Agent Backup or the Protection Agent (in the case of SC DPM and MABS) |
 | AzureBackupAgentVersion           | Text          | Version of the Azure Backup Agent on the Backup Management Server |
 | AzureDataCenter                   | Text          | Data center where the vault is located                       |
 | BackupItemAppVersion              | Text          | Application version of the backup item                       |
@@ -47,7 +47,7 @@ This table provides information about core backup entities, such as vaults and b
 | ProtectedContainerWorkloadType    | Text          | Type of the Protected  Container backed up. For example, IaaSVMContainer |
 | ProtectionGroupName               | Text          | Name of the   Protection Group the Backup Item is protected in, for SC DPM, and MABS, if   applicable |
 | ResourceGroupName                 | Text          | Resource group of the resource (for example, Recovery Services vault) for data being collected |
-| SchemaVersion                     | Text          | This field denotes the current version of the schema, it is **V2** |
+| SchemaVersion                     | Text          | This field denotes the current version of the schema. It is **V2** |
 | SecondaryBackupProtectionState    | Text          | Whether secondary protection is enabled for the backup item  |
 | State                             | Text          | State of the backup item object. For example, Active, Deleted |
 | StorageReplicationType            | Text          | Type of storage  replication for the vault. For example, GeoRedundant |
@@ -78,7 +78,7 @@ This table provides details about alert related fields.
 | BackupItemUniqueId             | Text          | Unique identifier of  the backup item associated with the alert |
 | BackupManagementServerUniqueId | Text          | Field to uniquely identify the Backup Management Server the Backup Item is protected through,  if applicable |
 | BackupManagementType           | Text          | Provider type for  server doing backup job, for example, IaaSVM, FileFolder |
-| CountOfAlertsConsolidated      | Number        | Number of alerts consolidated if it is a consolidated alert  |
+| CountOfAlertsConsolidated      | Number        | Number of alerts consolidated if it's a consolidated alert  |
 | ProtectedContainerUniqueId     | Text          | Unique identifier of  the protected server associated with the alert |
 | RecommendedAction              | Text          | Action recommended to resolve the alert                      |
 | SchemaVersion                  | Text          | Current version of the schema, for example **V2**            |
@@ -129,8 +129,8 @@ This table provides details about job-related fields.
 | JobUniqueId                    | Text          | Unique ID to identify the job                                |
 | ProtectedContainerUniqueId     | Text          | Unique identifier of the protected server associated with the job |
 | RecoveryJobDestination         | Text          | Destination of a recovery job, where the data is recovered   |
-| RecoveryJobRPDateTime          | DateTime      | The date, time when the recovery point that is being recovered   was created |
-| RecoveryJobLocation            | Text          | The location where the recovery point that is being   recovered was stored |
+| RecoveryJobRPDateTime          | DateTime      | The date, time when the recovery point that's being recovered   was created |
+| RecoveryJobLocation            | Text          | The location where the recovery point that's being recovered was stored |
 | RecoveryLocationType           | Text          | Type of the Recovery Location                                |
 | SchemaVersion                  | Text          | Current version of the schema, for example **V2**            |
 | State                          | Text          | Current state of the job object, for example, Active,   Deleted |
@@ -159,12 +159,12 @@ This table provides details about policy-related fields.
 | DiffBackupTime                  | Time           | Time for Differential backups for SQL in Azure VM Backup     |
 | LogBackupFrequency              | Decimal Number | Frequency for Log backups for SQL                            |
 | LogBackupRetentionDuration      | Decimal Number | Retention duration for Log backups for SQL in Azure VM   Backup |
-| MonthlyRetentionDaysOfTheMonth  | Text           | Weeks of the month when monthly retention is configured.  For example, First, Last, etc. |
+| MonthlyRetentionDaysOfTheMonth  | Text           | Weeks of the month when monthly retention is configured.  For example, First, Last |
 | MonthlyRetentionDaysOfTheWeek   | Text           | Days of the week selected for monthly retention              |
 | MonthlyRetentionDuration        | Text           | Total retention duration in months for configured backups    |
 | MonthlyRetentionFormat          | Text           | Type of configuration for monthly retention. For example,   daily for day based, weekly for week based |
 | MonthlyRetentionTimes           | Text           | Date and time when monthly retention is configured           |
-| MonthlyRetentionWeeksOfTheMonth | Text           | Weeks of the month when monthly retention is configured.   For example, First, Last, etc. |
+| MonthlyRetentionWeeksOfTheMonth | Text           | Weeks of the month when monthly retention is configured.   For example, First, Last |
 | PolicyName                      | Text           | Name of the policy defined                                   |
 | PolicyUniqueId                  | Text           | Unique ID to identify the policy                             |
 | PolicyTimeZone                  | Text           | Timezone in which the Policy Time Fields are specified in   the logs |

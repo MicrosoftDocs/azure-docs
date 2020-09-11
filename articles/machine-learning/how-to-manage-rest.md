@@ -7,16 +7,16 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/31/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 ---
 
 # Create, run, and delete Azure ML resources using REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), or [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
+There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), or [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
 
 In this article, you learn how to:
 
@@ -199,8 +199,8 @@ Notice that to list experiments the path begins with `history/v1.0` while to lis
 
 |Area|Path|
 |-|-|
-|Artifacts|artifact/v2.0/|
-|Data stores|datastore/v1.0/|
+|Artifacts|/rest/api/azureml|
+|Data stores|/azure/machine-learning/how-to-access-data|
 |Hyperparameter tuning|hyperdrive/v1.0/|
 |Models|modelmanagement/v1.0/|
 |Run history|execution/v1.0/ and history/v1.0/|

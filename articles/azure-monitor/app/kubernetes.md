@@ -14,10 +14,10 @@ ms.date: 04/25/2019
 > This functionality is currently being deprecated and will no longer be supported after August 1st, 2020.
 > Currently the codeless monitoring can only be enabled for [Java through standalone agent](./java-in-process-agent.md). For other languages, use the SDKs to monitor your apps on AKS: [ASP.Net Core](./asp-net-core.md), [ASP.Net](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md), and [Python](./opencensus-python.md).
 
-Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. With default Application Insight features like [Application Map](../../azure-monitor/app/app-map.md) to model your dependencies, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) for real-time monitoring, powerful visualizations with the [default dashboard](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md), and [Workbooks](../../azure-monitor/platform/workbooks-overview.md). This feature will help users spot performance bottlenecks and failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By capitalizing on your existing service mesh investments with technologies like Istio, Azure Monitor enables auto-instrumented app monitoring without any modification to your application's code.
+Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. With default Application Insight features like [Application Map](./app-map.md) to model your dependencies, [Live Metrics Stream](./live-stream.md) for real-time monitoring, powerful visualizations with the [default dashboard](./overview-dashboard.md), [Metric Explorer](../platform/metrics-getting-started.md), and [Workbooks](../platform/workbooks-overview.md). This feature will help users spot performance bottlenecks and failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By capitalizing on your existing service mesh investments with technologies like Istio, Azure Monitor enables auto-instrumented app monitoring without any modification to your application's code.
 
 > [!NOTE]
-> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) without the need for a service mesh. To monitor Kubernetes without instrumenting the application with an SDK you can use the below method.
+> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../azure-monitor-app-hub.yml) without the need for a service mesh. To monitor Kubernetes without instrumenting the application with an SDK you can use the below method.
 
 ## Prerequisites
 
@@ -30,12 +30,12 @@ Azure Monitor now leverages service mesh tech on your Kubernetes cluster to prov
 
 By using zero instrumentation application monitoring for Kubernetes hosted apps, you will be able to use:
 
-- [Application Map](../../azure-monitor/app/app-map.md)
-- [Live Stream Metrics](../../azure-monitor/app/live-stream.md)
-- [Dashboards](../../azure-monitor/app/overview-dashboard.md)
-- [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md)
-- [Distributed-tracing](../../azure-monitor/app/distributed-tracing.md)
-- [End-to-end transaction monitoring](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
+- [Application Map](./app-map.md)
+- [Live Stream Metrics](./live-stream.md)
+- [Dashboards](./overview-dashboard.md)
+- [Metrics Explorer](../platform/metrics-getting-started.md)
+- [Distributed-tracing](./distributed-tracing.md)
+- [End-to-end transaction monitoring](../learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## Installation steps
 
@@ -139,4 +139,5 @@ kubectl delete -f <filename.yaml>
 
 ## Next steps
 
-To learn more about how Azure Monitor and containers work together visit [Azure Monitor for containers overview](../../azure-monitor/insights/container-insights-overview.md)
+To learn more about how Azure Monitor and containers work together visit [Azure Monitor for containers overview](../insights/container-insights-overview.md)
+

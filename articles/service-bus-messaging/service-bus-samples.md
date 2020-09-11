@@ -25,5 +25,4 @@ In addition, the [Service Bus Explorer](https://github.com/paolosalvatori/Servic
 See the following topics for conceptual overviews of Service Bus.
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus architecture](service-bus-architecture.md)
-
+* [Service Bus architecture](./service-bus-messaging-overview.md)

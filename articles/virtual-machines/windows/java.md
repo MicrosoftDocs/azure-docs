@@ -7,6 +7,7 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
+ms.custom: devx-track-java
 ms.author: cynthn
 
 ---
@@ -407,7 +408,7 @@ input.nextLine();
 
 ### Resize the VM
 
-Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](sizes.md).  
+Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](../sizes.md).  
 
 To change size of the virtual machine, add this code to the try block in the main method:
 

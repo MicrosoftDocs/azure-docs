@@ -86,7 +86,7 @@ Use the following process to create the necessary service endpoint policies:
 
     If you prefer to set up your service endpoint policy using PowerShell, using the following code snippet.
     
-    ```json
+    ```powershell
     #Script to assign SEP 
     $subscriptionId = "<subscription id>"
     $rgName = "<resource group name>"

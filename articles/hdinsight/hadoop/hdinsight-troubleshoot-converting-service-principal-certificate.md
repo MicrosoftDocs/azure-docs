@@ -7,6 +7,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
+ms.custom: devx-track-csharp
 ---
 
 # Converting service principal certificate contents to base-64 encoded string format in HDInsight

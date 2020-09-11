@@ -28,7 +28,7 @@ A maximum of two event sources per instance is supported.
 * Learn how to [Add an event hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configure [an IoT hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-By default, [Gen2 environments support ingress rates](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-throughput-limitations) up to **1 megabyte per second (MB/s) per environment**. Customers may scale their environments up to **16 MB/s** throughput if necessary. There is also a per-partition limit of **0.5 MB/s**.
+By default, [Gen2 environments support ingress rates](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) up to **1 megabyte per second (MB/s) per environment**. Customers may scale their environments up to **16 MB/s** throughput if necessary. There is also a per-partition limit of **0.5 MB/s**.
 
 ### API limits
 

@@ -56,7 +56,7 @@ This step may take several minutes to complete.
 Integrate an existing ACR with existing AKS clusters by supplying valid values for **acr-name** or **acr-resource-id** as below.
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
 ```
 
 or,
@@ -68,7 +68,7 @@ az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 You can also remove the integration between an ACR and an AKS cluster with the following
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-name>
 ```
 
 or
@@ -85,7 +85,7 @@ Import an image from docker hub into your ACR by running the following:
 
 
 ```azurecli
-az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
+az acr import  -n <acr-name> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
 ### Deploy the sample image from ACR to AKS
@@ -96,7 +96,7 @@ Ensure you have the proper AKS credentials
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Create a file called **acr-nginx.yaml** that contains the following:
+Create a file called **acr-nginx.yaml** that contains the following. Substitute the resource name of your registry for **acr-name**. Example: *myContainerRegistry*.
 
 ```yaml
 apiVersion: apps/v1
@@ -117,7 +117,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <replace this image property with you acr login server, image and tag>
+        image: <acr-name>.azurecr.io/nginx:v1
         ports:
         - containerPort: 80
 ```

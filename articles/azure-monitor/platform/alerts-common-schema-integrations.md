@@ -133,5 +133,6 @@ This article assumes that the reader is familiar with
 
 ## Next steps
 
-* [Learn more about action groups](../../azure-monitor/platform/action-groups.md).
+* [Learn more about action groups](./action-groups.md).
 * [Learn more about the common alert schema](https://aka.ms/commonAlertSchemaDocs).
+

@@ -7,7 +7,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-java
 ---
 
 # Performance tips for Azure Cosmos DB Async Java SDK v2
@@ -235,28 +235,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
     ```
     * - nofile 100000
     ```
-
-* **Use native TLS/SSL implementation for netty**
-
-    Netty can use OpenSSL directly for TLS implementation stack to achieve better performance. In the absence of this configuration netty will fall back to Java's default TLS implementation.
-
-    on Ubuntu:
-    ```bash
-    sudo apt-get install openssl
-    sudo apt-get install libapr1
-    ```
-
-    and add the following dependency to your project maven dependencies:
-    ```xml
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative</artifactId>
-      <version>2.0.20.Final</version>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-    ```
-
-For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
 
 ## Indexing Policy
  

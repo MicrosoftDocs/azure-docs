@@ -33,7 +33,10 @@ ms.custom: "include file"
    
    ![Create Azure Cache for Redis](media/redis-cache-create/redis-cache-cache-create.png) 
    
-   It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
+   > [!NOTE]
+   > You can expect the provisioning of the Cache to take around 15 to 20 minutes.   
+   
+   You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
    
    ![Azure Cache for Redis created](media/redis-cache-create/redis-cache-cache-created.png)
 

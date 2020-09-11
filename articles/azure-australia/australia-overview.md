@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: overview
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ms.custom: references_regions
 ---
 

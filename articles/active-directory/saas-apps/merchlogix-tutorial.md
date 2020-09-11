@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Merchlogix | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Merchlogix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a1f49bb8-6b17-433d-8f25-9d26fb390e77
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Merchlogix
 

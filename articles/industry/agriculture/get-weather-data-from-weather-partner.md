@@ -9,7 +9,11 @@ ms.author: sunasing
 
 # Get weather data from weather partners
 
-Azure FarmBeats helps you to bring weather data from your weather data providers by using a Docker-based Connector Framework. Using this framework, weather data providers implement a Docker that can be integrated with FarmBeats. Currently, only the [DTN](https://www.dtn.com/dtn-content-integration/) weather data provider is supported.
+Azure FarmBeats helps you to bring weather data from your weather data providers by using a Docker-based Connector Framework. Using this framework, weather data providers implement a Docker that can be integrated with FarmBeats. Currently, the following weather data provider is supported.
+
+  ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+  
+   [DTN](https://www.dtn.com/dtn-content-integration/)
 
 The weather data can be used to generate actionable insights and build AI or ML models in FarmBeats.
 
@@ -21,7 +25,7 @@ To get weather data, ensure that you have [installed FarmBeats](https://aka.ms/f
 
 To start getting weather data on your FarmBeats Datahub:
 
-1. Go to your FarmBeats Datahub [Swagger](https://farmbeatswebsite-api.azurewebsites.net/swagger).
+1. Go to your FarmBeats Datahub Swagger `https://farmbeatswebsite-api.azurewebsites.net/swagger`.
 
 2. Go to the /Partner API and then make a POST request. Use the following input payload:
 

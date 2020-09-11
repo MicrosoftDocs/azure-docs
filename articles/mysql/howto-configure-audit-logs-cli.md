@@ -5,7 +5,8 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/24/2020
+ms.date: 6/24/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure and access audit logs in the Azure CLI

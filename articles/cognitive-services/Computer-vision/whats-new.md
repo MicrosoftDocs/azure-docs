@@ -20,6 +20,18 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 The [spatial analysis container](spatial-analysis-container.md) is now in preview. The spatial analysis feature of Computer Vision lets you understand people’s movements and interactions with physical spaces. Use the container on real-time video, pre-recorded video, and images.
 
+## July 2020
+
+### Read API v3.1 Public Preview adds Simplified Chinese support
+Computer Vision's Read API v3.1 public preview adds support for Simplified Chinese.
+
+* This preview version of the Read API supports English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish languages.
+
+See the [Read API overview](concept-recognizing-text.md) to learn more.
+
+> [!div class="nextstepaction"]
+> [Learn more about Read API v3.1 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+
 ## May 2020
 Computer Vision API v3.0 entered General Availability, with updates to [Read API](concept-recognizing-text.md):
 
@@ -34,7 +46,7 @@ Computer Vision API v3.0 entered General Availability, with updates to [Read API
 
 ## January 2020
 
-### Read API 3.0 preview
+### Read API 3.0 Public Preview
 
 You now have the option to use version 3.0 of the Read API to extract printed or handwritten text from images. Compared to earlier versions, 3.0 provides:
 * Improved accuracy
