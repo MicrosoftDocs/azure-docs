@@ -341,7 +341,7 @@ sepago's innovation and development lab builds smart solutions using big data an
 
 SSH2 is a Windows Virtual Desktop value-added services provider that equips your IT teams with software to speed up the application delivery from the current platform to Windows Virtual Desktop on Azure. SSH2 lets IT accelerate application capture to streamline the migration process. SSH2’s appCURE captures running applications on the endpoint, enables updating and remediation to create a comprehensive step change in the speed in which end-user environments can be executed. 
 
-appCURE captures application details from running applications to ensure all points that may impact your end-user’s applications are understood. appCURE then updates and delivers them to your new Windows Virtual Desktop. By capturing all application integration points in your current environment, appCURE provides the speed to optimize IT resources and plan for your migrations better and quicker than ever before thus enabling organisations to get to production faster.
+appCURE captures application details from running applications to ensure all points that may impact your end-user’s applications are understood. appCURE then updates and delivers them to your new Windows Virtual Desktop. By capturing all application integration points in your current environment, appCURE provides the speed to optimize IT resources and plan for your migrations better and quicker than ever before thus enabling organizations to get to production faster.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
 - [Go to the partner page](https://www.ssh2.xyz/windows-virtual-desktop/).
