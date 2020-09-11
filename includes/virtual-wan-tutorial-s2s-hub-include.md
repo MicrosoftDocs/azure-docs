@@ -12,7 +12,7 @@
 1. Locate the Virtual WAN that you created. On the Virtual WAN page, under the **Connectivity** section, select **Hubs**.
 2. On the Hubs page, select **+New Hub** to open the **Create virtual hub** page.
 
-    ![Screenshot shows the Create virtual hub pane with the basics tab selected.](./media/virtual-wan-tutorial-hub-include/basics.png "Basics")
+    ![Screenshot shows the Create virtual hub pane with the Basics tab selected.](./media/virtual-wan-tutorial-hub-include/basics.png "Basics")
 3. On the **Create virtual hub** page **Basics** tab, complete the following fields:
 
     **Project details**

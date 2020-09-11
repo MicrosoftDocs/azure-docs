@@ -39,7 +39,7 @@ Once you have fixed the issues that resulted in the rollback, you need to initia
 ## Set the upgrade mode using a Resource Manager template
 Add the "upgradeMode" configuration to the Microsoft.ServiceFabric/clusters resource definition and set the "clusterCodeVersion" to one of the supported fabric versions as shown below and then deploy the template. The valid values for "upgradeMode" are "Manual" or "Automatic"
 
-![Screenshot shows a temple, which is plaintext indented to reflect structure and the clusterCodeVersion and upgradeMode are highlighted.][ARMUpgradeMode]
+![Screenshot shows a template, which is plaintext indented to reflect structure and the clusterCodeVersion and upgradeMode are highlighted.][ARMUpgradeMode]
 
 ### Upgrading to a new version on a cluster that is set to Manual mode via a Resource Manager template.
 When the cluster is in Manual mode, to upgrade to a new version, change the "clusterCodeVersion" to a supported version and deploy it. 
