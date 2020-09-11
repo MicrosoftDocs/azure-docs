@@ -27,6 +27,8 @@
     href: security-benchmark-v2-endpoint-security.md
   - name: Backup and recovery
     href: security-benchmark-v2-backup-recovery.md
+  - name: Governance and Strategy
+    href: security-benchmark-v2-governance-strategy.md
 
 - name: Security Controls (v1)
   items:
