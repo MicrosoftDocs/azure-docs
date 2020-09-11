@@ -215,7 +215,7 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
-### Understand these two additional lines
+### Understand the code changes
 
 - **`env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')`** Azure Machine Learning provides the concept of an `Environment` to represent a reproducible, versioned
 Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
