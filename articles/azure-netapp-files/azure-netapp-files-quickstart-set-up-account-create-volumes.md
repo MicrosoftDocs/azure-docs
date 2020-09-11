@@ -62,6 +62,10 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
+# [ARM Template](#tab/arm-template)
+
+////TBD////
+
 ---
 
 ## Create a NetApp account
@@ -146,6 +150,11 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --location $LOCATION \
         --account-name $ANF_ACCOUNT_NAME
     ```
+
+# [ARM Template](#tab/arm-template)
+
+////TBD////
+
 ---
 
 ## Set up a capacity pool
@@ -208,6 +217,10 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --size $POOL_SIZE_TiB \
         --service-level $SERVICE_LEVEL
     ```
+
+# [ARM Template](#tab/arm-template)
+
+////TBD////
 
 ---
 
@@ -348,6 +361,10 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --protocol-types "NFSv3"
     ```
 
+# [ARM Template](#tab/arm-template)
+
+////TBD////
+
 ---
 
 ## Clean up resources
@@ -402,6 +419,11 @@ When you are done and if you want to, you can delete the resource group. The act
     az group delete \
         --name $RESOURCE_GROUP
     ```
+
+# [ARM Template](#tab/arm-template)
+
+////TBD////
+
 ---
 
 ## Next steps  
