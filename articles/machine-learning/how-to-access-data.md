@@ -221,6 +221,14 @@ The following example demonstrates what the form looks like when you create an *
     
 ![Form for a new datastore](media/how-to-access-data/new-datastore-form.png)
 
+<a name="arm"></a>
+
+## Create datastores using Azure Resource Manager
+
+There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) that can be used to create datastores.
+
+For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
+
 <a name="train"></a>
 ## Use data in your datastores
 

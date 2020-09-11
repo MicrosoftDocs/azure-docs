@@ -225,7 +225,13 @@ To create a dataset in the studio:
     1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio).
 1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
 1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile). 
-1. Select **Create** to complete your dataset creation.
+1. Select **Create** to complete your dataset creation
+
+## Create datasets using Azure Resource Manager
+
+There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) that can be used to create datasets.
+
+For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 
 ## Create datasets with Azure Open Datasets
 
