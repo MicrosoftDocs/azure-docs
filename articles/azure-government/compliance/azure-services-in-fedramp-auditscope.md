@@ -49,6 +49,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Stack Edge (Data Box Edge)](https://azure.microsoft.com/services/databox/edge/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Azure Data Box](https://azure.microsoft.com/services/databox/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;**  |  |
 | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Data Share](https://azure.microsoft.com/services/data-share/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -117,6 +118,8 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Data Factory](https://azure.microsoft.com/services/data-factory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [D365 Integrator App](https://docs.microsoft.com/power-platform/admin/data-integrator) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dynamics 365 Finance](https://dynamics.microsoft.com/finance/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Dynamics 365 Commerce](https://dynamics.microsoft.com/commerce/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Dynamics 365 Supply Chain](https://dynamics.microsoft.com/supply-chain-management/overview/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dynamics 365 Service Omni-Channel Engagement Hub](https://docs.microsoft.com/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dynamics 365 Customer Engagement (Common Data Service)](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Event Grid](https://azure.microsoft.com/services/event-grid/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -175,6 +178,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 
+**&ast;** FedRAMP high certification covers Datacenter Infrastructure Services & Databox Pod and Disk Service which are the online software components supporting Data Box hardware. 
 
 ## Azure Government services by audit scope
 | _Last Updated: August 2020_ |

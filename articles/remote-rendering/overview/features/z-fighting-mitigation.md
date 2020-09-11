@@ -48,7 +48,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > Z-fighting mitigation is a global setting that affects all rendered meshes.
 
