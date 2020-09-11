@@ -74,24 +74,15 @@ This table specifies the child workflow's behavior based on whether the parent a
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* [Visual Studio Code version 1.25.1 or later](https://code.visualstudio.com/), which is free, along with these tools for Visual Studio Code:
+* [Visual Studio Code 1.25.1 or higher](https://code.visualstudio.com/), which is free, along with these tools for Visual Studio Code:
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
 
-  * [Azure Functions Core Tools](../azure-functions/functions-run-local.md) 3.0.2569. If you have an earlier installation, uninstall that version first, or make sure that the PATH environment variable points at the appropriate version specified here after you download and install the core tools:
+  * [Azure Functions Core Tools 3.0.2569 or higher](../azure-functions/functions-run-local.md). If you have an earlier installation, uninstall that version first, or make sure that the PATH environment variable points at the appropriate version specified here after you download and install the core tools:
 
     * [Win x64 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x64.msi)
 
     * [Win x86 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x86.msi)
-
-  * [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). The emulator also requires that you have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/?linkid=866658), for the emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
-
-    > [!IMPORTANT]
-    > Before you create your workflow, make sure that you start the emulator. Otherwise, you later get a message that the 
-    > `Workflow design time could not be started` when you try to open your workflow app in the Logic App Designer. For more 
-    > information, see [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
-    >
-    > ![Screenshot that shows Azure Storage Emulator running.](./media/create-stateless-stateful-workflows/start-storage-emulator.png)
 
   * [Azure Functions for Visual Studio Code 0.22.1-alpha (ZIP)](https://workflowscdn.azureedge.net/2020-05-preview/VsExtension/LogicAppsVSCodeExtension-0.22.1-alpha.zip)
 
@@ -99,11 +90,41 @@ This table specifies the child workflow's behavior based on whether the parent a
 
     1. Download the ZIP file to your local computer and extract file.
 
-    1. In Visual Studio Code, on the left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button > **Install from VSIX**.
+    1. In Visual Studio Code, on the left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button **>** **Install from VSIX**.
 
        ![Screenshot that shows Visual Studio extension menu with selected ellipses button and the "Install from VSIX menu command".](./media/create-stateless-stateful-workflows/install-from-vsix.png)
 
-* Before you can connect to any services or systems in workflow apps that you build with Visual Studio Code, you have to first create these connections by using the Logic App Designer in [Azure portal](https://portal.azure.com).
+* Based on the operating system where you are running Visual Studio Code, set up the corresponding storage solution:
+
+  **Mac OS**
+
+  1. Sign in to the [Azure portal](https://portal.azure.com).
+  
+  1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+
+  1. [Find and copy the storage account's connection string](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys), for example:
+
+     `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
+
+     ![Screenshot that shows Azure portal with storage account access keys and connection string copied.](./media/create-stateless-stateful-workflows/find-storage-account-connection-string.png)
+
+  1. Save the string somewhere safe so that you can later add the string to the `local.settings.json` files in your function app project.
+
+     When you later try to open the Logic App Designer for your workflow app in the function app project that you created, you get a message that the `Workflow design time could not be started`. After this message appears, you have to add the storage account's connection string to the two `local.settings.json` files in the function app project, and retry opening the designer again.
+
+  **Windows or another OS**
+
+  Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). To run the emulator, you also need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+
+  > [!IMPORTANT]
+  > Before you create your workflow app, make sure that you first start the emulator. 
+  > Otherwise, when you try to open your workflow app in the Logic App Designer, 
+  > you get a message that the `Workflow design time could not be started`. For more 
+  > information, see [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
+  >
+  > ![Screenshot that shows Azure Storage Emulator running.](./media/create-stateless-stateful-workflows/start-storage-emulator.png)
+
+* Before you can connect to any services or systems in workflow apps that you build with Visual Studio Code, you have to first create these connections in the [Azure portal](https://portal.azure.com) by creating a logic app and using the Logic App Designer.
 
   > [!IMPORTANT]
   > For these connections, make sure that you create a logic app that uses the same Azure subscription and 
@@ -116,7 +137,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 After you install all the extensions, disable automatic extension updates for Visual Studio Code so that the preview extension isn't overwritten by the public extension when you restart Visual Studio Code.
 
-1. In Visual Studio Code, on the **File** menu, select **Preferences** > **Settings**.
+1. In Visual Studio Code, on the **File** menu, select **Preferences** **>** **Settings**.
 
 1. Under **User**, expand **Features**, and select **Extensions**.
 
@@ -128,7 +149,7 @@ After you install all the extensions, disable automatic extension updates for Vi
 
 1. Set Visual Studio Code to use Azure Functions Project Runtime version 3.
 
-   1. On the **File** menu, select **Preferences** > **Settings**.
+   1. On the **File** menu, select **Preferences** **>** **Settings**.
 
    1. Under **User**, expand **Extensions**, and select **Azure Functions**.
 
@@ -225,19 +246,30 @@ Now, continue creating your workflow app.
 
    ![Screenshot that shows Explorer pane and shortcut window for workflow.json file with Open in Designer selected.](./media/create-stateless-stateful-workflows/open-definition-file-in-designer.png)
 
-   If Windows Defender Firewall prompts you to grant access for the `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** > **Allow access**.
+   If Windows Defender Firewall prompts you to grant access for the `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
    ![Screenshot that shows Windows Defender Firewall with "Private networks, such as my home or work network" selected and "Allow access" selected.](./media/create-stateless-stateful-workflows/windows-defender-firewall.png)
 
-   > [!NOTE]
-   > If you get the message that `Workflow design time could not be started`, try these steps:
-   >
-   > * Make sure that Azure Storage Emulator is running. For more information, see 
-   > [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
-   >
-   > * Close everything, restart your computer, reopen your workflow project, and retry opening the `workflow.json` file in the designer.
-   >
-   > * Delete the `ExtensionBundles` folder at this location `...\Users\<your-username>\AppData\Local\Temp\Functions\ExtensionBundles`, and retry opening the `workflow.json` file in the designer.
+   Based on the operating system that you use, the message that the `Workflow design time could not be started` might appear.
+
+   * For Mac OS, follow these steps:
+
+     1. In your function app project, find the `local.settings.json` file in your project's root folder and in the `workflow-designtime` folder.
+
+        ![Screenshot that shows Explorer pane and 'local.settings.json` files in your function app project.](./media/create-stateless-stateful-workflows/local-settings-json-files.png)
+
+     1. Add the storage account connection string that you previously saved to each `local.settings.json` file.
+
+     1. Save your changes, and try reopening the `workflow.json` file in the designer.
+
+   * For Windows or another OS, try these steps:
+
+     * Make sure that the Azure Storage Emulator is running. For more information, see 
+   [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
+
+     * Delete the `ExtensionBundles` folder at this location `...\Users\<your-username>\AppData\Local\Temp\Functions\ExtensionBundles`, and retry opening the `workflow.json` file in the designer.
+
+     * Close everything, restart your computer, reopen your workflow project, and retry opening the `workflow.json` file in the designer.
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available in the Azure portal, not only connectors for Azure services.
 
@@ -298,7 +330,7 @@ The workflow in this example uses this trigger and these actions:
    >
    > 1. On the Logic App Designer, select the item.
    >
-   > 1. In the item's details pane that opens to the right side, select the ellises (**...**) button > **Delete**.
+   > 1. In the item's details pane that opens to the right side, select the ellises (**...**) button **>** **Delete**.
    > 
    >    ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateless-stateful-workflows/delete-item-from-designer.png)
 
@@ -431,7 +463,7 @@ To send a reply and return data back to the caller of your workflow app, add the
 
       ![Screenshot that shows the open dynamic content list. In the list, under "Invoke a function in this function app" header, the "Body" output value is selected.](./media/create-stateless-stateful-workflows/select-function-action-body-output-value.png)
 
-      When you're done, the Response action's **Body** property is now set to the **Invoke a function in this function app** actions' **Body** output value.
+      When you're done, the Response action's **Body** property is now set to the **Invoke a function in this function app** action's **Body** output value.
 
       ![Screenshot that shows the "Response" action's details pane with the "Body" property set to the "Invoke a function in this function app" action's "Body" output value.](./media/create-stateless-stateful-workflows/response-action-details-body-property.png)
 
@@ -595,11 +627,14 @@ By using the .NET Core command-line interface (CLI), you can build a Docker cont
 
 ## Deploy to function app in Azure
 
-You can publish your Functions project directly to Azure from Visual Studio Code. This process creates a function app and the related resources in your Azure subscription.
+You can publish your function app project directly to Azure from Visual Studio Code. This process either creates a function app and the related resources in your Azure subscription or deploys to an existing function app.
 
 * If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app. 
 
 * If you publish to an existing function app in Azure, you overwrite the contents for that app in Azure.
+
+1. To include and enable run history for stateful workflow apps in your deployment, check or set the function app's CORS property is set to the wildcard (**\***) character. For more information, see [Run history of function apps - GitHub Issue #104](https://github.com/Azure/logicapps/issues/104).
+
 
 ## Next steps
 
