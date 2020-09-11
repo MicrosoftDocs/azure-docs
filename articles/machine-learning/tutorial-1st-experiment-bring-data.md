@@ -13,7 +13,7 @@ ms.date: 09/09/2020
 ms.custom: tracking-python
 ---
 
-# Tutorial: Bring your own data
+# Tutorial: Bring your own data (Part 4 of 5)
 
 In the previous [Tutorial: Train a model in the cloud](tutorial-1st-experiment-sdk-train.md) article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning. 
 
@@ -197,20 +197,24 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 The `target_path` specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
 >[!TIP] 
-> Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) to ingest your data into Azure.
+> Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) can be used to ingest your data into Azure.
 
-Run the Python file to upload the data (Note: The run should be quick, less than 15 seconds.)
+Run the Python file to upload the data (Note: The upload should be quick, less than 60 seconds.)
 
 ```bash
 python 05-upload-data.py
 ```
+You should see the following standard output:
+```txt
+Uploading ./data\cifar-10-batches-py\data_batch_2
+Uploaded ./data\cifar-10-batches-py\data_batch_2, 4 files out of an estimated total of 9
+.
+.
+Uploading ./data\cifar-10-batches-py\data_batch_5
+Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
+Uploaded 9 files
+```
 
-To check the upload was successful:
-
-1. Visit the [Azure portal](https://ms.portal.azure.com/)
-1. Select your resource group.
-1. Select your storage account. In your storage account, there is a container called "azureml-blobstore-GUID". You should find the CIFAR10 data uploaded to
-the target path.
 
 ## Create a control-plane python script
 
@@ -258,7 +262,7 @@ if __name__ == "__main__":
 - **`dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))`**: A Dataset is used to reference the data you uploaded to the Azure Blob Store. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
 - **`config = ScriptRunConfig(...)`**: We modified the `ScriptRunConfig` to include a list of arguments that will be passed into `train.py`. We also specified `dataset.as_named_input('input').as_mount()`, which means the directory specified will be _mounted_ to the compute target.
 
-## Submit run to Azure Machine Learning compute cluster
+## Submit run to Azure Machine Learning
 
 Now resubmit the run to use the new configuration:
 
@@ -266,20 +270,18 @@ Now resubmit the run to use the new configuration:
 python 06-run-pytorch-data.py
 ```
 
-## Clean up resources
+This will print a URL to the Experiment in Azure Machine Learning Studio. If you navigate to that link you will be able to see your code running.
 
-Do not complete this section if you plan on running other Azure Machine Learning tutorials.
-
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## Next steps
 
-In this session, we saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
+In this tutorial, we saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
 
-You saw how to modify your training script to accept a data path via the command line. By using a `Dataset` you were able to mount a directory to the remote run. Using a `Dataset` also made it possible to alternate between local and cloud data.
+You saw how to modify your training script to accept a data path via the command line. By using a `Dataset` you were able to mount a directory to the remote run. 
 
-Continue to other tutorials to learn how to:
-- [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
-- Develop [automated machine learning](tutorial-auto-train-models.md) experiments.
+We recommend the following further how-to guides:
+
+- The Azure Machine Learning VS Code Extension: This makes it easier to submit remote runs, and also interact with Azure Machine Learning. For example, you can upload data, create experiments, etc.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Clean up Resources](tutorial-1st-experiment-cleanup.md)

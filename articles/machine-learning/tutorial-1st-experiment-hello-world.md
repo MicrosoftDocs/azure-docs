@@ -13,7 +13,7 @@ ms.date: 09/09/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Submit a "Hello World" script to a compute cluster with Azure Machine Learning  (Part 2 of 4)
+# Tutorial: Submit a "Hello World" script to a compute cluster with Azure Machine Learning  (Part 2 of 5)
 
 In **part 2 of this get started series**, you will submit a trivial "hello world" python script to the cloud by:
 
@@ -29,7 +29,6 @@ tutorial-1st-experiment-sdk-setup-local.md).
 This tutorial introduces you to the core Azure Machine Learning concepts needed to run your code in the cloud:
 
 > [!div class="checklist"]
-> - Control plane vs data plane
 > - [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
 > - [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)
 > - [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)
@@ -102,7 +101,7 @@ if __name__ == "__main__":
 - **`aml_url = run.get_portal_url()`** The `run` object provides a handle on the execution of our code. We can monitor its progress
 from the Azure Machine Learning Studio with the URL that is printed from the python script.
 
-## Run in the cloud
+## Submit a run to Azure Machine Learning
 
 You can submit your script using:
 
@@ -140,18 +139,9 @@ Follow the link and navigate to the "Outputs + logs" tab. There you can see a fi
 
 On line 8, you see the "Hello world!" output.
 
-> [!NOTE]
+> [!TIP]
 > The 70_driver_log.txt file contains the standard output from run and can be useful
 > when debugging remote runs in the cloud.
-
-
-## Clean up resources
-
-Do not complete this section if you plan on running other Azure Machine Learning tutorials.
-
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## Next steps
 
@@ -161,3 +151,6 @@ In the next tutorial, you build on these learnings by running something more int
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train a model](tutorial-1st-experiment-sdk-train.md)
+
+>[!NOTE] If you want to finish the tutorial series here and not progress to the next step, please remember to [clean up your resources](tutorial-1st-experiment-cleanup.md)
+
