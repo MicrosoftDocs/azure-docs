@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -144,17 +144,37 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ---
 
-### Restore a single range of block blobs
+### Restore ranges of block blobs
 
-You can restore a lexicographical range of blobs, either in a single container or across multiple containers, to return them to their previous state at a given point in time.
+You can restore one or more lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point in time.
 
 # [Azure portal](#tab/portal)
 
+To restore a range of blobs in one or more containers with the Azure portal, follow these steps:
 
+1. Navigate to the list of containers for your storage account.
+1. Select the container or containers to restore.
+1. On the toolbar, choose **Restore containers**, then **Restore selected**.
+1. In the **Restore selected containers** pane, specify the restore point by providing a date and time.
+1. Specify the ranges to restore. Use a forward slash (/) to delineate the container name from the blob prefix. Up to ten ranges are supported per restore operation.
+1. By default the **Restore selected containers** pane specifies a range that includes all blobs in the container. Delete this range if you do not want to restore the entire container. The default range is shown in the following image.
+
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot showing the default blob range to delete before specifying custom range":::
+
+1. Confirm that you want to proceed by checking the box.
+1. Select **Restore** to begin the restore operation.
+
+The following image shows a restore operation on a set of ranges. This restore operation performs the following actions:
+
+- Restores the complete contents of *container1*.
+- Restores blobs in the lexicographical range *blob1* through *blob5* in *container2*. This range restores blobs with names such as *blob1*, *blob11*, *blob100*, *blob2*, and so on. Because the end of the range is exclusive, it does not restore blobs whose names begin with *blob5*.
+- Restores all blobs in *container3* and *container4*. Because the end of the range is exclusive, this range does not restore *container5*.
+
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot showing how to restore ranges of blobs in one or more containers":::
 
 # [PowerShell](#tab/powershell)
 
-To restore a range of blobs, call the **Restore-AzStorageBlobRange** command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. The start of the range is in inclusive, and the end of the range is exclusive.
+To restore a single range of blobs, call the **Restore-AzStorageBlobRange** command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. The start of the range is in inclusive, and the end of the range is exclusive.
 
 For example, to restore the blobs in a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored:
 
@@ -162,7 +182,7 @@ For example, to restore the blobs in a single container named *sample-container*
 $range = New-AzStorageBlobRangeToRestore -StartRange sample-container -EndRange sample-container1
 ```
 
-To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob pattern. For example, the following range selects blobs in a single container whose names begin with the letters *d* through *f*:
+To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob prefix pattern. For example, the following range selects blobs in a single container whose names begin with the letters *d* through *f*:
 
 ```powershell
 $range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d -EndRange sample-container/g
@@ -177,10 +197,6 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -BlobRestoreRange $range `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
-
----
-
-### Restore multiple ranges of block blobs
 
 To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter. Up to 10 ranges are supported per restore operation. The following example specifies two ranges to restore the complete contents of *container1* and *container4*:
 
@@ -198,7 +214,9 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -BlobRestoreRange @($range1, $range2)
 ```
 
-### Restore block blobs asynchronously
+---
+
+### Restore block blobs asynchronously with PowerShell
 
 To run a restore operation asynchronously, add the `-AsJob` parameter to the call to **Restore-AzStorageBlobRange** and store the result of the call in a variable. The **Restore-AzStorageBlobRange** command returns an object of type **AzureLongRunningJob**. You can check the **State** property of this object to determine whether the restore operation has completed. The value of the **State** property may be **Running** or **Completed**.
 
@@ -221,7 +239,8 @@ $job | Wait-Job
 ```
 
 ## Known issues
-- For a subset of restores where append blobs are present, the restore will fail. For now, please do not perform restores if append blobs are present in the account.
+
+For a subset of restore operations where append blobs are present, the restore operation will fail. Microsoft recommends that you do not perform a point-in-time restore during the preview if append blobs are present in the account.
 
 ## Next steps
 
