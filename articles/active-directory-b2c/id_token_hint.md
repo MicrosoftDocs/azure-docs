@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Define an ID token hint technical profile in an Azure Active Directory B2C custom policy
 
-Azure AD B2C allows relying party applications to send an inbound JWT as part of the OAuth2 authorization request. The JWT token can be issued by a relying party application, or an identity provider, and being passed as a hint about the user, or the authorization request. Azure AD B2C validates the signature, the issuer name and the token audience and extracts the claim from the inbound token.
+Azure AD B2C allows relying party applications to send an inbound JWT as part of the OAuth2 authorization request. The JWT token can be issued by a relying party application, or an identity provider, and being passed as a hint about the user, or the authorization request. Azure AD B2C validates the signature, the issuer name, and the token audience and extracts the claim from the inbound token.
 
 ## Use cases
 
@@ -32,12 +32,12 @@ The id_token_hint must be a valid JWT token. The following table lists the claim
 
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
-| Audience | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifies the intended recipient of the token. Arbitrary string, as defined by the token issuer. Azure AD B2C validate this value and reject the token if it doesn't match.  |
-| Issuer | `iss` |`https://localhost` | Identifies the security token service (token issuer). Arbitrary URI as defined by the token issuer. Azure AD B2C validate this value and reject the token if it doesn't match.  |
+| Audience | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifies the intended recipient of the token. Arbitrary string, as defined by the token issuer. Azure AD B2C validates this value and reject the token if it doesn't match.  |
+| Issuer | `iss` |`https://localhost` | Identifies the security token service (token issuer). Arbitrary URI as defined by the token issuer. Azure AD B2C validates this value and reject the token if it doesn't match.  |
 | Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. Azure AD B2C doesn't validate this claim. |
 | Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Azure AD B2C doesn't validate this claim. |
 
- The following is an example of a valid ID token:
+ The following token, is an example of a valid ID token:
 
 ```json
 {
@@ -169,16 +169,16 @@ Complete the [Configure your policy](#configure-your-policy) step.
 
 #### 5. Prepare the code 
 
-The [GitHub sample](https://github.com/azure-ad-b2c/id_token_hint/tree/master/dotnet_core_symmetric_key) is a ASP.NET web application and console app that generate an ID tokens that is signed using symmetric key. 
+The [GitHub sample](https://github.com/azure-ad-b2c/id_token_hint/tree/master/dotnet_core_symmetric_key) is a ASP.NET web application and console app that generate an ID token that is signed using symmetric key. 
 
 
 ### Issue a token with asymmetric keys
 
-With the asymmetric key the token is signed using RSA certificates. This application hosts an Open ID Connect metadata endpoint and JSON Web Keys (JWKs) endpoint which are used by Azure AD B2C to validate the signature of the ID token.
+With the asymmetric key, the token is signed using RSA certificates. This application hosts an Open ID Connect metadata endpoint and JSON Web Keys (JWKs) endpoint that is used by Azure AD B2C to validate the signature of the ID token.
 
 The token issuer must provide following endpoints:
 
-* `/.well-known/openid-configuration` - A well known configuration endpoint with the relevant information about the token. Such as the token issuer name, and link to the JWK endpoint 
+* `/.well-known/openid-configuration` - A well-known configuration endpoint with the relevant information about the token. Such as the token issuer name, and link to the JWK endpoint 
 * `/.well-known/keys` - the JSON Web Key (JWK) end point with the public key that used to sign the key (with the private key part of the certificate).
 
 See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .Net MVC controller sample.
@@ -240,7 +240,7 @@ This [GitHub sample](https://github.com/azure-ad-b2c/id-token-builder) ASP.NET w
 For both symmetric or asymmetric approaches, the `id_token_hint` technical profile is called from an orchestration step with type of `GetClaims`. And need to specify the input claims of the relying party policy.
 
 1. Add the IdTokenHint_ExtractClaims technical profile to your extension policy.
-1. At the first orchestration step add following orchestration step. Note: the type of the orchestration step must be GetClaims:
+1. Add the follwoing orchestration step to your user journey as the firs item. 
 
     ```xml
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
@@ -268,7 +268,7 @@ For both symmetric or asymmetric approaches, the `id_token_hint` technical profi
     </RelyingParty>
     ```
 
-Based on your business requirement, you may need to add more token validations. Such as checking token expiry, the format of the email address and more. To do so, add additional orchestration steps that invokes a [claims transformation technical profile](claims-transformation-technical-profile.md). And [self-asserted technical profile](self-asserted-technical-profile.md) to present the error message. 
+Based on your business requirement, you may need to add more token validations. Such as checking token expiry, the format of the email address and more. To do so, add additional orchestration steps that invoke a [claims transformation technical profile](claims-transformation-technical-profile.md). And [self-asserted technical profile](self-asserted-technical-profile.md) to present the error message. 
 
 ### Create and sign a token
 
