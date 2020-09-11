@@ -64,7 +64,17 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 # [Template](#tab/template)
 
-////TBD////
+None.  
+
+Use the [Azure portal](#tabs=azure-portal), PowerShell, or the Azure CLI to register for Azure NetApp Files and the NetApp Resource Provider.
+
+<!-->
+azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal
+azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-powershell
+/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-cli
+
+?tabs=azure-portal
+--> 
 
 ---
 
@@ -440,7 +450,9 @@ When you are done and if you want to, you can delete the resource group. The act
 
 # [Template](#tab/template)
 
-////TBD////
+None.
+
+Use the [Azure portal](#tabs=azure-portal), PowerShell, or the Azure CLI to delete the resource group.
 
 ---
 
