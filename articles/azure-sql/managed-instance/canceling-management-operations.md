@@ -90,6 +90,13 @@ For detailed commands explanation, see [az sql mi op](https://docs.microsoft.com
 
 ---
 
+### Canceled deployment request
+
+With new 2020-02-02 API version, as soon as instance creation request is accepted instance starts to exist as a resource, no matter deployment process is still in progress (managed instance status is **Provisioning**). In case that you cancel instance deployment request (new instance creation), managed instance will go from **Provisioning** state to **FailedToCreate**. Instances that have failed to create are still present as a resource. Instances that have failed to create:
+- Are not charged
+- Are not accounted for resource limits (subnet or vCore quota)
+- Keep instance name reserved - in order to deploy instance with the same name, just delete instance that is failed to create and name will be released 
+
 ## Next steps
 - To learn how to create your first managed instance, see [Quickstart guide](instance-create-quickstart.md).
 - For a features and comparison list, see [SQL common features](../database/features-comparison.md).
