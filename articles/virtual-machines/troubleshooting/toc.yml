@@ -102,6 +102,8 @@
       href: unresponsive-vm-apply-windows-update.md
     - name: VM is unresponsive while applying audit configuration policy
       href: vm-unresponsive-applying-audit-configuration-policy.md
+    - name: VM is unresponsive while applying default domain controllers policy
+      href: vm-unresponsive-domain-controllers-policy.md
     - name: VM is unresponsive when applying group policy
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
