@@ -102,9 +102,9 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## Perform a restore operation
 
-When you perform a restore operation, you must specify the restore point as a UTC **DateTime** value. Containers and blobs will be restored to their state at that day and time.
+When you perform a restore operation, you must specify the restore point as a UTC **DateTime** value. Containers and blobs will be restored to their state at that day and time. The restore operation may take several minutes to complete.
 
-You can restore all containers in the storage account, or you can restore a range of blobs in one or more containers. A range of blobs is defined lexicographically, meaning in dictionary order. Up to 10 lexicographical ranges are supported per restore operation. The start of the range is inclusive, and the end of the range is exclusive.
+You can restore all containers in the storage account, or you can restore a range of blobs in one or more containers. A range of blobs is defined lexicographically, meaning in dictionary order. Up to ten lexicographical ranges are supported per restore operation. The start of the range is inclusive, and the end of the range is exclusive.
 
 The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
 
@@ -112,9 +112,7 @@ Wildcard characters are not supported in a lexicographical range. Any wildcard c
 
 You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range passed to a restore operation. The `$root` and `$web` containers are restored only if they are explicitly specified. Other system containers cannot restored.
 
-Only block blobs are restored. Page blobs and append blobs are not included in a restore operation.
-
-The restore operation may take several minutes to complete.
+Only block blobs are restored. Page blobs and append blobs are not included in a restore operation. For more information about limitations related to append blobs, see [Known issues](#known-issues).
 
 > [!IMPORTANT]
 > When you perform a restore operation, Azure Storage blocks data operations on the blobs in the ranges being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. For this reason, operations such as listing containers in the Azure portal may not perform as expected while the restore operation is underway.
@@ -162,7 +160,7 @@ To restore a range of blobs in one or more containers with the Azure portal, fol
 1. Select the container or containers to restore.
 1. On the toolbar, choose **Restore containers**, then **Restore selected**.
 1. In the **Restore selected containers** pane, specify the restore point by providing a date and time.
-1. Specify the ranges to restore. Use a forward slash (/) to delineate the container name from the blob prefix. Up to ten ranges are supported per restore operation.
+1. Specify the ranges to restore. Use a forward slash (/) to delineate the container name from the blob prefix.
 1. By default the **Restore selected containers** pane specifies a range that includes all blobs in the container. Delete this range if you do not want to restore the entire container. The default range is shown in the following image.
 
     :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot showing the default blob range to delete before specifying custom range":::
@@ -170,28 +168,30 @@ To restore a range of blobs in one or more containers with the Azure portal, fol
 1. Confirm that you want to proceed by checking the box.
 1. Select **Restore** to begin the restore operation.
 
-The following image shows a restore operation on a set of ranges. This restore operation performs the following actions:
-
-- Restores the complete contents of *container1*.
-- Restores blobs in the lexicographical range *blob1* through *blob5* in *container2*. This range restores blobs with names such as *blob1*, *blob11*, *blob100*, *blob2*, and so on. Because the end of the range is exclusive, it does not restore blobs whose names begin with *blob5*.
-- Restores all blobs in *container3* and *container4*. Because the end of the range is exclusive, this range does not restore *container5*.
+The following image shows a restore operation on a set of ranges.
 
 :::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot showing how to restore ranges of blobs in one or more containers":::
 
+The restore operation shown in the image performs the following actions:
+
+- Restores the complete contents of *container1*.
+- Restores blobs in the lexicographical range *blob1* through *blob5* in *container2*. This range restores blobs with names such as *blob1*, *blob11*, *blob100*, *blob2*, and so on. Because the end of the range is exclusive, it restores blobs whose names begin with *blob4*, but does not restore blobs whose names begin with *blob5*.
+- Restores all blobs in *container3* and *container4*. Because the end of the range is exclusive, this range does not restore *container5*.
+
 # [PowerShell](#tab/powershell)
 
-To restore a single range of blobs, call the **Restore-AzStorageBlobRange** command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. The start of the range is in inclusive, and the end of the range is exclusive.
-
-For example, to restore the blobs in a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored:
+To restore a single range of blobs, call the **Restore-AzStorageBlobRange** command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. For example, to restore the blobs in a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored:
 
 ```powershell
-$range = New-AzStorageBlobRangeToRestore -StartRange sample-container -EndRange sample-container1
+$range = New-AzStorageBlobRangeToRestore -StartRange sample-container `
+    -EndRange sample-container1
 ```
 
 To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob prefix pattern. For example, the following range selects blobs in a single container whose names begin with the letters *d* through *f*:
 
 ```powershell
-$range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d -EndRange sample-container/g
+$range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d `
+    -EndRange sample-container/g
 ```
 
 Next, provide the range to the **Restore-AzStorageBlobRange** command. Specify the restore point by providing a UTC **DateTime** value for the `-TimeToRestore` parameter. The following example restores blobs in the specified range to their state 3 days before the present moment:
@@ -204,7 +204,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter. Up to 10 ranges are supported per restore operation. The following example specifies two ranges to restore the complete contents of *container1* and *container4*:
+To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter. The following example specifies two ranges to restore the complete contents of *container1* and *container4*:
 
 ```powershell
 # Specify a range that includes the complete contents of container1.
