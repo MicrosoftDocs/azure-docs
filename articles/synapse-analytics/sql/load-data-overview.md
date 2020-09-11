@@ -45,7 +45,7 @@ Getting data out of your source system depends on the storage location.  The goa
 
 PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addition to the delimited text files, it loads from the Hadoop file formats RC File, ORC, and Parquet. PolyBase can also load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML.
 
-If you are exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to export the data into delimited text files. The Parquet to SQL DW data type mapping is as follows:
+If you are exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to export the data into delimited text files. The Parquet to Azure Synapse Analytics data type mapping is as follows:
 
 | **Parquet Data Type** |                      **SQL Data Type**                       |
 | :-------------------: | :----------------------------------------------------------: |
