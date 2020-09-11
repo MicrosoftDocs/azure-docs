@@ -3,7 +3,7 @@ title: Use CLI to create filters with Azure Media Services| Microsoft Docs
 description: This article shows how to use CLI to create filters with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,13 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
-# Creating filters with CLI 
+# Creating filters with CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When delivering your content to customers (streaming Live events or Video on Demand), your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 

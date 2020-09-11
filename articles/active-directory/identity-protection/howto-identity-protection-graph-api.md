@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are three APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. 
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](./overview-identity-protection.md) APIs. There are three APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. 
 
 This article gets you started with connecting to the Microsoft Graph and querying these APIs. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
 
@@ -164,8 +164,8 @@ To learn more about Microsoft Graph and how to build applications using the Grap
 
 For related information, see:
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-- [Types of risk detections detected by Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)
+- [Types of risk detections detected by Azure Active Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Azure AD Identity Protection Service Root](https://docs.microsoft.com/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Azure AD Identity Protection Service Root](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)

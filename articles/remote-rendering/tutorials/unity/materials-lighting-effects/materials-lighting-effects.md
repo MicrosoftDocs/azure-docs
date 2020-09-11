@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Refining materials, lighting, and effects

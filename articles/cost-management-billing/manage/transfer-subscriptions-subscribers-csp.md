@@ -20,6 +20,9 @@ CSP direct bill partners certified as an [Azure Expert Managed Services Provider
 
 When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your MPA account](mpa-request-ownership.md).
 
+>[!IMPORTANT]
+> After transfering an EA subscription to a CSP partner, any quota increases previously applied to the EA subscription will be reset to the default value. If additional quota is required after the subscription transfer, have your CSP provider submit a [quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests) request. 
+
 ## Other subscription transfers to a CSP partner
 
 To transfer any other Azure subscriptions to a CSP partner, the subscriber needs to move resources from source subscriptions to CSP subscriptions. Use the following guidance to move resources between subscriptions.

@@ -73,9 +73,6 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Single server
@@ -120,6 +117,9 @@
         href: concepts-data-encryption-postgresql.md
       - name: Infrastructure double encryption
         href: concepts-infrastructure-double-encryption.md
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
       - name: Security baseline for Azure Security Benchmark
         href: security-baseline.md
     - name: Business continuity
@@ -166,7 +166,7 @@
         - name: Configure Spring Data JPA
           href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
         - name: Configure Spring Data R2DBC
-          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresl?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
     - name: Replication
       items:
       - name: Read replicas
@@ -393,6 +393,9 @@
         href: reference-hyperscale-parameters.md
       - name: System tables
         href: reference-hyperscale-metadata.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

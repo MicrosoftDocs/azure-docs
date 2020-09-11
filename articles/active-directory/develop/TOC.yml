@@ -273,7 +273,9 @@
           href: msal-net-adfs-support.md
         - name: Migrate to MSAL.NET
           href: msal-net-migration.md
-        - name: Migrate Xamarin apps using brokers to MSAL.NET
+        - name: Migrate Xamarin Android app using broker to MSAL.NET
+          href: msal-net-migration-android-broker.md
+        - name: Migrate Xamarin iOS app using broker to MSAL.NET
           href: msal-net-migration-ios-broker.md
         - name: Web browser considerations
           href: msal-net-web-browsers.md
@@ -468,13 +470,13 @@
   - name: Automatic user provisioning (SCIM)
     items:
     - name: What is automatic user provisioning?
-      href: ../app-provisioning/user-provisioning.md
+      href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Develop and integrating a SCIM endpoint
-      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
+      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Common provisioning scenarios
-      href: ../app-provisioning/scim-graph-scenarios.md
+      href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
-      href: ../app-provisioning/application-provisioning-configure-api.md
+      href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
   - name: Azure portal help articles
     items:
     - name: Token lifetime defaults for a custom-developed application

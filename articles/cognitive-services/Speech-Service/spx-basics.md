@@ -26,10 +26,18 @@ This section shows a few basic SPX commands that are often useful for first-time
 spx
 ```
 
-Notice **see also** help topics listed right of command parameters. You can also search topics by keyword. For example, enter the following command to see a list of help topics about Speech CLI examples:
+Notice **see:** help topics listed right of command parameters. You can enter these commands to get detailed help about sub-commands.
+
+You can search help topics by keyword. For example, enter the following command to see a list of Speech CLI usage examples:
 
 ```shell
 spx help find --topics "examples"
+```
+
+Enter the following command to see options for the recognize command:
+
+```shell
+spx help recognize
 ```
 
 Now use the Speech service to perform some speech recognition using your default microphone by running the following command.

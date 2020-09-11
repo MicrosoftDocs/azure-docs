@@ -47,7 +47,7 @@ To assign the policy to the required scope, follow the steps below:
 
 > [!NOTE]
 >
-> It is recommended that this policy is not assigned to more than 200 VMs at a time. If the policy is assigned to more than 200 VMs, it can result in the backup getting triggered a few hours later than that specified by the schedule.
+> It's recommended that this policy not be assigned to more than 200 VMs at a time. If the policy is assigned to more than 200 VMs, it can result in the backup being triggered a few hours later than that specified by the schedule.
 
 ## Next Steps
 

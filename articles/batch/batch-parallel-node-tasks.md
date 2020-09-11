@@ -3,7 +3,7 @@ title: Run tasks in parallel to optimize compute resources
 description: Increase efficiency and lower costs by using fewer compute nodes and running concurrent tasks on each node in an Azure Batch pool
 ms.topic: how-to
 ms.date: 04/17/2019
-ms.custom: H1Hack27Feb2017
+ms.custom: "H1Hack27Feb2017, devx-track-csharp"
 ---
 # Run tasks concurrently to maximize usage of Batch compute nodes 
 

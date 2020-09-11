@@ -6,7 +6,7 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
@@ -355,9 +355,6 @@ SELECT *
 FROM size
 ;
 ```
-
->[!TIP]
-> For improved performance in Synapse SQL, consider using **sys.pdw_permanent_table_mappings** instead of **sys.pdw_table_mappings** on permanent user tables. See **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** for more information.
 
 ### Table space summary
 
