@@ -15,7 +15,7 @@ ms.custom: devx-track-javascript
 
 Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript.
 
-If migrating an existing web application, check to see if it is using an open source map control library such as Cesium, Leaflet, and OpenLayers. If it is and you would prefer to continue to use that library, you can connect it to the Azure Maps tile services ([road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [satellite tiles](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). The following are details on how to use Azure Maps in some commonly used open source map control libraries.
+If migrating an existing web application, check to see if it is using an open-source map control library such as Cesium, Leaflet, and OpenLayers. If it is and you would prefer to continue to use that library, you can connect it to the Azure Maps tile services ([road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [satellite tiles](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). The following are details on how to use Azure Maps in some commonly used open-source map control libraries.
 
 -   Cesium - A 3D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentation](https://cesiumjs.org/)
 -   Leaflet – Lightweight 2D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentation](https://leafletjs.com/)
@@ -36,35 +36,35 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | KML Layer                | ✓                                                                                      |
 | Contour layer            | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
 | Data binning layer       | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
-| Animated tile layer      | [Open source animation module](https://github.com/Azure-Samples/azure-maps-animations) |
+| Animated tile layer      | [open-source animation module](https://github.com/Azure-Samples/azure-maps-animations) |
 | Drawing tools            | ✓                                                                                      |
 | Geocoder service         | ✓                                                                                      |
 | Directions service       | ✓                                                                                      |
 | Distance Matrix service  | ✓                                                                                      |
 | Spatial Data service     | N/A                                                                                    |
 | Satellite/Aerial imagery | ✓                                                                                      |
-| Birdseye imagery         | Planned                                                                                |
+| Birds eye imagery         | Planned                                                                                |
 | Streetside imagery       | Planned                                                                                |
 | GeoJSON support          | ✓                                                                                      |
 | GeoXML support           | ✓                                                                                      |
 | Well-Known Text support  | ✓                                                                                      |
 | Custom map styles        | Partial                                                                                |
 
-Azure Maps also has a lot of additional [open source modules for the web SDK](open-source-projects.md#open-web-sdk-modules) that extend its capabilities.
+Azure Maps also has a lot of additional [open-source modules for the web SDK](open-source-projects.md#open-web-sdk-modules) that extend its capabilities.
 
 ## Notable differences in the web SDKs
 
 The following are some of the key differences between the Bing Maps and Azure Maps Web SDKs to be aware of:
 
 -   In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an NPM package is also available for embedding the Web SDK into apps if preferred. See this [documentation](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) for more information. This package also includes TypeScript definitions.
--   Bing Maps provides two hosted branches of their SDK; Release and Experimental. The Experimental branch may receive multiple updates a day when new development is taking place. Azure Maps only hosts a release branch, however experimental features are created as custom modules in the open source Azure Maps code samples project. Bing Maps used to have a Frozen branch as well which was updated less frequently, thus reducing the risk of breaking changes due to a release. In Azure Maps there you can use the NPM module and point to any previous minor version release.
+-   Bing Maps provides two hosted branches of their SDK; Release and Experimental. The Experimental branch may receive multiple updates a day when new development is taking place. Azure Maps only hosts a release branch, however experimental features are created as custom modules in the open-source Azure Maps code samples project. Bing Maps used to have a Frozen branch as well which was updated less frequently, thus reducing the risk of breaking changes due to a release. In Azure Maps there you can use the NPM module and point to any previous minor version release.
 
 > [!TIP]
 > Azure Maps publishes both minified and unminified versions of the SDK. Simple remove `.min` from the file names. The unminified version is useful when debugging issues but be sure to use the minified version in production to take advantage of the smaller file size.
 
 -   After creating an instance of the Map class in Azure Maps, your code should wait for the maps `ready` or `load` event to fire before interacting with the map. This will ensure that all the map resources have been loaded and are ready to be accessed.
 -   Both platforms use a similar tiling system for the base maps, however the tiles in Bing Maps are 256 pixels in dimension while the tiles in Azure Maps are 512 pixels in dimension. As such, to get the same map view in Azure Maps as Bing Maps, a zoom level used in Bing Maps needs to be subtracted by one in Azure Maps.
--   Coordinates in Bing Maps are referred to as "latitude, longitude" while Azure Maps is using "longitude, latitude". This is aligned with the standard `[x, y]` which is followed by most GIS platforms.
+-   Coordinates in Bing Maps are referred to as `latitude, longitude` while Azure Maps uses `longitude, latitude`. This is aligned with the standard `[x, y]` which is followed by most GIS platforms.
 
 -   Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [atlas.data namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). There is also the [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) class which can be used to wrap GeoJSON objects and make them easy to update and maintain in a data bindable way.
 -   Coordinates in Azure Maps are defined as Position objects which can be specified as a simple number array in the format `[longitude, latitude]` or `new atlas.data.Position(longitude, latitude)`.
@@ -73,7 +73,7 @@ The following are some of the key differences between the Bing Maps and Azure Ma
 > The Position class has a static helper function for importing coordinates that are in `latitude, longitude` format. The [atlas.data.Position.fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position)function can often be replace the `new Microsoft.Maps.Location` function in Bing Maps code.
 
 -   Rather than specifying styling information on each shape that is added to the map, Azure Maps separates styles from the data. Data is stored in data sources and is connected to rendering layers which Azure Maps code uses to render the data. This approach provides enhanced performance benefit. Additionally, many layers support data-driven styling where business logic can be added to layer style options that will change how individual shapes are rendered within a layer based on properties defined in the shape.
--   Azure Maps provides a bunch of useful spatial math functions in the `atlas.math` namespace, however these differ from those in the Bing Maps spatial math module. The primary difference is that Azure Maps doesn’t provide built-in functions for binary operations such as union and intersection, however, since Azure Maps is based on GeoJSON which is an open standard, there are many open source libraries available. One popular option that works well with Azure Maps and provides a ton of spatial math capabilities is [turf js](http://turfjs.org/).
+-   Azure Maps provides a bunch of useful spatial math functions in the `atlas.math` namespace, however these differ from those in the Bing Maps spatial math module. The primary difference is that Azure Maps doesn’t provide built-in functions for binary operations such as union and intersection, however, since Azure Maps is based on GeoJSON which is an open standard, there are many open-source libraries available. One popular option that works well with Azure Maps and provides a ton of spatial math capabilities is [turf js](http://turfjs.org/).
 
 See also the [Azure Maps Glossary](https://docs.microsoft.com/azure/azure-maps/glossary) for an in-depth list of terminology associated with Azure Maps.
 
@@ -94,7 +94,7 @@ Loading a map in both SDK’s follows the same set of steps;
 
 -   Bing maps requires an account key to be specified in the script reference of the API or as a map option. Authentication credentials for Azure Maps are specified as options of the map class. This can be a subscription key or Azure Active Directory information.
 -   Bing Maps takes in a callback function in the script reference of the API which is used to call an initialization function to load the map. With Azure Maps, the onload event of the page should be used.
--   When using an ID to reference the `div` element in which the map will be rendered, in Bing Maps an HTML selector is used (i.e.`#myMap`), where as in Azure Maps only the ID value needs to be specified (i.e. `myMap`).
+-   When using an ID to reference the `div` element in which the map will be rendered, in Bing Maps an HTML selector is used (i.e.`#myMap`), whereas in Azure Maps only the ID value needs to be specified (i.e. `myMap`).
 -   Coordinates in Azure Maps are defined as Position objects which can be specified as a simple number array in the format `[longitude, latitude]`.
 -   The zoom level in Azure Maps is one level lower than the Bing Maps example due to the difference in tiling system sizes between the platforms.
 -   By default, Azure Maps doesn’t add any navigation controls to the map canvas, such as zoom buttons and map style buttons. There are however controls for adding a map style picker, zoom buttons, compass or rotation control, and a pitch control.
@@ -214,7 +214,7 @@ If your audience is spread across multiple countries or speak different language
 
 **Before: Bing Maps**
 
-To localize Bing Maps, language and region is specified using the `setLang` and `UR` parameters are added to `<script>` tag reference to the API. Certain features in Bing Maps are only available
+To localize Bing Maps, language and region are specified using the `setLang` and `UR` parameters are added to `<script>` tag reference to the API. Certain features in Bing Maps are only available
 in certain markets, as such the market of the user is specified using the `setMkt` parameter.
 
 ```html
@@ -229,7 +229,7 @@ Here is an example of Bing Maps with the language set to "fr-FR".
 
 **After: Azure Maps**
 
-Azure Maps only provides options for setting the language and regional view of the map. A market parameter is not used to limit features. There are two different ways of setting the language and regional view of the map. The first option is to is to add this information to the global `atlas` namespace which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to `"auto"`:
+Azure Maps only provides options for setting the language and regional view of the map. A market parameter is not used to limit features. There are two different ways of setting the language and regional view of the map. The first option is to add this information to the global `atlas` namespace which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to `"auto"`:
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -445,7 +445,7 @@ When using a Symbol layer, the data must be added to a data source, and the data
 
 ### Adding a custom pushpin
 
-Custom images can be used to represent points on a map. The following image is used in the below examples and use a custom image to display a point on the map at (latitude: 51.5, longitude: -0.2) and offsets the position of the marker so that the point of the pushpin icon aligns with the correct position on the map.
+Custom images can be used to represent points on a map. The following image is used in the below examples and uses a custom image to display a point on the map at (latitude: 51.5, longitude: -0.2) and offsets the position of the marker so that the point of the pushpin icon aligns with the correct position on the map.
 
 | ![Azure Maps add puspin](media/migrate-bing-maps-web-app/ylw_pushpin.png)|
 |:-----------------------------------------------------------------------:|
@@ -454,7 +454,7 @@ Custom images can be used to represent points on a map. The following image is u
 
 **Before: Bing Maps**
 
-In Bing Maps, a custom marker is created by passing a URL to an image into the `icon` options of a pushpins. The `anchor` option is used to align the point of the pushpin image with the coordinate on the map. The anchor value in Bing Maps relative to the top-left corner of the image.
+In Bing Maps, a custom marker is created by passing a URL to an image into the `icon` options of a pushpin. The `anchor` option is used to align the point of the pushpin image with the coordinate on the map. The anchor value in Bing Maps relative to the top-left corner of the image.
 
 ```javascript
 var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(51.5, -0.2), {
@@ -801,7 +801,7 @@ map.events.add('click', marker, function () {
 
 When visualizing many data points on the map, points overlap each other, the map looks cluttered and it becomes difficult to see and use. Clustering of point data can be used to improve this user experience and also improve performance. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points.
 
-The following examples load a GeoJSON feed of earthquake data from the past week and adds it to the map. Clusters are rendered as scaled and colored circles depending on the number of points they contain.
+The following examples load a GeoJSON feed of earthquake data from the past week and add it to the map. Clusters are rendered as scaled and colored circles depending on the number of points they contain.
 
 > [!NOTE]
 > There are several different algorithms used for pushpin clustering. Bing Maps uses a simple grid-based function, while Azure Maps uses a more advanced and visually appealing point-based clustering methods.
@@ -1672,7 +1672,7 @@ The following are some additional code samples related to Bing Maps migration:
 -   [Show directions from A to B](https://docs.microsoft.com/azure/azure-maps/map-route)
 -   [Search Autosuggest with JQuery UI](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Search%20Autosuggest%20and%20JQuery%20UI)
 
-Also be sure to take a look at the [Open source Azure Maps Web SDK modules](open-source-projects.md#open-web-sdk-modules). These modules provide a ton of additional functionality and are fully customizable.
+Also be sure to take a look at the [open-source Azure Maps Web SDK modules](open-source-projects.md#open-web-sdk-modules). These modules provide a ton of additional functionality and are fully customizable.
 
 ## Next steps
 
