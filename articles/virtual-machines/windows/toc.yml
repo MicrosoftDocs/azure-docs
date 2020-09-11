@@ -512,7 +512,7 @@
         - name: CLI
           href: image-builder.md
         - name: PowerShell
-        href: image-builder-powershell.md
+          href: image-builder-powershell.md
       - name: Use a VNET
         href: image-builder-vnet.md
       - name: Networking options
