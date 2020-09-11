@@ -47,6 +47,8 @@
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
       href: export-model-python.md
+  - name: Integrate storage notifications
+    href: storage-integration.md
   - name: Copy and move projects
     href: copy-move-projects.md
   - name: View or delete account data
