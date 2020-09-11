@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect - AD FS management and customization | Microsoft Docs
 description: AD FS management with Azure AD Connect and customization of user AD FS sign-in experience with Azure AD Connect and PowerShell.
-keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
+keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, M365, federation, relying party
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -26,7 +26,7 @@ This article describes how to manage and customize Active Directory Federation S
 | Topic | What it covers |
 |:--- |:--- |
 | **Manage AD FS** | |
-| [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
+| [Repair the trust](#repairthetrust) |How to repair the federation trust with Microsoft 365. |
 | [Federate with Azure AD using alternate login ID](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
