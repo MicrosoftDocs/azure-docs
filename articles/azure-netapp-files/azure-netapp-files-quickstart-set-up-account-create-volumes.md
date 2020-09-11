@@ -66,7 +66,9 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 None.  
 
-Use the Azure portal, PowerShell, or the Azure CLI to register for Azure NetApp Files and the NetApp Resource Provider.
+Use the Azure portal, PowerShell, or the Azure CLI to register for Azure NetApp Files and the NetApp Resource Provider.  
+
+See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more information. 
 
 ---
 
@@ -445,7 +447,6 @@ When you are done and if you want to, you can delete the resource group. The act
 None.
 
 Use the Azure portal, PowerShell, or the Azure CLI to delete the resource group.   
-See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more information. 
 
 ---
 
