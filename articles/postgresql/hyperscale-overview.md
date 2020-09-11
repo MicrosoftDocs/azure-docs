@@ -45,3 +45,5 @@ PostgreSQL - Hyperscale (Citus) server group.
 comparisons and calculators. Hyperscale (Citus) offers prepaid Reserved
 Instance discounts as well, see [Hyperscale RI
 pricing](concepts-hyperscale-reserved-pricing.md) pages for details.
+- Determine the best [initial
+  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group
