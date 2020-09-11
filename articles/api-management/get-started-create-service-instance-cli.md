@@ -54,7 +54,7 @@ Check the status of the deployment by running the [az apim show](/cli/azure/apim
 az apim show --name myapim --resource-group myResourceGroup --output table
 ```
 
-Initially, output is similar to the following, showing the `Activating` status;
+Initially, output is similar to the following, showing the `Activating` status:
 
 ```console
 NAME         RESOURCE GROUP    LOCATION    GATEWAY ADDR    PUBLIC IP    PRIVATE IP    STATUS      TIER       UNITS
