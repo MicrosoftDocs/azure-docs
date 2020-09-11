@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 # Tutorial: Submit a "Hello World" script to a compute cluster with Azure Machine Learning  (Part 2 of 4)
 
-In **part 2 of this tutorial series**, you will submit a trivial "hello world" python script to the cloud by:
+In **part 2 of this get started series**, you will submit a trivial "hello world" python script to the cloud by:
 
 > [!div class="checklist"]
 > * Running Python code in the cloud with Azure Machine Learning SDK
