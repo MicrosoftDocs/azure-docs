@@ -284,32 +284,9 @@ This article answers common questions about Azure Files features and functionali
 
 Any application using NFS version 4.1 should work with minimal or no modifications.
 
-### I use NFS v3.0 today. Can I use NFS v4.1?
+### My environment uses NFS v3.0, can I use NFS v4.1?
 
-Although NFS v3.0 is more widely used today, there were more than a few reason to implement NFS v4.1 as opposed to NFS v3.0 on Azure Files platform. 
-- Applications written for NFS 3 can work with NFS 4.x but not vice versa 
-- Better security is available in NFS 4.x – top concern while moving to cloud 
-- Firewall and port management is simple – Only one port is needed to be opened.
-- Statefulness aids it to be a truly distributed and performant file system with persistent handles, locks and leases by reducing roundtrips. 
-- Most applications have no dependency on underlying NFS versions.
-- Some workloads that do mandate NFS version 4+ due to the advanced capabilities like statefulness.
-- Better suport for multi-protocol access possible.
-
- ### What are some of the notable differences in NFS v4.1 compared to NFS v3?
-- **Concurrency management**
--- **State management** - NFS v4 maintains state from all clients and can send it back upon request from other clients 
-- **Better performance**
--- **Partial locks** - Byte-range locking support 
--- **File Delegation** - Ability to access and modify a file in it's own cache without sending any network requests to the server 
--- **Batching/Compounding** multiple requests in a single round trip (eg LOOKUP, OPEN, and READ) 
-- **Security and interop**
--- **Protocols** - Kerberos 5 and SPKM3, in addition to traditional AUTH_SYS security 
--- **Interop** - standardizes the use and interpretation of ACLs across Posix and Windows environments 
-- **Standardization for network firewalls**
--- **Disparate NFS protocols** (stat, NLM, mount, ACL, and NFS) combined into a single protocol specification 
-- **DR** 
---	Support for file migration and replication 
-
+Potentially, applications written for NFS 3.0 can work with NFS 4.x but applications written for 4.x will not work with 3.0.
 
 ### How do I backup data stored in NFS shares?
 
