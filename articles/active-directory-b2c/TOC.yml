@@ -345,7 +345,7 @@
             href: conditional-access-technical-profile.md
             displayName: ca
           - name: ID token hint
-            href: id_token_hint.md
+            href: id-token-hint.md
           - name: JWT token issuer
             href: jwt-issuer-technical-profile.md
           - name: OAuth1
