@@ -948,7 +948,8 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
-Not allowed resource typesAllowed resource types
+Not allowed resource types
+Allowed resource types
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
 - [How to create Management Groups](/azure/governance/management-groups/create)
@@ -1026,7 +1027,10 @@ Use Azure Resource Graph to query or discover resources within their subscriptio
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4493).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
-- [Not allowed resource typesAllowed resource typesHow to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+
+Not allowed resource types
+Allowed resource types
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
@@ -1102,7 +1106,10 @@ Deploy a higher risk App Service Web Apps into its own Virtual Network. Perimete
 Use Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to audit or enforce the configuration of your App Service Web Apps. 
 
 Apply built-in policy definitions such as:
-App Service should use a virtual network service endpointWeb Application should only be accessible over HTTPSLatest TLS version should be used in your Web Apps
+App Service should use a virtual network service endpoint
+Web Application should only be accessible over HTTPS
+Latest TLS version should be used in your Web Apps
+
 - [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
@@ -1333,10 +1340,15 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 App Service can back up the following information to an Azure storage account and container that you have configured your app to use:
 
-App configurationFile contentDatabase connected to your app
+App configuration
+File content
+Database connected to your app
 The following database solutions are supported with the backup feature:
 
-SQL DatabaseAzure Database for MySQLAzure Database for PostgreSQLMySQL in-app
+SQL Database
+Azure Database for MySQL
+Azure Database for PostgreSQL
+MySQL in-app
 - [Understand Azure App Service backup capability](manage-backup.md)
 
 **Azure Security Center monitoring**: Not applicable
@@ -1435,7 +1447,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
-- [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+- [Refer to NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
