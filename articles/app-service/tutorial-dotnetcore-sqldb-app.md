@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: ASP.NET Core with SQL Database' 
-description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
+title: 'Tutorial: ASP.NET Core with Azure SQL Database' 
+description: Learn how to get a .NET Core app working in Azure App Service, with connection to an Azure SQL Database.
 
 ms.devlang: dotnet
 ms.topic: tutorial
@@ -9,7 +9,7 @@ ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
-# Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
+# Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service
 
 ::: zone pivot="platform-windows"  
 
