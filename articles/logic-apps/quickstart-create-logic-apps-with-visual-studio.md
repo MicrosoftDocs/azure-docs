@@ -52,7 +52,7 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
 
   The designer needs an internet connection to create resources in Azure and to read properties and data from connectors in your logic app.
 
-* An email account that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, review the [connectors list here](/connectors/). This example uses Office 365 Outlook. If you use a different provider, the overall steps are the same, but your UI might slightly differ.
+* An email account that's supported by Logic Apps, such as Outlook for Microsoft 365, Outlook.com, or Gmail. For other providers, review the [connectors list here](/connectors/). This example uses Office 365 Outlook. If you use a different provider, the overall steps are the same, but your UI might slightly differ.
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
