@@ -21,7 +21,7 @@ To get the most out of Azure, it's crucial to understand where you are in your w
 The Advisor score consists of an overall score, which can be further broken down into five category scores, one for each category of Azure Advisor which represents the five pillars of the Well-Architected Framework. 
 You can track the progress you make over time by viewing your overall score and category score with daily, weekly, and monthly trend, and you can set benchmarks to help you achieve your goals. 
 
- ![Advisor score experience](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/advisor/media/advisor-score-1.png)
+ ![Advisor score experience](./media/advisor-score-1.png)
 
 ## How to consume Advisor score
 Advisor displays your overall Advisor score and breakdown for Advisor categories, in percentages. A score of 100% in any category means all your resources assessed by Advisor follow the best practices that Advisor recommends. On the other end of the spectrum, a score of 0% means that none of your resources assessed by Advisor follow Advisor’s recommendations. Using these score grains you can easily achieve below flow:
@@ -31,7 +31,7 @@ Advisor displays your overall Advisor score and breakdown for Advisor categories
 
 The contribution of each recommendation to your score is shown clearly on the overview page in the Azure portal. You can increase your score by adopting the best practices, and you can prioritize the recommendations that have greatest **potential score increase** to make the fastest progress with the time you have.  
 
-![Advisor score impact](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/advisor/media/advisor-score-2.png)
+![Advisor score impact](./media/advisor-score-2.png)
 
 Because Advisor’s scoring methodology applies extra weight to more expensive resources with long-standing recommendations, you can make the most progress by remediating the resources with the highest retail cost first. 
 In case any of Advisor recommendations are not relevant for an individual resource, you can dismiss those recommendations to exclude them from the score calculation and send feedback to Advisor to improve its recommendations. 
@@ -45,8 +45,7 @@ The calculation of the Advisor score can be summarized in four steps:
 1. Advisor calculates the **daily retail cost of impacted resources**, which are the resources on your subscriptions that have at least one recommendation in Advisor.
 2. Advisor calculates the **daily retail cost of assessed resources**, which are the resources that are monitored by Advisor, whether they have any recommendations or not. 
 3. For each recommendation type, Advisor calculates the **healthy resource ratio**, which is the cost of impacted resources divided by the cost of assessed resources.
-
-Advisor applies three additional weights to the healthy resource ratio in each category:
+4. Advisor applies three additional weights to the healthy resource ratio in each category:
 * Recommendations with greater impact are weighted heavier than those with lower impact.
 * Resources with long-standing recommendations will count more against your score.
 * Resources that you dismiss in Advisor are removed from your score calculation entirely. 
@@ -75,7 +74,7 @@ The scoring methodology is designed to control for number of resources on a subs
 ## How to access Advisor
 Advisor score is in public preview in Azure portal. You have to go to Advisor section and you will find Advisor score as the 2nd menu item in the left nav. 
 
-![Advisor Score entry-point](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/advisor/media/advisor-score-3.png)
+![Advisor Score entry-point](./media/advisor-score-3.png)
 
 ## Next steps
 
