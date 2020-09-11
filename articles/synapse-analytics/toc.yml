@@ -391,7 +391,7 @@
     - name: Overview
       items:
       - name: Overview template
-      href: machine-learning/what-is-machine-learning.md
+        href: machine-learning/what-is-machine-learning.md
     - name: Quickstarts
       items:
       - name: Quickstart template
