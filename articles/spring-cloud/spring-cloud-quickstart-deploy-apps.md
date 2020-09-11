@@ -127,7 +127,8 @@ If you've been using the Azure Cloud Shell up to this point, switch to a local c
 
    ```console
    az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
-
+   ```
+   
    This command may take several minutes to run.
 
 ## Assign public endpoint
