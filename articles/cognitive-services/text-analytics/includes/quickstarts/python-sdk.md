@@ -8,6 +8,10 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
+#### [Version 3.1](#tab/version-3.1)
+
+[v3 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+
 #### [Version 3.0](#tab/version-3)
 
 [v3 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
@@ -31,6 +35,15 @@ ms.author: aahi
 ### Install the client library
 
 After installing Python, you can install the client library with:
+
+#### [Version 3.1](#tab/version-3.1)
+
+```console
+pip install --upgrade azure-ai-textanalytics --pre
+```
+
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
 
 #### [Version 3.0](#tab/version-3)
 
@@ -66,6 +79,14 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## Object model
 
+#### [Version 3.1](#tab/version-3.1)
+
+The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch. 
+
+When batch processing text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
+
+The response object is a list containing the analysis information for each document. 
+
 #### [Version 3.0](#tab/version-3)
 
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch. 
@@ -95,6 +116,23 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 ## Authenticate the client
 
+#### [Version 3.1](#tab/version-3.1)
+
+Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
+
+```python
+from azure.ai.textanalytics import TextAnalyticsClient
+from azure.core.credentials import AzureKeyCredential
+
+def authenticate_client():
+    ta_credential = AzureKeyCredential(key)
+    text_analytics_client = TextAnalyticsClient(
+            endpoint=endpoint, credential=ta_credential)
+    return text_analytics_client
+
+client = authenticate_client()
+```
+
 #### [Version 3.0](#tab/version-3)
 
 Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
@@ -123,6 +161,55 @@ Create a function to instantiate the `TextAnalyticsClient` object with your `key
 --- 
 
 ## Sentiment analysis
+
+#### [Version 3.1](#tab/version-3.1)
+
+Create a new function called `sentiment_analysis_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
+
+
+```python
+def sentiment_analysis_example(client):
+
+    documents = ["I had the best day of my life. I wish you were there with me."]
+    response = client.analyze_sentiment(documents = documents)[0]
+    print("Document Sentiment: {}".format(response.sentiment))
+    print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
+        response.confidence_scores.positive,
+        response.confidence_scores.neutral,
+        response.confidence_scores.negative,
+    ))
+    for idx, sentence in enumerate(response.sentences):
+        print("Sentence: {}".format(sentence.text))
+        print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
+        print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
+            sentence.confidence_scores.positive,
+            sentence.confidence_scores.neutral,
+            sentence.confidence_scores.negative,
+        ))
+          
+sentiment_analysis_example(client)
+```
+
+### Output
+
+```console
+Document Sentiment: positive
+Overall scores: positive=1.00; neutral=0.00; negative=0.00 
+
+Sentence: I had the best day of my life.
+Sentence 1 sentiment: positive
+Sentence score:
+Positive=1.00
+Neutral=0.00
+Negative=0.00
+
+Sentence: I wish you were there with me.
+Sentence 2 sentiment: neutral
+Sentence score:
+Positive=0.21
+Neutral=0.77
+Negative=0.02
+```
 
 #### [Version 3.0](#tab/version-3)
 
@@ -192,6 +279,32 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## Language detection
 
+#### [Version 3.1](#tab/version-3.1)
+
+Create a new function called `language_detection_example()` that takes the client as an argument, then calls the `detect_language()` function. The returned response object will contain the detected language in `primary_language` if successful, and an `error` if not.
+
+> [!Tip]
+> In some cases it may be hard to disambiguate languages based on the input. You can use the `country_hint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `country_hint : ""`. 
+
+```python
+def language_detection_example(client):
+    try:
+        documents = ["Ce document est rédigé en Français."]
+        response = client.detect_language(documents = documents, country_hint = 'us')[0]
+        print("Language: ", response.primary_language.name)
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+language_detection_example(client)
+```
+
+
+### Output
+
+```console
+Language:  French
+```
+
 #### [Version 3.0](#tab/version-3)
 
 Create a new function called `language_detection_example()` that takes the client as an argument, then calls the `detect_language()` function. The returned response object will contain the detected language in `primary_language` if successful, and an `error` if not.
@@ -236,6 +349,169 @@ Document ID: 3 , Language: Chinese_Simplified
 ---
 
 ## Named Entity recognition (NER)
+
+#### [Version 3.1](#tab/version-3.1)
+
+> [!NOTE]
+> In version `3.1`: 
+> * Entity linking is a separate request than NER.
+
+Create a new function called `entity_recognition_example` that takes the client as an argument, then calls the `recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
+
+```python
+def entity_recognition_example(client):
+
+    try:
+        documents = ["I had a wonderful trip to Seattle last week."]
+        result = client.recognize_entities(documents = documents)[0]
+
+        print("Named Entities:\n")
+        for entity in result.entities:
+            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
+                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\tLength: \t", entity.length, "\tOffset: \t", entity.offset, "\n")
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+entity_recognition_example(client)
+```
+
+### Output
+
+```console
+Named Entities:
+
+        Text:    trip   Category:        Event  SubCategory:     None
+        Confidence Score:        0.61   Length:          4      Offset:          18
+
+        Text:    Seattle        Category:        Location       SubCategory:     GPE
+        Confidence Score:        0.82   Length:          7      Offset:          26
+
+        Text:    last week      Category:        DateTime       SubCategory:     DateRange
+        Confidence Score:        0.8    Length:          9      Offset:          34
+```
+
+## Entity Linking
+
+Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
+
+```python
+def entity_linking_example(client):
+
+    try:
+        documents = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
+        to develop and sell BASIC interpreters for the Altair 8800. 
+        During his career at Microsoft, Gates held the positions of chairman,
+        chief executive officer, president and chief software architect, 
+        while also being the largest individual shareholder until May 2014."""]
+        result = client.recognize_linked_entities(documents = documents)[0]
+
+        print("Linked Entities:\n")
+        for entity in result.entities:
+            print("\tName: ", entity.name, "\tId: ", entity.data_source_entity_id, "\tUrl: ", entity.url,
+            "\n\tData Source: ", entity.data_source)
+            print("\tMatches:")
+            for match in entity.matches:
+                print("\t\tText:", match.text)
+                print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score))
+                print("\t\tOffset: {}".format(match.offset))
+                print("\t\tLength: {}".format(match.length))
+            
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+entity_linking_example(client)
+```
+
+### Output
+
+```console
+Linked Entities:
+
+        Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
+        Data Source:  Wikipedia
+        Matches:
+                Text: Microsoft
+                Confidence Score: 0.55
+                Offset: 0
+                Length: 9
+                Text: Microsoft
+                Confidence Score: 0.55
+                Offset: 168
+                Length: 9
+        Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
+        Data Source:  Wikipedia
+        Matches:
+                Text: Bill Gates
+                Confidence Score: 0.63
+                Offset: 25
+                Length: 10
+                Text: Gates
+                Confidence Score: 0.63
+                Offset: 179
+                Length: 5
+        Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
+        Data Source:  Wikipedia
+        Matches:
+                Text: Paul Allen
+                Confidence Score: 0.60
+                Offset: 40
+                Length: 10
+        Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
+        Data Source:  Wikipedia
+        Matches:
+                Text: April 4
+                Confidence Score: 0.32
+                Offset: 54
+                Length: 7
+        Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
+        Data Source:  Wikipedia
+        Matches:
+                Text: BASIC
+                Confidence Score: 0.33
+                Offset: 98
+                Length: 5
+        Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
+        Data Source:  Wikipedia
+        Matches:
+                Text: Altair 8800
+                Confidence Score: 0.88
+                Offset: 125
+                Length: 11
+```
+
+Create a new function called `pii_recognition_example` that takes the client as an argument, then calls the `recognize_pii_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
+
+```python
+def pii_recognition_example(client):
+    documents = [
+        "The employee's SSN is 859-98-0987.",
+        "The employee's phone number is 555-555-5555."
+    ]
+    response = client.recognize_pii_entities(documents, language="en")
+    result = [doc for doc in response if not doc.is_error]
+    for doc in result:
+        for entity in doc.entities:
+            print("Entity: {}".format(entity.text))
+            print("\tCategory: {}".format(entity.category))
+            print("\tConfidence Score: {}".format(entity.confidence_score))
+            print("\tOffset: {}".format(entity.offset))
+            print("\tLength: {}".format(entity.length))
+pii_recognition_example(client)
+```
+
+### Output
+
+```console
+Entity: 859-98-0987
+        Category: U.S. Social Security Number (SSN)
+        Confidence Score: 0.65
+        Offset: 22
+        Length: 11
+Entity: 555-555-5555
+        Category: Phone Number
+        Confidence Score: 0.8
+        Offset: 31
+        Length: 12
+```
 
 #### [Version 3.0](#tab/version-3)
 
@@ -399,6 +675,39 @@ Document ID: 2
 
 ## Key phrase extraction
 
+#### [Version 3.1](#tab/version-3.1)
+
+Create a new function called `key_phrase_extraction_example()` that takes the client as an argument, then calls the `extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
+
+```python
+def key_phrase_extraction_example(client):
+
+    try:
+        documents = ["My cat might need to see a veterinarian."]
+
+        response = client.extract_key_phrases(documents = documents)[0]
+
+        if not response.is_error:
+            print("\tKey Phrases:")
+            for phrase in response.key_phrases:
+                print("\t\t", phrase)
+        else:
+            print(response.id, response.error)
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+        
+key_phrase_extraction_example(client)
+```
+
+
+### Output
+
+```console
+    Key Phrases:
+         cat
+         veterinarian
+```
 
 #### [Version 3.0](#tab/version-3)
 
