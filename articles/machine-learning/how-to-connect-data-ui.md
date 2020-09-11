@@ -79,7 +79,7 @@ For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authe
 
 ## Create datastores
 
-You can create datastores from [these Azure storage solutions](#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
+You can create datastores from [these Azure storage solutions](how-to-access-data.md#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
 
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
@@ -105,7 +105,7 @@ With datasets you can,
 * Share data and collaborate with other users.
 * Seamlessly access data during model training without worrying about connection strings or data paths. Learn more about [training ML models with datasets](#train-with-datasets).
 * Leverage open source libraries for data exploration like pandas.
-* Create references to single or multiple files or public URLs with [FileDatasets](how-to-create-register-datasetsmd#filedataset).
+* Create references to single or multiple files or public URLs with [FileDatasets](how-to-create-register-datasets.md#filedataset).
 
 * Represent your data in a tabular format with [TabularDatasets](how-to-create-register-datasets.md#tabulardataset).
 
@@ -120,7 +120,7 @@ The following steps and animation show how to create a dataset in [Azure Machine
 To create a dataset in the studio:
 1. Sign in at https://ml.azure.com.
 1. Select **Datasets** in the **Assets** section of the left pane.
-1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, public URLs or [Azure Open Datasets](../open-datasets/how-to-create-dataset-from-open-dataset.md).
+1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, public URLs or [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 1. Select **Tabular** or **File** for Dataset type.
 1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset.
     1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio).

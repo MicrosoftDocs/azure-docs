@@ -92,7 +92,7 @@ If your workspace is in a virtual network, you must configure the dataset to ski
 
 <a name="datasets-sdk"></a>
 
-## Create datasets via the SDK
+## Create datasets
 
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs. 
 
