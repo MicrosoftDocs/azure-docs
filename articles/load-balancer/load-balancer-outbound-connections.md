@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-ms.custom: seodec18
+ms.custom: contperfq1
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
