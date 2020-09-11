@@ -23,7 +23,9 @@ This behavior is by design to help avoid unnecessary collection of personal data
 
 ## Overriding default behavior
 
-While the default behavior is to minimize the collection of personal data, we still offer the flexibility to collect and store IP address data. Before choosing to store any personal data like IP addresses, we strongly recommend verifying that this does not break any compliance requirements or local regulations that you may be subject to. To learn more about personal data handling in Application Insights, consult the [guidance for personal data](../platform/personal-data-mgmt.md).
+While the default behavior is to minimize the collection of personal data, we still offer the flexibility to collect and store IP address data. Before choosing to store any personal data, we strongly recommend verifying that the collection does not break any compliance requirements or local regulations. 
+
+To learn more about personal data handling in Application Insights, consult the [guidance for personal data](../platform/personal-data-mgmt.md).
 
 ## Storing IP address data
 
@@ -53,7 +55,7 @@ In order to enable IP collection and storage, the `DisableIpMasking` property of
 
 ### Portal 
 
-If you only need to modify the behavior for a single Application Insights resource the easiest way to accomplish this is via the Azure portal.  
+If you only need to modify the behavior for a single Application Insights resource, use the Azure portal. 
 
 1. Go your Application Insights resource > **Settings** > **Export Template** 
 
@@ -63,11 +65,11 @@ If you only need to modify the behavior for a single Application Insights resour
 
     ![Deploy button highlighted in red](media/ip-collection/deploy.png)
 
-3. Select **Edit Template**. (If your template has additional properties or resources that do not appear in this example template, proceed with caution to ensure that all resources will accept the template deployment as an incremental change/update.)
+3. Select **Edit Template**.
 
     ![Edit Template](media/ip-collection/edit-template.png)
 
-4. Make the following changes to the json for your resource and then click **Save**:
+4. Make the following changes to the json for your resource and then select **Save**:
 
     ![Screenshot adds a comma after "IbizaAIExtension" and add a new line below with "DisableIpMasking": true](media/ip-collection/save.png)
 
@@ -80,11 +82,12 @@ If you only need to modify the behavior for a single Application Insights resour
 
     In this case nothing new is being purchased, we are just updating the config of the existing Application Insights resource.
 
-6. Once the deployment is complete new telemetry data will be recorded.
+6. Once the deployment is complete, new telemetry data will be recorded.
 
-    If you were to select and edit template again you would only see the default template and would not see your newly added property and its associated value. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set. Run the following PowerShell: (Replace `Fabrikam-dev` with the appropriate resource and resource group name.)
+    If you select and edit the template again, you will only see the default template and will not see your newly added property. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set, run the following PowerShell: 
     
     ```powershell
+    # Replace `Fabrikam-dev` with the appropriate resource and resource group name.
     # If you aren't using the cloud shell you will need to connect to your Azure account
     # Connect-AzAccount 
     $AppInsights = Get-AzResource -Name 'Fabrikam-dev' -ResourceType 'microsoft.insights/components' -ResourceGroupName 'Fabrikam-dev'
@@ -199,11 +202,11 @@ appInsights.defaultClient.addTelemetryProcessor((envelope) => {
 
 ### Client-side JavaScript
 
-Unlike the server-side SDKs, the client-side JavaScript SDK does not calculate IP address. By default IP address calculation for client-side telemetry is performed at the ingestion endpoint in Azure upon telemetry arrival. This means that if you were sending client-side data to a proxy and then forwarding to the ingestion endpoint, IP address calculation may show the IP address of the proxy and not the client. If no proxy is used this should not be an issue.
+Unlike the server-side SDKs, the client-side JavaScript SDK does not calculate IP address. By default IP address calculation for client-side telemetry is performed at the ingestion endpoint in Azure upon telemetry arrival. 
 
-If you wish to calculate IP address directly on the client-side you would need to add your own custom logic to perform this calculation and use the result to set the `ai.location.ip` tag. When `ai.location.ip` is set, IP address calculation is not performed by the ingestion endpoint and the provided IP address is honored and used for performing the geo lookup. In this scenario, IP address will still be zeroed out by default. 
+If you wish to calculate IP address directly on the client-side, you would need to add your own custom logic to perform this calculation and use the result to set the `ai.location.ip` tag. When `ai.location.ip` is set, IP address calculation is not performed by the ingestion endpoint and the provided IP address is honored and used for performing the geo lookup. In this scenario, IP address will still be zeroed out by default. 
 
-To retain the entire IP address calculated from your custom logic, you could use a telemetry initializer that would copy the IP address data you provided in `ai.location.ip` to a separate custom field. But again unlike the server-side SDKs, without relying on 3rd party libraries or your own custom client-side IP collection logic the client-side SDK will not calculate the IP for you.    
+To retain the entire IP address calculated from your custom logic, you could use a telemetry initializer that would copy the IP address data you provided in `ai.location.ip` to a separate custom field. But again unlike the server-side SDKs, without relying on third-party libraries or your own custom client-side IP collection logic the client-side SDK will not calculate the IP for you.    
 
 
 ```javascript
@@ -218,6 +221,9 @@ appInsights.addTelemetryInitializer((item) => {
 });
 
 ```  
+
+If client-side data traverses a proxy before forwarding to the ingestion endpoint, IP address calculation could show the IP address of the proxy and not the client. 
+
 ---
 
 ### View the results of your telemetry initializer
@@ -230,10 +236,12 @@ requests
 | project appName, operation_Name, url, resultCode, client_IP, customDimensions.["client-ip"]
 ```
 
-Newly collected IP addresses should appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all 4 octets either zeroed out or only displaying the first three octets depending on how you have configured IP address collection at the component level. If you are testing locally after implementing the telemetry initializer and the value you see for `customDimensions_client-ip` is `::1` this is expected behavior. `::1` represents the loopback address in IPv6. It is equivalent to `127.0.01` in IPv4 and is the result you will see when testing from localhost.
+Newly collected IP addresses will appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all four octets either zeroed out. 
+
+If you are testing locally after implementing the telemetry initializer and the value you see for `customDimensions_client-ip` is `::1`, this value is expected behavior. `::1` represents the loopback address in IPv6. It is equivalent to `127.0.01` in IPv4 and is the result you will see when testing from localhost.
 
 ## Next Steps
 
 * Learn more about [personal data collection](../platform/personal-data-mgmt.md) in Application Insights.
 
-* Learn more about how [IP address collection](https://apmtips.com/posts/2016-07-05-client-ip-address/) in Application Insights works. (This is an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)
+* Learn more about how [IP address collection](https://apmtips.com/posts/2016-07-05-client-ip-address/) in Application Insights works. (This article an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)
