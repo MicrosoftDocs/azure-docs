@@ -90,7 +90,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 * Right-click an Azure Cosmos DB account or a database, you can choose **Open in Portal** and manage the resource in the browser on the Azure portal.
 
-     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Open in portal":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Open in portal":::
 
 * You can also add Azure Cosmos DB account, database, collection to **Quick Access**.
 * **Search from Here** enables keyword search under the selected path.
@@ -101,25 +101,25 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 #### Create a database
 
--   Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, and press **Enter** to complete.
+- Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, and press **Enter** to complete.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Create a database in your Azure Cosmos account":::
+  :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Create a database in your Azure Cosmos account":::
 
 #### Delete a database
 
 - Right-click the database, select **Delete Database**, and select **Yes** in the pop-up window. The database node is deleted, and the Azure Cosmos DB account refreshes automatically.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Delete the first database":::
+  :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Delete the first database":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Delete the second databases":::
+  :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Delete the second databases":::
 
 #### Create a collection
 
 1. Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Create first collection in the database":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Create first collection in the database":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Create second collection in the database":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Create second collection in the database":::
 
 2. Select **Unlimited** to be able to specify partition key, then select **OK** to finish.
 
@@ -141,7 +141,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 - To create a new document, open **Documents** in the left window, select **New Document**, edit the contents in the right pane, then select **Save**. You can also update an existing document, and then select **Save**. Changes can be discarded by clicking **Discard**.
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Create a new document":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Create a new document":::
 
 #### Delete a document
 
@@ -151,7 +151,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 - Edit the document filter by entering a [SQL query](how-to-sql-query.md) and then select **Apply**.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Query for specific documents":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Query for specific documents":::
 
 ### Graph management
 
@@ -160,7 +160,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 1. To create a new vertex, open **Graph** from the left window, select **New Vertex**, edit the contents, then select **OK**.
 2. To modify an existing vertex, select the pen icon in the right pane.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modify a graph's vertex":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modify a graph's vertex":::
 
 #### Delete a graph
 
@@ -170,7 +170,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 - Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then select **Apply Filter**.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Run a graph query":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Run a graph query":::
 
 ### Table management
 
@@ -179,33 +179,34 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 1. To create a new table, open **Entities** from the left window, select **Add**, edit the content in **Add Entity** dialog, add property by clicking button **Add Property**, then select **Insert**.
 2. To modify a table, select **Edit**, modify the content, then select **Update**.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Create and modify a table":::
+   :::image type="content" source="./media/storage-explorer/table.png" alt-text="Create and modify a table":::
 
 #### Import and export table
 
 1. To import, select **Import** button and choose an existing table.
 2. To export, select **Export** button and choose a destination.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Import or export a table":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Import or export a table":::
 
 #### Delete entities
 
 - Select the entities and select button **Delete**.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Delete a table":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Delete a table":::
 
 #### Query table
 
 - Click **Query** button, input query condition, then select **Execute Query** button. Close Query pane by clicking **Close Query** button.
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Query data from the table":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Query data from the table":::
 
 ### Manage stored procedures, triggers, and UDFs
 
 * To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter a name in the left, type the stored procedure scripts in the right window, and then select **Create**.
 * You can also edit existing stored procedures by double-clicking, making the update, and then clicking **Update** to save, or select **Discard** to cancel the change.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Create and manage stored procedures":::
+  :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Create and manage stored procedures":::
+
 * The operations for **Triggers** and **UDF** are similar with **Stored Procedures**.
 
 ## Troubleshooting
