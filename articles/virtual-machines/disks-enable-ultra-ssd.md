@@ -282,7 +282,7 @@ Alternatively, if your existing VM is in a region/availability zone that is capa
 - Select **OK** then select **Create**.
 - After you are returned to your disk's blade, select **Save**.
 
-![saving-and-attaching-new-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+![Screenshot of the disks blade on your vm.](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
 
 # [Azure CLI](#tab/azure-cli)
 
