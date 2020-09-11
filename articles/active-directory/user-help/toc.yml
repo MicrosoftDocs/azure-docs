@@ -106,8 +106,6 @@
   items:
   - name: Sign in and use the My Apps portal
     href: my-apps-portal-end-user-access.md
-  - name: Update your profile and account info
-    href: my-apps-portal-end-user-update-profile.md
   - name: Update your groups info
     href: my-apps-portal-end-user-groups.md
   - name: Organize apps with collections
