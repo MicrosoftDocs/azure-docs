@@ -33,6 +33,8 @@ Despite the hassle, migrating away from the classic version is still important. 
 
 ## When should I migrate?
 
+When asking yourself if you should migrate, you should also take into account your deployment's current and future situation.
+
 There are a few scenarios in particular where we recommend you manually migrate:
 
 - You have a test host pool setup with a small number of users.
@@ -44,6 +46,8 @@ There are a few scenarios in particular where we recommend you manually migrate:
 
 ## Prepare for migration
 
+Before you get started, you'll need to make sure your environment is ready to migrate.
+
 Here's what you need to start the migration process:
 
 - An Azure subscription where you’ll create new Azure service objects.
@@ -54,7 +58,9 @@ Here's what you need to start the migration process:
     
     The Contributor role lets you create Azure objects on your subscription, and the User Access Administrator role lets you assign users to application groups.
 
-## Migrate manually from classic to the current update of the service
+## How to migrate manually
+
+Now that you've prepared for the migration process, it's time to actually migrate.
 
 To migrate manually from Windows Virtual Desktop (classic) to Windows Virtual Desktop:
 
