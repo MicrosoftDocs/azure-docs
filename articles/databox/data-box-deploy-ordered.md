@@ -134,7 +134,7 @@ Before you begin, make sure that you:
 * Install Windows PowerShell 6.2.4 or higher.
 * Install Azure PowerShell (AZ) module.
 * Install Azure Data Box (Az.DataBox) module.
-* Sign-in to Azure.
+* Sign in to Azure.
 
 #### Install Azure PowerShell and modules locally
 
