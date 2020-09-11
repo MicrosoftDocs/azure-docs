@@ -129,19 +129,19 @@ In this section, you create a user called Britta Simon in Glint Inc. Work with 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+#### SP-initiated:
 
 * Click on **Test this application** in Azure portal. This will redirect to Glint Inc Sign on URL where you can initiate the login flow.  
 
 * Go to Glint Inc Sign-on URL directly and initiate the login flow from there.
 
-#### IDP initiated:
+#### IDP-initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Glint Inc for which you set up the SSO 
 
 You can also use Microsoft Access Panel to test the application in any mode. When you click the Glint Inc tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Glint Inc for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Next Steps
+## Next steps
 
 Once you configure Glint Inc you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
