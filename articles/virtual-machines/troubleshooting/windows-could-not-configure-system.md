@@ -26,7 +26,7 @@ This article provides steps to resolve issues where the Sysprep process prevents
 
 When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays an Install Windows error while Windows setup is starting services. The error will display the message:
 
-“Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services”
+`Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services`
 
   ![Figure 1 displays an Install Windows error with the message: “Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services”](./media/windows-could-not-configure-system/1-windows-error-configure.png)
 
