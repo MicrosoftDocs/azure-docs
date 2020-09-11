@@ -473,8 +473,8 @@ Azure Maps provides an API for calculating the travel times and distances betwee
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
 
-| Bing Maps API parameter | Comparable Azure Maps API parameter                       |
-|-------------------------|-----------------------------------------------------------|
+| Bing Maps API parameter | Comparable Azure Maps API parameter                         |
+|-------------------------|-------------------------------------------------------------|
 | `origins`               | `origins` – specify in the POST request body as GeoJSON.    |
 | `destinations`          | `destination – specify in the POST request body as GeoJSON. |
 | `endTime`               | `arriveAt`                                                  |
@@ -486,6 +486,7 @@ The following table cross-references the Bing Maps API parameters with the compa
 | `key`                   | `subscription-key` – See also the [Authentication with Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) documentation. |
 | `culture` (`c`)         | `language` – See [supported languages](https://docs.microsoft.com/azure/azure-maps/supported-languages) documentation.  |
 | `userRegion` (`ur`)     | `view` – See [supported views](https://aka.ms/AzureMapsLocalizationViews) documentation.     |
+
 
 > [!TIP]
 > All the advanced routing options available in the Azure Maps routing API (truck routing, engine specifications, avoid…) is support in the Azure Maps distance matrix API.

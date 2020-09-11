@@ -1691,4 +1691,4 @@ Learn more about the Azure Maps Web SDK.
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Web SDK Service API reference documentation](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/)
+> [Azure Maps Web SDK Service API reference documentation](https://docs.microsoft.com/javascript/api/azure-maps-control/)

@@ -95,16 +95,16 @@ The symbol layer has many styling options available. Here is a tool to test out 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)
+> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer)
 
 > [!div class="nextstepaction"]
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
 
 > [!div class="nextstepaction"]
-> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
+> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
 
 > [!div class="nextstepaction"]
-> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
+> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
 
 See the following articles for more code samples to add to your maps:
 

@@ -1565,7 +1565,7 @@ Running this code in a browser will display a map that looks like the following 
 
 <center>
 
-![Google Maps image overlay](media/migrate-google-maps-web-app/google-maps-kml.png)</center>
+![Google Maps KML](media/migrate-google-maps-web-app/google-maps-kml.png)</center>
 
 **After: Azure Maps**
 
@@ -1662,11 +1662,11 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, additional s
 
 <center>
 
-![Azure Maps image overlay](media/migrate-google-maps-web-app/azure-maps-kml.png)</center>
+![Azure Maps KML](media/migrate-google-maps-web-app/azure-maps-kml.png)</center>
 
 **Additional resources:**
 
-- [atlas.io.read function](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io?view=azure-maps-typescript-latest#read-string---arraybuffer---blob--spatialdatareadoptions-)
+- [atlas.io.read function](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
 - [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
 - [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
@@ -1712,7 +1712,7 @@ The following appendix provides a cross reference of the commonly used classes i
 | `google.maps.Polygon`  | [atlas.data.Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)               |
 | `google.maps.PolygonOptions` |[atlas.layer.PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer)<br/> [atlas.PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)<br/> [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer)<br/> [atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)|
 | `google.maps.Polyline` | [atlas.data.LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring)         |
-| `google.maps.PolylineOptions` | [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-maps-typescript-latest)<br/>[atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-maps-typescript-latest) |
+| `google.maps.PolylineOptions` | [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer)<br/>[atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions) |
 | `google.maps.Circle`  | See [Add a circle to the map](map-add-shape.md#add-a-circle-to-the-map)                                     |
 | `google.maps.ImageMapType`  | [atlas.TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)         |
 | `google.maps.ImageMapTypeOptions` | [atlas.TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions) |
@@ -1759,4 +1759,4 @@ Learn more about the Azure Maps Web SDK.
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)d)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Web SDK Service API reference documentation](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/)
+> [Azure Maps Web SDK Service API reference documentation](https://docs.microsoft.com/javascript/api/azure-maps-control/)

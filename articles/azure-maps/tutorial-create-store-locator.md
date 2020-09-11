@@ -380,7 +380,7 @@ Everything is now set up in the user interface. We still need to add the JavaScr
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Add code to *index.js*. The following code initializes the map. We added an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to wait until the page is finished loading. Then, we wired up events to monitor the loading of the map, and give functionality to the search button and the My location button.
+1. Add code to *index.js*. The following code initializes the map. We added an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) to wait until the page is finished loading. Then, we wired up events to monitor the loading of the map, and give functionality to the search button and the My location button.
 
    When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query is initiated. Pass in an array of country/region ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned. 
   

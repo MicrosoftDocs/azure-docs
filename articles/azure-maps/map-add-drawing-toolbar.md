@@ -141,7 +141,7 @@ Learn how to use additional features of the drawing tools module:
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [Drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

@@ -116,10 +116,10 @@ Scaling the radius so that it doubles with each zoom level creates a heat map th
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
+> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 For more code examples to add to your maps, see the following articles:
 

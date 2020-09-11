@@ -13,7 +13,7 @@ ms.custom: codepen, devx-track-javascript
 
 # Add a polygon extrusion layer to the map
 
-This article shows you how to use the polygon extrusion layer to render areas of `Polygon` and `MultiPolygon` feature geometries as extruded shapes. The Azure Maps Web SDK supports rendering of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). These circles can be transformed into polygons when rendered on the map. All feature geometries may be updated easily when wrapped with the [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class.
+This article shows you how to use the polygon extrusion layer to render areas of `Polygon` and `MultiPolygon` feature geometries as extruded shapes. The Azure Maps Web SDK supports rendering of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). These circles can be transformed into polygons when rendered on the map. All feature geometries may be updated easily when wrapped with the [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) class.
 
 ## Use a polygon extrusion layer
 
@@ -79,7 +79,7 @@ The Polygon Extrusion layer has several styling options. Here is a tool to try t
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)
+> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
 > [polygon extrusion layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest)
