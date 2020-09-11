@@ -109,15 +109,11 @@ If you're not going to continue to use this application, delete the application 
 > [!div class="mx-imgBorder"]
 > ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
-### More Information
-
-* Learn more about other 
-[IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about IoT Central refer to 
-[IoT Central overview](../core/overview-iot-central.md)
-
 ## Next steps
 * Learn more about digital distribution center solution architecture 
 > [!div class="nextstepaction"]
 > [digital distribution center concept](./architecture-digital-distribution-center.md)
-
+* Learn more about other 
+[IoT Central retail templates](./overview-iot-central-retail.md)
+* Learn more about IoT Central refer to 
+[IoT Central overview](../core/overview-iot-central.md)

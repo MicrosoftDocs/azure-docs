@@ -116,15 +116,11 @@ If you're not going to continue to use this application, delete the application 
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png)
 
-### More Information
-
-* Learn more about other 
-[IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about 
-[IoT Central overview](../core/overview-iot-central.md)
-
 ## Next steps
 * Learn more about 
 > [!div class="nextstepaction"]
 > [Connected logistics concept](./architecture-connected-logistics.md)
-
+* Learn more about other 
+[IoT Central retail templates](./overview-iot-central-retail.md)
+* Learn more about 
+[IoT Central overview](../core/overview-iot-central.md)

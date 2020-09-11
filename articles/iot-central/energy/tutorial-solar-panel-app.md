@@ -100,14 +100,11 @@ If you decide to not continue using this application, delete your application wi
     > [!div class="mx-imgBorder"]
     > ![Delete application](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
-### More Information
-
-* Create solar panel application templates for free: 
-[solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Learn more about IoT Central, see 
-[IoT Central overview](https://docs.microsoft.com/azure/iot-central/)
-
 ## Next steps
 * Learn about solar panel app architecture refer to 
 > [!div class="nextstepaction"]
 > [the concept article](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+* Create solar panel application templates for free: 
+[solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* Learn more about IoT Central, see 
+[IoT Central overview](https://docs.microsoft.com/azure/iot-central/)

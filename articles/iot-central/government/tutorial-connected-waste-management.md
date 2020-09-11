@@ -263,8 +263,6 @@ If you're not going to continue to use this application, delete your application
 1. Open the Administration tab from the left pane of your IoT Central application.
 2. Select Application settings and click Delete button at the bottom of the page.
 
-  
-
 ## Next steps
 
 * Learn about more about

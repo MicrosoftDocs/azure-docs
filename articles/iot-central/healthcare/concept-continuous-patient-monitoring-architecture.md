@@ -12,8 +12,6 @@ manager: eliotgra
 
 # Continuous patient monitoring architecture
 
-
-
 Continuous patient monitoring solutions can be built by using the app template provided, and using the architecture that is outlined below as guidance.
 
 >[!div class="mx-imgBorder"] 
