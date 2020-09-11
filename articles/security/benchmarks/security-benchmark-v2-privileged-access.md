@@ -4,7 +4,7 @@ description: Azure Security Control Privileged Access
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 # Security Control: Privileged Access
 
-Privileged access focuses on the recommended security controls to manage the privileged access in Azure. This includes limiting privileged roles and accounts, emergency access setup, periodic review and reconciliation of user access, and use of specialized access workstation for privileged tasks.
+Privileged Access covers controls to protect privileged access to your Azure tenant and resources. This includes a range of controls to protect your administrative model, administrative accounts, and privileged access workstations against deliberate and inadvertent risk.
 
 ## PA-1: Protect and limit the global administrators
 

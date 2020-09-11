@@ -4,7 +4,7 @@ description: Azure Security Control Endpoint Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 # Security Control: Endpoint Security
 
-Endpoint security focuses on the recommended controls in endpoint detection and response. This includes automation of malware defense, threat monitoring and analysis in endpoint environment.
+Endpoint Security covers controls in endpoint detection and response. This includes use of endpoint detection and response (EDR) and anti-malware service for endpoints in Azure environments.
 
 ## ES-1: Use Endpoint Detection and Response (EDR)
 
@@ -38,7 +38,7 @@ Microsoft Defender Advanced Threat Protection provides EDR capability as part of
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-Security Compliance Management: 
+- [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -52,7 +52,7 @@ Use a centrally managed endpoint anti-malware solution capable of real time and 
 
 Azure Security Center can automatically identify the use of a number of popular anti-malware solutions for your virtual machines and report the endpoint protection running status and make recommendations. 
 
-Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). For Linux VMs, use third party antimalware solution.  Also, you can use Azure Security Center's Threat detection for data services to detect malware uploaded to Azure Storage accounts. 
+Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). For Linux VMs, use third-party antimalware solution.  Also, you can use Azure Security Center's Threat detection for data services to detect malware uploaded to Azure Storage accounts. 
 
 - [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../fundamentals/antimalware.md)
 
@@ -66,7 +66,7 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-Security Compliance Management:
+- [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -78,7 +78,7 @@ Security Compliance Management:
 
 Ensure anti-malware signatures are updated rapidly and consistently. 
 
-Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. Microsoft Antimalware will automatically install the latest signatures and engine updates by default. For Linux, use third party antimalware solution.
+Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. Microsoft Antimalware will automatically install the latest signatures and engine updates by default. For Linux, use third-party antimalware solution.
 
 - [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../fundamentals/antimalware.md)
 
@@ -90,7 +90,7 @@ Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure 
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-Security Compliance Management:
+- [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 

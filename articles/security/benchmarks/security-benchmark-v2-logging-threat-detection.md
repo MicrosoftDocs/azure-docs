@@ -4,7 +4,7 @@ description: Azure Security Control Logging and Threat Detection
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 # Security Control: Logging and Threat Detection
 
-Logging and threat detection focuses on the recommended practices related to enabling, collecting, and storing audit logs for Azure services. This includes the use of Azure services, native threat detection capability or use Azure Monitor, and Azure Sentinel to build a custom threat detection capability using logs collected from different sources.
+Logging and Threat Detection covers controls for detecting threats on Azure and enabling, collecting, and storing audit logs for Azure services. This includes enabling detection, investigation, and remediation processes with controls to generate high quality alerts with native threat detection in Azure services; it also includes collecting logs with Azure Monitor, centralizing security analysis with Azure Sentinel, time synchronization, and log retention. 
 
 ## LT-1: Enable threat detection for Azure resources
 
@@ -20,11 +20,11 @@ Logging and threat detection focuses on the recommended practices related to ena
 |--|--|--|--|
 | LT-1 | 6.7 | AU-3, AU-6, AU-12, SI-4 |
 
-Ensure you are monitoring different types of azure assets for potential threats and anomalies. Focus on getting high quality alerts to reduce false positives for analysts to sort through (which may be sourced from log data, agents, or other data).
+Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
-Use Azure Security Center built-in threat detection capability which is based monitoring of the service telemetry and utilizing the logs collected from different Azure services. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. 
+Use the Azure Security Center built-in threat detection capability, which is based on monitoring Azure service telemetry and analyzing service logs. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the system and copies the data to your workspace for analysis. 
 
-In addition, use Azure Sentinel to build analytics rules to hunt threats for specific criteria across your environment and generate incidents when the criteria are matched so that you can investigate them. Azure Sentinel can also import third party threat intelligence to enhance its threat detection capability. 
+In addition, use Azure Sentinel to build analytics rules, which hunt threats that match  specific criteria across your environment. The rules generate incidents when the criteria are matched, so that you can investigate each incident. Azure Sentinel can also import third party threat intelligence to enhance its threat detection capability. 
 
 - [Threat protection in Azure Security Center](../../security-center/threat-protection.md)
 
@@ -38,8 +38,13 @@ In addition, use Azure Sentinel to build analytics rules to hunt threats for spe
 
 **Customer Security Stakeholders**:
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security)
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
+
+- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -50,23 +55,33 @@ In addition, use Azure Sentinel to build analytics rules to hunt threats for spe
 | LT-2 | 6.8 | AU-3, AU-6, AU-12, SI-4 |
 
 Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases: 
-Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+-	Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
+-	Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-- [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md)
+-	Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+
+-	Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+
+Azure Security Center can also alert on certain suspicious activities such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (such as virtual machines, containers, app service), data resources (such as SQL DB and storage), and Azure service layers. This capability allows you to see account anomalies inside the individual resources.
+
+- [Audit activity reports in Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
 - [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
+
+- [Threat protection in Azure Security Center](../../security-center/threat-protection.md)
 
 **Responsibility**: Customer
 
 **Customer Security Stakeholders**:
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -95,12 +110,13 @@ Ensure you are collecting DNS query logs to assist in correlating other network 
 
 **Customer Security Stakeholders**:
 
-- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security)
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -110,7 +126,7 @@ Ensure you are collecting DNS query logs to assist in correlating other network 
 |--|--|--|--|
 | LT-4 | 6.2, 6.3, 8.8 | AU-3, AU-12 |
 
-Enable logging for Azure resources to meet the requirements for compliance, threat detection, and investigation, and threat hunting. 
+Enable logging for Azure resources to meet the requirements for compliance, threat detection and investigation, and threat hunting. 
 
 You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting on Azure resources for access to audit, security, and resource logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. 
 
@@ -124,11 +140,11 @@ You can use Azure Security Center and Azure Policy to enable resource logs and l
 
 **Customer Security Stakeholders**:
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
+Infrastructure and endpoint security 
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -138,13 +154,13 @@ You can use Azure Security Center and Azure Policy to enable resource logs and l
 |--|--|--|--|
 | LT-5 | 6.5, 6.6 | AU-3, SI-4 |
 
-Centralize logging storage and analysis to enable correlation. For each log source ensure you have assigned a data owner, access guidance, storage location, what tools are used to process/access the data, and data retention requirements.
+Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
 Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
 
 In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
-Many organization choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently. 
+Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently. 
 
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
 
@@ -156,9 +172,9 @@ Many organization choose to use Azure Sentinel for “hot” data that is used f
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
 ## LT-6: Configure log storage retention
 
@@ -166,13 +182,13 @@ Many organization choose to use Azure Sentinel for “hot” data that is used f
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
-Configure your log retention according to your compliance, regulation and other requirements. 
+Configure your log retention according to your compliance, regulation, and other requirements. 
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
 - [Change the data retention period in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-How to configure retention policy for Azure Storage account logs:  ttps://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
+How to configure retention policy for Azure Storage account logs: ttps://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
 
 - [Azure Security Center alerts and recommendations export](../../security-center/continuous-export.md)
 
@@ -182,9 +198,9 @@ How to configure retention policy for Azure Storage account logs:  ttps://docs.m
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Security compliance management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -196,7 +212,7 @@ How to configure retention policy for Azure Storage account logs:  ttps://docs.m
 
 Microsoft maintains time sources for most Azure PaaS and SaaS services. For your virtual machines, use Microsoft default NTP server for time synchronization unless you have a specific requirement.  If you need to stand up your own network time protocol (NTP) server, ensure you secure the UDP service port 123.
 
-Note: All logs generated by resources within Azure provide time stamps with the time zone specified by default.
+All logs generated by resources within Azure provide time stamps with the time zone specified by default.
 
 - [How to configure time synchronization for Azure Windows compute resources](../../virtual-machines/windows/time-sync.md)
 
@@ -210,7 +226,7 @@ Note: All logs generated by resources within Azure provide time stamps with the 
 
 - [Policy and standards](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
+- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

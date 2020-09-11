@@ -4,7 +4,7 @@ description: Azure Security Control Identity Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,39 +12,32 @@ ms.custom: security-benchmark
 
 # Security Control: Identity Management
 
-Identity and access management recommendations focus on addressing issues related to identity-based access control, locking down administrative access, alerting on identity-related events, abnormal account behavior, and role-based access control.
+Identity Management covers controls to establish a secure identity and access controls using Azure Active Directory. This includes the use of single sign-on, strong authentications, managed identities (and service principles) for applications, conditional access, and account anomalies monitoring.
 
 ## ID-1: Standardize Azure Active Directory as the central identity and authentication system
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| ID-1 | 16.1, 16.2, 16.4, 16.5, 16.6 | AC-3, IA-7, IA-8 |
+| ID-1 | 16.1, 16.2, 16.4, 16.5 | IA-2, IA-8, AC-2, AC-3 |
 
-Azure Active Directory (Azure AD) is Azure's default identity and access management service. Standardize Azure AD to govern your organization’s identity and access management in:
-
-- Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
+Azure Active Directory (Azure AD) is Azure's default identity and access management service. You should standardize on Azure AD to govern your organization’s identity and access management in:
+- Microsoft cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machines (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 
 - Your organization's resources, such as applications on Azure or your corporate network resources.
 
-Azure AD supports external identity providers that allow users without a Microsoft account to sign in to their applications and resources with their external identity.
+Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess your identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Azure AD provides an identity secure score to help you assess your identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
+Note: Azure AD supports external identity providers, which allow users without a Microsoft account to sign in to their applications and resources with their external identity.
 
-- [Tenancy in Azure Active Directory](../../active-directory/develop/single-and-multi-tenant-apps.md)
+- [Tenancy in Azure AD](../../active-directory/develop/single-and-multi-tenant-apps.md)
 
 - [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Define Azure AD tenants](/azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants#define-azure-ad-tenants)
+- [Define Azure AD tenants](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-- [Use external identity providers for application](/azure/active-directory/b2b/identity-providers)
+- [Use external identity providers for an application](/azure/active-directory/b2b/identity-providers)
 
-- [Sign into Windows virtual machines in Azure using Azure Active Directory authentication](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
-
-- [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md)
-
-- [What is the identity secure score in Azure Active Directory](../../active-directory/fundamentals/identity-secure-score.md)
-
-- [Azure AD by design protects data by using strong encryption for data at rest and in transit](https://download.microsoft.com/download/A/A/4/AA48DC38-DBC8-4C5E-AF07-D1433B55363D/Azure-AD-Data-Security-Considerations.pdf)
+- [What is the identity secure score in Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
 
 **Responsibility**: Customer
 
@@ -62,17 +55,18 @@ Azure AD provides an identity secure score to help you assess your identity secu
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| ID-2 | N/A | AC-2, AC-3, IA-2, IA-4 |
+| ID-2 | N/A | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
-For application identities such as service accounts used by applications or automation tools, use Azure AD to create a service principal type identity that can set with restricted permissions at the resource level instead of using a more powerful human account to access or execute your resources. You can use Azure Key Vault to manage service principal secrets to avoid hard coding credentials in source or configuration file. 
-
-In addition, Azure AD also supports a managed identity feature that can be enabled for certain Azure services. The managed identity can natively authenticate to the Azure services/resources that supports Azure AD authentication through pre-defined access grant rule without using credential hard coded in source code or configuration file. Unlike service principal, managed identity does not require registration in Azure Key Vault for secrets management.
-
-- [Azure service principal](/powershell/azure/create-azure-service-principal-azureps)
+For non-human accounts such as services or automation, use Azure managed identities, instead of creating a more powerful human account to access resources or execute code. Azure managed identities can authenticate to Azure services and resources that support Azure AD authentication. Authentication is enabled through pre-defined access grant rules, avoiding hard-coded credentials in source code or configuration files. 
+For services that do not support managed identities, use Azure AD to create a service principal with restricted permissions at the resource level instead.  It is recommended to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used in conjunction with Azure managed identities, so that the runtime environment (such as an Azure function) can retrieve the credential from the key vault.
 
 - [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
 
 - [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
+
+- [Azure service principal](/powershell/azure/create-azure-service-principal-azureps)
+
+- [Create a service principal with certificates](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 - [Use Azure Key Vault for security principal registration](../../key-vault/general/authentication.md#security-principal-registration)
 
@@ -90,18 +84,11 @@ In addition, Azure AD also supports a managed identity feature that can be enabl
 |--|--|--|--|
 | ID-3 | 4.4 | IA-2, IA-4 |
 
-Azure AD Business-to-Business (B2B): 
-Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Azure AD supports cloud and on-premises applications using Azure AD for authentication. Azure AD B2B allows guest users without a Microsoft account to sign in to Azure or non-Azure applications and resources with users’ external identities for cross-organization collaboration.
+Azure AD provides identity and access management to Azure resources, cloud applications, and on-premises applications. Identity and access management applies to enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers.
 
-Azure AD Business-to-Customer (B2C): 
+Use Azure AD single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to Azure AD for seamless, secure access, and greater visibility and control. 
 
-Azure AD B2C is a customer identity access management service. It supports local account identities or customer’s social, enterprise identities to get single sign-on access to the applications and APIs.
-
-- [Understand Application SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
-
-- [Use external identity providers for application in B2B access](/azure/active-directory/b2b/identity-providers)
-
-- [Overview of Azure Active Directory B2C](../../active-directory-b2c/technical-overview.md)
+- [Understand application SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Responsibility**: Customer
 
@@ -117,42 +104,26 @@ Azure AD B2C is a customer identity access management service. It supports local
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| ID-4 | 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
+| ID-4 | 4.2, 4.4 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
 
-Azure AD supports multi-factor authentication (MFA) or passwordlesss authentication as the strong authentication mechanism. 
-a) Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors. 
+Azure AD supports strong authentication controls through multi-factor authentication (MFA) and strong passwordless methods.  
+- Multi-factor authentication: Enable Azure AD MFA and follow Azure Security Center identity and access management recommendations for your MFA setup. MFA can be enforced on all users, select users, or at the per-user level based on sign-in conditions and risk factors. 
 
-b) Passwordless authentication – Three passwordless authentication options are available: a) Windows Hello for Business, b) Microsoft Authenticator app, c) FIDO2 security keys 
+- Passwordless authentication: Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app,  and on-premises authentication methods such as smart cards. 
 
-For administrator and privileged users, ensure the highest level of the strong authentication method are used, followed by rolling out the appropriate strong authentication policy to other users.
+For administrator and privileged users, ensure the highest level of the strong authentication method is used, followed by rolling out the appropriate strong authentication policy to other users.
 
-For password-based authentication, Azure AD does not have the concept of default passwords. Other Azure resources that do require a password force it to be created with complexity requirements and a minimum password length. The requirements differ depending on the service. You are also responsible for third-party applications and marketplace services that may use default passwords. Azure AD comes with a default password policy that cannot be modified. You can use Azure AD custom banned passwords to prevent certain known bad passwords being used or enforce a password change when a known bad pair of user credentials from data breach are input by the user. 
+If legacy password-based authentication is still used for Azure AD authentication, please be aware that cloud-only accounts (user accounts created directly in Azure) have a default baseline password policy. And hybrid accounts (user accounts that come from on-premises Active Directory) follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability that prevents users from setting passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (e.g. branding, cultural references, etc.). This password protection can be used for cloud-only and hybrid accounts. 
 
-For managing on-premises/non-Azure password policy through Azure AD, there are multiple options available depending on your deployment model:
-
-- Implement password hash synchronization with Azure AD Connect sync
-
-- Enforce Azure AD weak password check for on-premises Windows Server Active Directory
-
-- [Azure AD default password policy](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts)
-
-- [Configure custom banned passwords for Azure AD password protection](../../active-directory/authentication/tutorial-configure-custom-password-protection.md)
-
-- [Use risk detection for user sign-ins to trigger password changes](../../active-directory/authentication/tutorial-risk-based-sspr-mfa.md)
-
-- [Implement password hash synchronization with Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
-
-- [Enforce Azure AD weak password check for on-premises Windows Server Active Directory](../../active-directory/authentication/concept-password-ban-bad-on-premises.md)
+Note: Authentication based on password credentials alone is susceptible to popular attack methods. For higher security, use strong authentication such as MFA and a strong password policy. For third-party applications and marketplace services that may have default passwords, you should change them during initial service setup. 
 
 - [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Use Azure Privileged Identity Management security alerts](../../security-center/security-center-identity-access.md)
-
-- [Use risk detections for user sign-ins to trigger Azure Multi-Factor Authentication](../../active-directory/authentication/tutorial-risk-based-sspr-mfa.md)
-
 - [Introduction to passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md)
 
-- [How to setup a passwordless authentication deployment in Azure Active Directory](../../active-directory/authentication/howto-authentication-passwordless-deployment.md)
+- [Azure AD default password policy](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts)
+
+- [Eliminate bad passwords using Azure AD Password Protection](../../active-directory/authentication/concept-password-ban-bad.md)
 
 **Responsibility**: Customer
 
@@ -168,18 +139,24 @@ For managing on-premises/non-Azure password policy through Azure AD, there are m
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| ID-5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AC-9, AU-6 |
+| ID-5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AU-6 |
 
-Azure AD Identity Protection provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
-Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+Azure AD provides the following data sources: 
+-	Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription.
+-	Audit logs - Provides traceability through logs for all changes made through various features in Azure AD. Examples of logged changes audit logs include adding or removing users, apps, groups, roles, and policies.
 
-Note: Azure Advanced Threat Protection (ATP) is a security solution that can use Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions.
+-	Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
-Refer to ASB 2. Logging and Monitoring for more details about details in this area.
+-	Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-- [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md)
+These data sources can be integrated with Azure Monitor, Azure Sentinel or third party SIEM systems.
+
+Azure Security Center can also alert on certain suspicious activities such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. 
+
+Azure Advanced Threat Protection (ATP) is a security solution that can use on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions.
+
+- [Audit activity reports in Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
 - [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
@@ -189,9 +166,9 @@ Refer to ASB 2. Logging and Monitoring for more details about details in this ar
 
 - [Alerts in Azure Security Center's threat intelligence protection module](//azure/security-center/alerts-reference)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [How to integrate Azure activity logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Connect data from Azure Active Directory (Azure AD) Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md)
+- [Connect data from Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md)
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
@@ -207,29 +184,15 @@ Refer to ASB 2. Logging and Monitoring for more details about details in this ar
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| ID-6 | 11.7 | AC-2 |
+| ID-6 | N/A | AC-2, AC-3 |
 
-Use Azure AD conditional access for a more granular access control based on user-defined conditions, such as users logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases. 
+Use Azure AD conditional access for more granular access control based on user-defined conditions, such as requiring user logins from certain IP ranges to use MFA. A granular authentication session management can also be used through Azure AD conditional access policy for different use cases. 
 
-Intune and Cloud App Security can also be used for more complicated conditional access controlling the device end and application end respectively. 
-
-- [Azure conditional access Overview](../../active-directory/conditional-access/overview.md)
+- [Azure Conditional Access overview](../../active-directory/conditional-access/overview.md)
 
 - [Common Conditional Access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)
 
-- [How to configure Named Locations (specific logical groupings of IP address ranges or countries/regions) as a condition](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
-
-- [How to configure Named Locations (specific logical groupings of IP address ranges or countries/regions) as a condition](../../active-directory/conditional-access/howto-conditional-access-policy-location.md)
-
-- [How to configure devices of specific platforms or marked with a specific state as a condition](../../active-directory/conditional-access/howto-conditional-access-policy-compliant-device.md)
-
-- [Conditional Access and Intune](/mem/intune/protect/conditional-access/)
-
 - [Configure authentication session management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
-
-- [Use risk detections for user sign-ins to trigger Azure Multi-Factor Authentication](../../active-directory/authentication/tutorial-risk-based-sspr-mfa.md)
-
-- [Microsoft Cloud App Security best practices](//cloud-app-security/best-practices)
 
 **Responsibility**: Customer
 
@@ -243,25 +206,47 @@ Intune and Cloud App Security can also be used for more complicated conditional 
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## ID-7: Mitigate token theft and re-use
+## ID-7: Eliminate unintended credential exposure
 
 | Azure ID | CIS IDs | NIST IDs |
 |--|--|--|--|
-| ID-7 | N/A | AC-11, AC-12 |
+| ID-7 | 18.1, 18.7 | IA-5 |
 
-Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. You can specify the lifetime of a token issued by Azure AD. You can also set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. 
+Implement Credential Scanner to identify credentials within code. Credential Scanner also encourages moving discovered credentials to more secure locations such as Azure Key Vault.
 
-- [Configurable token lifetimes in Azure AD](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
+- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Responsibility**: Customer
 
 **Customer Security Stakeholders**:
 
-- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
-
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+## ID-8: Secure user access to legacy applications
+
+| Azure ID | CIS IDs | NIST IDs |
+|--|--|--|--|
+| ID-8 | 14.6 | AC-2, AC-3, SC-11 |
+
+Ensure you have modern access controls and session monitoring for legacy applications and the data they store and process. While VPNs are commonly used to access legacy applications, they often have only basic access control and limited session monitoring.
+
+Azure AD Application Proxy enables you to publish legacy on-premises applications to remote users with single sign-on (SSO) while explicitly validating the trustworthiness of both remote users and devices with Azure AD Conditional Access. 
+
+Alternatively, Microsoft Cloud App Security is a cloud access security broker (CASB) service that can provide controls for monitoring a user’s application sessions and blocking actions (for both legacy on-premises applications and cloud software as a service (SaaS) applications). 
+
+- [Azure AD Application Proxy](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
+
+- [Microsoft Cloud App Security best practices](/cloud-app-security/best-practices)
+
+**Responsibility**: Customer
+
+**Customer Security Stakeholders**:
+
+- [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
+
+- [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
+
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
