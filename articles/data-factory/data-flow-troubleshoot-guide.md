@@ -25,7 +25,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-Executor-SystemImplicitCartesian
 
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
-- **Causes**: Implicit cartesian product for INNER join between logical plans is not supported. If the columns used in the join creates the unique key, at least one column from both sides of the relationship are required.
+- **Causes**: Implicit cartesian product for INNER join between logical plans is not supported. If the columns used in the join create the unique key, at least one column from both sides of the relationship are required.
 - **Recommendation**: For non-equality based joins you have to opt for CUSTOM CROSS JOIN.
 
 ### Error code: DF-Executor-SystemInvalidJson
@@ -37,10 +37,10 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-Executor-BroadcastTimeout
 
 - **Message**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs
-- **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. Stream chosen for broadcast seems to large to produce data within this limit.
-- **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If this is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR.
+- **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 seconds in job runs. Stream chosen for broadcast seems too large to produce data within this limit.
+- **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If "Auto" is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR.
 
-If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300 secs timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
+If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300-seconds timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
 
 ### Error code: DF-Executor-Conversion
 
@@ -57,15 +57,15 @@ If you are executing the data flow in a debug test execution from a debug pipeli
  ### Error code: DF-Executor-DriverError
 - **Message**: INT96 is legacy timestamp type which is not supported by ADF Dataflow. Please consider upgrading the column type to the latest types.
 - **Causes**: Driver error
-- **Recommendation**: INT96 is legacy timestamp type which is not supported by ADF Dataflow. Please consider upgrading the column type to the latest types.
+- **Recommendation**: INT96 is legacy timestamp type, which is not supported by ADF Dataflow. Consider upgrading the column type to the latest types.
 
  ### Error code: DF-Executor-BlockCountExceedsLimitError
 - **Message**: The uncommitted block count cannot exceed the maximum limit of 100,000 blocks. Check blob configuration.
 - **Causes**: There can be a maximum of 100,000 uncommitted blocks in a blob.
-- **Recommendation**: Please contact Microsoft product team regarding this issue for more details
+- **Recommendation**: Contact Microsoft product team regarding this issue for more details
 
  ### Error code: DF-Executor-PartitionDirectoryError
-- **Message**: The specified source path has either multiple partitioned directories (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
+- **Message**: The specified source path has either multiple partitioned directories (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for example <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
 - **Causes**: Source path has either multiple partitioned directories or partitioned directory with other file or non-partitioned directory.
 - **Recommendation**: Remove partitioned root directory from source path and read it through separate source transformation.
 
