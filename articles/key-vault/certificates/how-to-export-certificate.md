@@ -60,10 +60,10 @@ az keyvault certificate download --file
 
 View [examples and parameter definitions](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) for more information.
 
-If you want to download the whole certificate (both the public and private portions of its composition), download the certificate as a secret.
+Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
 ```azurecli
-az keyvault secret download –file {nameofcert.pfx}
+az keyvault secret download -–file {nameofcert.pfx}
                             [--encoding {ascii, base64, hex, utf-16be, utf-16le, utf-8}]
                             [--id]
                             [--name]

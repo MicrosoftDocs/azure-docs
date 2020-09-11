@@ -114,6 +114,13 @@ Afterwards you can traverse the entity hierarchy and modify the entities and com
 > [!CAUTION]
 > All *Async* functions in ARR return asynchronous operation objects. You must store a reference to those objects until the operation is completed. Otherwise the C# garbage collector may delete the operation early and it can never finish. In the sample code above the use of *await* guarantees that the local variable 'loadOp' holds a reference until model loading is finished. However, if you were to use the *Completed* event instead, you would need to store the asynchronous operation in a member variable.
 
+## API documentation
+
+* [C# RemoteManager.LoadModelAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C# RemoteManager.LoadModelFromSASAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C++ RemoteManager::LoadModelAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C++ RemoteManager::LoadModelFromSASAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
+
 ## Next steps
 
 * [Entities](entities.md)

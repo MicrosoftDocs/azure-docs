@@ -133,7 +133,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Access blob data with an Azure AD account
-            url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: authorize-blob-access-portal.md
           - text: Manage access rights with RBAC
             url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Use a managed identity to authorize access to Blob storage
