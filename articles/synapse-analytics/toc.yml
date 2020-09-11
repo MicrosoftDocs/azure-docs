@@ -390,11 +390,16 @@
     items:
     - name: Overview
       items:
-      - name: What is Machine Learning Synapse Analytics?
+      - name: Overview template
       href: machine-learning/what-is-machine-learning.md
     - name: Quickstarts
+      items:
+      - name: Quickstart template
+        href: machine-learning/quickstart.md
     - name: Tutorials
       items:
+      - name: Tutorial template
+        href: machine-learning/tutorial.md
       - name: Run a regression experiment using Azure AutoML (Scoring in DW)
         href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: Concepts
