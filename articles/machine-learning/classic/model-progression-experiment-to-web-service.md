@@ -61,7 +61,7 @@ There may be more changes you want to make to get your predictive experiment rea
 In this conversion process, the training experiment is not discarded. When the process is complete, you have two tabs in Studio (classic): one for the training experiment and one for the predictive experiment. This way you can make changes to the training experiment before you deploy your Web service and rebuild the predictive experiment. Or you can save a copy of the training experiment to start another line of experimentation.
 
 > [!NOTE]
-> When you click **Predictive Web Service** you start an automatic process to convert your training experiment to a predictive experiment, and this works well in most cases. If your training experiment is complex (for example, you have multiple paths for training that you join together), you might prefer to do this conversion manually. For more information, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](convert-training-experiment-to-scoring-experiment.md).
+> When you click **Predictive Web Service** you start an automatic process to convert your training experiment to a predictive experiment, and this works well in most cases. If your training experiment is complex (for example, you have multiple paths for training that you join together), you might prefer to do this conversion manually. For more information, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
 >
 >
 
@@ -115,4 +115,3 @@ For examples of the whole process, see:
 
 * [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio (classic)](create-experiment.md)
 * [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine     Learning](tutorial-part1-credit-risk.md)
-

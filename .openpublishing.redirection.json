@@ -1513,7 +1513,7 @@
     {
       "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
       "redirect_url": "/azure/machine-learning/classic/tutorial-part1-credit-risk",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/studio/walkthrough-1-create-ml-workspace.md",
@@ -1533,12 +1533,12 @@
     {
       "source_path": "articles/machine-learning/studio/walkthrough-4-train-and-evaluate-models.md",
       "redirect_url": "/azure/machine-learning/classic/tutorial-part2-credit-risk-train",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/studio/walkthrough-5-publish-web-service.md",
       "redirect_url": "/azure/machine-learning/classic/tutorial-part3-credit-risk-deploy",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/studio/walkthrough-6-access-web-service.md",

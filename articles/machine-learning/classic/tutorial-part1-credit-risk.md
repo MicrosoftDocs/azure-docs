@@ -286,7 +286,7 @@ Our experiment now looks something like this:
 
 ![Adding Split module and R scripts](./media/tutorial-part1-credit-risk/experiment.png)
 
-For more information on using R scripts in your experiments, see [Extend your experiment with R](extend-your-experiment-with-r.md).
+For more information on using R scripts in your experiments, see [Extend your experiment with R](index.yml).
 
 
 ## Clean up resources

@@ -909,7 +909,7 @@ You can now proceed to model building and model deployment in [Machine Learning]
   Here, the coefficient of determination is 0.709, implying that about 71 percent of the variance is explained by the model coefficients.
 
 > [!IMPORTANT]
-> To learn more about Machine Learning and how to access and use it, see [What's Machine Learning](../classic/what-is-machine-learning.md). In addition, the [Azure AI Gallery](https://gallery.cortanaintelligence.com/) covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Machine Learning.
+> To learn more about Machine Learning and how to access and use it, see [What's Machine Learning](../classic/index.yml). In addition, the [Azure AI Gallery](https://gallery.cortanaintelligence.com/) covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Machine Learning.
 > 
 > 
 

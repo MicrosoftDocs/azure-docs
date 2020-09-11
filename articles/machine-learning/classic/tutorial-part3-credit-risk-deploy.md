@@ -85,7 +85,7 @@ To get this model ready for deployment, you need to convert this training experi
 you could do this manually, but fortunately all three steps can be accomplished by clicking **Set Up Web Service** at the bottom of the experiment canvas (and selecting the **Predictive Web Service** option).
 
 > [!TIP]
-> If you want more details on what happens when you convert a training experiment to a predictive experiment, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](convert-training-experiment-to-scoring-experiment.md).
+> If you want more details on what happens when you convert a training experiment to a predictive experiment, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
 
 When you click **Set Up Web Service**, several things happen:
 

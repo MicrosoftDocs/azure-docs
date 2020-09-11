@@ -97,7 +97,7 @@
       - name: Execute Python scripts
         href: execute-python-scripts.md
   - name: Select an algorithm
-    href: algorithm-choice.md     
+    href: ../how-to-select-algorithms.md
   - name: Deploy models
     items:
     - name: Deploy a web service

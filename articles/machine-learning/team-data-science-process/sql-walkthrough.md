@@ -625,7 +625,7 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 ## <a name="mlmodel"></a>Building Models in Azure Machine Learning
 To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning workspace](../classic/create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](../classic/what-is-ml-studio.md)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](../overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
