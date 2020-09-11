@@ -55,7 +55,7 @@ To enable all features of Azure Monitor for monitoring a virtual machine, you ne
 | [Enable Azure Monitor for VMs](#enable-azure-monitor-for-vms) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>- Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
 | [Install the diagnostics extension and telegraf agent](#enable-diagnostics-extension-and-telegraf-agent) | - Guest performance data collected to Metrics. | - Metrics explorer for guest.<br>- Metrics alerts for guest.  |
 | [Configure Log Analytics workspace](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
-| [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Loq queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
+| [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Log queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
 
 Each of these configuration steps is described in the following sections.
 
@@ -222,16 +222,16 @@ Event
 
 
 ## System Center Operations Manager
-System Center Operations Manager (SCOM) provides granular monitoring of workloads on virtual machines. See the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) for a comparison of monitoring platforms and different strategies for implementation.
+System Center Operations Manager provides granular monitoring of workloads on virtual machines. See the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) for a comparison of monitoring platforms and different strategies for implementation.
 
-If you have an existing SCOM environment that you intend to keep using, you can integrate it with Azure Monitor to provide additional functionality. The Log Analytics agent used by Azure Monitor is the same one used for SCOM so that you have monitored virtual machines send data to both. You still need to add the agent to Azure Monitor for VMs and configure the workspace to collect additional data as specified above, but the virtual machines can continue to run their existing management packs in a SCOM environment without modification.
+If you have an existing Operations Manager environment that you intend to keep using, you can integrate it with Azure Monitor to provide additional functionality. The Log Analytics agent used by Azure Monitor is the same one used for Operations Manager so that you have monitored virtual machines send data to both. You still need to add the agent to Azure Monitor for VMs and configure the workspace to collect additional data as specified above, but the virtual machines can continue to run their existing management packs in a Operations Manager environment without modification.
 
-Features of Azure Monitor that augment an existing SCOM features include the following:
+Features of Azure Monitor that augment an existing Operations Manager features include the following:
 
 - Use Log Analytics to interactively analyze your log and performance data.
-- Use log alerts to define alerting conditions across multiple virtual machines and using long term trends that aren't possible using alerts in SCOM.   
+- Use log alerts to define alerting conditions across multiple virtual machines and using long term trends that aren't possible using alerts in Operations Manager.   
 
-See [Connect Operations Manager to Azure Monitor](../platform/om-agents.md) for details on connecting your existing SCOM management group to your Log Analytics workspace.
+See [Connect Operations Manager to Azure Monitor](../platform/om-agents.md) for details on connecting your existing Operations Manager management group to your Log Analytics workspace.
 
 
 ## Next steps
