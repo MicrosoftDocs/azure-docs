@@ -89,14 +89,6 @@ Unlike the other kinds of pools, billing for SQL on-demand is based on the amoun
 * SQL on-demand has its own SQL on-demand databases that exist independently from any SQL on-demand pool.
 * A workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
 
-## Link the NYC Taxi sample data into the SQLDB1 database
-
-1. In Synapse Studio, navgiate to the **Data** hub on the left.
-1. Click **+**, then select **Browse samples**. This will open the **Sample center** and open the **Datasets** tab.
-1. Select **NYC Taxi & Limousine Commission - yellow taxi trip records**. This dataset contains over 1.5 billion rows.
-1. Click **Add dataset**
-1. In the **Data** hub under **Linked** you will see a new data set in this location **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow **   
-
 ## Preparing a ADLSGEN2 storage account
 
 ### Perform the following steps BEFORE you create your workspace
