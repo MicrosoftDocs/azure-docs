@@ -194,7 +194,7 @@ The `diagnostics` collection is on-demand and controlled via an IoT Edge direct 
 
 ### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **diagnostics** module. In the sample file *DeploymentManifest.json*, look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the sample file [*DeploymentManifest.json*](https://go.microsoft.com/fwlink/?linkid=2142179), look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
 
 **Configure Upload to Azure Blob Storage**
 

@@ -49,9 +49,9 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 2 NVIDIA Tesla T4 GPUs
 * 50 GB of SSD space
 
-In this article, you will download and install the following software packages. The host computer must be able to run the following:
+In this article, you will download and install the following software packages. The host computer must be able to run the following (see below for instructions):
 
-* [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) 
+* [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) and [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * Configurations for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (Multi-Process Service).
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
 * [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) runtime.
@@ -61,7 +61,7 @@ In this article, you will download and install the following software packages. 
 | Requirement | Description |
 |--|--|
 | Camera | The spatial analysis container is not tied to a specific camera brand. The camera device needs to: support Real-Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
-| Linux OS | [Ubuntu Desktop 18.04 LTS](https://ubuntu.com/download/desktop) must be installed on the host computer.  |
+| Linux OS | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) must be installed on the host computer.  |
 
 
 ## Request access to the spatial analysis functionality
@@ -161,7 +161,7 @@ Use the following bash script to install the required Nvidia graphics drivers, a
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
 sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/"
+sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
 sudo apt-get update
 sudo apt-get -y install cuda
 ```
@@ -174,7 +174,7 @@ nvidia-smi
 
 You should see the following output.
 
-![NVIDIA driver output](media/spatial-analytics/nvidia-driver-output.png)
+![NVIDIA driver output](media/spatial-analysis/nvidia-driver-output.png)
 
 ### Install Docker CE and nvidia-docker2 on the host computer
 
@@ -244,6 +244,7 @@ To deploy the spatial analysis container on the host computer, create an instanc
 Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters where appropriate. Alternatively, you can create the Azure IoT Hub on the [Azure portal](https://portal.azure.com/).
 
 ```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 az login
 az account set --subscription <name or ID of Azure Subscription>
 az group create --name "test-resource-group" --location "WestUS"
@@ -323,7 +324,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Once you update the [sample deployment manifest file](https://go.microsoft.com/fwlink/?linkid=2142179) `DeploymentManifest.json` file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
+Once you update the sample [DeploymentManifest.json](https://go.microsoft.com/fwlink/?linkid=2142179) file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
 
 ```azurecli
 az login
