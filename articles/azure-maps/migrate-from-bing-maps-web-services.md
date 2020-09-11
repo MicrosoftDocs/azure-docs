@@ -476,7 +476,7 @@ The following table cross-references the Bing Maps API parameters with the compa
 | Bing Maps API parameter | Comparable Azure Maps API parameter                         |
 |-------------------------|-------------------------------------------------------------|
 | `origins`               | `origins` – specify in the POST request body as GeoJSON.    |
-| `destinations`          | `destination – specify in the POST request body as GeoJSON. |
+| `destinations`          | `destination` – specify in the POST request body as GeoJSON. |
 | `endTime`               | `arriveAt`                                                  |
 | `startTime`             | `departAt`                                                  |
 | `travelMode`            | `travelMode`                                                |
