@@ -20,9 +20,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Role-based access control
 
-Custom Vision supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. To learn how to manage access to your Custom Vision projects, see [Role-based access control](./role-based-access-control.md).
-
-## July 2020
+* Custom Vision supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. To learn how to manage access to your Custom Vision projects, see [Role-based access control](./role-based-access-control.md).
 
 ### Subset training
 
@@ -34,7 +32,7 @@ Custom Vision supports Azure role-based access control (Azure RBAC), an authoriz
 
 ### Copy and move projects
 
-* The **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** and **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** APIs enable you to copy projects from one Custom Vision account into others. You might want to move a project from a development to production environment, or back up a project to an account in a different Azure region for increased data security. See the [Copy and move projects](./copy-move-projects.md) guide to learn more.
+* You can now copy projects from one Custom Vision account into others. You might want to move a project from a development to production environment, or back up a project to an account in a different Azure region for increased data security. See the [Copy and move projects](./copy-move-projects.md) guide to learn more.
 
 ## September 2019
 
