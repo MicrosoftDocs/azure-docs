@@ -55,8 +55,10 @@ You can also use the [Azure Notebooks environment script](#create-an-environment
 
 ## Use Notebooks in GitHub Codespaces
 
-GitHub Codespaces provides cloud hosted environments where you can edit your notebooks using Visual Studio Code in your web browser. It offers the same great Jupyter experience as VS Code, but without needing to install anything on your device. If you don’t want to set up a local environment and prefer a cloud-backed solution, then creating a codespace is a great option. To get started:
-
+GitHub Codespaces provides cloud hosted environments where you can edit your notebooks using Visual Studio Code or in your web browser. It offers the same great Jupyter experience as VS Code, but without needing to install anything on your device. If you don’t want to set up a local environment and prefer a cloud-backed solution, then creating a codespace is a great option. To get started:
+1. [Download](#export-an-azure-notebooks-project) your project files.
+1. [Create a GitHub repository](https://help.github.com/github/getting-started-with-github/create-a-repo) for storing your notebooks. 	
+1. [Add your files](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) to the repository.
 1. [Request Access to the GitHub Codespaces Preview](https://github.com/features/codespaces)
 
 ## Use Notebooks with Azure Machine Learning
