@@ -32,6 +32,7 @@ The following versions of Cassandra drivers are supported by Azure Cosmos DB Cas
 * [PHP 1.3](https://github.com/datastax/php-driver)  
 * [Gocql](https://github.com/gocql/gocql)  
  
+
 ## CQL data types 
 
 Azure Cosmos DB Cassandra API supports the following CQL data types:
@@ -73,8 +74,9 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 |Command  |Supported |
 |---------|---------|
 | Token | Yes |
-| ttl | No |
-| writetime | No |
+| ttl | Yes |
+| writetime | Yes |
+| cast | No |
 
 Aggregate functions:
 
@@ -118,17 +120,17 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 |Command  |Supported |
 |---------|---------|
 | ALLOW FILTERING | Yes |
-| ALTER KEYSPACE | No (moot as PaaS service, so replication managed internally)|
+| ALTER KEYSPACE | N/A (PaaS service, replication managed internally)|
 | ALTER MATERIALIZED VIEW | No |
 | ALTER ROLE | No |
 | ALTER TABLE | Yes |
 | ALTER TYPE | Yes |
 | ALTER USER | No |
 | BATCH | Yes (unlogged batch only)|
-| COMPACT STORAGE | No |
+| COMPACT STORAGE | N/A (PaaS service) |
 | CREATE AGGREGATE | No | 
 | CREATE CUSTOM INDEX (SASI) | No |
-| CREATE INDEX (without [specifying index name](cassandra-secondary-index.md), and indexes on clustering keys or full FROZEN collection not supported) | Yes |
+| CREATE INDEX | Yes (without [specifying index name](cassandra-secondary-index.md), and indexes on clustering keys or full FROZEN collection not supported) |
 | CREATE FUNCTION | No |
 | CREATE KEYSPACE (replication settings ignored) | Yes |
 | CREATE MATERIALIZED VIEW | No |
@@ -160,6 +162,14 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | UPDATE (lightweight transactions with IF CONDITION)| No |
 | TRUNCATE | No |
 | USE | Yes |
+
+## JSON Support
+|Command  |Supported |
+|---------|---------|
+| SELECT JSON | Yes |
+| INSERT JSON | Yes |
+| fromJson() | No |
+| toJson() | No |
 
 
 ## Cassandra API limits
