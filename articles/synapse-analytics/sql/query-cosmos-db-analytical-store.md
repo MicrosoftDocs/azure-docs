@@ -89,7 +89,7 @@ The result of this query might look like:
 | 2020-08-12 | 235 | RS |
 | 2020-08-11 | 163 | RS |
 
-Review the [rules for SQL type mappings](#type-mappings) at the end of the article for more information about the SQL types that should be used for Azure Cosmos DB value.
+Review the [rules for SQL type mappings](#data-type-mappings) at the end of the article for more information about the SQL types that should be used for Azure Cosmos DB value.
 
 ## Nested values
 
@@ -210,7 +210,7 @@ Supplementary Information An eco-epidemi… | `[{"first":"Julien","last":"Mélad
 > If you see unexpected characters in your text like `MÃƒÂ©lade` instead of `Mélade` then your database collation is not set to [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation. 
 > [Change collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to some UTF8 collation using some SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
-## Type mappings
+## Data type mappings
 
 Azure Cosmos DB contains items with numbers, strings, logical values, nested objects, or arrays. You would need to
 choose SQL types that match these values if you are using the `WITH` clause. The SQL data types that should be used for different values in Azure Cosmos DB are as follows:
