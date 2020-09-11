@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 9/12/2019
+ms.date: 9/11/2020
 ---
 # Manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus)
 Server-level firewall rules can be used to manage access to a Hyperscale (Citus) coordinator node from a specified IP address or range of IP addresses.
@@ -18,14 +18,14 @@ To step through this how-to guide, you need:
 ## Create a server-level firewall rule in the Azure portal
 
 > [!NOTE]
-> These settings are also accessible during the creation of an Azure Database for PostgreSQL - Hyperscale (Citus) server group. Under the **Networking** tab, click **Public endpoint**.
+> These settings are also accessible during the creation of an Azure Database for PostgreSQL - Hyperscale (Citus) server group. Under the **Networking** tab, click **Public access**.
 > ![Azure portal - networking tab](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. On the PostgreSQL server group page, under the Security heading, click **Networking** to open the Firewall rules.
 
    ![Azure portal - click Networking](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
 
-2. Click **Add client IP**, either on the toolbar (option A below), or in the link (option B). Either way automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+2. Click **Add current client IP address** to create a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
    ![Azure portal - click Add client IP](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -49,7 +49,7 @@ There is an easy way to grant Hyperscale database access to applications hosted 
 
 ## Manage existing server-level firewall rules through the Azure portal
 Repeat the steps to manage the firewall rules.
-* To add the current computer, click the button to + **Add client IP**. Click **Save** to save the changes.
+* To add the current computer, click the button to + **Add current client IP address**. Click **Save** to save the changes.
 * To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address. Click **Save** to save the changes.
 * To modify an existing rule, click any of the fields in the rule and modify. Click **Save** to save the changes.
 * To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.
