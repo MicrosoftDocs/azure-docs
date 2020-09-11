@@ -335,7 +335,7 @@ In the public IP address space, the five-tuple of the flow below must be unique:
 * Destination IP address
 * Destination port 
 
-Port masquerading SNAT can be used with either TCP or UDP protocols. SNAT ports are used to after rewriting the private source IP address because multiple flows originate from a single public IP address. The port masquerading SNAT algorithm gives SNAT ports differently for UDP versus TCP.
+Port masquerading SNAT can be used with either TCP or UDP protocols. SNAT ports are used after rewriting the private source IP address because multiple flows originate from a single public IP address. The port masquerading SNAT algorithm gives SNAT ports differently for UDP versus TCP.
 
 ### SNAT ports (TCP)
 
