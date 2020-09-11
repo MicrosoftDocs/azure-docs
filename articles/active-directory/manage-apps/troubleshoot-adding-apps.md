@@ -36,9 +36,9 @@ The delete button will be disabled in the following scenarios:
 
 - For applications under Enterprise application, if you don't have one of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
-- For Microsoft application, you won't be able to delete them from the UI regardless of your role. 
+- For Microsoft application, you won't be able to delete them from the UI regardless of your role.
 
-- For servicePrincipals that correspond to a managed identity. Learn more about [Managed Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
+- For servicePrincipals that correspond to a managed identity. Managed identities service principals can't be deleted in the Enterprise apps blade. You need to go to the Azure resource to manage it. Lear more about [Managed Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## How to see the details of a portal notification
 You can see the details of any portal notification by following the steps below:
