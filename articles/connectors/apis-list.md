@@ -38,7 +38,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
 <a name="managed-connectors"></a>
 
-* [**Managed connectors**](#managed-api-connectors): Deployed and managed by Microsoft, these connectors provide triggers and actions for accessing cloud services, on-premises systems, or both, including Microsoft 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint, and more. Some connectors specifically support business-to-business (B2B) communication scenarios and require an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app. Before using certain connectors, you might have to first create connections, which are managed by Azure Logic Apps.
+* [**Managed connectors**](#managed-api-connectors): Deployed and managed by Microsoft, these connectors provide triggers and actions for accessing cloud services, on-premises systems, or both, including Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint, and more. Some connectors specifically support business-to-business (B2B) communication scenarios and require an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app. Before using certain connectors, you might have to first create connections, which are managed by Azure Logic Apps.
 
   For example, if you're using Microsoft BizTalk Server, your logic apps can connect to and communicate with your BizTalk Server by using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by using the [integration account connectors](#integration-account-connectors).
 
@@ -48,7 +48,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
   | Category | Description |
   |----------|-------------|
-  | [**Managed connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Microsoft 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. |
+  | [**Managed connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. |
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. |
   | [**Integration account connectors**](#integration-account-connectors) | Available when you create and pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. |
   |||
@@ -384,9 +384,9 @@ Here are the general kinds of triggers that Azure Logic Apps provides:
 
 Each connector's triggers and actions provide their own properties for you to configure. Many connectors also require that you first create a *connection* to the target service or system and provide authentication credentials or other configuration details before you can use a trigger or action in your logic app. For example, before you can access and working with your Office 365 Outlook email account, you must authorize a connection to that account.
 
-For connectors that use Azure Active Directory (Azure AD) OAuth, creating a connection means signing into the service, such as Microsoft 365, Salesforce, or GitHub, where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret store. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also encrypted and securely stored. Learn more about [encryption in Azure](../security/fundamentals/encryption-overview.md).
+For connectors that use Azure Active Directory (Azure AD) OAuth, creating a connection means signing into the service, such as Office 365, Salesforce, or GitHub, where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret store. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also encrypted and securely stored. Learn more about [encryption in Azure](../security/fundamentals/encryption-overview.md).
 
-Connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Microsoft 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access tokens, such as changing your password.
+Connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access tokens, such as changing your password.
 
 <a name="custom"></a>
 

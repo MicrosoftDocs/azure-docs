@@ -152,7 +152,7 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **Q: What information is included in the Tenant Model, and how is it created?**
 
-**A:** A Tenant Model is built using [public group](/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization.
+**A:** A Tenant Model is built using [public group](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization.
 
 **Q: What speech experiences are improved by the Tenant Model?**
 
