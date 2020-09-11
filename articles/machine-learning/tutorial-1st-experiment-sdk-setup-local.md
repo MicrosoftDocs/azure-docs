@@ -13,16 +13,16 @@ ms.date: 09/09/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Set up your local computer for Azure Machine Learning
+# Tutorial: Get started with Azure Machine Learning on your local computer (Part 1 of 4)
 
-The goal of this tutorial series is to introduce you to the fundamental concepts of Azure Machine Learning (Azure Machine Learning), including:
+In this **four-part tutorial series**, you will learn the fundamentals of Azure Machine Learning and complete simple jobs-based machine learning tasks in the Azure cloud, including:
 
-- Setting up a workspace and local (for example, laptop) ML developer environment
-- Running code in the cloud using Azure Machine Learning's Python SDK
-- Managing python environments to use to train a model
-- Uploading data to Azure and consuming the data in your ML training
+1. Set up a workspace and your local machine learning developer environment.
+2. Run code in the cloud using Azure Machine Learning's Python SDK.
+3. Manage the Python environment you use for model training.
+4. Upload data to Azure and consume that data in training.
 
-In this tutorial, you will:
+In **part 1 of this tutorial series**, you will:
 
 > [!div class="checklist"]
 > * Install the Azure Machine Learning SDK
@@ -39,7 +39,7 @@ In this tutorial, you will:
 > - distributed (require many machines and processes) and/or
 > - repeatable (require reproducible, auditable, and portable environment)
 >
-> If your machine learning tasks do not fit this profile - for example, you tend to run ad-hoc analysis with python code in a Jupyter notebook, or R code in Rstudio - **we would recommend you use the [Jupyter or RStudio functionality on a Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md)**. This will be the fastest way for you to onboard to Azure Machine Learning.
+> If your ML tasks do not fit this profile, use the [Jupyter or RStudio functionality on a Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md) to onboard to Azure Machine Learning.
 
 ## Prerequisites
 
