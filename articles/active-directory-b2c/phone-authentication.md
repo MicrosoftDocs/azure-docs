@@ -29,11 +29,11 @@ One-time passwords are sent to your users by using SMS text messages, and you ma
 With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary identifier. The end user's experience during sign-up and sign-in is described below.
 
 > [!NOTE]
-> We strongly suggest you include consent information in your sign-up and sign-in experience, similar to the sample text below. This sample text is for informational purposes only; you should consult with your own legal or compliance experts for guidance on your final text and feature configuration to meet your own compliance needs:
+> We strongly suggest you include consent information in your sign-up and sign-in experience similar to the sample text below. This sample text is for informational purposes only. Please refer to the Short Code Monitoring Handbook on the [CTIA website](https://www.ctia.org/programs) and consult with your own legal or compliance experts for guidance on your final text and feature configuration to meet your own compliance needs:
 >
-> *By providing your phone number, you consent to recieving a one-time passcode sent by text message to help you sign in to *&lt;Your application name&gt;*. Standard message and data rates may apply.*
+> *By providing your phone number, you consent to recieving a one-time passcode sent by text message to help you sign in to *&lt;insert: your application name&gt;*. Standard message and data rates may apply.*
 >
-> *&lt;link to your Privacy Statement&gt;*<br/>*&lt;link to your Terms of Service&gt;*
+> *&lt;insert: a link to your Privacy Statement&gt;*<br/>*&lt;insert: a link to your Terms of Service&gt;*
 
 To add your own consent information, customize the following sample and include it in the LocalizedResources for the ContentDefinition used by the self-asserted page with the display control (the Phone-Email-Base.xml file in the phone sign-up & sign-in starter pack):
 
@@ -78,9 +78,10 @@ If the user has an existing account with phone number as their identifier, the u
 
 ## Deleting a user account
 
-There might be scenarios in which you need to manually delete an account in your Azure AD B2C directory, for example to support your obligations under the GDPR. For details, see [Delete a consumer user](manage-users-portal.md#delete-a-consumer-user). 
+In certain cases you might you need to delete a user and associated data from your Azure AD B2C directory. For details about how to delete a user account through the Azure portal, refer to [these instructions](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
 
-For European customers, find GDPR information relevant to you in the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted). For US customers, refer to the *Short Code Monitoring Handbook* on the [CTIA website](https://www.ctia.org/programs).
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 
 ## Prerequisites
