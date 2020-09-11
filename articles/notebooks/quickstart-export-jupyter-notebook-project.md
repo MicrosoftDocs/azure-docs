@@ -29,7 +29,7 @@ An existing Azure Notebooks project.
 
 After downloading your project files, you can use them with other Jupyter Notebook solutions. Some options described in the sections below include: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
-- [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces)
+- [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
@@ -87,7 +87,7 @@ For additional information about Azure ML and running Jupyter Notebooks, you can
 
 ## Use GitHub
 
-GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces) for a great development experience. To get started with GitHub
+GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [GitHub Codespaces](#use-notebooks-in-github-codespaces) for a great development experience. To get started with GitHub
 
 1. [Download](#export-an-azure-notebooks-project) your project files.
 1. [Create a GitHub repository](https://help.github.com/github/getting-started-with-github/create-a-repo) for storing your notebooks. 
