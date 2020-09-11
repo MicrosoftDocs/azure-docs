@@ -61,7 +61,7 @@ Excellent data compression and efficient retention cleanup makes clustered colum
 
 ## Monitoring data retention cleanup
 
-Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge. For more information on extended events, refer [XEvents Overview](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge. For more information on extended events, refer [XEvents Overview](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
 
 The following six extended events help track the state of the cleanup operations. 
 
@@ -72,7 +72,9 @@ The following six extended events help track the state of the cleanup operations
 | data_retention_task_exception	 | Occurs when background task for cleanup of tables with retention policy fails outside of retention cleanup process specific to table. |
 | data_retention_cleanup_started  | Occurs when clean up process of table with data retention policy starts. |
 | data_retention_cleanup_exception	| Occurs cleanup process of table with retention policy fails. |
-| data_retention_cleanup_completed	| Occurs when clean up process of table with data retention policy ends. |
+| data_retention_cleanup_completed	| Occurs when clean up process of table with data retention policy ends. |  
+
+Additionally, a new ring buffer type named `RING_BUFFER_DATA_RETENTION_CLEANUP` has been added to sys.dm_os_ring_buffers dynamic management view. This view can be used to monitor the data retention cleanup operations. 
 
 
 ## Next Steps
