@@ -843,6 +843,10 @@
     {
       "source_path": "articles/active-director/users-groups-roles/custom-enterprise-apps.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/roles-custom-overview",
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-update-profile.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-settings",
       "redirect_document_id": false
     },
     {
