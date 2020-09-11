@@ -125,7 +125,7 @@ Inventoried or query pre-defined Azure built-in roles exist for certain resource
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. 
 
-Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privileged Identity Management (PIM) and Azure Resource Manager (ARM). 
+Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privileged Identity Management (PIM) and Azure Resource Manager. 
 
 - [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management)
 
