@@ -29,7 +29,7 @@ An existing Azure Notebooks project.
 
 After downloading your project files, you can use them with other Jupyter Notebook solutions. Some options described in the sections below include: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
-- [Visual Studio Codespaces](#use-notebooks-in-github-codespaces)
+- [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
