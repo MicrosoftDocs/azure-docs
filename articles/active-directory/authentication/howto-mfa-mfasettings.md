@@ -153,7 +153,7 @@ In the United States, if you haven't configured MFA Caller ID, voice calls from 
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> When Azure Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though Azure Multi-Factor Authentication always sends it.  This applies to both phone calls and text messages provided by Azure Multi-Factor Authentication.  If you need to validate a text message is from Azure Multi-Factor Authentication, you can find that reference in the following [article](https://docs.microsoft.com/en-us/Azure/active-directory/authentication/multi-factor-authentication-faq#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users).
+> When Azure Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though Azure Multi-Factor Authentication always sends it.  This applies to both phone calls and text messages provided by Azure Multi-Factor Authentication.  If you need to validate a text message is from Azure Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 To configure your own caller ID number, complete the following steps:
 
