@@ -25,7 +25,7 @@ Azure Spring Cloud Config server is a centralized configuration service for dist
 Set up your config-server with the location of the git repository for the project by running the following command. Replace `<service instance name>` with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
 
 ```azurecli
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --label master --search-paths steeltoe-sample/config
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
 ```
 
 This command tells Configuration server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that will get the configuration data is `planet-weather-provider`, the file that will be used is [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/steeltoe-sample/config/planet-weather-provider.yml).
