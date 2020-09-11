@@ -211,7 +211,7 @@ Starting with the latest refresh release of v6.4, you have the option to specify
 
 The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
 
-![HealthCheckHealthy][1]
+![Screenshot shows details of the Deployed Service Package NodeServicePackage.][1]
 
 ![HealthCheckUnhealthyApp][2]
 

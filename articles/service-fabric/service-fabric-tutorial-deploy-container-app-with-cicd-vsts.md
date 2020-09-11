@@ -137,7 +137,7 @@ Verify that the deployment succeeded and the application is running in the clust
 
 To verify that the continuous integration pipeline is functioning by checking in some code changes to Azure DevOps.
 
-As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending][pending]) from the status bar in the bottom right.
+As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending changes icon shows a pencil and a number.][pending]) from the status bar in the bottom right.
 
 On the **Changes** view in Team Explorer, add a message describing your update and commit your changes.
 
