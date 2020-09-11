@@ -54,13 +54,13 @@ Advisor applies three additional weights to the healthy resource ratio in each c
 Advisor applies this model at an Advisor category level (Security uses [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) model), giving us Advisor score for each category and further a simple average produces the final Advisor score.
 
 
-## Advisor Score FAQ
+## Advisor score FAQ
 * **How often is my score refreshed?**
 Your score is refreshed at least once per day. 
 * **Do I need to view the recommendations in Advisor to get point for my score?**
 No. Your score reflects whether you adopt best practices that Advisor recommends, even if you never view those recommendations in Advisor and adopt best practices proactively.  
 * **How do Advisor calculate the daily retail cost of resources on a subscription?**
-Advisor uses the Pay as you go rates published on the Azure.com pricing page, which do not reflect any does not reflect any applicable discounts, multiplied by the quantity of usage on the last day the resource was allocated. Omitting discounts from the calculation of the resource cost makes Advisor Score comparable across subscriptions, tenants, and enrollments where discounts may vary. 
+Advisor uses the *pay as you go* rates published on the Azure.com pricing page, which does not reflect any applicable discounts, multiplied by the quantity of usage on the last day the resource was allocated. Omitting discounts from the calculation of the resource cost makes Advisor score comparable across subscriptions, tenants, and enrollments where discounts may vary. 
 * **What if a recommendation is not relevant?**
 If you dismiss a recommendation from Advisor, it will be omitted from the calculation of your score. Dismissing recommendations also help Advisor improve the quality of recommendations.
 * **Why did my score change?** 
