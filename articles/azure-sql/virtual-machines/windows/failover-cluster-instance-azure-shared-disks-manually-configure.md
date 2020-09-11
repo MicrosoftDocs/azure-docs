@@ -214,7 +214,6 @@ To route traffic appropriately to the current primary node, configure the connec
 
 ## Limitations
 
-- Only SQL Server 2019 on Windows Server 2019 is supported. 
 - Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported.
 
 ## Next steps
