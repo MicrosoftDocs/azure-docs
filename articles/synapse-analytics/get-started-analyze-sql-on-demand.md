@@ -15,6 +15,22 @@ ms.date: 07/20/2020
 
 In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases. 
 
+## Analyze NYC Taxi data in blob storage  using SQL on-demand
+
+1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT TOP 100 rows**
+1. This will create a new SQL script with the following code:
+
+    ```
+    SELECT
+        TOP 100 *
+    FROM
+        OPENROWSET(
+            BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
+            FORMAT = 'parquet'
+        ) AS [result];
+    ```
+1. Click **Run**
+
 ## Analyze NYC Taxi data in Spark databases using SQL on-demand
 
 Tables in Spark databases are automatically visible, and they can be queried by SQL on-demand.
