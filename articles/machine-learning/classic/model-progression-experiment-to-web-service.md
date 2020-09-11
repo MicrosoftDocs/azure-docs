@@ -107,7 +107,7 @@ If you want to make changes to your original predictive experiment, such as sele
 ## Next steps
 For more details on the process of developing and experiment, see the following articles:
 
-* converting the experiment - [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](convert-training-experiment-to-scoring-experiment.md)
+* converting the experiment - [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md)
 * deploying the Web service - [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md)
 * retraining the model - [Retrain Machine Learning models programmatically](/azure/machine-learning/studio/retrain-machine-learning-model)
 

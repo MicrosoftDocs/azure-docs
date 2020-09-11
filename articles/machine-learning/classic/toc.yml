@@ -106,7 +106,7 @@
     - name: How it works
       href: model-progression-experiment-to-web-service.md
     - name: Prepare for deployment
-      href: convert-training-experiment-to-scoring-experiment.md
+      href: deploy-a-machine-learning-web-service.md
     - name: Use external data
       displayName: import, export
       href: web-services-that-use-import-export-modules.md
