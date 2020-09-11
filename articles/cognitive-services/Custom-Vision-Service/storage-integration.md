@@ -33,25 +33,26 @@ Next, go to your storage resource in the Azure portal. Go to the **Access contro
 * Select your Custom Vision training resource and assign the **Storage Blob Data Contributor** role if you plan to use the model backup feature. 
 * Select your Custom Vision training resource and assign the **Storage Queue Data Contributor** if you plan to use the notification queue feature.
 
+![Storage account add role assignment page](./media/storage-integration/storage-access.png)
+
 ### Get integration URLs
 
 Next, you'll get the URLs that were just generated when you assigned these roles.
 
-For the notification queue integration URL, go to the **Queues** page of your storage account, find the queue you just set up, and copy its URL.
+For the notification queue integration URL, go to the **Queues** page of your storage account, add a new queue, and save its URL to a temporary location.
 
-"https://testcmkcanarystorage.queue.core.windows.net/test-mi-queue"
- 
+![Azure storage queue page](./media/storage-integration/queue-url.png) 
 
-For the model backup integration URL, go to the **Containers** page of your storage account and select the container titled **aaa**. Copy the URL from its **Properties** page. 
+For the model backup integration URL, go to the **Containers** page of your storage account and create a new container. Then select it and go to the **Properties** page. Copy the URL to a temporary location.
  
-"https://testcmkcanarystorage.blob.core.windows.net/aaa"
+![Azure storage container properties page](./media/storage-integration/container-url.png) 
+
 
 ## Integrate Custom Vision project
 
-Now that you have the integration URLs, you can create a new Custom Vision project that integrates these Azure Storage features. You can also update an existing project to add the features.
+Now that you have the integration URLs, you can create a new Custom Vision project that integrates the Azure Storage features. You can also update an existing project to add the features.
 
-
-### Create new
+### Create new project
 
 When you call the [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) API, add the optional parameters _exportModelContainerUri_ and _notificationQueueUri_. Assign the URL values you got in the previous section. 
 
@@ -89,7 +90,7 @@ If you receive a `200/OK` response, that means the URLs have been set up success
 }
 ```
 
-### Update existing
+### Update existing project
 
 To update an existing project with Azure storage feature integration, call the [UpdateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb1) API, using the ID of the project you want to update. 
 
@@ -130,7 +131,7 @@ If you receive a `200/OK` response, that means the URLs have been set up success
 
 Your API call in the previous section should have already triggered new information in your Azure storage account. 
 
-In your **aaa** container, there should be a test blob inside a **CustomVision-TestPermission** folder. This will only exist temporarily.
+In your designated container, there should be a test blob inside a **CustomVision-TestPermission** folder. This will only exist temporarily.
 
 In your notification queue, you should see a test notification in the following format:
  
@@ -147,10 +148,10 @@ In your notification queue, you should see a test notification in the following 
 
 ## Get event notifications
 
-When you're ready, call the [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API to do an ordinary train on your project.
+When you're ready, call the [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API on your project to do an ordinary training operation.
 
 In your Storage notification queue, you'll receive a notification once training finishes:
- 
+
 ```json
 {
 "version": "1.0" ,
@@ -164,13 +165,13 @@ In your Storage notification queue, you'll receive a notification once training 
 }
 ```
 
-The `"trainingStatus"` field can be either `"TrainingCompleted"` or `"TrainingFailed"`. The `"iterationId"` field is the ID of the trained model.
+The `"trainingStatus"` field may be either `"TrainingCompleted"` or `"TrainingFailed"`. The `"iterationId"` field is the ID of the trained model.
 
 ## Get model export backups
 
 When you're ready, call the [ExportIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddece) API to export a trained model into a specified platform.
 
-In your **aaa** storage container, a backup copy of the exported model will appear. The blob name will have the format:
+In your designated storage container, a backup copy of the exported model will appear. The blob name will have the format:
 
 ```
 {projectId} - {iterationId}.{platformType}
@@ -192,7 +193,7 @@ Also, you'll receive a notification in your queue when the export finishes.
 }
 ```
 
-The `"exportStatus"` field can be either `"ExportCompleted"` or `"ExportFailed"`. The `"modelUri"` field will contain the URL of the backup model stored in your container, assuming you integrated queue notifications in the beginning. If you did not, the `"modelUri"` field will show the SAS URL for your custom vision model blob.
+The `"exportStatus"` field may be either `"ExportCompleted"` or `"ExportFailed"`. The `"modelUri"` field will contain the URL of the backup model stored in your container, assuming you integrated queue notifications in the beginning. If you did not, the `"modelUri"` field will show the SAS URL for your Custom Vision model blob.
 
 ## Next steps
 
