@@ -29,7 +29,7 @@ Publisher verification provides the following benefits:
 
 - **Improved branding**- a “verified” badge appears on the Azure AD [consent prompt](application-consent-experience.md), Enterprise Apps page, and additional UX surfaces used by end users and admins. 
 
-- **Smoother enterprise adoption**- admins can configure new User Consent Policies, and publisher verification status will be one of the primary policy criteria. 
+- **Smoother enterprise adoption**- admins can configure [user consent policies](../manage-apps/configure-user-consent.md), with publisher verification status as one of the primary policy criteria. 
 
 - **Improved risk evaluation**- Microsoft’s detections for “risky” consent requests will include publisher verification as a signal. 
 
@@ -48,6 +48,8 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
     -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
+-  The user performing verification must sign in using [multi-factor authentication](../authentication/howto-mfa-getstarted.md).
+
 -  The publisher agrees to the [Microsoft identity platform for developers Terms of Use](/legal/microsoft-identity-platform/terms-of-use).
 
 Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
