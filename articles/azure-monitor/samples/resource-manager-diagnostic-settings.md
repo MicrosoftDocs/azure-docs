@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 07/31/2020
+ms.date: 09/11/2020
 
 ---
 
@@ -562,7 +562,7 @@ The following sample creates a diagnostic setting for a Log Analytics workspace 
 ```
 
 ## Diagnostic setting for Azure Storage
-The following sample creates a diagnostic setting for an Azure Storage account.
+The following sample creates a diagnostic setting for each storage service endpoint that is available in the storage account. A setting is applied to each individual storage service that is available on the account. The storage services that are available depend on the type of storage account. This template creates a diagnostic setting for a storage service in the account only if it exists for the account. For each available service, the diagnostic setting enables transaction metrics, and the collection of resource logs for read, write, and delete operations.
 
 ### Template file
 
@@ -575,8 +575,7 @@ The following sample creates a diagnostic setting for an Azure Storage account.
             "type": "string"
         },
         "settingName": {
-            "type": "string",
-            "defaultValue": "mySetting"
+            "type": "string"
         },
         "storageSyncName": {
             "type": "string"
@@ -609,7 +608,7 @@ The following sample creates a diagnostic setting for an Azure Storage account.
                         "value": "[parameters('storageSyncName')]"
                     },
                     "workspaceId": {
-                        "value": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceId'))]"
+                        "value": "[parameters('workspaceId')]"
                     }
                 },
                 "template": {
@@ -628,7 +627,7 @@ The following sample creates a diagnostic setting for an Azure Storage account.
                         "storageSyncName": {
                             "type": "String"
                         },
-                        "workspaceID": {
+                        "workspaceId": {
                             "type": "String"
                         }
                     },
@@ -788,23 +787,23 @@ The following sample creates a diagnostic setting for an Azure Storage account.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-        "value": "mymonitoredstorageaccount"
-    },
-    "settingName": {
-        "value": "Send to all locations"
-    },
-    "storageSyncName": {
-        "value": "mystorageaccount"
-    },
-    "workspaceId": {
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "storageAccountName": {
+          "value": "mymonitoredstorageaccount"
+      },
+      "settingName": {
+          "value": "Send to all locations"
+      },
+      "storageSyncName": {
+          "value": "mystorageaccount"
+      },
+      "workspaceId": {
+          "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+      }
     }
   }
-}
 ```
 
 ## Next steps
