@@ -3,7 +3,7 @@ title: Windows Virtual Desktop partner integrations - Azure
 description: Learn about Windows Virtual Desktop's partners and access documentation about how to integrate with them.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ---
