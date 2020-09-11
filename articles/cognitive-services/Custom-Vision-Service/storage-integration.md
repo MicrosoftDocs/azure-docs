@@ -33,7 +33,8 @@ Next, go to your storage resource in the Azure portal. Go to the **Access contro
 * Select your Custom Vision training resource and assign the **Storage Blob Data Contributor** role if you plan to use the model backup feature. 
 * Then select your Custom Vision training resource and assign the **Storage Queue Data Contributor** if you plan to use the notification queue feature.
 
-![Storage account add role assignment page](./media/storage-integration/storage-access.png)
+> [!div class="mx-imgBorder"]
+> ![Storage account add role assignment page](./media/storage-integration/storage-access.png)
 
 ### Get integration URLs
 
@@ -41,11 +42,13 @@ Next, you'll get the URLs that allow your Custom Vision resource to access these
 
 For the notification queue integration URL, go to the **Queues** page of your storage account, add a new queue, and save its URL to a temporary location.
 
-![Azure storage queue page](./media/storage-integration/queue-url.png) 
+> [!div class="mx-imgBorder"]
+> ![Azure storage queue page](./media/storage-integration/queue-url.png) 
 
 For the model backup integration URL, go to the **Containers** page of your storage account and create a new container. Then select it and go to the **Properties** page. Copy the URL to a temporary location.
  
-![Azure storage container properties page](./media/storage-integration/container-url.png) 
+> [!div class="mx-imgBorder"]
+> ![Azure storage container properties page](./media/storage-integration/container-url.png) 
 
 
 ## Integrate Custom Vision project
