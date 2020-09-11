@@ -15,7 +15,7 @@ By using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [OneDr
 
 * Build your workflow by storing files in OneDrive, or update existing files in OneDrive. 
 * Use triggers to start your workflow when a file is created or updated within your OneDrive.
-* Use actions to create a file, delete a file, and more. For example, when a new Microsoft 365 email is received with an attachment (a trigger), create a new file in OneDrive (an action).
+* Use actions to create a file, delete a file, and more. For example, when a new Office 365 email is received with an attachment (a trigger), create a new file in OneDrive (an action).
 
 This article shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
 
