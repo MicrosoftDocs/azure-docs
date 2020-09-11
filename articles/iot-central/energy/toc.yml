@@ -21,7 +21,7 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
 - name: How-to guides
   items:
-    - name: Connect devices
+    - name: Connect and develop devices
       items:
         - name: Prepare and connect a Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json

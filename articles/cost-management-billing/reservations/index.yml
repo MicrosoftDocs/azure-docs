@@ -59,7 +59,7 @@ landingContent:
       links:
       - text: Reserved VM instances
         url: ../manage/understand-vm-reservation-charges.md
-      - text: Azure Strorage reserved capacity
+      - text: Azure Storage reserved capacity
         url: understand-storage-charges.md
       - text: Cosmos DB reserved capacity
         url: understand-cosmosdb-reservation-charges.md
