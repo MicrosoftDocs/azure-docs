@@ -10,7 +10,7 @@ ms.date: 09/02/2020
 
 # Understanding the changes in the Root CA change for Azure Database for MariaDB
 
-Azure Database for MariaDB will be changing the root certificate for the client application/driver enabled with SSL, [connecting to the database server](concepts-connectivity-architecture.md). The root certificate currently available is set to expire October 26, 2020 (10/26/2020) as part of standard maintenance and security best practices. This article gives you more details about the upcoming changes, the resources that will be affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+Azure Database for MariaDB will be changing the root certificate for the client application/driver enabled with SSL, use to [connect to the database server](concepts-connectivity-architecture.md). The root certificate currently available is set to expire October 26, 2020 (10/26/2020) as part of standard maintenance and security best practices. This article gives you more details about the upcoming changes, the resources that will be affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 ## What update is going to happen?
 
@@ -31,7 +31,7 @@ To avoid your application’s availability being interrupted due to certificat
 
 To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate, which has been revoked, follow the steps below:
 
-*   Download BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 Root CA from links below:
+*   Download **BaltimoreCyberTrustRoot** & **DigiCertGlobalRootG2** CA from links below:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
 
