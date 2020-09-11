@@ -13,8 +13,6 @@ manager: corywink
 
 # Take a tour of the Azure IoT Central UI
 
-
-
 This article introduces you to the Microsoft Azure IoT Central UI. You can use the UI to create, manage, and use an Azure IoT Central solution and its connected devices.
 
 As a _solution builder_, you use the Azure IoT Central UI to define your Azure IoT Central solution. You can use the UI to:
