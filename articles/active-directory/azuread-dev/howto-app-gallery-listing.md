@@ -120,7 +120,7 @@ Follow the process shown in the following image to request user provisioning.
 
 ## Update or remove an existing listing
 
-To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account, such as Outlook or Hotmail, to sign in.
+To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have a work or school account, use that to sign in to this portal. If not, use your Microsoft account, such as Outlook or Hotmail, to sign in.
 
 - Select the appropriate option as shown in the following image.
 

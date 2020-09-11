@@ -31,8 +31,8 @@ In the Azure portal, you can configure your app to be single-tenant or multi-ten
 | Audience | Single/multi-tenant | Who can sign in | 
 |----------|--------| ---------|
 | Accounts in this directory only | Single tenant | All user and guest accounts in your directory can use your application or API.<br>*Use this option if your target audience is internal to your organization.* |
-| Accounts in any Azure AD directory | Multi-tenant | All users and guests with a work or school account from Microsoft can use your application or API. This includes schools and businesses that use Office 365.<br>*Use this option if your target audience is business or educational customers.* |
-| Accounts in any Azure AD directory and personal Microsoft accounts (such as Skype, Xbox, Outlook.com) | Multi-tenant | All users with a work or school, or personal Microsoft account can use your application or API. It includes schools and businesses that use Office 365 as well as personal accounts that are used to sign in to services like Xbox and Skype.<br>*Use this option to target the widest set of Microsoft accounts.* | 
+| Accounts in any Azure AD directory | Multi-tenant | All users and guests with a work or school account from Microsoft can use your application or API. This includes schools and businesses that use Microsoft 365.<br>*Use this option if your target audience is business or educational customers.* |
+| Accounts in any Azure AD directory and personal Microsoft accounts (such as Skype, Xbox, Outlook.com) | Multi-tenant | All users with a work or school, or personal Microsoft account can use your application or API. It includes schools and businesses that use Microsoft 365 as well as personal accounts that are used to sign in to services like Xbox and Skype.<br>*Use this option to target the widest set of Microsoft accounts.* | 
 
 ## Best practices for multi-tenant apps
 

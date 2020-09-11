@@ -39,13 +39,12 @@ This guide assumes that your cloud only or hybrid identities have been establish
 
 There are many aspects to a secure identity infrastructure, but this checklist focuses on a safe and secure identity infrastructure enabling users to work remotely. Securing your identity is just part of your security story, protecting data, applications, and devices should also be considered.
 
-### Guidance for Azure AD Free or Office 365 customers.
+### Guidance for Azure AD Free, Office 365, or Microsoft 365 customers.
 
-There are a number of recommendations that Azure AD Free or Office 365 app customers should take to protect their user identities, the following table is intended to highlight the key actions for the following license subscriptions:
+There are a number of recommendations that Azure AD Free, Office 365, or Microsoft 365 app customers should take to protect their user identities, the following table is intended to highlight the key actions for the following license subscriptions:
 
-- Office 365 (O365 E1, E3, E5, F1, A1, A3, A5)
-- Office 365 Business (Essentials, Business, Business Premium)
-- Microsoft 365 (M365 Business, A1)
+- Office 365 (Office 365 E1, E3, E5, F1, A1, A3, A5)
+- Microsoft 365 (Business Basic, Apps for Business, Business Standard, Business Premium, A1)
 - Azure AD Free (included with Azure, Dynamics 365, Intune, and Power Platform)
 
 | Recommended action | Detail |
