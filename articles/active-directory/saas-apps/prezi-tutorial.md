@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: jeedes
 ---
 
@@ -37,6 +37,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Prezi supports SP- and IDP-initiated SSO.
 * Prezi supports just-in-time user provisioning.
 * After you configure Prezi, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add Prezi from the gallery
 
@@ -76,7 +79,7 @@ To enable Azure AD SSO in the Azure portal:
 
 1. Select **Set additional URLs**, and do the following step if you want to configure the application in **SP**-initiated mode:
 
-    In the **Sign-on URL** box, enter the URL `https://prezi.com/login/sso/`.
+    In the **Sign-on URL** box, enter the URL: `https://prezi.com/login/sso/`.
 
 1. Select **Save**.
 

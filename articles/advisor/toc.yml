@@ -41,6 +41,8 @@
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph
     href: advisor-azure-resource-graph.md
+  - name: Consume Advisor score 
+    href: azure-advisor-score.md
 - name: Reference
   items:
   - name: Security Center

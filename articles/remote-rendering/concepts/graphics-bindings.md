@@ -110,7 +110,6 @@ if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
 }
 ```
 
-
 Where the above `ptr` must be a pointer to a native `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` object that defines the world space coordinate system in which coordinates in the API are expressed in.
 
 #### Render remote image
@@ -226,6 +225,17 @@ else
     ...
 }
 ```
+
+## API documentation
+
+* [C# RemoteManagerStatic.StartupRemoteRendering()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanagerstatic.startupremoterendering)
+* [C# GraphicsBinding class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbinding)
+* [C# GraphicsBindingWmrD3d11 class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingwmrd3d11)
+* [C# GraphicsBindingSimD3d11 class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11)
+* [C++ RemoteRenderingInitialization struct](https://docs.microsoft.com/cpp/api/remote-rendering/remoterenderinginitialization)
+* [C++ GraphicsBinding class](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbinding)
+* [C++ GraphicsBindingWmrD3d11 class](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingwmrd3d11)
+* [C++ GraphicsBindingSimD3d11 class](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11)
 
 ## Next steps
 

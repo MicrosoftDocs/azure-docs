@@ -1,6 +1,6 @@
 ---
 title: "Pattern: Parameters in a policy definition"
-description: This Azure Policy pattern provides an example of how to use parameters in a policy definition.
+description: This Azure Policy pattern provides an example of how to use string and array parameters in a policy definition, as well as how to parameterize the effect.
 ms.date: 08/17/2020
 ms.topic: sample
 ---

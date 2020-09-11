@@ -1,7 +1,7 @@
 ---
-title: Australian Government ISM PROTECTED blueprint sample overview
-description: Overview of the Australian Government ISM PROTECTED blueprint sample. This blueprint sample helps customers assess specific ISM PROTECTED controls.
-ms.date: 08/03/2020
+title: Australian Government ISM PROTECTED blueprint sample controls
+description: Control mapping of the Australian Government ISM PROTECTED blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 09/11/2020
 ms.topic: sample
 ---
 # Control mapping of the Australian Government ISM PROTECTED blueprint sample
@@ -361,6 +361,10 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ## Next steps
 
 Additional articles about blueprints and how to use them:
+
+> [!div class="nextstepaction"]
+> [ISM PROTECTED blueprint - Overview](./index.md)
+> [ISM PROTECTED blueprint - Deploy steps](./deploy.md)
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

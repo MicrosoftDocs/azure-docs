@@ -3,7 +3,7 @@ title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 09/09/2020
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
@@ -69,7 +69,7 @@ If you're looking for information about an error code and that information isn't
 | StorageAccountNotFound | Check the subscription, resource group, and name of the storage account that you're trying to use. | |
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Multiple NICs](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | A specified subscription for deployment can't be accessed. It could be the subscription ID is wrong, the user deploying the template doesn't have adequate permissions to deploy to the subscription, or the subscription ID is in the wrong format. When using nested deployments to [deploy across scopes](cross-scope-deployment.md), provide the GUID for the subscription. | |
-| SubscriptionNotRegistered | When deploying network resources, the Microsoft.Network resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the Microsoft.Network resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | When deploying a resource, the resource provider must be registered for your subscription. When you use an Azure Resource Manager template for deployment, the resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross scope deployment](cross-scope-deployment.md) |
 
