@@ -5,7 +5,7 @@ description: Metrics Advisor service encryption of data at rest.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: metricsadvisor
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
