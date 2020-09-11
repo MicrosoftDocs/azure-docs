@@ -70,7 +70,7 @@ The following table lists some of the major Azure Machine Learning operations an
 | View models/images | ✓ | ✓ | ✓ |
 | Call web service | ✓ | ✓ | ✓ |
 
-If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported to control all operations inside a workspace, such as creating a compute, submitting a run, registering a datastore, or deploying a model. Custom roles can have read, write, or delete permissions on the various resources of a workspace, such as clusters, datastores, models and endpoints. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
+If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported to control all operations inside a workspace, such as creating a compute, submitting a run, registering a datastore, or deploying a model. Custom roles can have read, write, or delete permissions on the various resources of a workspace, such as clusters, datastores, models, and endpoints. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 > [!WARNING]
 > Azure Machine Learning is supported with Azure Active Directory business-to-business collaboration, but is not currently supported with Azure Active Directory business-to-consumer collaboration.
@@ -157,7 +157,7 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
 This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription, along with any resources it needs. The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`. If your Azure Machine Learning workspace uses a private endpoint, a virtual network is also created for the Cosmos DB instance. This VNet is used to secure communication between Cosmos DB and Azure Machine Learning.
 
 > [!IMPORTANT]
-> * If you need to delete this Cosmos DB instance, you must delete the Azure Machine Learning workspace that uses it. 
+> * Do not delete the resource group that contains this Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group, Cosmos DB instance, etc., you must delete the Azure Machine Learning workspace that uses it. The resource group, Cosmos DB instance, and other automatically created resources are deleted when the associated workspace is deleted.
 > * The default [__Request Units__](../cosmos-db/request-units.md) for this Cosmos DB account is set at __8000__. Changing this value is unsupported.
 > * You cannot provide your own VNet for use with the Cosmos DB instance that is created. You also cannot modify the virtual network. For example, you cannot change the IP address range that it uses.
 
