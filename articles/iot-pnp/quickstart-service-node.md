@@ -32,10 +32,10 @@ node --version
 
 ### Clone the SDK repository with the sample code
 
-The service SDK is in preview, so you need to clone the samples from a [preview branch of the Node SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh). Open a terminal window in a folder of your choice. Run the following command to clone the **pnp-preview-refresh** branch of the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository:
+You will need to clone the samples from a [the Node SDK repository](https://github.com/Azure/azure-iot-sdk-node). Open a terminal window in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-node
 ```
 
 ## Run the sample device
@@ -69,17 +69,24 @@ In [Set up your environment for the IoT Plug and Play quickstarts and tutorials]
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device you just set up.
 
-1. Open another terminal window to use as your **service** terminal. The service SDK is in preview, so you need to clone the samples from a [preview branch of the Node SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh):
+1. Open another terminal window to use as your **service** terminal. 
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
-    ```
-
-1. Go to the folder of this cloned repository branch, and navigate to the */azure-iot-sdk-node/digitaltwins/samples/service/javascript* folder. Install all the dependencies by running the following command:
+1. In the cloned Node SDK repository, navigate to the */azure-iot-sdk-node/service/samples/javascript* folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
     ```
+1. Ensure that you have the most recent preview version of the Node service SDK, **azure-iothub@1.13.0-pnp-rc.0**. You can verify by running:
+
+     ```cmd/sh
+     npm list
+     ```
+     If not, run the following command to update to the most recent Node service package:
+     
+     ```cmd/sh
+     npm i azure-iothub@1.13.0-pnp-rc.0
+     ```
+     
 
 ### Read a property
 
