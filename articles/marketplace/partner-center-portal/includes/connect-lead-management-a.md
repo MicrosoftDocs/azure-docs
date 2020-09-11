@@ -18,7 +18,7 @@ Connect with customers directly by listing your offer in the marketplaces and ho
 Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
 
 - [Azure Table](../commercial-marketplace-lead-management-instructions-azure-table.md) - Provide contact email and storage account connection string. 
-- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) - Provide contact email, URL, and authentication mode (Microsoft 365 or Azure Active Directory).
+- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) - Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
 - [Https Endpoint](../commercial-marketplace-lead-management-instructions-https.md) - Provide contact email and HTTPS endpoint URL. 
 - [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md) - Provide contact email, form ID, Munchkin account ID, and server ID.
 - [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md) -  Provide contact email and organization ID. 

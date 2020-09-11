@@ -148,7 +148,7 @@ This article explains how to create a new flow in Power Automate to generate the
 
 1. Now that you've finished the JSON schema, select **+ New step**.
 1. Under **Choose an action**, select **Actions**.
-1. On the **Actions** tab, select **Send an email (Outlook for Microsoft 365)**.
+1. On the **Actions** tab, select **Send an email (Office 365 Outlook)**.
 
     >[!NOTE]
     >If you want to use a different email provider, search for and select **Send an email notification (Mail)** as the action instead.

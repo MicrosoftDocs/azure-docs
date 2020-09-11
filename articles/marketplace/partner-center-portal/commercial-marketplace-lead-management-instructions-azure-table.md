@@ -136,14 +136,14 @@ The example creates a flow that automatically sends an email notification when a
 
     ![Condition window, If yes, add an action](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes.png)
 
-1. Select **Send an email (Outlook for Microsoft 365)**.
+1. Select **Send an email (Office 365 Outlook)**.
 
     ![Condition window, If yes, send an email](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
 
     >[!NOTE]
-    >To use a different email provider, search for and select **Send an email notification (Mail)** as the action instead. The instructions show you how to configure by using Outlook for Microsoft 365, but the instructions are similar for a different email provider.
+    >To use a different email provider, search for and select **Send an email notification (Mail)** as the action instead. The instructions show you how to configure by using Office 365 Outlook, but the instructions are similar for a different email provider.
 
-1. In the Outlook for Microsoft 365 window, provide information for the following boxes:
+1. In the Office 365 Outlook window, provide information for the following boxes:
 
     1. **To**: Enter an email address for everyone who will get this notification.
     1. **Subject**: Provide a subject for the email. An example is **New leads!**
@@ -152,7 +152,7 @@ The example creates a flow that automatically sends an email notification when a
     >[!NOTE]
     >You can insert additional static or dynamic data points to the body of this email.
 
-    ![Condition window, If yes, Outlook for Microsoft 365 window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
+    ![Condition window, If yes, Office 365 Outlook window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
 1. Select **Save** to save the flow. Power Automate automatically tests the flow for errors. If there aren't any errors, your flow starts running after it's saved.
 
