@@ -1,6 +1,6 @@
 ---
 title: Australian Government ISM PROTECTED blueprint sample controls
-description: Overview of the Australian Government ISM PROTECTED blueprint sample. This blueprint sample helps customers assess specific ISM PROTECTED controls.
+description: Control mapping of the Australian Government ISM PROTECTED blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
 ms.date: 09/11/2020
 ms.topic: sample
 ---
