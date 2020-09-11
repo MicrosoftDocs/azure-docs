@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 # Tutorial: Get started with Azure Machine Learning on your local computer (Part 1 of 4)
 
-In this **four-part tutorial series**, you will learn the fundamentals of Azure Machine Learning and complete simple jobs-based machine learning tasks in the Azure cloud, including:
+In this **four-part tutorial series**, you will learn the fundamentals of Azure Machine Learning and complete simple jobs-based Python ML tasks in the Azure cloud, including:
 
 1. Set up a workspace and your local machine learning developer environment.
 2. Run code in the cloud using Azure Machine Learning's Python SDK.
@@ -31,15 +31,7 @@ In **part 1 of this tutorial series**, you will:
 > * Configure your local development environment
 > * Set up a compute cluster
 
->[!NOTE]
-> This tutorial series is focused heavily on the Azure Machine Learning features and concepts that help with __jobs-based__ machine learning tasks that have the following traits:
->
-> - Python-based and
-> - long running and/or
-> - distributed (require many machines and processes) and/or
-> - repeatable (require reproducible, auditable, and portable environment)
->
-> If your ML tasks do not fit this profile, use the [Jupyter or RStudio functionality on a Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md) to onboard to Azure Machine Learning.
+This tutorial series focuses the Azure Machine Learning concepts suited to Python __jobs-based__ machine learning tasks that are **long running** and/or **distributed over many machines/processes** and/or **reproducible, auditable, and portable environment** If your ML tasks do not fit this profile, use the [Jupyter or RStudio functionality on a Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md) to onboard to Azure Machine Learning.
 
 ## Prerequisites
 

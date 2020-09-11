@@ -38,7 +38,7 @@ This tutorial introduces you to the core Azure Machine Learning concepts needed 
 
 ## Prerequisites
 
-- Complete the setup on your [local computer](tutorial-1st-experiment-sdk-setup-local.md) or to use a [compute instance](tutorial-1st-experiment-sdk-setup-local.md).
+- Complete [Part 1 of the tutorial on local machine setup](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace or [notebook virtual machine](tutorial-1st-experiment-sdk-setup-local.md).
 - Familiarity with Python and Machine Learning concepts.
 - A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
 
