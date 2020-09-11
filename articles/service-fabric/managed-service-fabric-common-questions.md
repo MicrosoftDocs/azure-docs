@@ -4,6 +4,7 @@ description: Frequently asked questions about managed Service Fabric, including 
 ms.topic: troubleshooting
 ms.author: pepogors
 ms.date: 09/1/2020
+ms.custom: references_regions
 ---
 
 # Commonly asked managed Service Fabric questions
@@ -50,7 +51,7 @@ In the preview, all runtime upgrades will be completed automatically.
 ## Applications 
 
 ### Is there a local development experience for managed Service Fabric clusters? 
-The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Create a .Net Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) for more details on the local development experience. 
+The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Create a .NET Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) for more details on the local development experience. 
 
 ### Can I deploy my applications as an Azure Resource Manager resource? 
 In the preview, you can't deploy applications as an Azure Resource Manager resource. Applications must be deployed by connecting directly to the cluster either through PowerShell or CLI. This functionality will be added before manged Service Fabric clusters enter general availability. 

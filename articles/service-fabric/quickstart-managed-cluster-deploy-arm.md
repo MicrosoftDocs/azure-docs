@@ -4,6 +4,7 @@ description: In this quickstart, you will learn how to create a Managed Service 
 ms.topic: quickstart
 ms.date: 09/01/2020
 ms.custom: subject-armqs
+ms.custom: references_regions
 ---
 
 # Quickstart: Deploy a Managed Service Fabric cluster using an Azure Resource Manager template

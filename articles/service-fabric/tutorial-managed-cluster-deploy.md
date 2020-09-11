@@ -3,6 +3,7 @@ title: Deploy a Managed Service Fabric cluster (preview)
 description: In this tutorial, you will deploy a Managed Service Fabric test cluster.
 ms.topic: tutorial
 ms.date: 08/27/2020
+ms.custom: references_regions
 #Customer intent: As a service fabric customer, I want to learn about Managed SFRP so that I can deploy clusters without needing to manipulate numerous resources.
 ---
 
