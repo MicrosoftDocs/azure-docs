@@ -186,7 +186,10 @@ New-AzVm `
 
 ### Create and attach the disk
 
-```azurepowershell
+Once your VM has been deployed, you can create and attach an ultra disk to it, use the following script:
+
+```powershell
+# Create the disk
 $diskconfig = New-AzDiskConfig `
 -Location 'EastUS2' `
 -DiskSizeGB 8 `
@@ -200,11 +203,7 @@ New-AzDisk `
 -ResourceGroupName $resourceGroup `
 -DiskName 'Disk02' `
 -Disk $diskconfig;
-```
 
-### Attach the disk - PowerShell
-
-```powershell
 # add disk to VM
 $subscription = "<yourSubscriptionID>"
 $resourceGroup = "<yourResourceGroup>"
@@ -321,11 +320,12 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled 1
 #start the VM
 ```
 
-### Create an ultra disk - PowerShell
+### Create and attach an ultra disk - PowerShell
 
 Now that you have a VM that is capable of using ultra disks, you can create and attach an ultra disk to it:
 
 ```powershell
+# Create the disk
 $diskconfig = New-AzDiskConfig `
 -Location 'EastUS2' `
 -DiskSizeGB 8 `
@@ -339,11 +339,7 @@ New-AzDisk `
 -ResourceGroupName $resourceGroup `
 -DiskName 'Disk02' `
 -Disk $diskconfig;
-```
 
-### Attach the disk - PowerShell
-
-```powershell
 # add disk to VM
 $subscription = "<yourSubscriptionID>"
 $resourceGroup = "<yourResourceGroup>"
