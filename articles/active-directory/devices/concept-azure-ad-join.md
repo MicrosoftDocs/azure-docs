@@ -55,7 +55,7 @@ While Azure AD join is primarily intended for organizations that do not have an 
 
 - You want to transition to cloud-based infrastructure using Azure AD and MDM like Intune.
 - You can’t use an on-premises domain join, for example, if you need to get mobile devices such as tablets and phones under control.
-- Your users primarily need to access Office 365 or other SaaS apps integrated with Azure AD.
+- Your users primarily need to access Microsoft 365 or other SaaS apps integrated with Azure AD.
 - You want to manage a group of users in Azure AD instead of in Active Directory. This scenario can apply, for example, to seasonal workers, contractors, or students.
 - You want to provide joining capabilities to workers in remote branch offices with limited on-premises infrastructure.
 

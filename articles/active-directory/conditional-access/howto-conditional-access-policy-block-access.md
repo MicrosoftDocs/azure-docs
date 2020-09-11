@@ -35,9 +35,9 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 ## Create a Conditional Access policy
 
-The following steps will help create Conditional Access policies to block access to all apps except for [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) if users are not on a trusted network. These policies are put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policies apply as they intend, they can switch them to **On**.
+The following steps will help create Conditional Access policies to block access to all apps except for [Microsoft 365](concept-conditional-access-cloud-apps.md#microsoft-365-preview) if users are not on a trusted network. These policies are put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policies apply as they intend, they can switch them to **On**.
 
-The first policy blocks access to all apps except for Office 365 applications if not on a trusted location.
+The first policy blocks access to all apps except for Microsoft 365 applications if not on a trusted location.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -61,7 +61,7 @@ The first policy blocks access to all apps except for Office 365 applications if
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-A second policy is created below to require multi-factor authentication or a compliant device for users of Office 365.
+A second policy is created below to require multi-factor authentication or a compliant device for users of Microsoft 365.
 
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.

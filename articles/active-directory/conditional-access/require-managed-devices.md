@@ -96,7 +96,7 @@ For a device that is marked as compliant, you can assume that:
 
 ### Scenario: Require device enrollment for iOS and Android devices
 
-In this scenario, Contoso has decided that all mobile access to Office 365 resources must use an enrolled device. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
+In this scenario, Contoso has decided that all mobile access to Microsoft 365 resources must use an enrolled device. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
 
 Organizations must complete the following steps in order to require the use of an enrolled mobile device.
 
