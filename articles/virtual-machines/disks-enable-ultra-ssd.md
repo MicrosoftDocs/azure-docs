@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 09/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -61,7 +61,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 
 ### VMs with no redundancy options
 
-Ultra disks deployed in West US must be deployed without any redundancy options, for now. However, not every disk size that supports ultra disks may be in this region. To determine which ones in West US support ultra disks, you can use either of the following code snippets. Make sure to replace the `vmSize` and `subscription` values first:
+Ultra disks deployed in select regions must be deployed without any redundancy options, for now. However, not every disk size that supports ultra disks may be in these region. To determine which disk sizes support ultra disks, you can use either of the following code snippets. Make sure to replace the `vmSize` and `subscription` values first:
 
 ```azurecli
 subscription="<yourSubID>"

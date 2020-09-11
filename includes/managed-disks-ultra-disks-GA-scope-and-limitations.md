@@ -18,26 +18,28 @@ The following table outlines the regions ultra disks are available in, as well a
 > [!NOTE]
 > If a region in the following list has no ultra disk capable availability zones, then VMs in that region must be deployed without any infrastructure redundancy options in order to attach an ultra disk.
 
-|Regions  |Number of availability zones supporting ultra disks  |
+|Regions  |Redundancy Options  |
 |---------|---------|
-|US Gov Virginia     |None         |
-|US Gov Arizona     |None         |
-|South Central US     |None         |
-|Central US     |Three zones         |
-|West US     |None         |
-|West US 2    |Three zones         |
-|East US     |Three zones         |
-|East US 2     |Three zones         |
-|SouthEast Asia     |Three zones         |
-|East Asia     |None         |
-|North Europe     |Three zones          |
-|West Europe     |Three zones          |
-|UK South     |Three zones          |
-|Japan East     |Three zones         |
-|France Central    |Two zones        |
-|Brazil South    |None        |
-|Australia East    |Three zones        |
-|Canada Central*    |Three zones        |
+|Brazil South     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
+|Central India     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
+|East Asia     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
+|Germany West Central     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
+|Korea Central     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
+|South Central US    |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
+|US Gov Arizona     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
+|US Gov Virginia     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
+|West US     |Single VMs only(Availability sets and virtual machine scale sets are not supported)        |
+|Australia East     |Three availability zones         |
+|Canada Central*     |Three availability zones          |
+|Central US     |Three availability zones          |
+|East US     |Three availability zones          |
+|East US 2     |Three availability zones         |
+|France Central    |Two availability zones        |
+|Japan East    |Three availability zones        |
+|North Europe    |Three availability zones        |
+|UK South    |Three availability zones        |
+|West Europe    | Three availability zones|
+|West US 2    |Three availability zones|
 
 \* Contact Azure Support to get access to Availability Zones for this region.
 
