@@ -56,7 +56,7 @@ Following are some common issues folks run into when their users cannot sign in 
 
   * Make sure the **user’s account exists** in Azure Active Directory. [Check if a user account exists in Azure Active Directory](#problems-with-the-users-account)
 
-  * Make sure the user’s account is **enabled** for sign ins. [Check a user’s account status](#problems-with-the-users-account)
+  * Make sure the user’s account is **enabled** for sign-ins. [Check a user’s account status](#problems-with-the-users-account)
 
   * Make sure the user’s **password is not expired or forgotten.** [Reset a user’s password](#reset-a-users-password) or [Enable self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
@@ -433,7 +433,7 @@ To check or validate a single Conditional Access policy:
 7. Review that there are no specific conditions, assignments, or other settings that may be blocking user access.
 
    >[!NOTE]
-   >You may wish to temporarily disable this policy to ensure it is not affecting sign ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
+   >You may wish to temporarily disable this policy to ensure it is not affecting sign-ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
    >
    >
 
@@ -465,7 +465,7 @@ To check or validate a single application’s currently configured Conditional A
 9.  Review that there are no specific conditions, assignments, or other settings which may be blocking user access.
 
      >[!NOTE]
-     >You may wish to temporarily disable this policy to ensure it is not affecting sign ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
+     >You may wish to temporarily disable this policy to ensure it is not affecting sign-ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
      >
      >
 

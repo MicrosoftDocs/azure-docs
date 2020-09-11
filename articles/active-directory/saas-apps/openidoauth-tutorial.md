@@ -115,7 +115,7 @@ The following steps show you how the consent experience works for the applicatio
 
 3. If the user is not already authenticated, the Azure AD /authorize endpoint prompts for sign-in.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![A Screenshot of the sign-in prompt for the account](./media/openidoauth-tutorial/authentication.png)
 
 4. After the user has signed in, Azure AD determines if the user needs to be shown a consent page. This determination is based on whether the user (or their organization's administrator) has already granted the application consent.
 
