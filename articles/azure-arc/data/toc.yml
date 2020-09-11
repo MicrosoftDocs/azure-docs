@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What are Azure Arc enabled data services
-      href: Overview.md
+      href: overview.md
     - name: Release notes
       href: release-notes.md
 - name: Quickstarts
