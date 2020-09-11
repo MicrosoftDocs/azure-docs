@@ -1,17 +1,17 @@
 ---
-title: tbd
+title: Integrate Azure storage for notifications and backup
 titleSuffix: Azure Cognitive Services
-description: tbd
+description: Learn how to integrate Azure storage to receive push notifications when you train or export Custom Vision models. You can also save a backup of exported models.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ---
 
-# Integrate Azure storage queue and backup
+# Integrate Azure storage for notifications and backup
 
 You can integrate your Custom Vision project with an Azure blob storage queue to get push notifications of project activity and backup copies of published models.
 
@@ -24,7 +24,7 @@ This guide shows you how to use these REST APIs with cURL. You can also use an H
 
 ## Prerequisites
 
-- A Custom Vision resource in Azure. If you don't have one, go to the Azure portal and <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision" title="Create a new Custom Vision resource" target="_blank">create a new Custom Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>. This feature does not currently support the Cognitive Service resource (all in one key).
+- A Custom Vision resource in Azure. If you don't have one, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). This feature does not currently support the Cognitive Service resource (all in one key).
 - An Azure Storage account with a blob container. Follow [Exercises 1 of the Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) if you need help with this step.
 
 ## Set up Azure storage integration
