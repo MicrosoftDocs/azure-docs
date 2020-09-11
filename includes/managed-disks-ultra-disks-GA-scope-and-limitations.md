@@ -20,15 +20,15 @@ The following table outlines the regions ultra disks are available in, as well a
 
 |Regions  |Redundancy Options  |
 |---------|---------|
-|Brazil South     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
-|Central India     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
-|East Asia     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
-|Germany West Central     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
-|Korea Central     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
-|South Central US    |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
-|US Gov Arizona     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
-|US Gov Virginia     |Single VMs only(Availability sets and virtual machine scale sets are not supported)|
-|West US     |Single VMs only(Availability sets and virtual machine scale sets are not supported)        |
+|Brazil South     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|Central India     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|East Asia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|Germany West Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|Korea Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|South Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|US Gov Arizona     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|US Gov Virginia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|West US     |Single VMs only (Availability sets and virtual machine scale sets are not supported)        |
 |Australia East     |Three availability zones         |
 |Canada Central*     |Three availability zones          |
 |Central US     |Three availability zones          |
