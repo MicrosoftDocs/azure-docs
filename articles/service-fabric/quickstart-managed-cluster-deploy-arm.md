@@ -2,8 +2,8 @@
 title: 'Quickstart: Deploy a Managed Service Fabric cluster by using an Azure Resource Manager template (Preview)'
 description: In this quickstart, you will learn how to create a Managed Service Fabric cluster using an ARM template.
 ms.topic: quickstart
-ms.date: 08/19/2020
-ms.custom: subject-armqs
+ms.date: 09/01/2020
+ms.custom: references_regions
 ---
 
 # Quickstart: Deploy a Managed Service Fabric cluster using an Azure Resource Manager template
@@ -36,6 +36,10 @@ If you need to create a new client certificate, please follow the steps in [set 
 Take note of the certificate thumbprint as this will be required to deploy the template in the next step.
 
 ## Deploy the template
+
+> [!Note]
+> Supported regions for the public preview include centraluseuap, eastus2euap, eastasia, northeurope, westcentralus, and eastus2.
+
 <!-- Link to be updated when template is merged into the quickstart repo -->
 1. Select the following image to sign in to Azure and open a template. 
 

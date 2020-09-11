@@ -2,7 +2,7 @@
 title: Service Fabric Managed clusters (preview)
 description: Service Fabric Managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines deployment and cluster management.
 ms.topic: overview
-ms.date: 07/31/2020
+ms.date: 9/1/2020
 ---
 
 # Service Fabric Managed clusters (preview)
