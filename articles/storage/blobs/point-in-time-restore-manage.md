@@ -117,7 +117,23 @@ Keep in mind the following rules when specifying a range of blobs to restore:
 
 ### Restore all containers in the account
 
-To restore all containers and blobs in the storage account, call the **Restore-AzStorageBlobRange** command, omitting the `-BlobRestoreRange` parameter. The following example restores containers in the storage account to their state 12 hours before the present moment:
+You can restore all containers in the storage account to return them to their previous state at a given point in time.
+
+# [Azure portal](#tab/portal)
+
+To restore all containers and blobs in the storage account with the Azure portal, follow these steps:
+
+1. Navigate to the list of containers for your storage account.
+1. On the toolbar, choose **Restore containers**, then **Restore all**.
+1. In the **Restore all containers** pane, specify the restore point by providing a date and time.
+1. Confirm that you want to proceed by checking the box.
+1. Select **Restore** to begin the restore operation.
+
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot showing how to restore all containers to a specified restore point":::
+
+# [PowerShell](#tab/powershell)
+
+To restore all containers and blobs in the storage account with PowerShell, call the **Restore-AzStorageBlobRange** command, omitting the `-BlobRestoreRange` parameter. The following example restores containers in the storage account to their state 12 hours before the present moment:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -126,7 +142,17 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddHours(-12)
 ```
 
+---
+
 ### Restore a single range of block blobs
+
+You can restore a lexicographical range of blobs, either in a single container or across multiple containers, to return them to their previous state at a given point in time.
+
+# [Azure portal](#tab/portal)
+
+
+
+# [PowerShell](#tab/powershell)
 
 To restore a range of blobs, call the **Restore-AzStorageBlobRange** command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. The start of the range is in inclusive, and the end of the range is exclusive.
 
@@ -152,15 +178,19 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
+---
+
 ### Restore multiple ranges of block blobs
 
 To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter. Up to 10 ranges are supported per restore operation. The following example specifies two ranges to restore the complete contents of *container1* and *container4*:
 
 ```powershell
 # Specify a range that includes the complete contents of container1.
-$range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2
+$range1 = New-AzStorageBlobRangeToRestore -StartRange container1 `
+    -EndRange container2
 # Specify a range that includes the complete contents of container4.
-$range2 = New-AzStorageBlobRangeToRestore -StartRange container4 -EndRange container5
+$range2 = New-AzStorageBlobRangeToRestore -StartRange container4 `
+    -EndRange container5
 
 Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
