@@ -15,7 +15,7 @@ ms.custom:
 
 Both Azure and Bing Maps provide access to spatial APIs through REST web services. The API interfaces for these platforms perform similar functionalities but use different naming conventions and response objects.
 
-The following table provides the Azure Maps service APIs that provides similar functionality to the listed Bing Maps service APIs.
+The following table provides the Azure Maps service APIs that provide similar functionality to the listed Bing Maps service APIs.
 
 | Bing Maps service API                 | Azure Maps service API      |
 |---------------------------------------|-----------------------------|
@@ -60,9 +60,9 @@ Geocoding is the process of converting an address (like `"1 Microsoft way, Redmo
 
 Azure Maps provides several methods for geocoding addresses;
 
--   [Free-form address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This is recommended if you need to geocode individual addresses quickly.
--   [Structured address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
--   [Batch address geocoding](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses will be geocoded in parallel on the server and when completed the full result set can be downloaded. This is recommended for geocoding large data sets.
+-   [Free-form address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
+-   [Structured address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
+-   [Batch address geocoding](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses will be geocoded in parallel on the server and when completed the full result set can be downloaded. This service is recommended for geocoding large data sets.
 -   [Fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
 -   [Fuzzy batch search](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
 
@@ -148,19 +148,19 @@ The following table cross references the Bing Maps entity type values to the equ
 | Bing Maps Entity Type | Comparable Azure Maps Entity type               | Description                                |
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Address*                                  |
-| `Neighborhood`        | `Neighbourhood`                                 | *Neighbourhood*                            |
-| `PopulatedPlace`      | `Municipality` or `MunicipalitySubdivision`     | *City / Town or Sub / Super City*          |
-| `Postcode1`           | `PostalCodeArea`                                | *Postal Code / Zip Code*                   |
-| `AdminDivision1`      | `CountrySubdivision`                            | *State or Province*                        |
-| `AdminDivision2`      | `CountrySecondarySubdivison`                    | *County, districts*                        |
-| `CountryRegion`       | `Country`                                       | *Country name.*                            |
-|                       | `CountryTertiarySubdivision`                    | *Named areas; boroughs, cantons, communes* |
+| `Neighborhood`        | `Neighbourhood`                                 | *Neighborhood*                             |
+| `PopulatedPlace`      | `Municipality` or `MunicipalitySubdivision`     | *City*, *Town or Sub*, or *Super City*     |
+| `Postcode1`           | `PostalCodeArea`                                | *Postal Code* or *Zip Code*                |
+| `AdminDivision1`      | `CountrySubdivision`                            | *State* or *Province*                      |
+| `AdminDivision2`      | `CountrySecondarySubdivison`                    | *County* or *districts*                    |
+| `CountryRegion`       | `Country`                                       | *Country name*                             |
+|                       | `CountryTertiarySubdivision`                    | *Boroughs*, *Cantons*, *Communes*          |
 
 ## Get location suggestions (Autosuggest)
 
 Several of the Azure Maps search API’s support predictive mode that can be used for autosuggest scenarios. The Azure Maps [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) API is the most like the Bing Maps Autosuggest API. The following API’s also support predictive mode, add `&typeahead=true` to the query;
 
--   [Free-form address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This is recommended if you need to geocode individual addresses quickly.
+-   [Free-form address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
 -   [Fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
 -   [POI search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi): Search for points of interests by name. For example; `"starbucks"`.
 -   [POI category search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory): Search for points of interests by category. For example; "restaurant".
@@ -261,7 +261,7 @@ The following table cross-references the Bing Maps API parameters with the compa
 
 | Bing Maps API parameter    | Comparable Azure Maps API parameter                                 |
 |----------------------------|---------------------------------------------------------------------|
-| `points`                   | `supportingPoints` – pass this in the body of the post request      |
+| `points`                   | `supportingPoints` – pass these points into the body of the post request  |
 | `interpolate`              | N/A                                                                 |
 | `includeSpeedLimit`        | N/A                                                                 |
 | `includeTruckSpeedLimit`   | N/A                                                                 |
@@ -303,7 +303,7 @@ This approach however will only snap to the road segments that are loaded within
 
 **Using the Azure Maps vector tiles directly to snap coordinates**
 
-The Azure Maps vector tiles contain the raw road geometry data that can be used to calculate the nearest point on a road to a coordinate to do basic snapping of individual coordinates. One big benefit to this approach is that it can be done as a backend service and is very cheap, especially when you have a lot of coordinates in a small area. All road segments appear in the sectors at zoom level 15, so you will want to retrieve tiles from there. You can then use the [quadtree tile pyramid math](https://docs.microsoft.com/azure/azure-maps/zoom-levels-and-tile-grid) to determine that tiles are needed and convert the tiles to geometries. From there a spatial math library, such as [turf js](http://turfjs.org/) or [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) can be used to calculate the closest line segments.
+The Azure Maps vector tiles contain the raw road geometry data that can be used to calculate the nearest point on a road to a coordinate to do basic snapping of individual coordinates. All road segments appear in the sectors at zoom level 15, so you will want to retrieve tiles from there. You can then use the [quadtree tile pyramid math](https://docs.microsoft.com/azure/azure-maps/zoom-levels-and-tile-grid) to determine that tiles are needed and convert the tiles to geometries. From there a spatial math library, such as [turf js](http://turfjs.org/) or [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) can be used to calculate the closest line segments.
 
 ## Retrieve a map image (Static Map)
 
@@ -353,7 +353,7 @@ In addition to being able to generate a static map image, the Azure Maps render 
 
 **Before: Bing Maps**
 
-In Bing Maps, pushpins can be added to a static map image by using the `pushpin` parameter in the URL. The `pushpin` parameter takes in a location in `latitude,longitude` format, an icon style and text label (up to 3 characters) as shown below:
+In Bing Maps, pushpins can be added to a static map image by using the `pushpin` parameter in the URL. The `pushpin` parameter takes in a location in `latitude,longitude` format, an icon style and text label (up to three characters) as shown below:
 
 > `&pushpin=latitude,longitude;iconStyle;label`
 
@@ -375,7 +375,7 @@ In Azure Maps, pushpins can also be added to a static map image by specifying th
 
 Additional styles can be used by adding additional `pins` parameters to the URL with a different style and set of locations.
 
-When it comes to pin locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that there is a space, not a comma separating longitude and latitude in Azure Maps.
+When it comes to pin locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma** separating longitude and latitude in Azure Maps.
 
 The `iconType` value specifies the type of pin to create and can have the following values:
 
@@ -417,7 +417,7 @@ The following example adds three pins with the label values '1', '2', and '3':
 
 **Before: Bing Maps**
 
-In Bing Maps, lines and polygons can be added to a static map image by using the `drawCurve` parameter in the URL. The `drawCurve` parameter takes in a shape type, a style type and a list of locations to be rendered on the map as shown below:
+In Bing Maps, lines, and polygons can be added to a static map image by using the `drawCurve` parameter in the URL. The `drawCurve` parameter takes in a shape type, a style type and a list of locations to be rendered on the map as shown below:
 
 > `&drawCurve=shapeType,styleType,location1,location2...`
 
@@ -427,7 +427,7 @@ Locations in Bing Maps are specified with the format `latitude1,longitude1_latit
 
 Shape types in Bing Maps include lines, polygons, circle, and curve. Style types include line color, line thickness, outline color, fill color, outline thickness, and circular radius.
 
-For example, in Bing Maps, a blue line with 50% opacity and a thickness of 4 pixels can be added to the map between coordinates (longitude: -110, latitude: 45 and longitude: -100, latitude: 50) with the following URL parameter:
+For example, in Bing Maps, a blue line with 50% opacity and a thickness of four pixels can be added to the map between coordinates (longitude: -110, latitude: 45 and longitude: -100, latitude: 50) with the following URL parameter:
 
 `&drawCurve=l,FF000088,4;45,-110_50,-100`
 
@@ -441,7 +441,7 @@ In Azure Maps, lines and polygons can also be added to a static map image by spe
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-When it comes to path locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that there is a space, not a comma separating longitude and latitude in Azure Maps. Azure Maps does not support encoded paths currently. Larger data sets can be uploaded as a GeoJSON fills into the Azure Maps Data Storage API as documented [here](https://docs.microsoft.com/azure/azure-maps/how-to-render-custom-data#get-data-from-azure-maps-data-storage).
+When it comes to path locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma separating** longitude and latitude in Azure Maps. Azure Maps does not support encoded paths currently. Larger data sets can be uploaded as a GeoJSON fills into the Azure Maps Data Storage API as documented [here](https://docs.microsoft.com/azure/azure-maps/how-to-render-custom-data#get-data-from-azure-maps-data-storage).
 
 Path styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (`|`) characters like this `optionName1Value1|optionName2Value2`. Note the option names and values are not separated. The following style option names can be used to style paths in Azure Maps:
 
@@ -453,7 +453,7 @@ and the outline of polygons. Can be a number between 0 and 1.
 -   `lw` – The width of the line in pixels.
 -   `ra` – Specifies a circles radius in meters.
 
-For example, in Azure Maps, a blue line with 50% opacity and a thickness of 4 pixels can be added to the map between coordinates (longitude: -110, latitude: 45 and longitude: -100, latitude: 50) with the following URL parameter:
+For example, in Azure Maps, a blue line with 50% opacity and a thickness of four pixels can be added to the map between coordinates (longitude: -110, latitude: 45 and longitude: -100, latitude: 50) with the following URL parameter:
 
 > `&path=lc0000FF|la.5|lw4||-110 45|-100 50`
 
@@ -472,6 +472,7 @@ Azure Maps provides an API for calculating the travel times and distances betwee
 <p>Additionally, Azure Maps requires all origins and destinations to be coordinates. Addresses will need to be geocoded first.
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
+
 
 | Bing Maps API parameter | Comparable Azure Maps API parameter                         |
 |-------------------------|-------------------------------------------------------------|
@@ -495,11 +496,11 @@ The following table cross-references the Bing Maps API parameters with the compa
 
 Azure Maps provides an API for calculating an isochrone, a polygon covering an area that can be traveled to in any direction from an origin point within a specified amount of time or amount of fuel/charge. The Azure Maps route range API is comparable to the isochrone API in Bing Maps;
 
--   [Route](https://docs.microsoft.com/rest/api/maps/route/getrouterange) Range**: Calculate a polygon covering an area that can be traveled to in any direction from an origin point within a specified amount of time, distance or amount of fuel/charge available.
+-   [Route](https://docs.microsoft.com/rest/api/maps/route/getrouterange) Range**: Calculate a polygon covering an area that can be traveled to in any direction from an origin point within a specified amount of time, distance, or amount of fuel/charge available.
 
 > [!NOTE]
 > Azure Maps requires the query origin to be a coordinate. Addresses will need to be geocoded first.</p>
-<p>Also, Bing Maps can calculate isochrones based on time or distance, while Azure Maps can calculate isochrones based on time, distance or amount of fuel/charge available.
+<p>Also, Bing Maps can calculate isochrones based on time or distance, while Azure Maps can calculate isochrones based on time, distance, or amount of fuel/charge available.
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -544,8 +545,8 @@ Be sure to review the [best practices for search](https://docs.microsoft.com/azu
 
 Azure Maps provides several APIs for retrieving traffic data. There are two types of traffic data available;
 
--   flow data – provides metrics on the flow of traffic on sections of roads. This is often used to color code roads. This data is updated every 2 minutes.
--   Incident data – provides data on construction, road closures, accidents and other incidents that may affect traffic. This data is updated every minute.
+-   **Flow data** – provides metrics on the flow of traffic on sections of roads. This is often used to color code roads. This data is updated every 2 minutes.
+-   **Incident data** – provides data on construction, road closures, accidents, and other incidents that may affect traffic. This data is updated every minute.
 
 Bing Maps provides traffic flow and incident data in its interactive map controls, and also make incident data available as a service.
 
@@ -554,7 +555,7 @@ Traffic data is also integrated into the Azure Maps interactive map controls. Az
 -   [Traffic flow segments](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowsegment): Provides information about the speeds and travel times of the road fragment closest to the given coordinates.
 -   [Traffic flow tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile): Provides raster and vector tiles containing traffic flow data. These
 can be used with the Azure Maps controls or in third-party map controls such as Leaflet. The vector tiles can also be used for advanced data analysis.
--   [Traffic incident details](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidentdetail): Provides traffic incident details that are within a bounding box, zoom level and traffic model.
+-   [Traffic incident details](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidentdetail): Provides traffic incident details that are within a bounding box, zoom level, and traffic model.
 -   [Traffic incident tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile): Provides raster and vector tiles containing traffic incident data.
 -   [Traffic incident viewport](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidentviewport): Retrieves the legal and technical information for the viewport described in the request, such as the traffic model ID.
 
@@ -612,19 +613,19 @@ Bing Maps allows up to 200,000 addresses to be passed in a single batch geocode 
 
 Azure Maps has a batch geocoding service, however it allows up to 10,000 addresses to be passed in a single request and is processed over seconds to a few minutes depending on the size of the data set and the load on the service. Each address in the request generated a transaction. In Azure Maps, the batch geocoding service is only available the S1 tier.
 
-Another option for geocoding a lot of data with Azure Maps is to make parallel requests to the standard search APIs. These services only accept a single address per request but can be used with the S0 tier that also provides free usage limits. The S0 tier allows up to 50 requests per second to the Azure Maps platform from a single account. So if you process limit thes to stay within that limit, it is possible to geocode upwards of 180,000 address an hour. The S1 tier doesn’t have a documented limit on the number of queries per second that can be made from an account, so a lot more data can be processed faster when using that pricing tier, however using the batch geocoding service will help reduce the total amount of data transferred and will drastically reduce the network traffic.
+Another option for geocoding a large number addresses with Azure Maps is to make parallel requests to the standard search APIs. These services only accept a single address per request but can be used with the S0 tier that also provides free usage limits. The S0 tier allows up to 50 requests per second to the Azure Maps platform from a single account. So if you process limit thes to stay within that limit, it is possible to geocode upwards of 180,000 address an hour. The S1 tier doesn’t have a documented limit on the number of queries per second that can be made from an account, so a lot more data can be processed faster when using that pricing tier, however using the batch geocoding service will help reduce the total amount of data transferred and will drastically reduce the network traffic.
 
--   [Free-form address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This is recommended if you need to geocode individual addresses quickly.
--   [Structured address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
--   [Batch address geocoding](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses will be geocoded in parallel on the server and when completed the full result set can be downloaded. This is recommended for geocoding large data sets.
+-   [Free-form address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
+-   [Structured address geocoding](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
+-   [Batch address geocoding](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses will be geocoded in parallel on the server and when completed the full result set can be downloaded. This service is recommended for geocoding large data sets.
 -   [Fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
 -   [Fuzzy batch search](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
 
 ### Get administrative boundary data
 
-In Bing Maps, administrative boundaries for countries, states, counties, cities and postal codes are made available via the Geodata API. This API takes in either a coordinate or query to geocode. If a query is passed in, it is geocoded and the coordinates from the first result is used. This API takes the coordinates and retrieves the boundary of the specified entity type that intersects the coordinate. Note that this API did not necessarily return the boundary for the query that was passed in. If a query for "Seattle, WA" is passed in, but the entity type value is set to country region, the boundary for the USA would be returned.
+In Bing Maps, administrative boundaries for countries, states, counties, cities, and postal codes are made available via the Geodata API. This API takes in either a coordinate or query to geocode. If a query is passed in, it is geocoded and the coordinates from the first result is used. This API takes the coordinates and retrieves the boundary of the specified entity type that intersects the coordinate. Note that this API did not necessarily return the boundary for the query that was passed in. If a query for `"Seattle, WA"` is passed in, but the entity type value is set to country region, the boundary for the USA would be returned.
 
-Azure Maps also provides access to administrative boundaries (countries, states, counties, cities and postal codes). To retrieve a boundary, you must query one of the search APIs for the boundary you want (i.e. Seattle, WA). If the search result has an associated boundary, a geometry ID will be provided in the result response. The search polygon API can then be used to retrieve the exact boundaries for one or more geometry IDs. This is a bit different than Bing Maps as Azure Maps returns the boundary for what was searched for, whereas Bing Maps returns a boundary for a specified entity type at a specified coordinate. Additionally, the boundary data returned by Azure Maps is in GeoJSON format.
+Azure Maps also provides access to administrative boundaries (countries, states, counties, cities, and postal codes). To retrieve a boundary, you must query one of the search APIs for the boundary you want (i.e. `Seattle, WA`). If the search result has an associated boundary, a geometry ID will be provided in the result response. The search polygon API can then be used to retrieve the exact boundaries for one or more geometry IDs. This is a bit different than Bing Maps as Azure Maps returns the boundary for what was searched for, whereas Bing Maps returns a boundary for a specified entity type at a specified coordinate. Additionally, the boundary data returned by Azure Maps is in GeoJSON format.
 
 To recap:
 
@@ -638,7 +639,7 @@ To recap:
 
 ### Host and query spatial business data
 
-The spatial data services in Bing Maps provide a simple spatial data storage solution for hosting business data and exposing it as a spatial REST service. This service provides four main queries; find by property, find nearby, find in bounding box, and find with 1 mile of a route. Many companies who use this service, often already have their business data already stored in a database somewhere and have been uploading a small subset of it into this service to power applications like store locators. Since key-based authentication, that provides basic security, is used, it has been recommended that this service only be used with public facing data.
+The spatial data services in Bing Maps provide a simple spatial data storage solution for hosting business data and exposing it as a spatial REST service. This service provides four main queries; find by property, find nearby, find in bounding box, and find with 1 mile of a route. Many companies who use this service, often already have their business data already stored in a database somewhere and have been uploading a small subset of it into this service to power applications like store locators. Since key-based authentication provides basic security, it has been recommended that this service only be used with public facing data.
 
 Most business location data starts off in a database. As such it is recommended to use existing Azure storage solutions such as Azure SQL or Azure PostgreSQL (with the PostGIS plugin). Both of these storage solutions support spatial data and provide a rich set of spatial querying capabilities. Once your data is in a suitable storage solution, it can then be integrated into your application by creating a custom web service, or by using a framework such as ASP.NET or Entity Framework. Using this approach provides more querying capabilities and as well as much higher security options.
 

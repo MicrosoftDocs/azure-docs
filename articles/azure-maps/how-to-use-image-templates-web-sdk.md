@@ -518,7 +518,7 @@ Learn more about the classes and methods used in this article:
 > [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [atlas namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-maps-typescript-latest#functions
+> [atlas namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
 )
 
 See the following articles for more code samples where image templates can be used:

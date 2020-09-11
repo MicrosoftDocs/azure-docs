@@ -19,7 +19,7 @@ This guide provides insights on how to migrate web, mobile and server-based appl
 
 Azure Maps provides developers from all industries powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context for web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geofencing, Map Data, Weather Data, and many more services accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms. [Azure Maps is also available in Power BI](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-getting-started).
 
-## High level platform comparison
+## High-level platform comparison
 
 The following table provides a high-level list of Bing Maps features and the relative support for those features in Azure Maps. This list doesn’t include additional Azure Maps features such as accessibility, geofencing APIs, traffic services, spatial operations, direct map tile access, and batch services.
 
@@ -57,9 +57,9 @@ When migrating to Azure Maps from Bing Maps, the following should be considered 
 
 -   Azure Maps charges for the usage of interactive maps based on the number of map tiles loaded, whereas Bing Maps charges for the loading of the map control (sessions). On Azure Maps, map tiles are automatically cached to reduce the cost for the developer. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs use 512-pixel tiles, and on average generates one or less transactions per page view.
 
--   Azure Maps allows data from its platform to be stored in Azure. It can also be cached elsewhere for up to 6 months as per the [terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+-   Azure Maps allows data from its platform to be stored in Azure. It can also be cached elsewhere for up to six months as per the [terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Here are some licensing related resources for Azure Maps:
+Here is some licensing related resources for Azure Maps:
 
 -   [Azure Maps pricing page](https://azure.microsoft.com/pricing/details/azure-maps/)
 -   [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
@@ -113,7 +113,7 @@ The following is a list of common Bing Maps terms and that are known by a differ
 | `LocationRect`                    | Bounding box                                                   |
 | Map Type                          | Map style                                                      |
 | Navigation bar                    | Map style picker, Zoom control, Pitch control, Compass control |
-| Pushpin                           | Bubble layer, Symbol layer or HTML Marker                      |
+| Pushpin                           | Bubble layer, Symbol layer, or HTML Marker                      |
 
 ## Next steps
 
