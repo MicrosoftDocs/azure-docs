@@ -45,4 +45,4 @@ Now that you have created a FileStorage account and configured the networking, y
 
 ## Next steps
 
-Now that you've created an NFS share, to use it you have to mount it to your VM. For details, see [How to mount an NFS share](storage-files-how-to-mount-nfs-shares.md).
+Now that you've created an NFS share, to use it you have to mount it on your Linux client. For details, see [How to mount an NFS share](storage-files-how-to-mount-nfs-shares.md).
