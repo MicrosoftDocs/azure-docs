@@ -6,6 +6,7 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
+ms.custom: references_regions
 ---
 
 # Manage zone redundant high availability in Azure Database for MySQL Flexible Server (Preview)
