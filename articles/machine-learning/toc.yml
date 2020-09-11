@@ -186,8 +186,8 @@
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
-            - name: Use Private Link	
-              displayName: private endpoint	
+            - name: Use Private Link
+              displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: Configure secure web services
               displayName: ssl, tls
@@ -543,8 +543,11 @@
       href: monitor-resource-reference.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
-    - name: Sovereign cloud parity	
+    - name: Sovereign cloud parity
       href: reference-machine-learning-cloud-parity.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items: 
     - name: Release notes
