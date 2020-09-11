@@ -62,7 +62,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
-# [ARM Template](#tab/arm-template)
+# [Template](#tab/template)
 
 ////TBD////
 
@@ -151,9 +151,17 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --account-name $ANF_ACCOUNT_NAME
     ```
 
-# [ARM Template](#tab/arm-template)
+# [Template](#tab/template)
 
-////TBD////
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+{Any other specific intro that makes sense...}
+
+The following code snippet shows how to create a NetApp account in an Azure Resource Manager template (ARM template), using the [Microsoft.NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="178-182":::
+
+
 
 ---
 
@@ -218,7 +226,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --service-level $SERVICE_LEVEL
     ```
 
-# [ARM Template](#tab/arm-template)
+# [Template](#tab/template)
 
 ////TBD////
 
@@ -361,7 +369,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --protocol-types "NFSv3"
     ```
 
-# [ARM Template](#tab/arm-template)
+# [Template](#tab/template)
 
 ////TBD////
 
@@ -391,7 +399,7 @@ When you are done and if you want to, you can delete the resource group. The act
 
 4. Enter the name of the resource group (myRG1) to confirm that you want to permanently delete the resource group and all resources in it, and then click **Delete**.
 
-    ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![Confirm resource group deletion](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -420,7 +428,7 @@ When you are done and if you want to, you can delete the resource group. The act
         --name $RESOURCE_GROUP
     ```
 
-# [ARM Template](#tab/arm-template)
+# [Template](#tab/template)
 
 ////TBD////
 
