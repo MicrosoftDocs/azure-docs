@@ -31,9 +31,9 @@ You cannot manage the following classic subscription administrator roles in Priv
 
 For more information about the classic subscription administrator roles, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## What about Office 365 admin roles?
+## What about Microsoft 365 admin roles?
 
-We support all Office365 roles in the Azure AD Roles and Administrators portal experience, such as Exchange Administrator and SharePoint Administrator, but we don't support specific roles within Exchange RBAC or SharePoint RBAC. For more information about these Office 365 services, see [Office 365 admin roles](/office365/admin/add-users/about-admin-roles).
+We support all Microsoft 365 roles in the Azure AD Roles and Administrators portal experience, such as Exchange Administrator and SharePoint Administrator, but we don't support specific roles within Exchange RBAC or SharePoint RBAC. For more information about these Microsoft 365 services, see [Microsoft 365 admin roles](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Eligible users for the SharePoint administrator role, the Device administrator role, and any roles trying to access the Microsoft Security and Compliance Center might experience delays of up to a few hours after activating their role. We are working with those teams to fix the issues.
