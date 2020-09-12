@@ -120,4 +120,4 @@ In this tutorial, you learned how to:
 To learn how to add security headers with Rule Engine, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Security Headers with Rules Engine](front-door-security-headers.md)
+> [Security headers with Rules Engine](front-door-security-headers.md)
