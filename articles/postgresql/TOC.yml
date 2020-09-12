@@ -1,4 +1,4 @@
-- name: Azure DB for PostgreSQL Docs
+- name: Azure DB for PostgreSQL documentation
   href: index.yml
 - name: Overview
   items:
@@ -24,11 +24,12 @@
         displayName: dms, data migration service
 - name: Single Server
   items:
-  - name: Documentation
+  - name: Single Server documentation
     href: single-server/index.yml
   - name: Overview
     href: overview-single-server.md
   - name: Quickstarts
+    expanded: true
     items:
     - name: Create a server
       items:
@@ -89,9 +90,9 @@
         href: tutorial-design-database-using-azure-cli.md
       - name: Azure PowerShell
         href: tutorial-design-database-using-powershell.md
-    - name: Build and deploy Python web app (Django)
+    - name: Build & deploy Python web app (Django)
       href: ../app-service/tutorial-python-postgresql-app.md
-      displayName: python, django , connect
+      displayName: python, django, connect
       maintainContext: true
     - name: Monitor and tune
       href: tutorial-monitor-and-tune.md
@@ -120,7 +121,7 @@
         href: concepts-limits.md
     - name: Security
       items:
-      - name: Overview
+      - name: Security overview
         href: concepts-security.md
         displayName: security, overview
       - name: Configure SSL
@@ -141,7 +142,7 @@
       - name: Infrastructure double encryption
         href: concepts-infrastructure-double-encryption.md
         displayName: security, infrastructure encryption
-      - name: Security baseline for Azure Security Benchmark
+      - name: Security baseline
         href: security-baseline.md
     - name: Networking
       items:
@@ -354,7 +355,7 @@
         displayName: encryption, security
     - name: Infrastructure double encryption
       items:
-      - name: Configure infrastructure double encryption
+      - name: Configure double encryption
         href: howto-double-encryption.md
         displayName: encryption, security
     - name: Deny public network access
@@ -379,7 +380,7 @@
         href: howto-move-regions-portal.md
 - name: Flexible Server (Preview)
   items:
-  - name: Documentation
+  - name: Flexible Server documentation
     href: flexible-server/index.yml
   - name: Overview
     href: flexible-server/overview.md
@@ -389,6 +390,8 @@
       items:
       - name: Azure portal
         href: flexible-server/quickstart-create-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/quickstart-create-server-cli.md
       - name: ARM template
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
@@ -397,9 +400,9 @@
           href: flexible-server/connect-python.md
   - name: Tutorials
     items:
-    - name: Configure web app and database server in virtual network
+    - name: Create a web app in a virtual network
       href: flexible-server/tutorial-webapp-server-vnet.md
-    - name: Deploy Python (Django) app with database
+    - name: Deploy a Django app
       href: flexible-server/tutorial-django-app-service-postgres.md
   - name: Concepts
     items:
@@ -417,10 +420,10 @@
     - name: Extensions
       href: flexible-server/concepts-extensions.md
     - name: Scheduled maintenance
-      href: flexible-server/concept-maintenance.md
+      href: flexible-server/concepts-maintenance.md
     - name: Business continuity
       items:
-      - name: Overview
+      - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
       - name: Backup and restore
         href: flexible-server/concepts-backup-restore.md
@@ -428,7 +431,7 @@
         href: flexible-server/concepts-high-availability.md
     - name: Monitor and tune
       items:
-      - name: Overview
+      - name: Monitor and tune overview
         href: flexible-server/concepts-monitoring.md
         displayName: monitor, metrics
       - name: Logs
@@ -469,6 +472,14 @@
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+    - name: Configure server parameters
+      items:
+      - name: Azure portal
+        href: flexible-server/howto-configure-server-parameters-using-portal.md
+        displayName: application development, server parameters
+      - name: Azure CLI
+        href: flexible-server/howto-configure-server-parameters-using-cli.md
+        displayName: application development, server parameters
     - name: Scale a server
       items:
       - name: Azure portal
@@ -481,6 +492,10 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-restore-server-portal.md
+    - name: Stop/start a server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-stop-start-server-portal.md
     - name: Manage high availability
       items:
       - name: Azure portal
@@ -493,7 +508,7 @@
         href: flexible-server/howto-configure-and-access-logs.md
 - name: Hyperscale (Citus)
   items:
-  - name: Documentation
+  - name: Hyperscale (Citus) documentation
     href: hyperscale/index.yml
   - name: Overview
     items:
@@ -547,13 +562,13 @@
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl
-      - name: Security baseline for Azure Security Benchmark
+      - name: Security baseline
         href: postgresql-hyperscale-security-baseline.md
     - name: Business continuity
       items:
       - name: Backup and restore
         href: concepts-hyperscale-backup.md
-        displayName: backup, restore ,outage, hyperscale
+        displayName: backup, restore, outage, hyperscale
       - name: High availability
         href: concepts-hyperscale-high-availability.md
     - name: Monitor and tune

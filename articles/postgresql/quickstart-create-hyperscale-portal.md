@@ -134,6 +134,7 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 In this quickstart, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data.
 
-Next, follow a tutorial to build scalable multi-tenant applications.
-> [!div class="nextstepaction"]
-> [Design a Multi-Tenant Database](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- Follow a tutorial to [build scalable multi-tenant
+  applications](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- Determine the best [initial
+  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group

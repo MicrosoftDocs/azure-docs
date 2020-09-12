@@ -20,6 +20,10 @@ landingContent:
         links:
           - text: Create server group using the Azure Portal
             url: ../quickstart-create-hyperscale-portal.md
+      - linkListType: concept
+        links:
+          - text: Server group nodes and tables
+            url: ../concepts-hyperscale-nodes.md
       - linkListType: tutorial
         links:
           - text: Design a multi-tenant database

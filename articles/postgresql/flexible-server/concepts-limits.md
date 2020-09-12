@@ -5,7 +5,7 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -95,7 +95,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 ### Backing up a server
 
 - Backups are managed by the system, there is currently no way to run these backups manually. We recommend using `pg_dump` instead.
-- Backups are always snapshot-based full backups (not differential backups), possibly leading to higher backup storage utilization.
+- Backups are always snapshot-based full backups (not differential backups), possibly leading to higher backup storage utilization. Note that transaction logs (write ahead logs - WAL) are separate from the full/differential backups, and are archived continuously.
 
 ### Restoring a server
 

@@ -5,7 +5,7 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 09/22/2020
 ---
 
 # Logs in Azure Database for PostgreSQL - Flexible Server
@@ -15,13 +15,13 @@ ms.date: 9/22/2020
 
 Azure Database for PostgreSQL allows you to configure and access Postgres' standard logs. The logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. Logging information you can configure and access includes errors, query information, autovacuum records, connections, and checkpoints. (Access to transaction logs is not available).
 
-<!--Audit logging is made available through a Postgres extension, pgaudit. To learn more, visit the [auditing concepts](concepts-audit.md) article.-->
+Audit logging is made available through a Postgres extension, `pgaudit`. To learn more, visit the [auditing concepts](concepts-audit.md) article.
 
 ## Configure logging
 
 You can configure Postgres standard logging on your server using the logging server parameters. To learn more about Postgres log parameters, visit the [When To Log](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) and [What To Log](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) sections of the Postgres documentation. Most, but not all, Postgres logging parameters are available to configure in Azure Database for PostgreSQL.
 
-<!-- To learn how to configure parameters in Azure Database for PostgreSQL, see the [portal documentation](howto-configure-server-parameters-using-portal.md) or the [CLI documentation](howto-configure-server-parameters-using-cli.md). -->
+To learn how to configure parameters in Azure Database for PostgreSQL, see the [portal documentation](howto-configure-server-parameters-using-portal.md) or the [CLI documentation](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
 > Configuring a high volume of logs, for example statement logging, can add significant performance overhead. 
@@ -64,4 +64,4 @@ The following table describes the fields for the **PostgreSQLLogs** type. Depend
 
 - Learn more about how to [Configure and Access Logs](howto-configure-and-access-logs.md).
 - Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-<!-- - Learn more about [audit logs](concepts-audit.md) -->
+- Learn more about [audit logs](concepts-audit.md)
