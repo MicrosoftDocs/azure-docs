@@ -81,7 +81,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-continuous-integration-continuous-deployment-pipeline-with-arm-agent/).
+   * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
     ![Configure build agent specification](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
 
