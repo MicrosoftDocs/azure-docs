@@ -163,7 +163,7 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="178-182":::
 
-<!-- Block begins with -- "type": "Microsoft.NetApp/netAppAccounts", -->
+<!-- Block begins with "type": "Microsoft.NetApp/netAppAccounts", -->
 
 ---
 
@@ -236,7 +236,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="185-195":::
 
-<!-- LN 185, block begins with --  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
+<!-- LN 185, block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
 ---
 
@@ -385,9 +385,11 @@ The following code snippets show how to set up VNet and create an Azure NetApp F
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="149-175":::
 
+<!-- Block begins with  "type": "Microsoft.Network/virtualNetworks", -->
+
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="198-228":::
 
-<!-- Block begins with --  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
+<!-- Block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
 
 ---
 
