@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: overview 
 ms.subservice: overview
 ms.date: 04/15/2020 
-ms.author: acomet 
+ms.author: saveenr 
 ms.reviewer: jrasnick
 ---
 
@@ -17,10 +17,6 @@ ms.reviewer: jrasnick
 
 The Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands. This article is helpful for both new learners and those who want highlights of the essential Azure Synapse topics.
 
-## Architecture
-
-> [!div class="mx-imgBorder"]
->![Synapse Architecture](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
 
 ## Terminology
 | Term                         | Definition      |
