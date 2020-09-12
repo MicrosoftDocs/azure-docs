@@ -27,7 +27,7 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 - **Plan** your Azure Security Benchmark implementation by reviewing the [documentation](overview.md) for the enterprise controls and service-specific baselines to plan your control framework and how it maps to guidance like CIS (Controls v7.1) and NIST (SP800-53) framework.
 - **Monitor** your compliance with Azure Security Benchmark status (and other control sets) using the Azure Security Center [regulatory compliance dashboard](../../security-center/security-center-compliance-dashboard.md).
 - **Establish guardrails** to automate secure configurations and enforce compliance with Azure Security Benchmark (and other requirements in your organization) with Azure Blueprints and Azure Policy.
-- 
+ 
 Note that the Azure Security Benchmark v2 is aligned with [Microsoft Security Best Practices](/security/compass/microsoft-security-compass-introduction) (formerly Azure Security Compass) so that the Azure Security Benchmark provides a single consolidated view of Microsoft’s Azure security recommendations.
 
 ## Common Use Cases

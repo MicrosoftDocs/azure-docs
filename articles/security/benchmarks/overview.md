@@ -1,12 +1,12 @@
 ---
-title: Overview of the Azure Security Benchmark
-description: V2 Security Benchmark overview
+title: Overview of the Azure Security Benchmark V2
+description: Azure Security Benchmark V2 overview
 author: msmbaldwin
 manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -19,7 +19,7 @@ The Azure Security Benchmark (ASB) provides prescriptive best practices and reco
 This benchmark is part of a set of holistic security guidance that also includes:
 
 - **Cloud Adoption Framework** – Guidance on security, including [strategy](/azure/cloud-adoption-framework/strategy/define-security-strategy), [roles and responsibilities](/azure/cloud-adoption-framework/organize/cloud-security), [Azure Top 10 Security Best Practices](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices), and [reference implementation](/azure/cloud-adoption-framework/ready/enterprise-scale/).
-- **Azure Well-Architected Framework** – Guidance on [securing your workloads](https://docs.microsoft.com/en-us/assessments/?mode=pre-assessment&session=local) on Azure.
+- **Azure Well-Architected Framework** – Guidance on [securing your workloads](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) on Azure.
 - **Microsoft Security Best Practices** – [recommendations](/security/compass/microsoft-security-compass-introduction) with examples on Azure.
  The Azure Security Benchmark focuses on cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the Center for Internet Security (CIS) Controls Version 7.1 and National Institute of Standards and Technology (NIST) SP800-53.
 The following controls are included in the Azure Security Benchmark:

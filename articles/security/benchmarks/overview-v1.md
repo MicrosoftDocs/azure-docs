@@ -1,12 +1,12 @@
 ---
-title: Overview of the Azure Security Benchmark
-description: Security Benchmark overview
+title: Overview of the Azure Security Benchmark V1
+description: Azure Security Benchmark V1 overview
 author: msmbaldwin
 manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
