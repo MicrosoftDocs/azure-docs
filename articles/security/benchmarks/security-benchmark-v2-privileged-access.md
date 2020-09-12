@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Privileged Access
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/12/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
