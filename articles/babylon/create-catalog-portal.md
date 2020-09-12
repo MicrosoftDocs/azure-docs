@@ -69,7 +69,7 @@ If necessary, follow these steps to configure your subscription to enable Babylo
 
 If you no longer need this Babylon account, delete it with the following steps:
 
-1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) screen in the Azure portal.
+1. Go to the [**Babylon portal**](https://aka.ms/babylonportal) in the Azure portal.
 
 2. Select the Babylon instance that you created at the beginning of the tutorial. Select **Delete**, enter the name of the data catalog instance, and then select **Delete**.
 
@@ -77,7 +77,7 @@ If you no longer need this Babylon account, delete it with the following steps:
 
 In this quickstart, you learned how to create a Babylon account.
 
-Advance to the next article to learn how to set catalog permissions.
+Advance to the next article to learn how to add a security principal to a role.
 
 > [!div class="nextstepaction"]
-> [Set catalog permissions](catalog-permissions.md)
+> [Add a security principal](add-security-principal.md)

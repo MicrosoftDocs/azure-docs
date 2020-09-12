@@ -10,12 +10,12 @@
   items:
   - name: Create a Babylon account
     href: create-catalog-portal.md
-  - name: Add Babylon admins
-    href: catalog-permissions.md
+  - name: Add a security principal
+    href: add-security-principal.md
+  - name: Scan data into the catalog
+    href: scan-data-into-the-catalog.md    
 - name: Tutorials
   items:
-  - name: Scan data
-    href: starter-kit-tutorial-1.md
   - name: Home page and search
     href: starter-kit-tutorial-2.md
   - name: Browse and lineage
@@ -24,3 +24,11 @@
     href: starter-kit-tutorial-4.md
   - name: Glossary, terms, and import
     href: starter-kit-tutorial-5.md
+- name: Concepts
+  items:
+  - name: Catalog permissions
+    href: catalog-permissions.md
+- name: How-to guides
+  items:
+  - name: Scan data
+    href: starter-kit-1.md
