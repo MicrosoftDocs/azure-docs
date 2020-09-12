@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot move errors
-description: Use Azure Resource Manager to move resources to a new resource group or subscription.
+description: Learn how to resolve problems when using Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.date: 08/27/2019
 ---

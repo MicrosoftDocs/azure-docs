@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Pilot Azure AD Connect cloud provisioning for an existing synced AD forest 
-description: tutorial.
+description: Learn how to pilot cloud provisioning for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.
 services: active-directory
 author: billmath
 manager: daveba

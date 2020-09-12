@@ -1,6 +1,6 @@
 ---
 title: Port conflict when starting services in Azure HDInsight
-description: Troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+description: Troubleshooting steps and possible resolutions for port conflict issues when interacting with Azure HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
