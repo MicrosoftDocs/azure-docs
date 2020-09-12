@@ -53,10 +53,9 @@ Use the following parameters to configure the Microsoft Enterprise SSO plug-in f
 
 - **Type**: Redirect
 - **Extension ID**: `com.microsoft.azureauthenticator.ssoextension`
-- **Team ID**: `SGGM6D27TK`
+- **Team ID**: `UBF8T346G9` (this field is not used on iOS)
 - **URLs**:
   - `https://login.microsoftonline.com`
-  - `https://login.windows.net`
   - `https://login.microsoft.com`
   - `https://sts.windows.net`
   - `https://login.partner.microsoftonline.cn`
@@ -65,6 +64,55 @@ Use the following parameters to configure the Microsoft Enterprise SSO plug-in f
   - `https://login.microsoftonline.us`
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
+  
+### Additional configuration options:
+Additional configuration options can be added to extend SSO functionality to additional apps.
+
+#### Enable SSO for apps that don't use MSAL
+
+Specify a comma separated list of apps that don't use MSAL and should be allowed to participate in the SSO. 
+Note that only apps that use native Apple network technologies or webviews are supported. If application ships its own network layer implementation, Microsoft Enterprise SSO plug-in is not supported.  
+
+- **Key**: `AppAllowList`
+- **Type**: `String`
+- **Value**: Comma separated list of application bundle ids for the applications you wish to allow to be signed in with SSO.
+- **Example**: `com.contoso.workapp, com.contoso.travelapp`
+
+> [!NOTE]
+> Apps that participate in the SSO can silently get a token for the user. Therefore, it is important to only add trusted applications to the allow list. 
+
+> [!NOTE]
+> You don't need to add applications that use MSAL or ASWebAuthenticationSession to this list. Those applications are enabled by default. 
+
+#### Allow creating SSO session from any application
+
+By default, the Azure AD SSO extension provides SSO in Safari browser, ASWebAuthenticationSession, SafariViewController and whitelisted native apps only when the SSO extension already has a shared credential. The Azure AD SSO extension can acquire a shared credential when it is called by another ADAL or MSAL based application during token acquisition (any Microsoft apps uses Microsoft Authenticator or SSO extension). That means that by default SSO outside of native app flows is best effort.  
+
+Enabling `browser_sso_interaction_enabled` flag enables non MSAL apps and Safari browser to do the initial bootstrapping and get a shared credential. If the Azure AD SSO extension doesn’t have a shared credential yet, it will try to proactively get one whenever a sign in is requested from an Azure AD URL inside Safari browser, ASWebAuthenticationSession, SafariViewController or another whitelisted native application.  
+
+- **Key**: `browser_sso_interaction_enabled`
+- **Type**: `Integer`
+- **Value**: 1 or 0
+
+> [!NOTE]
+> We recommend enabling this flag to get more consistent experience across all apps. 
+> It is disabled by default. 
+
+#### Disable OAuth2 application prompts
+
+The Azure AD SSO extension provides SSO by appending a shared credentials to AAD requests coming from allowed applications. Some OAuth2 applications might be enforcing end user prompt on the protocol layer, which means that shared credential would be ignored.    
+
+Enabling `disable_explicit_app_prompt` flag restricts ability of both native and web applications to force an end user prompt on the protocol layer and bypass SSO.
+
+- **Key**: `disable_explicit_app_prompt`
+- **Type**: `Integer`
+- **Value**: 1 or 0
+
+> [!NOTE]
+> We recommend enabling this flag to get more consistent experience across all apps. 
+> It is disabled by default. 
+
+#### 
 
 You can use Microsoft Intune as your MDM service to ease configuration of the Microsoft Enterprise SSO plug-in. For more information, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
 
