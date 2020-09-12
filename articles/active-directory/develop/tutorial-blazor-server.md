@@ -156,7 +156,7 @@ As you can see, with a couple of lines of code, you are able to leverage the Mic
 
 ## Retrieving data from Microsoft Graph
 
-[Microsoft Graph](https://docs.microsoft.com/graph/overview) offers a wide range of APIs to allow you to build rich and immersive apps with the Microsoft 365 data your users own. Using the Microsoft identity platform as the identity provider for your app enables you to access this information easily by accessing protected Graph APIs using the authentication and authorization tokens you get from the Microsoft identity platform. In this section, you learn how to do this.
+[Microsoft Graph](https://docs.microsoft.com/graph/overview) offers a range of APIs that allow you to access the Microsoft 365 data your users own. With the Microsoft identity platform you can access this information easily using the authentication and authorization tokens you receive from the platform. In this section, you add code that will show the signed in user's emails on the application's "fetch data" page.
 
 Before you start, make sure to log out of your app, because you will be making changes to the required permissions and your current token will not work. 
 
