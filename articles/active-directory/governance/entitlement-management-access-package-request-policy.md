@@ -89,7 +89,7 @@ Follow these steps if you want to allow users in your directory to be able to re
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
     | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
 
-    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../external-identities/what-is-b2b). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
+    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](..md./external-identities/what-is-b2b). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
 
 1. If you selected **Specific users and groups**, click **Add users and groups**.
 
@@ -139,7 +139,7 @@ Follow these steps if you want to allow users not in your directory to request t
 1. Once you've selected all your connected organizations, click **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/b2b/allow-deny-list.md).
+    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
 1. If you want to require approval, use the steps in [Change approval settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
  
