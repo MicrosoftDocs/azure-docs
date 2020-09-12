@@ -26,7 +26,7 @@ This preview extension brings many current and additional Logic Apps capabilitie
 
   * Create and deploy workflow apps that can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these workflows can use for sending requests to the cloud connection runtime endpoint. Logic Apps saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
 
-* Create stateless workflows that respond faster, have higher throughput, and cost less to run because run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [What are stateful and stateless?](#stateful-stateless).
+* Create stateless workflows that respond faster, have higher throughput, and cost less to run because run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [What are stateful and stateless?](#stateful-stateless)
 
 * Call Azure functions natively and directly from your workflow apps.
 
@@ -217,7 +217,7 @@ After you install all the extensions, disable automatic extension updates for Vi
 
 <a name="create-functions-project"></a>
 
-## Create function app project
+## Create a function app project
 
 Before you create your workflow, create a local [Azure Functions project (or function app project)](../azure-functions/functions-develop-vs-code.md#create-an-azure-functions-project) for deploying and managing your workflow app using Visual Studio Code. This project is similar to the function app that you'd create in the Azure portal to use for organizing and managing functions. For more information, see [Develop Azure functions by using Visual Studio Code](../azure-functions/functions-develop-vs-code.md).
 
@@ -247,7 +247,7 @@ Before you create your workflow, create a local [Azure Functions project (or fun
    ![Screenshot that shows locations list with "Open in current window" selected.](./media/create-stateless-stateful-workflows/select-project-location.png)
    -->
 
-   After Visual Studio Code reloads, the Explorer pane opens and shows your local function app project.
+   After Visual Studio Code reloads, the Explorer pane opens and shows your local function app project, which includes [generated project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#generated-project-files).
 
    ![Screenshot that shows Explorer pane and function app project.](./media/create-stateless-stateful-workflows/function-app-project-created.png)
 
