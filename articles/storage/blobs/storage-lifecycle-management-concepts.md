@@ -4,7 +4,7 @@ description: Learn how to create lifecycle policy rules to transition aging data
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 09/11/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -29,7 +29,7 @@ Consider a scenario where data gets frequent access during the early stages of t
 
 ## Availability and pricing
 
-The lifecycle management feature is available in all Azure regions for General Purpose v2 (GPv2) accounts, Blob storage accounts, and Premium Block Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
+The lifecycle management feature is available in all Azure regions for General Purpose v2 (GPv2) accounts, Blob storage accounts, and Premium Block Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -47,7 +47,7 @@ A policy can be read or written in full. Partial updates are not supported.
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-This article shows how to manage policy by using the portal and PowerShell methods.  
+This article shows how to manage policy by using the portal and PowerShell methods.
 
 # [Portal](#tab/azure-portal)
 
@@ -60,54 +60,57 @@ There are two ways to add a policy through the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, search for and select your storage account. 
+1. In the Azure portal, search for and select your storage account. 
 
-3. Under **Blob Service**, select **Lifecycle management** to view or change your rules.
+1. Under **Blob service**, select **Lifecycle Management** to view or change your rules.
 
-4. Select the **List view** tab.
+1. Select the **List View** tab.
 
-5. Select **Add rule** and then fill out the **Action set** form fields. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
+1. Select **Add a rule** and name your rule on the **Details** form. You can also set the **Rule scope**, **Blob type**, and **Blob subtype** values. The following example sets the scope to filter blobs. This causes the **Filter set** tab to be added.
 
-   ![Lifecycle management action set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+   ![Lifecycle management add a rule details page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-details.png)
 
-6. Select **Filter set** to add an optional filter. Then, select **Browse** to specify a container and folder by which to filter.
+1. Select **Base blobs** to set the conditions for your rule. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
 
-   ![Lifecycle management filter set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+   ![Lifecycle management base blobs page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png)
 
-8. Select **Review + add** to review the policy settings.
+1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs in the *mylifecyclecontainer* container that begin with "log".
 
-9. Select **Add** to add the new policy.
+   ![Lifecycle management filter set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png)
+
+1. Select **Add** to add the new policy.
 
 #### Azure portal Code view
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, search for and select your storage account.
+1. In the Azure portal, search for and select your storage account.
 
-3. Under **Blob Service**, select **Lifecycle management** to view or change your policy.
+1. Under **Blob service**, select **Lifecycle Management** to view or change your policy.
 
-4. The following JSON is an example of a policy that can be pasted into the **Code view** tab.
+1. The following JSON is an example of a policy that can be pasted into the **Code View** tab.
 
    ```json
    {
      "rules": [
        {
-         "name": "ruleFoo",
          "enabled": true,
+         "name": "move-to-cool",
          "type": "Lifecycle",
          "definition": {
-           "filters": {
-             "blobTypes": [ "blockBlob" ],
-             "prefixMatch": [ "container1/foo" ]
-           },
            "actions": {
              "baseBlob": {
-               "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-               "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-               "delete": { "daysAfterModificationGreaterThan": 2555 }
-             },
-             "snapshot": {
-               "delete": { "daysAfterCreationGreaterThan": 90 }
+               "tierToCool": {
+                 "daysAfterModificationGreaterThan": 30
+               }
              }
+           },
+           "filters": {
+             "blobTypes": [
+               "blockBlob"
+             ],
+             "prefixMatch": [
+               "mylifecyclecontainer/log"
+             ]
            }
          }
        }
@@ -115,9 +118,9 @@ There are two ways to add a policy through the Azure portal.
    }
    ```
 
-5. Select **Save**.
+1. Select **Save**.
 
-6. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
+1. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -225,7 +228,7 @@ Each rule within the policy has several parameters:
 
 | Parameter name | Parameter type | Notes | Required |
 |----------------|----------------|-------|----------|
-| `name`         | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive.  It must be unique within a policy. | True |
+| `name`         | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive. It must be unique within a policy. | True |
 | `enabled`      | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it's not set. | False | 
 | `type`         | An enum value | The current valid type is `Lifecycle`. | True |
 | `definition`   | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
@@ -236,7 +239,7 @@ Each rule definition includes a filter set and an action set. The [filter set](#
 
 ### Sample rule
 
-The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.  
+The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.
 
 >[!NOTE]
 >- Lifecycle management only supports block blob type.<br>
@@ -284,7 +287,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob`. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/container1/foo/...` for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account.  | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/container1/foo/...` for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
 | blobIndexMatch | An array of dictionary values consisting of Blob Index tag key and value conditions to be matched. Each rule can define up to 10 Blob Index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 > [!NOTE]
@@ -466,13 +469,13 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 
 ## FAQ
 
-**I created a new policy, why do the actions not run immediately?**  
-The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.  
+**I created a new policy, why do the actions not run immediately?*.
+The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.
 
-**If I update an existing policy, how long does it take for the actions to run?**  
-The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete.   
+**If I update an existing policy, how long does it take for the actions to run?*.
+The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete.
 
-**I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
+**I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?*.
 When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. You may also copy the blob to another location if it needs to stay in hot or cool tier permanently.
 
 ## Next steps
