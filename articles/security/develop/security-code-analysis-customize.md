@@ -139,7 +139,7 @@ Available options include:
 >
 >   If the new task runs on the same agent as the original task, the new task's output overwrites the original task's output in the *s* sources folder. Although the build output is the same, we advise that you run MSBuild, copy output to the the artifacts staging directory, and then run Roslyn Analyzers.
 
-For additional resources for the Roslyn Analyzers task, check out [The Roslyn-based Analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/) on Microsoft Docs.
+For additional resources for the Roslyn Analyzers task, check out [The Roslyn-based Analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) on Microsoft Docs.
 
 You can find the analyzer package installed and used by this build task on the NuGet page [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 

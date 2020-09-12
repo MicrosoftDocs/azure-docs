@@ -74,6 +74,8 @@ Datadog is the world's leading monitoring service for cloud-scale applications. 
 
 [Go to the documentation.][datadog-doc]
 
+A new Azure marketplace integration of Datadog is scheduled for release in early October 2020. A link will be added here upon release. 
+
 ## Dynatrace
 
 ![DynaTrace Logo](./media/partners/dynatrace.png)
