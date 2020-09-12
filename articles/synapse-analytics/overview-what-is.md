@@ -81,8 +81,6 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 ## Next steps
 
+* [Get started with Azure Synapse Analytics](get-started.md)
 * [Create a workspace](quickstart-create-workspace.md)
-* [Use Synapse Studio](quickstart-synapse-studio.md)
-* [Create a SQL pool](quickstart-create-sql-pool-portal.md)
 * [Use SQL on-demand](quickstart-sql-on-demand.md)
-* [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
