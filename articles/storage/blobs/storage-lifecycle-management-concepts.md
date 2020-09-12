@@ -68,15 +68,15 @@ There are two ways to add a policy through the Azure portal.
 
 1. Select **Add a rule** and name your rule on the **Details** form. You can also set the **Rule scope**, **Blob type**, and **Blob subtype** values. The following example sets the scope to filter blobs. This causes the **Filter set** tab to be added.
 
-   ![Lifecycle management add a rule details page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-details.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Lifecycle management add a rule details page in Azure portal":::
 
 1. Select **Base blobs** to set the conditions for your rule. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
 
-   ![Lifecycle management base blobs page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs in the *mylifecyclecontainer* container that begin with "log".
 
-   ![Lifecycle management filter set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Lifecycle management filter set page in Azure portal":::
 
 1. Select **Add** to add the new policy.
 
