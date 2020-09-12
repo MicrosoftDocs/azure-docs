@@ -17,6 +17,11 @@ ms.reviewer: jrasnick
 
 The Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands. This article is helpful for both new learners and those who want highlights of the essential Azure Synapse topics.
 
+## Basics
+
+A **Synapse workspace** is a securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLS Gen2 account and file system (for storing temporary data). A workspace is under a resource group.
+
+A workspace allows you to perform analytics with SQL and Apache spark. Resources available for SQL and Spark analytics are orgnized into **pools**. There are three kinds of pools.
 
 ## Terminology
 | Term                         | Definition      |
