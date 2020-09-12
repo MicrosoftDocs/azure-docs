@@ -7,7 +7,6 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.reviewer:mimckitt
 ---
 
 # Resource Health Check (RHC) Support for Azure Cloud Services (Classic)
