@@ -27,12 +27,12 @@ The health of the high availability configuration is continuously monitored and 
 
 | **Status** | **Description** |
 | ------- | ------ |
-| <b> NotEnabled | High availability is not enabled |
-| <b> CreatingStandby | In the creating a new standby |
-| <b> ReplicatingData | After the standby is created, it is catching up with the primary. |
-| <b> FailingOver | The database server is in the process of failing over to the standby. |
+| <b> Initializing | In the process of creating a new standby server |
+| <b> Replicating Data | After the standby is created, it is catching up with the primary. |
 | <b> Healthy | Replication is in steady state and healthy. |
-| <b> RemovingStandby | Based on user action, the standby replica is in the process of deletion.| 
+| <b> Failing Over | The database server is in the process of failing over to the standby. |
+| <b> Removing Standby | In the process of deleting standby server. | 
+| <b> Not Enabled | Zone redundancy is not enabled.  |
 
 ## Steady-state operations
 
