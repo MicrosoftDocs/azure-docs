@@ -32,7 +32,7 @@ This preview extension brings many current and additional Logic Apps capabilitie
 
 * Test your workflow apps using your local development environment in Visual Studio Code.
 
-* Publish and deploy your workflow apps directly from Visual Studio Code to multiple hosting environments, such as Azure App Service, Azure function apps, or as Docker containers that you can run anywhere you want.
+* Publish and deploy your workflow apps directly from Visual Studio Code to multiple hosting environments, such as Azure App Service, Azure function apps, or as [Docker containers that you can run anywhere](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 <a name="stateful-stateless"></a>
 
@@ -46,7 +46,9 @@ This preview extension brings many current and additional Logic Apps capabilitie
 
   Create stateless workflow apps when you don't need to keep, review, or reference data from previous events. These workflows save the input and output for each action only in memory, rather than in external storage. Stateless workflows provide faster performance with quicker response times, higher throughput, and reduced running costs because run details and history aren't kept. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#run-history) for stateless workflows.
 
-  Currently, stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+  > [!NOTE]
+  > Stateless workflows currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). 
+  > For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
 <a name="nested-workflow-behavior"></a>
 
@@ -353,7 +355,8 @@ Now, continue creating your workflow app.
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-stateless-stateful-workflows/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Currently, stateless workflows support only actions, not triggers, for managed connectors. For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+   > Stateless workflows currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). 
+   > For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
 1. From the resource groups list, select **Create new resource group**.
 
@@ -638,7 +641,7 @@ You can publish your function app project in Visual Studio Code directly to Azur
 
 ## Deploy to Docker container
 
-By using the .NET Core command-line interface (CLI), you can build a Docker container for deploying your workflow app.
+By using the .NET Core command-line interface (CLI), you can build a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) for deploying your workflow app.
 
 1. To build your project, open a command-line prompt, and run this command:
 
@@ -684,6 +687,8 @@ By using the .NET Core command-line interface (CLI), you can build a Docker cont
    ```
 
    For more information about the master key value, see [Using Docker Compose - GitHub Issue #84](https://github.com/Azure/azure-functions-docker/issues/84).
+
+For more information about creating and deploying Docker apps, see [Tutorial: Get started with Docker](/visualstudio/docker/tutorials/docker-tutorial).
 
 <a name="run-history"></a>
 
@@ -744,6 +749,17 @@ If you already deployed your function app project to the Azure portal, follow th
 1. On the **Add/Edit application setting** pane, in the **Name** box, enter this string, `Workflow.<yourWorkflowName>.OperationOptions`.
 
 1. In the **Value** box, enter `WithStatelessRunHistory`. When you're done, select **OK**.
+
+## Known issues
+
+* Stateless workflows currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+
+* In Visual Studio Code, no scrollbar appears when you try to zoom in or zoom out. (**View** menu **>** **Appearance** **>** **Zoom In** or **Zoom Out**. Or, press **Ctrl** + **=** or **Ctrl** + **-**). So, you can't view any content that appears off the screen.
+
+  * To restore the original view on the designer, reset the zoom level. (**View** menu **>** **Appearance** **>** **Reset Zoom**. Or, press **Ctrl** + **NumPad0**)
+
+  * To change the zoom level on the designer canvas alone, use the Logic App Designer's zoom controls instead. **+ 100% -** zoom control
+
 
 ## Next steps
 
