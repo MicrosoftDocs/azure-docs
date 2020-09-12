@@ -58,6 +58,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 | ID-2 | N/A | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 For non-human accounts such as services or automation, use Azure managed identities, instead of creating a more powerful human account to access resources or execute code. Azure managed identities can authenticate to Azure services and resources that support Azure AD authentication. Authentication is enabled through pre-defined access grant rules, avoiding hard-coded credentials in source code or configuration files. 
+
 For services that do not support managed identities, use Azure AD to create a service principal with restricted permissions at the resource level instead.  It is recommended to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used in conjunction with Azure managed identities, so that the runtime environment (such as an Azure function) can retrieve the credential from the key vault.
 
 - [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
@@ -68,7 +69,7 @@ For services that do not support managed identities, use Azure AD to create a se
 
 - [Create a service principal with certificates](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
-- [Use Azure Key Vault for security principal registration](../../key-vault/general/authentication.md#security-principal-registration)
+Use Azure Key Vault for security principal registration: authentication#authorize-a-security-principal-to-access-key-vault
 
 **Responsibility**: Customer
 

@@ -138,7 +138,7 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 
 - [How to configure customer managed encryption keys](../../storage/common/storage-encryption-keys-portal.md)
 
-- [Encryption model and key management table](../fundamentals/encryption-atrest.md#encryption-model-and-key-management-table)
+- [Encryption model and key management table](../fundamentals/encryption-models.md)
 
 - [Data at rest double encryption in Azure](../fundamentals/double-encryption.md#data-at-rest)
 
