@@ -48,7 +48,7 @@ Use Azure Security Center Adaptive Network Hardening to recommend network securi
 |--|--|--|--|
 | NS-2 | N/A | CA-3, AC-17, MA-4 |
 
-Use Azure ExpressRoute or Azure virtual private network (VPN)  to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment . ExpressRoute connections do not go over the public internet  , and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute.
+Use Azure ExpressRoute or Azure virtual private network (VPN)  to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet , and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute.
 
 To connect two or more virtual networks in Azure together, use virtual network peering. Network traffic between peered virtual networks is private and is kept on the Azure backbone network. 
 
@@ -98,7 +98,7 @@ Private access is an additional defense in depth measure in addition to authenti
 |--|--|--|--|
 | NS-4 | 9.5, 12.3, 12.9 | SC-5, SC-7 |
 
-Protect azure resources against attacks from external networks, including distributed denial of service (DDoS) Attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Azure includes native capabilities for this:
+Protect Azure resources against attacks from external networks, including distributed denial of service (DDoS) Attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Azure includes native capabilities for this:
 -	Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. 
 
 -	Use Web Application Firewall (WAF) capabilities in Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN) to protect your applications, services, and APIs against application layer attacks. 
@@ -109,7 +109,7 @@ Protect azure resources against attacks from external networks, including distri
 
 - [How to deploy Azure WAF](../../web-application-firewall/overview.md)
 
-- [Manage Azure DDoS Protection Standard using the Azure Portal](../../virtual-network/manage-ddos-protection.md)
+- [Manage Azure DDoS Protection Standard using the Azure portal](../../virtual-network/manage-ddos-protection.md)
 
 **Responsibility**: Customer
 

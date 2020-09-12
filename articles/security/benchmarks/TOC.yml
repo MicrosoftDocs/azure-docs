@@ -32,7 +32,7 @@
 
 - name: Security Controls (v1)
   items:
-  - name: Overview of Azure security controls (previous)
+  - name: Overview of Azure security controls (v1)
     href: overview-v1.md
   - name: Network security
     href: security-control-network-security.md
