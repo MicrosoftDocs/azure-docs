@@ -67,9 +67,9 @@ If you have a set of users that should have different request and approval setti
 1. Click **Next** to open the **Requests** tab.
 
 1. Change the **Users who can request access** setting. Use the steps in the following sections to change the setting to one of the following options: 
-    - [For users in your directory](#For-users-in-your-directory) 
-    - [For users not in your directory](#For-users-not-in-your-directory)
-    - [None (administrator direct assignments only)](#None-administrator-direct-assignments-only)
+    - [For users in your directory](#for-users-in-your-directory) 
+    - [For users not in your directory](#for-users-not-in-your-directory)
+    - [None (administrator direct assignments only)](#none-administrator-direct-assignments-only)
 
 ## For users in your directory
 
@@ -89,7 +89,7 @@ Follow these steps if you want to allow users in your directory to be able to re
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
     | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
 
-    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../external-identities/what-is-b2b). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
 
 1. If you selected **Specific users and groups**, click **Add users and groups**.
 
@@ -105,10 +105,10 @@ Follow these steps if you want to allow users in your directory to be able to re
  
 ## For users not in your directory
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../articles/active-directory/b2b/delegate-invitations.md).
+ **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../external-identities/delegate-invitations.md).
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/b2b/user-properties.md).
+> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
 
 Follow these steps if you want to allow users not in your directory to request this access package:
 
@@ -134,7 +134,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
     ![Access package - Requests - Select directories](./media/entitlement-management-access-package-request-policy/select-directories.png)
 
-    If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
+    If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](entitlement-management-organization.md).
 
 1. Once you've selected all your connected organizations, click **Select**.
 
@@ -153,7 +153,7 @@ Follow these steps if you want to bypass access requests and allow administrator
 
     ![Access package - Requests - None administrator direct assignments only](./media/entitlement-management-access-package-request-policy/none-admin-direct-assignments-only.png)
 
-    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](entitlement-management-access-package-assignments.md).
 
 1. Skip to the [Enable requests](#enable-requests) section.
 

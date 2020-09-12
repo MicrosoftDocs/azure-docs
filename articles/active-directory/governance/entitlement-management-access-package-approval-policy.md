@@ -87,7 +87,7 @@ Use the following steps to add approvers after selecting how many stages you req
     
 1. If you selected **Manager** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
 
-    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).
 
 1. If you selected **Choose specific approvers**, click **Add approvers** to select one or more users or groups in your directory to be approvers.
 
@@ -167,18 +167,18 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
     1. In the language you configured, type the question in the **Localized Text** box.
     1. Once you have added all the localizations needed, click **Save**.
 
-    ![Access package - Policy- Enable Requestor information setting](./media/entitlement-management-access-package-approval-policy/add-localization-question.png)
+    ![Access package - Policy- Configure localized text](./media/entitlement-management-access-package-approval-policy/add-localization-question.png)
 
 1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *short text*, *multiple choice*, and *long text*.
  
-    ![Access package - Policy- Enable Requestor information setting](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
+    ![Access package - Policy- Select view and edit multiple choice answer format](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  
 1. If selecting multiple choice, click on the **view and edit** button to configure the answer options.
     1. After selecting view and edit the **View/edit question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
     1. Type in as many responses as you need then click **Save**.
     
-    ![Access package - Policy- Enable Requestor information setting](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
+    ![Access package - Policy- Enter multiple choice options](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
   
 1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
 
