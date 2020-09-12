@@ -215,7 +215,7 @@ Now, your function is triggered when a sentiment score is sent from the logic ap
 
 ## Add email notifications
 
-The last part of the workflow is to trigger an email when the sentiment is scored as _RED_. This article uses an Outlook.com connector. You can perform similar steps to use a Gmail or Outlook for Microsoft 365 connector.   
+The last part of the workflow is to trigger an email when the sentiment is scored as _RED_. This article uses an Outlook.com connector. You can perform similar steps to use a Gmail or Office 365 Outlook connector.   
 
 1. In the Logic Apps Designer, click **New step** > **Add a condition**. 
 
@@ -230,7 +230,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
     ![Configure the email for the send an email action.](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
-    > If you don't have an Outlook.com account, you can choose another connector, such as Gmail or Outlook for Microsoft 365.
+    > If you don't have an Outlook.com account, you can choose another connector, such as Gmail or Office 365 Outlook
 
 4. In the **Send an email** action, use the email settings as specified in the table. 
 

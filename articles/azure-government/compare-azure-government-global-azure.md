@@ -384,7 +384,7 @@ In addition to the above, Microsoft also tags prefixes based on the service they
 |SharePoint Online|12076:5120|
 |Skype for Business Online|12076:5130|
 |Dynamics 365|12076:5140|
-|Other online services|12076:5200|
+|Other Office 365 Online services|12076:5200|
 
 >[!NOTE]
 >Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
@@ -453,8 +453,8 @@ Azure Security Center is deployed on Azure Government regions but not DoD region
 
 ### [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview)
 The following **features have known limitations** in Azure Government:
-- Microsoft 365 data connector
-    - The Microsoft 365 data connector can be used only for [Office 365 GCC High](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
+- Office 365 data connector
+    - The Office 365 data connector can be used only for [Office 365 GCC High](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
 - AWS CloudTrail data connector
     - The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
 

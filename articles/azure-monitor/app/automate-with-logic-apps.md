@@ -83,9 +83,9 @@ When you create your own queries, verify that they are working properly in Analy
 
 1. Click **New step**.
 
-1. In the search box, type **Outlook for Microsoft 365**.
+1. In the search box, type **Office 365 Outlook**.
 
-1. Click **Outlook for Microsoft 365 - Send an email**.
+1. Click **Office 365 Outlook - Send an email**.
 
     ![Office 365 Outlook selection](./media/automate-with-logic-apps/9sendemail.png)
 
