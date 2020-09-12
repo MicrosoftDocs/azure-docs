@@ -307,16 +307,18 @@ The `--tags` parameters in the Azure CLI can accept a string that consists of a 
 The following example overwrites the tags in a resource group where the tags themselves have spaces: 
 
 ```azurecli-interactive
-TAGS=("Cost Center = 111222" "Location=West US")
+TAGS=("Cost Center=Finance-1222" "Location=West US")
 az group update --name examplegroup --tags "${TAGS[@]}"
 ```
 The same syntax can be used when you create a resource group or resources. 
 To update the tags with the `--set` parameter, you will need to use pass the key and value as a string. The following example appends tags to a resource group:
 
 ```
-TAG="'Cost Center'='1234-56'"
-az group update --name $RESOURCE_GROUP_NAME --set tags."$TAG"
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
 ```
+In the case of `--set tags`, the tag value is marked with single quotes because the value has a hyphen.
+
 You may also need to apply tags to many resources. The following example applies all tags from a resource group to its resources when the tags may contain spaces.
 
 ```azurecli-interactive
