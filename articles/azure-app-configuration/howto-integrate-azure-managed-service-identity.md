@@ -67,7 +67,7 @@ To set up a managed identity in the portal, you first create an application and 
 
     ![Add a managed identity](./media/add-managed-identity.png)
 
-1. Optional: If you wish to grant access to Key Vault as well, follow the directions in [Assign a Key Vault access policy](/azure/key-vault/assign-access-policy-portal).
+1. Optional: If you wish to grant access to Key Vault as well, follow the directions in [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
 ## Use a managed identity
 

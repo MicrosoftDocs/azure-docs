@@ -110,7 +110,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 
 #### Turn on multi-factor authentication and register all other highly privileged single-user non-federated admin accounts
 
-Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange administrator, and SharePoint administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange administrator, and SharePoint administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## Stage 2: Mitigate frequently used attacks
 
@@ -126,7 +126,7 @@ The increase in "bring your own device" and work from home policies and the grow
 
 * Identify the users who have administrative roles and the services where they can manage.
 * Use Azure AD PIM to find out which users in your organization have admin access to Azure AD.
-* Beyond the roles defined in Azure AD, Office 365 comes with a set of admin roles that you can assign to users in your organization. Each admin role maps to common business functions, and gives people in your organization permissions to do specific tasks in the [Microsoft 365 admin center](https://admin.microsoft.com). Use the Microsoft 365 admin center to find out which users in your organization have admin access to Office 365, including via roles not managed in Azure AD. For more information, see [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security practices for Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
+* Beyond the roles defined in Azure AD, Microsoft 365 comes with a set of admin roles that you can assign to users in your organization. Each admin role maps to common business functions, and gives people in your organization permissions to do specific tasks in the [Microsoft 365 admin center](https://admin.microsoft.com). Use the Microsoft 365 admin center to find out which users in your organization have admin access to Microsoft 365, including via roles not managed in Azure AD. For more information, see [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security practices for Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Do the inventory in services your organization relies on, such as Azure, Intune, or Dynamics 365.
 * Ensure that your accounts that are used for administration purposes:
 
@@ -171,17 +171,17 @@ If you use Windows Hello for Business, the MFA requirement can be met using the 
 
 Azure AD Identity Protection is an algorithm-based monitoring and reporting tool that detects potential vulnerabilities affecting your organization's identities. You can configure automated responses to those detected suspicious activities, and take appropriate action to resolve them. For more information, see [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 
-#### Obtain your Office 365 Secure Score (if using Office 365)
+#### Obtain your Microsoft 365 Secure Score (if using Microsoft 365)
 
-Secure Score looks at your settings and activities for the Office 365 services you're using and compares them to a baseline established by Microsoft. You'll get a score based on how aligned you are with security practices. Anyone who has the admin permissions for an Office 365 Business Premium or Enterprise subscription can access the Secure Score at [https://securescore.office.com](https://securescore.office.com/).
+Secure Score looks at your settings and activities for the Microsoft 365 services you're using and compares them to a baseline established by Microsoft. You'll get a score based on how aligned you are with security practices. Anyone who has the admin permissions for a Microsoft 365 Business Standard or Enterprise subscription can access the Secure Score at [https://securescore.office.com](https://securescore.office.com/).
 
-#### Review the Office 365 security and compliance guidance (if using Office 365)
+#### Review the Microsoft 365 security and compliance guidance (if using Microsoft 365)
 
-The [plan for security and compliance](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) outlines the approach for an Office 365 customer to configure Office 365 and enable other EMS capabilities. Then, review steps 3-6 of how to [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) and the guide for how to [monitor security and compliance in Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
+The [plan for security and compliance](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) outlines the approach for an Office 365 customer to configure Office 365 and enable other EMS capabilities. Then, review steps 3-6 of how to [Protect access to data and services in Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) and the guide for how to [monitor security and compliance in Microsoft 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
-#### Configure Office 365 Activity Monitoring (if using Office 365)
+#### Configure Microsoft 365 Activity Monitoring (if using Microsoft 365)
 
-Monitor your organization for users who are using Office 365 to identify staff who have an admin account but might not need Office 365 access because they don't sign in to those portals. For more information, see [Activity reports in the Microsoft 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+Monitor your organization for users who are using Microsoft 365 to identify staff who have an admin account but might not need Microsoft 365 access because they don't sign in to those portals. For more information, see [Activity reports in the Microsoft 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### Establish incident/emergency response plan owners
 
@@ -225,7 +225,7 @@ Stage 3 builds on the mitigations from Stage 2 and should be implemented in appr
 
 #### Complete an access review of users in administrator roles
 
-More corporate users are gaining privileged access through cloud services, which can lead to unmanaged access. Users today can become global admins for Office 365, Azure subscription administrators, or have admin access to VMs or via SaaS apps.
+More corporate users are gaining privileged access through cloud services, which can lead to un-managed access. Users today can become global admins for Microsoft 365, Azure subscription administrators, or have admin access to VMs or via SaaS apps.
 
 Your organization should have all employees handle ordinary business transactions as unprivileged users, and then grant admin rights only as needed. Complete access reviews to identify and confirm the users who are eligible to activate admin privileges.
 
@@ -277,13 +277,13 @@ If you're already using Azure AD Privileged Identity Management, adjust timefram
 
 We recommend you identify every potential user who could be catastrophic to the organization if their credentials were compromised. For those users, put in place strong authentication requirements and use Azure AD Conditional Access to keep them from signing in to their email using username and password. You can block [legacy authentication using Conditional Access](../conditional-access/block-legacy-authentication.md), and you can [block basic authentication](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchange online.
 
-#### Complete a roles review assessment for Office 365 roles (if using Office 365)
+#### Complete a roles review assessment for Microsoft 365 roles (if using Microsoft 365)
 
 Assess whether all admins users are in the correct roles (delete and reassign according to this assessment).
 
-#### Review the security incident management approach used in Office 365 and compare with your own organization
+#### Review the security incident management approach used in Microsoft 365 and compare with your own organization
 
-You can download this report from [Security Incident Management in Microsoft Office 365](https://www.microsoft.com/download/details.aspx?id=54302).
+You can download this report from [Security Incident Management in Microsoft 365](https://www.microsoft.com/download/details.aspx?id=54302).
 
 #### Continue to secure on-premises privileged administrative accounts
 
@@ -344,7 +344,7 @@ We recommend using [Microsoft Cloud App Security](/cloud-app-security/what-is-cl
 * Prevent data leakage
 * Minimize risk and automated threat prevention and policy enforcement
 
-The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM server to enable centralized monitoring of Office 365 alerts and activities. It runs on your server and pulls alerts and activities from Cloud App Security and streams them into the SIEM server. For more information, see [SIEM integration](/cloud-app-security/siem).
+The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM server to enable centralized monitoring of Microsoft 365 alerts and activities. It runs on your server and pulls alerts and activities from Cloud App Security and streams them into the SIEM server. For more information, see [SIEM integration](/cloud-app-security/siem).
 
 ## Stage 4: Continue building defenses
 
@@ -383,8 +383,8 @@ Determine if current built-in Azure AD admin roles are still up to date and ensu
 
 For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md).
 
-#### Review members of [built-in Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
-Skip this step if you're not using Office 365.
+#### Review members of [built-in Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
+Skip this step if you're not using Microsoft 365.
 ‎
 #### Validate incident response plan
 
