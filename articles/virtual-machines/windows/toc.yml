@@ -512,7 +512,7 @@
         - name: CLI
           href: ../linux/image-builder.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: PowerShell
-          href: ../linux/image-builder-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: image-builder-powershell.md
       - name: Use a VNET
         href: image-builder-vnet.md
       - name: Networking options
@@ -520,9 +520,9 @@
       - name: Configure permissions
         items:
         - name: CLI
-          href: image-builder-permissions-cli.md
+          href: ../linux/image-builder-permissions-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: PowerShell
-          href: image-builder-permissions-powershell.md
+          href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: DevOps task
         href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: ARM template reference
