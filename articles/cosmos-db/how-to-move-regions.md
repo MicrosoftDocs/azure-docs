@@ -19,7 +19,7 @@ Azure Cosmos DB supports data replication natively so moving data from one regio
 
 1. Add a new region to the account
 
-    To add a new region to an Azure Cosmos DB account see, [Add/remove regions to an Azure Cosmos DB account](how-to-manage-database-account#addremove-regions-from-your-database-account)
+    To add a new region to an Azure Cosmos DB account see, [Add/remove regions to an Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 1. Perform a manual failover to the new region
 
@@ -27,7 +27,7 @@ Azure Cosmos DB supports data replication natively so moving data from one regio
 
 1. Remove the original region
 
-    To remove a region from an Azure Cosmos DB account see, [Add/remove regions to an Azure Cosmos DB account](how-to-manage-database-account#addremove-regions-from-your-database-account)
+    To remove a region from an Azure Cosmos DB account see, [Add/remove regions to an Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 ## Migrate Azure Cosmos DB account meta data
 
