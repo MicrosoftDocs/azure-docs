@@ -165,6 +165,14 @@ Here is the same example that shows the HTTP action's JSON definition in the und
 
 <a name="asynchronous-pattern"></a>
 
+## Content with application/x-www-form-urlencoded type
+
+To handle content that has `application/x-www-form-urlencoded` type in HTTP requests, you can add `content-type` header and set it to `application/x-www-form-urlencoded`. And provide form-urlecoded data as the body of the HTTP request.
+
+For example, suppose you have a logic app that sends an HTTP POST request to a website, which supports the `application/x-www-form-urlencoded` type. Here's how this action might look:
+
+![Multipart form data](./media/connectors-native-http/http-action-urlencoded.png)
+
 ## Asynchronous request-response behavior
 
 By default, all HTTP-based actions in Azure Logic Apps follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply). This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
