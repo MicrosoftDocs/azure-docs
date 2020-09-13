@@ -1,11 +1,11 @@
 ---
-title: Overview of Maintenance control for Azure virtual machines using the Azure portal 
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
+title: Overview of Maintenance control for Azure virtual machines scale sets
+description: Learn how to control when maintenance is applied to your Azure virtual machine scale sets using Maintenance Control.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 09/11/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -40,4 +40,7 @@ For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintena
 
 ## Next steps
 
-To learn more, see [Maintenance and updates](maintenance-and-updates.md).
+Learn how to control when maintenance is applied to your Azure virtual machines scale sets using Maintenance control and PowerShell.
+
+> [!div class="nextstepaction"]
+> [VMSS Maintenance control using PowerShell](virtual-machines-scale-sets-maintenance-control-powershell.md)

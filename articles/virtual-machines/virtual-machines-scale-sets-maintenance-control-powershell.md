@@ -1,11 +1,11 @@
 ---
-title: Maintenance control for Azure virtual machines using PowerShell
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and PowerShell.
+title: Maintenance control for Azure virtual machines scale sets using PowerShell
+description: Learn how to control when maintenance is applied to your Azure virtual machines scale sets using Maintenance control and PowerShell.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 09/11/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -232,4 +232,8 @@ Remove-AzMaintenanceConfiguration `
 ```
 
 ## Next steps
-To learn more, see [Maintenance and updates](maintenance-and-updates.md).
+
+Learn about Maintenance and updates for virtual machines running in Azure.
+
+> [!div class="nextstepaction"]
+> [Maintenance and updates](maintenance-and-updates.md)
