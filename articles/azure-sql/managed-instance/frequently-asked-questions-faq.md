@@ -504,6 +504,10 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 ## Service updates
 
+**What is the Root CA change for Azure SQL Database & SQL Managed Instance?**
+
+See [Certificate rotation for Azure SQL Database & SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
+
 **What is a planned maintenance event for SQL Managed Instance?**
 
 See [Plan for Azure maintenance events in SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
