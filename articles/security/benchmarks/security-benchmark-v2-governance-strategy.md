@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 Backup and Recovery covers controls to ensure that data and configuration backups at the different service tiers are performed, validated, and protected.
 
-## GS-1: Define an asset management and protection strategy
+## GS-1: Define asset management and protection strategy
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
@@ -26,7 +26,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Data classification standard in accordance with the business risks
 
--	Security  organization visibility into risks and asset inventory 
+-	Security organization visibility into risks and asset inventory 
 
 -	Security organization approval of Azure services for use 
 
@@ -34,11 +34,13 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Required access control strategy in accordance with organizational data classification
 
--	Use of Azure native data protection capabilities in different Azure services
+-	Use of Azure native and third party data protection capabilities
 
 -	Data encryption requirements for in-transit and at-rest use cases
 
 -	Appropriate cryptographic standards
+
+Note: Your asset management and protection approach for cloud and on-premises may be different depending on multiple factors, such as application service/hosting model, business risks, and compliance requirement. 
 
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
@@ -46,9 +48,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark-Asset management](security-benchmark-v2-asset-management.md)
+- [Azure Security Benchmark - Asset management](security-benchmark-v2-asset-management.md)
 
-- [Azure Security Benchmark-Data protection](security-benchmark-v2-data-protection.md)
+- [Azure Security Benchmark - Data Drotection](security-benchmark-v2-data-protection.md)
 
 **Responsibility**: Customer
 
@@ -56,7 +58,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## GS-2: Define a security posture management strategy
+## GS-2: Define security posture management strategy
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
@@ -64,7 +66,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark-Posture and vulnerability management](security-benchmark-v2-posture-vulnerability-management.md)
+- [Azure Security Benchmark - Posture and vulnerability management](security-benchmark-v2-posture-vulnerability-management.md)
 
 **Responsibility**: Customer
 
@@ -92,7 +94,7 @@ Ensure you document and communicate a clear strategy for roles and responsibilit
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## GS-4: Define a network security strategy
+## GS-4: Define network security strategy
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
@@ -114,9 +116,11 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
-- [Azure Security Best Practice 11-Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+Note: Your network security approach for cloud and on-premises may be different depending on multiple factors, such as application service model, threat exposure, and hybrid network setup.
 
-- [Azure Security Benchmark-Network Security](security-benchmark-v2-network-security.md)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+
+- [Azure Security Benchmark - Network Security](security-benchmark-v2-network-security.md)
 
 - [Azure network security overview](../fundamentals/network-overview.md)
 
@@ -146,15 +150,15 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Anomaly user activities monitoring and handling  
 
--	User identity and access review and reconciliation   process
+-	User identity and access review and reconciliation process
 
--	Vendor and partner access strategy
+Note: Your identity and privileged access approach for cloud and on-premises may be different depending on multiple factors, such as data/application access path, service model, and customer/partner access strategy.
 
-- [Azure Security Benchmark-Identity management](security-benchmark-v2-identity-management.md)
+- [Azure Security Benchmark - Identity management](security-benchmark-v2-identity-management.md)
 
-- [Azure Security Benchmark-Privileged access](security-benchmark-v2-privileged-access.md)
+- [Azure Security Benchmark - Privileged access](security-benchmark-v2-privileged-access.md)
 
-- [Azure Security Best Practice 11-Architecture. Single unified security strategy](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
 - [Azure identity management security overview](../fundamentals/identity-management-overview.md) 
 
@@ -188,9 +192,11 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Processes for handling incidents and post-incident activities, such as lessons learned and evidence retention
 
-- [Azure Security Benchmark-Logging and threat detection](security-benchmark-v2-logging-threat-detection.md)
+Note: Your logging and threat detection approach for cloud and on-premises may be  different depending on multiple factors, such as compliance requirement, threat landscape, and detection and remediation capability. 
 
-- [Azure Security Benchmark-Incident response](security-benchmark-v2-incident-response.md)
+- [Azure Security Benchmark - Logging and threat detection](security-benchmark-v2-logging-threat-detection.md)
+
+- [Azure Security Benchmark - Incident response](security-benchmark-v2-incident-response.md)
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec11)
 
@@ -210,7 +216,7 @@ This strategy should include documented guidance, policy, and standards for the 
 |--|--|--|--|
 | GS-7 | 10 | CP |
 
-Establish an Azure data backup and recovery strategy for your organization. 
+Establish an Azure backup and recovery strategy for your organization. 
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
@@ -220,11 +226,13 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Protection of backup using access control and data encryption
 
-- [Azure Security Benchmark-Backup and recovery](security-benchmark-v2-backup-recovery.md)
+Note: Your backup and recovery approach for cloud and on-premises may be different depending on the multiple factors, such as infrastructure redundancy, application service/hosting model, and compliance requirements.
 
-- [Azure Well-Architecture Framework-Backup and disaster recover for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
+- [Azure Security Benchmark - Backup and recovery](security-benchmark-v2-backup-recovery.md)
 
-- [Azure Adoption Framework-business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
+- [Azure Well-Architecture Framework - Backup and disaster recover for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
+
+- [Azure Adoption Framework - business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
 **Responsibility**: Customer
 
