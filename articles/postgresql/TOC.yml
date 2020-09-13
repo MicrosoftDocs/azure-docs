@@ -4,6 +4,10 @@
   items:
   - name: What is Azure DB for PostgreSQL?
     href: overview.md
+  - name: Service updates
+    items:
+    - name: SSL root certificate expiring
+      href: concepts-certificate-rotation.md
 - name: Quickstarts
   expanded: true
   items:
