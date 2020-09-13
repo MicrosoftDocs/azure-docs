@@ -17,8 +17,7 @@ This topic provides a reference for Dapr integration API Management policies. Da
 
 > [!IMPORTANT]
 > Policies referenced in this topic work only in the [self-hosted version of the API Management gateway](self-hosted-gateway-overview.md) with Dapr support enabled.
-> To turn on Dapr support in the self-hosted gateway add the following [Dapr annotations](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) to the [Kubernetes deployment template](how-to-deploy-self-hosted-gateway-kubernetes.md) replacing "app-name" with a desired name:
-
+> To turn on Dapr support in the self-hosted gateway add the [Dapr annotations](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) below to the [Kubernetes deployment template](how-to-deploy-self-hosted-gateway-kubernetes.md) replacing "app-name" with a desired name. Complete walkthrough of setting up and using API Management with Dapr is available [here](https://aka.ms/apim/dapr/walkthru).
 ```yml
 template:
     metadata:
