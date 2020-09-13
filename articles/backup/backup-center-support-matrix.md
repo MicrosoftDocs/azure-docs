@@ -8,7 +8,7 @@ ms.date: 09/07/2020
 
 Backup Center provides a single pane of glass for enterprises to [govern, monitor, operate, and analyze backups at scale](backup-center-overview.md). This article summarizes the scenarios that Backup Center supports for each workload type.
 
-## Supported Scenarios
+## Supported scenarios
 
 | **Category** | **Scenario**  | **Supported workloads**  | **Limits** |
 | -------------| ------------- | ----------------------- |------------|

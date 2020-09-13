@@ -17,7 +17,7 @@ For analyzing historical trends and gaining deeper insights on your backups, Bac
 
 - Gaining visibility and insights into cost optimization opportunities for your backups.
 
-## Supported Scenarios
+## Supported scenarios
 
 - Backup Reports is currently not available for Azure Database for PostgreSQL server backup.
 
@@ -49,7 +49,7 @@ Following are the views available:
 
 1. **Optimize** - Use this tab to gain visibility into potential cost-optimization opportunities for your backups. [Learn more](https://docs.microsoft.com/azure/backup/configure-reports#optimize)
 
-## Next Steps
+## Next steps
 
 - [Monitor and Operate backups](backup-center-monitor-operate.md)
 - [Govern your backup estate](backup-center-govern-environment.md)

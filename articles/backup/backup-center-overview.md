@@ -20,7 +20,7 @@ Some of the key benefits of Backup Center include:
 * Backup Center is currently supported for Azure VM backup and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
-## Get Started
+## Get started
 
 To get started with using Backup Center, search for **Backup Center** in the Azure portal and navigate to the **Backup Center (Preview)** dashboard.
 
@@ -36,7 +36,7 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 
 Follow the steps below to understand the different capabilities that Backup Center provides, and how you can use these capabilities to manage your backup estate efficiently.
 
-## Next Steps
+## Next steps
 
 * [Monitor and Operate backups](backup-center-monitor-operate.md)
 * [Govern your backup estate](backup-center-govern-environment.md)

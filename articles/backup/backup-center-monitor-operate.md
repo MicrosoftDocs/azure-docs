@@ -14,7 +14,7 @@ As a backup admin, you can use Backup Center as a single pane of glass to monito
 * Backup Center is currently supported for Azure VM backup and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
-## Backup Instances
+## Backup instances
 
 Backup Center allows for easy search and discoverability of backup instances across your backup estate.
 
@@ -42,7 +42,7 @@ Right-clicking on any of the items in the grid lets you perform actions on the g
 
 ![Backup Center - Instances](./media/backup-center-monitor-operate/backup-center-instances.png)
 
-## Backup Jobs
+## Backup jobs
 
 Backup Center allows you to view detailed information on all jobs that were created in your backup estate and take appropriate action for failing jobs.
 
@@ -76,7 +76,7 @@ Selecting any item in the list allows you to navigate to a given vault.
 
 ![Backup Center - Vaults](./media/backup-center-monitor-operate/backup-center-vaults.png)
 
-## Backup Policies
+## Backup policies
 
 Backup Center allows you to view and edit key information for any of your backup policies.
 
@@ -84,7 +84,7 @@ Selecting the **Backup Policies** menu item allows you to view all the policies 
 
 ![Backup Center - Policies](./media/backup-center-monitor-operate/backup-center-policies.png)
 
-## Next Steps
+## Next steps
 
 * [Govern your backup estate](backup-center-govern-environment.md)
 * [Perform actions using Backup Center](backup-center-actions.md)

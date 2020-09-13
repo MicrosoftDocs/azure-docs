@@ -17,7 +17,7 @@ Backup Center helps you govern your Azure environment to ensure that all your re
 
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
-## Azure Policies for Backup
+## Azure Policies for backup
 
 To view all the [Azure Policies](https://docs.microsoft.com/azure/governance/policy/overview) that are available for backup, select the **Azure Policies for Backup** menu item. This will display all the built-in and custom [Azure policy definitions for backup](policy-reference.md) that are available for assignment to your subscriptions and resource groups.
 
