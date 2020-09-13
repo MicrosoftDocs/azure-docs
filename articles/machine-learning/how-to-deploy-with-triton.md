@@ -18,7 +18,7 @@ Model deployment in Azure Machine Learning with Triton for high performance infe
 
 The benefits of using Triton include better utilization of Graphical Processing Units (GPUs) and more cost-effective inferencing.
 
-Please note this Triton Private Preview release is subject to the [Supplemental Terms of Use for Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Please note this Triton Private Preview release is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Architectural overview
 
@@ -58,7 +58,8 @@ triton
 
 ```
 
-It is very important that your directory have a subdirectory called `triton`, under which reside valid [Triton Model Repositories](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) otherwise Azure Machine Learning will not know which models you intend to run with Triton.
+> [!IMPORTANT]
+> Your directory must have a subdirectory called `triton`, under which reside valid [Triton Model Repositories](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) otherwise Azure Machine Learning will not know which models you intend to run with Triton.
 
 ## Register your model
 
@@ -176,7 +177,8 @@ input.set_data_from_numpy(data, binary_data=binary_data)
 
 output = tritonhttpclient.InferRequestedOutput(
          output_name, binary_data=binary_data, class_count=class_count)
-    # Run inference
+
+# Run inference
 res = triton_client.infer(model_name,
                           [input]
                           request_id='0',
