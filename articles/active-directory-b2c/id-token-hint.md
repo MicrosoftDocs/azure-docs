@@ -16,15 +16,15 @@ ms.subservice: B2C
 
 # Define an ID token hint technical profile in an Azure Active Directory B2C custom policy
 
-Azure AD B2C allows relying party applications to send an inbound JWT as part of the OAuth2 authorization request. The JWT token can be issued by a relying party application, or an identity provider, and being passed as a hint about the user, or the authorization request. Azure AD B2C validates the signature, the issuer name, and the token audience and extracts the claim from the inbound token.
+Azure AD B2C allows relying party applications to send an inbound JWT as part of the OAuth2 authorization request. The JWT token can be issued by a relying party application or an identity provider, and it can pass a hint about the user or the authorization request. Azure AD B2C validates the signature, issuer name, and token audience, and extracts the claim from the inbound token.
 
 ## Use cases
 
-You can use this solution to send data to Azure AD B2C encapsulated in a single JWT token. The [SignUp with email invitation solution](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md) where your system admin can send a signed invite to users, is based on id_token_hint. Only users with access to the invite email can create the account in the directory.
+You can use this solution to send data to Azure AD B2C encapsulated in a single JWT token. The [SignUp with email invitation solution](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), where your system admin can send a signed invite to users, is based on id_token_hint. Only users with access to the invite email can create the account in the directory.
 
 ## Token signing approach
 
-With id_token_hint, the token issuer (a relying party app, or an identity provider), composes the token then signs it to prove the token comes from a trusted source, by using a signing key. The key can be symmetric or asymmetric. Symmetric cryptography, or private key cryptography, is where a shared secret is used to both sign and validate the signature. Asymmetric cryptography, or public key cryptography, is a cryptographic system that uses a pair of keys, consisting of private key that is known only to the token issuer, and used to sign the token. And the public key that is shared with the Azure AD B2C policy to validate the signature of the token.
+With id_token_hint, the token issuer (a relying party app or an identity provider) composes the token, and then signs it by using a signing key to prove the token comes from a trusted source. The signing key can be symmetric or asymmetric. Symmetric cryptography, or private key cryptography, uses a shared secret to both sign and validate the signature. Asymmetric cryptography, or public key cryptography, is a cryptographic system that uses both a private key and a public key. The private key is known only to the token issuer and is used to sign the token. The public key is shared with the Azure AD B2C policy to validate the signature of the token.
 
 ## Token format
 
@@ -32,8 +32,8 @@ The id_token_hint must be a valid JWT token. The following table lists the claim
 
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
-| Audience | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifies the intended recipient of the token. Arbitrary string, as defined by the token issuer. Azure AD B2C validates this value and reject the token if it doesn't match.  |
-| Issuer | `iss` |`https://localhost` | Identifies the security token service (token issuer). Arbitrary URI as defined by the token issuer. Azure AD B2C validates this value and reject the token if it doesn't match.  |
+| Audience | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifies the intended recipient of the token. This is an arbitrary string defined by the token issuer. Azure AD B2C validates this value and rejects the token if it doesn't match.  |
+| Issuer | `iss` |`https://localhost` | Identifies the security token service (token issuer). This is an arbitrary URI defined by the token issuer. Azure AD B2C validates this value and rejects the token if it doesn't match.  |
 | Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. Azure AD B2C doesn't validate this claim. |
 | Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Azure AD B2C doesn't validate this claim. |
 
@@ -232,20 +232,20 @@ Complete the [Configure your policy](#configure-your-policy) step.
 
 #### 5. Prepare the code 
 
-This [GitHub sample](https://github.com/azure-ad-b2c/id-token-builder) ASP.NET web application generates ID tokens and hosts the necessary metadata endpoints required to use the "id_token_hint" parameter in Azure AD B2C.
+This [GitHub sample](https://github.com/azure-ad-b2c/id-token-builder) ASP.NET web application generates ID tokens and hosts the metadata endpoints required to use the "id_token_hint" parameter in Azure AD B2C.
 
 
 ### Configure your policy
 
-For both symmetric or asymmetric approaches, the `id_token_hint` technical profile is called from an orchestration step with type of `GetClaims`. And need to specify the input claims of the relying party policy.
+For both symmetric and asymmetric approaches, the `id_token_hint` technical profile is called from an orchestration step with type of `GetClaims` and needs to specify the input claims of the relying party policy.
 
 1. Add the IdTokenHint_ExtractClaims technical profile to your extension policy.
-1. Add the follwoing orchestration step to your user journey as the firs item. 
+1. Add the following orchestration step to your user journey as the first item.  
 
     ```xml
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
-1. In your relying party policy, repeat the same input claims you configure in the IdTokenHint_ExtractClaims technical profile. For example:
+1. In your relying party policy, repeat the same input claims you configured in the IdTokenHint_ExtractClaims technical profile. For example:
     ```xml
    <RelyingParty>
      <DefaultUserJourney ReferenceId="SignUp" />
@@ -268,7 +268,7 @@ For both symmetric or asymmetric approaches, the `id_token_hint` technical profi
     </RelyingParty>
     ```
 
-Based on your business requirement, you may need to add more token validations. Such as checking token expiry, the format of the email address and more. To do so, add additional orchestration steps that invoke a [claims transformation technical profile](claims-transformation-technical-profile.md). And [self-asserted technical profile](self-asserted-technical-profile.md) to present the error message. 
+Depending on your business requirements, you might need to add token validations, for example to check token expiry, the format of the email address, and more. To do so, add orchestration steps that invoke a [claims transformation technical profile](claims-transformation-technical-profile.md). Also add a [self-asserted technical profile](self-asserted-technical-profile.md) to present an error message. 
 
 ### Create and sign a token
 
