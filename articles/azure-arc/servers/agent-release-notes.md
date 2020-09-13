@@ -30,13 +30,15 @@ Version: 1.0 (General Availability)
 - Added `azcmagent show --json` option to output agent state in easily parseable format
 - Added flag in `azcmagent show` output to indicate if server is on a virtual machine hosted in Azure
 - Added `azcmagent disconnect --force-local-only` to allow reset of local agent state when Azure service cannot be reached
-- Added `azcmagent connect --cloud` option to support additional clouds. NB: only AzureCloud is supported at time of agent release, other clouds will be supported in future.
+- Added `azcmagent connect --cloud` option to support additional clouds. NB: only AzureCloud is supported by service at time of agent release, other clouds will be supported in future.
 - Agent has been localized into Azure-supported languages.
 
 
 ### Fixes
 - Improvements to connectivity check
 - Fix issue with proxy server settings being lost when upgrading agent on Linux
+- Resolve issues installing on some Windows Server 2012 R2 servers
+- Improvements to extension installation reliability
 
 ## August 2020
 
