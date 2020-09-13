@@ -37,7 +37,7 @@ The id_token_hint must be a valid JWT token. The following table lists the claim
 | Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. Azure AD B2C doesn't validate this claim. |
 | Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Azure AD B2C doesn't validate this claim. |
 
- The following token, is an example of a valid ID token:
+ The following token is an example of a valid ID token:
 
 ```json
 {
@@ -80,31 +80,31 @@ The following metadata is relevant when using symmetric key.
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| issuer | Yes | Identifies the security token service (token issuer). Must be identical to the `iss` claim withing the JWT token claim. | 
+| issuer | Yes | Identifies the security token service (token issuer). This value must be identical to the `iss` claim within the JWT token claim. | 
 | IdTokenAudience | Yes | Identifies the intended recipient of the token. Must be identical to the `aud` claim withing the JWT token claim. | 
 
-The following metadata is relevant when using asymmetric key. 
+The following metadata is relevant when using a symmetric key. 
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| METADATA| Yes | A URL that points to a token issuer configuration document, which is also known as OpenID well-known configuration endpoint.   |
-| issuer | No | Identifies the security token service (token issuer). Can be used to overwrite the one configure in the metadata, and must be identical to the `iss` claim withing the JWT token claim. | 
-| IdTokenAudience | No | Identifies the intended recipient of the token. Can be used to overwrite the one configure in the metadata, and must be identical to the `aud` claim withing the JWT token claim. | 
+| METADATA| Yes | A URL that points to a token issuer configuration document, which is also known as an OpenID well-known configuration endpoint.   |
+| issuer | No | Identifies the security token service (token issuer). This value can be used to overwrite the value configured in the metadata, and must be identical to the `iss` claim within the JWT token claim. |  
+| IdTokenAudience | No | Identifies the intended recipient of the token. This value can be used to overwrite the value configured in the metadata, and must be identical to the `aud` claim within the JWT token claim. |  
 
 ## Cryptographic keys
 
-When using symmetric key, the **CryptographicKeys** element contains the following attribute:
+When using a symmetric key, the **CryptographicKeys** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| client_secret | Yes | The cryptographic key that used to validate the JWT token signature.|
+| client_secret | Yes | The cryptographic key that is used to validate the JWT token signature.|
 
 
-## How to guide
+## How-to guide
 
 ### Issue a token with symmetric keys
 
-### 1. Create a shared key 
+#### Step 1. Create a shared key 
 
 Create a key that can be used to sign the token. For example, use the following PowerShell code to generate a key.
 
@@ -117,11 +117,11 @@ $newClientSecret = [System.Convert]::ToBase64String($bytes)
 $newClientSecret
 ```
 
-Which creates a secret string like `VK62QTn0m1hMcn0DQ3RPYDAr6yIiSvYgdRwjZtU5QhI=`.
+This code creates a secret string like `VK62QTn0m1hMcn0DQ3RPYDAr6yIiSvYgdRwjZtU5QhI=`.
 
-#### 2. Add the signing key to Azure AD B2C
+#### Step 2. Add the signing key to Azure AD B2C
 
-The same key that is used by the token issuer, needs to be created in Azure AD B2C policy keys. To do so,  
+The same key that is used by the token issuer needs to be created in your Azure AD B2C policy keys.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
@@ -131,15 +131,15 @@ The same key that is used by the token issuer, needs to be created in Azure AD B
 1. Select **Manual**.
 1. For **Name**, use `IdTokenHintKey`.  
    The prefix `B2C_1A_` might be added automatically.
-1. In the **Secret** box, enter your sign-in key you generated earlier
+1. In the **Secret** box, enter the sign-in key you generated earlier.
 1. For **Key usage**, use **Encryption**.
-1. Click **Create**
+1. Select **Create**.
 1. Confirm that you've created the key `B2C_1A_IdTokenHintKey`.
 
 
-#### 3. Add the id token hint technical profile
+#### Step 3. Add the ID token hint technical profile
 
-The following technical profile used to validate the token and extract the claims. 
+The following technical profile validates the token and extracts the claims. 
 
 ```xml
 <ClaimsProvider>
@@ -163,31 +163,31 @@ The following technical profile used to validate the token and extract the claim
 </ClaimsProvider>
 ```
 
-#### 4. Prepare your policy
+#### Step 4. Prepare your policy
 
 Complete the [Configure your policy](#configure-your-policy) step.
 
-#### 5. Prepare the code 
+#### Step 5. Prepare the code  
 
-The [GitHub sample](https://github.com/azure-ad-b2c/id_token_hint/tree/master/dotnet_core_symmetric_key) is a ASP.NET web application and console app that generate an ID token that is signed using symmetric key. 
+The [GitHub sample](https://github.com/azure-ad-b2c/id_token_hint/tree/master/dotnet_core_symmetric_key) is an ASP.NET web application and console app that generates an ID token that is signed using a symmetric key. 
 
 
 ### Issue a token with asymmetric keys
 
-With the asymmetric key, the token is signed using RSA certificates. This application hosts an Open ID Connect metadata endpoint and JSON Web Keys (JWKs) endpoint that is used by Azure AD B2C to validate the signature of the ID token.
+With an asymmetric key, the token is signed using RSA certificates. This application hosts an Open ID Connect metadata endpoint and JSON Web Keys (JWKs) endpoint that is used by Azure AD B2C to validate the signature of the ID token.
 
 The token issuer must provide following endpoints:
 
-* `/.well-known/openid-configuration` - A well-known configuration endpoint with the relevant information about the token. Such as the token issuer name, and link to the JWK endpoint 
-* `/.well-known/keys` - the JSON Web Key (JWK) end point with the public key that used to sign the key (with the private key part of the certificate).
+* `/.well-known/openid-configuration` - A well-known configuration endpoint with relevant information about the token, such as the token issuer name and the link to the JWK endpoint. 
+* `/.well-known/keys` - the JSON Web Key (JWK) end point with the public key that is used to sign the key (with the private key part of the certificate).
 
 See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .Net MVC controller sample.
 
-#### 1. Prepare a self-signed certificate
+#### Step 1. Prepare a self-signed certificate
 
-If you don't already have a certificate, you can use a self-signed certificate for this tutorial. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
+If you don't already have a certificate, you can use a self-signed certificate for this how-to guide. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
 
-Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
+Run this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
 ```PowerShell
 New-SelfSignedCertificate `
@@ -201,9 +201,9 @@ New-SelfSignedCertificate `
 ```
 
 
-#### 2. Add the id token hint technical 
+#### Step 2. Add the ID token hint technical profile 
 
-The following technical profile used to validate the token and extract the claims. Change the metadata URI to your token issuer well-known configuration endpoint. 
+The following technical profile validates the token and extracts the claims. Change the metadata URI to your token issuer well-known configuration endpoint.  
 
 ```xml
 <ClaimsProvider>
@@ -226,11 +226,11 @@ The following technical profile used to validate the token and extract the claim
 </ClaimsProvider>
 ```
 
-#### 4. Prepare your policy
+#### Step 3. Prepare your policy
 
 Complete the [Configure your policy](#configure-your-policy) step.
 
-#### 5. Prepare the code 
+#### Step 4. Prepare the code 
 
 This [GitHub sample](https://github.com/azure-ad-b2c/id-token-builder) ASP.NET web application generates ID tokens and hosts the metadata endpoints required to use the "id_token_hint" parameter in Azure AD B2C.
 
