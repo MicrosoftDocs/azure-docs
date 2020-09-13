@@ -97,7 +97,7 @@ The simplest way to ensure that Triton can serve your model is by using [No-code
 # [Azure CLI](#tab/azcli)
 
 > [!TIP]
-> For help in writing a deployment configuration, [see this document](./reference-azure-machine-learning-cli#deployment-configuration-schema)
+> For help in writing a deployment configuration, [see this document](./reference-azure-machine-learning-cli.md#deployment-configuration-schema)
 
 ```bash
 az ml model register --model-path='../models' --name='bidaf_onnx' --model-framework='Multi' --model-framework-version='20.07-py3' --workspace-name='<my_workspace>'
@@ -186,7 +186,7 @@ res = triton_client.infer(model_name,
 
 ## (Optional) Re-deploy with an Inference Configuration
 
-If you are using Python pre- and post-processing, you will need to redeploy your webservice with an inference configuration, taking care to specify the `AzureML-Triton` [curated environment](./resource-curated-environment.md).
+If you are using Python pre- and post-processing, you will need to redeploy your webservice with an inference configuration, taking care to specify the `AzureML-Triton` [curated environment](./resource-curated-environments.md).
 
 Sample code:
 
