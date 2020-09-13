@@ -84,7 +84,7 @@ To edit the storage replication setting:
 
 3. Select the storage replication type, and select **Save**.
 
-     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration-settings.png)
+     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## Software package
 
