@@ -36,12 +36,12 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
 3. Choose a Recovery Services vault and select **Proceed**. This leads you to the backup configuration experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how configure backup for Azure virtual machines with a Recovery Services vault](tutorial-backup-vm-at-scale.md).
 
-### Configure backup for Azure Database for Postgre SQL Server
+### Configure backup for Azure Database for PostgreSQL Server
 
 1. Navigate to the Backup Center and select **+ Backup** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL server in this case).
 
-    ![Select datasource to configure Azure Database for Postgre SQL Server backup](./media/backup-center-actions/backup-select-datasource-postgresql.png)
+    ![Select datasource to configure Azure Database for PostgreSQL Server backup](./media/backup-center-actions/backup-select-datasource-postgresql.png)
 
 3. Select **Proceed**. This leads you to the backup configuration experience that it identical to the one reachable from a Backup vault. [Learn more about how to configure backup for Azure Database for PostgreSQL Server with a Backup vault](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).
 
@@ -61,12 +61,12 @@ Depending on the type of datasource you wish to restore, follow the appropriate 
 
 3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Virtual Machine with a Recovery Services vault](backup-azure-arm-restore-vms.md#before-you-start).
 
-### If you're restoring an Azure Database for Postgre SQL Server
+### If you're restoring an Azure Database for PostgreSQL Server
 
 1. Navigate to the Backup Center and select **Restore** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL Server in this case).
 
-    ![Select datasource for Azure Database for Postgre SQL Server restore](./media/backup-center-actions/restore-select-datasource-postgresql.png)
+    ![Select datasource for Azure Database for PostgreSQL Server restore](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 
 3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Database for PostgreSQL Server with a Backup vault](backup-azure-database-postgresql.md#restore).
 
@@ -95,12 +95,12 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
 3. Choose a Recovery services vault and select **Proceed**. This leads you to the policy creation experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to create a new backup policy for Azure Virtual Machine with a Recovery services vault](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-### If you're backing up an Azure Database for Postgre SQL Server
+### If you're backing up an Azure Database for PostgreSQL Server
 
 1. Navigate to the Backup Center and select **+ Policy** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL Server in this case).
 
-    ![Select datasource for policy for Azure Database for Postgre SQL Server backup](./media/backup-center-actions/policy-select-datasource-postgresql.png)
+    ![Select datasource for policy for Azure Database for PostgreSQL Server backup](./media/backup-center-actions/policy-select-datasource-postgresql.png)
 
 3. Select **Proceed**. This leads you to the policy creation experience that it identical to the one reachable from a Backup vault. [Learn more about how to create a new backup policy with a Backup vault](backup-azure-database-postgresql.md#create-backup-policy).
 

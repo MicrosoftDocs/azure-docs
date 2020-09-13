@@ -237,7 +237,7 @@ Azure Backup Server shares code with Data Protection Manager. You'll see referen
 
     ![Provide location for installation of files](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    The scratch location is required to back up to Azure. Ensure the size of the scratch location is equivalent to at least 5% of the data planned to be backed up to Azure. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    The scratch location is required to back up to Azure. Ensure the size of the scratch location is equivalent to at least 5% of the data planned to be backed up to Azure. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
 
 6. On the **Security Settings** screen, provide a strong password for restricted local user accounts and select **Next**.
 

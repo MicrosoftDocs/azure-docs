@@ -159,7 +159,7 @@ Every machine that's backed up by Azure Backup must have the Backup agent (also 
 
 7. Select **Register** to register the DPM server to the vault.
 
-After the server is registered successfully to the vault, you're now ready to start backing up to Microsoft Azure. You'll need to configure the protection group in the DPM console to back up workloads to Azure. [Learn how](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) to deploy protection groups.
+After the server is registered successfully to the vault, you're now ready to start backing up to Microsoft Azure. You'll need to configure the protection group in the DPM console to back up workloads to Azure. [Learn how](/system-center/dpm/create-dpm-protection-groups) to deploy protection groups.
 
 ## Troubleshoot vault credentials
 

@@ -291,7 +291,7 @@ Refer to [this document](https://download.microsoft.com/download/7/4/d/74d689aa-
 
 Establish network line of sight by enabling the **Allow access to Azure services** flag in the server view. In the server view, under the **Connection security** pane, set the **Allow access to Azure services** flag to **Yes**.
 
-    ![Allow access to Azure services](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
+![Allow access to Azure services](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
 ### UserErrorContainerNotAccessible
 
@@ -303,7 +303,7 @@ Establish network line of sight by enabling the **Allow access to Azure services
 
     ![Assign Storage Blob Data Contributor role](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
 
-1. Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest) command.
+1. Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment) command.
 
     ```azurecli
     az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id
