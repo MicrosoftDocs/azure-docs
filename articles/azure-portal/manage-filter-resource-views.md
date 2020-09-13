@@ -86,4 +86,5 @@ To run a Resource Graph query:
 ## Next steps
 
 [Azure portal overview](azure-portal-overview.md)
+
 [Create and share dashboards in the Azure portal](azure-portal-dashboards.md)
