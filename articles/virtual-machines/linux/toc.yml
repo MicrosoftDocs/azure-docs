@@ -739,6 +739,12 @@
         href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Scheduled events
       href: scheduled-events.md
+    - name: VMSS OS image
+      items:
+      - name: Overview
+        href: ../virtual-machines-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../virtual-machines-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Monitor VMs
     items:
     - name: Agents

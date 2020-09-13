@@ -658,7 +658,7 @@
       href: nested-virtualization.md
     - name: Automatic VM guest patching (preview)
       href: automatic-vm-guest-patching.md
-  - name: Platform maintenance
+  - name: Maintenance control
     items:
     - name: Maintenance notifications
       items:
@@ -670,7 +670,7 @@
         href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: PowerShell
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Maintenance control
+    - name: Platform maintenance
       items:
       - name: Overview
         href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -684,6 +684,12 @@
       href: scheduled-events.md
     - name: Windows scheduled event service
       href: scheduled-event-service.md
+    - name: VMSS OS image
+      items:
+      - name: Overview
+        href: ../virtual-machines-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../virtual-machines-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Monitor VMs
     items:
     - name: Agents
