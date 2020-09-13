@@ -1,5 +1,5 @@
 ---
-title: Manage and filter Azure resource information
+title: View and filter Azure resource information
 description: Filter information and use different views to better understand your Azure resources.
 author: mgblythe
 ms.service: azure-portal
@@ -9,7 +9,7 @@ ms.date: 09/11/2020
 
 ---
 
-# Manage and filter Azure resource information
+# View and filter Azure resource information
 
 The Azure portal enables you to browse detailed information about resources across your Azure subscriptions. This article shows you how to filter information and use different views to better understand your resources.
 
@@ -51,19 +51,21 @@ To delete a view:
 
 ## Summarize resources with visuals
 
-So far, the views have list
+The views we've looked at so far have been _list views_, but there are also _summary views_ that include visuals. You can save and use these views just like you can list views. Filters persist between the two types of views. To save and use a summary view:
 
-1. In all resources _view_ has two meanings: saved thing, list vs summary
-1. Default view is list view, show dropdown
+1. From the view menu, select **Summary view**.
 
-- "Summarize with visuals" allows you to go to another browse view that gives you a summary of your resources. This view provides visualizations to choose from that are summary counts based on all the columns available in browse. 
+    :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Summary view menu":::
 
-- You can switch the visualization between bar chart or pie chart. For location column, there is also a map (as shown above). 
-- You can save this as a “view” using the Manage View dropdown – when you open this view, it’ll take you here instead of the list view that usually is shown in browse 
-- Filters persist between the visualization view and list view 
-- You can use filter and the counts on the visualizations will update accordingly
-- You can open the underlying query in Resource Graph Explorer
-- When you click on a bar, a part of the pie, or a number on the map, it’ll open a drill down blade that provides a list of resources that apply. For example, if I’m on a VM browse page, and I’m on the visualization for “Status” and I click on the “Running” bar, it opens the drill down blade with a list of all the VM resources that are running.
+1. The summary view enables you to summarize by different attributes, including **Location** and **Type**. Select a **Summarize by** option and an appropriate visual. The following screenshot shows the **Type summary** with a **Bar chart** visual.
+
+    :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Type summary showing a bar chart":::
+
+1. Select **Manage view** then **Save** to save this view like you did with the list view.
+
+1. In the summary view, under **Type summary**, select a bar in the chart. Selecting the bar provides a list filtered down to one type of resource.
+
+    :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="All resources filtered by type":::
 
 ## Run a query in Azure Resource Graph
 
