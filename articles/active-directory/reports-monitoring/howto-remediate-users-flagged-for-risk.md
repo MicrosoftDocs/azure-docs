@@ -9,7 +9,7 @@ manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -37,7 +37,7 @@ From the users flagged for risk report, you can take the following actions for e
 - Require the user to securely reset their password the next time they sign in
 - Dismiss the user risk without taking any remediation action.
 
-For more information, see [Users flagged for risk security report](concept-user-at-risk.md).
+For more information, see [Users flagged for risk security report](../identity-protection/overview-identity-protection.md).
 
 ### Azure AD subscription for Office 365 customers
 
@@ -88,5 +88,5 @@ Additionally, you should:
 
 ## Next steps
 
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Users flagged for risk](concept-user-at-risk.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
+* [Users flagged for risk](../identity-protection/overview-identity-protection.md)

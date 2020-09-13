@@ -51,7 +51,7 @@ You can use troubleshooting tools to see symptomatic behavior:
 
 ### Conflict with IIS shared configuration
 
-If you have a cluster of web servers, you might be using a [shared configuration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+If you have a cluster of web servers, you might be using a [shared configuration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 The HttpModule can't be injected into this shared configuration.
 Run the Enable command on each web server to install the DLL into each server's GAC.
 

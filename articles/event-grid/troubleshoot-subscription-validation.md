@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid - Troubleshooting subscription validation
 description: This article shows you how you can troubleshoot subscription validations. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Troubleshoot Azure Event Grid subscription validations

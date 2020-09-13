@@ -44,6 +44,7 @@ LUIS containers support a subset of the [languages supported](luis-language-supp
 | Language | Locale | Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
 | English (United States) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Arabic (preview - modern standard Arabic) |`ar-AR`|❌|❌|❌|❌|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | French (France) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | French (Canada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |
@@ -51,9 +52,12 @@ LUIS containers support a subset of the [languages supported](luis-language-supp
 | Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italian |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Korean |`ko-KR` | ✔️ | ❌ | ❌ | *Key phrase* only |
+| Marathi | `mr-IN`|❌|❌|❌|❌|
 | Portuguese (Brazil) |`pt-BR` | ✔️ | ✔️ | ✔️ | not all sub-cultures |
 | Spanish (Spain) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Spanish (Mexico)|`es-MX` | ❌ | ❌ |✔️|✔️|
+| Tamil | `ta-IN`|❌|❌|❌|❌|
+| Telugu | `te-IN`|❌|❌|❌|❌|
 | Turkish | `tr-TR` |✔️| ❌ | ❌ | *Sentiment* only |
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]

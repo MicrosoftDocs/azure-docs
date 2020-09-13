@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Run a playbook in Azure Sentinel'
-description: 'Tutorial: This article describes how to run a playbook in Azure Sentinel.'
+description: Use this tutorial to help you use security playbooks in Azure Sentinel to set automated threat responses to security-related issues.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -56,7 +56,7 @@ Security playbooks can be run either manually or automatically. Running them man
 Follow these steps to create a new security playbook in Azure Sentinel:
 
 1. Open the **Azure Sentinel** dashboard.
-2. Under **Management**, select **Playbooks**.
+2. Under **Configuration**, select **Playbooks**.
 
    ![Logic App](./media/tutorial-respond-threats-playbook/playbookimg.png)
 

@@ -100,13 +100,13 @@ so save your work often.
 
       ![Set up "Bing Maps - Get route" action](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      For more information about these parameters, see [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx).
+      For more information about these parameters, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route).
 
       | Setting | Value | Description |
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*start*> | Enter your route's origin. | 
       | **Waypoint 2** | <*end*> | Enter your route's destination. | 
-      | **Avoid** | None | Enter items to avoid on your route, such as highways, tolls, and so on. For possible values, see [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Avoid** | None | Enter items to avoid on your route, such as highways, tolls, and so on. For possible values, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route). | 
       | **Optimize** | timeWithTraffic | Select a parameter to optimize your route, such as distance, time with current traffic information, and so on. This example uses this value: "timeWithTraffic" | 
       | **Distance unit** | <*your-preference*> | Enter the unit of distance to calculate your route. This example uses this value: "Mile" | 
       | **Travel mode** | Driving | Enter the mode of travel for your route. This example uses this value "Driving" | 
@@ -449,7 +449,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
 ## Get support
 
 * For questions, visit the 
-[Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, 
 visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Dossier | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Dossier.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7a5fec92-9c01-4ced-99b2-a10e28fc028e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Dossier
 
@@ -103,11 +97,10 @@ To configure Azure AD single sign-on with Dossier, perform the following steps:
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn`|
-	| `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn`|
-	| |
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
+    https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `Dossier/<CLIENTNAME>`
 
@@ -116,11 +109,10 @@ To configure Azure AD single sign-on with Dossier, perform the following steps:
 
     c. In the **Reply URL** textbox, type a URL using the following pattern:
 	
-	| |
-	|-|-|
-	|  `https://<SUBDOMAIN>.dossiersystems.com/azuresso`|
-	| `https://dossier.<CLIENTDOMAINNAME>/azuresso`|
-	| |
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso
+    https://dossier.<CLIENTDOMAINNAME>/azuresso
+    ```
 
 
 	> [!NOTE]

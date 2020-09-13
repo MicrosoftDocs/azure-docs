@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 7/7/2020
 ---
 
 # Understand business continuity in Azure Database for MariaDB
@@ -43,11 +43,16 @@ The other option is to use the Azure Database for MariaDB's geo-restore feature 
 > [!IMPORTANT]
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage.
 
+## Cross-region read replicas
+
+You can use cross region read replicas to enhance your business continuity and disaster recovery planning. Read replicas are updated asynchronously using MariaDB's binary log replication technology. Learn more about read replicas, available regions, and how to fail over from the [read replicas concepts article](concepts-read-replicas.md). 
+
+## FAQ
+### Where does Azure Database for MariaDB store customer data?
+By default, Azure Database for MariaDB doesn't move or store customer data out of the region it is deployed in. However, customers can optionally chose to enable [geo-redundant backups](concepts-backup.md#backup-redundancy-options) or create [cross-region read replica](concepts-read-replicas.md#cross-region-replication) for storing data in another region.
+
 ## Next steps
 
-- To learn more about the automated backups, see [Backups in Azure Database for MariaDB](concepts-backup.md).
-- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
-
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). 
--->
+- Learn more about the [automated backups in Azure Database for MariaDB](concepts-backup.md).
+- Learn how to restore using [the Azure portal](howto-restore-server-portal.md) or [the Azure CLI](howto-restore-server-cli.md).
+- Learn about [read replicas in Azure Database for MariaDB](concepts-read-replicas.md).

@@ -31,7 +31,7 @@ Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 and
 
 The compatibility advantage extends to database management tools as well. Your existing tools should continue to work with Azure Database for MariaDB, as long as the database manipulation operates within the confines of user permissions. Three common database management tools that have been tested and found to be compatible with Azure Database for MariaDB 10.2 are listed in the following table:
 
-| | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up**
+| Action | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up**
 ---|---|---|---
 Create, Update, Read, Write, Delete | X | X | X
 SSL Connection | X | X | X

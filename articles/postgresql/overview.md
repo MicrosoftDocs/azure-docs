@@ -46,6 +46,6 @@ In addition, consider these points of contact as appropriate:
 - To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## Next steps
-- See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for cost comparisons and calculators.
+- See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for cost comparisons and calculators. Both the Single Server and Hyperscale (Citus) deployment options offer prepaid Reserved Instance discounts as well, see the [Single Server RI pricing](concept-reserved-pricing.md) and [Hyperscale RI pricing](concepts-hyperscale-reserved-pricing.md) pages for details.
 - Get started by creating your first Azure Database for PostgreSQL [Single Server](./quickstart-create-server-database-portal.md) or [Hyperscale (Citus)](./quickstart-create-hyperscale-portal.md)
 - Build your first app in Python, PHP, Ruby, C\#, Java, Node.js: [Connection libraries](./concepts-connection-libraries.md)

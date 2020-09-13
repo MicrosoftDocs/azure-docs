@@ -82,4 +82,4 @@ The following list applies to Windows Server 2016, version 1.3.7 rendering image
 
 ## Next steps
 
-To use the rendering VM images, they need to be specified in the pool configuration when a pool is created; see the [Batch pool capabilities for rendering](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).
+To use the rendering VM images, they need to be specified in the pool configuration when a pool is created; see the [Batch pool capabilities for rendering](./batch-rendering-functionality.md#batch-pools).

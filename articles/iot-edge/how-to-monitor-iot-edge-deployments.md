@@ -7,7 +7,8 @@ ms.author: kgremban
 ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
-ms.service: iot-edge
+ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Monitor IoT Edge deployments
@@ -95,4 +96,4 @@ To make changes to your deployment, see [Modify a deployment](how-to-deploy-cli-
 
 ## Next steps
 
-Learn how to [communicate with EdgeAgent using built-in direct methods](how-to-edgeagent-direct-method.md).
+Learn how to [monitor module twins](how-to-monitor-module-twins.md), primarily the IoT Edge Agent and IoT Edge Hub runtime modules, for the connectivity and health of your IoT Edge deployments.

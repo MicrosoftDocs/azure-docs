@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
 ---
 # Azure CLI samples for Azure Database for MySQL 
 The following table includes links to sample Azure CLI scripts for Azure Database for MySQL.
 
-| |  |
+| Sample link | Description  |
 |---|---|
 |**Create a server**||
 | [Create a server and firewall rule](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that creates a single Azure Database for MySQL server and configures a server-level firewall rule. |

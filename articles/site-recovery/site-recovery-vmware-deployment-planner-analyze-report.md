@@ -176,7 +176,7 @@ You might have a situation where you know that you cannot set a bandwidth of mor
 
 **VM Name**: The VM name or IP address that's used in the VMListFile when a report is generated. This column also lists the disks (VMDKs) that are attached to the VMs. To distinguish vCenter VMs with duplicate names or IP addresses, the names include the ESXi host name. The listed ESXi host is the one where the VM was placed when the tool discovered during the profiling period.
 
-**VM Compatibility**: Values are **Yes** and **Yes\***. **Yes**\* is for instances in which the VM is a fit for [premium SSDs](../virtual-machines/windows/disks-types.md). Here, the profiled high-churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
+**VM Compatibility**: Values are **Yes** and **Yes\***. **Yes**\* is for instances in which the VM is a fit for [premium SSDs](../virtual-machines/disks-types.md). Here, the profiled high-churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
 * <128 GB is a P10.
 * 128 GB to 256 GB is a P15
 * 256 GB to 512 GB is a P20.

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Ivanti Service Manager (ISM) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Ivanti Service Manager (ISM).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 14297c74-0d57-4146-97fa-7a055fb73057
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Ivanti Service Manager (ISM)
 
@@ -105,11 +98,11 @@ To configure Azure AD single sign-on with Ivanti Service Manager (ISM), perform 
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     
-	| |
-	|--|
-	| `https://<customer>.saasit.com/` |
-	| `https://<customer>.saasiteu.com/` |
-	| `https://<customer>.saasitau.com/` |
+    ```http
+    https://<customer>.saasit.com/
+    https://<customer>.saasiteu.com/
+    https://<customer>.saasitau.com/
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`

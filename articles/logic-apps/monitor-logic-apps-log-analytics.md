@@ -10,7 +10,7 @@ ms.date: 01/30/2020
 
 # Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps
 
-To get richer debugging information about your logic apps during runtime, you can set up and use [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md). [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you collect and review this information. You can also [use this diagnostics data with other Azure services](#extend-data), such as Azure Storage and Azure Event Hubs.
+To get richer debugging information about your logic apps during runtime, you can set up and use [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you collect and review this information. You can also [use this diagnostics data with other Azure services](#extend-data), such as Azure Storage and Azure Event Hubs.
 
 To set up logging for your logic app, you can [enable Log Analytics when you create your logic app](#logging-for-new-logic-apps), or you can [install the Logic Apps Management solution](#install-management-solution) in your Log Analytics workspace for existing logic apps. This solution provides aggregated information for your logic app runs and includes specific details such as status, execution time, resubmission status, and correlation IDs. Then, to enable logging and creating queries for this information, [set up Azure Monitor logs](#set-up-resource-logs).
 
@@ -18,7 +18,7 @@ This article shows how to enable Log Analytics when you create logic apps, how t
 
 ## Prerequisites
 
-Before you start, you need a [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md). If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+Before you start, you need a [Log Analytics workspace](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -173,15 +173,15 @@ After your logic app runs, you can view the data about those runs in your Log An
 
 Along with Azure Monitor logs, you can extend how you use your logic app's diagnostic data with other Azure services, for example:
 
-* [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs-collect-storage.md)
-* [Stream Azure platform logs to Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+* [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+* [Stream Azure platform logs to Azure Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
 
 You can then get real-time monitoring by using telemetry and analytics from other services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../azure-monitor/platform/powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-Based on the locations where you want to send diagnostic data, make sure that you first [create an Azure storage account](../storage/common/storage-create-storage-account.md) or [create an Azure event hub](../event-hubs/event-hubs-create.md). 
+Based on the locations where you want to send diagnostic data, make sure that you first [create an Azure storage account](../storage/common/storage-account-create.md) or [create an Azure event hub](../event-hubs/event-hubs-create.md). 
 You can then select the destinations where you want to send that data. Retention periods apply only when you use a storage account.
 
 ![Send data to Azure storage account or event hub](./media/monitor-logic-apps-log-analytics/diagnostics-storage-event-hub-log-analytics.png)
@@ -190,7 +190,7 @@ You can then select the destinations where you want to send that data. Retention
 
 ## Azure Monitor diagnostics events
 
-Each diagnostic event has details about your logic app and that event, for example, the status, start time, end time, and so on. To programmatically set up monitoring, tracking, and logging, you can use this information with the [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) and the [REST API for Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). You can also use the `clientTrackingId` and `trackedProperties` properties, which appear in 
+Each diagnostic event has details about your logic app and that event, for example, the status, start time, end time, and so on. To programmatically set up monitoring, tracking, and logging, you can use this information with the [REST API for Azure Logic Apps](/rest/api/logic) and the [REST API for Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). You can also use the `clientTrackingId` and `trackedProperties` properties, which appear in 
 
 * `clientTrackingId`: If not provided, Azure automatically generates this ID and correlates events across a logic app run, including any nested workflows that are called from the logic app. You can manually specify this ID in a trigger by passing a `x-ms-client-tracking-id` header with your custom ID value in the trigger request. You can use a request trigger, HTTP trigger, or webhook trigger.
 

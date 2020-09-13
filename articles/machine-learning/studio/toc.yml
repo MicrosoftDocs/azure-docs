@@ -5,7 +5,7 @@
   items:
   - name: Machine Learning Studio (classic)
     displayName: overview
-    href: what-is-ml-studio.md
+    href: studio-classic-overview.md
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
 - name: Quickstarts
@@ -58,7 +58,7 @@
     items:
     - name: Import data
       href: import-data.md
-    - name: Use data from on-premises SQL
+    - name: Use data from SQL Server
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Train models
@@ -140,9 +140,6 @@
     - name: Gallery data
       displayName: export
       href: ai-gallery-control-personal-data-dsr.md 
-    - name: Download notebooks
-      displayName: export
-      href: download-notebooks-data.md
 - name: Reference
   items:
   - name: Algorithm & module reference

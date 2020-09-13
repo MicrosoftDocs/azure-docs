@@ -12,10 +12,8 @@
 
 The following configuration was used for the steps below:
 
-  | | |
-  |---|---|
-  |Computer| Ubuntu Server 18.04|
-  |Dependencies| strongSwan |
+- Computer: Ubuntu Server 18.04
+- Dependencies: strongSwan
 
 
 Use the following commands to install the required strongSwan configuration:

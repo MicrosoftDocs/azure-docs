@@ -1,11 +1,11 @@
 ---
 title: Microsoft commercial marketplace release resources
 description: Learn about new and upcoming features, releases, and other updates for the commercial marketplace
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 05/19/2020
 ---
 
@@ -23,9 +23,9 @@ See the following resources for information on recent releases and other updates
 * [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md)
 * [Microsoft Build Marketplace Blog](https://aka.ms/marketplacebuildblog)
 * [Marketplace May Updates Blog](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
-* Partner Center: [Create Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Manage Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [Migration from CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
-* Partner Center: [Create SaaS Offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [Publishing Status](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
-) / [Update Existing Offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / [Offer Analytics](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
-* [Get support for marketplace in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
+* Partner Center: [Create Account](partner-center-portal/create-account.md) / [Manage Account](partner-center-portal/manage-account.md) / [Migration from CPP](partner-center-portal/account-migration-from-cpp-to-pc.md)
+* Partner Center: [Create SaaS Offer](partner-center-portal/create-new-saas-offer.md) / [Publishing Status](partner-center-portal/publishing-status.md)
+) / [Update Existing Offer](partner-center-portal/update-existing-offer.md) / [Offer Analytics](partner-center-portal/analytics.md)
+* [Get support for marketplace in Partner Center](partner-center-portal/support.md)
 
 We welcome your suggestions! Join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) to get the latest updates on new capabilities, programs, and events.

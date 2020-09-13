@@ -5,8 +5,9 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurepowershel
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/28/2020
+ms.custom: devx-track-azurepowershell
 ---
 # How to back up and restore an Azure Database for MySQL server using PowerShell
 
@@ -163,4 +164,4 @@ original server are restored.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize Azure Database for MySQL server parameters using PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [How to generate an Azure Database for MySQL connection string with PowerShell](howto-connection-string-powershell.md)

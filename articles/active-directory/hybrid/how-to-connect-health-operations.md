@@ -11,7 +11,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 
@@ -98,8 +98,8 @@ When you're deleting a service instance, be aware of the following:
    <br><br>
 
 [//]: # (Start of RBAC section)
-## Manage access with Role-Based Access Control
-[Role-Based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than global administrators. RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
+## Manage access with Azure RBAC
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than global administrators. Azure RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
 
 ### Roles
 Azure AD Connect Health supports the following built-in roles:
@@ -130,12 +130,12 @@ To allow a user access at the *all service instances* level within Azure AD Conn
    ![Screenshot of Azure AD Connect Health resource sidebar](./media/how-to-connect-health-operations/startRBAC.png)
 2. Select **Add**.
 3. In the **Select a role** pane, select a role (for example, **Owner**).<br>
-   ![Screenshot of Azure AD Connect Health RBAC Users window](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Screenshot of Azure AD Connect Health and Azure RBAC configure menu](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Type the name or identifier of the targeted user or group. You can select one or more users or groups at the same time. Click **Select**.
-   ![Screenshot of Azure AD Connect Health RBAC Users window](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot of Azure AD Connect Health and Azure RBAC role list](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Select **OK**.<br>
 6. After the role assignment is complete, the users and groups appear in the list.<br>
-   ![Screenshot of Azure AD Connect Health RBAC Users window, with new users highlighted](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![Screenshot of Azure AD Connect Health and Azure RBAC and new users highlighted](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 Now the listed users and groups have access, according to their assigned roles.
 
@@ -148,7 +148,7 @@ Now the listed users and groups have access, according to their assigned roles.
 #### Step 3: Share the blade location with users or groups
 1. After you assign permissions, a user can access Azure AD Connect Health by going [here](https://aka.ms/aadconnecthealth).
 2. On the blade, the user can pin the blade, or different parts of it, to the dashboard. Simply click the **Pin to dashboard** icon.<br>
-   ![Screenshot of Azure AD Connect Health RBAC pin blade, with pin icon highlighted](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![Screenshot of Azure AD Connect Health and Azure RBAC pin blade, with pin icon highlighted](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
 > A user with the Reader role assigned is not able to get Azure AD Connect Health extension from the Azure Marketplace. The user cannot perform the necessary "create" operation to do so. The user can still get to the blade by going to the preceding link. For subsequent usage, the user can pin the blade to the dashboard.
@@ -156,13 +156,13 @@ Now the listed users and groups have access, according to their assigned roles.
 >
 
 ### Remove users or groups
-You can remove a user or a group added to Azure AD Connect Health RBAC. Simply right-click the user or group, and select **Remove**.<br>
-![Screenshot of Azure AD Connect Health RBAC Users window, with Remove highlighted](./media/how-to-connect-health-operations/RBAC_remove.png)
+You can remove a user or a group added to Azure AD Connect Health and Azure RBAC. Simply right-click the user or group, and select **Remove**.<br>
+![Screenshot of Azure AD Connect Health and Azure RBAC with Remove highlighted](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (End of RBAC section)
 
 ## Next steps
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)

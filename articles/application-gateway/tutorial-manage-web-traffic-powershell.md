@@ -4,7 +4,7 @@ description: Learn how to create an application gateway with a virtual machine s
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
@@ -15,10 +15,9 @@ Application gateway is used to manage and secure web traffic to servers that you
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create a virtual machine scale set with the default backend pool
+* Set up the network
+* Create an application gateway
+* Create a virtual machine scale set with the default backend pool
 
 If you prefer, you can complete this procedure using [Azure CLI](tutorial-manage-web-traffic-cli.md).
 

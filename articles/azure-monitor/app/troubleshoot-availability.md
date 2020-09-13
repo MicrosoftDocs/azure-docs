@@ -31,7 +31,7 @@ This article will help you to troubleshoot common issues that may occur when usi
 |----|---------|
 |A connection attempt failed because the connected party did not properly respond after a period of time  | Test agents in certain locations are being blocked by a firewall.|
 |    |Rerouting of certain IP addresses is occurring via (Load Balancers, Geo traffic managers, Azure Express Route.) 
-|    |If using Azure ExpressRoute, there are scenarios where packets can be dropped in cases where [Asymmetric Routing occurs](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
+|    |If using Azure ExpressRoute, there are scenarios where packets can be dropped in cases where [Asymmetric Routing occurs](../../expressroute/expressroute-asymmetric-routing.md).|
 
 ## Test failure with a protocol violation error
 
@@ -62,11 +62,11 @@ Check the classic alerts configuration to confirm your email is directly listed,
 
 ### I did not receive the webhook notification?
 
-Check to ensure the application receiving the webhook notification is available, and successfully processes the webhook requests. See [this](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) for more information.
+Check to ensure the application receiving the webhook notification is available, and successfully processes the webhook requests. See [this](../platform/alerts-log-webhook.md) for more information.
 
 ### I am getting  403 Forbidden errors, what does this mean?
 
-This error indicates that you need to add firewall exceptions to allow the availability agents to test your target url. For a full list of agent IP addresses to allow, consult the [IP exception article](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+This error indicates that you need to add firewall exceptions to allow the availability agents to test your target url. For a full list of agent IP addresses to allow, consult the [IP exception article](./ip-addresses.md#availability-tests).
 
 ### Intermittent test failure with a protocol violation error?
 
@@ -77,7 +77,7 @@ The error ("protocol violation..CR must be followed by LF") indicates an issue w
 
 ### I don't see any related server-side telemetry to diagnose test failures?*
 
-If you have Application Insights set up for your server-side application, that may be because [sampling](../../azure-monitor/app/sampling.md) is in operation. Select a different availability result.
+If you have Application Insights set up for your server-side application, that may be because [sampling](./sampling.md) is in operation. Select a different availability result.
 
 ### Can I call code from my web test?
 
@@ -93,8 +93,8 @@ The two terms may be referenced interchangeably. Availability tests is a more ge
    There are two possible solutions:
 
    * Configure your firewall to permit incoming requests from the [IP addresses
-    of our web test agents](../../azure-monitor/app/ip-addresses.md).
-   * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will appear in the availability web tests blades though the experience will be slightly simplified from what is available for tests created via the portal. Custom availability tests will also appear as availability results in Analytics, Search, and Metrics.
+    of our web test agents](./ip-addresses.md).
+   * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will appear in the availability web tests blades though the experience will be slightly simplified from what is available for tests created via the portal. Custom availability tests will also appear as availability results in Analytics, Search, and Metrics.
 
 ### Uploading a multi-step web test fails
 
@@ -131,3 +131,4 @@ Use the new alert experience/near-realtime alerts if you need to notify users ba
 
 * [Multi-step web testing](availability-multistep.md)
 * [URL ping tests](monitor-web-app-availability.md)
+

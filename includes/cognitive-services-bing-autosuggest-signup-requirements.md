@@ -10,10 +10,6 @@ ms.date: 05/06/2020
 
 Start using the Bing Autosuggest API by creating one of the following Azure resources.
 
-### [Trial resource](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * No Azure subscription is needed.
-   * Valid for seven days, for free. After you sign up, a trial key and endpoint are available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
-
 ### [Bing Autosuggest resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)
    * Available through the Azure portal until you delete the resource.
    * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.

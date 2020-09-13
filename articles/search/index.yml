@@ -59,7 +59,7 @@ landingContent:
             url: search-create-service-portal.md
           - text: Create an index
             url: search-get-started-portal.md
-          - text: Create an app
+          - text: Create demo app
             url: search-create-app-portal.md
           - text: Extract text from images and app files
             url: cognitive-search-quickstart-blob.md
@@ -76,9 +76,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Create Index (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/create-index
+            url: /rest/api/searchservice/create-index
           - text: Create Indexer (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
+            url: /rest/api/searchservice/create-indexer
 
   # Card
   - title: Enrich with AI
@@ -126,7 +126,7 @@ landingContent:
           - text: OData language reference
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/search-documents
+            url: /rest/api/searchservice/search-documents
 
   # Card
   - title: Help and feedback

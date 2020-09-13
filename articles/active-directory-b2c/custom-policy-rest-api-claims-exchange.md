@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -120,7 +120,7 @@ The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` spec
 1. Paste the `<UserJourneys>` into the extensions file, after the close of the `<ClaimsProviders>` element.
 1. Locate the `<UserJourney Id="SignUpOrSignIn">`, and add the following orchestration step before the last one.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -130,7 +130,7 @@ The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` spec
 
 1. Refactor the last orchestration step by changing the `Order` to `8`. Your final two orchestration steps should look like the following:
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />

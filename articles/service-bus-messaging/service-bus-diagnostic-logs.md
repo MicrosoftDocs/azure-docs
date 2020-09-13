@@ -1,23 +1,10 @@
 ---
 title: Azure Service Bus diagnostics logs | Microsoft Docs
 description: This article provides an overview of all the operational and diagnostics logs that are available for Azure Service Bus. 
-keywords:
-documentationcenter: .net
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid:
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Enable diagnostics logs for Service Bus
 
 When you start using your Azure Service Bus namespace, you might want to monitor how and when your namespace is created, deleted, or accessed. This article provides an overview of all the operational and diagnostics logs that are available.
@@ -109,7 +96,7 @@ Operational logs are disabled by default. To enable diagnostics logs, do the fol
 
 The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane.
 
-For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md).
 
 ## Next steps
 

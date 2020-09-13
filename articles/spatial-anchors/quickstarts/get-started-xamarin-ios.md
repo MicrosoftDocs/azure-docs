@@ -51,7 +51,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `StartSession()` and add the following line, substituting in your account domain from earlier: `this.cloudSession.Configuration.AccountKey = "MyAccountDomain";`.
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 ## Deploy the app to your iOS device
 

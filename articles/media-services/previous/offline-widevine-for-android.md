@@ -18,14 +18,16 @@ ms.author: willzhan
 ms.reviewer: dwgeo
 
 ---
-# Offline Widevine streaming for Android  
+# Offline Widevine streaming for Android
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 3](../latest/offline-widevine-for-android.md)
 > * [Version 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 In addition to protecting content for online streaming, media content subscription and rental services offer downloadable content that works when you are not connected to the internet. You might need to download content onto your phone or tablet for playback in airplane mode when flying disconnected from the network. Additional scenarios, in which you might want to download content:
 
@@ -180,7 +182,7 @@ This means the Secure Token Service (STS) needs to have the business logic and c
 ### Question
 
 For Widevine security levels, in Google's [Widevine DRM Architecture Overview doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentation,
-it defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview),
+it defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](./media-services-widevine-license-template-overview.md),
 five different security levels are outlined. What is the relationship or mapping between the two different sets of security levels?
 
 ### Answer
@@ -192,7 +194,7 @@ it defines the following three security levels:
 2.  Security Level 2: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.
 3.  Security Level 3 Does not have a TEE on the device. Appropriate measures may be taken to protect the cryptographic information and decrypted content on host operating system. A Level 3 implementation may also include a hardware cryptographic engine, but that only enhances performance, not security.
 
-At the same time, in [Azure Media Services documentation on Widevine license template](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
+At the same time, in [Azure Media Services documentation on Widevine license template](./media-services-widevine-license-template-overview.md), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
 
 1.  Software-based whitebox crypto is required.
 2.  Software crypto and an obfuscated decoder is required.

@@ -34,9 +34,9 @@ First, select the template that fits your scenario.
 
 Then follow these steps:
 
-     1. Click **Deploy to Azure**.
-     2. Fill in the required fields then agree to the terms and conditions.
-     3. Click **Purchase** to deploy the template.
+1. Click **Deploy to Azure**.
+2. Fill in the required fields then agree to the terms and conditions.
+3. Click **Purchase** to deploy the template.
 
 ## Next steps
 

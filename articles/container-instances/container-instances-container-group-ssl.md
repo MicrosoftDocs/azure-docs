@@ -2,7 +2,7 @@
 title: Enable TLS with sidecar container
 description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances by running Nginx in a sidecar container
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 07/02/2020
 ---
 # Enable a TLS endpoint in a sidecar container
 
@@ -141,7 +141,7 @@ code deploy-aci.yaml
 Enter the contents of the base64-encoded files where indicated under `secret`. For example, `cat` each of the base64-encoded files to see its contents. During deployment, these files are added to a [secret volume](container-instances-volume-secret.md) in the container group. In this example, the secret volume is mounted to the Nginx container.
 
 ```YAML
-api-version: 2018-10-01
+api-version: 2019-12-01
 location: westus
 name: app-with-ssl
 properties:

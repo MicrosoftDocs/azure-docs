@@ -12,31 +12,34 @@ ms.date: 03/13/2020
 #Customer intent: As a developer new to ML Services on Azure, I need to see how to create an ML Services cluster.
 ---
 
-# Quickstart: Create ML Services cluster in Azure HDInsight using Resource Manager template
+# Quickstart: Create ML Services cluster in Azure HDInsight using ARM template
 
-In this quickstart, you use an Azure Resource Manager template to create an [ML Services](./r-server-overview.md) cluster in Azure HDInsight. Microsoft Machine Learning Server is available as a deployment option when you create HDInsight clusters in Azure. The cluster type that provides this option is called ML Services. This capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an [ML Services](./r-server-overview.md) cluster in Azure HDInsight. Microsoft Machine Learning Server is available as a deployment option when you create HDInsight clusters in Azure. The cluster type that provides this option is called ML Services. This capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-rserver%2Fazuredeploy.json)
+
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create an ML Services cluster
+## Review the template
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-rserver).
-
-:::code language="json" source="~/quickstart-templates/101-hdinsight-rserver/azuredeploy.json" range="1-171":::
-
+:::code language="json" source="~/quickstart-templates/101-hdinsight-rserver/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage Account.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): create an HDInsight cluster.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage Account.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): create an HDInsight cluster.
 
-### Deploy the template
+## Deploy the template
 
-1. Select the **Deploy to Azure** button below to sign in to Azure and open the Resource Manager template.
+1. Select the **Deploy to Azure** button below to sign in to Azure and open the ARM template.
 
     [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-rserver%2Fazuredeploy.json)
 
@@ -73,7 +76,7 @@ You can also select the resource group name to open the resource group page, and
 
 ## Next steps
 
-In this quickstart, you learned how to create an ML Services cluster in HDInsight using a Resource Manager template. In the next article, you learn how to run an R script with RStudio Server that demonstrates using Spark for distributed R computations..
+In this quickstart, you learned how to create an ML Services cluster in HDInsight using an ARM template. In the next article, you learn how to run an R script with RStudio Server that demonstrates using Spark for distributed R computations..
 
 > [!div class="nextstepaction"]
 > [Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server](./machine-learning-services-quickstart-job-rstudio.md)

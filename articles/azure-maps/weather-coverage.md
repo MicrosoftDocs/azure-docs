@@ -1,8 +1,8 @@
 ---
 title: Weather coverage | Microsoft Azure Maps
 description: In this article, you will learn about Weather coverage in Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -106,7 +106,7 @@ The following table provides information about what kind of weather information 
 | Chad                        | ✓               |                              |        ✓| 
 | Comoros                     | ✓               |                              |        ✓| 
 | Congo (DRC)                 | ✓               |                              |        ✓|
-| Côte d’Ivoire               | ✓               |                              |        ✓| 
+| Côte d'Ivoire               | ✓               |                              |        ✓| 
 | Djibouti                    | ✓               |                              |        ✓| 
 | Egypt                       | ✓               |                              |        ✓| 
 | Equatorial Guinea           | ✓               |                              |        ✓| 
@@ -161,7 +161,6 @@ The following table provides information about what kind of weather information 
 | Tunisia                     | ✓               |                              |        ✓| 
 | Uganda                      | ✓               |                              |        ✓| 
 | United Arab Emirates        | ✓               |                              |        ✓| 
-| Western Sahara              | ✓               |                              |        ✓| 
 | Yemen                       | ✓               |                              |        ✓| 
 | Zambia                      | ✓               |                              |        ✓| 
 | Zimbabwe                    | ✓               |                              |        ✓| 

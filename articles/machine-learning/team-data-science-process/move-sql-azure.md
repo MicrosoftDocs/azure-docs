@@ -1,6 +1,6 @@
 ---
 title: Move data to an Azure SQL Database - Team Data Science Process
-description: Move data from flat files (CSV or TSV formats) or from data stored in an on-premises SQL Server to an Azure SQL Database.
+description: Move data from flat files (CSV or TSV formats) or from data stored in a SQL Server to an Azure SQL Database.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -14,9 +14,9 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data to an Azure SQL Database for Azure Machine Learning
 
-This article outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premises SQL Server to an Azure SQL Database. These tasks for moving data to the cloud are part of the Team Data Science Process.
+This article outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in SQL Server to an Azure SQL Database. These tasks for moving data to the cloud are part of the Team Data Science Process.
 
-For a topic that outlines the options for moving data to an on-premises SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](move-sql-server-virtual-machine.md).
+For a topic that outlines the options for moving data to SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](move-sql-server-virtual-machine.md).
 
 The following table summarizes the options for moving data to an Azure SQL Database.
 
@@ -31,11 +31,11 @@ The procedures outlined here require that you have:
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**. You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 * Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
-* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 **Data**: The migration processes are demonstrated using the [NYC Taxi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/). The NYC Taxi dataset contains information on trip data and fairs and is available on Azure blob storage: [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](sql-walkthrough.md#dataset).
 
-You can either adapt the procedures described here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premises SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premises SQL Server is the same.
+You can either adapt the procedures described here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](sql-walkthrough.md#dbload).
 
 ## <a name="file-to-azure-sql-database"></a> Moving data from a flat file source to an Azure SQL Database
 Data in flat files (CSV or TSV formatted) can be moved to an Azure SQL Database using a Bulk Insert SQL Query.
@@ -43,8 +43,8 @@ Data in flat files (CSV or TSV formatted) can be moved to an Azure SQL Database 
 ### <a name="bulk-insert-sql-query"></a> Bulk Insert SQL Query
 The steps for the procedure using the Bulk Insert SQL Query are similar to the directions for moving data from a flat file source to SQL Server on an Azure VM. For details, see [Bulk Insert SQL Query](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="sql-on-prem-to-sazure-sql-database"></a> Moving Data from on-premises SQL Server to an Azure SQL Database
-If the source data is stored in an on-premises SQL Server, there are various possibilities for moving the data to an Azure SQL Database:
+## <a name="sql-on-prem-to-sazure-sql-database"></a> Moving Data from SQL Server to an Azure SQL Database
+If the source data is stored in SQL Server, there are various possibilities for moving the data to an Azure SQL Database:
 
 1. [Export to Flat File](#export-flat-file)
 2. [SQL Database Migration Wizard](#insert-tables-bcp)
@@ -63,6 +63,6 @@ The steps for using the SQL Database Migration Wizard are similar to those direc
 The steps for using database backup and restore are similar to those directions listed in [Database backup and restore](move-sql-server-virtual-machine.md#sql-backup).
 
 ### <a name="adf"></a>Azure Data Factory
-Learn how to move data to an Azure SQL Database with Azure Data Factory (ADF) in this topic, [Move data from an on-premises SQL server to SQL Azure with Azure Data Factory](move-sql-azure-adf.md). This topic shows how to use ADF to move data from an on-premises SQL Server database to an Azure SQL Database via Azure Blob Storage.
+Learn how to move data to an Azure SQL Database with Azure Data Factory (ADF) in this topic, [Move data from a SQL Server to SQL Azure with Azure Data Factory](move-sql-azure-adf.md). This topic shows how to use ADF to move data from a SQL Server database to an Azure SQL Database via Azure Blob Storage.
 
 Consider using ADF when data needs to be continually migrated with hybrid on-premises and cloud sources.  ADF also helps when the data needs transformations, or needs new business logic during migration. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations.

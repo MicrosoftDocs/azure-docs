@@ -1,22 +1,22 @@
 ---
 title: Payout reports - Microsoft commercial marketplace
 description: The Payout reports show you details about the money you've earned with your offer, including amount of payment and when you'll be paid.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/24/2020
+ms.topic: article
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 09/09/2020
 ---
 
 # Payout summaries
 
 The Payout summary shows you details about the money you've earned with Microsoft. It also lets you know when you'll receive payments and how much you'll be paid.
 
-If you sell products in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For details, see [Microsoft Azure Marketplace Participation Policies](https://docs.microsoft.com/legal/marketplace/participation-policy) and the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+If you sell products in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For more information about Azure Marketplace payment, see [Getting paid in the commercial marketplace](./get-paid.md) and the [Microsoft Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold see this page and review the app developer agreement.
+> To be eligible for payout, your proceeds must reach the payment threshold of $50. For details, see the [Microsoft Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > If you're looking for support regarding payouts, including configuring payout accounts, missing payouts, putting payouts on hold, or anything else, contact support [here](https://developer.microsoft.com/windows/support).
@@ -26,22 +26,14 @@ If you sell products in the Azure Marketplace, you'll also see info on successfu
 To open one of the payout summary pages:
 
 1. Select the Payout icon in the upper-right corner.
-2. Select Transaction history, Payments, or Export data.
-
-## Transaction history page
-
-This page displays all of your individual earnings, including the date, type, and earning for each. You can select a time period to view, and you can also filter by Enrollment ID, Program, Payment ID, Earning type, Lever, and Status. Data is available for the current fiscal year (July 1 – June 30) and the previous two fiscal years.
-
-To see more details about an earning, select the down arrow at the right-hand side of the page. This will display the lever, revenue amount, and product. If any of this data is unavailable but you need access to it, contact [support](https://developer.microsoft.com/windows/support). If the earning is the result of an adjustment and not a transaction, the product fields will not be displayed.
-
-To export any of the transaction data on this page, use the **Export data** page.
+2. Select **Transaction history**, **Payments**, or **Export data**.
 
 ## Payments page
 
 The totals on this page represent all of the programs you participate in. You can filter by Participant ID, Program, Payment ID, and Earning type. Amounts are given in US dollars. The paid value is also displayed in pay to currency.
 
-| Area                   | Description                                                                                |
-|------------------------|---------------------------------------------------------------------------------------------|
+| Area  | Description |
+| --- | --- |
 | Total paid this year   | The combined total paid out to you this year, in US dollars, for all of your programs       |
 | Next estimated payment | The single next payment coming to you (even if there are others coming soon), in US dollars |
 | Last payment           | The amount (in US dollars), program name, and program of your most recent payment           |
@@ -55,14 +47,14 @@ To export any of the data on this page, select **Export** and follow directions 
 
 This page displays all of your individual earnings, including the date, type, and earning for each. You can select a time period to view and you can filter by Enrollment ID, Program, Payment ID, Earning type, Lever, and Status. Data is available for the current fiscal year (July 1 – June 30) and the previous two fiscal years.
 
-To see more details about an earning, select the down arrow at the right side of the page. This will display the lever, revenue amount, and product. If any of this data is unavailable but you need access to it, contact [support](https://developer.microsoft.com/windows/support)]. If the earning is the result of an adjustment and not a transaction, the product fields will not be displayed.
+To see more details about an earning, select the down arrow at the right side of the page. This will display the lever, revenue amount, and product. If any of this data is unavailable but you need access to it, contact [support](https://developer.microsoft.com/windows/support). If the earning is the result of an adjustment and not a transaction, the product fields will not be displayed.
 
 To export any of the transaction data on this page, select **Export** and follow directions on the Export data page. Files exported from the Transaction History page show data in transaction currency, earnings in both transaction currency and US dollars, and the paid value in pay to currency.
 
 ## Payment status
 
-| Earning status           | Reason                                                                                                                                      | Partner action required?                                   |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| Earning status | Reason | Partner action required? |
+| --- | --- | --- |
 | Unprocessed              | The earning is eligible for payment. It stays in this state for a cooling period as defined in the program guide for the Incentive program. | No                                                         |
 | Upcoming                 | Payment order generated pending internal reviews before payment is processed                                                               | No                                                         |
 | Pending tax invoice      | Your tax invoice is incomplete or invalid                                                                                                  | You need to update your tax invoice before you can be paid |
@@ -92,8 +84,8 @@ Your filter may result in a **No data available** error. This probably means you
 
 This option provides a download of the payments you received in your bank for a given program, the associated tax, and aggregated earning amount. This report is used for many Partner Center programs, so some columns may be inapplicable to your report. Those columns are marked below.
 
-| Column name              | Description                                                                                                                               |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------  |
+| Column name | Description |
+| --- | --- |
 | participantID            | The primary identity of the partner earning under the program                                                                             |
 | participantIDType        | Usually program ID for Incentive programs and Seller ID for Store programs                                                                |
 | participantName          | Name of the earning partner                                                                                                               |
@@ -118,8 +110,8 @@ This option provides a download of the payments you received in your bank for a 
 
 This option provides a download of each earning line item you see in the Transaction history page, earning type, date, associated transaction amount, customer, product, and other transactional details applicable to your programs.
 
-| Column name                    | Description                                                                                                                              | Applicability for Incentives/Store/Azure Marketplace           |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Column name | Description | Applicability for Incentives/Store/Azure Marketplace |
+| --- | --- | --- |
 | earningId                      | Unique identifier for each earning                                                                                                       | All                                                            |
 | participantId                  | The primary identity of the partner earning under the program                                                                            | All                                                            |
 | participantIdType              | Mostly program ID for Incentive programs and Seller IF for Store programs and Azure Marketplace                                          | All                                                            |
@@ -204,8 +196,8 @@ Transaction history from before July 1 2019 is handled separately. Statements wi
 > [!NOTE]
 > Filters such as 3M, 6M, or 12M will not apply to the **Historical statements** section.
 
-| Field name              | Description                                                                                                                                                             |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Field name | Description |
+| --- | --- |
 | Revenue Source          | The source of your revenue based on where the transaction occurred, such as Microsoft Store, Windows Phone Store, Windows Store 8, or advertising                  |
 | Order ID                | Unique order identifier. This ID allows you to identify purchase transactions with their respective non-purchase transactions, such as refunds or chargebacks. Both will have the same Order ID. Also, in the case of a split charge where multiple payment methods were used for a single purchase, it allows you to link the purchase transactions. |
 | Transaction ID          | Unique transaction identifier.                                                                                                                                          |
@@ -236,6 +228,6 @@ Transaction history from before July 1 2019 is handled separately. Statements wi
 | Charges                 | Shows a breakdown of all the charge details aggregated in the Transaction Amount column (only included for Azure Marketplace; not included in **Reserved** CSV file). |
 |||
 
-## Next Step
+## Next step
 
 - [Payout policy details](./payout-policy-details.md)

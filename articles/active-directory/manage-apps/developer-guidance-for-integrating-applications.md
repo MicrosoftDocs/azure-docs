@@ -3,16 +3,14 @@ title: Register your application to use Azure Active Directory | Microsoft Docs
 description: Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: mimart
-ms.custom: seohack1
+ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 # Develop line-of-business apps for Azure Active Directory
@@ -54,7 +52,7 @@ Here’s what you, the global administrator, need to do to help developers make 
 Configure per-application access rules to your SaaS apps. For example, you can require MFA or only allow access to users on trusted networks. The details for this are available in the document [Configuring access rules](../conditional-access/app-based-mfa.md).
 
 ## Configure the app to require user assignment and assign users
-By default, users can access applications without being assigned. However, if the application exposes roles or if you want the application to appear on a user’s access panel, you should require user assignment.
+By default, users can access applications without being assigned. However, if the application exposes roles or if you want the application to appear on a user’s My Apps, you should require user assignment.
 
 If you’re an Azure AD Premium or Enterprise Mobility Suite (EMS) subscriber, we strongly recommend using groups. Assigning groups to the application allows you to delegate ongoing access management to the owner of the group. You can create the group or ask the responsible party in your organization to create the group using your group management facility.
 

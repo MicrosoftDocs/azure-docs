@@ -9,7 +9,6 @@ ms.service: cognitive-services
 ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
-ms.custom: include file
 ms.author: diberry
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'Connect using Ruby - Azure Database for MySQL'
+title: 'Quickstart: Connect using Ruby - Azure Database for MySQL'
 description: This quickstart provides several Ruby code samples you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,16 +7,21 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 5/26/2020
 ---
 
-# Azure Database for MySQL: Use Ruby to connect and query data
+# Quickstart: Use Ruby to connect and query data in Azure Database for MySQL
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL using a [Ruby](https://www.ruby-lang.org) application and the [mysql2](https://rubygems.org/gems/mysql2) gem from Windows, Ubuntu Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Ruby and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
+
 This quickstart uses the resources created in either of these guides as a starting point:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Install Ruby
 Install Ruby, Gem, and the MySQL2 library on your own computer. 
@@ -62,7 +67,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 ## Connect and create a table
 Use the following code to connect and create a table by using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) several times to run the DROP, CREATE TABLE, and INSERT INTO commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2#Usage) several times to run the DROP, CREATE TABLE, and INSERT INTO commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 ```ruby
@@ -107,7 +112,7 @@ end
 ## Read data
 Use the following code to connect and read the data by using a **SELECT** SQL statement. 
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class.new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the SELECT commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class.new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2#Usage) to run the SELECT commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 
@@ -146,7 +151,7 @@ end
 ## Update data
 Use the following code to connect and update the data by using an **UPDATE** SQL statement.
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the UPDATE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2#Usage) to run the UPDATE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 
@@ -183,7 +188,7 @@ end
 ## Delete data
 Use the following code to connect and read the data by using a **DELETE** SQL statement. 
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the DELETE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2#Usage) to run the DELETE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 

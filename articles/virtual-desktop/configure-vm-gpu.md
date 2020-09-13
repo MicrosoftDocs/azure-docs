@@ -1,11 +1,8 @@
 ---
 title: Configure GPU for Windows Virtual Desktop - Azure
 description: How to enable GPU-accelerated rendering and encoding in Windows Virtual Desktop.
-services: virtual-desktop
 author: gundarev
-
-ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
 ---
@@ -13,10 +10,7 @@ ms.author: denisgun
 # Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 
 Windows Virtual Desktop supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps.
 
@@ -52,31 +46,45 @@ By default, apps and desktops running in multi-session configurations are render
 1. Connect to the desktop of the VM using an account with local administrator privileges.
 2. Open the Start menu and type "gpedit.msc" to open the Group Policy Editor.
 3. Navigate the tree to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
-4. Select policy **Use the hardware default graphics adapter for all Remote Desktop Services sessions** and set this policy to **Enabled** to enable GPU rendering in the remote session.
+4. Select policy **Use hardware graphics adapters for all Remote Desktop Services sessions** and set this policy to **Enabled** to enable GPU rendering in the remote session.
 
 ## Configure GPU-accelerated frame encoding
 
-Remote Desktop encodes all graphics rendered by apps and desktops (whether rendered with GPU or with CPU) for transmission to Remote Desktop clients. By default, Remote Desktop does not leverage available GPUs for this encoding. Configure Group Policy for the session host to enable GPU-accelerated frame encoding. Continuing the steps above:
+Remote Desktop encodes all graphics rendered by apps and desktops (whether rendered with GPU or with CPU) for transmission to Remote Desktop clients. When part of the screen is frequently updated, this part of the screen is encoded with a video codec (H.264/AVC). By default, Remote Desktop does not leverage available GPUs for this encoding. Configure Group Policy for the session host to enable GPU-accelerated frame encoding. Continuing the steps above:
 
-1. Select policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** and set this policy to **Enabled** to force H.264/AVC 444 codec in the remote session.
-2. Select policy **Configure H.264/AVC hardware encoding for Remote Desktop connections** and set this policy to **Enabled** to enable hardware encoding for AVC/H.264 in the remote session.
+>[!NOTE]
+>GPU-accelerated frame encoding is not available in NVv4-series VMs.
+
+1. Select policy **Configure H.264/AVC hardware encoding for Remote Desktop connections** and set this policy to **Enabled** to enable hardware encoding for AVC/H.264 in the remote session.
 
     >[!NOTE]
     >In Windows Server 2016, set option **Prefer AVC Hardware Encoding** to **Always attempt**.
 
-3. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
+2. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
-4. Sign out from the Remote Desktop session.
+3. Sign out from the Remote Desktop session.
 
+## Configure fullscreen video encoding
+
+If you often use applications that produce a high-frame rate content, such as 3D modeling, CAD/CAM and video applications, you may choose to enable a fullscreen video encoding for a remote session. Fullscreen video profile provides a higher frame rate and better user experience for such applications at expense of network bandwidth and both session host and client resources. It is recommended to use GPU-accelerated frame encoding for a full-screen video encoding. Configure Group Policy for the session host to enable fullscreen video encoding. Continuing the steps above:
+
+1. Select policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** and set this policy to **Enabled** to force H.264/AVC 444 codec in the remote session.
+2. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
+
+    ```cmd
+    gpupdate.exe /force
+    ```
+
+3. Sign out from the Remote Desktop session.
 ## Verify GPU-accelerated app rendering
 
 To verify that apps are using the GPU for rendering, try any of the following:
 
-* For Azure VMs with an NVIDIA GPU, use the `nvidia-smi` utility as described in [Verify driver installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) to check for GPU utilization when running your apps.
+* For Azure VMs with a NVIDIA GPU, use the `nvidia-smi` utility as described in [Verify driver installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) to check for GPU utilization when running your apps.
 * On supported operating system versions, you can use the Task Manager to check for GPU utilization. Select the GPU in the "Performance" tab to see whether apps are utilizing the GPU.
 
 ## Verify GPU-accelerated frame encoding
@@ -86,7 +94,14 @@ To verify that Remote Desktop is using GPU-accelerated encoding:
 1. Connect to the desktop of the VM using Windows Virtual Desktop client.
 2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if GPU-accelerated encoding is used, look for event ID 170. If you see "AVC hardware encoder enabled: 1" then GPU encoding is used.
-4. To determine if AVC 444 mode is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
+
+## Verify fullscreen video encoding
+
+To verify that Remote Desktop is using fullscreen video encoding:
+
+1. Connect to the desktop of the VM using Windows Virtual Desktop client.
+2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
+3. To determine if fullscreen video encoding  is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
 
 ## Next steps
 

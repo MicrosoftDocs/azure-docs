@@ -1,12 +1,12 @@
 ---
 title: Lead management in Salesforce - Microsoft commercial marketplace
 description: Learn how to use Salesforce to configure leads for Microsoft AppSource and Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Configure lead management for Salesforce

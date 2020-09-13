@@ -4,7 +4,7 @@ description: Learn how to manage an Azure Database for MariaDB server from the A
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 

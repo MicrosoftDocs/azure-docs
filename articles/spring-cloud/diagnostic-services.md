@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Analyze logs and metrics with diagnostics settings
 
 Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
@@ -169,3 +170,31 @@ AppPlatformLogsforSpring
 ### Learn more about querying application logs
 
 Azure Monitor provides extensive support for querying application logs by using Log Analytics. To learn more about this service, see [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md). For more information about building queries to analyze your application logs, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+## Frequently asked questions (FAQ)
+
+### How to convert multi-line Java stack traces into a single line?
+
+There is a workaround to convert your multi-line stack traces into a single line. You can modify the Java log output to reformat stack trace messages, replacing newline characters with a token. If you use Java Logback library, you can reformat stack trace messages by adding `%replace(%ex){'[\r\n]+', '\\n'}%nopex` as follows:
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+And then you can replace the token with newline characters again in Log Analytics as below:
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+You may be able to use the same strategy for other Java log libraries.

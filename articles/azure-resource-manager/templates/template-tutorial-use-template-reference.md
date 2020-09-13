@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use template reference
 description: Use the Azure Resource Manager template reference to create a template.
 author: mumian
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Open a Quickstart template
 
@@ -70,7 +70,7 @@ To complete this article, you need:
 
 ## Find the template reference
 
-1. Browse to [Azure Template reference](https://docs.microsoft.com/azure/templates/).
+1. Browse to [Azure Template reference](/azure/templates/).
 1. In the **Filter by title** box, enter **storage accounts**, and select the first **Storage Accounts** under **Reference > Storage**.
 
     ![Resource Manager template reference storage account](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)

@@ -57,7 +57,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      
      ![Create gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
 
-4. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machines\Scripts\`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
+4. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
    
    * Add the following lines the `scripts.ini` file you created:
      
@@ -103,7 +103,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
 > [!NOTE]
 > The steps do not apply to Windows domain controllers. It only works on standalone server or a server that is a member of a domain.
 
-Always try to reset a password using the [Azure portal or Azure PowerShell](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) before trying the following steps. Make sure you have a backup of your VM before you start. 
+Always try to reset a password using the [Azure portal or Azure PowerShell](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) before trying the following steps. Make sure you have a backup of your VM before you start. 
 
 1. Delete the affected VM in Azure portal. Deleting the VM only deletes the metadata, the reference of the VM within Azure. The virtual disks are retained when the VM is deleted:
    

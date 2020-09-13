@@ -1,6 +1,6 @@
 ---
 title: Connect F5 ASM data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect F5 ASM data to Azure Sentinel.
+description: Learn how to use the F5 ASM data connector to pull F5 ASM logs into Azure Sentinel. View F5 ASM data in workbooks, create alerts, and improve investigation.
 services: sentinel
 documentationcenter: na
 author: yelevin

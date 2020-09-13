@@ -1,10 +1,10 @@
 ---
 title: Analyze data in Azure Data Lake Storage Gen1 - Power BI
-description: Use Power BI to analyze data stored in Azure Data Lake Storage Gen1.
+description: Learn how to use Power BI Desktop to analyze and visualize data stored in Azure Data Lake Storage Gen1.
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 

@@ -9,7 +9,7 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: 
 manager: anandsub
-ms.date: 05/15/2020
+ms.date: 09/08/2020
 ---
 
 # Visual authoring in Azure Data Factory
@@ -34,9 +34,23 @@ The default visual authoring experience is directly working with the Data Factor
 
 For top-level resources such as pipelines, datasets, and data flows, high-level properties are editable in the properties pane on the right-hand side of the canvas. The properties pane contains properties such as name, description, annotations, and other high-level properties. Subresources such as pipeline activities and data flow transformations are edited using the panel at the bottom of the canvas. 
 
-![Authoring Canvas](media/author-visually/properties-pane.png)
+![Properties pane](media/author-visually/properties-pane.png)
 
 The properties pane only opens by default on resource creation. To edit it, click on the properties pane icon located in the top-right corner of the canvas.
+
+### Related resources
+
+In the properties pane, you can see what resources are dependent on the selected resource by selecting the **Related** tab. Any resource that references the current resource will be listed here.
+
+![Related resources](media/author-visually/related-resources.png)
+
+For example, in the above image, one pipeline and two data flows use the dataset currently selected.
+
+## Management hub
+
+The management hub, accessed by the *Manage* tab in the Azure Data Factory UX, is a portal that hosts global management actions for your data factory. Here, you can manage your connections to data stores and external computes, source control configuration, and trigger settings. For more information, learn about the capabilities of the [management hub](author-management-hub.md).
+
+![Manage linked services](media/author-management-hub/management-hub-linked-services.png)
 
 ## Expressions and functions
 

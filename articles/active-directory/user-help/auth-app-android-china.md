@@ -40,7 +40,7 @@ If a user has previously managed to set up phone sign-in or multi-factor authent
 
 ## Multi-factor authentication workaround
 
-Instead of using push notifications for multi-factor authentication, users can set up their MFA to receive verification codes on their device that they can use to verify their identity. These verification codes are valid for 30 seconds and to use them, admins must enable their tenant to perform verification using Time-based One-Time Password (TOTP) verification codes.
+Instead of using push notifications for multi-factor authentication, users can [set up their Authenticator app to receive verification codes](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) on their device that they can use for MFA to verify their identity. These verification codes are valid for 30 seconds and to use them, admins must enable their tenant to perform verification using Time-based One-Time Password (TOTP) verification codes.
 
 ## Availability
 

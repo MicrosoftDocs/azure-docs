@@ -5,8 +5,8 @@ description: Create and install Windows, Linux, Linux (strongSwan), and Mac OS X
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 03/04/2020
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 ---
 

@@ -1,21 +1,13 @@
 ---
-title: Azure Linux VM sizes - previous generations | Microsoft Docs
-description: Lists the previous generations of sizes available for Linux virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Azure VM sizes - previous generations | Microsoft Docs
+description: Lists the previous generations of sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
+services: virtual-machines
+ms.subservice: sizes
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: jonbeck
+ms.author: jushiman
 
 ---
 
@@ -63,7 +55,7 @@ Premium Storage caching:  Supported
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
-<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size, and striping of the attached disk(s).  For details, see designing for high performance for [Windows](windows/premium-storage-performance.md) or [Linux](linux/premium-storage-performance.md).  
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size, and striping of the attached disk(s).  For details, see [Design for high performance](premium-storage-performance.md).
 
 
 ## NVv2-series
@@ -84,7 +76,7 @@ Each GPU in NVv2 instances comes with a GRID license. This license gives you the
 
 ## Older generations of virtual machine sizes
 
-This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](linux/sizes.md) to choose the VM sizes that will best fit your need.  
+This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
 For more information on resizing a Linux VM, see [Resize a Linux VM](linux/change-vm-size.md).  
 
@@ -173,7 +165,7 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 
 ### D-series  
 
-**Newer size recommendation**: [Dv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dav4-series](dav4-dasv4-series.md), [Dv4-series](dv4-dsv4-series.md) and [Ddv4-series](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -194,7 +186,7 @@ Premium Storage caching:  Not Supported
 
 ### D-series - memory optimized  
 
-**Newer size recommendation**: [Dv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dav4-series](dav4-dasv4-series.md), [Dv4-series](dv4-dsv4-series.md) and [Ddv4-series](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -235,7 +227,7 @@ The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor 
 
 ### DS-series  
 
-**Newer size recommendation**: [Dsv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -256,7 +248,7 @@ Premium Storage caching:  Supported
 
 ### DS-series - memory optimized  
 
-**Newer size recommendation**: [Dsv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1,2</sup>
 
@@ -271,12 +263,14 @@ Premium Storage caching:  Supported
 | Standard_DS13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
 | Standard_DS14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
 
-<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see designing for high performance for [Windows](windows/premium-storage-performance.md) or [Linux](linux/premium-storage-performance.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Design for high performance](premium-storage-performance.md).
 <sup>2</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>
 
 ### Ls-series
+
+**Newer size recommendation**: [Lsv2-series](lsv2-series.md)
 
 The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). The Ls-series gets the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.
 
@@ -295,11 +289,13 @@ Premium Storage caching:  Not Supported
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
 | Standard_L32s&nbsp;<sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
-The maximum disk throughput possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see designing for high performance for [Windows](windows/premium-storage-performance.md) or [Linux](linux/premium-storage-performance.md).
+The maximum disk throughput possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see [Design for high performance](premium-storage-performance.md).
 
 <sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 
 ### GS-series
+
+**Newer size recommendation**: [Easv4-series](eav4-easv4-series.md), [Esv4-series](ev4-esv4-series.md), [Edsv4-series](edv4-edsv4-series.md) and [M-series](m-series.md)
 
 ACU: 180 - 240 <sup>1</sup>
 
@@ -315,7 +311,7 @@ Premium Storage caching:  Supported
 | Standard_GS4&nbsp;<sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
-<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see designing for high performance for [Windows](windows/premium-storage-performance.md) or [Linux](linux/premium-storage-performance.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Design for high performance](premium-storage-performance.md).
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
@@ -324,6 +320,8 @@ Premium Storage caching:  Supported
 <br>
 
 ### G-series
+
+**Newer size recommendation**: [Eav4-series](eav4-easv4-series.md), [Ev4-series](ev4-esv4-series.md) and [Edv4-series](edv4-edsv4-series.md) and [M-series](m-series.md)
 
 ACU: 180 - 240
 

@@ -14,7 +14,7 @@ ms.author: prmitiki
 To run the cmdlets, you can use Azure Cloud Shell, a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. Select **Copy** to copy the code, and paste it into Cloud Shell. Then select **Enter** to run it. There are a few ways to launch Cloud Shell:
 
 
-|  |   |
+| Launch Method | Screenshot  |
 |-----------------------------------------------|---|
 | Open Cloud Shell in your browser. | [![https://shell.azure.com/powershell](../media/launchcloudshell.png)](https://shell.azure.com/powershell) |
 | Select the **Cloud Shell** button on the toolbar in the upper right of the Azure portal. | [![Cloud Shell in the portal](../media/cloud-shell-menu.png)](https://portal.azure.com) |

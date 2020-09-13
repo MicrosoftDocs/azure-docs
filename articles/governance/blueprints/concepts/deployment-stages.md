@@ -1,7 +1,7 @@
 ---
 title: Stages of a blueprint deployment
 description: Learn the security and artifact related steps the Azure Blueprints services goes through while creating a blueprint assignment.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Stages of a blueprint deployment
@@ -40,8 +40,8 @@ principal. Then, grant the Azure Blueprints the _Owner_ role through the
 [Portal](../../../role-based-access-control/role-assignments-portal.md),
 [Azure CLI](../../../role-based-access-control/role-assignments-cli.md),
 [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md),
-[REST API](../../../role-based-access-control/role-assignments-rest.md), or a
-[Resource Manager template](../../../role-based-access-control/role-assignments-template.md).
+[REST API](../../../role-based-access-control/role-assignments-rest.md), or an
+[Azure Resource Manager template](../../../role-based-access-control/role-assignments-template.md).
 
 The Azure Blueprints service doesn't directly deploy the resources.
 
@@ -95,8 +95,9 @@ subscription.
 
 ## Next steps
 
-- Understand how to use [static and dynamic parameters](parameters.md).
-- Learn to customize the [blueprint sequencing order](sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Understand how to use [static and dynamic parameters](./parameters.md).
+- Learn to customize the [blueprint sequencing order](./sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](./resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

@@ -2,22 +2,16 @@
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
 
 ---
 # Azure Functions runtime versions overview
 
-The major versions of the Azure Functions runtime are related to the version of .NET on which the runtime is based. The following table indicates the current version of the runtime, the release level, and the related .NET version. 
+Azure Functions currently supports three versions of the runtime host: 1.x, 2.x, and 3.x. All three versions are supported for production scenarios.  
 
-| Runtime version | Release level<sup>1</sup> | .NET version | 
-| --------------- | ------------- | ------------ |
-| 3.x | GA | .NET Core 3.1 | 
-| 2.x | GA | .NET Core 2.2 |
-| 1.x | GA<sup>2</sup> | .NET Framework 4.7.2<sup>3</sup> |
-
-<sup>1</sup> GA releases are supported for production scenarios.   
-<sup>2</sup> Version 1.x is in maintenance mode. Enhancements are provided only in later versions.   
-<sup>3</sup> Only supports development in the Azure portal or locally on Windows computers.
+> [!IMPORTANT]
+> Version 1.x is in maintenance mode and only supports development in the Azure portal or locally on Windows computers. Enhancements are provided only in later versions. 
 
 This article details some of the differences between the various versions, how you can create each version, and how to change versions.
 
@@ -25,7 +19,6 @@ This article details some of the differences between the various versions, how y
 
 Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. The language of functions in a function app is chosen when creating the app and is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting. 
 
-Azure Functions 1.x experimental languages can't use the new model, so they aren't supported in 2.x. 
 The following table indicates which programming languages are currently supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
@@ -94,7 +87,7 @@ The following are the changes to be aware of before upgrading a 2.x app to 3.x.
 
 #### .NET
 
-* [Synchronous server operations are disabled by default](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+* [Synchronous server operations are disabled by default](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
 
 ### Changing version of apps in Azure
 

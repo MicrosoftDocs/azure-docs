@@ -5,9 +5,9 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # High-frequency trading simulation with Stream Analytics

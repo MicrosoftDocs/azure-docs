@@ -37,21 +37,29 @@ To enable the interface for the VM, use Serial control or [reset network interfa
 ). If the Serial Console is not enabled on your VM, see [reset network interface](#reset-network-interface).
 2. Check the state of the network interface:
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Note the name of the disabled network interface.
 
 3. Enable the network interface:
 
-	    netsh interface set interface name="interface Name" admin=enabled
+    ```console
+    netsh interface set interface name="interface Name" admin=enabled
+    ```
 
     For example, if the interwork interface is named "Ethernet 2", run the following command:
 
-        netsh interface set interface name="Ethernet 2" admin=enabled
+    ```console
+    netsh interface set interface name="Ethernet 2" admin=enabled
+    ```
 
 4.  Check the state of the network interface again to make sure that the network interface is enabled.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     You don't have to restart the VM at this point. The VM will be back reachable.
 

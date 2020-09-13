@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Gra-Pe | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Gra-Pe.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 073f8641-b64d-4754-b1a6-2b91c865b13d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Gra-Pe
 

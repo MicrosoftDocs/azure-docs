@@ -1,5 +1,5 @@
 ---
-title: Improve knowledge base - QnA Maker
+title: Use Active Learning with knowledge base - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 ms.topic: conceptual
 ms.date: 03/18/2020

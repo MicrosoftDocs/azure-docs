@@ -21,7 +21,7 @@ A GitHub Actions [workflow](https://help.github.com/articles/about-github-action
 The GitHub [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) provides in-depth view of GitHub workflows and actions. 
 
 ## Enable GitHub Actions in your repository
-To start using this GitHub action, go to your repository and select the **Actions** tab. Click on **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure App Configuration Sync.”
+To start using this GitHub action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure App Configuration Sync.”
 > [!div class="mx-imgBorder"]
 > ![Select the Action tab](media/find-github-action.png)
 
@@ -88,7 +88,7 @@ jobs:
 ```
 ## Sync multiple files in one action 
 
-If your configuration is in multiple files, you can use the pattern below to trigger a sync when either file is modified. This pattern uses the glob library https://www.npmjs.com/package/glob 
+If your configuration is in multiple files, you can use the pattern below to trigger a sync when either file is modified. This pattern uses the glob library https://www.npmjs.com/package/glob . Note that if your config file name contains a comma, you can use a backslash to escape the comma. 
 
 ```json
 on:

@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
 ---
@@ -43,11 +43,11 @@ In this section, we will walk you through regenerating credentials for Blob Stor
 
 ### SQL Database
 
-You need to connect to the SQL database to update the login credentials of an existing user. You can update credentials by using Azure portal or a client-side tool such as SQL Server Management Studio. This section demonstrates the process of updating credentials by using Azure portal.
+You need to connect to SQL Database to update the login credentials of an existing user. You can update credentials by using Azure portal or a client-side tool such as SQL Server Management Studio. This section demonstrates the process of updating credentials by using Azure portal.
 
 1. Sign in to the Azure portal > browse the SQL database that you used as output for the Stream Analytics job.    
 2. From **Data explorer**, login/connect to your database > select Authorization type as **SQL server authentication** > type in your **Login** and **Password** details > Select **Ok**.  
-   ![Regenerate credentials for SQL database](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
+   ![Regenerate credentials for SQL Database](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. In the query tab, alter the password for one of your user's by running the following query (make sure to replace `<user_name>` with your username and `<new_password>` with your new password):  
 
@@ -58,7 +58,7 @@ You need to connect to the SQL database to update the login credentials of an ex
 
 4. Make a note of the new password.    
 5. From the Azure portal, browse your Stream Analytics job > select **Stop** and wait for the job to stop.    
-6. Locate the SQL database output for which you want to rotate credentials. Update the password and save changes.    
+6. Locate the SQL Database output for which you want to rotate credentials. Update the password and save changes.    
 7. A connection test will automatically start when you save your changes, make sure that it has successfully passed.    
 8. Proceed to [start your job from the last stopped time](#start-your-job-from-the-last-stopped-time) section.
 

@@ -80,7 +80,7 @@ on the client side).
 ### Verify your application's outputs
 
 Any output that you present either visually or within a document should
-always be encoded and escaped. [Escaping](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), also known as *output encoding*, is used to help ensure that untrusted data isn't a vehicle for an injection attack. Escaping, combined with data validation, provides layered defenses to increase security of the
+always be encoded and escaped. [Escaping](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), also known as *output encoding*, is used to help ensure that untrusted data isn't a vehicle for an injection attack. Escaping, combined with data validation, provides layered defenses to increase security of the
 system as a whole.
 
 Escaping makes sure that everything is displayed as *output.* Escaping
@@ -205,7 +205,7 @@ tools analyze source code or compiled versions of code when the code is
 not executing in order to find security flaws.
 
 Perform DAST, preferably with the assistance of a security professional
-(a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
+(a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
 
 ### Perform fuzz testing
 
@@ -213,7 +213,7 @@ In [fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fu
 random data to an application. Inducing program failure helps reveal
 potential security issues before the application is released.
 
-[Security Risk Detection](https://docs.microsoft.com/security-risk-detection/) is the Microsoft unique fuzz testing service for finding security-critical bugs in software.
+[Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) is the Microsoft unique fuzz testing service for finding security-critical bugs in software.
 
 ### Conduct attack surface review
 

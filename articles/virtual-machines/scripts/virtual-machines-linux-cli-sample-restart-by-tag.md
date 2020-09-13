@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Restart VMs
@@ -86,15 +86,15 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Creates the virtual machines.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Used with `--query` to ensure the VMs are provisioned before restarting them, and then to get the IDs of the VMs to restart them. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Used with `--query` to get the IDs of the VMs using the tag. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Restarts the VMs. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az vm create](/cli/azure/vm/availability-set) | Creates the virtual machines.  |
+| [az vm list](/cli/azure/vm) | Used with `--query` to ensure the VMs are provisioned before restarting them, and then to get the IDs of the VMs to restart them. |
+| [az resource list](/cli/azure/vm) | Used with `--query` to get the IDs of the VMs using the tag. |
+| [az vm restart](/cli/azure/vm) | Restarts the VMs. |
+| [az group delete](/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -3,9 +3,9 @@ title: Set up payout account & tax forms - Microsoft commercial marketplace
 Description: To receive money from offer sales in the commercial marketplace, learn how to set up your payout account and fill out the necessary tax forms.
 ms.date: 12/10/2019
 ms.topic: conceptual
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Set up your payout account and tax forms

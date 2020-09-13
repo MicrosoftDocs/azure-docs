@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Managing Storage in the Azure independent clouds using PowerShell
@@ -108,6 +109,7 @@ The results are similar to the following values:
 | SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
 | **StorageEndpointSuffix** | `core.cloudapi.de` |
 | ... | ... |
+
 To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
 
 ```powershell

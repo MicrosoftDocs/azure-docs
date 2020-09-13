@@ -2,7 +2,7 @@
 title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
 ms.topic: article
-ms.date: 03/16/2020
+ms.date: 08/17/2020
 ---
 
 # Import container images to a container registry
@@ -23,6 +23,8 @@ Image import into an Azure container registry has the following benefits over us
 
 * When you import multi-architecture images (such as official Docker images), images for all architectures and platforms specified in the manifest list get copied.
 
+* Access to the source and target registries doesn't have to use the registries' public endpoints.
+
 To import container images, this article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 > [!NOTE]
@@ -33,7 +35,7 @@ To import container images, this article requires that you run the Azure CLI in 
 
 If you don't already have an Azure container registry, create a registry. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
 
-To import an image to an Azure container registry, your identity must have write permissions to the target registry (at least Contributor role). See [Azure Container Registry roles and permissions](container-registry-roles.md). 
+To import an image to an Azure container registry, your identity must have write permissions to the target registry (at least Contributor role, or a custom role that allows the importImage action). See [Azure Container Registry roles and permissions](container-registry-roles.md#custom-roles). 
 
 ## Import from a public registry
 
@@ -67,22 +69,24 @@ az acr import \
 
 ### Import from Microsoft Container Registry
 
-For example, import the latest Windows Server Core image from the `windows` repository in Microsoft Container Registry.
+For example, import the `ltsc2019` Windows Server Core image from the `windows` repository in Microsoft Container Registry.
 
 ```azurecli
 az acr import \
 --name myregistry \
---source mcr.microsoft.com/windows/servercore:latest \
---image servercore:latest
+--source mcr.microsoft.com/windows/servercore:ltsc2019 \
+--image servercore:ltsc2019
 ```
 
 ## Import from another Azure container registry
 
 You can import an image from another Azure container registry using integrated Azure Active Directory permissions.
 
-* Your identity must have Azure Active Directory permissions to read from the source registry (Reader role) and to write to the target registry (Contributor role).
+* Your identity must have Azure Active Directory permissions to read from the source registry (Reader role) and to import to the target registry (Contributor role, or a [custom role](container-registry-roles.md#custom-roles) that allows the importImage action).
 
 * The registry can be in the same or a different Azure subscription in the same Active Directory tenant.
+
+* [Public access](container-registry-access-selected-networks.md#disable-public-network-access) to the source registry may be disabled. If public access is disabled, specify the source registry by resource ID instead of by registry login server name.
 
 ### Import from a registry in the same subscription
 
@@ -93,6 +97,16 @@ az acr import \
   --name myregistry \
   --source mysourceregistry.azurecr.io/aci-helloworld:latest \
   --image aci-helloworld:latest
+```
+
+The following example imports the `aci-helloworld:latest` image to *myregistry* from a source registry *mysourceregistry* in which access to the registry's public endpoint is disabled. Supply the resource ID of the source registry with the `--registry` parameter. Notice that the `--source` parameter specifies only the source repository and tag, not the registry login server name.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source aci-helloworld:latest \
+  --image aci-helloworld:latest \
+  --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 The following example imports an image by manifest digest (SHA-256 hash, represented as `sha256:...`) instead of by tag:

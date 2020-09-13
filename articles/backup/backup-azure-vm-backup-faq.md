@@ -7,7 +7,7 @@ ms.date: 09/17/2019
 ---
 # Frequently asked questions-Back up Azure VMs
 
-This article answers common questions about backing up Azure VMs with the [Azure Backup](backup-introduction-to-azure-backup.md) service.
+This article answers common questions about backing up Azure VMs with the [Azure Backup](./backup-overview.md) service.
 
 ## Backup
 
@@ -65,7 +65,7 @@ If you lock the resource group created by the Azure Backup Service, backups will
 
 Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
-### Does Azure backup support standard SSD-managed disks?
+### Does Azure Backup support standard SSD-managed disks?
 
 Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
@@ -77,7 +77,7 @@ Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup servi
 
 Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
 
-Azure Backup provides a streaming backup solution for SAP HANA databases with an RPO of 15 minutes. It's Backint certified by SAP to provide a native backup support leveraging SAP HANA’s native APIs. Learn more [about backing up SAP HANA databases in Azure VMs](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+Azure Backup provides a streaming backup solution for SAP HANA databases with an RPO of 15 minutes. It's Backint certified by SAP to provide a native backup support leveraging SAP HANA’s native APIs. Learn more [about backing up SAP HANA databases in Azure VMs](./sap-hana-db-about.md).
 
 ### What is the maximum delay I can expect in backup start time from the scheduled backup time I have set in my VM backup policy?
 
@@ -93,11 +93,11 @@ If you change the case (to upper or lower) of your VM or VM resource group, the 
 
 ### Can I back up or restore selective disks attached to a VM?
 
-Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.
+Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution. For more information, see [Selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md).
 
-Today, Azure Backup supports backing up all the disks (operating system and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to back up one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
+### Are managed identities preserved if a tenant change occurs during backup?
 
-To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+If [tenant changes](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) occur, you're required to disable and re-enable [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to make backups work again.
 
 ## Restore
 
@@ -123,7 +123,11 @@ The restore process remains the same. If the recovery point is of a point-in-tim
 
 [Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
 
-### Can I restore the VM that's been deleted?
+### If the restore fails to create the VM, what happens to the disks included in the restore?
+
+In the event of a managed VM restore, even if the VM creation fails, the disks will still be restored.
+
+### Can I restore a VM that's been deleted?
 
 Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and restore from a recovery point.
 
@@ -137,13 +141,13 @@ For Managed Disk Azure VMs, restoring to the availability sets is enabled by pro
 
 ### What happens when we change the key vault settings for the encrypted VM?
 
-After you change the key vault settings for the encrypted VM, backups will continue to work with the new set of details. However, after the restore from a recovery point before the change, you'll have to restore the secrets in a key vault before you can create the VM from it. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+After you change the key vault settings for the encrypted VM, backups will continue to work with the new set of details. However, after the restore from a recovery point before the change, you'll have to restore the secrets in a key vault before you can create the VM from it. For more information, see this [article](./backup-azure-restore-key-secret.md).
 
-Operations like secret/key roll-over don't require this step and the same KeyVault can be used after restore.
+Operations like secret/key roll-over don't require this step and the same key vault can be used after restore.
 
 ### Can I access the VM once restored due to a VM having broken relationship with domain controller?
 
-Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## Manage VM backups
 
@@ -182,3 +186,11 @@ The old VM's restore points will be available for restore if needed. If you don'
 ### Is there a limit on number of VMs that can be associated with the same backup policy?
 
 Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.
+
+### How can I view the retention settings for my backups?
+
+Currently, you can view retention settings at a backup item (VM) level based on the backup policy that's assigned to the VM.
+
+One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
+
+You can also use [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 09/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -26,13 +26,13 @@ The one-time password technical profile can also return an error message during 
 
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly that is used by Azure AD B2C:
 
-```XML
+```xml
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
 The following example shows a one-time password technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Validate user input verification code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -73,6 +73,7 @@ The following settings can be used to configure code generation mode:
 | CodeLength | No | Length of the code. The default value is `6`. |
 | CharacterSet | No | The character set for the code, formatted for use in a regular expression. For example, `a-z0-9A-Z`. The default value is `0-9`. The character set must include a minimum of 10 different characters in the set specified. |
 | NumRetryAttempts | No | The number of verification attempts before the code is considered invalid. The default value is `5`. |
+| NumCodeGenerationAttempts | No | The number of maximum code generation attempts per identifier. The default value is 10 if not specified. |
 | Operation | Yes | The operation to be performed. Possible value: `GenerateCode`. |
 | ReuseSameCode | No | Whether a duplicate code should be given rather than generating a new code when given code has not expired and is still valid. The default value is `false`. |
 
@@ -80,7 +81,7 @@ The following settings can be used to configure code generation mode:
 
 The following example `TechnicalProfile` is used for generating a code:
 
-```XML
+```xml
 <TechnicalProfile Id="GenerateCode">
   <DisplayName>Generate Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -90,6 +91,7 @@ The following example `TechnicalProfile` is used for generating a code:
     <Item Key="CodeLength">6</Item>
     <Item Key="CharacterSet">0-9</Item>
     <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="NumCodeGenerationAttempts">15</Item>
     <Item Key="ReuseSameCode">false</Item>
   </Metadata>
   <InputClaims>
@@ -139,6 +141,7 @@ The following metadata can be used to configure the error messages displayed upo
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
 | UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
+| UserMessageIfMaxNumberOfCodeGenerated | No | The message to display to the user if the code generation has exceeded the maximum allowed number of attempts. |
 | UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
 | UserMessageIfVerificationFailedRetryAllowed | No | The message to display to the user if they've provided an invalid code, and user is allowed to provide the correct code.  |
 |UserMessageIfSessionConflict|No| The message to display to the user if the code cannot be verified.|
@@ -147,7 +150,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 The following example `TechnicalProfile` is used for verifying a code:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -165,5 +168,5 @@ The following example `TechnicalProfile` is used for verifying a code:
 
 See the following article for example of using one-time password technical profile with custom email verification:
 
-- [Custom email verification in Azure Active Directory B2C](custom-email.md)
+- Custom email verification in Azure Active Directory B2C ([Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md))
 

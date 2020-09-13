@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -28,7 +28,7 @@ Azure AD Connect is using Modern Authentication (using the ADAL library) for aut
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
-First we need to make sure [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) is correctly configured.
+First we need to make sure [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) is correctly configured and **Microsoft Azure AD Sync service** has been restarted once after the machine.config file update.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]

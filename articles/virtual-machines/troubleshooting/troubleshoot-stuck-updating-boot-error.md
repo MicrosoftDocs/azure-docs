@@ -45,14 +45,19 @@ Depending on the number of updates that are getting installed or rolled backing,
 
 4. Open an elevated command prompt instance (Run as administrator). Run the following command to get the list of the update packages that are on the attached OS disk:
 
-        dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```
 
     For example, if the attached OS disk is drive F, run the following command:
 
-        dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```
+
 5. Open the C:\temp\Patch_level.txt file, and then read it from the bottom up. Locate the update that's in **Install Pending** or **Uninstall Pending** state.  The following is a sample of the update status:
 
-     ```
+    ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     State : Install Pending
     Release Type : Security Update

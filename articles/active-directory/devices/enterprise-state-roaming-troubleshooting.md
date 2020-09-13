@@ -81,7 +81,7 @@ Under certain conditions, Enterprise State Roaming can fail to sync data if Azur
 
 ### Event Viewer
 
-For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > Applications and Services Logs > **Microsoft** > **Windows** > **SettingSync-Azure** and for identity-related issues with sync **Microsoft** > **Windows** > **AAD**.
+For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > **Applications and Services Logs** > **Microsoft** > **Windows** > **SettingSync-Azure** and for identity-related issues with sync **Applications and Services Logs** > **Microsoft** > **Windows** > **AAD**.
 
 ## Known issues
 
@@ -105,7 +105,7 @@ Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update ([KB31
 
 ### Theme is not syncing, as well as data protected with Windows Information Protection 
 
-To prevent data leakage, data that is protected with [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update.
+To prevent data leakage, data that is protected with [Windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update.
 
 **Recommended action**  
 None. Future updates to Windows may resolve this issue.

@@ -2,12 +2,13 @@
 title: 'Create and modify an ExpressRoute circuit: Azure CLI'
 description: This article shows how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit using CLI.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
+ms.author: duau 
+ms.custom: devx-track-azurecli
 
 ---
 # Create and modify an ExpressRoute circuit using CLI
@@ -137,7 +138,7 @@ The following example shows how to create a 200-Mbps ExpressRoute circuit throug
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*.
+* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*. You cannot change the SKU from *Standard/Premium* to *Local*.
 * SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is *Unlimiteddata* only.
 
 
@@ -275,7 +276,7 @@ Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virt
 
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity. You can make the following changes with no downtime:
 
-* You can enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
+* You can enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit. Changing the SKU from *Standard/Premium* to *Local* is not supported.
 * You can increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. However, downgrading the bandwidth of a circuit is not supported.
 * You can change the metering plan from Metered Data to Unlimited Data. However, changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.

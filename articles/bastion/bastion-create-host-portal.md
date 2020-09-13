@@ -1,11 +1,11 @@
 ---
 title: 'Create an Azure Bastion host: portal'
-description: In this article, learn how to create an Azure Bastion host using the portal
+description: In this article, learn how to create an Azure Bastion host, which provides RDP/SSH connectivity to all virtual machines in a virtual network.
 services: bastion
 author: cherylmc
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.

@@ -108,7 +108,7 @@ To set up a local Docker container and have a service fabric cluster running on 
  * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## Next steps
-* Get started with [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
+* Get started with [Eclipse](./service-fabric-get-started-eclipse.md)
 * Check out other [Java samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 

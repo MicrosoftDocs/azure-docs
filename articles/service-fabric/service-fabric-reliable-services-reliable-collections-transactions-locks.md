@@ -13,7 +13,7 @@ A transaction is a sequence of operations performed as a single logical unit of 
 
 * **Atomicity**: A transaction must be an atomic unit of work. In other words, either all its data modifications are performed, or none of them is performed.
 * **Consistency**: When completed, a transaction must leave all data in a consistent state. All internal data structures must be correct at the end of the transaction.
-* **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an [ITransaction](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) is determined by the [IReliableState](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) performing the operation.
+* **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) is determined by the [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) performing the operation.
 * **Durability**: After a transaction has completed, its effects are permanently in place in the system. The modifications persist even in the event of a system failure.
 
 ### Isolation levels
@@ -73,7 +73,7 @@ The lock compatibility matrix can be found in the following table:
 The timeout argument in Reliable Collections APIs is used for deadlock detection.
 For example, two transactions (T1 and T2) are trying to read and update K1.
 It is possible for them to deadlock, because they both end up having the Shared lock.
-In this case, one or both of the operations will time out. I this scenario, an Update lock could prevent such a deadlock.
+In this case, one or both of the operations will time out. In this scenario, an Update lock could prevent such a deadlock.
 
 ## Next steps
 
@@ -81,4 +81,4 @@ In this case, one or both of the operations will time out. I this scenario, an U
 * [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
-* [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

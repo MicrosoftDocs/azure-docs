@@ -1,11 +1,11 @@
 ---
-title: Create an Azure HPC Cache
-description: How to create an Azure HPC Cache instance
+title: Use the Azure HPC Cache aggregated namespace
+description: How to plan the virtual namespace for your Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Plan the aggregated namespace
@@ -24,14 +24,14 @@ For example, consider a system where an Azure HPC Cache instance is being used t
 
 The template data is stored in a datacenter, and the information needed for this job is stored in these subdirectories:
 
-    /goldline/templates/acme2017/sku798
-    /goldline/templates/acme2017/sku980 
+* */goldline/templates/acme2017/sku798*
+* */goldline/templates/acme2017/sku980*
 
 The datacenter storage system exposes these exports:
 
-    /
-    /goldline
-    /goldline/templates
+* */*
+* */goldline*
+* */goldline/templates*
 
 The data to be analyzed has been copied to an Azure Blob storage container named "sourcecollection" by using the [CLFSLoad utility](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 
@@ -47,10 +47,10 @@ An NFS storage target can have multiple virtual namespace paths, as long as each
 
 Because the NFS source paths are subdirectories of the same export, you will need to define multiple namespace paths from the same storage target.
 
-| Storage target hostname  | NFS export path      | Subdirectory path | Namespace path    |
-|--------------------------|----------------------|-------------------|-------------------|
-| *IP address or hostname* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
-| *IP address or hostname* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
+| Storage target hostname  | NFS export path     | Subdirectory path | Namespace path    |
+|--------------------------|---------------------|-------------------|-------------------|
+| *IP address or hostname* | /goldline/templates | acme2017/sku798   | /templates/sku798 |
+| *IP address or hostname* | /goldline/templates | acme2017/sku980   | /templates/sku980 |
 
 A client application can mount the cache and easily access the aggregated namespace file paths ``/source``, ``/templates/sku798``, and ``/templates/sku980``.
 

@@ -7,7 +7,8 @@ author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure PowerShell so I can use Azure DNS for my name resolution.
 ---
 

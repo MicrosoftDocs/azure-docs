@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Spatial queries
@@ -64,28 +65,28 @@ void CastRay(ApiHandle<AzureSession> session)
     ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
 
     castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
-    {
-        std::vector<RayCastHit> hits = *async->Result();
-
-        if (hits.size() > 0)
         {
-            auto hitObject = hits[0].HitObject;
-            auto hitPosition = hits[0].HitPosition;
-            auto hitNormal = hits[0].HitNormal;
+            std::vector<RayCastHit> hits;
+            async->GetResult(hits);
 
-            // do something with the hit information
-        }
-    });
+            if (hits.size() > 0)
+            {
+                auto hitObject = hits[0].HitObject;
+                auto hitPosition = hits[0].HitPosition;
+                auto hitNormal = hits[0].HitNormal;
 
+                // do something with the hit information
+            }
+        });
 }
 ```
 
 
 There are three hit collection modes:
 
-* **Closest:** In this mode, only the closest hit will be reported.
-* **Any:** Prefer this mode when all you want to know is *whether* a ray would hit anything, but don't care what was hit exactly. This query can be considerably cheaper to evaluate, but also has only few applications.
-* **All:** In this mode, all hits along the ray are reported, sorted by distance. Don't use this mode unless you really need more than the first hit. Limit the number of reported hits with the `MaxHits` option.
+* **`Closest`:** In this mode, only the closest hit will be reported.
+* **`Any`:** Prefer this mode when all you want to know is *whether* a ray would hit anything, but don't care what was hit exactly. This query can be considerably cheaper to evaluate, but also has only few applications.
+* **`All`:** In this mode, all hits along the ray are reported, sorted by distance. Don't use this mode unless you really need more than the first hit. Limit the number of reported hits with the `MaxHits` option.
 
 To exclude objects selectively from being considered for ray casts, the [HierarchicalStateOverrideComponent](override-hierarchical-state.md) component can be used.
 
@@ -101,11 +102,16 @@ The result of a ray cast query is an array of hits. The array is empty, if no ob
 
 A Hit has the following properties:
 
-* **HitEntity:** Which [entity](../../concepts/entities.md) was hit.
-* **SubPartId:** Which *submesh* was hit in a [MeshComponent](../../concepts/meshes.md). Can be used to index into `MeshComponent.UsedMaterials` and look up the [material](../../concepts/materials.md) at that point.
-* **HitPosition:** The world space position where the ray intersected the object.
-* **HitNormal:** The world space surface normal of the mesh at the position of the intersection.
-* **DistanceToHit:** The distance from the ray starting position to the hit.
+* **`HitEntity`:** Which [entity](../../concepts/entities.md) was hit.
+* **`SubPartId`:** Which *submesh* was hit in a [MeshComponent](../../concepts/meshes.md). Can be used to index into `MeshComponent.UsedMaterials` and look up the [material](../../concepts/materials.md) at that point.
+* **`HitPosition`:** The world space position where the ray intersected the object.
+* **`HitNormal`:** The world space surface normal of the mesh at the position of the intersection.
+* **`DistanceToHit`:** The distance from the ray starting position to the hit.
+
+## API documentation
+
+* [C# RemoteManager.RayCastQueryAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
+* [C++ RemoteManager::RayCastQueryAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
 
 ## Next steps
 

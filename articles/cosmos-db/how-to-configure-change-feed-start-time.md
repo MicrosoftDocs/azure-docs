@@ -3,9 +3,10 @@ title: How to configure the change feed processor start time - Azure Cosmos DB
 description: Learn how to configure the change feed processor to start reading from a specific date and time
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: maquaran
+ms.custom: devx-track-csharp
 ---
 
 # How to configure the change feed processor start time

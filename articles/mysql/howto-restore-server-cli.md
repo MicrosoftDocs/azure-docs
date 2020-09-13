@@ -5,8 +5,9 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 3/27/2020
+ms.topic: how-to
+ms.date: 3/27/2020 
+ms.custom: devx-track-azurecli
 ---
 # How to back up and restore a server in Azure Database for MySQL using the Azure CLI
 
@@ -72,6 +73,12 @@ When you restore a server to an earlier point in time, a new server is created. 
 The location and pricing tier values for the restored server remain the same as the original server. 
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
+
+Additionally, after the restore operation finishes, there are two server parameters which are reset to default values (and are not copied over from the primary server) after the restore operation
+*   time_zone - This value to set to DEFAULT value **SYSTEM**
+*   event_scheduler - The event_scheduler is set to **OFF** on the restored server
+
+You will need to copy over the value from teh primary server and set it on the restored server by reconfiguring the [server parameter](howto-server-parameters.md)
 
 The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 

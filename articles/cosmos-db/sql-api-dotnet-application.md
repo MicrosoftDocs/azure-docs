@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
+ms.custom: devx-track-dotnet
 ---
 
 # Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK
@@ -21,7 +22,7 @@ ms.author: sngun
 
 This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial, you use the .NET SDK V3. The following image shows the web page that you'll build by using the sample in this article:
 
-![Screenshot of the todo list MVC web application created by this tutorial - ASP NET Core MVC tutorial step by step](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
+:::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png" alt-text="Screenshot of the todo list MVC web application created by this tutorial - ASP NET Core MVC tutorial step by step":::
 
 If you don't have time to complete the tutorial, you can download the complete sample project from [GitHub][GitHub].
 
@@ -65,7 +66,7 @@ In the next section, you create a new ASP.NET Core MVC application.
 
 1. In **Create a new project**, find and select **ASP.NET Core Web Application** for C#. Select **Next** to continue.
 
-   ![Create new ASP.NET Core web application project](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Create new ASP.NET Core web application project":::
 
 1. In **Configure your new project**, name the project *todo* and select **Create**.
 
@@ -83,7 +84,7 @@ Now that we have most of the ASP.NET Core MVC framework code that we need for th
 
 1. In the **NuGet Package Manager**, search for and select **Microsoft.Azure.Cosmos**. Select **Install**.
 
-   ![Install NuGet package](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Install NuGet package":::
 
    Visual Studio  downloads and installs the Azure Cosmos DB package and its dependencies.
 
@@ -111,36 +112,19 @@ Azure Cosmos DB uses JSON to move and store data. You can use the `JsonProperty`
 
 ### <a name="add-views"></a>Add views
 
-Next, let's create the following three views.
+Next, let's add the following views.
 
-* Add a list item view
-* Add a new item view
-* Add an edit item view
+* A create item view
+* A delete item view
+* A view to get an item details
+* An edit item view
+* A view to list all the items
 
-#### <a name="AddItemIndexView"></a>Add a list item view
+#### <a name="AddNewIndexView"></a>Create item view
 
 1. In **Solution Explorer**, right-click the **Views** folder and select **Add** > **New Folder**. Name the folder *Item*.
 
 1. Right-click the empty **Item** folder, then select **Add** > **View**.
-
-1. In **Add MVC View**, provide the following values:
-
-   * In **View name**, enter *Index*.
-   * In **Template**, select **List**.
-   * In **Model class**, select **Item (todo.Models)**.
-   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
-
-   ![Screenshot showing the Add MVC View dialog box](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png)
-
-1. After you add these values, select **Add** and let Visual Studio create a new template view.
-
-Once done, Visual Studio opens the *cshtml* file that it creates. You can close that file in Visual Studio. We'll come back to it later.
-
-#### <a name="AddNewIndexView"></a>Add a new item view
-
-Similar to how you created a view to list items, create a new view to create items by using the following steps:
-
-1. In **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
 
 1. In **Add MVC View**, make the following changes:
 
@@ -150,9 +134,44 @@ Similar to how you created a view to list items, create a new view to create ite
    * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
    * Select **Add**.
 
-#### <a name="AddEditIndexView"></a>Add an edit item view
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot showing the Add MVC View dialog box":::
 
-And finally, add a view to edit an item with the following steps:
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="AddEditIndexView"></a>Delete item view
+
+1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+
+1. In **Add MVC View**, make the following changes:
+
+   * In the **View name** box, type *Delete*.
+   * In the **Template** box, select **Delete**.
+   * In the **Model class** box, select **Item (todo.Models)**.
+   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
+   * Select **Add**.
+
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="AddItemIndexView"></a>Add a view to get an item details
+
+1. In **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+
+1. In **Add MVC View**, provide the following values:
+
+   * In **View name**, enter *Details*.
+   * In **Template**, select **Details**.
+   * In **Model class**, select **Item (todo.Models)**.
+   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
+
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="AddEditIndexView"></a>Add an edit item view
 
 1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
 
@@ -164,7 +183,29 @@ And finally, add a view to edit an item with the following steps:
    * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
    * Select **Add**.
 
-Once you complete these steps, close all the *cshtml* documents in Visual Studio as you return to these views later.
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="AddEditIndexView"></a>Add a view to list all the items
+
+And finally, add a view to get all the items with the following steps:
+
+1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+
+1. In **Add MVC View**, make the following changes:
+
+   * In the **View name** box, type *Index*.
+   * In the **Template** box, select **List**.
+   * In the **Model class** box, select **Item (todo.Models)**.
+   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
+   * Select **Add**.
+
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+Once you complete these steps, close all the *cshtml* documents in Visual Studio.
 
 ### <a name="initialize-services"></a>Declare and initialize services
 
@@ -216,7 +257,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
 1. In **Add Scaffold**, select **MVC Controller - Empty** and select **Add**.
 
-   ![Select MVC Controller - Empty in Add Scaffold](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="Select MVC Controller - Empty in Add Scaffold":::
 
 1. Name your new controller *ItemController*.
 
@@ -234,7 +275,7 @@ To test the application on your local computer, use the following steps:
 
 1. Press F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
 
-   ![Screenshot of the todo list web application created by this tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="Screenshot of the todo list web application created by this tutorial":::
    
    If the application instead opens to the home page, append `/Item` to the url.
 
@@ -242,11 +283,11 @@ To test the application on your local computer, use the following steps:
 
 1. Select **Create**. The app sends you back to the **Index** view, and your item appears in the list. You can add a few more items to your **To-Do** list.
 
-    ![Screenshot of the Index view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Screenshot of the Index view":::
   
 1. Select **Edit** next to an **Item** on the list. The app opens the **Edit** view where you can update any property of your object, including the **Completed** flag. If you select **Completed** and select **Save**, the app displays the **Item** as completed in the list.
 
-   ![Screenshot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Screenshot of the Index view with the Completed box checked":::
 
 1. Verify the state of the data in the Azure Cosmos DB service using [Cosmos Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
 
@@ -266,7 +307,7 @@ Now that you have the complete application working correctly with Azure Cosmos D
 
 1. Find your profile, and then select **OK**. Next search the required Azure App Service and select **OK**.
 
-   ![App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="App Service dialog box in Visual Studio":::
 
 Another option is to create a new profile:
 
@@ -278,7 +319,7 @@ Another option is to create a new profile:
 
 1. In **App Service**, enter your Web App name and the appropriate subscription, resource group, and hosting plan, then select **Create**.
 
-   ![Create App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Create App Service dialog box in Visual Studio":::
 
 In a few seconds, Visual Studio publishes your web application and launches a browser where you can see your project running in Azure!
 

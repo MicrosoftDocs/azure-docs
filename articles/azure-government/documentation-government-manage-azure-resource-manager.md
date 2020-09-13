@@ -4,17 +4,13 @@ description: This provides a comparison of features and guidance on developing a
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: brendalee
-manager: zakramer
 
-ms.assetid: f270ebe4-dbbb-4e3d-8eba-efe1ca038988
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/14/2016
-ms.author: brendal
 
 ---
 # Azure Resource Manager
@@ -49,7 +45,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Search |No |
 | Storage |Yes |
 | SQL Database |Yes |
-| SQL Data Warehouse |Yes |
+| Azure Synapse Analytics |Yes |
 | StorSimple |No |
 
 ## Web & Mobile

@@ -4,8 +4,9 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/29/2020
+ms.topic: how-to
+ms.date: 8/24/2020
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using PowerShell
@@ -44,14 +45,17 @@ If you choose to use PowerShell locally, connect to your Azure account using the
 
 ### Create a read replica
 
+> [!IMPORTANT]
+> When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+
 A read replica server can be created using the following command:
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
-  New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
+  New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-The `New-AzMySqlServerReplica` command requires the following parameters:
+The `New-AzMySqlReplica` command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
@@ -63,7 +67,7 @@ a replica in the **West US** region.
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 To learn more about which regions you can create a replica in, visit the

@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure Queues - Azure Storage
-description: Introduction to Azure Queues
+description: See an introduction to Azure Queues, a service for storing large numbers of messages. A queue service contains a URL format, storage account, queue, and message.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -8,7 +8,7 @@ ms.date: 03/18/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: overview
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # What are Azure queues?

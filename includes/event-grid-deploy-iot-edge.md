@@ -44,23 +44,23 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Container Create Options**:
 
-    ```json
-        {
-          "Env": [
-            "inbound__clientAuth:clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
-          ],
-          "HostConfig": {
-            "PortBindings": {
-              "4438/tcp": [
-                {
-                  "HostPort": "4438"
-                }
-              ]
+```json
+    {
+      "Env": [
+        "inbound__clientAuth:clientCert__enabled=false",
+        "outbound__webhook__httpsOnly=false"
+      ],
+      "HostConfig": {
+        "PortBindings": {
+          "4438/tcp": [
+            {
+              "HostPort": "4438"
             }
-          }
+          ]
         }
-    ```
+      }
+    }
+```
 
  1. Click **Save**
  1. Click **Next** to continue to the routes section

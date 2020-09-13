@@ -2,12 +2,10 @@
 title: Schedule Azure Data Lake Analytics U-SQL jobs using SSIS
 description: Learn how to use SQL Server Integration Services to schedule U-SQL jobs with inline script or from U-SQL query files.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
 ---

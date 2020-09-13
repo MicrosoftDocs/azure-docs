@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
 # Example: Add synonyms for Azure Cognitive Search in C#
@@ -18,8 +19,8 @@ Synonyms expand a query by matching on terms considered semantically equivalent 
 In Azure Cognitive Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. This example covers essential steps for adding and using synonyms with an existing index. You learn how to:
 
 > [!div class="checklist"]
-> * Create a synonym map using the  [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) class. 
-> * Set the [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) property on fields that should support query expansion via synonyms.
+> * Create a synonym map using the  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) class. 
+> * Set the [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) property on fields that should support query expansion via synonyms.
 
 You can query a synonym-enabled field as you would normally. There is no additional query syntax required to access synonyms.
 
@@ -34,8 +35,8 @@ Tutorial requirements include the following:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Cognitive Search service](search-create-service-portal.md)
-* [Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk)
-* [How to use Azure Cognitive Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Microsoft.Azure.Search .NET library](/dotnet/api/overview/azure/search)
+* [How to use Azure Cognitive Search from a .NET Application](./search-howto-dotnet-sdk.md)
 
 ## Overview
 
@@ -73,7 +74,7 @@ Before-and-after queries demonstrate the value of synonyms. In this example, use
       Console.ReadKey();
   }
 ```
-The steps to create and populate the sample index are explained in [How to use Azure Cognitive Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+The steps to create and populate the sample index are explained in [How to use Azure Cognitive Search from a .NET Application](./search-howto-dotnet-sdk.md).
 
 ## "Before" queries
 
@@ -169,7 +170,7 @@ The fastest way to clean up after an example is by deleting the resource group c
 
 ## Next steps
 
-This example demonstrated the synonyms feature in C# code to create and post mapping rules and then call the synonym map on a query. Additional information can be found in the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/) reference documentation.
+This example demonstrated the synonyms feature in C# code to create and post mapping rules and then call the synonym map on a query. Additional information can be found in the [.NET SDK](/dotnet/api/microsoft.azure.search) and [REST API](/rest/api/searchservice/) reference documentation.
 
 > [!div class="nextstepaction"]
 > [How to use synonyms in Azure Cognitive Search](search-synonyms.md)

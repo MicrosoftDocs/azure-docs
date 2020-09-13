@@ -24,7 +24,7 @@ Azure Security Center continually compares the configuration of your resources w
 
 Industry standards, regulatory standards, and benchmarks are represented in Security Center as *compliance packages*.  Each package is an initiative defined in Azure Policy. To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the **Security policy** page. (Learn more about Azure Policy and initiatives in [Working with security policies](tutorial-security-policy.md).)
 
-When you've onboarded a standard or benchmark to your selected scope, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been onboarded.
+When you've onboarded a standard or benchmark to your selected scope, it assigns the initiative to the scope and the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been onboarded.
 
 Microsoft also tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
 
@@ -41,7 +41,7 @@ In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, A
 Additional standards will be supported in the dashboard as they become available. 
 
 
-## Adding a regulatory standard to your dashboard
+## Add a regulatory standard to your dashboard
 
 The following steps explain how to add a package to monitor your compliance with one of the supported regulatory standards.
 
@@ -68,6 +68,8 @@ The following steps explain how to add a package to monitor your compliance with
     - **Canada PBMM**
     
     ![Adding regulatory packages to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+
+1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
 1. From Security Center's sidebar, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
     * Your new standard appears in your list of Industry & regulatory standards. 

@@ -2,12 +2,12 @@
 title: Supported FHIR features in Azure - Azure API for FHIR 
 description: This article explains which features of the FHIR specification that are implemented in Azure API for FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: matjazl
 ---
 
 # Features
@@ -16,9 +16,9 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## FHIR version
 
-Latest version supported: `4.0.0`
+Latest version supported: `4.0.1`
 
-Previous versions also currently supported include: `3.0.1`
+Previous versions also currently supported include: `3.0.2`
 
 ## REST API
 
@@ -35,6 +35,8 @@ Previous versions also currently supported include: `3.0.1`
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       |                                                     |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
+| chained search                 | No        | Yes       | No        |                                           |
+| reverse chained search         | No        | No        | No        |                                            |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
@@ -44,7 +46,7 @@ Previous versions also currently supported include: `3.0.1`
 
 ## Search
 
-All search parameter types are supported. Chained parameters and reverse chaining are *not* supported.
+All search parameter types are supported. 
 
 | Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-----------------------|-----------|-----------|-----------|---------|
@@ -83,7 +85,7 @@ All search parameter types are supported. Chained parameters and reverse chainin
 | `_security`             | Yes       | Yes       | Yes       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
-| `_list`                 | No        | No        | No        |         |
+| `_list`                 | Yes       | Yes       | Yes       |         |
 | `_has`                  | No        | No        | No        |         |
 | `_type`                 | Yes       | Yes       | Yes       |         |
 | `_query`                | No        | No        | No        |         |
@@ -91,14 +93,24 @@ All search parameter types are supported. Chained parameters and reverse chainin
 | Search operations       | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
-| `_sort`                 | No        | No        | No        |         |
+| `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
 | `_score`                | No        | No        | No        |         |
 | `_count`                | Yes       | Yes       | Yes       |         |
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
 | `_include`              | No        | Yes       | No        |         |
-| `_revinclude`           | No        | No        | No        |         |
+| `_revinclude`           | No        | Yes       | No        | Included items are limited to 100. |
 | `_contained`            | No        | No        | No        |         |
-| `_elements`             | No        | No        | No        |         |
+| `_elements`             | Yes        | Yes        | Yes        |         |
+
+## Extended Operations
+
+All the operations that are supported that extend the RESTful API.
+
+| Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
+|-----------------------|-----------|-----------|-----------|---------|
+| $export (whole system)                | Yes       | Yes       | Yes       |         |
+| Patient/$export         | Yes       | Yes       | Yes       |         |
+| Group/$export               | Yes       | Yes       | Yes       |         |
 
 ## Persistence
 

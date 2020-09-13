@@ -1,21 +1,9 @@
 ---
 title: Overview of Azure Relay .NET Standard APIs | Microsoft Docs
 description: This article summarizes some of the key an overview of Azure Relay Hybrid Connections .NET Standard API.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2018
-ms.author: spelluru
-
+ms.custom: devx-track-csharp
+ms.date: 06/23/2020
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview
@@ -90,7 +78,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### Receiving data
 
-The [HybridConnectionStream][HCStream] class enables two-way communication. In most cases, you continuously receive from the stream. If you are reading text from the stream, you might also want to use a [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
+The [HybridConnectionStream][HCStream] class enables two-way communication. In most cases, you continuously receive from the stream. If you are reading text from the stream, you might also want to use a [StreamReader](/dotnet/api/system.io.streamreader?view=netcore-3.1) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
 
 The following code reads individual lines of text from the stream until a cancellation is requested:
 
@@ -117,14 +105,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### Sending data
 
-Once you have a connection established, you can send a message to the Relay endpoint. Because the connection object inherits [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), send your data as a `byte[]`. The following example shows how to do this:
+Once you have a connection established, you can send a message to the Relay endpoint. Because the connection object inherits [Stream](/dotnet/api/system.io.stream?view=netcore-3.1), send your data as a `byte[]`. The following example shows how to do this:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-However, if you want to send text directly, without needing to encode the string each time, you can wrap the `hybridConnectionStream` object with a [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) object.
+However, if you want to send text directly, without needing to encode the string each time, you can wrap the `hybridConnectionStream` object with a [StreamWriter](/dotnet/api/system.io.streamwriter?view=netcore-3.1) object.
 
 ```csharp
 // The StreamWriter object only needs to be created once

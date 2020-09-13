@@ -32,15 +32,30 @@ This tutorial requires that you are running the Azure CLI version 2.0.53 or late
 Before you upgrade a cluster, use the [az aks get-upgrades][] command to check which Kubernetes releases are available for upgrade:
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-In the following example, the current version is *1.14.8*, and the available versions are shown under the *Upgrades* column.
+In the following example, the current version is *1.15.11*, and the available versions are shown under *upgrades*.
 
-```
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.14.8           1.14.8             1.15.5, 1.15.7
+```json
+{
+  "agentPoolProfiles": null,
+  "controlPlaneProfile": {
+    "kubernetesVersion": "1.15.11",
+    ...
+    "upgrades": [
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.8"
+      },
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.9"
+      }
+    ]
+  },
+  ...
+}
 ```
 
 ## Upgrade a cluster
@@ -53,16 +68,19 @@ To minimize disruption to running applications, AKS nodes are carefully cordoned
 1. When the new node is ready and joined to the cluster, the Kubernetes scheduler begins to run pods on it.
 1. The old node is deleted, and the next node in the cluster begins the cordon and drain process.
 
-Use the [az aks upgrade][] command to upgrade the AKS cluster. The following example upgrades the cluster to Kubernetes version *1.14.6*.
+Use the [az aks upgrade][] command to upgrade the AKS cluster.
+
+```azurecli
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
+```
 
 > [!NOTE]
 > You can only upgrade one minor version at a time. For example, you can upgrade from *1.14.x* to *1.15.x*, but cannot upgrade from *1.14.x* to *1.16.x* directly. To upgrade from *1.14.x* to *1.16.x*, first upgrade from *1.14.x* to *1.15.x*, then perform another upgrade from *1.15.x* to *1.16.x*.
 
-```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.15.5
-```
-
-The following condensed example output shows the *kubernetesVersion* now reports *1.15.5*:
+The following condensed example output shows the result of upgrading to *1.16.8*. Notice the *kubernetesVersion* now reports *1.16.8*:
 
 ```json
 {
@@ -80,7 +98,7 @@ The following condensed example output shows the *kubernetesVersion* now reports
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.15.5",
+  "kubernetesVersion": "1.16.8",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -95,12 +113,12 @@ Confirm that the upgrade was successful using the [az aks show][] command as fol
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-The following example output shows the AKS cluster runs *KubernetesVersion 1.15.5*:
+The following example output shows the AKS cluster runs *KubernetesVersion 1.16.8*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.15.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## Delete the cluster

@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
+ms.custom: devx-track-java
 ---
 
 # Use Circuit Breaker Dashboard with Azure Spring Cloud
@@ -54,7 +55,7 @@ After all the apps are running and discoverable, access `user-service` with the 
 Verify using public endpoints or private test endpoints.
 
 ### Using public endpoints
-Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
+Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
 
 ![Hystrix dashboard](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 

@@ -4,6 +4,7 @@ description: Learn to create different Azure Functions binding expressions based
 author: craigshoemaker
 
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ---
@@ -33,7 +34,8 @@ App setting binding expressions are identified differently from other binding ex
 
 When a function is running locally, app setting values come from the *local.settings.json* file.
 
-Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
+> [!NOTE]
+> The `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
 
 The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
 

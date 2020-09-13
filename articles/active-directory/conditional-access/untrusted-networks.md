@@ -5,7 +5,7 @@ description: Learn how to configure a Conditional Access policy in Azure Active 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: joflore
@@ -66,4 +66,4 @@ With the approach outlined in this article, you can now configure a Conditional 
 
 ## Next steps
 
-If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](./overview.md)

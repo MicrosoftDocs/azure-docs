@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with HyperAnna | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and HyperAnna.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3e47846e-eddd-4116-aa51-6b4bb772d2ac
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate HyperAnna with Azure Active Directory
@@ -82,19 +75,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Reply URL** text box, type a URL using any one of the following pattern:
 
-	| |
-	|--|
-	| `https://microsoft.hyperanna.com/userservice/auth/saml` |
-	| `https://anna.hyperanna.com/userservice/auth/saml` |
+    ```http
+    https://microsoft.hyperanna.com/userservice/auth/saml
+    https://anna.hyperanna.com/userservice/auth/saml
+    ```
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using any one of the following pattern:
 
-	| |
-	|--|
-	| `https://microsoft.hyperanna.com/` |
-	| `https://anna.hyperanna.com/` |
+    ```http
+    https://microsoft.hyperanna.com/
+    https://anna.hyperanna.com/
+    ```
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

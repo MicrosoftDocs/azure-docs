@@ -3,7 +3,7 @@ title: Create a function app with connected storage - Azure CLI
 description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Storage
 ms.topic: sample
 ms.date: 04/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Create a function app with a named Storage account connection 
 

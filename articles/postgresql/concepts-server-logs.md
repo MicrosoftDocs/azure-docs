@@ -1,11 +1,11 @@
-﻿---
+---
 title: Logs - Azure Database for PostgreSQL - Single Server
 description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 06/25/2020
 ---
 
 # Logs in Azure Database for PostgreSQL - Single Server
@@ -77,6 +77,7 @@ Search for all Postgres logs for a particular server in the last day
 ```
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
+| where Category == "PostgreSQLLogs"
 | where TimeGenerated > ago(1d) 
 ```
 

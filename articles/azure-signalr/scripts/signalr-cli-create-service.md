@@ -7,7 +7,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 11/13/2018
 ms.author: zhshang
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a SignalR Service 

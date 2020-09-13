@@ -1,12 +1,12 @@
 ---
 title: Summary dashboard for Partner Center analytics in Commercial Marketplace
 description: Learn how to access graphs, trends, and values of aggregate data that summarize marketplace activity from the Summary dashboard in Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Summary dashboard in commercial marketplace analytics

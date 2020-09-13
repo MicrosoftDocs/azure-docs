@@ -2,12 +2,9 @@
 title: Troubleshoot Azure Automation feature deployment issues
 description: This article tells how to troubleshoot and resolve issues that arise when deploying Azure Automation features.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/22/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ---
 # Troubleshoot feature deployment issues
 
@@ -65,7 +62,7 @@ This error is caused by incorrect or missing permissions on the VM or workspace,
 
 #### Resolution
 
-Ensure that you have correct [feature deployment permissions](../automation-role-based-access-control.md#feature-setup-permissions), and then try to deploy the feature again. If you receive the error message `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure that you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is enabled for a workspace.
+Ensure that you have correct [feature deployment permissions](../automation-role-based-access-control.md#feature-setup-permissions), and then try to deploy the feature again. If you receive the error message `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, see the following [troubleshooting information](update-management.md#failed-to-enable-error).
 
 ### <a name="diagnostic-logging"></a>Scenario: Feature deployment fails with the message "Failed to configure automation account for diagnostic logging"
 

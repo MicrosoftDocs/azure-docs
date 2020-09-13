@@ -6,6 +6,7 @@ author: motanv
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
+ms.custom: devx-track-csharp
 ---
 # Testability actions
 In order to simulate an unreliable infrastructure, Azure Service Fabric provides you, the developer, with ways to simulate various real-world failures and state transitions. These are exposed as testability actions. The actions are the low-level APIs that cause a specific fault injection, state transition, or validation. By combining these actions, you can write comprehensive test scenarios for your services.
@@ -74,7 +75,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 The following screenshot shows the **Restart-ServiceFabricNode** testability command in action.
 
-![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
+![Screenshot of running the Restart-ServiceFabricNode command in PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
 The output of the first **Get-ServiceFabricNode** (a cmdlet from the Service Fabric PowerShell module) shows that the local cluster has five nodes: Node.1 to Node.5. After the testability action (cmdlet) **Restart-ServiceFabricNode** is executed on the node, named Node.4, we see that the node's uptime has been reset.
 

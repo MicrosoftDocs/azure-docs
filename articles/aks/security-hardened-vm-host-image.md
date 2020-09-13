@@ -11,7 +11,7 @@ ms.custom: mvc
 
 # Security hardening for AKS agent node host OS
 
-Azure Kubernetes Service (AKS) is a secure service compliant with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS virtual machine hosts. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
+Azure Kubernetes Service (AKS) is a secure service compliant with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS virtual machine hosts. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md).
 
 > [!Note]
 > This document is scoped to Linux agents in AKS only.
@@ -27,7 +27,7 @@ The goal of the security hardened host OS is to reduce the surface area of attac
 
 * AKS provides a security optimized host OS by default. There is no option to select an alternate operating system.
 
-* Azure applies daily patches (including security patches) to AKS virtual machine hosts. Some of these patches will require a reboot, while others will not. You are responsible for scheduling AKS VM host reboots as needed. For guidance on how to automate AKS patching see [patching AKS nodes](https://docs.microsoft.com/azure/aks/node-updates-kured).
+* Azure applies daily patches (including security patches) to AKS virtual machine hosts. Some of these patches will require a reboot, while others will not. You are responsible for scheduling AKS VM host reboots as needed. For guidance on how to automate AKS patching see [patching AKS nodes](./node-updates-kured.md).
 
 ## What is configured
 
@@ -80,8 +80,8 @@ The goal of the security hardened host OS is to reduce the surface area of attac
 
 See the following articles for more information about AKS security: 
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+[Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
 
-[AKS security considerations ](https://docs.microsoft.com/azure/aks/concepts-security)
+[AKS security considerations ](./concepts-security.md)
 
-[AKS best practices ](https://docs.microsoft.com/azure/aks/best-practices)
+[AKS best practices ](./best-practices.md)

@@ -4,7 +4,7 @@ description: This article describes how to use managed identities to authenticat
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2020
 ---
 
@@ -65,7 +65,7 @@ After you've created a managed identity, you select an Active Directory admin.
 
 Next, you create a contained database user in your SQL Database that is mapped to the Azure Active Directory identity. The contained database user doesn't have a login for the master database, but it maps to an identity in the directory that is associated with the database. The Azure Active Directory identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job. 
 
-1. Connect to the SQL database using SQL Server Management Studio. The **User name** is an Azure Active Directory user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Azure Active Directory – Universal with MFA** authentication. 
+1. Connect to SQL Database using SQL Server Management Studio. The **User name** is an Azure Active Directory user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Azure Active Directory – Universal with MFA** authentication. 
 
    ![Connect to SQL Server](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
@@ -91,13 +91,13 @@ Next, you create a contained database user in your SQL Database that is mapped t
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
-1. For Microsoft's Azure Active Directory to verify if the Stream Analytics job has access to the SQL Database, we need to give Azure Active Directory permission to communicate with the database. To do this, go to the "Firewalls and virtual network" page in Azure Portal again, and enable "Allow Azure services and resources to access this server." 
+1. For Microsoft's Azure Active Directory to verify if the Stream Analytics job has access to the SQL Database, we need to give Azure Active Directory permission to communicate with the database. To do this, go to the "Firewalls and virtual network" page in Azure portal again, and enable "Allow Azure services and resources to access this server." 
 
    ![Firewall and virtual network](./media/sql-db-output-managed-identity/allow-access.png)
 
 ## Grant Stream Analytics job permissions
 
-Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your SQL Database resource via managed identity. We recommend that you grant the SELECT and INSERT permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the SQL Database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the SQL Database output.You can grant those permissions to the Stream Analytics job using SQL Server Management Studio. For more information, see the [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) reference.
+Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your SQL Database resource via managed identity. We recommend that you grant the SELECT and INSERT permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the SQL Database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the SQL Database output.You can grant those permissions to the Stream Analytics job using SQL Server Management Studio. For more information, see the GRANT (Transact-SQL)reference.
 
 To only grant permission to a certain table or object in the database, use the following T-SQL syntax and run the query. 
 
@@ -117,7 +117,7 @@ Ensure you have created a table in your SQL Database with the appropriate output
 
 1. Select **Add > SQL Database**. In the output properties window of the SQL Database output sink, select **Managed Identity** from the Authentication mode drop-down.
 
-1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](stream-analytics-define-outputs.md#sql-database). When you are finished, select **Save**. 
+1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](sql-database-output.md). When you are finished, select **Save**. 
 
 ## Next steps
 

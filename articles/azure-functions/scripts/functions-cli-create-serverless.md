@@ -5,7 +5,7 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a function app for serverless code execution 
