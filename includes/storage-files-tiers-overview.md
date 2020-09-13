@@ -18,39 +18,6 @@ Azure Files offers four different tiers of storage, premium, transaction optimiz
 
 Premium file shares are only available in a provisioned billing model. For more information on the provisioned billing model for premium file shares, see [Understanding provisioning for premium file shares](../articles/storage/files/storage-files-planning.md#understanding-provisioning-for-premium-file-shares). Standard file shares, including transaction optimized, hot, and cool file shares, are available in a pay as you go model.
 
-Hot and cool file shares are currently available in the following subset of public regions (transaction optimized file shares are available in all Azure regions):
-
-- Australia Central
-- Australia Central 2
-- Australia East
-- Australia Southeast
-- Brazil South
-- Canada East
-- Canada Central
-- France Central
-- France South
-- Germany North (public)
-- Germany West Central (public)
-- India Central
-- India South
-- India West
-- Japan East
-- Japan West
-- Korea Central
-- Korea South
-- Norway East
-- Norway West
-- South Africa North
-- South Africa West
-- Switzerland North
-- Switzerland West
-- UAE Central
-- UAE North
-- UK South
-- UK West
-- North Central US
-- South Central US
-- West Central US
-- West US 2
+Hot and cool file shares are available in all Azure public regions. Transaction optimized file shares are available in all Azure regions, including national cloud regions.
 
 To deploy a hot or cool file share, see [Create a hot or cool file share](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
