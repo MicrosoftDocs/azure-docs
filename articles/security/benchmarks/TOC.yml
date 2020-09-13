@@ -8,27 +8,27 @@
   - name: Overview of Azure security controls
     href: overview.md
   - name: Network security
-    href: security-benchmark-v2-network-security.md
+    href: security-controls-v2-network-security.md
   - name: Identity management 
-    href: security-benchmark-v2-identity-management.md
+    href: security-controls-v2-identity-management.md
   - name: Privileged access
-    href: security-benchmark-v2-privileged-access.md
+    href: security-controls-v2-privileged-access.md
   - name: Data protection
-    href: security-benchmark-v2-data-protection.md
+    href: security-controls-v2-data-protection.md
   - name: Asset management
-    href: security-benchmark-v2-asset-management.md
+    href: security-controls-v2-asset-management.md
   - name: Logging and threat detection
-    href: security-benchmark-v2-logging-threat-detection.md
+    href: security-controls-v2-logging-threat-detection.md
   - name: Incident response
-    href: security-benchmark-v2-incident-response.md
+    href: security-controls-v2-incident-response.md
   - name: Posture and vulnerability management
-    href: security-benchmark-v2-posture-vulnerability-management.md
+    href: security-controls-v2-posture-vulnerability-management.md
   - name: Endpoint security
-    href: security-benchmark-v2-endpoint-security.md
+    href: security-controls-v2-endpoint-security.md
   - name: Backup and recovery
-    href: security-benchmark-v2-backup-recovery.md
+    href: security-controls-v2-backup-recovery.md
   - name: Governance and Strategy
-    href: security-benchmark-v2-governance-strategy.md
+    href: security-controls-v2-governance-strategy.md
 
 - name: Security Controls (v1)
   items:

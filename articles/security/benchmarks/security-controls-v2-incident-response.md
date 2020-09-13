@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Incident Response
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 09/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

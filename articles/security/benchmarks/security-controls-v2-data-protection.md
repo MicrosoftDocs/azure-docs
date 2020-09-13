@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Data Protection
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 09/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -76,7 +76,7 @@ Monitor for unauthorized transfer of data to locations outside of enterprise vis
 
 Azure Storage Advanced Threat Protection (ATP) and Azure SQL ATP can alert on anomalous transfer of information that might indicate unauthorized transfers of sensitive information. 
 
-Azure Information protection (AIP) provides monitoring capabilities for information that has been classified and labelled. 
+Azure Information protection (AIP) provides monitoring capabilities for information that has been classified and labeled. 
 
 If required for compliance of data loss prevention (DLP), you can use a host-based DLP solution to enforce detective and/or preventative controls to prevent data exfiltration.
 

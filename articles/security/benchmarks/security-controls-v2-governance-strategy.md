@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Governance and Strategy
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 09/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -48,9 +48,9 @@ Note: Your asset management and protection approach for cloud and on-premises ma
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark - Asset management](security-benchmark-v2-asset-management.md)
+- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Azure Security Benchmark - Data Drotection](security-benchmark-v2-data-protection.md)
+- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Responsibility**: Customer
 
@@ -66,7 +66,7 @@ Note: Your asset management and protection approach for cloud and on-premises ma
 
 Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](security-benchmark-v2-posture-vulnerability-management.md)
+- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
 **Responsibility**: Customer
 
@@ -120,7 +120,7 @@ Note: Your network security approach for cloud and on-premises may be different 
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
-- [Azure Security Benchmark - Network Security](security-benchmark-v2-network-security.md)
+- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
 - [Azure network security overview](../fundamentals/network-overview.md)
 
@@ -154,9 +154,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 Note: Your identity and privileged access approach for cloud and on-premises may be different depending on multiple factors, such as data/application access path, service model, and customer/partner access strategy.
 
-- [Azure Security Benchmark - Identity management](security-benchmark-v2-identity-management.md)
+- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Azure Security Benchmark - Privileged access](security-benchmark-v2-privileged-access.md)
+- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
@@ -194,9 +194,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 Note: Your logging and threat detection approach for cloud and on-premises may be  different depending on multiple factors, such as compliance requirement, threat landscape, and detection and remediation capability. 
 
-- [Azure Security Benchmark - Logging and threat detection](security-benchmark-v2-logging-threat-detection.md)
+- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Incident response](security-benchmark-v2-incident-response.md)
+- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec11)
 
@@ -228,7 +228,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 Note: Your backup and recovery approach for cloud and on-premises may be different depending on the multiple factors, such as infrastructure redundancy, application service/hosting model, and compliance requirements.
 
-- [Azure Security Benchmark - Backup and recovery](security-benchmark-v2-backup-recovery.md)
+- [Azure Security Benchmark - Backup and recovery](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
 
 - [Azure Well-Architecture Framework - Backup and disaster recover for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
 
