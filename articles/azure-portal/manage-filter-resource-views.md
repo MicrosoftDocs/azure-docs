@@ -67,7 +67,7 @@ The views we've looked at so far have been _list views_, but there are also _sum
 
     :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="All resources filtered by type":::
 
-## Run a query in Azure Resource Graph
+## Run queries in Azure Resource Graph
 
 Azure Resource Graph provides efficient and performant resource exploration with the ability to query at scale across a set of subscriptions. The **All resources** screen in the Azure portal includes a link to open a Resource Graph query that is scoped to the current filtered view.
 
