@@ -17,6 +17,8 @@ ms.author: garye      # Your microsoft.com email alias
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
+***This is just a temporary placeholder/template. Replace with real article.***
+
 *Summary of machine learning capabilities in Synapse Analytics.*
 
 *See [What is Azure Synapse Analytics?](../overview-what-is.md) for an example to follow.*
