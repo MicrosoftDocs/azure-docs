@@ -15,7 +15,7 @@ This article describes how to either move a region where data is replicated in A
 
 ## Move data from one region to another
 
-Azure Cosmos DB supports data replication natively so moving data from one region to another is simple and can be accomplished using the Azure portal, Azure PowerShell or Azure CLI and involves the following steps:
+Azure Cosmos DB supports data replication natively so moving data from one region to another is simple and can be accomplished using the Azure portal, Azure PowerShell, or Azure CLI and involves the following steps:
 
 1. Add a new region to the account
 
@@ -23,7 +23,7 @@ Azure Cosmos DB supports data replication natively so moving data from one regio
 
 1. Perform a manual failover to the new region
 
-    If the region being removed is currently the write region for the account, you will need to initiate a failover to the new region added above. This is a zero downtime operation. If you are moving a read region in a multi-region account you can skip this step. To initiate a failover see, [Perform manual failover on an Azure Cosmos account](how-to-manage-database-account.md#manual-failover)
+    In situations where the region being removed is currently the write region for the account, you will need to initiate a failover to the new region added above. This is a zero downtime operation. If you are moving a read region in a multi-region account you can skip this step. To initiate a failover see, [Perform manual failover on an Azure Cosmos account](how-to-manage-database-account.md#manual-failover)
 
 1. Remove the original region
 
@@ -31,11 +31,11 @@ Azure Cosmos DB supports data replication natively so moving data from one regio
 
 ## Migrate Azure Cosmos DB account meta data
 
-Azure Cosmos DB does not natively support migrating account meta data from one region to another. To migrate both the account meta data and customer data from one region to another, a new account must be created in the desired region and then the data must be copied manually. To accomplish this with near zero downtime migration for SQL API requires the use of [ChangeFeed](change-feed.md) or a tool which leverages it. If migrating MongoDB API, Cassandra or other API or to learn more about options when migrating data between accounts see [Options to migrate your on-premises or cloud data to Azure Cosmos DB](cosmosdb-migrationchoices.md). The steps below demonstrates how to migrate an Azure Cosmos DB account for SQL API and its data from one region to another:
+Azure Cosmos DB does not natively support migrating account meta data from one region to another. To migrate both the account meta data and customer data from one region to another, a new account must be created in the desired region and then the data must be copied manually. A near zero downtime migration for SQL API requires the use of [ChangeFeed](change-feed.md) or a tool which leverages it. If migrating MongoDB API, Cassandra or other API or to learn more about options when migrating data between accounts see [Options to migrate your on-premises or cloud data to Azure Cosmos DB](cosmosdb-migrationchoices.md). The steps below demonstrates how to migrate an Azure Cosmos DB account for SQL API and its data from one region to another:
 
 1. Create a new Azure Cosmos DB account in the desired region
 
-    To create a new account via Azure Portal, PowerShell or CLI see, [Create an Azure Cosmos DB account](how-to-manage-database-account.md#create-an-account).
+    To create a new account via Azure portal, PowerShell or CLI see, [Create an Azure Cosmos DB account](how-to-manage-database-account.md#create-an-account).
 
 1. Create a new database and container
 
