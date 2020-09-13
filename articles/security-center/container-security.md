@@ -17,12 +17,14 @@ ms.author: memildin
 
 # Container security in Security Center
 
-Azure Security Center is the Azure-native solution for securing your containers. Security Center can protect the following container resource types:
+Azure Security Center is the Azure-native solution for securing your containers.
+
+Security Center can protect the following container resource types:
 
 | Resource type | Protections offered by Security Center |
 |:--------------------:|-----------|
-| ![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Azure Kubernetes Service (AKS) clusters** | - Continuous assessment of your AKS clusters' configurations to provide visibility into misconfigurations and guidelines to help you resolve any discovered issues.<br>[Learn more about environment hardening through security recommendations](#environment-hardening).<br><br>- Threat protection for AKS clusters and Linux nodes. Alerts for suspicious activities are provided by the optional  [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md).<br>[Learn more about run-time protection for AKS nodes and clusters](#run-time-protection-for-aks-nodes-and-clusters).|
-| ![Container host](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Container hosts**<br>(VMs  running Docker) | - Continuous assessment of your Docker configurations to provide visibility into misconfigurations and guidelines to help you resolve any discovered issues with the optional  [Azure Defender for servers](defender-for-servers-intro.md).<br>[Learn more about environment hardening through security recommendations](#environment-hardening).|
+| ![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Azure Kubernetes Service (AKS) clusters** | - Continuous assessment of your AKS clusters' configurations to provide visibility into misconfigurations, and guidelines to help you resolve any discovered issues.<br>[Learn more about environment hardening through security recommendations](#environment-hardening).<br><br>- Threat protection for AKS clusters and Linux nodes. Alerts for suspicious activities are provided by the optional  [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md).<br>[Learn more about run-time protection for AKS nodes and clusters](#run-time-protection-for-aks-nodes-and-clusters).|
+| ![Container host](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Container hosts**<br>(VMs  running Docker) | - Continuous assessment of your Docker configurations to provide visibility into misconfigurations, and guidelines to help you resolve any discovered issues with the optional  [Azure Defender for servers](defender-for-servers-intro.md).<br>[Learn more about environment hardening through security recommendations](#environment-hardening).|
 | ![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Azure Container Registry (ACR) registries** | - Vulnerability assessment and management tools for the images in your ARM-based ACR registries with the optional  [Azure Defender for container registries](defender-for-container-registries-intro.md).<br>[Learn more about scanning your container images for vulnerabilities](#vulnerability-management---scanning-container-images). |
 |||
 
@@ -40,7 +42,7 @@ The following screenshot shows the asset inventory page and the various containe
 
 ## Vulnerability management - scanning container images
 
-To monitor your ARM-based Azure Container Registry, enable [Azure Defender for container registries](defender-for-container-registries-intro.md). Security Center scans any images pulled within the last 30 days, pushed to your registry, or imported. The integrated scanner is provided by the industry-leading vulnerability scanning vendor, Qualys.
+To monitor images in your ARM-based Azure container registries, enable [Azure Defender for container registries](defender-for-container-registries-intro.md). Security Center scans any images pulled within the last 30 days, pushed to your registry, or imported. The integrated scanner is provided by the industry-leading vulnerability scanning vendor, Qualys.
 
 When issues are found – by Qualys or Security Center – you'll get notified in the [Azure Defender dashboard](azure-defender-dashboard.md). For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-containers).
 
@@ -72,16 +74,15 @@ For details of the relevant Security Center recommendations that might appear fo
 
 ###  Workload protection best-practices using Kubernetes admission control
 
-Kubernetes admission controllers are plugins that enforce how your clusters are used. 
+Install the  **Azure Policy add-on for Kubernetes** to get a bundle of recommendations for protecting the workloads of your Kubernetes containers.
 
-Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**. As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. 
+As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes admission controllers are plugins that enforce how your clusters are used. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. 
 
 When you've installed the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to **enforce** the best practices and mandate them for future workloads. 
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
 Learn more in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
-
 
 
 ## Run-time protection for AKS nodes and clusters

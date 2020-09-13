@@ -31,7 +31,7 @@ To enable Azure Defender for SQL:
 
 * Provision the Log Analytics agent on your SQL server's host. This provides the connection to Azure.
 
-* Enable the optional bundle in Security Center's pricing and settings page.
+* Enable the optional plan in Security Center's pricing and settings page.
 
 Both of these are described below.
 
@@ -59,7 +59,7 @@ Both of these are described below.
 
 1. Set the option for **Azure Defender for SQL** plan to **on**. 
 
-    ![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
+    ![Security Center pricing page with optional plans](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
     Azure Defender for SQL will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
 

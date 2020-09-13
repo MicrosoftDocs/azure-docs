@@ -21,6 +21,8 @@ The CSPM features of Security Center, such as secure score, detection of securit
 
 **Azure Defender** is the cloud workload protection platform (CWPP) integrated within Security Center for advanced, intelligent, protection of your Azure and hybrid workloads.
 
+This is the Azure Defender dashboard in Azure Security Center:
+
 :::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
 ## What resource types can Azure Defender secure?
@@ -43,17 +45,17 @@ Each of these plans is explained separately in the Security Center documentation
 
 ## Hybrid cloud protection
 
-As well as defending your Azure environment, you add Azure Defender capabilities to your hybrid cloud environment.
-
-You can deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and then enable Azure Defender to extend protection to on-premises and multi-cloud virtual machines and SQL databases.
-
-You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​.
+As well as defending your Azure environment, you can add Azure Defender capabilities to your hybrid cloud environment:
 
 - Protect your non-Azure servers
 - Protect your virtual machines in other clouds (such as AWS and GCP)
 - Protect your IoT devices
 
-Azure Arc for servers is a free service, but services that are used on Arc enabled servers, for example Azure Defender, will be charged as per the pricing for that service.
+You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​
+
+Deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender to extend protection to on-premises and multi-cloud virtual machines and SQL databases. Azure Arc for servers is a free service, but services that are used on Arc enabled servers, for example Azure Defender, will be charged as per the pricing for that service.
+
+[Learn more about Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview),
 
 
 ## Azure Defender alerts 
@@ -72,14 +74,18 @@ Azure Defender uses advanced analytics for tailored recommendations related to y
 
 Protections include securing the management ports of your VMs with just-in-time access and adaptive application controls to create allow lists for what apps should and shouldn't run on your machines. 
 
+Use the advanced protection tiles in the Azure Defender dashboard to monitor and configure each of these protections. 
 
 ## Vulnerability assessment and management
 
 Azure Defender includes vulnerability scanning for your virtual machines and container registries at no extra cost. The scanners are powered by Qualys but you don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. 
 
-In addition, as part of the effort to be the single pane of glass for all of your cloud security efforts, you can review the findings from these vulnerability scanners and manage them within Security Center.
+Review the findings from these vulnerability scanners and respond to them all from within Security Center. This brings Security Center closer to being the single pane of glass for all of your cloud security efforts.
 
-Learn more about scanning your VMs in [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md).
+Learn more on the following pages:
+
+- [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
+- [Identify vulnerabilities in images in Azure container registries](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 
 
@@ -87,6 +93,5 @@ Learn more about scanning your VMs in [Security Center's integrated vulnerabilit
 
 In this article, you learned about the benefits of Azure Defender. 
 
-- [Learn more about Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview)
-- > [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
     > [Enable Azure Defender](security-center-pricing.md)

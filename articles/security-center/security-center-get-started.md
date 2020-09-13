@@ -41,11 +41,11 @@ To enable Azure Defender on a subscription, you must be assigned the role of Sub
 
 **Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically, at no cost, enables any of your Azure subscriptions not previously onboarded by you or another subscription user.
 
-You can view and filter the list of subscriptions by selecting the **Subscriptions** menu item. Security Center will adjust the display to reflect the security posture of the selected subscriptions. To customize the types of assessments performed, you can modify the security policy. A security policy defines the desired configuration of your workloads and helps ensure compliance with the security requirements of your organization and any relevant regulatory standards.
+You can view and filter the list of subscriptions by selecting the **Subscriptions** menu item. Security Center will adjust the display to reflect the security posture of the selected subscriptions. 
 
 Within minutes of launching Security Center the first time, you may see:
 
-- **Recommendations** for ways to improve the security of your connected resources
+- **Recommendations** for ways to improve the security of your connected resources.
 - An inventory of your resources that are now being assessed by Security Center, along with the security posture of each.
 
 To take full advantage of Security Center, you need to complete the steps below to enable Azure Defender and install the Log Analytics agent.

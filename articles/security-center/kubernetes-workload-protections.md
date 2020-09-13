@@ -43,7 +43,7 @@ Security Center offers more container security features if you enable Azure Defe
 
 Azure Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
 
-1. To configure the bundle, first you must install the add on:
+1. To configure the recommendations, first you must install the add on:
 
     1. From the recommendations page, search for the recommendation named **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**.
 

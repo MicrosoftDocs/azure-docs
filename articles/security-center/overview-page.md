@@ -27,7 +27,7 @@ The overview provides a unified view into the security posture of your hybrid cl
 
 The **top menu bar** offers:
 - **Subscriptions** - You can view and filter the list of subscriptions by selecting this button. Security Center will adjust the display to reflect the security posture of the selected subscriptions.
-- **What's new** - Opens the [release notes](release-notes.md) so you keep up to date with new features, bug fixes, and deprecated functionality
+- **What's new** - Opens the [release notes](release-notes.md) so you can keep up to date with new features, bug fixes, and deprecated functionality.
 - **High-level numbers** for the connected cloud accounts, to show the context of the information in the main tiles below. As well as the number of active recommendations and alerts.
     Learn more about connecting your [AWS accounts](quickstart-onboard-aws.md) and your [GCP projects](quickstart-onboard-gcp.md).
 

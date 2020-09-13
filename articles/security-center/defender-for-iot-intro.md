@@ -38,7 +38,7 @@ By combining the capabilities of Security Center, Azure Defender, and CyberX Age
     - Onboard new devices, and apply security policies across your workloads (Leaf devices, Microsoft Edge devices, IoT Hub) to ensure compliance with security standards and improved security posture.
 
 - **Unmanaged brownfield devices** used in Operational Technology (OT) environments such as manufacturing, building management systems (BMS), life sciences, energy and water utilities, oil & gas, and logistics. 
-    - Azure Defender for IoT uses an on-premises sensor for passive, non-invasive Network Traffic Analysis (NTA) that has zero performance impact on OT environments. 
+    - To protect unmanaged devices, Azure Defender for IoT uses an on-premises sensor for passive, non-invasive Network Traffic Analysis (NTA) that has zero performance impact on OT environments. 
     - It also incorporates an in-depth understanding of specialized IoT/OT protocols - combined with patented, IoT/OT-aware behavioral analytics and machine learning - to eliminate the need to configure any rules or signatures, resulting in typical deployments in minutes or hours rather than days or weeks. 
 
 

@@ -29,7 +29,7 @@ Security Center's protections for Kubernetes are provided by a combination of tw
 
 - **Azure Security Center's threat protection for virtual machines** - Using the same Log Analytics agent that Security Center uses on other VMs, Security Center can show you security issues occurring on your AKS nodes. The agent also monitors for container-specific analytics.
 
-- **Azure Security Center's optional Kubernetes bundle** - The Kubernetes bundle receives logs and information from the Kubernetes subsystem via the AKS service. These logs are already available in Azure through the AKS service. When you enable Security Center's Kubernetes bundle, you grant Security Center access to the logs. So Security Center brings security benefits to your AKS clusters using data already gathered by the AKS master node. Some of the data scanned by Azure Security Center from your Kubernetes environment may contain sensitive information.
+- **Azure Security Center's optional Azure Defender for Kubernetes plan** - The Kubernetes plan receives logs and information from the Kubernetes subsystem via the AKS service. These logs are already available in Azure through the AKS service. When you enable Azure Defender for Kubernetes, you grant Security Center access to the logs. So Security Center brings security benefits to your AKS clusters using data already gathered by the AKS master node. Some of the data scanned by Azure Security Center from your Kubernetes environment may contain sensitive information.
 
 
 ## Next steps
