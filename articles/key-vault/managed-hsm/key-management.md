@@ -59,17 +59,17 @@ Use `az keyvault key create` command to create a key.
 
 ### Create an RSA key
 
-The example below shows how to create a 3070-bit **RSA** key that will be only used for **get, wrap, unwrap** operations (--ops). 
+The example below shows how to create a 3070-bit **RSA** key that will be only used for **wrap, unwrap** operations (--ops). 
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault key create --hsm-name ContosoMHSM --name myrsakey --ops get wrap unwrap --kty RSA-HSM --size 3072
+az keyvault key create --hsm-name ContosoMHSM --name myrsakey --ops wrap unwrap --kty RSA-HSM --size 3072
 
 ## OR
 # Note the key name (myrsakey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey --ops get wrap unwrap --kty RSA-HSM --size 3072
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey --ops wrap unwrap --kty RSA-HSM --size 3072
 
 ```
 ---
