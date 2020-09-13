@@ -62,7 +62,7 @@ It is very important that your directory have a subdirectory called `triton`, un
 
 ## Register your model
 
-High-performance serving with Triton only works for models that have been registered with Azure Machine Learning, either with [the CLI command](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_register) or [the SDK command](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-)
+High-performance serving with Triton only works for models that have been registered with Azure Machine Learning, either with [the CLI command](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_register&preserve-view=true) or [the SDK command](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-&preserve-view=true)
 
 Sample code below:
 
