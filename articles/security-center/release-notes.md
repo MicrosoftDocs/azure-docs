@@ -29,7 +29,6 @@ This page is updated regularly, so revisit it often. If you're looking for items
 ## September 2020
 
 Updates in September include:
-
 - [Security Center gets a new look!](#security-center-gets-a-new-look)
 - [Azure Defender released](#azure-defender-released)
 - [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
@@ -41,19 +40,19 @@ Updates in September include:
 - [IoT threat protection enhancements in Azure Defender for IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
-- [Network security group recommendations improved](#network-security-group-recommendations-improved)auto        - 
-- [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)auto        - 
+- [Network security group recommendations improved](#network-security-group-recommendations-improved)
+- [Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
 - [Email notifications from Azure Security Center improved](#email-notifications-from-azure-security-center-improved)
 - [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
 - [Recommendations now include a severity indicator and the freshness interval](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
 
 ### Security Center gets a new look!
 
-We've released a refreshed UI for Security Center's portal pages. The new pages include dashboards for secure score, regulatory compliance, and Azure Defender.
+We've released a refreshed UI for Security Center's portal pages. The new pages include a new overview page as well as dashboards for secure score, asset inventory, and Azure Defender.
 
-The redesigned overview page now has a tile for each of these elements as well as a link to the asset inventory page dashboard.
+The redesigned overview page now has a tile for accessing the secure score, asset inventory, and Azure Defender dashboards. It also has a tile linking to the regulatory compliance dashboard.
 
-Learn more about the [Azure Security Center's overview page](overview-page.md).
+Learn more about the [overview page](overview-page.md).
 
 
 ### Azure Defender released

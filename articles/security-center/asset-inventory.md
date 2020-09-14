@@ -69,7 +69,7 @@ The inventory page provides the following tools:
 
     - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag.
     - Onboard new servers to Security Center - use the **Add non-Azure servers** toolbar button.
-    - Automate workloads with Azure Logic Apps - use the **Trigger Logic App** button to run a logic app on one or more resources. Your logic apps have to be prepared in advance, and accept a relevant trigger type. [Learn more about logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Automate workloads with Azure Logic Apps - use the **Trigger Logic App** button to run a logic app on one or more resources. Your logic apps have to be prepared in advance, and accept the relevant trigger type (HTTP request). [Learn more about logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 
 ## How does asset inventory work?
