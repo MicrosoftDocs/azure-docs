@@ -126,7 +126,7 @@ Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/cli
 ## Supported languages for print text
 The [Read 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. 
 
-The [Read 3.1 API public preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adds support for Simplified Chinese. If your scenario requires supporting more languages, see the [OCR API](#ocr-api) section. 
+The [Read 3.1 API public preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) adds support for Simplified Chinese and Japanese. If your scenario requires supporting more languages, see the [OCR API](#ocr-api) section. 
 
 See the [Supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) for the full list of OCR-supported languages.
 
@@ -187,4 +187,4 @@ As with all the cognitive services, developers using the Read/OCR services shoul
 - Get started with the [Computer Vision Read 3.0 SDK quickstarts](./quickstarts-sdk/client-library.md) in C#, Java, JavaScript, or Python.
 - Use the [Read 3.0 REST API quickstarts](./QuickStarts/CSharp-hand-text.md) in C#, Java, JavaScript, or Python to learn how to use the REST APIs.
 - Learn about the [Read 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Learn about the [Read 3.1 public preview REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) with added support for Simplified Chinese.
+- Learn about the [Read 3.1 public preview REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) with added support for Simplified Chinese and Japanese.
