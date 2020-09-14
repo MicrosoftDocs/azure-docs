@@ -17,7 +17,7 @@ ms.subservice: queues
 
 Azure Storage provides extensions for PowerShell that enable you to sign in and run scripting commands with Azure Active Directory (Azure AD) credentials. When you sign in to PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by PowerShell to authorize subsequent data operations against Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-You can assign permissions to queue data to an Azure AD security principal via role-based access control (RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](storage-auth-aad-rbac.md).
+You can assign permissions to queue data to an Azure AD security principal via role-based access control (RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](../common/storage-auth-aad-rbac.md).
 
 ## Supported operations
 
@@ -64,7 +64,7 @@ The following example shows how to create a queue in a new storage account from 
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Before you create the queue, assign the [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac.md).
+1. Before you create the queue, assign the [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](../common/storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.
@@ -78,5 +78,5 @@ The following example shows how to create a queue in a new storage account from 
 
 ## Next steps
 
-- [Use PowerShell to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-powershell.md)
-- [Authorize access to blob and queue data with managed identities for Azure resources](storage-auth-aad-msi.md)
+- [Use PowerShell to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-powershell.md)
+- [Authorize access to blob and queue data with managed identities for Azure resources](../common/storage-auth-aad-msi.md)
