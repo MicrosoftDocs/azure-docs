@@ -61,13 +61,13 @@ This method accepts a JSON payload with the following schema:
 |-|-|-|
 | schemaVersion | string | Set to `1.0` |
 | items | JSON array | An array with `id` and `filter` tuples. |
-| id | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expressions) format is expected. |
+| id | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) format is expected. |
 | filter | JSON section | Log filters to apply to the modules matching the `id` regular expression in the tuple. |
 | tail | integer | Number of log lines in the past to retrieve starting from the latest. OPTIONAL. |
 | since | integer | Only return logs since this time, as a duration (1 day, 1d, 90m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, first the logs using the `since` value are retrieved and then `tail` value of those are returned. OPTIONAL. |
 | until | integer | Only return logs before the specified time, as a rfc3339 timestamp, UNIX timestamp, or duration (1 day, 1d, 90m, 2 days 3 hours 2 minutes). OPTIONAL. |
 | loglevel | integer | Filter log lines less than or equal to specified loglevel. Log lines should follow recommended logging format and use [Syslog severity level](https://en.wikipedia.org/wiki/Syslog#Severity_level) standard. OPTIONAL. |
-| regex | string | Filter log lines which have content that match the specified regular expression using [.NET Regular Expressions](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expressions) format. OPTIONAL. |
+| regex | string | Filter log lines which have content that match the specified regular expression using [.NET Regular Expressions](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) format. OPTIONAL. |
 | encoding | string | Either `gzip` or `none`. Default is `none`. |
 | contentType | string | Either `json` or `text`. Default is `text`. |
 
