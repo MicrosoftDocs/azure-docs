@@ -74,16 +74,16 @@ There are two ways to add a policy through the Azure portal.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
 
-The **Last accessed** option is available in preview in the following regions:
+   The **Last accessed** option is available in preview in the following regions:
 
- - France Central
- - Canada East
- - Canada Central
+    - France Central
+    - Canada East
+    - Canada Central
 
-> [!IMPORTANT]
-> The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
-
-For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-preview).
+   > [!IMPORTANT]
+   > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
+   
+   For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-preview).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs in the *mylifecyclecontainer* container that begin with "log".
 
@@ -360,7 +360,7 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 
 ### Move data based on last accessed date (preview)
 
-You can enable last access time tracking to keep a record on when is your blob last read or written. You can use last access time as a filter to manage tiering and retention of your blob data.
+You can enable last access time tracking to keep a record of when your blob is last read or written. You can use last access time as a filter to manage tiering and retention of your blob data.
 
 The **Last accessed** option is available in preview in the following regions:
 
