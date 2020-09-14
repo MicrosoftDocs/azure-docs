@@ -51,10 +51,10 @@
     - name: With OVMS via HTTP extension
       displayName: intel, OpenVINO 
       href: use-intel-openvino-tutorial.md  
-  - name: Use Custom Vision
-    href: custom-vision-tutorial.md  
-  - name: Use Spatial Analysis
-    href: spatial-analysis-tutorial.md
+    - name: Use Custom Vision
+      href: custom-vision-tutorial.md  
+    - name: Use Spatial Analysis
+      href: spatial-analysis-tutorial.md
 - name: Samples
   items:
   - name: C# Direct Method samples
