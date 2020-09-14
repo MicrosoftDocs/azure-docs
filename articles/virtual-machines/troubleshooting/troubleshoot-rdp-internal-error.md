@@ -49,9 +49,9 @@ First, check to see whether the network security group for RDP port 3389 is unse
 
 ### Use Serial control
 
-Then, use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
+Use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
 
-To start, connect to [Serial Console and open PowerShell instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+To begin, connect to the [Serial Console and open a PowerShell instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). If the Serial Console is not enabled on your VM, go to the [repair the VM offline](#repair-the-vm-offline) section.
 
 #### Step: 1 Check the RDP port
