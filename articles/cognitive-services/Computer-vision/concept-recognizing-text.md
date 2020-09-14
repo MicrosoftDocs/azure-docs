@@ -32,6 +32,9 @@ The **Read** call takes images and documents as its input. They have the followi
 * The file size must be less than 50 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
 * The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
 
+### Read 3.1 preview allows selecting page(s)
+With the [Read 3.1 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, you can provide specific page numbers or page ranges as an input parameter to extract text from only those pages. This is a new input parameter in addition to the optional language parameter.
+
 > [!NOTE]
 > **Language input** 
 >
@@ -67,6 +70,16 @@ The second step is to call [Get Read Results](https://westcentralus.dev.cognitiv
 When the **status** field has the **succeeded** value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 
 ## Sample JSON output
+
+### Read 3.1 preview adds text line style (English only)
+The [Read 3.1 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) outputs an **Appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for English.
+
+```json
+  "appearance": {
+              "style": "handwriting",
+              "styleConfidence": 0.836
+            }
+```
 
 See the following example of a successful JSON response:
 
