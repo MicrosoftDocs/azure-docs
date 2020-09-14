@@ -42,7 +42,7 @@ The following steps show how the sign-in process works with Azure AD:
 ![Diagram that outlines the steps involved for user sign-in with Windows Hello for Business](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
 1. A user signs into Windows using biometric or PIN gesture. The gesture unlocks the Windows Hello for Business private key and is sent to the Cloud Authentication security support provider, referred to as the *Cloud AP provider*.
-1. The Cloud AP provider requests a nonce from Azure AD.
+1. The Cloud AP provider requests a nonce (a random arbitrary number that can be used just once) from Azure AD.
 1. Azure AD returns a nonce that's valid for 5 minutes.
 1. The Cloud AP provider signs the nonce using the user's private key and returns the signed nonce to the Azure AD.
 1. Azure AD validates the signed nonce using the user's securely registered public key against the nonce signature. After validating the signature, Azure AD then validates the returned signed nonce. When the nonce is validated, Azure AD creates a primary refresh token (PRT) with session key that is encrypted to the device's transport key and returns it to the Cloud AP provider.
