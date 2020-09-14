@@ -841,6 +841,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/users-groups-roles/custom-enterprise-apps.md",
+      "redirect_url": "/azure/active-directory/users-groups-roles/roles-custom-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-update-profile.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/users-groups-roles/groups-update-rule.md",
       "redirect_url": "/articles/active-directory/users-groups-roles/groups-create-rule",
       "redirect_document_id": false
@@ -42895,6 +42905,16 @@
     {
       "source_path": "articles/azure-monitor/platform/template-workspace-configuration.md",
       "redirect_url": "/azure/azure-monitor/samples/resource-manager-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/log-standard-properties.md",
+      "redirect_url": "/azure/azure-monitor/platform/log-standard-columns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/logs-structure.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-platform-logs",
       "redirect_document_id": false
     },
     {

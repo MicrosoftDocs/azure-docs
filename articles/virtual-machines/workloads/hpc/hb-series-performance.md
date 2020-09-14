@@ -16,11 +16,11 @@ Several performance tests have been run on HB-series sizes. The following are so
 
 | Workload                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| STREAM Triad                                    | ~260 GB/s (32-33 GB/s per CCX)  |
-| High-Performance Linpack (HPL)                  | ~1,000 GigaFLOPS (Rpeak), ~860 GigaFLOPS (Rmax) |
-| RDMA latency & bandwidth                        | 1.27 usec, 99.1 Gb/s   |
-| FIO on local NVMe SSD                           | ~1.7 GB/s reads, ~1.0 GB/s writes      |  
-| IOR on 4 * Azure Premium SSD (P30 Managed Disks, RAID0)**  | ~725 MB/s reads,  ~780 MB/writes   |
+| STREAM Triad                                    | 260 GB/s (32-33 GB/s per CCX)  |
+| High-Performance Linpack (HPL)                  | 1,000 GigaFLOPS (Rpeak), 860 GigaFLOPS (Rmax) |
+| RDMA latency & bandwidth                        | 1.27 microseconds, 99.1 Gb/s   |
+| FIO on local NVMe SSD                           | 1.7 GB/s reads, 1.0 GB/s writes      |  
+| IOR on 4 * Azure Premium SSD (P30 Managed Disks, RAID0)**  | 725 MB/s reads,  780 MB/writes   |
 
 
 ## MPI latency

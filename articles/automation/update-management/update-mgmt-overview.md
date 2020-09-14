@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 09/09/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -166,7 +166,7 @@ The following table describes the connected sources that Update Management suppo
 
 Update Management scans managed machines for data using the following rules. It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed machines.
 
-* Each Windows machine - Update Management does a scan twice per day for each machine. Every 15 minutes, it queries the Windows API for the last update time to determine whether the status has changed. If the status has changed, Update Management starts a compliance scan.
+* Each Windows machine - Update Management does a scan twice per day for each machine.
 
 * Each Linux machine - Update Management does a scan every hour.
 

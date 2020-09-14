@@ -300,6 +300,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
+          nodePublishSecretRef:
+              name: secrets-store-creds 
 ```
 
 Run the following command to deploy your pod:

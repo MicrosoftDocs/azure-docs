@@ -62,6 +62,8 @@
     href: ../../azure-databricks/security-baseline.md
   - name: Azure DNS security baseline
     href: ../../dns/security-baseline.md
+  - name: Azure DevTest Labs security baseline
+    href: ../../devtest-labs/security-baseline.md
   - name: Azure Firewall security baseline
     href: ../../firewall/security-baseline.md
   - name: Azure Functions security baseline
@@ -74,6 +76,10 @@
     href: ../../machine-learning/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+  - name: Azure Private Link security baseline
+    href: ../../private-link/security-baseline.md
+  - name: Azure Public IP security baseline
+    href: ../../virtual-network/public-ip-security-baseline.md
   - name: Azure Resource Graph security baseline
     href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
   - name: Azure Sentinel security baseline
