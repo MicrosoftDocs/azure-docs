@@ -82,7 +82,7 @@ No actions required if you are not using SSL/TLS.
 No, you do not need to restart the database server to start using the new certificate. This root certificate is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
 
 ### 3. What will happen if I do not update the root certificate before October 26, 2020 (10/26/2020)?
-If you do not update the root certificate before November 30, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the MySQL database server and application will experience connectivity issues to your MySQL database server.
+If you do not update the root certificate before October 26, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the MySQL database server and application will experience connectivity issues to your MySQL database server.
 
 ### 4. Do I need to plan a maintenance downtime for this change?<BR>
 No. Since the change here is only on the client side to connect to the database server, there is no maintenance downtime needed here for this change.
@@ -90,7 +90,7 @@ No. Since the change here is only on the client side to connect to the database 
 ### 5.  What if I cannot get a scheduled downtime for this change before October 26, 2020 (10/26/2020)?
 Since the clients used for connecting to the server needs to be updating the certificate information as described in the fix section [here](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), we do not need to a downtime for the server in this case.
 
-###  6. If I create a new server after Nov 30, 2020, will I be impacted?
+###  6. If I create a new server after October 26, 2020, will I be impacted?
 For servers created after October 26, 2020 (10/26/2020), you can use the newly issued certificate for your applications to connect using SSL.
 
 ###	7. How often does Microsoft update their certificates or what is the expiry policy?
