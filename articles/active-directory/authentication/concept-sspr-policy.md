@@ -105,7 +105,7 @@ A *global administrator* or *user administrator* can use the [Microsoft Azure AD
 
 You can also use PowerShell cmdlets to remove the never-expires configuration or to see which user passwords are set to never expire.
 
-This guidance applies to other providers, such as Intune and Office 365, which also rely on Azure AD for identity and directory services. Password expiration is the only part of the policy that can be changed.
+This guidance applies to other providers, such as Intune and Microsoft 365, which also rely on Azure AD for identity and directory services. Password expiration is the only part of the policy that can be changed.
 
 > [!NOTE]
 > Only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/whatis-hybrid-identity.md).
