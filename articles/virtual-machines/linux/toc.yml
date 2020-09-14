@@ -479,7 +479,7 @@
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
-          - name: From a VHD or snapshot
+          - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-cli.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-cli.md
@@ -501,7 +501,7 @@
           items:
           - name: From a VM
             href: ../image-version-vm-powershell.md
-          - name: From a VHD or snapshot
+          - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-powershell.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md
@@ -542,14 +542,16 @@
         href: image-builder-overview.md
       - name: Use Azure CLI
         href: image-builder.md
-      - name: Create VM using VNET - CLI
+      - name: Use a VNET - CLI
         href: image-builder-vnet.md
-      - name: Configure permissions - CLI
-        href: image-builder-permissions-cli.md
-      - name: Configure permissions - PowerShell
-        href: image-builder-permissions-powershell.md
       - name: Networking options
         href: image-builder-networking.md
+      - name: Configure permissions
+        items:
+        - name: CLI
+          href: image-builder-permissions-cli.md
+        - name: PowerShell
+          href: image-builder-permissions-powershell.md
       - name: DevOps task
         href: image-builder-devops-task.md
       - name: ARM template reference
