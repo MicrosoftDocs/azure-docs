@@ -43,7 +43,7 @@ To use Microsoft Enterprise SSO plug-in for Apple devices:
 - Device must be MDM-enrolled (for example, with Microsoft Intune).
 - Configuration must be pushed to the device to enable the Microsoft Enterprise SSO plug-in for Apple devices on the device. This security constraint is required by Apple.
 
-## Enable the SSO extension with mobile device management (MDM)
+## Enable the SSO plug-in with mobile device management (MDM)
 
 To enable the Microsoft Enterprise SSO plug-in for Apple devices, your devices need to be sent a signal through an MDM service. Since Microsoft includes the Enterprise SSO plug-in in the [Microsoft Authenticator app](..//user-help/user-help-auth-app-overview.md), use your MDM to configure the app to enable the Microsoft Enterprise SSO plug-in.
 
@@ -68,12 +68,13 @@ Additional configuration options can be added to extend SSO functionality to add
 
 #### Enable SSO for apps that don't use MSAL
 
-Specify a comma-delimited list of apps that don't use MSAL and should be allowed to participate in the SSO. 
+The SSO plug-in allows any application to participate in single sign on even if it was not developed using a Microsoft SDK like MSAL. The SSO plug-in is installed automatically by devices that have downloaded the Authenticator app and registered their device with your organization. Your organization likely uses the Authenticator app today for scenarios like multi-factor authentication, password-less authentication, and conditional access. It can be turned on for your applications using using any MDM provider, although Microsoft has made it easy to configure inside the Microsoft Endpoint Manager of Intune. An allow list is used to configure these applications to use the SSO plugin installed by the Authenticator app.
+
 Only apps that use native Apple network technologies or webviews are supported. If application ships its own network layer implementation, Microsoft Enterprise SSO plug-in is not supported.  
 
 - **Key**: `AppAllowList`
 - **Type**: `String`
-- **Value**: Comma-separated list of application bundle IDs for the applications that are allowed to participate in the SSO
+- **Value**: Comma-delimited list of application bundle IDs for the applications that are allowed to participate in the SSO
 - **Example**: `com.contoso.workapp, com.contoso.travelapp`
 
 [Consented apps](./application-consent-experience.md) that are allowed to participate in the SSO by the MDM admin can silently get a token for the end user. Therefore, it is important to only add trusted applications to the allow list. 
