@@ -42,14 +42,6 @@
       href: tutorial-assess-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
-    - name: Assess imported servers
-      href: tutorial-assess-import.md
-  - name: Assess and migrate VMware VMs
-    items:
-    - name: Prepare VMware for assessment and migration
-      href: tutorial-prepare-vmware.md
-    - name: Assess VMware VMs for migration
-      href: tutorial-assess-vmware.md
   - name: Migrate
     items:
     - name: Migrate VMware VMs
@@ -66,19 +58,6 @@
       href: tutorial-migrate-physical-virtual-machines.md
     - name: Migrate AWS instances
       href: tutorial-migrate-aws-virtual-machines.md
-  - name: Assess and migrate Hyper-V VMs
-    items:
-    - name: Prepare Hyper-V for assessment and migration
-      href: tutorial-prepare-hyper-v.md
-    - name: Assess Hyper-V VMs for migration
-      href: tutorial-assess-hyper-v.md
-    
-  - name: Assess and migrate physical servers
-    items:
-    - name: Prepare physical servers for assessment and migration
-      href: tutorial-prepare-physical.md
-    - name: Assess physical servers
-      href: tutorial-assess-physical.md
 - name: Concepts
   items:
   - name: Build migration plan with Azure Migrate
