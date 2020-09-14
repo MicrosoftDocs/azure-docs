@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # How to mount an NFS file share
@@ -25,8 +26,8 @@ ms.subservice: files
 
 - [Create an NFS share](storage-files-how-to-create-nfs-shares.md).
 
-> [!IMPORTANT]
-> Since encryption-in-transit is not currently available with NFS shares, we recommend disabling your storage account's public endpoint and configuring private endpoints, to ensure your data is secure and only accessible via your network.
+    > [!IMPORTANT]
+    > Since encryption-in-transit is not currently available with NFS shares, we recommend disabling your storage account's public endpoint and configuring private endpoints, to ensure your data is secure and only accessible via your network.
 
 - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 

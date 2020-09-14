@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # How to create an NFS share
@@ -25,8 +26,8 @@ Azure file shares are fully managed file shares that live in the cloud. They can
 
 - Create a [FileStorage account](storage-how-to-create-premium-fileshare.md).
 
-> [!IMPORTANT]
-> Since encryption-in-transit is not currently available with NFS shares, we recommend disabling your storage account's public endpoint and configuring private endpoints, or other networking solutions, to ensure your data is secure and only accessible via your network.
+    > [!IMPORTANT]
+    > Since encryption-in-transit is not currently available with NFS shares, we recommend disabling your storage account's public endpoint and configuring private endpoints, or other networking solutions, to ensure your data is secure and only accessible via your network.
 
 - Use one of the following networking solutions:
     - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
