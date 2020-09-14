@@ -47,9 +47,7 @@ To complete this article, you need:
         (Get-AzADUser -UserPrincipalName $upn).Id
         Write-Host "Press [ENTER] to continue..."
         ```
-
-        ---
-
+    ---
     2. Write down the object ID. You need it in the next section of this quickstart.
 
 ## Create a vault and a secret
@@ -110,7 +108,7 @@ $keyVaultName = Read-Host -Prompt "Enter your key vault name"
 Get-AzKeyVaultSecret -vaultName $keyVaultName
 Write-Host "Press [ENTER] to continue..."
 ```
-
+---
 The output looks similar to:
 
 # [CLI](#tab/CLI)
@@ -120,7 +118,7 @@ The output looks similar to:
 # [PowerShell](#tab/PowerShell)
 
 ![Resource Manager template, Key Vault integration, deploy portal validation PowerShell output](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
-
+---
 ## Clean up resources
 
 Other Key Vault quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
@@ -142,7 +140,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
-
+---
 ## Next steps
 
 In this quickstart, you created a key vault and a secret using an Azure Resource Manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
