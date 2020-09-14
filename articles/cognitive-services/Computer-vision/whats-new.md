@@ -19,7 +19,10 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 ## September 2020
 
 ### Read API v3.1 Public Preview adds OCR for Japanese
-Computer Vision's Read API v3.1 public preview adds support for Japanese language.
+Computer Vision's Read API v3.1 public preview adds these capabilities:
+* OCR for Japanese language
+* For each text line, indicate whether the appearance is Handwriting or Print style, along with a confidence score (English only)
+* For a multi-page document extract text only for selected pages or page range
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Japanese, Portuguese, Simplified Chinese, and Spanish languages.
 
