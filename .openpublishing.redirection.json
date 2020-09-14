@@ -52889,6 +52889,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/home.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-graph-api-quickstart.md",
       "redirect_url": "/azure/active-directory/develop/microsoft-graph-intro",
       "redirect_document_id": false
