@@ -217,6 +217,7 @@ In this quickstart, you deployed a SQL Edge Module on an IoT Edge device.
 
 ## Next Steps
 
-- [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
-- [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).
+- [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md)
+- [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md)
 - [Data Streaming in Azure SQL Edge](stream-data.md)
+- [Troubleshoot deployment errors](troubleshooting.md)

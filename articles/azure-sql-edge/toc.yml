@@ -35,20 +35,6 @@
       href: tutorial-set-up-iot-edge-modules.md
     - name: Deploy model to SQL Edge 
       href: tutorial-run-ml-model-on-sql-edge.md
-- name: How to
-  items:
-  - name: Configure replication
-    href: configure-replication.md
-  - name: Track data changes
-    href: track-data-changes.md
-  - name: Manage T-SQL streaming jobs
-    href: create-stream-analytics-job.md
-  - name: Connect to SQL Edge
-    href: connect.md
-  - name: Configure SQL Edge
-    href: configure.md
-  - name: Deploy DAC package
-    href: deploy-dacpac.md
 - name: Concepts
   items:
   - name: Machine learning and AI with ONNX
@@ -107,6 +93,22 @@
       href: https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json
     - name: Azure security center for IoT
       href: https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json
+- name: How to
+  items:
+  - name: Configure SQL Edge
+    href: configure.md
+  - name: Connect to SQL Edge
+    href: connect.md
+  - name: Configure replication
+    href: configure-replication.md
+  - name: Deploy DAC package
+    href: deploy-dacpac.md
+  - name: Track data changes
+    href: track-data-changes.md
+  - name: Manage T-SQL streaming jobs
+    href: create-stream-analytics-job.md
+  - name: Troubleshoot deployment issues
+    href: troubleshooting.md
 - name: resources
   items:
   - name: Transact-SQL (T-SQL) Reference

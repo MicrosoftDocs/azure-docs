@@ -23,7 +23,7 @@ Performs cleanup of obsolete records from tables that have data retention polici
 sys.sp_cleanup_data_retention   
     { [@schema_name = ] 'schema_name',  
     { [@table_name = ] 'table_name'},   
-    [ [@rowcount =] rowcount OUTPUT]    
+    [ [@rowcount =] rowcount OUTPUT]}    
 
 ```
 

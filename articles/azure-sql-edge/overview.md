@@ -15,17 +15,17 @@ ms.date: 05/19/2020
 
 Azure SQL Edge is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
 
-Azure SQL Edge is built on the latest versions of the Microsoft SQL Database Engine(/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Edge is built on the same engine as [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) and [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same time makes application portability between IoT Edge devices, data centers and the cloud straight forward.
+Azure SQL Edge is built on the latest versions of the Microsoft SQL Database Engine(/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since Azure SQL Edge is built on the same engine as [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) and [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and makes application portability between IoT Edge devices, data centers and the cloud straight forward.
 
 ## Deployment Models
 
-Azure SQL Edge supported two deployment mechanism
+Azure SQL Edge supports two deployment modes.
 
 - Connected deployment through Azure IoT Edge: Azure SQL Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
 
 ![SQL Edge overview diagram](media/overview/overview.png)
 
-- Disconnected deployment: Azure SQL Edge container images can be pulled from docker hub and deployed either as a standalone docker container or on a kubernetes cluster. For more information refer [Deploy Azure SQL Edge with Docker](disconnected-deployment.md) and [Deploy an Azure SQL Edge container in Kubernetes](deploy-kubernetes.md).
+- Disconnected deployment: Azure SQL Edge container images can be pulled from docker hub and deployed either as a standalone docker container or on a kubernetes cluster. For more information, see [Deploy Azure SQL Edge with Docker](disconnected-deployment.md) and [Deploy an Azure SQL Edge container in Kubernetes](deploy-kubernetes.md).
 
 ## Editions of SQL Edge
 
@@ -34,7 +34,7 @@ SQL Edge is available with two different editions or software plans. These editi
    |**Plan**  |**Description**  |
    |---------|---------|
    |Azure SQL Edge Developer  |  Development only sku, each SQL Edge container is limited to upto 4 cores and 32 GB Memory  |
-   |Azure SQL Edge    |  Production sku,  each SQL Edge container is limited to upto 8 cores and 64 GB Memory . |
+   |Azure SQL Edge    |  Production sku,  each SQL Edge container is limited to upto 8 cores and 64 GB Memory. |
 
 ## Pricing and Availability
 
