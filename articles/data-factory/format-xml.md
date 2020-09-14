@@ -7,7 +7,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.author: jingwang
 ---
 
@@ -82,8 +82,8 @@ Supported **XML read settings** under `formatSettings`:
 | validationMode | Specifies whether to validate the XML schema.<br>Allowed values are **none** (default, no validation), **xsd** (validate using XSD), **dtd** (validate using DTD). | No |
 | namespacePrefixes | Namespace URI to prefix mapping, which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
-| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **TarGzip** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings`*) | Applies when input dataset is configured with **TarGzip** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
 
 ## Mapping data flow properties
 
