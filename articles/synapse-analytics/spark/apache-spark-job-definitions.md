@@ -88,13 +88,11 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
  
      ![prepare scala structure](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Click **Develop** hub, click on '+' icon and select **Spark job definition** to create a new Spark job definition. Or click '…' Action node next to the Spark job definitions, then select **New Spark job definition** in the context menu.
-
-     ![create new definition for scala](./media/apache-spark-job-definitions/create-new-definition.png)
+ 4. Click **Develop** hub, click on '+' icon and select **Spark job definition** to create a new Spark job definition. Or click '…' Action node next to the Spark job definitions, then select **New Spark job definition** in the context menu. (The sample image is the same as step 4 of **Create an Apache Spark job definition (Python) for PySpark**.)
 
  5. Select **Spark(Scala)** from the Language drop down list in the Apache Spark job definition main window.
 
-     ![create new definition for scala](./media/apache-spark-job-definitions/select-scala.png)
+     ![select scala](./media/apache-spark-job-definitions/select-scala.png)
 
  6. Fill in information for Apache Spark job definition. You can copy the sample information.
 
@@ -128,9 +126,7 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
  
      ![prepare dotnet structure](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Click **Develop** hub, Select **Spark job definitions** from the left pane, click '…' Action node next to the **Spark job definition**, then select **New Spark job definition** in the context menu.
-
-     ![create new definition for dotnet](./media/apache-spark-job-definitions/create-new-definition.png)
+ 4. Click **Develop** hub, Select **Spark job definitions** from the left pane, click '…' Action node next to the **Spark job definition**, then select **New Spark job definition** in the context menu. (The sample image is the same as step 4 of **Create an Apache Spark job definition (Python) for PySpark**.)
 
  5. Select **.NET Spark(C#/F#)** from the Language drop down list in the Apache Spark Job Definition main window.
 
@@ -194,9 +190,9 @@ In this section, you add an Apache Spark job definition into pipeline.
 
  2. Click the icon on the top right of Apache Spark job definition, choose **Existing Pipeline**, or **New pipeline**. You can refer to Pipeline page for more information.
 
-     ![add to pipeline](./media/apache-spark-job-definitions/add-to-pipeline01.png)
+     ![add to pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
-     ![add to pipeline](./media/apache-spark-job-definitions/add-to-pipeline02.png)
+     ![add to pipeline2](./media/apache-spark-job-definitions/add-to-pipeline02.png)
 
 ## Next steps
 
