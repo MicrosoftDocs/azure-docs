@@ -98,7 +98,7 @@ In classic mode, an ExpressRoute circuit does not have the concept of being tied
 
 ### To enable ExpressRoute circuit access for both deployment models
 
-After moving your classic ExpressRoute circuit to the Resource Manager deployment model, you can enable access to both deployment models. Run the following cmdlets to enable access to both deployment models:
+After moving your classic ExpressRoute circuit to the Resource Manager deployment model, it will have access to both the classic and Resource Manager deployment models by default. You can also enable access to the classic deployment model for ExpressRoute circuits that were created in the Resource Manager deployment model. Run the following cmdlets to enable access to both deployment models:
 
 1. Get the circuit details.
 
