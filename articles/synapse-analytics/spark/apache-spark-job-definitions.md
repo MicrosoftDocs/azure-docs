@@ -172,7 +172,7 @@ After creating an Apache Spark job definition, you can submit it to an Apache Sp
 
      ![View Spark application](./media/apache-spark-job-definitions/view-spark-application.png)
 
- 2. Then click the Apache Spark application, **LogQuery** window displays. You can view the job execution progress from **LogQuery**.
+ 2. Then click an Apache Spark application, the **SparkJobDefinition** job window displays. You can view the job execution progress from here.
      
      ![View spark application LogQuery](./media/apache-spark-job-definitions/view-job-log-query.png)
 
