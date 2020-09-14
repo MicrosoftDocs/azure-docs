@@ -55,9 +55,9 @@ After your order is received, it can take several seconds to get confirmed. You 
 
 ## Contact support
 
-One can [submit a support ticket](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) through the Microsoft 365 Admin Center.
+One can [submit a support ticket](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) through the Microsoft 365 admin center.
 
-For business products, [contact help here](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
+For business products, [contact help here](/office365/admin/contact-support-for-business-products?tabs=phone).
 
 ## Next steps
 
