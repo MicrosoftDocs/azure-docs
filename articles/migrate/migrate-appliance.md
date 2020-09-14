@@ -97,7 +97,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Sign in to your Azure subscription.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Sign in to your Azure subscription.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
 management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
 *.services.visualstudio.com | Upload app logs used for internal monitoring.
