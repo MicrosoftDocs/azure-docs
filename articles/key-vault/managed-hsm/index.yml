@@ -33,6 +33,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Managed HSM Basic concepts
+            url: basic-concepts.md
           - text: Managed HSM access control
             url: access-control.md
           - text: Security domain
@@ -45,6 +47,20 @@ landingContent:
         links:
           - text: Azure CLI
             url: quick-create-cli.md
+          - text: Azure Resource Manager
+            url: quick-create-template.md
+
+  # Card
+  - title: How-to Guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage with the Azure CLI
+            url: key-management.md
+          - text: Managed HSM role management
+            url: role-management.md
+          - text: Secure access to your Managed HSM
+            url: secure-your-mhsm.md
 
   # Card
   - title: Tutorials
@@ -67,7 +83,7 @@ landingContent:
         links:
           - text: Key Vault overview
             url: ../general/overview.md
-          - text: Basic concepts
+          - text: Key vault Basic concepts
             url: ../general/basic-concepts.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md

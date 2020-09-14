@@ -100,7 +100,7 @@ conceptualContent:
           text: Best practices
         - url: ./managed-hsm/quick-create-cli.md
           itemType: quickstart
-          text: Provision and activate a managed HSM pool
+          text: Provision and activate a managed HSM
       footerLink:
           text: See more
           url: ./managed-hsm/index.yml

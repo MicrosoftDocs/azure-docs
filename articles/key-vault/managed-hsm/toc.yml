@@ -22,7 +22,7 @@
     href: role-management.md
   - name: Secure access to your Managed HSM
     href: secure-your-mhsm.md
-  - name: Set up logging for managed HSM pool
+  - name: Set up logging for managed HSM
     href: logging.md
   - name: Disaster recovery
     href: disaster-recovery-guide.md
