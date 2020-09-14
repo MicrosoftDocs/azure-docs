@@ -10,15 +10,12 @@ ms.custom: devx-track-java
 ---
 
 # How to use permissions in Azure Spring Cloud
-You can create custom roles to delegate permissions to Azure Spring Cloud resources. Custom roles augment [built-in roles that Azure provides](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) with various stock permissions.
+The examples in this document explain how to create roles with specific permissions for Azure Spring Cloud.  These are custom roles that delegate permissions to Azure Spring Cloud resources. Custom roles extend [built-in roles Azure roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) with various stock permissions.
 
-There are three methods of define a custom permission:
-* [Clone a role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
-* [Start from scratch](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [Start from JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
-
-
-These examples will assume you want to create a role with specific permissions for Azure Spring Cloud.
+We implement the following roles:
+* Deploy, test, and restart apps
+* DevOps
+* Developer
 
 ## Navigate subscription and resource group Access control (IAM)
 
@@ -68,21 +65,65 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
 ## Define DevOps role
 
-1. Repeat the previous procedures to step #6 to create a role.
+1. Repeat the previous procedures to create a role.
 
    ![Create DevOps role](media/spring-cloud-permissions/create-dev-opps-role.png)
 1. Open the **Permissions** options.
-1. Select: *Microsoft.AppPlatform/Spring*
+1. Select:
+1.  
+   From: *Microsoft.AppPlatform/Spring*
  
     *Write : Create or Update Azure Spring Cloud service instance*
 
+    *Read : Get Azure Spring Cloud service instance*
+
     *Other : Get Microsoft Azure Spring Cloud application resource upload URL*
 
-   [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-2.png#lightbox)
-1. Click **Add**.
-1. Click **Review and create**.
-   ![Assignable scopes](media/spring-cloud-permissions/dev-ops-role-assignable-scopes.png)
+    From: *Microsoft.AppPlatform/Spring/apps*
 
+    *Write : Write Microsoft Azure Spring Cloud application*
+
+    *Delete : Delete Microsoft Azure Spring Cloud application*
+
+    *Read : Read Microsoft Azure Spring Cloud application*
+
+    *Other : Get Microsoft Azure Spring Cloud application resource upload URL
+
+    From *Microsoft.AppPlatform/Spring/apps/deployments*
+
+    *Write : Write Microsoft Azure Spring Cloud application deployment*
+
+    *Delete : Delete Microsoft Azure Spring Cloud application deployment*
+
+    *Read : Read Microsoft Azure Spring Cloud application deployment*
+
+    *Other : Start Microsoft Azure Spring Cloud application deployment*
+
+    *Other : Stop Microsoft Azure Spring Cloud application deployment*
+
+    From: *Microsoft.AppPlatform/Spring/apps/deployments/skus*
+
+    *Read: List application deployment available skus*
+
+1. Click **Add**.    
+
+   [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-box.png#lightbox)
+1. Click **Add**.
+1. Review the permissions.
+   ![Review permissions](media/spring-cloud-permissions/dev-ops-review-permissions.png)
+
+1. Click **Review and create**.
+   ![Assignable scopes](media/spring-cloud-permissions/dev-ops-assignable-scopes.png)
+
+## Define Developer role
+
+1. Repeat the previous procedures to create a new role.
+1. Select: 
+
+For more information about three methods that define a custom permissions see:
+* [Clone a role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
+* [Start from scratch](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
+* [Start from JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
 
 ## See also
 [Create or update Azure custom roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
