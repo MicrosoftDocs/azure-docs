@@ -3,13 +3,11 @@ title: 'Quickstart: Provision and activate a managed HSM pool'
 description: Quickstart showing how to provision and activate a managed HSM pool using Azure CLI
 services: key-vault
 author: amitbapat
-manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/15/2020
 ms.author: ambapat
 #Customer intent:As a security admin who is new to Azure, I want to provision and activate a managed HSM
@@ -51,7 +49,7 @@ Creating a managed HSM is a two step process:
 
 ### Provision a managed HSM
 
-Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an hsm name, and the geographic location.
+Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
 You need to provide following inputs to create a Managed HSM resource:
 - name for the HSM
@@ -70,7 +68,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
 * **name**: In the example, the name is ContosoMHSM. You'll use this name for other Key Vault commands.
-* **hsmUri**: In the example, the URI is https://contosohsm.managedhsm.azure.net. Applications that use your hsm through its REST API must use this URI.
+* **hsmUri**: In the example, the URI is https://contosohsm.managedhsm.azure.net. Applications that use your HSM through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
 

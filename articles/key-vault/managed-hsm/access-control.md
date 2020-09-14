@@ -3,7 +3,6 @@ title: Managed HSM access control
 description: Manage access permissions for Managed HSM and keys. Covers the authentication and authorization model for Managed HSM, and how to secure your HSM pools.
 services: key-vault
 author: amitbapat
-manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -13,9 +12,11 @@ ms.date: 09/15/2020
 ms.author: ambapat
 # Customer intent: As an HSM pool administrator, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM pool.
 ---
+
 # Managed HSM access control
 
-> [!NOTE] Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **managed HSMs**. To learn more about access control for managed HSM, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md).
+> [!NOTE]
+> Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **managed HSMs**. To learn more about access control for managed HSM, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md).
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
 
@@ -27,17 +28,16 @@ To access a Managed HSM pool in either plane, all callers must have proper authe
 
 Both planes use Azure Active Directory for authentication. For authorization they use different systems as follows
 - The management plane uses Azure role-based access control -- Azure RBAC -- an authorization system built on Azure Azure Resource Manager 
-- The data plane uses a HSM pool level RBAC (Managed HSM local RBAC) -- an authorization system implemented and enforced at the HSM pool level. 
+- The data plane uses a HSM pool level RBAC (Managed HSM local RBAC) -- an authorization system implemented and enforced at the HSM pool level.
 
 When an HSM pool resource is created, the requestor also provides a list of data plane administrators (all [security principals](../../role-based-access-control/overview.md#security-principal) are supported). Only these administrators are able to access the HSM pool  data plane to perform key operations and manage data plane role assignments (Managed HSM local RBAC).
 
 Permission model for both planes uses the same syntax (RBAC), but they are enforced at different levels and role assignments use different scopes. Management plane RBAC is enforced by ARM while data plane RBAC is enforced by HSM pool itself.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Granting a security principal management plane access to an HSM pool resource does not grant them any access to data plane to access keys or data plane role assignments Managed HSM local RBAC). This isolation is by design to prevent inadvertent expansion of privileges affecting access to keys stored in Managed HSM.
 
 For example, a subscription administrator (since they have "Contributor" permission to all resources in the subscription) can delete an HSM pool in their subscription, but if they don't have data plane access specifically granted through Managed HSM local RBAC, they cannot gain access to keys or manage role assignment in the HSM pool to grant themselves or others access to data plane.
-
 
 ## Azure Active Directory authentication
 
@@ -82,15 +82,8 @@ You grant a security principal access to execute specific key operations by assi
 - **"/" or "/keys"**: HSM level scope. Security principals assigned a role at this scope can perform the operations defined in the role for all objects (keys) in the HSM pool.
 - **"/keys/&lt;key-name&gt;"**: Key level scope. Security principals assigned a role at this scope can perform the operations defined in this role for all versions of the specified key only.
 
-
-
-
-
 ## Next steps
 
-For a getting-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
-
-For a role management tutorial, see [Managed HSM local RBAC](role-management.md)
-
-For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md).
-
+- For a getting-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
+- For a role management tutorial, see [Managed HSM local RBAC](role-management.md)
+- For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md).

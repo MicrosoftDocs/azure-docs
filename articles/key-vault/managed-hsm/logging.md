@@ -3,16 +3,16 @@ title: Managed HSM logging | Microsoft Docs
 description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 09/15/2020
 ms.author: mbaldwin
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
+
 # Managed HSM logging 
 
 After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMss are accessed, and by who. You can do this by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs.
@@ -40,25 +40,19 @@ To complete this tutorial, you must have the following:
 > [!NOTE]
 > The storage account must be in the same Azure location as the managed HSM.
 
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
----
-
 ## Sign in to Azure
-
 
 To sign in to Azure using the CLI you can type:
 
 ```azurecli-interactive
 az login
 ```
-
-
 
 ## Connect to your Azure subscription
 
@@ -68,14 +62,11 @@ The first step in setting up key logging is to point Azure CLI to the Managed HS
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 You might have to specify the subscription that you used to create your Managed HSM. Enter the following command to see the subscriptions for your account:
 
-
-
 ## Identify the managed HSM and storage account
-
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -83,13 +74,10 @@ You might have to specify the subscription that you used to create your Managed 
 hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
 storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
 ```
----
 
 ## Enable logging
 
 To enable logging for Managed HSM, use the **az monitor diagnostic-settings create** command, together with the variables that we created for the new storage account and the Managed HSM. We'll also set the **-Enabled** flag to **$true** and set the category to **AuditEvent** (the only category for Managed HSM logging):
-
-
 
 This output confirms that logging is now enabled for your Managed HSM, and it will save information to your storage account.
 
@@ -105,7 +93,7 @@ What's logged:
 
 * All authenticated REST API requests, including failed requests as a result of access permissions, system errors, or bad requests.
 * Operations on the Managed HSM itself, including creation, deletion, and updating attributes such as tags.
-* Security Domian related operations such as initialize & download, initialize recovery, upload
+* Security Domain related operations such as initialize & download, initialize recovery, upload
 * Full HSM backup, restore and selective restore operations
 * Operations on keys, including:
   * Creating, modifying, or deleting the keys.
@@ -116,8 +104,6 @@ What's logged:
 ## Access your logs
 
 Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs. For information on Azure Storage, see [Create, download, and list blobs with Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
-
-TODO (msmbaldwin) : please add link to Azure Storage tutorial for accessing storage blobs
 
 Individual blobs are stored as text, formatted as a JSON. Let's look at an example log entry. The example below shows the log entry when a request to create a full backup is sent to the managed HSM.
 

@@ -1,9 +1,8 @@
 ---
 title: Managed HSM local RBAC built-in roles - Azure Key Vault | Microsoft Docs
-description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
+description: An overview of Managed HSM built-in roles that can be assigned to users, service principals, groups, and managed identities
 services: key-vault
 author: amitbapat
-manager: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
@@ -14,10 +13,7 @@ ms.author: ambapat
 ---
 # Managed HSM local RBAC built-in roles
 
-Managed HSM local RBAC has several built-in roles that you can assign to users, service principals, groups, and managed identitites. To allow a principal to perform an operation you must assign them a role that grants them permission to perform that operations. All these roles and operations only allow you to manage permission for data plane operations. To manage control plane permissions for the Managed HSM resource (such as create a new managed HSM or update, move, delete an existing one), you must use [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
-
-
-
+Managed HSM local RBAC has several built-in roles that you can assign to users, service principals, groups, and managed identities. To allow a principal to perform an operation you must assign them a role that grants them permission to perform that operations. All these roles and operations only allow you to manage permission for data plane operations. To manage control plane permissions for the Managed HSM resource (such as create a new managed HSM or update, move, delete an existing one), you must use [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
 ## Built-in roles
 
@@ -31,14 +27,10 @@ Managed HSM local RBAC has several built-in roles that you can assign to users, 
 |Managed HSM Crypto Service Encryption| Grants permission to use a key for service encryption. |33413926-3206-4cdd-b39a-83574fe37a17|
 |Managed HSM Backup| Grants permission to perform single key or whole HSM backup. |7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
 
- 
 > [!NOTE]  
 > - An 'X' indicates that a role is allowed to perform the data action. Empty cell indicates the role does not have pemission to perform that data action.
 > - All the data action names have a 'Microsoft.KeyVault/managedHsm' prefix, which is omitted in the tables below for brevity.
 > - All role names have a prefix "Managed HSM" which is ommitted in the below table for brevity.
-
-
-
 
 |Data Action | Administrator | Crypto Officer | Crypto User | Policy Administrator | Crypto Service Encryption | Backup | Crypto Auditor|
 |---|---|---|---|---|---|---|---|
@@ -78,13 +70,7 @@ Managed HSM local RBAC has several built-in roles that you can assign to users, 
 |/restore/status/action|<center>X</center>||||||
 ||||||||
 
-
-
-
 ## Next steps
 
 - See an overview of [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
-
 - See a tutorial on [Managed HSM role management](role-management.md)
-
-

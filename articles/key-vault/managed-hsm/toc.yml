@@ -19,7 +19,7 @@
   - name: Set up logging for managed HSM pool
     href: logging.md
   - name: Disaster recovery
-    href: disaster-recovery.md
+    href: disaster-recovery-guide.md
   - name: Import HSM-protected keys to Managed HSM
     href: hsm-protected-keys-byok.md
   - name: Backup and restore
@@ -37,8 +37,6 @@
 
 - name: Reference
   items:
-  - name: Service limits
-    href: service-limits.md
   - name: Azure PowerShell
     href: /powershell/module/distaster-recoveryeyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI

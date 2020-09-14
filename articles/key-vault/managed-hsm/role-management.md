@@ -3,7 +3,6 @@ title: Managed HSM dataplane role management - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
 author: amitbapat
-manager: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm

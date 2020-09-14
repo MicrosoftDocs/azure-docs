@@ -6,7 +6,6 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 author: amitbapat
 ms.author: ambapat
-manager: msmbaldwin
 ms.date: 09/15/2020
 ---
 # About Managed HSM Security Domain
@@ -35,7 +34,7 @@ Backups (either full backup or a single key backup) can only be successfully res
 ## Next Steps
 
 - Read an [Overview of Managed HSM](overview.md)
-- Learn about [Managing managed HSM with Azure CLI](manage-with-cli.md)
+- Learn about [Managing managed HSM with Azure CLI](quick-create-cli.md)
 - Review [Managed HSM best practices](best-practices.md)
 
 

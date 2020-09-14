@@ -3,14 +3,13 @@ title: Azure Quickstart - Create an Azure key vault and a secret by using Azure 
 description: Quickstart showing how to create Azure key vaults, and add secrets to the vaults by using Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
-manager: dougeby
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/17/2019
+ms.date: 09/15/2020
 ms.author: mbaldwin
 
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.

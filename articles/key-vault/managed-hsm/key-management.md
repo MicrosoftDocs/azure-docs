@@ -3,7 +3,6 @@ title: Manage a Managed HSM using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
 author: amitbapat
-manager: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
@@ -270,12 +269,6 @@ To import a key from your on-premise HSM to managed HSM, see [Import HSM-protect
 ## Next steps
 
 - For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault).
-
 - For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md)
-<<<<<<< HEAD
-=======
-
 - Learn more about [Managed HSM role management](role-management.md)
-
 - Learn more about [Managed HSM best practices](best-practices.md)
->>>>>>> a4e994a17d5a34a89d154d812de00eb9c7237826

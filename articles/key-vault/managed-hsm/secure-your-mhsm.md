@@ -1,9 +1,8 @@
 ---
 title: Secure access to a Managed HSM - Azure Key Vault Managed HSM| Microsoft Docs
-description: Manage access permissions for Managed HSM and keys. Covers the authentication and authorization model for Managed HSM, and how to secure your HSM pools.
+description: Learn how to secure access to Managed HSM using Azure RBAC and local Managed HSM RBAC
 services: key-vault
 author: amitbapat
-manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault

@@ -1,64 +1,48 @@
-
+---
 title: What to do in the event of an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
 description: Learn what to do in the event of an Azure service disruption that affects Managed HSM.
 services: key-vault
 author: amitbapat
-manager: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 09/15/2020
 ms.author: ambapat
-
+---
 
 # Managed HSM disaster recovery
 
 You may wish to create an exact replica of your HSM if the original is lost or unavailable due to any of the below reasons:
 
-- It was deleted and then purged
-- A catastrophic failure in the region resulted in all member partitions being destroyed
+- It was deleted and then purged.
+- A catastrophic failure in the region resulted in all member partitions being destroyed.
 
 You can re-create the HSM instance in same or different region if you have following:
-- The [Security Domain](security-domain.md) of the source HSM
-- The private keys (at least quorum number) that encrypt the security domain
-- The most recent full HSM [backup](backup-restore.md) from the source HSM
+- The [Security Domain](security-domain.md) of the source HSM.
+- The private keys (at least quorum number) that encrypt the security domain.
+- The most recent full HSM [backup](backup-restore.md) from the source HSM.
 
 Here are the steps of the disaster recovery procedure:
+
 1. Create a new HSM Instance.
-1. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response which will be downloaded a SecurityDomainExchangeKey (public key). 
-1. Create and then upload the "Security Domain Transfer File". You will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process. 
-1. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. This allows easy roll-back. 
+1. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response which will be downloaded a SecurityDomainExchangeKey (public key).
+1. Create and then upload the "Security Domain Transfer File". You will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
+1. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. This allows easy roll-back.
 1. Restore the recent HSM backup from the source HSM
 
 The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 
-<<<<<<< HEAD
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-
-To sign in to Azure using the CLI you can type:
-
-```azurecli-interactive
-az login
-```
-
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
-
-
-### Create a new HSM
-=======
 ## Create a new HSM
->>>>>>> a4e994a17d5a34a89d154d812de00eb9c7237826
 
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
 You need to provide following inputs to create a Managed HSM resource:
-- The name for the HSM
-- The resource group where it will be placed in your subscription
-- The Azure location
-- A list of initial administrators
+
+- The name for the HSM.
+- The resource group where it will be placed in your subscription.
+- The Azure location.
+- A list of initial administrators.
 
 The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
 
@@ -70,7 +54,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 ```
 
 > [!NOTE]
-> Create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
+> The create command can take a few minutes. Once it returns successfully, you are ready to activate your HSM.
 
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 

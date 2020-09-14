@@ -3,7 +3,6 @@ title: Best Practices using Azure Key Vault Managed HSM
 description: This document explains some of the best practices to use Key Vault
 services: key-vault
 author: amitbapat
-manager: msmbaldwin
 tags: azure-key-vault
 
 ms.service: key-vault
@@ -40,4 +39,4 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 ## Next Steps
 - See [Full backup/restore and selective restore](backup-restore.md) for information.
-- See [Manage managed HSM with Azure CLI](manage-with-cli.md)
+- See [Manage managed HSM with Azure CLI](quick-create-cli.md)
