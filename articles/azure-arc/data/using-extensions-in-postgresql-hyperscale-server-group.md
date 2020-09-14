@@ -99,7 +99,7 @@ Connect to your server group with the client tool of your choice and run the sta
 drop extension <extension name>;
 ```
 
-## Scenario: use the PostGIS and the Pg_cron extensions
+## Use the PostGIS and the Pg_cron extensions
 
 ### The PostGIS extension
 
