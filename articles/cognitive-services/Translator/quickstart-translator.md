@@ -2435,7 +2435,7 @@ After a successful call, you should see the following response. For more informa
 
 ## Next steps
 
-* [How the API counts characters](character-counts.md)
+* [Learn how the API counts characters](character-counts.md)
 * [Customize and improve translation](customization.md)
 
 ## See also
