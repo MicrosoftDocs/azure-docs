@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Deploy a Managed Service Fabric cluster by using an Azure Resource Manager template (Preview)'
-description: In this quickstart, you will learn how to create a Managed Service Fabric cluster using an ARM template.
+description: In this quickstart, you will learn how to create a Managed Service Fabric cluster using an Azure Resource Manager template.
 ms.topic: quickstart
 ms.date: 09/01/2020
-ms.custom: references_regions
+ms.custom: "armqs, references_regions"
 ---
 
 # Quickstart: Deploy a Managed Service Fabric cluster using an Azure Resource Manager template
@@ -54,7 +54,7 @@ For this quickstart, provide your own values for the following template paramete
 * **Cluster Name**: Enter a unique name for your cluster, such as *mySFCluster*.
 * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
 * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [steps]() to create a self-signed certificate. 
+* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate. 
 * **Node Type Name**: Enter a unique name for your node type, such as *myNodeType*.
 * **I agree to the terms and conditions stated above**: Check this box to agree. 
 
@@ -80,7 +80,11 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-## Next steps 
+## Next steps
 
-In this quickstart, you deployed a managed Service Fabric cluster. 
+In this quickstart, you deployed a managed Service Fabric cluster.
+
+> [!div class="nextstepaction"]
+> [Learn how to add and remove node types](./tutorial-managed-cluster-add-remove-node-type.md)
+ 
 <!-- LINKS - internal -->

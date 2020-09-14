@@ -30,7 +30,7 @@ Follow the steps below to use the module before the official release is availabl
 * [Documentation and Examples](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#documentation-and-examples). 
 
 ## Scale a Managed Service Fabric cluster (using preview modules)
-Change the instance count to increase or decrease the number of nodes on the node type that you would like to scale. You can find node type names in the ARM template from your cluster deployment, or in the Service Fabric Explorer. 
+Change the instance count to increase or decrease the number of nodes on the node type that you would like to scale. You can find node type names in the Azure Resource Manager template (ARM template) from your cluster deployment, or in the Service Fabric Explorer.  
 
 > [!Note]
 > If the node type is primary you will not be able to go below 3 nodes for a Basic SKU cluster, and 5 nodes for a Standard SKU cluster. 
