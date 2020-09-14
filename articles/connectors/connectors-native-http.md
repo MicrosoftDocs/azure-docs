@@ -162,6 +162,7 @@ Here is the same example that shows the HTTP action's JSON definition in the und
    "type": "Http"
 }
 ```
+
 ## Content with application/x-www-form-urlencoded type
 
 To provide form-urlencoded data in the body for an HTTP request, you have to specify that the data has the `application/x-www-form-urlencoded` content type. In the HTTP trigger or action, add the `content-type` header. Set the header value to `application/x-www-form-urlencoded`.
