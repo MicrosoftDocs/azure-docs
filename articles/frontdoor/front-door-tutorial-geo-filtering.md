@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Configure geo-filtering WAF policy - Azure Front Door
-description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Front Door frontend host
+description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Front Door frontend host.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -86,7 +86,7 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 
 ## Clean up resources
 
-In the preceding steps you configured a geo-filtering rule that is associated to a WAF policy. You then linked the policy to a frontend host of your Front Door. If you no longer need the geo-filtering rule or WAF policy, you must first disassociate the policy from the frontend host before the WAF policy can be deleted.
+In the preceding steps, you configured a geo-filtering rule that is associated to a WAF policy. You then linked the policy to a frontend host of your Front Door. If you no longer need the geo-filtering rule or WAF policy, you must first disassociate the policy from the frontend host before the WAF policy can be deleted.
 
 :::image type="content" source="media/front-door-geo-filtering/front-door-disassociate-policy.png" alt-text="Disassociate WAF policy":::
 
