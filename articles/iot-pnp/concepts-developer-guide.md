@@ -427,4 +427,4 @@ Now that you've learned about device modeling, here are some additional resource
 - [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
 - [Model components](./concepts-components.md)
-- [Install and use the DTDL extension for Visual Studio Code](howto-use-vs-code-dtdl.md)
+- [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md)

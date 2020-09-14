@@ -1,23 +1,22 @@
 ---
-title: What's new? IoT Plug and Play Preview Refresh | Microsoft Docs
-description: Learn what's new with the IoT Plug and Play Preview Refresh release.
+title: What's new? IoT Plug and Play | Microsoft Docs
+description: Learn what's new with the IoT Plug and Play.
 author: rido-min
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 09/14/2020
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: eliotgra
 ---
 
-# IoT Plug and Play preview refresh
+# What's new? IoT Plug and Play
 
-This article describes the key changes in the SDKS, libraries, tools, and services in IoT Plug and Play preview refresh release in July 2020. The previous IoT Plug and Play preview release was in August 2019.
+This article describes the key changes in the SDKS, libraries, tools, and services in IoT Plug and Play general availability release in September 2020. The previous IoT Plug and Play preview release was in July 2020.
 
 ## Digital Twins Definition Language (DTDL)
 
-This release adds support for [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl) and deprecates [DTDL v1](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL/v1-preview).
+IoT Plug and Play supports [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl) and deprecates [DTDL v1](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL/v1-preview).
 
 The following list shows the key differences between DTDL v1 and DTDL v2. In DTDL v2:
 
@@ -76,8 +75,6 @@ Devices that don't use components require minimal code changes - just announcing
 To learn more about the available SDKs, see [Microsoft SDKs for IoT Plug and Play](libraries-sdks.md).
 
 ## VS Code extension
-
-The [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension provides authoring support for DTDL v1, integration with the previous version of the model repository, and code generation.
 
 For DTDL v2 authoring support in VS Code, install the [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) in VS Code.
 
