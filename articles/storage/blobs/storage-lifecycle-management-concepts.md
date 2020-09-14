@@ -253,7 +253,7 @@ Each rule definition includes a filter set and an action set. The [filter set](#
 The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.
 
 >[!NOTE]
->- Lifecycle management only supports block blob type.<br>
+>- Lifecycle management supports block blob and append blob types.<br>
 >- Lifecycle management does not affect system containers like $logs and $web.
 
 - Tier blob to cool tier 30 days after last modification
