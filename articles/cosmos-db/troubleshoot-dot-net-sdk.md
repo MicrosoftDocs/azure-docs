@@ -96,10 +96,10 @@ This latency can have multiple causes:
 
 ### Common query issues
 
-The [query metrics](sql-api-query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it is being spent on the back-end vs the client. Learn more about [troubleshooting query performance](troubleshoot-query-performance.md)
+The [query metrics](sql-api-query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it is being spent on the back-end vs the client. Learn more about [troubleshooting query performance](troubleshoot-query-performance.md).
 
 * If the back-end query returns quickly, and spends a large time on the client check the load on the machine. It's likely that there are not enough resource and the SDK is waiting for resources to be available to handle the response.
-* If the back-end query is slow try [optimizing the query](troubleshoot-query-performance.md) and looking at the current [indexing policy](index-overview.md)
+* If the back-end query is slow, try [optimizing the query](troubleshoot-query-performance.md) and looking at the current [indexing policy](index-overview.md)
 
     > [!NOTE]
     > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
