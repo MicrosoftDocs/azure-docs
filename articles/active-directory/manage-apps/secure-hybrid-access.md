@@ -25,7 +25,7 @@ You can now protect your on-premises and cloud legacy authentication application
 
 You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like Azure AD [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) and Azure AD [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection).
 
-## Secure hybrid access through Azure AD Application Proxy
+## Secure hybrid access (SHA) through Azure AD Application Proxy
   
 Using [Application Proxy](https://aka.ms/whyappproxy) you can provide [secure remote access](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) to your on-premises web applications. Your users don’t require to use a VPN. Users benefit by easily connecting to their applications from any device after a [single sign-on](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-sso). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy deployment](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) as a next step.
 
