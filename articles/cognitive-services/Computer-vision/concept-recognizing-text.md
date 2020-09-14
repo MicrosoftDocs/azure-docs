@@ -71,16 +71,6 @@ When the **status** field has the **succeeded** value, the JSON response contain
 
 ## Sample JSON output
 
-### Read 3.1 preview adds text line style (Latin languages only)
-The [Read 3.1 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) outputs an **appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for Latin languages.
-
-```json
-  "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.836
-            }
-```
-
 See the following example of a successful JSON response:
 
 ```json
@@ -133,6 +123,15 @@ See the following example of a successful JSON response:
     ]
   }
 }
+```
+### Read 3.1 preview adds text line style (Latin languages only)
+The [Read 3.1 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) outputs an **appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for Latin languages.
+
+```json
+  "appearance": {
+              "style": "handwriting",
+              "styleConfidence": 0.836
+            }
 ```
 Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/client-library.md) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
 
