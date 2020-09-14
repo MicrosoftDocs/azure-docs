@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Data residency and customer data for Azure Multi-Factor Authentication
 
-Customer data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Office 365 and Azure. For information on where your customer data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Customer data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your customer data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
 Cloud-based Azure Multi-Factor Authentication and Azure Multi-Factor Authentication Server process and store some amount of personal data and organizational data. This article outlines what and where data is stored.
 
