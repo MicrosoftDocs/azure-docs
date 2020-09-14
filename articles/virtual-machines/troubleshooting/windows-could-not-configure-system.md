@@ -28,7 +28,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 `Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services`
 
-  ![Figure 1 displays an Install Windows error with the message: “Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services”](./media/windows-could-not-configure-system/1-windows-error-configure-system.png)
+  ![Figure 1 displays an Install Windows error with the message: “Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services”](./media/windows-could-not-configure-system/1-windows-error-configure.png)
 
 ## Cause
 
