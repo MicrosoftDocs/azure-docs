@@ -105,7 +105,7 @@ HDInsight Jupyter notebook PySpark kernel doesn't support installing Python pack
 1. Run below sample script actions to copy `.zip`, `.egg` or `.py` files from primary storage wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/* to cluster local file system /usr/libs/pylibs. The step is needed as linux uses : to separate search path list, but HDInsight only support storage paths with scheme like wasb://. The remote storage path won't work correctly when you use `sys.path.insert`.
 
     ```bash
-    sudo mkdir -p /usr/libs/sparklibs
+    sudo mkdir -p /usr/libs/pylibs
     sudo hadoop fs -copyToLocal wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*.* /usr/libs/pylibs
     ```
 
@@ -113,7 +113,7 @@ HDInsight Jupyter notebook PySpark kernel doesn't support installing Python pack
 
    ```python
    import sys
-   sys.path.insert(0, "/usr/libs/sparklibs/pypackage.zip")
+   sys.path.insert(0, "/usr/libs/pylibs/pypackage.zip")
    ```
 
 3. Run `import` to check if your packages have been included succeessfully.  
