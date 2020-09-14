@@ -14,7 +14,7 @@ As a Java developer, if you're new to Azure Functions, please consider first rea
 
 | Getting started | Concepts| 
 | -- | -- |  
-| <ul><li>[Java function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Java/Maven function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> |
+| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> |
 
 ## Java function basics
 
@@ -50,7 +50,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-To get started using this archetype, see the [Java quickstart](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java). 
+To get started using this archetype, see the [Java quickstart](./create-first-function-cli-java.md).
 
 ## Folder structure
 
