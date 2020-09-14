@@ -240,25 +240,25 @@ Select **Metrics** under **Monitoring**. Then select **Add metric** and **Number
 
 ## Best practices
 
-### Consider the latency of scale up and scale down operations.
+### Consider the latency of scale up and scale down operations
 
 It can take 10 to 20 minutes for a scaling operation to complete. When setting up a customized schedule, plan for this delay. For example, if you need the cluster size to be 20 at 9:00 AM, set the schedule trigger to an earlier time such as 8:30 AM so that the scaling operation has completed by 9:00 AM.
 
-### Prepare for scaling down.
+### Prepare for scaling down
 
 During the cluster scaling down process, Autoscale decommissions the nodes to meet the target size. If tasks are running on those nodes, Autoscale waits until the tasks are completed. Since each worker node also serves a role in HDFS, the temporary data is shifted to the remaining nodes. Make sure there's enough space on the remaining nodes to host all temporary data.
 
 The running jobs will continue. The pending jobs will wait for scheduling with fewer available worker nodes.
 
-### Be aware of the minimum cluster size.
+### Be aware of the minimum cluster size
 
 Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. For more information, see [getting stuck in safe mode](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
-### Increase the number of mappers and reducers.
+### Increase the number of mappers and reducers
 
 Autoscale for Hadoop clusters also monitors HDFS usage. If the HDFS is busy, it assumes the cluster still needs the current resources. When there is massive data involved in the query, you can increase the number of mappers and reducers to increase the parallelism and accelerate the HDFS operations. In this way, proper scaling down will be triggered when there are extra resources. 
 
-### Set the Hive configuration Maximum Total Concurrent Queries for the peak usage scenario.
+### Set the Hive configuration Maximum Total Concurrent Queries for the peak usage scenario
 
 Autoscale events don't change the Hive configuration *Maximum Total Concurrent Queries* in Ambari. This means that the Hive Server 2 Interactive Service can handle only the given number of concurrent queries at any point of time even if the LLAP daemons count are scaled up and down based on load and schedule. The general recommendation is to set this configuration for the peak usage scenario to avoid manual intervention.
 
