@@ -83,7 +83,7 @@ where:
 As always, carefully review the permissions an application requests before granting consent.
 
 > [!WARNING]
-> Granting tenant-wide admin consent through this URL will revoke any permissions which had previously been granted tenant-wide. Permissions which have previously been ggranted by users on their own behalf will not be affected. 
+> Granting tenant-wide admin consent through this URL will revoke any permissions which had previously been granted tenant-wide. Permissions which have previously been granted by users on their own behalf will not be affected. 
 
 ## Next steps
 
