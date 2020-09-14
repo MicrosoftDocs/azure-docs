@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/10/2020
 ms.author: amverma
 ---
 
