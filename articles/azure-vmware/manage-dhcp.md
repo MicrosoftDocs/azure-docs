@@ -50,7 +50,7 @@ Once you've created your DHCP Server, you'll need to add network segments to it.
 
 ## Create DHCP relay service
 
-1. In the NXT-T window, select the **Networking** tab, and under **IP Management**, select **DHCP**. Select **ADD SERVER**. Choose DHCP Relay for the **Server Type** and enter the server name and IP address for the relay server. Select **Save** to save your changes.
+1. In the NSX-T window, select the **Networking** tab, and under **IP Management**, select **DHCP**. Select **ADD SERVER**. Choose DHCP Relay for the **Server Type** and enter the server name and IP address for the relay server. Select **Save** to save your changes.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="create dhcp relay server" border="true":::
 
