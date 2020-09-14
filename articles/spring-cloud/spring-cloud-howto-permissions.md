@@ -47,13 +47,13 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
 1. Select the permissions:
 
-    Under **Microsoft.AppPlatform/Spring**, select:
+From *Microsoft.AppPlatform/Spring*, select:
 
     *Read : Get Azure Spring Cloud service instance*
 
     *Other : List Azure Spring Cloud service instance test keys*
 
-    Under **Microsoft.AppPlatform/Spring/apps/deployments**, select: 
+From *Microsoft.AppPlatform/Spring/apps/deployments*, select: 
 
     Other : *Start Microsoft Azure Spring Cloud application deployment*
 
@@ -69,9 +69,10 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
    ![Create DevOps role](media/spring-cloud-permissions/create-dev-opps-role.png)
 1. Open the **Permissions** options.
-1. Select:
-1.  
-   From: *Microsoft.AppPlatform/Spring*
+
+Select the permissions:
+  
+From: *Microsoft.AppPlatform/Spring*
  
     *Write : Create or Update Azure Spring Cloud service instance*
 
@@ -79,7 +80,7 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
     *Other : Get Microsoft Azure Spring Cloud application resource upload URL*
 
-    From: *Microsoft.AppPlatform/Spring/apps*
+From: *Microsoft.AppPlatform/Spring/apps*
 
     *Write : Write Microsoft Azure Spring Cloud application*
 
@@ -89,7 +90,7 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
     *Other : Get Microsoft Azure Spring Cloud application resource upload URL
 
-    From *Microsoft.AppPlatform/Spring/apps/deployments*
+From *Microsoft.AppPlatform/Spring/apps/deployments*
 
     *Write : Write Microsoft Azure Spring Cloud application deployment*
 
@@ -101,7 +102,7 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
     *Other : Stop Microsoft Azure Spring Cloud application deployment*
 
-    From: *Microsoft.AppPlatform/Spring/apps/deployments/skus*
+From: *Microsoft.AppPlatform/Spring/apps/deployments/skus*
 
     *Read: List application deployment available skus*
 
@@ -113,12 +114,32 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
    ![Review permissions](media/spring-cloud-permissions/dev-ops-review-permissions.png)
 
 1. Click **Review and create**.
-   ![Assignable scopes](media/spring-cloud-permissions/dev-ops-assignable-scopes.png)
 
 ## Define Developer role
 
 1. Repeat the previous procedures to create a new role.
-1. Select: 
+1. Select the permissions:
+
+From: *Microsoft.AppPlatform/Spring*
+
+    *Read : Get Azure Spring Cloud service instance*
+
+From: *Microsoft.AppPlatform/Spring/apps*
+
+    *Read : Read Microsoft Azure Spring Cloud application*
+
+From: *Microsoft.AppPlatform/Spring/apps/deployments*
+
+    *Read : Read Microsoft Azure Spring Cloud application deployment*
+
+    *Other : Start Microsoft Azure Spring Cloud application deployment*
+
+    *Other : Stop Microsoft Azure Spring Cloud application deployment*
+
+    *Other : Restart Microsoft Azure Spring Cloud application deployment*
+
+1. Click **Add**.
+  [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
 For more information about three methods that define a custom permissions see:
 * [Clone a role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
