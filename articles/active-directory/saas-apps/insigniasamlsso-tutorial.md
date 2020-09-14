@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Insignia SAML SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Insignia SAML SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 828c981c-c3dd-4eb2-8699-0f732baa43f6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Insignia SAML SSO
 
@@ -113,7 +107,7 @@ To configure Azure AD single sign-on with Insignia SAML SSO, perform the followi
     `https://<customername>.insigniailsusa.com/<uniqueid>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Insignia SAML SSO Client support team](https://www.insigniasoftware.com/insignia/Techsupport.aspx) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Insignia SAML SSO Client support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -131,7 +125,7 @@ To configure Azure AD single sign-on with Insignia SAML SSO, perform the followi
 
 ### Configure Insignia SAML SSO Single Sign-On
 
-To configure single sign-on on **Insignia SAML SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Insignia SAML SSO support team](https://www.insigniasoftware.com/insignia/Techsupport.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Insignia SAML SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Insignia SAML SSO support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -186,7 +180,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Insignia SAML SSO test user
 
-In this section, you create a user called Britta Simon in Insignia SAML SSO. Work with [Insignia SAML SSO support team](https://www.insigniasoftware.com/insignia/Techsupport.aspx) to add the users in the Insignia SAML SSO platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Insignia SAML SSO. Work with [Insignia SAML SSO support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx) to add the users in the Insignia SAML SSO platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 

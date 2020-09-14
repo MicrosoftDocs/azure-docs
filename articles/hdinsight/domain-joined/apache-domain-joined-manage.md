@@ -42,7 +42,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
 Enterprise Security Package (previously known as HDInsight Premium) provides multi-user access to the cluster, where authentication is done by Active Directory and authorization by Apache Ranger and Storage ACLs (ADLS ACLs). Authorization provides secure boundaries among multiple users and allows only privileged users to have access to the data based on the authorization policies.
 
-Security and user isolation are important for a HDInsight cluster with Enterprise Security Package. To meet these requirements, SSH access to the cluster with Enterprise Security Package is blocked. The following table shows the recommended access methods for each cluster type:
+Security and user isolation are important for a HDInsight cluster with Enterprise Security Package. To meet these requirements, SSH access to the cluster with Enterprise Security Package is supported for the local user selected at the cluster creation time as well as users available in AAD-DS (i.e. Kerberos). The following table shows the recommended access methods for each cluster type:
 
 |Workload|Scenario|Access Method|
 |--------|--------|-------------|

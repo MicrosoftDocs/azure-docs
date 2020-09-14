@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use PowerShell to assign an Azure role for access to blob and queue data

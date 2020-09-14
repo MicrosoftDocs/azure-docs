@@ -127,6 +127,11 @@ After access to the key is restored, taking database back online requires additi
 
 - If key access is restored after more than 8 hours, auto-heal is not possible and bringing the database back requires additional steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 8 hours.
 
+Below is a view of the additional steps required on the portal to bring an inaccessible database back online.
+
+![TDE BYOK Inaccessible Database](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
+
 ### Accidental TDE protector access revocation
 
 It may happen that someone with sufficient access rights to the key vault accidentally disables server access to the key by:

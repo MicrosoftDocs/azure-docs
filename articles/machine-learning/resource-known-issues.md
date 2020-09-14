@@ -116,6 +116,18 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
+* **Azure Machine Learning SDK installation failing with an exception: ModuleNotFoundError: No module named 'ruamel' or 'ImportError: No module named ruamel.yaml'**
+   
+   This issue is getting encountered with the installation of Azure Machine Learning SDK for Python on the latest pip (>20.1.1) in the conda base environment for all released versions of Azure Machine Learning SDK for Python. Refer to the following workarounds:
+
+    * Avoid installing Python SDK on the conda base environment, rather create your conda environment and install SDK on that newly created user environment. The latest pip should work on that new conda environment.
+
+    * For creating images in docker, where you cannot switch away from conda base environment, please pin pip<=20.1.1 in the docker file.
+
+    ```Python
+    conda install -c r -y conda python=3.6.2 pip=20.1.1
+    ```
+    
 * **Databricks failure when installing packages**
 
     Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning SDK. You might experience this issue with other libraries, too. Example:
@@ -156,7 +168,9 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 > [!WARNING]
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
-* **Azure portal**: If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal **Overview** page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
+* **Azure portal**: 
+  * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
+  * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
 
 * **Supported browsers in Azure Machine Learning studio web portal**: We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
   * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
@@ -167,6 +181,8 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 ## Set up your environment
 
 * **Trouble creating AmlCompute**: There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+* **Azure Container Registry doesn't currently support unicode characters in Resource Group names**: It is possible that ACR requests fail because its resource group name contains unicode characters. To mitigate this issue, we recommend creating an ACR in a differently-named resource group.
 
 ## Work with data
 
@@ -220,7 +236,7 @@ Limitations and known issues for data drift monitors:
     1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
     1. If run completed successfully, check driver logs to see how many metrics has been generated or if there's any warning messages.  Find driver logs in the **Output + logs** tab after you click on an experiment.
 
-* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) such as the following to create the compute that you pass into that `backfill()` function: 
+* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) such as the following to create the compute that you pass into that `backfill()` function: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -275,7 +291,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     Azure ML also provides framework-specific estimators for TensorFlow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the core framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
  
     Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
-    Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+    Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
 
     > [!Note]
     > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
@@ -284,7 +300,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod has been shut down**: In most cases if you encounter "AbortedError: Horovod has been shut down" this exception means there was an underlying exception in one of the processes that caused Horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easier to differentiate the logs. To find the exact error that caused Horovod to shut down, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
 
-* **Run or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) 
+* **Run or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) 
 method, or from the Experiment tab view in Azure Machine Learning studio client via the "Archive experiment" button. This action hides the experiment from list queries and views, but does not delete it.
 
     Permanent deletion of individual experiments or runs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
@@ -300,6 +316,28 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Automated machine learning
 
+* **Recent upgrade of AutoML dependencies to newer versions will be breaking compatibilitity**:  As of version 1.13.0 of the SDK, models won't be loaded in older SDKs due to incompatibility between the older versions we pinned in our previous packages, and the newer versions we pin now. You will see error such as:
+  * Module not found: Ex.`No module named 'sklearn.decomposition._truncated_svd`,
+  * Import errors: Ex.`ImportError: cannot import name 'RollingOriginValidator'`,
+  * Attribute errors: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  To work around this issue, take either of the following two steps depending on your AutoML SDK training version:
+  1. If your AutoML SDK training version is greater than 1.13.0, you need `pandas == 0.25.1` and `sckit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
+  
+  ```bash
+     pip install --upgrade pandas==0.25.1
+     pip install --upgrade scikit-learn==0.22.1
+  ```
+  
+  2. If your AutoML SDK training version is less than or equal to 1.12.0, you need `pandas == 0.23.4` and `sckit-learn==0.20.3`. If there is a version mismatch, downgrade scikit-learn and/or pandas to correct version as shown below:
+  
+  ```bash
+    pip install --upgrade pandas==0.23.4
+    pip install --upgrade scikit-learn==0.20.3
+  ```
+ 
+* **Forecasting R2 score is always zero**: This issue arises if the training data provided has time series that contains the same value for the last `n_cv_splits` + `forecasting_horizon` data points. If this pattern is expected in your time series, you can switch your primary metric to normalized mean root squared error.
+ 
 * **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
  
    ```python

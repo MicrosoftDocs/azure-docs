@@ -16,7 +16,7 @@ ms.date: 06/23/2020
 
 Azure Cognitive Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
-This tutorial uses Postman and the [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
+This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Configure an Azure Cognitive Search data source for an Azure blob container
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-+ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Azure Storage](../storage/common/storage-account-create.md)
 + [Postman desktop app](https://www.getpostman.com/)
 + [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -69,7 +69,7 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Click **Blobs** service.
 
-1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. You can set the Public Access Level to any of its valid values.
+1. [Create a Blob container](../storage/blobs/storage-quickstart-blobs-portal.md) to contain sample data. You can set the Public Access Level to any of its valid values.
 
 1. After the container is created, open it and select **Upload** on the command bar.
 
@@ -113,7 +113,7 @@ URIs must specify an api-version and each call should return a **201 Created**. 
 
 ## 3 - Create a data source
 
-The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) creates an Azure Cognitive Search object that specifies what data to index.
+The [Create Data Source API](/rest/api/searchservice/create-data-source) creates an Azure Cognitive Search object that specifies what data to index.
 
 1. Set the endpoint of this call to `https://[service name].search.windows.net/datasources?api-version=2020-06-30`. Replace `[service name]` with the name of your search service. 
 
@@ -156,7 +156,7 @@ The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/c
 
 ## 4 - Create an index
     
-The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index), creating an Azure Cognitive Search index that stores all searchable data. An index specifies all the parameters and their attributes.
+The second call is [Create Index API](/rest/api/searchservice/create-index), creating an Azure Cognitive Search index that stores all searchable data. An index specifies all the parameters and their attributes.
 
 1. Set the endpoint of this call to `https://[service name].search.windows.net/indexes?api-version=2020-06-30`. Replace `[service name]` with the name of your search service.
 
@@ -231,7 +231,7 @@ The second call is [Create Index API](https://docs.microsoft.com/rest/api/search
 
 ## 5 - Create and run an indexer
 
-An indexer connects to the data source, imports data into the target search index, and optionally provides a schedule to automate the data refresh. The REST API is [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+An indexer connects to the data source, imports data into the target search index, and optionally provides a schedule to automate the data refresh. The REST API is [Create Indexer](/rest/api/searchservice/create-indexer).
 
 1. Set the URI for this call to `https://[service name].search.windows.net/indexers?api-version=2020-06-30`. Replace `[service name]` with the name of your search service.
 

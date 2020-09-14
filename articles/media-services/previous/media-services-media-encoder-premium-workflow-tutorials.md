@@ -19,6 +19,9 @@ ms.reviewer: xpouyat; juliako
 
 ---
 # Advanced Media Encoder Premium Workflow tutorials
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 This document contains walkthroughs that show how to customize workflows with  **Workflow Designer**. You can find the actual workflow
  files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  

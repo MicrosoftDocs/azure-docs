@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # :::no-loc text="Single-sided"::: rendering
@@ -50,15 +51,20 @@ void ChangeSingleSidedRendering(AzureSession session)
 ```cpp
 void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 {
-    ApiHandle<SingleSidedSettings> settings = *session->Actions()->SingleSidedSettings();
+    ApiHandle<SingleSidedSettings> settings = session->Actions()->GetSingleSidedSettings();
 
     // Single-sided geometry is rendered as is
-    settings->Mode(SingleSidedMode::Normal);
+    settings->SetMode(SingleSidedMode::Normal);
 
     // Single-sided geometry is always rendered double-sided
-    settings->Mode(SingleSidedMode::AlwaysDoubleSided);
+    settings->SetMode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
+
+## API documentation
+
+* [C# RemoteManager.SingleSidedSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
+* [C++ RemoteManager::SingleSidedSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
 
 ## Next steps
 

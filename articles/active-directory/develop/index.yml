@@ -84,7 +84,7 @@ landingContent:
           - text: ASP.NET
             url: quickstart-v2-dotnet-native-aspnet.md
           - text: ASP.NET Core
-            url: /samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+            url: /samples/azure-samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/calling-a-web-api-in-an-aspnet-core-web-application-using-azure-ad/
   - title: Microsoft Graph
     linkLists:
       - linkListType: get-started
@@ -122,6 +122,14 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: "Quickstart: Register an app (rewrite)"
+            url: quickstart-register-app.md
+          - text: "Quickstart: Expose a web API (rewrite)"
+            url: quickstart-configure-app-expose-web-apis.md
+          - text: "Quickstart: Access a web API (rewrite)"
+            url: quickstart-configure-app-access-web-apis.md
+          - text: Migrate Xamarin Android brokered app to MSAL.NET
+            url: msal-net-migration-android-broker.md
           - text: Handle errors & exceptions - Android
             url: msal-android-handling-exceptions.md
           - text: Directory schema extension attributes in claims

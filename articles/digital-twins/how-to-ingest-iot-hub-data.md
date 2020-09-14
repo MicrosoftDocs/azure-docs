@@ -25,10 +25,10 @@ This how-to document walks through the process for writing an Azure function tha
 
 ## Prerequisites
 
-Before continuing with this example, you'll need to complete the following prerequisites.
-* **An IoT hub**. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
-* **An Azure Function** with the correct permissions to call your digital twin instance. See [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) for instructions. 
-* **A Digital Twins instance** that will receive your device telemetry. See [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md) 
+Before continuing with this example, you'll need to set up the following resources as prerequisites:
+* **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
+* **An Azure Function** with the correct permissions to call your digital twin instance. For instructions, see [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md). 
+* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
 
 ### Example telemetry scenario
 
@@ -64,14 +64,20 @@ The model looks like this:
 ```
 
 To **upload this model to your twins instance**, open the Azure CLI and run the following command:
+
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 You'll then need to **create one twin using this model**. Use the following command to create a twin and set 0.0 as an initial temperature value.
+
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 Output of a successful twin create command should look like this:
 ```json
@@ -213,6 +219,8 @@ In the end-to-end tutorial, complete the following steps:
 ## Validate your results
 
 While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value.
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ```azurecli-interactive
 az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}

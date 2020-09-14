@@ -17,6 +17,7 @@ ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 10/02/2019
+ms.custom: devx-track-csharp
 ---
 
 # Send cross-platform notifications with Azure Notification Hubs

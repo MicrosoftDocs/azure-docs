@@ -105,7 +105,7 @@ public class TodoListController : ApiController
 {
     public IEnumerable<TodoItem> Get()
     {
-        ValidateAppRole("access_as_application");
+        HttpContext.ValidateAppRole("access_as_application");
         ...
     }
 ```

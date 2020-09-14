@@ -49,6 +49,7 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 > * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Immersive Reader](./immersive-reader/index.yml)
 
 ## Service Tags
 
@@ -67,6 +68,7 @@ Cognitive Services supports service tags for network rules configuration. The se
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Translator](./translator/index.yml)
 > * [Speech Service](./speech-service/index.yml)
+> * [Immersive Reader](./immersive-reader/index.yml)
 
 ## Change the default network access rule
 

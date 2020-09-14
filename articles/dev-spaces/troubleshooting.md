@@ -50,8 +50,6 @@ If you don't have the Azure Dev Spaces CLI installed, you can first install it u
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-Recreating the controller can be done from the CLI or Visual Studio. See the [Team development](quickstart-team-development.md) or [Develop with .NET Core](quickstart-netcore-visualstudio.md) quickstarts for examples.
-
 ### Controller create failing because of controller name length
 
 An Azure Dev Spaces controller's name can't be longer than 31 characters. If your controller's name exceeds 31 characters when you enable Dev Spaces on an AKS cluster or create a controller, you'll receive an error. For example:

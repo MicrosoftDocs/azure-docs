@@ -44,11 +44,6 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Support matrices
@@ -146,7 +141,11 @@
     - name: Overview
       href: backup-azure-sql-database.md
     - name: Backup
-      href: backup-sql-server-database-azure-vms.md
+      items:
+      - name: Back up multiple SQL Server VMs from the vault
+        href: backup-sql-server-database-azure-vms.md
+      - name: Backup a SQL Server VM from the VM pane
+        href: backup-sql-server-vm-from-vm-pane.md
     - name: Restore
       href: restore-sql-database-azure-vm.md
     - name: Manage
@@ -424,6 +423,9 @@
     href: /rest/api/recoveryservices/
   - name: Resource Manager template
     href: /azure/templates/microsoft.recoveryservices/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Compliance 

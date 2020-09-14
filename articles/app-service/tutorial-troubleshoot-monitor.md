@@ -13,9 +13,9 @@ ms.date: 06/20/2020
 > Azure Monitor integration with App Service is in [preview](https://aka.ms/appsvcblog-azmon).
 >
 
-This tutorial shows how to troubleshoot an [App Service](overview.md) app using [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure Monitor. When you're finished, you'll have a sample app running on App Service on Linux integrated with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+This tutorial shows how to troubleshoot an [App Service](overview.md) app using [Azure Monitor](../azure-monitor/overview.md). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure Monitor. When you're finished, you'll have a sample app running on App Service on Linux integrated with [Azure Monitor](../azure-monitor/overview.md).
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+[Azure Monitor](../azure-monitor/overview.md) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 In this tutorial, you learn how to:
 
@@ -33,7 +33,7 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 To complete this tutorial, you'll need:
 
 - [Azure subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## Create Azure resources
@@ -68,12 +68,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### Create a diagnostic setting
 
-Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using log queries. For this tutorial, you enable the web server and standard output/error logs. See [supported log types](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) for a complete list of log types and descriptions.
+Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using log queries. For this tutorial, you enable the web server and standard output/error logs. See [supported log types](./troubleshoot-diagnostic-logs.md#supported-log-types) for a complete list of log types and descriptions.
 
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
 > [!NOTE]
-> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) for more information on this command.
+> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
 >
 
 ```bash
@@ -124,7 +124,7 @@ In the Azure portal, select your Log Analytics workspace.
 
 ### Log queries
 
-Log queries help you to fully leverage the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) for more information on log queries.
+Log queries help you to fully leverage the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](../azure-monitor/log-query/log-query-overview.md) for more information on log queries.
 
 ### View AppServiceHTTPLogs with log query
 

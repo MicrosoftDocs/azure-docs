@@ -19,13 +19,13 @@ In this article, you'll prepare your environment to create an Azure Red Hat Open
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 application backup
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Before you begin
 
 ### Install Velero
 
-To [install](https://velero.io/docs/master/basic-install/) Velero on your system, follow the recommended process for your operating system.
+To [install](https://velero.io/docs/main/basic-install/) Velero on your system, follow the recommended process for your operating system.
 
 ### Set up Azure storage account and Blob container
 

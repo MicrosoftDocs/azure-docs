@@ -22,7 +22,7 @@ ms.author: genli
 If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect the disk to another Windows VM to fix any errors, then repair your original VM. 
 
 > [!Important]
-> The scripts in this article only apply to the VMs that use [Managed Disk](../windows/managed-disks-overview.md). 
+> The scripts in this article only apply to the VMs that use [Managed Disk](../managed-disks-overview.md). 
 
  
 

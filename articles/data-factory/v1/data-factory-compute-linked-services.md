@@ -27,7 +27,7 @@ The following table provides a list of compute environments that are supported b
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure Activity](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure Activity](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>HDInsight versions supported in Data Factory
 Azure HDInsight supports multiple Hadoop cluster versions that you can deploy at any time. Each supported version creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components in the distribution. 
@@ -227,7 +227,7 @@ This type of configuration is supported for the following compute environments:
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL Database, Azure SQL Data Warehouse, SQL Server
+* Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server
 
 ## Azure HDInsight linked service
 You can create an HDInsight linked service to register your own HDInsight cluster with Data Factory.
@@ -457,8 +457,8 @@ Add a reference to Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.
 ## Azure SQL linked service
 You can create a SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#linked-service-properties).
 
-## Azure SQL Data Warehouse linked service
-You can create a SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
+## Azure Synapse Analytics linked service
+You can create an Azure Synapse Analytics linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
 
 ## SQL Server linked service
 You can create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties).

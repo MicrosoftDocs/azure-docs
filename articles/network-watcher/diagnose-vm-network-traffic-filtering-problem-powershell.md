@@ -17,7 +17,7 @@ ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 ---
 

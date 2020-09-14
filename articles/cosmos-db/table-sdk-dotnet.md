@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
+ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB Table .NET API: Download and release notes

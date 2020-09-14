@@ -2,21 +2,15 @@
 title: 'Tutorial: Configure MerchLogix for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to MerchLogix.
 services: active-directory
-documentationcenter: ''
 author: zhchia
 writer: zhchia
-manager: beatrizd-msft
-
-ms.assetid: 9df4c7c5-9a58-478e-93b7-2f77aae12807
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure MerchLogix for automatic user provisioning

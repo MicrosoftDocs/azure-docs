@@ -24,7 +24,7 @@ Password-based SSO is a great way to get started integrating applications into A
 
 - Support applications that require multiple sign-in fields for applications that require more than just username and password fields to sign in
 
-- Customize the labels of the username and password fields your users see on the [Application Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they enter their credentials
+- Customize the labels of the username and password fields your users see on [My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they enter their credentials
 
 - Allow your users to provide their own usernames and passwords for any existing application accounts they're typing in manually.
 
@@ -48,6 +48,9 @@ Using Azure AD as your Identity Provider (IdP) and setting up single sign-on (SS
 
 In the [quickstart series](view-applications-portal.md), you learned how to add an app to your tenant, which lets Azure AD knows it's being used as the Identity Provider (IdP) for the app. Some apps are already pre-configured and they show up in the Azure AD gallery. Other apps are not in the gallery and you have to create a generic app and configure it manually. Depending on the app, the password-based SSO option might not be available. If you don't see the Password-based option list on the single sign-on page for the app, then it is not available.
 
+> [!IMPORTANT]
+> The My Apps browser extension is required for password-based SSO. To learn more, see [Plan a My Apps deployment](access-panel-deployment-plan.md).
+
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the app uses. This string must be the page that includes the username input field.
 
 After you enter the URL, select **Save**. Azure AD parses the HTML of the sign-in page for username and password input fields. If the attempt succeeds, you're done.
@@ -66,7 +69,7 @@ If Azure AD's parsing attempt fails, you can configure sign-on manually.
    ![Manual configuration of password-based single sign-on](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Select **Capture sign-in fields**. A capture status page opens in a new tab, showing the message **metadata capture is currently in progress**.
 
-4. If the **Access Panel Extension Required** box appears in a new tab, select **Install Now** to install the **My Apps Secure Sign-in Extension** browser extension. (The browser extension requires Microsoft Edge, Chrome, or Firefox.) Then install, launch, and enable the extension, and refresh the capture status page.
+4. If the **My Apps Extension Required** box appears in a new tab, select **Install Now** to install the **My Apps Secure Sign-in Extension** browser extension. (The browser extension requires Microsoft Edge, Chrome, or Firefox.) Then install, launch, and enable the extension, and refresh the capture status page.
 
    The browser extension then opens another tab that displays the entered URL.
 5. In the tab with the entered URL, go through the sign-in process. Fill in the username and password fields, and try to sign in. (You don't have to provide the correct password.)

@@ -4,6 +4,7 @@ description: Describes how to partition Service Fabric stateful services. Partit
 
 ms.topic: conceptual
 ms.date: 06/30/2017
+ms.custom: devx-track-csharp
 ---
 # Partition Service Fabric reliable services
 This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. The source code used in the article is also available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).

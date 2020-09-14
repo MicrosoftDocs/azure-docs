@@ -3,7 +3,6 @@ title: Collect & analyze resource logs
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 ms.topic: article
 ms.date: 07/13/2020
-ms.author: danlep
 ---
 # Container group and instance logging with Azure Monitor logs
 

@@ -48,7 +48,7 @@ Create a Gatsby app using the Gatsby Command Line Interface (CLI):
    cd static-web-app
    ```
 
-1. Initialize a git repo
+1. Initialize a Git repo
 
    ```bash
    git init

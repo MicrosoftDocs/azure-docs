@@ -11,13 +11,14 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
+ms.custom: contperfq1
 ---
 
 # What is single sign-on (SSO)?
 
 Single sign-on means a user doesn't have to sign in to every application they use. The user logs in once and that credential is used for other apps too.
 
-If you're an end user, you likely don't care much about SSO details. You just want to use the apps that make you productive without having to type your password so much. You can find your apps at: https://myapps.microsoft.com.
+If you're an end user, you likely don't care much about SSO details. You just want to use the apps that make you productive without having to type your password so much. You can find your apps at: https://myapplications.microsoft.com.
  
 If you're an administrator, or IT professional, then read on to learn more about SSO and how it's implemented in Azure.
 

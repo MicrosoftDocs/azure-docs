@@ -55,7 +55,7 @@ If you see errors while creating the new virtual switch, ensure that no other sw
 
 ### Create virtual machine
 
-1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server 18.04](http://releases.ubuntu.com/18.04.4/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](support.md).
+1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server 18.04](http://releases.ubuntu.com/18.04/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](support.md).
 
 2. In Hyper-V Manager again, select **Action** > **New** > **Virtual Machine** in the **Actions** menu.
 

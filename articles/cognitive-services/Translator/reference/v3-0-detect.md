@@ -63,7 +63,7 @@ Request headers include:
 
 ## Request body
 
-The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Language detection is applied to the value of the `Text` property. A sample request body looks like that:
+The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Language detection is applied to the value of the `Text` property. The language auto-detection works better with longer input text. A sample request body looks like that:
 
 ```json
 [
@@ -74,7 +74,6 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The text value of an array element cannot exceed 10,000 characters including spaces.
 * The entire text included in the request cannot exceed 50,000 characters including spaces.
 
 ## Response body

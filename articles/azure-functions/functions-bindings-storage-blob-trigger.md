@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Blob storage trigger for Azure Functions

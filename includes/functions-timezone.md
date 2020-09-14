@@ -4,7 +4,7 @@ The value of this setting depends on the operating system and plan on which your
 
 |Operating system |Plan |Value |
 |-|-|-|
-| **Windows** |All | Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10). |
+| **Windows** |All | Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)). |
 | **Linux** |Premium<br/>Dedicated |Set the value to the name of the desired time zone as shown in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |
 
 > [!NOTE]

@@ -125,7 +125,7 @@ These prerequisites apply when your logic apps run in a Premium-level (not Devel
 
 ### SAP client library prerequisites
 
-* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Earlier versions can result in compatibility problems. For more information, see [SAP client library versions](#sap-library-versions).
+* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions can result in compatibility problems. For more information, see [SAP client library versions](#sap-library-versions).
 
 * By default, the SAP installer puts the assembly files in the default installation folder. You need to copy these assembly files to another location, based on your scenario as follows:
 
@@ -404,7 +404,7 @@ This example uses a logic app that triggers when the app receives a message from
 
    Or, you can manually specify an action:
 
-   ![Manually enter SAP action](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Manually enter SAP action that you want to use](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Here's an example that shows how the action appears when you set up the trigger to receive more than one message.
 
