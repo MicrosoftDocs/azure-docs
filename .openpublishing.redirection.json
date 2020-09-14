@@ -181,6 +181,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/common/storage-access-blobs-queues-portal.md",
+      "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": false
@@ -651,6 +656,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-network/security-overview.md",
+      "redirect_url": "/azure/virtual-network/network-security-groups-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal",
       "redirect_document_id": false
@@ -828,6 +838,16 @@
     {
       "source_path": "articles/power-bi-workspace-collections/whats-new.md",
       "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/whats-new",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/users-groups-roles/custom-enterprise-apps.md",
+      "redirect_url": "/azure/active-directory/users-groups-roles/roles-custom-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-update-profile.md",
+      "redirect_url": "/azure/active-directory/user-help/my-account-portal-settings",
       "redirect_document_id": false
     },
     {
@@ -17438,6 +17458,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-enable-virtual-network.md",
+      "redirect_url": "/azure/machine-learning/how-to-network-security-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
@@ -33829,8 +33854,8 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
-      "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-troubleshoot",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/multi-factor-authentication/nps-extension-vpn.md",
@@ -36789,8 +36814,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-b2b-licensing.md",
-      "redirect_url": "/azure/active-directory/b2b/licensing-guidance",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/b2b/licensing-guidance.md",
+      "redirect_url": "/azure/active-directory/external-identities/external-identities-pricing",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-b2b-mfa-instructions.md",
@@ -40248,6 +40278,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-file.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-to-text-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Speech-Service/text-to-speech-basics.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": false
@@ -42860,6 +42905,16 @@
     {
       "source_path": "articles/azure-monitor/platform/template-workspace-configuration.md",
       "redirect_url": "/azure/azure-monitor/samples/resource-manager-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/log-standard-properties.md",
+      "redirect_url": "/azure/azure-monitor/platform/log-standard-columns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/logs-structure.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-platform-logs",
       "redirect_document_id": false
     },
     {
@@ -56668,11 +56723,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/b2b/licensing-guidance.md",
-      "redirect_url": "/azure/active-directory/external-identities/licensing-guidance",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/b2b/o365-external-user.md",
       "redirect_url": "/azure/active-directory/external-identities/o365-external-user",
       "redirect_document_id": true
@@ -56813,6 +56863,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
+      "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/aks/windows-node-limitations.md",
       "redirect_url": "/azure/aks/windows-faq",
       "redirect_document_id": false
@@ -56881,7 +56936,12 @@
       "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
       "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
       "redirect_document_id": false
-    }
+    },
 
+	{
+	  "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
+	  "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
+	  "redirect_document_id": false 	
+	}
   ]
 }
