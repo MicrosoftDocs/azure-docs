@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/14/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: "devx-track-csharp"
@@ -127,8 +127,7 @@ From Visual Studio, install the Azure Storage client library. From the **Tools**
 
 ```console
 Install-Package Azure.Storage.Blobs
-Install-Package Azure.Storage.Common
-Install-Package Microsoft.Identity.Web -Version 0.3.1-preview
+Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
 Next, add the following using statements to the HomeController.cs file:
@@ -136,14 +135,13 @@ Next, add the following using statements to the HomeController.cs file:
 ```csharp
 using Microsoft.Identity.Web; //MSAL library for getting the access token
 using Azure.Storage.Blobs;
-using Azure.Storage.Common;
 ```
 
 # [.NET v11 SDK](#tab/dotnet11)
 
 ```console
 Install-Package Microsoft.Azure.Storage.Blob
-Install-Package Microsoft.Identity.Web -Version 0.3.1-preview
+Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
 Next, add the following using statements to the HomeController.cs file:
@@ -163,13 +161,11 @@ Add the following code snippet to create a block blob:
 # [.NET v12 SDK](#tab/dotnet)
 
 ```csharp
-private static async Task<string> CreateBlob(string accessToken)
+private static async Task<string> CreateBlob(TokenAcquisitionTokenCredential tokenCredential)
 {
-    // Replace the URL below with the URL to your blob.
     Uri blobUri = new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt");
-    BlobClient blobClient = new BlobClient(blobUri, new TokenCredential(accessToken)); // what kind of credential do we want here???
+    BlobClient blobClient = new BlobClient(blobUri, tokenCredential);
 
-    // Create a blob on behalf of the user.
     string blobContents = "Blob created by Azure AD authenticated user.";
     byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
 
@@ -226,10 +222,8 @@ Keep in mind that you may need to present the user with an interface that enable
 [AuthorizeForScopes(Scopes = new string[] { "https://storage.azure.com/user_impersonation" })]
 public async Task<IActionResult> Blob()
 {
-    var scopes = new string[] { "https://storage.azure.com/user_impersonation" };
-    var accessToken =
-        await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
-    ViewData["Message"] = await CreateBlob(accessToken);
+    string message = await CreateBlob(new TokenAcquisitionTokenCredential(_tokenAcquisition));
+    ViewData["Message"] = message;
     return View();
 }
 ```
