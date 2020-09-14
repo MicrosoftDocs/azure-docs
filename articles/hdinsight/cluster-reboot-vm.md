@@ -19,7 +19,7 @@ Azure HDInsight clusters contain groups of virtual machines (VMs) as cluster nod
 > [!WARNING]
 > When you reboot VMs in a cluster, the node is unavailable for use and the services on the node must restart.
 
-When a node is rebooting, the cluster might become unhealthy, and jobs might slow down or fail. If you're trying to reboot the active head node, all running jobs will be killed. You won't be able to submit jobs to the cluster until the services are up and running again. For these reasons, you should reboot VMs only when necessary. Consider rebooting VMs when:
+When a node is rebooting, the cluster might become unhealthy, and jobs might slow down or fail. If you're trying to reboot the active head node, all running jobs will be stopped. You won't be able to submit jobs to the cluster until the services are up and running again. For these reasons, you should reboot VMs only when necessary. Consider rebooting VMs when:
 
 - You can't use SSH to get into the node, but it does respond to pings.
 - The worker node is down without a heartbeat in the Ambari UI.
