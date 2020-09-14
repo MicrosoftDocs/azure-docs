@@ -83,7 +83,7 @@ The **Last accessed** option is available in preview in the following regions:
 > [!IMPORTANT]
 > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
-For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-_preview_).
+For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-preview).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs in the *mylifecyclecontainer* container that begin with "log".
 
