@@ -249,9 +249,9 @@ If directly accessing the Azure Maps REST services, change the URL domain to `at
 
 ## JavaScript frameworks
 
-If developing using a JavaScript framework, one of the following open source projects may be useful:
+If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around azure maps.
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
 - [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
 - [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.

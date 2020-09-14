@@ -21,9 +21,9 @@ If migrating an existing web application, check to see if it is using an open-so
 -   Leaflet – Lightweight 2D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentation](https://leafletjs.com/)
 -   OpenLayers - A 2D map control for the web that supports projections. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentation](https://openlayers.org/)
 
-If developing using a JavaScript framework, one of the following open source projects may be useful:
+If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around azure maps.
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
 - [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
 - [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
