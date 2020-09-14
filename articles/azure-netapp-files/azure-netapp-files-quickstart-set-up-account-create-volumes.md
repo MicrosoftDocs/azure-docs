@@ -381,7 +381,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
 
-The following code snippets show how to set up VNet and create an Azure NetApp Files volume in an Azure Resource Manager template (ARM template).  Volume creation uses the [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
+The following code snippets show how to set up VNet and create an Azure NetApp Files volume in an Azure Resource Manager template (ARM template). VNet setup uses the [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks) resource. Volume creation uses the [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="149-175":::
 
