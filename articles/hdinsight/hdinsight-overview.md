@@ -126,7 +126,7 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 * [Connect Excel to Apache Hadoop with the Microsoft Hive ODBC Driver](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (requires Windows)
 
 
-## [In-Region Data Residency](https://azuredatacentermap.azurewebsites.net/) 
+## In-region data residency 
 
 Spark, Hadoop, LLAP, Storm, and MLService do not store customer data, so these services automatically satisfy in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
