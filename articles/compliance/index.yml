@@ -389,7 +389,7 @@ additionalContent:
             - text: FedRAMP High
               url: ../governance/blueprints/samples/fedramp-h/index.md
             - text: HIPAA HITRUST
-              url: ../governance/blueprints/samples/hipaa-hitrust/index.md
+              url: /azure/governance/blueprints/samples/hipaa-hitrust-9-2
             - text: IRS 1075
               url: ../governance/blueprints/samples/irs-1075/index.md
             - text: ISO 27001
