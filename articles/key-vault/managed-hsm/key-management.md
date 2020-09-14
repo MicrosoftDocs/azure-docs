@@ -233,7 +233,7 @@ az keyvault key backup --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys
 ```
 ---
 
-## Restore a single key backup
+## Restore a single key from backup
 
 Use `az keyvault key restore` to restore a single key. The source HSM where the backup was created must share the same security domain as the target HSM where the key is being restored.
 
