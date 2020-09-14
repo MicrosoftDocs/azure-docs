@@ -1,6 +1,6 @@
 ---
-title: Managed HSM dataplane role management - Azure Key Vault | Microsoft Docs
-description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
+title: Managed HSM dataplane role management - Azure Key Vault
+description: Learn how to manage roles for a Managed HSM data plane
 services: key-vault
 author: amitbapat
 
@@ -42,7 +42,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
 

@@ -98,5 +98,5 @@ az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemoba
 ```
 
 ## Next Steps
-- See [Manage a Managed HSM using the Azure CLI](quick-create-cli.md).
+- See [Manage a Managed HSM using the Azure CLI](key-management.md).
 - Learn more about [Managed HSM Security Domain](security-domain.md)

@@ -39,4 +39,4 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 ## Next Steps
 - See [Full backup/restore and selective restore](backup-restore.md) for information.
-- See [Manage managed HSM with Azure CLI](quick-create-cli.md)
+- See [Manage managed HSM with Azure CLI](key-management.md)

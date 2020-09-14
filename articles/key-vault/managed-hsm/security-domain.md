@@ -34,7 +34,7 @@ Backups (either full backup or a single key backup) can only be successfully res
 ## Next Steps
 
 - Read an [Overview of Managed HSM](overview.md)
-- Learn about [Managing managed HSM with Azure CLI](quick-create-cli.md)
+- Learn about [Managing managed HSM with Azure CLI](key-management.md)
 - Review [Managed HSM best practices](best-practices.md)
 
 

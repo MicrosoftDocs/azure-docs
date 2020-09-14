@@ -29,7 +29,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ## Create a resource group
 
@@ -115,6 +115,6 @@ az group delete --name ContosoResourceGroup
 In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Managed HSM](overview.md)
-- Learn more [About managed HSM security domain](service-limits.md)
-- Learn about [Managing managed HSM with Azure CLI](manage-with-cli.md)
+- Learn more [About managed HSM security domain](security-domain.md)
+- Learn about [Managing managed HSM with Azure CLI](key-management.md)
 - Review [Managed HSM best practices](best-practices.md)

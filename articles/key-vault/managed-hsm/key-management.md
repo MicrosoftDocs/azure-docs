@@ -1,6 +1,6 @@
 ---
 title: Manage a Managed HSM using CLI - Azure Key Vault | Microsoft Docs
-description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
+description: Use this article to automate common tasks in Key Vault Managed HSM by using the Azure CLI 
 services: key-vault
 author: amitbapat
 
@@ -12,10 +12,10 @@ ms.author: ambapat
 
 ---
 
-# Manage a Managed HSM using the Azure CLI 
+# Manage a Managed HSM using the Azure CLI
 
 > [!NOTE]
-> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI ](../general/manage-with-cli2.md).
+> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI](../general/manage-with-cli2.md).
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 
@@ -39,7 +39,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
@@ -150,7 +150,6 @@ az keyvault key delete --hsm-name ContosoHSM --name myrsakey
 # Note the key name (myaeskey) in the URI
 
 az keyvault key delete --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey
-
 ```
 
 ## List deleted keys
@@ -164,13 +163,11 @@ az keyvault key list-deleted --hsm-name ContosoHSM
 # use full URI
 
 az keyvault key list-deleted --id https://ContosoMHSM.managedhsm.azure.net/
-
 ```
 
 ## Recover (undelete) a deleted key
 
 Use `az keyvault key list-deleted` command to list all the keys in deleted state in your managed HSM. If you need to recover (undelete) a key using the --id parameter while recovering a deleted key, you must note the `recoveryId` value of the deleted key obtained from the `az keyvault key list-deleted` command.
-
 
 ```azurecli-interactive
 az keyvault key recover --hsm-name ContosoHSM --name myrsakey
@@ -179,15 +176,14 @@ az keyvault key recover --hsm-name ContosoHSM --name myrsakey
 # Note the key name (myaeskey) in the URI
 
 az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
-
 ```
 
 ## Purge (permanently delete) a key
 
 Use `az keyvault key purge` command to purge (permanently delete) a key.
 
-> [!NOTE] If the managed HSM has purge protection enabled, purge operation will not be permitted. The key will be automatically purged when the retention period has passed.
-
+> [!NOTE]
+> If the managed HSM has purge protection enabled, purge operation will not be permitted. The key will be automatically purged when the retention period has passed.
 
 ```azurecli-interactive
 az keyvault key purge --hsm-name ContosoHSM --name myrsakey
@@ -244,7 +240,7 @@ az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKey
 
 ```
 
-To import a key from your on-premise HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-key-byok.md)
+To import a key from your on-premise HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md)
 
 ## Next steps
 
