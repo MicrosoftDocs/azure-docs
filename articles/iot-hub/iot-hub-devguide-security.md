@@ -350,7 +350,12 @@ Supported certificates include:
 
 A device may either use an X.509 certificate or a security token for authentication, but not both.
 
-For more information about authentication using certificate authority, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md).
+The following functionality is not supported for devices that use X.509 CA authentication:
+
+* HTTPS, MQTT over WebSockets, and AMQP over WebSockets protocols.
+* File uploads (all protocols).
+
+For more information about authentication using certificate authority, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](iot-hub-security-x509-get-started.md).
 
 ### Register an X.509 certificate for a device
 
