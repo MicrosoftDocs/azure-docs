@@ -26,7 +26,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="file-access-options"></a>
   **What are different ways to access files in Azure Files?**  
-    You can mount the file share on your local machine by using the SMB 3.0 protocol, or you can use tools like [Storage Explorer](https://storageexplorer.com/) to access files in your file share. From your application, you can use storage client libraries, REST APIs, PowerShell, or Azure CLI to access your files in the Azure file share.
+    SMB file shares can be mounted on your local machine by using the SMB 3.0 protocol, or you can use tools like [Storage Explorer](https://storageexplorer.com/) to access files in your file share. NFS file shares can be mounted on your local machine by copy/pasting the script provided by the Azure portal. From your application, you can use storage client libraries, REST APIs, PowerShell, or Azure CLI to access your files in the Azure file share.
 
 * <a id="what-is-afs"></a>
   **What is Azure File Sync?**  
@@ -38,7 +38,7 @@ This article answers common questions about Azure Files features and functionali
     
     Azure Blob storage is useful for massive-scale, cloud-native applications that need to store unstructured data. To maximize performance and scale, Azure Blob storage is a simpler storage abstraction than a true file system. You can access Azure Blob storage only through REST-based client libraries (or directly through the REST-based protocol).
 
-    Azure Files is specifically a file system. Azure Files has all the file abstracts that you know and love from years of working with on-premises operating systems. Like Azure Blob storage, Azure Files offers a REST interface and REST-based client libraries. Unlike Azure Blob storage, Azure Files offers SMB access to Azure file shares. By using SMB, you can mount an Azure file share directly on Windows, Linux, or macOS, either on-premises or in cloud VMs, without writing any code or attaching any special drivers to the file system. You also can cache Azure file shares on on-premises file servers by using Azure File Sync for quick access, close to where the data is used. 
+    Azure Files is specifically a file system. Azure Files has all the file abstracts that you know and love from years of working with on-premises operating systems. Like Azure Blob storage, Azure Files offers a REST interface and REST-based client libraries. Unlike Azure Blob storage, Azure Files offers SMB or NFS access to Azure file shares. File shares can be mounted directly on Windows, Linux, or macOS, either on-premises or in cloud VMs, without writing any code or attaching any special drivers to the file system. You also can cache Azure file shares on on-premises file servers by using Azure File Sync for quick access, close to where the data is used. 
    
     For a more in-depth description on the differences between Azure Files and Azure Blob storage, see [Introduction to the core Azure Storage services](../common/storage-introduction.md). To learn more about Azure Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
@@ -53,11 +53,12 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="get-started"></a>
   **How do I get started using Azure Files?**  
-   Getting started with Azure Files is easy. First, [create a file share](storage-how-to-create-file-share.md), and then mount it in your preferred operating system: 
+   Getting started with Azure Files is easy. First, either [create an SMB file share](storage-how-to-create-file-share.md) or an [How to create an NFS share](storage-files-how-to-create-nfs-shares.md), and then mount it in your preferred operating system: 
 
-  * [Mount in Windows](storage-how-to-use-files-windows.md)
-  * [Mount in Linux](storage-how-to-use-files-linux.md)
-  * [Mount in macOS](storage-how-to-use-files-mac.md)
+  * [Mount an SMB share in Windows](storage-how-to-use-files-windows.md)
+  * [Mount an SMB share in Linux](storage-how-to-use-files-linux.md)
+  * [Mount an SMB share in macOS](storage-how-to-use-files-mac.md)
+  * [Mount an NFS fle share](storage-files-how-to-mount-nfs-shares.md)
 
     For a more in-depth guide about deploying an Azure file share to replace production file shares in your organization, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
