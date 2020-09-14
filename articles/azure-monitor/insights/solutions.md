@@ -156,7 +156,7 @@ All monitoring solutions require a [Log Analytics workspace](../platform/manage-
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
 
-When you install a solution through the Azure Marketplace, you're prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
+When you install a solution through Azure Marketplace, you're prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
 
 ### Verify the link between a Log Analytics workspace and Automation account
 

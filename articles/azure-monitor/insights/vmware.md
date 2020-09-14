@@ -71,7 +71,7 @@ The VMware Monitoring solution collects various performance metrics and log data
 
 The following table shows data collection methods and other details about how data is collected.
 
-| platform | Log Analytics agent for Linux | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| platform | Log Analytics agent for Linux | System Center Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |every 3 minutes |
 

@@ -69,7 +69,7 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
 #### Verify
 1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`
-   The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
+   The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – Azure AD" for Azure AD.
 3. Run: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 You have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all changes that are about to be exported.
 4. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes that are about to be exported are expected.
