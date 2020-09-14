@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 09/04/2020
+ms.date: 09/13/2020
 ms.custom: generated
 ---
 
@@ -5067,6 +5067,35 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/VisualSearch/search/action | Returns a list of tags relevant to the provided image |
 > | Microsoft.CognitiveServices/accounts/WebSearch/search/action | Get web, image, news, & videos results for a given query. |
 
+### Microsoft.MachineLearning
+
+Azure service: [Machine Learning Studio (classic)](../machine-learning/studio/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.MachineLearning/register/action | Registers the subscription for the machine learning web service resource provider and enables the creation of web services. |
+> | Microsoft.MachineLearning/webServices/action | Create regional Web Service Properties for supported regions |
+> | Microsoft.MachineLearning/commitmentPlans/read | Read any Machine Learning Commitment Plan |
+> | Microsoft.MachineLearning/commitmentPlans/write | Create or Update any Machine Learning Commitment Plan |
+> | Microsoft.MachineLearning/commitmentPlans/delete | Delete any Machine Learning Commitment Plan |
+> | Microsoft.MachineLearning/commitmentPlans/join/action | Join any Machine Learning Commitment Plan |
+> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Read any Machine Learning Commitment Plan Association |
+> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Move any Machine Learning Commitment Plan Association |
+> | Microsoft.MachineLearning/locations/operationresults/read | Get result of a Machine Learning Operation |
+> | Microsoft.MachineLearning/locations/operationsstatus/read | Get status of an ongoing Machine Learning Operation |
+> | Microsoft.MachineLearning/operations/read | Get Machine Learning Operations |
+> | Microsoft.MachineLearning/skus/read | Get Machine Learning Commitment Plan SKUs |
+> | Microsoft.MachineLearning/webServices/read | Read any Machine Learning Web Service |
+> | Microsoft.MachineLearning/webServices/write | Create or Update any Machine Learning Web Service |
+> | Microsoft.MachineLearning/webServices/delete | Delete any Machine Learning Web Service |
+> | Microsoft.MachineLearning/webServices/listkeys/read | Get keys to a Machine Learning Web Service |
+> | Microsoft.MachineLearning/Workspaces/read | Read any Machine Learning Workspace |
+> | Microsoft.MachineLearning/Workspaces/write | Create or Update any Machine Learning Workspace |
+> | Microsoft.MachineLearning/Workspaces/delete | Delete any Machine Learning Workspace |
+> | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | List keys for a Machine Learning Workspace |
+> | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resync keys of storage account configured for a Machine Learning Workspace |
+
 ### Microsoft.MachineLearningServices
 
 Azure service: [Machine Learning Service](../machine-learning/index.yml)
@@ -5183,36 +5212,6 @@ Azure service: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action | Lists keys for AKS services in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/services/aks/delete | Deletes AKS services in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/services/aks/score/action | Scores AKS services in Machine Learning Services Workspace(s) |
-
-
-### Microsoft.MachineLearning
-
-Azure service: [Machine Learning Studio (classic)](../machine-learning/studio/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.MachineLearning/register/action | Registers the subscription for the machine learning web service resource provider and enables the creation of web services. |
-> | Microsoft.MachineLearning/webServices/action | Create regional Web Service Properties for supported regions |
-> | Microsoft.MachineLearning/commitmentPlans/read | Read any Machine Learning Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/write | Create or Update any Machine Learning Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/delete | Delete any Machine Learning Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/join/action | Join any Machine Learning Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Read any Machine Learning Commitment Plan Association |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Move any Machine Learning Commitment Plan Association |
-> | Microsoft.MachineLearning/locations/operationresults/read | Get result of a Machine Learning Operation |
-> | Microsoft.MachineLearning/locations/operationsstatus/read | Get status of an ongoing Machine Learning Operation |
-> | Microsoft.MachineLearning/operations/read | Get Machine Learning Operations |
-> | Microsoft.MachineLearning/skus/read | Get Machine Learning Commitment Plan SKUs |
-> | Microsoft.MachineLearning/webServices/read | Read any Machine Learning Web Service |
-> | Microsoft.MachineLearning/webServices/write | Create or Update any Machine Learning Web Service |
-> | Microsoft.MachineLearning/webServices/delete | Delete any Machine Learning Web Service |
-> | Microsoft.MachineLearning/webServices/listkeys/read | Get keys to a Machine Learning Web Service |
-> | Microsoft.MachineLearning/Workspaces/read | Read any Machine Learning Workspace |
-> | Microsoft.MachineLearning/Workspaces/write | Create or Update any Machine Learning Workspace |
-> | Microsoft.MachineLearning/Workspaces/delete | Delete any Machine Learning Workspace |
-> | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | List keys for a Machine Learning Workspace |
-> | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resync keys of storage account configured for a Machine Learning Workspace |
 
 ## Internet of things
 
@@ -5748,9 +5747,9 @@ Azure service: core
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
+> | Microsoft.AzureStack/register/action | Subscription Registration Action |
 > | Microsoft.AzureStack/register/action | Registers Subscription with Microsoft.AzureStack resource provider |
 > | Microsoft.AzureStack/cloudManifestFiles/read | Gets the Cloud Manifest File |
-> | Microsoft.AzureStack/edgeSubscriptions/read | Get the properties of an Azure Stack Edge Subscription |
 > | Microsoft.AzureStack/Operations/read | Gets the properties of a resource provider operation |
 > | Microsoft.AzureStack/registrations/read | Gets the properties of an Azure Stack registration |
 > | Microsoft.AzureStack/registrations/write | Creates or updates an Azure Stack registration |
@@ -6402,6 +6401,9 @@ Azure service: [Key Vault](../key-vault/index.yml)
 > | Microsoft.KeyVault/locations/deletedVaults/read | View the properties of a soft deleted key vault |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Purge a soft deleted key vault |
 > | Microsoft.KeyVault/locations/operationResults/read | Check the result of a long run operation |
+> | Microsoft.KeyVault/managedHSMs/read | View the properties of a Managed HSM |
+> | Microsoft.KeyVault/managedHSMs/write | Create a new Managed HSM or update the properties of an existing Managed HSM |
+> | Microsoft.KeyVault/managedHSMs/delete | Delete a Managed HSM |
 > | Microsoft.KeyVault/operations/read | Lists operations available on Microsoft.KeyVault resource provider |
 > | Microsoft.KeyVault/vaults/read | View the properties of a key vault |
 > | Microsoft.KeyVault/vaults/write | Create a new key vault or update the properties of an existing key vault |
@@ -7791,6 +7793,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceEnvironmentPlatformLogs/read | Read data from the AppServiceEnvironmentPlatformLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceFileAuditLogs/read | Read data from the AppServiceFileAuditLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceHTTPLogs/read | Read data from the AppServiceHTTPLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/AppServiceIPSecAuditLogs/read | Read data from the AppServiceIPSecAuditLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AppServicePlatformLogs/read | Read data from the AppServicePlatformLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AppSystemEvents/read | Read data from the AppSystemEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/AppTraces/read | Read data from the AppTraces table |
@@ -8553,6 +8556,7 @@ Azure service: [Cost Management](../cost-management-billing/index.yml)
 > | Microsoft.CostManagement/forecast/action | Forecast usage data by a scope. |
 > | Microsoft.CostManagement/alerts/write | Update alerts. |
 > | Microsoft.CostManagement/alerts/read | List alerts. |
+> | Microsoft.CostManagement/budgets/read | List the budgets by a subscription or a management group. |
 > | Microsoft.CostManagement/cloudConnectors/read | List the cloudConnectors for the authenticated user. |
 > | Microsoft.CostManagement/cloudConnectors/write | Create or update the specified cloudConnector. |
 > | Microsoft.CostManagement/cloudConnectors/delete | Delete the specified cloudConnector. |
@@ -9358,7 +9362,9 @@ Azure service: core
 > | Microsoft.Subscription/register/action | Registers Subscription with Microsoft.Subscription resource provider |
 > | Microsoft.Subscription/updateTenant/action | Update tenant of the Subscription |
 > | Microsoft.Subscription/aliases/write | Create subscription alias |
-> | Microsoft.Subscription/Subscriptions/write | Create or update subscription |
+> | Microsoft.Subscription/aliases/read | Get subscription alias |
+> | Microsoft.Subscription/aliases/delete | Delete subscription alias |
+> | Microsoft.Subscription/Subscriptions/write | Subscription Created |
 
 ## Intune
 
