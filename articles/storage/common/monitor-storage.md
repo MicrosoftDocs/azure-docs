@@ -71,7 +71,11 @@ All other failed anonymous requests aren't logged. For a full list of the logged
 
 ## Configuration
 
-Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. For the process to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. 
+
+To create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
+
+To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage. 
 
@@ -119,7 +123,7 @@ For a list of all Azure Monitor support metrics, which includes Azure Storage, s
 
 #### List the metric definition
 
-You can list the metric definition of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0) cmdlet.
+You can list the metric definition of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
 
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of an individual storage service, such as the blob, file, table, or queue service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
@@ -130,7 +134,7 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Reading metric values
 
-You can read account-level metric values of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) cmdlet.
+You can read account-level metric values of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -141,7 +145,7 @@ You can read account-level metric values of your storage account or the individu
 
 #### List the account-level metric definition
 
-You can list the metric definition of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions) command.
+You can list the metric definition of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
  
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of an individual storage service, such as the blob, file, table, or queue service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
@@ -151,7 +155,7 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Read account-level metric values
 
-You can read the metric values of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) command.
+You can read the metric values of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

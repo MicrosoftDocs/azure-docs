@@ -319,7 +319,7 @@
         - name: Portal
           href: authorize-blob-access-portal.md
         - name: PowerShell
-          href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: authorize-active-directory-powershell.md
         - name: Azure CLI
           href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage access rights with RBAC
