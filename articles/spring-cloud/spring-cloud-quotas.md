@@ -23,9 +23,6 @@ Azure Spring Cloud service instances per region per subscription | 10 | 10
 Total app instances per Azure Spring Cloud service instance | 25 | 500
 Persistent volumes | 1 GB/app x 10 apps | 50 GB/app x 10 apps
 
-
-During the preview period, Azure Spring Cloud offers only one service tier.	When you reach a limit, you'll receive a 400 error that reads: "Quota exceeds limit for subscription *your subscription* in region *region where your Azure Spring Cloud service is created*.
-
 ## Next steps
 
 Some default limits can be increased. If your setup requires an increase, [create a support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).

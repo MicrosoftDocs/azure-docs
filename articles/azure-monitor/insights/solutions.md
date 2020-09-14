@@ -105,18 +105,18 @@ Members of the community can submit management solutions to Azure Quickstart Tem
     az login
     ```
 
-1. Install the `log-analytics` extension
+1. Install the `log-analytics-solution` extension
 
-   The `log-analytics` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+   The `log-analytics-solution` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    The following warning is expected.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### Install a solution with the Azure CLI
@@ -155,7 +155,6 @@ All monitoring solutions require a [Log Analytics workspace](../platform/manage-
 
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
-* To be linked, the Log Analytics workspace and Automation account must be in the same subscription, but can be in different resource groups deployed to the same region. The exception is a workspace in East US region and Automation account in East US 2.
 
 When you install a solution through the Azure Marketplace, you're prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
 

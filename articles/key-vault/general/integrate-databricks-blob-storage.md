@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to access Azure Blob Storage fro
 author: msmbaldwin #Required; your GitHub user alias, with correct capitalization.
 ms.author: mbaldwin #Required; microsoft alias of author; optional team alias.
 ms.service: key-vault #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: tutorial #Required
+ms.topic: tutorial
 ms.date: 06/16/2020 #Required; mm/dd/yyyy format.
 ---
 

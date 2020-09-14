@@ -10,7 +10,7 @@ ms.custom: query-reference
 ---
 # GetCurrentTicks (Azure Cosmos DB)
 
-Returns the current date and time, measured in ticks.
+Returns the number of 100-nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
   
 ## Syntax
   
@@ -20,9 +20,11 @@ GetCurrentTicks ()
 
 ## Return types
 
-Returns a positive integer value.
+Returns a signed numeric value, the current number of 100-nanosecond ticks that have elapsed since the Unix epoch. In other words, GetCurrentTicks returns the number of 100 nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
 
 ## Remarks
+
+GetCurrentTicks() is a nondeterministic function. The result returned is UTC (Coordinated Universal Time).
 
 This system function will not utilize the index.
 

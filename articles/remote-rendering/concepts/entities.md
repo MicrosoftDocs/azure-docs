@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Entities
@@ -15,7 +16,7 @@ An *Entity* represents a movable object in space and is the fundamental building
 
 Entities have a transform defined by a position, rotation, and scale. By themselves entities do not have any observable functionality. Instead, behavior is added through components, which are attached to entities. For instance, attaching a [CutPlaneComponent](../overview/features/cut-planes.md)  will create a cut plane at the position of the entity.
 
-The most important aspect of the entity itself is the hierarchy and the resulting hierarchical transform. For example, when multiple entities are attached as children to a shared parent entity, all of these entities can be moved, rotated, and scaled in unison by changing the transform of the parent entity.
+The most important aspect of the entity itself is the hierarchy and the resulting hierarchical transform. For example, when multiple entities are attached as children to a shared parent entity, all of these entities can be moved, rotated, and scaled in unison by changing the transform of the parent entity. Also, the entity's `enabled` state can be used to turn off visibility and responses to ray casts for a full sub graph in the hierarchy.
 
 An entity is uniquely owned by its parent, meaning that when the parent is destroyed with `Entity.Destroy()`, so are its children and all connected [components](components.md). Thus, removing a model from the scene is accomplished by calling `Destroy` on the root node of a model, returned by `AzureSession.Actions.LoadModelAsync()` or its SAS variant `AzureSession.Actions.LoadModelFromSASAsync()`.
 
@@ -41,7 +42,7 @@ ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
     if (auto entityRes = session->Actions()->CreateEntity())
     {
         entity = entityRes.value();
-        entity->Position(Double3{ 1, 2, 3 });
+        entity->SetPosition(Double3{ 1, 2, 3 });
         return entity;
     }
     return entity;
@@ -67,7 +68,7 @@ CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
 ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
 
 // or alternatively:
-ApiHandle<CutPlaneComponent> cutplane = *entity->FindComponentOfType<CutPlaneComponent>();
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType<CutPlaneComponent>();
 ```
 
 ### Querying transforms
@@ -85,10 +86,9 @@ Quaternion rotation = entity.Rotation;
 
 ```cpp
 // local space transform of the entity
-Double3 translation = *entity->Position();
-Quaternion rotation = *entity->Rotation();
+Double3 translation = entity->GetPosition();
+Quaternion rotation = entity->GetRotation();
 ```
-
 
 ### Querying spatial bounds
 
@@ -119,11 +119,11 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
 ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
 metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
     {
-        if (query->IsRanToCompletion())
+        if (query->GetIsRanToCompletion())
         {
-            ApiHandle<ObjectMetaData> metaData = *query->Result();
+            ApiHandle<ObjectMetaData> metaData = query->GetResult();
             ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->AsInt64();
+            int64_t intValue = *entry->GetAsInt64();
 
             // ...
         }
@@ -131,6 +131,13 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 ```
 
 The query will succeed even if the object does not hold any metadata.
+
+## API documentation
+
+* [C# Entity class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C# RemoteManager.CreateEntity()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C++ Entity class](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [C++ RemoteManager::CreateEntity()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## Next steps
 

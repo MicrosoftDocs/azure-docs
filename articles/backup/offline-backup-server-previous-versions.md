@@ -40,7 +40,7 @@ Offline backup is supported for all deployment models of Azure Backup that back 
 > * Backup of all workloads and files with MABS.
 
 >[!NOTE]
->Azure CSP subscriptions are not supported for use with offline seeding for DPM 2019 RTM and earlier versions, and MABS v3 RTM and earlier versions. Online backups over the network are still supported.
+>Azure CSP subscriptions aren't supported for use with offline seeding for DPM 2019 RTM and earlier versions, and MABS v3 RTM and earlier versions. Online backups over the network are still supported.
 
 ## Prerequisites
 
@@ -197,7 +197,7 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure. When prompted, provide confirmation for the formatting of the drive.
 
-    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool in case the provided disk doesn't have sufficient space for the backup data. <br/>
+    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
     After the tool finishes successfully, one or more disks that you provided are prepared for shipping to Azure. An import job with the name you provided during the workflow in the "Initiate offline backup" section also is created in Azure. Finally, the tool displays the shipping address to the Azure datacenter where the disks need to be shipped.
 

@@ -281,7 +281,7 @@ The following links present troubleshooting scenarios. You may want to create a 
 
 - [Problems signing in from a custom portal](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problems signing in from access panel](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problems signing in from My Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Error on application sign-in page](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

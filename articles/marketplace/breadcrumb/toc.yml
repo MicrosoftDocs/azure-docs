@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /legal/
+  topicHref: /azure/index
+  items:
+  - name: Commercial marketplace
+    tocHref: /legal/marketplace/
+    topicHref: /azure/marketplace/index

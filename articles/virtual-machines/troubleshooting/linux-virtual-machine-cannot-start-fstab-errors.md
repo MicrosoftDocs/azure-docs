@@ -104,7 +104,7 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 ### Using Single User Mode
 
 1. Connect to [the serial console](./serial-console-linux.md).
-2. Use serial console to take single user mode [single user mode](../linux/serial-console-grub-single-user-mode.md)
+2. Use serial console to take single user mode [single user mode](serial-console-grub-single-user-mode.md)
 3. Once the vm has booted into single user mode. Use your favorite text editor to open the fstab file. 
 
    ```

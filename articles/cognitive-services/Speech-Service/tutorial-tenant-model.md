@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Create a tenant model (preview)

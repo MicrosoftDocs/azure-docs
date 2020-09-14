@@ -30,6 +30,7 @@ To subscribe to a feed:
 2. Enter the feed URL into the **Feed URL** field. The feed URL can be either a URL or an email address.
    - If you use a URL, use the one your admin gave you, normally <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - To use email, enter your email address. The client will search for a URL associated with your email address if your admin configured the server that way.
+   - To connect through the US Gov portal, use <https://rdweb.wvd.azure.us/api/arm/feeddiscovery>.
 3. Tap **NEXT**.
 4. Provide your credentials when prompted.
    - For **User name**, give the user name with permission to access resources.

@@ -256,6 +256,6 @@ A workaround for this error is to have separate user accounts for admin-related 
 If your question isn't answered here, the following support options are available:
 
 * Search the [Microsoft Support Knowledge Base](https://support.microsoft.com) for solutions to common technical issues.
-* Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory Q&A](/answers/topics/azure-active-directory.html).
 * Contact Microsoft professional through [Azure Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.
 * If you're a legacy PhoneFactor customer and you have questions or need help with resetting a password, use the [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) e-mail address to open a support case.

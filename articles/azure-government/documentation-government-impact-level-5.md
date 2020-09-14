@@ -131,9 +131,9 @@ Azure HDInsight can be used in Azure Government supporting Impact Level 5 worklo
 | --- | --- | --- | --- | --- | --- | 
 | **Azure HDInsight** | X | X | X | X | X |
 
-### [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)
+### [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse/)
 
-Azure SQL Warehouse can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Synapse Analytics (formerly SQL Data Warehouse) can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
 - Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
 
@@ -142,7 +142,7 @@ Azure SQL Warehouse can be used in Azure Government supporting Impact Level 5 wo
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure SQL Data Warehouse** | X | X | X | X | X |
+| **Azure Synapse Analytics** | X | X | X | X | X |
 
 ### [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
 

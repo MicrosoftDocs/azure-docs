@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
+ms.custom: devx-track-csharp
 ---
 
 # Use IoT DevKit AZ3166 with Azure Functions and Cognitive Services to make a language translator

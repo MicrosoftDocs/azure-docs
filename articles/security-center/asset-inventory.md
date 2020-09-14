@@ -98,6 +98,9 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
     !["Security findings contain" filter](./media/asset-inventory/security-findings-contain-elements.png)
 
+    > [!TIP]
+    > The **Security findings contain** and **Tags** filters only accept a single value. To filter by more than one, use **Add filters**.
+
 1. To use the **Pricing tier** filter, select one or more options (Free, Partial, or Standard):
 
     - **Free** - Resources that are on the free pricing tier

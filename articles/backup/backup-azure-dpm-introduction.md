@@ -40,7 +40,7 @@ Components | The DPM server should have Windows PowerShell and .NET Framework 4.
 Supported apps | [Learn](/system-center/dpm/dpm-protection-matrix) what DPM can back up.
 Supported file types | These file types can be backed up with Azure Backup:<br> <li>Encrypted (full backups only)<li> Compressed (incremental backups supported) <li> Sparse (incremental backups supported)<li> Compressed and sparse (treated as sparse)
 Unsupported file types | <li>Servers on case-sensitive file systems<li> hard links (skipped)<li> reparse points (skipped)<li> encrypted and compressed (skipped)<li> encrypted and sparse (skipped)<li> Compressed stream<li> parse stream
-Local storage | Each machine you want to back up must have local free storage that's at least 5% of the size of the data that is being backed up. For example, backing up 100 GB of data requires a minimum of 5 GB of free space in the scratch location.
+Local storage | Each machine you want to back up must have local free storage that's at least 5% of the size of the data that's being backed up. For example, backing up 100 GB of data requires a minimum of 5 GB of free space in the scratch location.
 Vault storage | There’s no limit to the amount of data you can back up to an Azure Backup vault, but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54,400 GB.
 Azure ExpressRoute | You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.<br/><br/> **With public peering**: Ensure access to the following domains/addresses:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **With Microsoft peering**, select the following services/regions and relevant community values:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Microsoft Azure Region (according to the location of your Recovery Services vault)<br/><br/>- Azure Storage (according to the location of your Recovery Services vault)<br/><br/>For more information, see [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).<br/><br/>**Note**: Public peering is deprecated for new circuits.
 Azure Backup agent | If DPM is running on System Center 2012 SP1, install Rollup 2 or later for DPM SP1. This is required for agent installation.<br/><br/> This article describes how to deploy the latest version of the Azure Backup agent, also known as the Microsoft Azure Recovery Service (MARS) agent. If you have an earlier version deployed, update to the latest version to ensure that backup works as expected.
@@ -84,9 +84,9 @@ To obtain the credentials, download the vault credential file through a secure c
 - The vault credentials are used only during the registration workflow.
 - It's your responsibility to ensure that the vault credentials file is safe, and not compromised.
   - If control of the credentials is lost, the vault credentials can be used to register other machines to vault.
-  - However, backup data is encrypted using a passphrase that belongs to the customer, so existing backup data can't be compromised.
+  - However, backup data is encrypted using a passphrase that belongs to you, so existing backup data can't be compromised.
 - Ensure that file is saved in a location that can be accessed from the DPM server. If it's stored in a file share/SMB, check for the access permissions.
-- Vault credentials expire after 48 hrs. You can download new vault credentials as many times as needed. However, only the latest vault credential file can be used during the registration workflow.
+- Vault credentials expire after 48 hours. You can download new vault credentials as many times as needed. However, only the latest vault credential file can be used during the registration workflow.
 - The Azure Backup service isn't aware of the certificate's private key, and the private key isn't available in the portal or the service.
 
 Download the vault credentials file to a local machine as follows:
@@ -154,8 +154,8 @@ Every machine that's backed up by Azure Backup must have the Backup agent (also 
     ![Encryption](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
-    > You own the encryption passphrase and Microsoft does not have visibility into it.
-    > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data.
+    > You own the encryption passphrase and Microsoft doesn't have visibility into it.
+    > If the passphrase is lost or forgotten, Microsoft can't help in recovering the backup data.
 
 7. Select **Register** to register the DPM server to the vault.
 
@@ -176,4 +176,4 @@ Ensure that the vault credentials file is available in a location that can be ac
 If you encounter an invalid vault credential error (for example, “Invalid vault credentials provided") the file is either corrupted or doesn't have the latest credentials associated with the recovery service.
 
 - Retry the operation after downloading a new vault credential file from the portal.
-- This error is typically seen when you select on the **Download vault credential** option in the Azure portal, twice in quick succession. In this case, only the second vault credential file is valid.
+- This error is typically seen when you select the **Download vault credential** option in the Azure portal, twice in quick succession. In this case, only the second vault credential file is valid.

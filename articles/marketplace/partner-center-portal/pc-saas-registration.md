@@ -82,7 +82,7 @@ Post<br>
 
 |  Property name     |  Required         |  Description |
 |  ---------------   |  ---------------  | ------------ |
-|  `grant-type`      |  True      |  Grant type. Use `"client_credentials"`. |
+|  `grant_type`      |  True      |  Grant type. Use `"client_credentials"`. |
 |  `client_id`       |  True      |  Client/app identifier associated with the Azure AD app. |
 |  `client_secret`   |  True      |  Secret associated with the Azure AD app. |
 |  `resource`        |  True      |  Target resource for which the token is requested. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` because Marketplace SaaS API is always the target resource in this case. |

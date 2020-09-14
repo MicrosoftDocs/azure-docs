@@ -190,7 +190,7 @@ app = msal.ConfidentialClientApplication(
 > |---------|---------|
 > | `config["secret"]` | Is the client secret created for the application in Azure Portal. |
 > | `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
-> | `config["authority"]`    | The STS endpoint for user to authenticate. Usually <https://login.microsoftonline.com/{tenant}> for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
+> | `config["authority"]`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 
 For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
 

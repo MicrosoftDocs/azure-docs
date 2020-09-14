@@ -90,7 +90,7 @@ In addition to being able to control access to your app, you can also restrict a
 
 ## Programmatic manipulation of access restriction rules ##
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) and [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) has support for editing access restrictions. 
+[Azure CLI](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) and [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) has support for editing access restrictions. 
 Example of adding an access restriction using Azure CLI:
 
 ```azurecli-interactive
@@ -104,7 +104,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName
     -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
 ```
 
-Values can also be set manually with an [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT operation on the app configuration in Resource Manager or using an Azure Resource Manager template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
+Values can also be set manually with an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Resource Manager or using an Azure Resource Manager template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
 
 The location for this information in Resource Manager is:
 
@@ -136,4 +136,4 @@ Access restrictions are also available for function apps with the same functiona
 [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
-[serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[serviceendpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md

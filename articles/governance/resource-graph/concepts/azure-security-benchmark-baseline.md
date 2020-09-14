@@ -6,7 +6,7 @@ ms.service: resource-graph
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -39,13 +39,13 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 *For more information, see [Security control: Data protection](../../../security/benchmarks/security-control-data-protection.md).*
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use role-based access control (RBAC) to control access to data and resources. To use Azure Resource Graph, you must also have appropriate access to the resources you want to query. This access should be scoped to read only and be only granted to required personnel.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to data and resources. To use Azure Resource Graph, you must also have appropriate access to the resources you want to query. This access should be scoped to read only and be only granted to required personnel.
 
 * [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
-* [How to configure RBAC in Azure](../../../role-based-access-control/role-assignments-rest.md)
+* [How to configure Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
 
 
 **Azure Security Center monitoring**: Currently not available

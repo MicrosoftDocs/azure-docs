@@ -3,6 +3,7 @@ title: Authenticate clients publishing events to Event Grid custom topics or dom
 description: This article describes different ways of authenticating clients publishing events to Event Grid custom topics. 
 ms.topic: conceptual
 ms.date: 07/07/2020
+ms.custom: devx-track-csharp
 ---
 
 # Authenticate publishing clients (Azure Event Grid)

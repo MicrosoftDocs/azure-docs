@@ -34,9 +34,6 @@
     href: /samples/browse/?products=azure-logic-apps
   - name: Resource Manager quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Connectors for Logic Apps
@@ -395,7 +392,10 @@
       - name: X12 tracking schema
         href: logic-apps-track-integration-account-x12-tracking-schema.md
       - name: Custom tracking schema
-        href: logic-apps-track-integration-account-custom-tracking-schema.md      
+        href: logic-apps-track-integration-account-custom-tracking-schema.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

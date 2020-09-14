@@ -6,7 +6,7 @@ ms.date: 06/26/2020
 ---
 
 # Attach or detach a data disk to a virtual machine in Azure DevTest Labs
-[Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) manages the storage accounts associated with virtual machine data disks. A user attaches a new data disk to a VM, specifies the type and size of disk that's needed, and Azure creates and manages the disk automatically. The data disk can then be detached from the VM and either reattached later to the same VM, or attached to a different VM that belongs to the same user.
+[Azure Managed Disks](../virtual-machines/managed-disks-overview.md) manages the storage accounts associated with virtual machine data disks. A user attaches a new data disk to a VM, specifies the type and size of disk that's needed, and Azure creates and manages the disk automatically. The data disk can then be detached from the VM and either reattached later to the same VM, or attached to a different VM that belongs to the same user.
 
 This functionality is handy for managing storage or software outside of each individual virtual machine. If the storage or software already exists inside a data disk, it can be easily attached, detached, and reattached to any VM that is owned by the user that owns that data disk.
 

@@ -4,18 +4,20 @@ title: Azure Media Services v3 frequently asked questions| Microsoft Docs
 description: This article gives answers to frequently asked questions about Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/07/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Media Services v3 frequently asked questions
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article gives answers to frequently asked questions about Azure Media Services v3.
 

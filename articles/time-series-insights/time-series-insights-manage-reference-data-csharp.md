@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Manage reference data for an Azure Time Series Insights Gen 1 environment using C Sharp

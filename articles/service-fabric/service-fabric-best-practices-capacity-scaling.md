@@ -6,6 +6,7 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
+ms.custom: devx-track-csharp
 ---
 
 # Capacity planning and scaling for Azure Service Fabric

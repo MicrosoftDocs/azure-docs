@@ -1,7 +1,7 @@
 ---
 title: App branding guidelines | Azure
 titleSuffix: Microsoft identity platform
-description: A comprehensive guide to developer-oriented resources for Azure Active Directory
+description: Learn about application branding guidelines for Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/31/2020
 ms.author: ryanwi
-ms.reviewer: arielgo
+ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
 ---
 
 # Branding guidelines for applications
 
-When developing applications with Azure Active Directory (Azure AD), you'll need to direct your customers when they want to use their work or school account (managed in Azure AD), or their personal account for sign-up and sign-in to your application.
+When developing applications with the Microsoft identity platform, you'll need to direct your customers when they want to use their work or school account (managed in Azure AD), or their personal account for sign-up and sign-in to your application.
 
 In this article, you will:
 
 - Learn about the two kinds of user accounts managed by Microsoft and how to refer to Azure AD accounts in your application
-- Find out what you need to do add the Microsoft logo for use in your app
+- Find out what you need to do to add the Microsoft logo for use in your app
 - Download the official **Sign in** or **Sign in with Microsoft** images to use in your app
 - Learn about the branding and navigation do's and don'ts
 
@@ -34,7 +34,7 @@ Microsoft manages two kinds of user accounts:
 - **Personal accounts** (formerly known as Windows Live ID). These accounts represent the relationship between *individual* users and Microsoft, and are used to access consumer devices and services from Microsoft. These accounts are intended for personal use.
 - **Work or school accounts.** These accounts are managed by Microsoft on behalf of organizations that use Azure Active Directory. These accounts are used to sign in to Office 365 and other business services from Microsoft.
 
-Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts mastered directly in the cloud (in the Azure AD platform) or synced to Azure AD from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
+Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are mastered directly in the cloud (in the Azure AD platform) or synced to Azure AD from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
 
 ## Referring to Azure AD accounts in your application
 

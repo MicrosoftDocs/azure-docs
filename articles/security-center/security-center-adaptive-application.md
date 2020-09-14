@@ -72,14 +72,14 @@ Select the recommendation, or open the adaptive application controls page to vie
     - **Recommended** - Groups of machines that consistently run the same applications, and don't have an allow list configured. We recommend that you enable adaptive application controls for these groups.
     
       > [!TIP]
-      > If you see a group name with the prefix "REVIEWGROUP", it contains machines with a a partially consistent list of applications. Security Center can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Editing a group's adaptive application controls rule](#editing-a-groups-adaptive-application-controls-rule).
+      > If you see a group name with the prefix "REVIEWGROUP", it contains machines with a a partially consistent list of applications. Security Center can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Editing a group's adaptive application controls rule](#edit-a-groups-adaptive-application-controls-rule).
       >
       > You can also move machines from this group to other groups as described in [Move a machine from one group to another](#move-a-machine-from-one-group-to-another).
 
     - **No recommendation** - Machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
-      - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) policy enabled by either a GPO or a local security policy
+      - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
 
       > [!TIP]
       > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with standard tier, will appear under the **No recommendation** tab.
@@ -104,14 +104,14 @@ Select the recommendation, or open the adaptive application controls page to vie
       > [!TIP]
       > Both application lists include the option to restrict a specific application to certain users. Adopt the principle of least privilege whenever possible.
       > 
-      > Applications are defined by their publishers, if an application doesn’t have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
+      > Applications are defined by their publishers, if an application doesn't have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
 
    1. To apply the rule, select **Audit**. 
 
 
 
 
-## Editing a group's adaptive application controls rule
+## Edit a group's adaptive application controls rule
 
 You might decide to edit the allow list for a group of machines because of known changes in your organization. 
 
@@ -146,7 +146,7 @@ To edit the rules for a group of machines:
 
 
 
-## Responding to the "Allowlist rules in your adaptive application control policy should be updated" recommendation
+## Respond to the "Allowlist rules in your adaptive application control policy should be updated" recommendation
 
 You'll see this recommendation when Security Center's machine learning identifies potentially legitimate behavior that hasn't previously been allowed. The recommendation suggests new rules for your existing definitions to reduce the number of false positive alerts.
 
@@ -163,7 +163,7 @@ To remediate the issues:
 
 
 
-## Auditing alerts and violations
+## Audit alerts and violations
 
 1. From Security Center's menu, select **Adaptive application controls**.
 
@@ -195,7 +195,7 @@ When you move a machine from one group to another, the application control polic
 
 
 
-## Managing application controls via the REST API 
+## Manage application controls via the REST API 
 
 To manage your adaptive application controls programatically, use our REST API. 
 

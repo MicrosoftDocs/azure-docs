@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 ::: zone pivot="container-windows"  
 
-[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service (Preview) lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
+[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service (Preview) lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](../container-registry/index.yml), and then run it in App Service.
 
 ![Shows the web app running in a Windows container.](media/tutorial-custom-container/app-running.png)
 
@@ -87,7 +87,7 @@ You can find _InstallFont.ps1_ in the **CustomFontSample** project. It's a simpl
 
 ## Publish to Azure Container Registry
 
-[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) can store your images for container deployments. You can configure App Service to use images hosted in Azure Container Registry.
+[Azure Container Registry](../container-registry/index.yml) can store your images for container deployments. You can configure App Service to use images hosted in Azure Container Registry.
 
 ### Open publish wizard
 
@@ -434,7 +434,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
     
     For more information on this environment variable, see the [readme in the sample's GitHub repository](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Enable [managed identity](/azure/app-service/overview-managed-identity) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command:
+1. Enable [managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command:
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -461,7 +461,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
     - `<registry-name>` with the name of your container registry
     - `<subscription-id>` with the subscription ID retrieved from the `az account show` command
 
-For more information about these permissions, see [What is Azure role-based access control](/azure/role-based-access-control/overview) and 
+For more information about these permissions, see [What is Azure role-based access control](../role-based-access-control/overview.md) and 
 
 ## Deploy the image and test the app
 

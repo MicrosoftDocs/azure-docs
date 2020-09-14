@@ -41,7 +41,6 @@ See [server size](../reference/vm-sizes.md) chapter for more detailed informatio
 
 **Windows 10 desktop**
 
-* UWP/x86 is the only supported UWP platform. UWP/x64 is not supported.
 * Win32/x64 is the only supported Win32 platform. Win32/x86 is not supported.
 
 **Hololens 2**
