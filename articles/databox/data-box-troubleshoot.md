@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.date: 09/10/2020
 ms.author: alkohli
 ---
 
@@ -108,13 +108,17 @@ These are errors related to data exceeding the size of data allowed in a contain
 
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Error description:** Azure file share limits a share to 5 TB of data. This limit has exceeded for some shares.
+**Error description:** Azure file share limits a share to 5 TiB of data, and large file shares are not enabled on the storage account. This limit was exceeded for some shares.
 
 **Suggested resolution:** On the **Connect and copy** page of the local web UI, download, and review the error files.
 
-Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TB.
-
-
+- Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TiB.
+- The 5 TiB limit does not apply to a storage account that allows large file shares. However, you must have large file shares configured when you place your order. 
+  - Contact [Microsoft Support](data-box-disk-contact-microsoft-support.md) and request a new shipping label.
+  - [Enable large file shares on the storage account.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Expand the file shares in the storage account](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) and set the quota to 100 TiB.
+  
+  
 ## Object or file size limit errors
 
 These are errors related to data exceeding the maximum size of object or the file that is allowed in Azure. 

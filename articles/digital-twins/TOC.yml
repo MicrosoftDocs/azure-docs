@@ -159,7 +159,9 @@
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
         - name: JavaScript SDK - npm
-          href: https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1         
+          href: https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1  
+        - name: JavaScript SDK - reference
+          href: https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true       
   - name: Digital Twins CLI 
     items: 
     - name: Digital Twins CLI reference
