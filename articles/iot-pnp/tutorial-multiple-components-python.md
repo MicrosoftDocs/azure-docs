@@ -51,12 +51,12 @@ This sample implements an IoT Plug and Play temperature controller device. The m
 
 The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. The files for the temperature controller sample are:
 
-- pnp_temp_controller_with_thermostats.py
+- temp_controller_with_thermostats.py
 - pnp_helper_preview_refresh.py
 
 Temperature controller has multiple components and a root interface, based on the temperature controller DTDL model.
 
-Open the *pnp_temp_controller_with_thermostats.py* file in an editor of your choice. The code in this file:
+Open the *temp_controller_with_thermostats.py* file in an editor of your choice. The code in this file:
 
 1. Imports `pnp_helper_preview_refresh.py` to get access to helper methods.
 
@@ -103,7 +103,7 @@ Open the *pnp_temp_controller_with_thermostats.py* file in an editor of your cho
 Use the following command to run the sample:
 
 ```cmd/sh
-python pnp_temp_controller_with_thermostats.py
+python temp_controller_with_thermostats.py
 ```
 
 The sample device sends telemetry messages every few seconds to your IoT hub.
