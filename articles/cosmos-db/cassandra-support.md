@@ -73,10 +73,12 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 
 |Command  |Supported |
 |---------|---------|
-| Token | Yes |
+| Token * | Yes |
 | ttl | Yes |
 | writetime | Yes |
 | cast | No |
+
+\* Cassandra API supports token as a projection/selector, and only allows token(pk) on the right-hand side of a where clause. For example, `WHERE token(pk) > token(100)` is not supported.
 
 Aggregate functions:
 
@@ -124,7 +126,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | ALTER MATERIALIZED VIEW | No |
 | ALTER ROLE | No |
 | ALTER TABLE | Yes |
-| ALTER TYPE | Yes |
+| ALTER TYPE | No |
 | ALTER USER | No |
 | BATCH | Yes (unlogged batch only)|
 | COMPACT STORAGE | N/A (PaaS service) |
@@ -140,6 +142,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | CREATE ROLE | No |
 | CREATE USER (Deprecated in native Apache Cassandra) | No |
 | DELETE | Yes |
+| DELETE (lightweight transactions with IF CONDITION)| Yes |
 | DROP AGGREGATE | No |
 | DROP FUNCTION | No |
 | DROP INDEX | Yes |
@@ -152,6 +155,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | DROP USER (Deprecated in native Apache Cassandra) | No |
 | GRANT | No |
 | INSERT | Yes |
+| INSERT (lightweight transactions with IF CONDITION)| Yes |
 | LIST PERMISSIONS | No |
 | LIST ROLES | No |
 | LIST USERS (Deprecated in native Apache Cassandra) | No |
