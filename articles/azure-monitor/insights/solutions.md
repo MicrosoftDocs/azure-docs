@@ -22,7 +22,7 @@ The solutions **Overview** page in Azure Monitor displays a tile for each soluti
 
 Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles. Click on the tile for a solution to open its view that includes more detailed analysis its collected data.
 
-[![Overview](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
+[![Screenshot shows the Azure portal menu with Solutions selected and solutions displayed in the Solutions pane.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../log-query/get-started-portal.md#load-queries) You can use those queries when performing ad hoc analysis with [log queries](../log-query/log-query-overview.md).
 

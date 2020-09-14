@@ -52,7 +52,7 @@ To apply this method, follow these steps:
 
 #### Prepare
 1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This mode allows you to run the sync engine manually.
-   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
+   ![Screenshot shows the Ready to configure page in the Azure AD Connect dialog box.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Sign off/sign in and from the start menu select **Synchronization Service**.
 
 #### Configuration
