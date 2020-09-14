@@ -268,7 +268,7 @@ Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for 
    Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
     > [!WARNING]
-    > Do not create multiple, simultaneous attachments to the same DSVM from your workspace.
+    > Do not create multiple, simultaneous attachments to the same DSVM from your workspace. Each new attachment will break the previous existing attachment(s).
 
 1. **Configure**: Create a run configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on the DSVM.
 
@@ -316,7 +316,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
     > [!WARNING]
-    > Do not create multiple, simultaneous attachments to the same DSVM from your workspace.
+    > Do not create multiple, simultaneous attachments to the same HDInsight from your workspace. Each new attachment will break the previous existing attachment(s).
 
 1. **Configure**: Create a run configuration for the HDI compute target. 
 
@@ -366,7 +366,7 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
 > [!WARNING]
-> Do not create multiple, simultaneous attachments to the same DSVM from your workspace.
+> Do not create multiple, simultaneous attachments to the same Azure Batch from your workspace. Each new attachment will break the previous existing attachment(s).
 
 ### <a id="databricks"></a>Azure Databricks
 
@@ -422,7 +422,7 @@ except ComputeTargetException:
 For a more detailed example, see an [example notebook](https://aka.ms/pl-databricks) on GitHub.
 
 > [!WARNING]
-> Do not create multiple, simultaneous attachments to the same DSVM from your workspace.
+> Do not create multiple, simultaneous attachments to the same Azure Databricks from your workspace. Each new attachment will break the previous existing attachment(s).
 
 ### <a id="adla"></a>Azure Data Lake Analytics
 
@@ -475,7 +475,7 @@ except ComputeTargetException:
 For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) on GitHub.
 
 > [!WARNING]
-> Do not create multiple, simultaneous attachments to the same DSVM from your workspace.
+> Do not create multiple, simultaneous attachments to the same ADLA from your workspace. Each new attachment will break the previous existing attachment(s).
 
 > [!TIP]
 > Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) to copy the data before training.
