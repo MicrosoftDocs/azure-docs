@@ -1,29 +1,29 @@
 ---
-title: Run PowerShell commands with Azure AD credentials to access blob or queue data
+title: Run PowerShell commands with Azure AD credentials to access blob data
 titleSuffix: Azure Storage
-description: PowerShell supports signing in with Azure AD credentials to run commands on Azure Storage blob and queues data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
+description: PowerShell supports signing in with Azure AD credentials to run commands on blob data in Azure Storage. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: blobs
 ---
 
-# Run PowerShell commands with Azure AD credentials to access blob or queue data
+# Run PowerShell commands with Azure AD credentials to access blob data
 
-Azure Storage provides extensions for PowerShell that enable you to sign in and run scripting commands with Azure Active Directory (Azure AD) credentials. When you sign in to PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by PowerShell to authorize subsequent data operations against Blob or Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
+Azure Storage provides extensions for PowerShell that enable you to sign in and run scripting commands with Azure Active Directory (Azure AD) credentials. When you sign in to PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by PowerShell to authorize subsequent data operations against Blob storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-You can assign permissions to blob and queue data to an Azure AD security principal via role-based access control (RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](storage-auth-aad-rbac.md).
+You can assign permissions to blob data to an Azure AD security principal via role-based access control (RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](storage-auth-aad-rbac.md).
 
 ## Supported operations
 
-The Azure Storage extensions are supported for operations on blob and queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to Azure Storage containers or queues are assigned via RBAC. For example, if you have been assigned the **Blob Data Reader** role, then you can run scripting commands that read data from a container or queue. If you have been assigned the **Blob Data Contributor** role, then you can run scripting commands that read, write, or delete a container or queue or the data they contain.
+The Azure Storage extensions are supported for operations on blob data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to Azure Storage containers or queues are assigned via RBAC. For example, if you have been assigned the **Blob Data Reader** role, then you can run scripting commands that read data from a container. If you have been assigned the **Blob Data Contributor** role, then you can run scripting commands that read, write, or delete a container or the data they contain.
 
-For details about the permissions required for each Azure Storage operation on a container or queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+For details about the permissions required for each Azure Storage operation on a container, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ## Call PowerShell commands using Azure AD credentials
 
