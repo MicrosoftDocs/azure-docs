@@ -125,6 +125,21 @@
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
       displayName: container instances, container, containers, images
+  - name: Spatial Analysis container
+    items:
+    - name: Setup the host machine and run the container
+      href: spatial-analysis-container.md
+    - name: Configure operations
+      href: spatial-analysis-operations.md
+    - name: Deploy a people counting web app
+      href: Spatial-analysis-web-app.md
+    - name: Logging and troubleshooting
+      href: spatial-analysis-logging.md
+    - name: Zone and line placement
+      href: spatial-analysis-zone-line-placement.md
+    - name: Camera placement
+      href: spatial-analysis-camera-placement.md
+
 - name: How-to guides
   items:
   - name: Call the Computer Vision API
