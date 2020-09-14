@@ -625,7 +625,7 @@ After a successful call, you should see the following response:
 ]
 ```
 
-### Detect source without translation
+### Detect source language without translation
 
 It's possible to use the Translator service to detect the language of source text without performing a translation. To do this, you'll use the [`/detect`](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) endpoint. 
 
