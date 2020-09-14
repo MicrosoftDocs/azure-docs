@@ -20,8 +20,6 @@ Traffic between your virtual network and the service travels the Microsoft backb
 > [!IMPORTANT]
 > Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. Check [availability](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) section below for accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
 
-![Private endpoint overview](media/private-link-overview/private-endpoint.png)
-
 ## Key benefits
 Azure Private Link provides the following benefits:  
 - **Privately access services on the Azure platform**: Connect your virtual network to services in Azure without a public IP address at the source or destination. Service providers can render their services in their own virtual network and consumers can access those services in their local virtual network. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network. 
