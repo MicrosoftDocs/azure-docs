@@ -19,7 +19,7 @@ This tutorial describes the steps you need to perform in both SolarWinds Service
 
 ## Migrate to the new SolarWinds Service Desk (previously Samanage) application
 
-If you have an existing integration with SolarWinds Service Desk, please see the section below about up coming changes. If you're setting up SolarWinds Service Desk for the first time, you can skip this section and move to **Capabilities supported**.
+If you have an existing integration with SolarWinds Service Desk, see the following section about upcoming changes. If you're setting up SolarWinds Service Desk for the first time, you can skip this section and move to **Capabilities supported**.
 
 #### What's changing?
 
@@ -49,7 +49,7 @@ When your application is migrated, in the **Admin Credentials** section, the **A
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A [SolarWinds Service Desk tenant](https://www.samanage.com/pricing/) with the Professional package.
 * A user account in SolarWinds Service Desk with admin permissions.
 
@@ -60,11 +60,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure SolarWinds Service Desk to support provisioning with Azure AD
 
-To generate a secret token for authentication refer [this](https://help.samanage.com/s/article/Tutorial-Tokens-Authentication-for-API-Integration-1536721557657).
+To generate a secret token for authentication, see [Tutorial tokens authentication for API integration](https://help.samanage.com/s/article/Tutorial-Tokens-Authentication-for-API-Integration-1536721557657).
 
 ## Step 3. Add SolarWinds Service Desk from the Azure AD application gallery
 
-Add SolarWinds Service Desk from the Azure AD application gallery to start managing provisioning to SolarWinds Service Desk. If you have previously setup SolarWinds Service Desk for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Add SolarWinds Service Desk from the Azure AD application gallery to start managing provisioning to SolarWinds Service Desk. If you previously set up SolarWinds Service Desk for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -89,15 +89,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot that shows the Provisioning tab selected.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot that shows Provisioning Mode set to Automatic.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://api.samanage.com` in **Tenant URL**.  Input the secret token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to SolarWinds Service Desk. If the connection fails, ensure your SolarWinds Service Desk account has Admin permissions and try again
+5. Under the **Admin Credentials** section, input `https://api.samanage.com` in **Tenant URL**.  Input the secret token value retrieved earlier in **Secret Token**. Select **Test Connection** to ensure Azure AD can connect to SolarWinds Service Desk. If the connection fails, ensure your SolarWinds Service Desk account has Admin permissions and try again.
 
-	![provisioning](./media/samanage-provisioning-tutorial/provisioning.png)
+	![Screenshot that shows the Test Connection button selected.](./media/samanage-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -127,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+15. When you are ready to provision, select **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
