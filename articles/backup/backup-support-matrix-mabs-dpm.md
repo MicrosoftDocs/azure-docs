@@ -109,10 +109,10 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 The DPM server/MABS needs access to these URLs:
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+- `*.Microsoft.com`
+- `*.WindowsAzure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 ### Azure ExpressRoute support
 

@@ -6,6 +6,10 @@
     href: overview.md
   - name: Which MariaDB option should I choose?
     href: select-right-deployment-type.md
+  - name: Service updates
+    items:
+    - name: SSL root certificate expiring
+      href: concepts-certificate-rotation.md
 - name: Quickstarts
   expanded: true
   items:
