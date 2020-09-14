@@ -3,14 +3,14 @@ title: Azure Front Door - Frequently Asked Questions
 description: This page provides answers to frequently asked questions about Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
-ms.author: sohamnc
+ms.author: duau
 ---
 
 # Frequently asked questions for Azure Front Door

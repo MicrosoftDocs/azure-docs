@@ -173,4 +173,4 @@ For more information, see the following resources:
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
 * [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
-* [Using a custom Docker image for Azure Web App on Linux](../app-service/containers/tutorial-custom-docker-image.md)
+* [Using a custom Docker image for Azure Web App on Linux](../app-service/tutorial-custom-container.md)

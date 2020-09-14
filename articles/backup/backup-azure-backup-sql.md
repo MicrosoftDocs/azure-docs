@@ -32,7 +32,7 @@ To back up a SQL Server database to Azure and to recover it from Azure:
   * DPM detects a failover and continues protection of the database.
   * DPM supports multi-site cluster configurations for an instance of SQL Server.
 * When you protect databases that use the AlwaysOn feature, DPM has the following limitations:
-  * DPM will honor the backup policy for availability groups that is set in SQL Server based on the backup preferences, as follows:
+  * DPM will honor the backup policy for availability groups that's set in SQL Server based on the backup preferences, as follows:
     * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. IF only the primary replica is available, then the backup should occur on the primary replica.
     * Secondary only - Backup shouldn't be performed on the primary replica. If the primary replica is the only one online, the backup shouldn't occur.
     * Primary - Backups should always occur on the primary replica.

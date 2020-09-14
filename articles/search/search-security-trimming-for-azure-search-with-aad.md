@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
+ms.custom: devx-track-csharp
 ---
 # Security filters for trimming Azure Cognitive Search results using Active Directory identities
 
@@ -35,7 +36,7 @@ Your application must also be registered with AAD, as described in the following
 
 ### Register your application with AAD
 
-This step integrates your application with AAD for the purpose of accepting sign-ins of user and group accounts. If you are not an AAD admin in your organization, you might need to [create a new tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) to perform the following steps.
+This step integrates your application with AAD for the purpose of accepting sign-ins of user and group accounts. If you are not an AAD admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
 
 1. Go to the [**Application Registration Portal**](https://apps.dev.microsoft.com) >  **Converged app** > **Add an app**.
 2. Enter a name for your application, then click **Create**. 
@@ -58,7 +59,7 @@ However, if you don't have existing users, you can use Microsoft Graph APIs to c
 
 User and group membership might be very fluid, especially in large organizations. Code that builds user and group identities should run often enough to pick up changes in organization membership. Likewise, your Azure Cognitive Search index requires a similar update schedule to reflect the current status of permitted users and resources.
 
-### Step 1: Create [AAD Group](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### Step 1: Create [AAD Group](/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -72,7 +73,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### Step 2: Create [AAD User](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### Step 2: Create [AAD User](/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -93,9 +94,9 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### Step 4: Cache the groups identifiers
-Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to AAD. You can use [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) to send a single Http request with multiple users and build the cache.
+Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to AAD. You can use [AAD Batch API](/graph/json-batching) to send a single Http request with multiple users and build the cache.
 
-Microsoft Graph is designed to handle a high volume of requests. If an overwhelming number of requests occur, Microsoft Graph fails the request with HTTP status code 429. For more information, see [Microsoft Graph throttling](https://developer.microsoft.com/graph/docs/concepts/throttling).
+Microsoft Graph is designed to handle a high volume of requests. If an overwhelming number of requests occur, Microsoft Graph fails the request with HTTP status code 429. For more information, see [Microsoft Graph throttling](/graph/throttling).
 
 ## Index document with their permitted groups
 
@@ -133,7 +134,7 @@ To filter documents returned in search results based on groups of the user issui
 
 ### Step 1: Retrieve user's group identifiers
 
-If the user's groups were not already cached, or the cache has expired, issue the [groups](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) request
+If the user's groups were not already cached, or the cache has expired, issue the [groups](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) request
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

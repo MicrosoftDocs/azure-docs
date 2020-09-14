@@ -7,7 +7,8 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom:  [amqp, mqtt]
+manager: philmea
+ms.custom:  [amqp, mqtt, device-developer]
 
 ---
 
@@ -141,10 +142,10 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Group primary key from SAS-IoT-Devices enrollment group":::
 
-1. Use the [dps-keygen](https://www.npmjs.com/package/dps-keygen) tool to generate the device SAS keys. Use the group primary key from the previous step. The device IDs must be lower-case:
+1. Use the `az iot central device compute-device-key` command to generate the device SAS keys. Use the group primary key from the previous step. The device IDs must be lower-case:
 
-    ```cmd
-    dps-keygen -mk:<group primary key> -di:<device ID>
+    ```azurecli
+    az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
 1. The OEM flashes each device with a device ID, a generated device SAS key, and the application **ID scope** value.

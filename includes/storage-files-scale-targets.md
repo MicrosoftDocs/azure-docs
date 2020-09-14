@@ -11,7 +11,7 @@ ms.author: rogarana
 | Maximum size of a file share | 100 TiB*, 5 TiB | 100 TiB |
 | Maximum size of a file in a file share | 1 TiB | 4 TiB |
 | Maximum number of files in a file share | No limit | No limit |
-| Maximum IOPS per share | 10,000 IOPS*, 1,000 IOPS | 100,000 IOPS |
+| Maximum IOPS per share | 10,000 IOPS*, 1,000 IOPS or 100 requests in 100ms | 100,000 IOPS |
 | Maximum number of stored access policies per file share | 5 | 5 |
 | Target throughput for a single file share | up to 300 MiB/sec*, Up to 60 MiB/sec ,  | See premium file share ingress and egress values|
 | Maximum egress for a single file share | See standard file share target throughput | Up to 6,204 MiB/s |

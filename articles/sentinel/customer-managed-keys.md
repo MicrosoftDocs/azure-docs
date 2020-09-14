@@ -88,7 +88,7 @@ After you get approval, you will be asked to provide the following information t
 
 -  Workspace ID on which you want to enable CMK
 
--  Key Vault URL: Copy the key’s “Key Identifier” up to the last forward slash:  
+-  Key Vault URL: Copy the key's "Key Identifier" up to the last forward slash:  
     
 
     ![key identifier](./media/customer-managed-keys/key-identifier.png)

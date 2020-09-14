@@ -3,7 +3,7 @@ title: Windows Virtual Desktop environment host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -246,6 +246,12 @@ the VM.\\\"
 **Cause:** This error is due to a static route, firewall rule, or NSG blocking the download of the zip file tied to the Azure Resource Manager template.
 
 **Fix:** Remove blocking static route, firewall rule, or NSG. Optionally, open the Azure Resource Manager template json file in a text editor, take the link to zip file, and download the resource to an allowed location.
+
+### Error: Can't delete a session host from the host pool after deleting the VM
+
+**Cause:** You need to delete the session host before you delete the VM.
+
+**Fix:** Put the session host in drain mode, sign out all users from the session host, then delete the host.
 
 ## Next steps
 

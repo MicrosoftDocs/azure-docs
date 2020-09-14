@@ -18,6 +18,8 @@ ms.author: juliako
 ---
 # Azure Media Services legacy components
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Over time, there have been steady improvements and enhancements to Media Service components. As a result, some legacy components have been retired. You can find the instructions on how to migrate your application from the legacy component to a current component in the following articles.
  
 ## Retirement plans of legacy components and migration guidance

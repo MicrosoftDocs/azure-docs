@@ -319,7 +319,7 @@ Create a new .js file named `authConfig.js`, which will contain your configurati
 
  Where:
  - *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
- - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+ - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
  - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
@@ -444,7 +444,7 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
    ```
 
    Where:
-   - *\<Enter_the_Graph_Endpoint_Here>* is the instance of MS Graph API. For the global MS Graph API endpoint, simply replace this string with `https://graph.microsoft.com`. For national cloud deployments, please refer to [Graph API Documentation](https://docs.microsoft.com/graph/deployments).
+   - *\<Enter_the_Graph_Endpoint_Here>* is the instance of MS Graph API. For the global MS Graph API endpoint, simply replace this string with `https://graph.microsoft.com`. For national cloud deployments, please refer to [Graph API Documentation](/graph/deployments).
 
 1. Next, create a .js file named `graph.js`, which will make a REST call to Microsoft Graph API, and add the following code:
 

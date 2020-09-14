@@ -35,7 +35,7 @@ The option to restrict an app to a specific set of users or security groups in a
 - Applications built directly on the Azure AD application platform that use OAuth 2.0/OpenID Connect authentication after a user or admin has consented to that application.
 
      > [!NOTE]
-     > This feature is available for web app/web API and enterprise applications only. Apps that are registered as [native](quickstart-v1-integrate-apps-with-azure-ad.md) cannot be restricted to a set of users or security groups in the tenant.
+     > This feature is available for web app/web API and enterprise applications only. Apps that are registered as [native](./quickstart-register-app.md) cannot be restricted to a set of users or security groups in the tenant.
 
 ## Update the app to enable user assignment
 
@@ -91,8 +91,8 @@ Once you've configured your app to enable user assignment, you can go ahead and 
 
 ## More information
 
-- [How to: Add app roles in your application](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [How to: Add app roles in your application](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Azure Active Directory app manifest](./reference-app-manifest.md)

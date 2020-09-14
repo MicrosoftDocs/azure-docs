@@ -31,7 +31,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ---
 
-# [Option 1 (default): Create a internal load balancer (Standard SKU)](#tab/option-1-create-internal-load-balancer-standard)
+# [**Standard SKU**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -275,7 +275,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Network security group | Select the existing **myNSG**|
 
 
-# [Option 2: Create a internal load balancer (Basic SKU)](#tab/option-1-create-internal-load-balancer-basic)
+# [**Basic SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -495,7 +495,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | **Network interface** |  |
     | Virtual network | Select **myVNet** |
     | Subnet | Select **myBackendSubnet** |
-    | Public IP | Select **Create new** </br> Enter **myVM-ip** in name. </br> Select **OK** |
+    | Public IP | Select **None** |
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Select **OK** |
     | **Load balancing**  |

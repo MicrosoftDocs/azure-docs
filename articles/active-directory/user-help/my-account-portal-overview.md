@@ -29,11 +29,11 @@ You can get to the **My Account** portal (https://myaccount.microsoft.com), from
 ![My Account portal, Overview page](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->This article is intended for users trying to get to the My Account portal to update their security info, device info, password, connected organizations, language settings, privacy, or previous sign-in information. If you're an administrator looking for information about how to turn on authentication and other Azure Active Directory (Azure AD) features for your employees and other uses, see the [Azure AD documentation for administrators](https://docs.microsoft.com/azure/active-directory/).
+>This article is intended for users trying to get to the My Account portal to update their security info, device info, password, connected organizations, language settings, privacy, or previous sign-in information. If you're an administrator looking for information about how to turn on authentication and other Azure Active Directory (Azure AD) features for your employees and other uses, see the [Azure AD documentation for administrators](../index.yml).
 
 ## Next steps
 
-- Select to view or manage your [security info](user-help-security-info-overview.md)
+- Select to view or manage your [security info](./security-info-setup-signin.md)
 
 - View or manage your connected [devices](my-account-portal-devices-page.md)
 

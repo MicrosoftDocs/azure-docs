@@ -31,7 +31,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Prerequisites
 
-This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md).
+This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md).
 
 ## Retrieve the resource group
 

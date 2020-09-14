@@ -13,6 +13,9 @@ ms.author: juliako
 ---
 
 # Deliver content to customers
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 When you're delivering your streaming or video-on-demand content to customers, your goal is to deliver high-quality video to various devices under different network conditions.
 
 To achieve this goal, you can:

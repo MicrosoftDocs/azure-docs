@@ -29,7 +29,7 @@ The Azure Storage platform includes the following data services:
 - [Azure Files](../files/storage-files-introduction.md): Managed file shares for cloud or on-premises deployments.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
-- [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
+- [Azure Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
 
 Each service is accessed through a storage account. To get started, see [Create a storage account](storage-account-create.md).
 
@@ -97,7 +97,7 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure-managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
 
-For more information about managed disks, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+For more information about managed disks, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## Types of storage accounts
 

@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/10/2020
+ms.date: 08/10/2020
 ---
 # Score SVD Recommender
 
@@ -102,9 +102,6 @@ The scored dataset returned by Score SVD Recommender lists the recommended items
 
 - The first column contains the user identifiers.
 - A number of additional columns are generated, depending on the value that you set for **Maximum number of items to recommend to a user**. Each column contains a recommended item (by identifier). The recommendations are ordered by user-item affinity. The item with highest affinity is put in column **Item 1**.
-
-> [!WARNING]
-> You can't evaluate this scored dataset by using the [Evaluate Recommender](evaluate-recommender.md) module.
 
 
 ##  Technical notes

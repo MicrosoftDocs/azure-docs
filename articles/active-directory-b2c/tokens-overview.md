@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -115,7 +115,7 @@ The header of the token contains information about the key and encryption method
 }
 ```
 
-The value of the **alg** claim is the algorithm that was used to sign the token. The value of the **kid** claim is the public key that was used to sign the token. At any given time, Azure AD B2C can sign a token by using any one of a set of public-private key pairs. Azure AD B2C rotates the possible set of keys periodically. Your application should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD B2C is every 24 hours.
+The value of the **alg** claim is the algorithm that was used to sign the token. The value of the **kid** claim is the public key that was used to sign the token. At any given time, Azure AD B2C can sign a token by using any one of a set of public-private key pairs. Azure AD B2C rotates the possible set of keys periodically. Your application should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD B2C is every 24 hours. To handle unexpected key changes, your application should be written to re-retrieve the public keys if it receives an unexpected **kid** value.
 
 Azure AD B2C has an OpenID Connect metadata endpoint. Using this endpoint, applications can request information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. Your Azure AD B2C tenant contains a JSON metadata document for each policy. The metadata document is a JSON object that contains several useful pieces of information. The metadata contains **jwks_uri**, which gives the location of the set of public keys that are used to sign tokens. That location is provided here, but it's best to fetch the location dynamically by using the metadata document and parsing **jwks_uri**:
 

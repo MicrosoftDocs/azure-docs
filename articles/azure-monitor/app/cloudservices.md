@@ -2,6 +2,7 @@
 title: Application Insights for Azure cloud services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2018
 
 ---
@@ -61,6 +62,8 @@ If you are developing custom events for your next feature while the previous ver
 To avoid this situation, create separate resources for each build configuration or "stamp" (development, test, production, and so on) of your system. Put the resources for each build configuration in a separate resource group. 
 
 To send the telemetry to the appropriate resources, you can set up the Application Insights SDK so that it picks up a different instrumentation key, depending on the build configuration. 
+
+Learn how to [dynamically set the instrumentation key](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) for different stages. 
 
 ## Create an Application Insights resource for each role
 
