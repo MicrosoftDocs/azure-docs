@@ -299,7 +299,14 @@ Enable and on-board this data to Azure Sentinel or a third-party SIEM based on y
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32890.).
 
 **Guidance**: Use Activity logs to monitor actions on Azure Kubernetes Service (AKS) resources to view all activity and their status. Determine what operations were taken on the resources in your subscription with activity logs: 
-who started the operationwhen the operation occurredthe status of the operationthe values of other properties that might help you research the operation
+who started the operation
+
+when the operation occurred
+
+the status of the operation
+
+the values of other properties that might help you research the operation
+
 Retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. 
 
 Enable audit logs on AKS master components, such as: 
