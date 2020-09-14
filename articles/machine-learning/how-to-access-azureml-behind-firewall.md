@@ -40,6 +40,8 @@ The hosts in this section are owned by Microsoft, and provide services required 
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
+| **login.microsoftonline.com** | Authentication |
+| **management.azure.com** | Used to get the workspace information |
 | **\*.batchai.core.windows.net** | Training clusters |
 | **ml.azure.com** | Azure Machine Learning studio |
 | **default.exp-tas.com** | Used by the Azure Machine Learning studio |
