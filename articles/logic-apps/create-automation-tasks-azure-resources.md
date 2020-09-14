@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/23/2020
 ---
 
 # Manage Azure resources by creating automation tasks (preview)
@@ -246,5 +246,6 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Next steps
 
+* [Provide feedback on this preview capability](mailto:logicapps@microsoft.com)
 * [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md)
 
