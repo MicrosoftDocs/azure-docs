@@ -1,6 +1,6 @@
 ---
 title: Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture
-description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
+description: This article provides information on how to use Debezium with Azure Event Hubs for Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
