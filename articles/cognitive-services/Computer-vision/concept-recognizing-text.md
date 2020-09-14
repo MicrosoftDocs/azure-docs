@@ -71,8 +71,8 @@ When the **status** field has the **succeeded** value, the JSON response contain
 
 ## Sample JSON output
 
-### Read 3.1 preview adds text line style (English only)
-The [Read 3.1 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) outputs an **Appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for English.
+### Read 3.1 preview adds text line style (Latin languages only)
+The [Read 3.1 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) outputs an **Appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for Latin languages.
 
 ```json
   "appearance": {
