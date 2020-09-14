@@ -17,11 +17,11 @@ keywords: translator, translator service, translate text, transliterate text, la
 
 In this quickstart, you learn to use the Translator service via REST. You start with basic examples and move onto some core configuration options that are commonly used during development, including:
 
-* Translation
-* Transliteration
-* Language identification/detection
-* Calculate sentence length
-* Get alternate translations and examples of word usage in a sentence
+* [Translation](#translate-text)
+* [Transliteration](#transliterate-text)
+* [Language identification/detection](#detect-language)
+* [Calculate sentence length](#get-sentence-length)
+* [Get alternate translations](#dictionary-lookup-alternate-translations) and [examples of word usage in a sentence](#dictionary-examples-translations-in-context)
 
 ## Prerequisites
 
