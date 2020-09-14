@@ -73,7 +73,7 @@ The endpoint APIs that are available in control plane are:
 Event routes are created in a client application with the following [.NET (C#) SDK](how-to-use-apis-sdks.md) call: 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute(endpointId: "<endpoint-name>", filter: "true"));
 ```
 
 * The `endpoint-name` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
