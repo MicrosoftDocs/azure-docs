@@ -27,13 +27,13 @@ This page explains how to use the container security features described in the [
 
         Security Center is now ready to scan images that get pushed to the registry. 
 
-        >[!NOTE]
-        >This feature is charged per image.
+      >[!NOTE]
+      >This feature is charged per image.
 
 
 1. To trigger the scan of an image, push it to your registry. 
 
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
 
 1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the following recommendation:
 

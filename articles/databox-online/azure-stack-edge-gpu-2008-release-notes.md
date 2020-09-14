@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 09/04/2020
 ms.author: alkohli
 ---
 
@@ -17,13 +17,13 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information contained in the release notes.
 
-This **Azure Stack Edge 2008** release corresponds to the following software version:
+This article applies to the following software release - **Azure Stack Edge 2008**. 
 
-- **2.1.1328.1904**
+<!--- **2.1.1328.1904**-->
 
 ## What's new
 
-The following new features were added in Azure Stack Edge 2008 release:
+The following new features were added in Azure Stack Edge 2008 release. Depending on the specific preview software version you are running, you may see a subset of these features. 
 
 - **Storage classes** - In the previous release, you could only statically provision storage via SMB or NFS shares for stateful applications deployed on the Kubernetes cluster running on your Azure Stack Edge device. In this release, Storage classes were added that let dynamically provision storage. For more information, see [Kubernetes storage management on your Azure Stack Edge GPU device](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
 - **Kubernetes dashboard with metrics server** - In this release, a Kubernetes Dashboard is added with a metrics server add-on. You can use the dashboard to get an overview of the applications running on your Azure Stack Edge device, view status of Kubernetes cluster resources, and see any errors that have occurred on the device. The Metrics server aggregates the CPU and memory usage across Kubernetes resources on the device. For more information, see [Use Kubernetes dashboard to monitor your Azure Stack Edge GPU device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
@@ -49,7 +49,7 @@ The following table provides a summary of known issues for the Azure Stack Edge 
 |**12.**|Kubernetes cluster|Existing Azure IoT Edge marketplace modules will not run on the Kubernetes cluster as the hosting platform for IoT Edge on Azure Stack Edge device.|The modules will need to be modified before these are deployed on the Azure Stack Edge device. For more information, see Modify Azure IoT Edge modules from marketplace to run on Azure Stack Edge device.<!-- insert link-->|
 |**13.**|Kubernetes |File-based bind mounts are not supported with Azure IoT Edge on Kubernetes on Azure Stack Edge device.|IoT Edge uses a translation layer to translate `ContainerCreate` options to Kubernetes constructs. Creating `Binds` maps to hostpath directory or create and thus file-based bind mounts cannot be bound to paths in IoT Edge containers.|
 |**14.**|Kubernetes |If you bring your own certificates for IoT Edge and add those on your Azure Stack Edge device, the new certificates are not picked up as part of the Helm charts update.|To workaround this problem, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Restart `iotedged` and `edgehub` pods.|
-|**15.**|Certificates |In certain instances, certificate validation may takes several seconds and slow down the local UI. |The following scenarios in the local UI are affected.<ul><li>**Certificates** page: The page loads with certificate information but the **Status** column displays **Loading...** for each certificate for several seconds.</li><li>**Get started** page: The **Security** tile takes time to load the state.</li><li>**Overview** page - This takes time to load the configuration information.</li></ul>  |
+|**15.**|Certificates |In certain instances, certificate state in the local UI may take several seconds to update. |The following scenarios in the local UI may be affected.<ul><li>**Status** column in **Certificates** page.</li><li>**Security** tile in **Get started** page.</li><li>**Configuration** tile in **Overview** page.</li></ul>  |
 
 ## Next steps
 

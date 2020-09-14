@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/04/2019
+ms.date: 07/27/2020
 ---
 
 # Configure Hyperscale (Citus) high availability
@@ -21,8 +21,9 @@ promoted to replace it.
 > the cost.
 
 Enabling HA is possible during server group creation, or afterward in the
-**Configure** tab for your server group in the Azure portal. The user interface
-looks similar in either case. Drag the slider for **High availability** to YES:
+**Compute + storage** tab for your server group in the Azure portal. The user
+interface looks similar in either case. Drag the slider for **High
+availability** from NO to YES:
 
 ![ha slider](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 

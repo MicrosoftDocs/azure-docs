@@ -20,7 +20,7 @@ This tutorial shows you how to build a sample IoT Plug and Play device applicati
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this tutorial, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -39,8 +39,6 @@ Open a command prompt in the directory of your choice. Execute the following com
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-node
 ```
-
-This operation may take several minutes to complete.
 
 ## Install required libraries
 
@@ -109,6 +107,8 @@ Open the *pnpTemperatureController.js* file in a code editor of your choice. The
     1. Uses `desiredPropertyPatchListener` to listen for property updates.
 
     1. Disables all the listeners and tasks, and exits the loop when you press **Q** or **q**.
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
 Now that you've seen the code, use the following command to run the sample:
 

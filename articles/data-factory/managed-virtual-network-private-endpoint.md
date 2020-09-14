@@ -84,7 +84,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 
-### Supported Region
+### Supported Regions
 - East US
 - East US 2
 - West Central US

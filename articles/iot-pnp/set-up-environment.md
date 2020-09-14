@@ -34,7 +34,7 @@ Create an IoT hub. The following command uses the name `my-pnp-hub` as an exampl
 
 ```azurecli-interactive
 az iot hub create --name my-pnp-hub \
-    --resource-group my-pnp-resourcegroup --sku F1
+    --resource-group my-pnp-resourcegroup --sku F1 --partition-count 2
 ```
 
 Create a DPS instance. The following command uses the name `my-pnp-dps` as an example for the name of the DPS instance to create. Choose a unique name for your DPS instance to use in place of `my-pnp-dps`:
@@ -43,25 +43,67 @@ Create a DPS instance. The following command uses the name `my-pnp-dps` as an ex
 az iot dps create --name my-pnp-dps --resource-group my-pnp-resourcegroup
 ```
 
-To link the DPS instance to your IoT hub, you need the IoT hub connection string. You use the connection string when you configure the link. Replace `my-pnp-dps` and `my-pnp-hub` with the unique names you chose previously:
+To link the DPS instance to your IoT hub, use the following commands. Replace `my-pnp-dps` and `my-pnp-hub` with the unique names you chose previously:
 
 ```azurecli-interactive
 hubConnectionString=$(az iot hub show-connection-string --name my-pnp-hub --key primary --query connectionString -o tsv)
-az iot dps linked-hub create --dps-name my-pnp-dps --resource-group my-pnp-resourcegroup --connection-string $hubConnectionString
+az iot dps linked-hub create --dps-name my-pnp-dps --resource-group my-pnp-resourcegroup --location centralus --connection-string $hubConnectionString
 ```
 
-To view your DPS configuration, use the following command. Replace `my-pnp-dps` with the unique name you chose:
+## Retrieve the settings
+
+Some quickstarts and tutorials use the connection string for your IoT hub. You also need the connection string when you set up the Azure IoT explorer tool. Retrieve the connection string and make a note of it now. Replace `my-pnp-hub` with the unique name you chose for your IoT hub:
 
 ```azurecli-interactive
-az iot dps show --name my-pnp-dps
+az iot hub show-connection-string --name my-pnp-hub --key primary --query connectionString
 ```
 
-## Retrieve the IoT hub connection string
-
-Some quickstarts and tutorials need the connection string for your IoT hub. You also need the connection string when you set up the Azure IoT explorer tool. Retrieve the connection string and make a note of it now:
+Most of the quickstarts and tutorials use the *ID scope* of your DPS configuration. Retrieve the ID scope and make a note of it now. Replace `my-pnp-dps` with the unique name you chose for your DPS instance:
 
 ```azurecli-interactive
-echo $hubConnectionString
+az iot dps show --name my-pnp-dps --query properties.idScope
+```
+
+All the quickstarts and tutorials use a DPS device enrollment. Use the following command to create a `my-pnp-device` *individual device enrollment* in your DPS instance. Replace `my-pnp-dps` with the unique name you chose for your DPS instance. Make a note of the registration ID and primary key values to use in the quickstarts and tutorials:
+
+```azurecli-interactive
+az iot dps enrollment create --attestation-type symmetrickey --dps-name my-pnp-dps --resource-group my-pnp-resourcegroup --enrollment-id my-pnp-device --device-id my-pnp-device --query '{registrationID:registrationId,primaryKey:attestation.symmetricKey.primaryKey}'
+```
+
+## Create environment variables
+
+Create four environment variables to configure the samples in the quickstarts and tutorials to use the Device Provisioning Service (DPS) to connect to your IoT hub:
+
+* **IOTHUB_DEVICE_SECURITY_TYPE**: the value `"DPS"`.
+* **IOTHUB_DEVICE_DPS_ID_SCOPE**: the DPS ID scope you made a note of previously.
+* **IOTHUB_DEVICE_DPS_DEVICE_ID**: the value `"my-pnp-device"`.
+* **IOTHUB_DEVICE_DPS_DEVICE_KEY**: the enrollment primary key you made a note of previously.
+
+The service samples need the following environment variable to identify the hub and device to connect to:
+
+* **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
+* ***IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+
+For example, in a Linux bash shell:
+
+```bash
+export IOTHUB_DEVICE_SECURITY_TYPE="DPS"
+export IOTHUB_DEVICE_DPS_ID_SCOPE="<Your ID scope>"
+export IOTHUB_DEVICE_DPS_DEVICE_ID="my-pnp-device"
+export IOTHUB_DEVICE_DPS_DEVICE_KEY="<Your enrolment primary key>"
+export IOTHUB_CONNECTION_STRING="<Your IoT hub connection string>"
+export IOTHUB_DEVICE_ID="my-pnp-device"
+```
+
+For example, at the Windows command line:
+
+```cmd
+set IOTHUB_DEVICE_SECURITY_TYPE=DPS
+set IOTHUB_DEVICE_DPS_ID_SCOPE=<Your ID scope>
+set IOTHUB_DEVICE_DPS_DEVICE_ID=my-pnp-device
+set IOTHUB_DEVICE_DPS_DEVICE_KEY=<Your enrolment primary key>
+set IOTHUB_CONNECTION_STRING=<Your IoT hub connection string>
+set IOTHUB_DEVICE_ID=my-pnp-device
 ```
 
 ## Download the model files

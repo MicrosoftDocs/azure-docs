@@ -115,10 +115,10 @@ The following table summarizes the file fields to fill in:
 **Disk 1 write throughput** | No | Data written to disk per second, in MB per second.
 **CPU utilization percentage** | No | Percentage of CPU used.
 **Memory utilization percentage** | No | Percentage of RAM used.
-**Total disks read ops** | No | Disk-read operations per second.
-**Total disks write ops** | No | Disk-write operations per second.
-**Total disks read throughput** | No | Data read from the disk, in MB per second.
-**Total disks write throughput** | No | Data written to disk, in MB per second.
+**Total disks read ops** | No | Read operations per second for all disks combined. <br/> Use this field if you are not able to provide disk-level data. 
+**Total disks write ops** | No | Write operations per second for all disks combined. <br/> Use this field if you are not able to provide disk-level data.
+**Total disks read throughput** | No | Data read from all disks, in MB per second. <br/> Use this field if you are not able to provide disk-level data. 
+**Total disks write throughput** | No | Data written to all disk, in MB per second. <br/> Use this field if you are not able to provide disk-level data.
 **Network In throughput** | No | Data received by the server, in MB per second.
 **Network Out throughput** | No | Data transmitted by the server, in MB per second.
 **Firmware type** | No | Server firmware. Values can be "BIOS" or "UEFI".
@@ -141,6 +141,11 @@ For example, to specify all fields for a second disk, add these columns:
 - Disk 2 read throughput
 - Disk 2 write throughput
 
+If you are not able to provide disk level data, you can provide disk performance data per server using the following fields. See [this](#add-server-information) section for details on each field.
+- Total disks read ops
+- Total disks write ops
+- Total disks read throughput
+- Total disks write throughput
 
 ## Import the server information
 

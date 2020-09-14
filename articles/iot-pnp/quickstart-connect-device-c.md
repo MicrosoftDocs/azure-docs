@@ -19,7 +19,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 You can run this quickstart on Linux or Windows. The shell commands in this quickstart follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
@@ -49,7 +49,7 @@ gcc --version
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) Visual Studio.
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
@@ -82,7 +82,7 @@ You use the device SDK to build the included sample code:
 1. Run the following commands to build the SDK and samples:
 
     ```cmd\bash
-    cmake ..
+    cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
     cmake --build .
     ```
 
@@ -91,12 +91,9 @@ You use the device SDK to build the included sample code:
 
 ## Run the device sample
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
 To run the sample application in the SDK that simulates an IoT Plug and Play device sending telemetry to your IoT hub:
-
-Create two environment variables to configure the sample to use a connection string to connect to your IoT hub:
-
-- **IOTHUB_DEVICE_SECURITY_TYPE** with the value `"connectionString"`
-- **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 
 From the _cmake_ folder, navigate to the folder that contains the executable file and run it:
 

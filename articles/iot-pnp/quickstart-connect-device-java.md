@@ -19,11 +19,11 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **Long-term support**, select **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## Download the code
@@ -35,8 +35,6 @@ Open a command prompt in the directory of your choice. Execute the following com
 ```cmd
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## Build the code
 

@@ -20,7 +20,7 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -32,13 +32,15 @@ node --version
 
 ### Clone the SDK repository with the sample code
 
-The service SDK is in preview, so you need to clone the samples from a [preview branch of the Node SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh). Open a terminal window in a folder of your choice. Run the following command to clone the **pnp-preview-refresh** branch of the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository:
+You will need to clone the samples from a [the Node SDK repository](https://github.com/Azure/azure-iot-sdk-node). Open a terminal window in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-node
 ```
 
 ## Run the sample device
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
 In this quickstart, you can use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. To run the sample device:
 
@@ -48,12 +50,6 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 
     ```cmd/sh
     npm install
-    ```
-
-1. Configure the _device connection string_:
-
-    ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Run the sample thermostat device with the following command:
@@ -66,26 +62,31 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 
 ## Run the sample solution
 
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
+
+* **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
+* ***IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device you just set up.
 
-1. Open another terminal window to use as your **service** terminal. The service SDK is in preview, so you need to clone the samples from a [preview branch of the Node SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh):
+1. Open another terminal window to use as your **service** terminal. 
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
-    ```
-
-1. Go to the folder of this cloned repository branch, and navigate to the */azure-iot-sdk-node/digitaltwins/samples/service/javascript* folder. Install all the dependencies by running the following command:
+1. In the cloned Node SDK repository, navigate to the */azure-iot-sdk-node/service/samples/javascript* folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
     ```
+1. Ensure that you have the most recent preview version of the Node service SDK, **azure-iothub@1.13.0-pnp-rc.0**. You can verify by running:
 
-1. Configure environment variables for your device ID and _IoT Hub connection string_:
-
-    ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
-    set IOTHUB_DEVICE_ID=<Your device ID>
-    ```
+     ```cmd/sh
+     npm list
+     ```
+     If not, run the following command to update to the most recent Node service package:
+     
+     ```cmd/sh
+     npm i azure-iothub@1.13.0-pnp-rc.0
+     ```
+     
 
 ### Read a property
 

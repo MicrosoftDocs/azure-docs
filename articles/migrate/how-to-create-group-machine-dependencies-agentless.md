@@ -21,6 +21,7 @@ This article describes how to set up agentless dependency analysis in Azure Migr
 
 - In the dependency analysis view, you can't currently add or remove a server from a group.
 - A dependency map for a group of servers isn't currently available.
+- Dependency data collection can be set up concurrently for 400 servers. You can analyse a higher number of servers by sequencing in batches of 400.
 
 ## Before you start
 

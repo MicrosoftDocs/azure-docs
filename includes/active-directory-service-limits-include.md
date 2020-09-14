@@ -5,7 +5,7 @@
  author: curtand
  ms.service: active-directory
  ms.topic: include
- ms.date: 02/28/2020
+ ms.date: 09/10/2020
  ms.author: curtand
  ms.custom: include file
 ---
@@ -24,4 +24,4 @@ Here are the usage constraints and other service limits for the Azure Active Dir
 | Access Panel |There's no limit to the number of applications that can be seen in the Access Panel per user regardless of assigned licenses.  |
 | Reports | A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated. |
 | Administrative units | An Azure AD resource can be a member of no more than 30 administrative units. |
-| Admin roles and permissions | <ul><li>A maximum of 30 custom roles can be created in an Azure AD organization.</li><li>A group cannot be added as an [owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Users' ability to read other users' tenant information cannot be restricted outside of the Azure AD organization-wide switch to disable all non-admin users' access to all tenant information (not recommended). More information on default permissions [here](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>It may take up to 15 minutes or signing out/signing in before admin role membership additions and revocations take effect.</li></ul> |
+| Azure AD roles and permissions | <ul><li>A maximum of 30 [Azure AD custom roles](https://docs.microsoft.com/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure/active-directory/users-groups-roles/context/ugr-context) can be created in an Azure AD organization.</li><li>A group can't be added as a [group owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>A user's ability to read other users' tenant information can be restricted only by the Azure AD organization-wide switch to disable all non-admin users' access to all tenant information (not recommended). For more information, see [To restrict the default permissions for member users](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>It may take up to 15 minutes or signing out/signing in before admin role membership additions and revocations take effect.</li></ul> |

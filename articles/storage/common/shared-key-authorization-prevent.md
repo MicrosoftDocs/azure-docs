@@ -209,7 +209,7 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 
 | Azure tool | Azure AD authorization to Azure Storage |
 |-|-|
-| Azure portal | Supported. For information about authorizing with your Azure AD account from the Azure portal, see [Choose how to authorize access to blob or queue data in the Azure portal](storage-access-blobs-queues-portal.md). |
+| Azure portal | Supported. For information about authorizing with your Azure AD account from the Azure portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Supported for Blob storage. For information about authorizing AzCopy operations, see [Choose how you'll provide authorization credentials](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) in the AzCopy documentation. |
 | Azure Storage Explorer | Supported for Blob storage and Azure Data Lake Storage Gen2 only. Azure AD access to Queue storage is not supported. Make sure to select the correct Azure AD tenant. For more information, see [Get started with Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Supported. For information about how to authorize PowerShell commands with Azure AD for access to blob and queue data, see [Run PowerShell commands with Azure AD credentials to access blob or queue data](authorize-active-directory-powershell.md). |

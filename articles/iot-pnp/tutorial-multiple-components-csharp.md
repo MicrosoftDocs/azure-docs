@@ -19,7 +19,7 @@ This tutorial shows you how to build a sample IoT Plug and Play device applicati
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this tutorial on Windows, install the following software on your local Windows environment:
 

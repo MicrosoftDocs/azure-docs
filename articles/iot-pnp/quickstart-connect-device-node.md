@@ -20,7 +20,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -58,6 +58,8 @@ You use the device SDK to build the included sample code. The application you bu
 
 ## Run the sample device
 
+This sample implements a simple IoT Plug and Play thermostat device. The model this sample implements doesn't use IoT Plug and Play [components](concepts-components.md). The [DTDL model file for the thermostat device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) defines the telemetry, properties, and commands the device implements.
+
 Open the _simple_thermostat.js_ file. In this file, you can see how to:
 
 1. Import the required interfaces.
@@ -73,6 +75,8 @@ In the main function, you can see how it all comes together:
 1. Send telemetry from the device to your hub.
 1. Get the devices twin and update the reported properties.
 1. Enable the desired property update handler.
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
 Run the sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 

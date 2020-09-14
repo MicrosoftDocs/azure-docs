@@ -19,7 +19,7 @@ This tutorial shows you how to build a sample IoT Plug and Play device applicati
 
 ## Prerequisites
 
-Make sure you've [setup your environment](set-up-environment.md), including your IoT hub, before continuing.
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
@@ -29,7 +29,7 @@ python --version
 
 You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/).
 
-## Set up your environment
+## Download the code
 
 The **azure-iot-device** package is published as a PIP for the public preview refresh. The package version should be latest or `2.1.4`
 
@@ -51,57 +51,59 @@ This sample implements an IoT Plug and Play temperature controller device. The m
 
 The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. The files for the temperature controller sample are:
 
-- pnp_temp_controller_with_thermostats.py
+- temp_controller_with_thermostats.py
 - pnp_helper_preview_refresh.py
 
 Temperature controller has multiple components and a root interface, based on the temperature controller DTDL model.
 
-Open the *pnp_temp_controller_with_thermostats.py* file in an editor of your choice. The code in this file:
+Open the *temp_controller_with_thermostats.py* file in an editor of your choice. The code in this file:
 
 1. Imports `pnp_helper_preview_refresh.py` to get access to helper methods.
 
-2. Defines two digital twin model identifiers (DTMIs) that uniquely represent two different interfaces, defined in the DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these two interfaces represent:
+1. Defines two digital twin model identifiers (DTMIs) that uniquely represent two different interfaces, defined in the DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these two interfaces represent:
 
-  - A thermostat
-  - Device information developed by Azure.
+    - A thermostat
+    - Device information developed by Azure.
 
-3. Defines the DTMI `model_id` for the device that's being implemented. The DTMI is user-defined and must match the DTMI in the DTDL model file.
+1. Defines the DTMI `model_id` for the device that's being implemented. The DTMI is user-defined and must match the DTMI in the DTDL model file.
 
-4. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the root interface. A `serial_number` can't change for a device.
+1. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the root interface. A `serial_number` can't change for a device.
 
-5. Defines command handler implementations. These define what the device does when it receives command requests.
+1. Defines command handler implementations. These define what the device does when it receives command requests.
 
-6. Defines functions to create a command response. These define how the device responds with to command requests. You create command response functions if a command needs to send a custom response back to the IoT hub. If a response function for a command isn't provided, a generic response is sent. In this sample, only the **getMaxMinReport** command has a custom response.
+1. Defines functions to create a command response. These define how the device responds with to command requests. You create command response functions if a command needs to send a custom response back to the IoT hub. If a response function for a command isn't provided, a generic response is sent. In this sample, only the **getMaxMinReport** command has a custom response.
 
-7. Defines a function to send telemetry from this device. Both the thermostats and the root interface send telemetry. This function takes in a optional component name parameter to enable it to identify which component sent the telemetry.
+1. Defines a function to send telemetry from this device. Both the thermostats and the root interface send telemetry. This function takes in a optional component name parameter to enable it to identify which component sent the telemetry.
 
-8. Defines a listener for command requests.
+1. Defines a listener for command requests.
 
-9. Defines a listener for desired property updates.
+1. Defines a listener for desired property updates.
 
-10. Has a `main` function that:
+1. Has a `main` function that:
 
-    1. Uses the device SDK to create a device client and connect to your IoT hub. The device sends the `model_id` so that the IoT hub can identify the device as an IoT Plug and Play device.
+    - Uses the device SDK to create a device client and connect to your IoT hub. The device sends the `model_id` so that the IoT hub can identify the device as an IoT Plug and Play device.
 
-    1. Uses the `create_reported_properties` function in the helper file to create the properties. Pass the component name, and the properties as key value pairs to this function.
+    - Uses the `create_reported_properties` function in the helper file to create the properties. Pass the component name, and the properties as key value pairs to this function.
 
-    1. Updates the readable properties for its components by calling `patch_twin_reported_properties`.
+    - Updates the readable properties for its components by calling `patch_twin_reported_properties`.
 
-    1. Starts listening for command requests using the `execute_command_listener` function. The function sets up a listener for command requests from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and an optional `create_user_response_handler` as parameters.
+    - Starts listening for command requests using the `execute_command_listener` function. The function sets up a listener for command requests from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and an optional `create_user_response_handler` as parameters.
         - The `method_name` defines the command request. In this sample the model defines the commands **reboot**, and **getMaxMinReport**.
         - The `user_command_handler` function defines what the device should do when it receives a command.
         - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. You can view this response in the portal. If this function isn't provided, a generic response is sent to the service.
 
-    1. Uses `execute_property_listener` to listen for property updates.
+    - Uses `execute_property_listener` to listen for property updates.
 
-    1. Starts sending telemetry using `send_telemetry`. The sample code uses a loop to call three telemetry sending functions. Each one is called every eight seconds
+    - Starts sending telemetry using `send_telemetry`. The sample code uses a loop to call three telemetry sending functions. Each one is called every eight seconds
 
-    1. Disables all the listeners and tasks, and exits the loop when you press **Q** or **q**.
+    - Disables all the listeners and tasks, and exits the loop when you press **Q** or **q**.
 
-Now that you've seen the code, create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.Use the following command to run the sample:
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Use the following command to run the sample:
 
 ```cmd/sh
-python pnp_temp_controller_with_thermostats.py
+python temp_controller_with_thermostats.py
 ```
 
 The sample device sends telemetry messages every few seconds to your IoT hub.
