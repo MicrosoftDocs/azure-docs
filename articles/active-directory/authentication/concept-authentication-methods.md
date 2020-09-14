@@ -211,7 +211,7 @@ Security questions can be less secure than other methods because some people mig
 
 ### Predefined questions
 
-The following predefined security questions are available for use as a verification method with SSPR. All of these security questions are translated and localized into the full set of Office 365 languages based on the user's browser locale:
+The following predefined security questions are available for use as a verification method with SSPR. All of these security questions are translated and localized into the full set of Microsoft 365 languages based on the user's browser locale:
 
 * In what city did you meet your first spouse/partner?
 * In what city did your parents meet?

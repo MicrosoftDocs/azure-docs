@@ -28,8 +28,9 @@ In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, an
 
 1. You need an ADLSGEN2 account to create a workspace. The simplest choice it to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
 1. OPTION 1 Creating a new ADLSGEN2 account 
-    1. Under **Select Data Lake Storage Gen 2**, click **Create New** and name it **contosolake**.
-    1. Under **Select Data Lake Storage Gen 2**, click **File System** and  name it **users**.
+    1. Navigate to **Select Data Lake Storage Gen 2**. 
+    1. Click **Create New** and name it **contosolake**.
+    1. Click **File System** and  name it **users**.
 1. OPTION 2 Using an existing ADLSGEN2 account. See the **Preparing an ADLSGEN2 Storage Account** instructions at the bottom of this document.
 1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
