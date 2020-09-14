@@ -4,7 +4,7 @@ description: Learn how to create lifecycle policy rules to transition aging data
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -73,6 +73,17 @@ There are two ways to add a policy through the Azure portal.
 1. Select **Base blobs** to set the conditions for your rule. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
+
+The **Last accessed** option is available in preview in the following regions:
+
+ - France Central
+ - Canada East
+ - Canada Central
+
+> [!IMPORTANT]
+> The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
+
+For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-_preview_).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs in the *mylifecyclecontainer* container that begin with "log".
 
@@ -346,6 +357,73 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
   ]
 }
 ```
+
+### Move data based on last accessed date (preview)
+
+You can enable last access time tracking to keep a record on when is your blob last read or written. You can use last access time as a filter to manage tiering and retention of your blob data.
+
+The **Last accessed** option is available in preview in the following regions:
+
+ - France Central
+ - Canada East
+ - Canada Central
+
+> [!IMPORTANT]
+> The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
+
+#### How last access time tracking works
+
+When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) are not access operations.
+
+To minimize the impact on read access latency, only the first read of the day updates the last access time. Subsequent reads on the same date do not update the last access time. 
+If a blob is modified between reads, the last access time is the more recent of the two values.
+
+In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days.
+
+```json
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "move-to-cool",
+      "type": "Lifecycle",
+      "definition": {
+        "actions": {
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterLastAccessTimeGreaterThan": 30
+            }
+          }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "mylifecyclecontainer/log"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Storage account support
+
+Last access time tracking is available for the following types of storage accounts:
+
+ - General-purpose v2 storage accounts
+ - Block blob storage accounts
+ - Blob storage accounts
+
+If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account.
+
+Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not supported.
+
+#### Pricing and billing
+
+Each last access time update is considered an [other operation](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### Archive data after ingest
 
