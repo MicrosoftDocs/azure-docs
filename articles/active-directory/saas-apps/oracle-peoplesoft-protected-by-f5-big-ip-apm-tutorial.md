@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2020
+ms.date: 09/14/2020
 ms.author: jeedes
 
 ---
@@ -21,8 +21,7 @@ In this tutorial, you'll learn how to integrate Oracle PeopleSoft - Protected by
 * Control in Azure AD who has access to Oracle PeopleSoft - Protected by F5 BIG-IP APM.
 * Enable your users to be automatically signed-in to Oracle PeopleSoft - Protected by F5 BIG-IP APM with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+* This tutorial covers instructions for Oracle PeopleSoft ELM.
 
 ## Prerequisites
 
@@ -49,13 +48,11 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Oracle PeopleSoft - Protected by F5 BIG-IP APM supports **SP and IDP** initiated SSO
 
-* Once you configure Oracle PeopleSoft - Protected by F5 BIG-IP APM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
 ## Adding Oracle PeopleSoft - Protected by F5 BIG-IP APM from the gallery
 
 To configure the integration of Oracle PeopleSoft - Protected by F5 BIG-IP APM into Azure AD, you need to add Oracle PeopleSoft - Protected by F5 BIG-IP APM from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
@@ -67,7 +64,7 @@ To configure the integration of Oracle PeopleSoft - Protected by F5 BIG-IP APM i
 
 Configure and test Azure AD SSO with Oracle PeopleSoft - Protected by F5 BIG-IP APM using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Oracle PeopleSoft - Protected by F5 BIG-IP APM.
 
-To configure and test Azure AD SSO with Oracle PeopleSoft - Protected by F5 BIG-IP APM, complete the following building blocks:
+To configure and test Azure AD SSO with Oracle PeopleSoft - Protected by F5 BIG-IP APM, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -80,7 +77,7 @@ To configure and test Azure AD SSO with Oracle PeopleSoft - Protected by F5 BIG-
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Oracle PeopleSoft - Protected by F5 BIG-IP APM** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Oracle PeopleSoft - Protected by F5 BIG-IP APM** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -138,15 +135,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Oracle PeopleSoft - Protected by F5 BIG-IP APM**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Oracle PeopleSoft-Protected by F5 BIG-IP APM SSO
@@ -255,7 +246,7 @@ Navigate to **Peopletools > Security > User Profiles > User Profiles** to create
 
 1. From the **PeopleTools Application Designer**, open the **FUNCLIB_LDAP** record.
 
-    ![web profile configuration](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
+    ![web profile configuration](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/funclib.png)
 
 1. Update the user Header with **PS_SSO_UID** for **OAMSSO_AUTHENTICATION** function.
 In the **getWWWAuthConfig()** function, replace the value that is assigned to the **&defaultUserId** with the **OAMPSFT** that we defined in the Web profile. Save the record definition.
@@ -334,18 +325,21 @@ In this section, you create a user called B.Simon in Oracle PeopleSoft-Protected
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Oracle PeopleSoft - Protected by F5 BIG-IP APM tile in the Access Panel, you should be automatically signed in to the Oracle PeopleSoft - Protected by F5 BIG-IP APM for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+#### SP initiated:
 
-## Additional resources
+* Click on **Test this application** in Azure portal. This will redirect to Oracle PeopleSoft-Protected by F5 BIG-IP APM Sign on URL where you can initiate the login flow.  
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Go to Oracle PeopleSoft-Protected by F5 BIG-IP APM Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+#### IDP initiated:
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Oracle PeopleSoft-Protected by F5 BIG-IP APM for which you set up the SSO 
 
-- [Try Oracle PeopleSoft - Protected by F5 BIG-IP APM with Azure AD](https://aad.portal.azure.com/)
+You can also use Microsoft Access Panel to test the application in any mode. When you click the Oracle PeopleSoft-Protected by F5 BIG-IP APM tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Oracle PeopleSoft-Protected by F5 BIG-IP APM for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+## Next steps
+
+Once you configure Oracle PeopleSoft - Protected by F5 BIG-IP APM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
