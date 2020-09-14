@@ -64,6 +64,47 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
     - [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
     - [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
+## Azure Kubernetes Service version
+
+When **creating** an Azure Kubernetes Service cluster using one of the following methods, you do not have a choice in the version of the cluster that is created:
+
+* Azure Machine Learning studio, or the Azure Machine Learning section of the Azure portal.
+* Machine Learning extension for Azure CLI.
+* Azure Machine Learning SDK.
+* Azure Resource Manager templates that use Azure Machine Learning to create the resource. For example, [https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute).
+
+These methods of creating an AKS cluster use the __default__ version of the cluster. *The default version changes over time*.
+
+When **attaching** an existing AKS cluster, we support all currently supported AKS versions.
+
+> [!NOTE]
+> There may be edge cases where you have an older cluster that is no longer supported. In this case, the attach operation will return an error and list the currently supported versions.
+>
+> You can attach **preview** versions. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. Support for using preview versions may be limited. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### Available and default versions
+
+To find the available and default AKS versions, use the [Container Service Client - List Orchestrators](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. To find the available versions, look at the entries where `orchestratorType` is `Kubernetes`. The associated `orchestrationVersion` entries contain the available versions that can be **attached** to your workspace.
+
+To find the default version that is used when **creating** a cluster through Azure Machine Learning, find the entry where `orchestratorType` is `Kubernetes` and `default` is `true`. The associated `orchestratorVersion` value is the default version. The following JSON snippet shows an example entry:
+
+```json
+...
+ {
+        "orchestratorType": "Kubernetes",
+        "orchestratorVersion": "1.12.7",
+        "default": true,
+        "upgrades": [
+          {
+            "orchestratorType": "",
+            "orchestratorVersion": "1.13.5",
+            "isPreview": false
+          }
+        ]
+      },
+...
+```
+
 ## Create a new AKS cluster
 
 **Time estimate**: Approximately 10 minutes.
