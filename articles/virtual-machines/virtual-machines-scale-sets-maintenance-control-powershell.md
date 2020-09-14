@@ -28,7 +28,7 @@ Install the `Az.Maintenance` PowerShell module.
 Install-Module -Name Az.Maintenance
 ```	
 
-If you are installing locally, make sure you open your PowerShell prompt as an administrator.
+If you're installing locally, make sure you open your PowerShell prompt as an administrator.
 
 You may also be asked to confirm that you want to install from an *untrusted repository*. Type `Y` or select **Yes to All** to install the module.
 
@@ -48,7 +48,7 @@ $vmss="ShantSVMSS"
 
 ## Create a maintenance configuration
 
-Create a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus*. If you already have a resource group that you want to use, you can skip this part and replace the resource group name with your own in the rest of the examples.
+Create a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus*. If you already have a resource group that you want to use, you can skip this part. Just replace the resource group name with your own in the rest of the examples.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -76,7 +76,7 @@ $config
 
 Using `-MaintenanceScope OSImage` ensures that the maintenance configuration is used for controlling updates to the guest OS.
 
-If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
+If you try to create a configuration with the same name, but in a different location, you'll get an error. Configuration names must be unique to your subscription.
 
 You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
@@ -86,7 +86,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ## Associate your VMSS to the Maintenance configuration
 
-A virtual machine scale set for a given region should be associated to the corresponding Maintenance configuration for the region. By opting-in to the Maintenance configuration, new OS image updates for the scale set will be automatically scheduled on the next available maintenance window.
+A virtual machine scale set for a given region should be associated to the corresponding Maintenance configuration for the region. By opting in to the Maintenance configuration, new OS image updates for the scale set will be automatically scheduled on the next available maintenance window.
 
 Use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) to associate your virtual machine scale set the maintenance configuration.
 
@@ -103,7 +103,7 @@ New-AzConfigurationAssignment `
 
 ## Enable automatic OS upgrade
 
-You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. Refer to document [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for enabling automatic OS upgrades on your VMSS. 
+You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. Refer to document [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for enabling automatic OS upgrades on your virtual machine scale set. 
 
 
 ## Next steps
