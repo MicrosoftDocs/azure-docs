@@ -85,6 +85,15 @@ The current list of new documentation is available at [What's new in Cognitive S
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content.|
 |[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 
+## Learn with the Quickstarts
+
+Learn about creating a Cognitive Services resource with hands-on quickstarts, using the:
+
+* [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure portal")
+* [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
+* [Azure SDK client libraries](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
+* [Azure Resource Manager (ARM) templates](resource-manager-template.md?tabs=portal "Azure Resource Manager (ARM) templates")
+
 ## Subscription management
 
 Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
@@ -122,6 +131,9 @@ To understand privacy and data management, go to the [Trust Center](https://serv
 ## Support
 
 Cognitive Services provides several [support options](cognitive-services-support-options.md "support options").
+
+
+
 
 ## Next steps
 
