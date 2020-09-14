@@ -31,13 +31,21 @@ Using Resource Mover, you can currently move the following resources across regi
 - Availability sets 
 - Azure virtual networks 
 - Public IP addresses
-Network security groups (NSGs)
+- Network security groups (NSGs)
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools
 
+### Can I move resources across any region?
+
+Currently, you can move resources from any source public region to any target public region. Support for resources in Azure Government regions isn't available currently. 
+
+### Can I move resources across subscriptions while moving them across regions?
+
+You can change the subscription after moving resources to the destination region. Use the [Move across subscriptions](https://go.microsoft.com/fwlink/?linkid=2141761) feature for this.
+
 ### Where is the metadata about a region move stored?
 
-It's stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription.
+It's stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently the metadata is stored in East US2 and North Eruope. We will soon be expanding this coverage to other regions as well. This doesn't however, restrict users from moving resources across any public regions.
 
 ### Is the collected metadata encrypted?
 
