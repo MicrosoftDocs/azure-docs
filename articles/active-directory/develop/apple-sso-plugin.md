@@ -68,7 +68,7 @@ Additional configuration options can be added to extend SSO functionality to add
 
 #### Enable SSO for apps that don't use MSAL
 
-Specify a comma-separated list of apps that don't use MSAL and should be allowed to participate in the SSO. 
+Specify a comma-delimited list of apps that don't use MSAL and should be allowed to participate in the SSO. 
 Only apps that use native Apple network technologies or webviews are supported. If application ships its own network layer implementation, Microsoft Enterprise SSO plug-in is not supported.  
 
 - **Key**: `AppAllowList`
@@ -76,11 +76,9 @@ Only apps that use native Apple network technologies or webviews are supported. 
 - **Value**: Comma-separated list of application bundle IDs for the applications that are allowed to participate in the SSO
 - **Example**: `com.contoso.workapp, com.contoso.travelapp`
 
-> [!NOTE]
-> [Consented apps](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience) that are allowed to participate in the SSO by the MDM admin can silently get a token for the end user. Therefore, it is important to only add trusted applications to the allow list. 
+[Consented apps](./application-consent-experience.md) that are allowed to participate in the SSO by the MDM admin can silently get a token for the end user. Therefore, it is important to only add trusted applications to the allow list. 
 
-> [!NOTE]
-> You don't need to add applications that use MSAL or ASWebAuthenticationSession to this list. Those applications are enabled by default. 
+You don't need to add applications that use MSAL or ASWebAuthenticationSession to this list. Those applications are enabled by default. 
 
 #### Allow creating SSO session from any application
 
@@ -92,9 +90,7 @@ Enabling `browser_sso_interaction_enabled` flag enables non-MSAL apps and Safari
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-> [!NOTE]
-> We recommend enabling this flag to get more consistent experience across all apps. 
-> It is disabled by default. 
+We recommend enabling this flag to get more consistent experience across all apps. It is disabled by default. 
 
 #### Disable OAuth2 application prompts
 
@@ -106,9 +102,7 @@ Enabling `disable_explicit_app_prompt` flag restricts ability of both native and
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-> [!NOTE]
-> We recommend enabling this flag to get more consistent experience across all apps. 
-> It is disabled by default. 
+We recommend enabling this flag to get more consistent experience across all apps. It is disabled by default. 
 
 #### Use Intune for simplified configuration
 
@@ -120,9 +114,9 @@ The [Microsoft Authentication Library (MSAL) for Apple devices](https://github.c
 
 If you are building an application for Frontline Worker scenarios, follow this guide for additional setup of the [shared device mode](msal-ios-shared-devices.md) feature.
 
-## How SSO plug-in works?
+## How the SSO plug-in works
 
-Microsoft Enterprise SSO plug-in relies on the [Apple's Enterprise Single Sign-On framework](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Identity providers that on-board to the framework can intercept network traffic for their domains and enhance or change how those requests are handled. For example, SSO plug-in can show additional UI to collect end-user credentials securely, require MFA, or silently provide tokens to the application.
+Microsoft Enterprise SSO plug-in relies on the [Apple's Enterprise Single Sign-On framework](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Identity providers that onboard to the framework can intercept network traffic for their domains and enhance or change how those requests are handled. For example, the SSO plug-in can show additional UI to collect end user credentials securely, require MFA, or silently provide tokens to the application.
 
 Native applications can also implement custom operations and talk directly to the SSO plug-in.
 You can learn about Single Sign-in framework in this [2019 WWDC video from Apple](https://developer.apple.com/videos/play/tech-talks/301/)
@@ -131,22 +125,23 @@ You can learn about Single Sign-in framework in this [2019 WWDC video from Apple
 
 The [Microsoft Authentication Library (MSAL) for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) version 1.1.0 and higher supports the Microsoft Enterprise SSO plug-in for Apple devices natively for work and school accounts. 
 
-There's no special configuration needed if you've followed [all recommended steps](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-ios) and used default [Redirect URI format](https://docs.microsoft.com/azure/active-directory/develop/redirect-uris-ios). When running on a device that has SSO plug-in present, MSAL will automatically invoke it for all interactive and silent token requests, as well as account enumeration and account removal operations. Since MSAL implements native SSO plug-in protocol that relies on custom operations, this setup provides the smoothest native experience to the end-user. 
+There's no special configuration needed if you've followed [all recommended steps](./quickstart-v2-ios.md) and used the default [redirect URI format](./redirect-uris-ios.md). When running on a device that has the SSO plug-in present, MSAL will automatically invoke it for all interactive and silent token requests, as well as account enumeration and account removal operations. Since MSAL implements native SSO plug-in protocol that relies on custom operations, this setup provides the smoothest native experience to the end user. 
 
-If SSO plug-in is not enabled by MDM, but Microsoft Authenticator app is present on the device, MSAL will instead use Microsoft Authenticator app for any interactive token requests. SSO plug-in shares SSO with the Microsoft Authenticator app.
+If the SSO plug-in is not enabled by MDM, but the Microsoft Authenticator app is present on the device, MSAL will instead use the Microsoft Authenticator app for any interactive token requests. The SSO plug-in shares SSO with the Microsoft Authenticator app.
 
 ### Applications that don't use MSAL
 
-Applications that don't use MSAL can still get SSO if administrator adds them to the allow list explicitly. 
+Applications that don't use MSAL can still get SSO if an administrator adds them to the allow list explicitly. 
 
-There's no code changes needed to those apps as long as following conditions are satisfied:
-1. Application is using Apple frameworks to execute network requests (for example, [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession)) 
-2. Application is using standard protocols to communicate with Azure AD (for example, OAuth2, SAML, WS-Federation)
-3. Application doesn't collect plaintext username and password in the native UI
+There are no code changes needed in those apps as long as following conditions are satisfied:
 
-In this case, SSO is provided at the time when application creates a network request and opens a web browser to sign user in. When a user is redirected to an Azure AD login URL, the SSO plug-in validates the URL and checks if there is an SSO credential available for that URL. If there is one, the SSO plug-in passes SSO credential to Azure AD, which authorizes the application to complete network request without asking end-user to enter credentials. Additionally, if device is known to Azure AD, SSO plug-in will also pass the device certificate to satisfy the device based conditional access check. 
+- Application is using Apple frameworks to execute network requests (for example, [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession)) 
+- Application is using standard protocols to communicate with Azure AD (for example, OAuth2, SAML, WS-Federation)
+- Application doesn't collect plaintext username and password in the native UI
 
-To support SSO for non-MSAL apps, SSO plug-in implements a similar protocol to Windows browser plug-in described [here](https://docs.microsoft.com/azure/active-directory/devices/concept-primary-refresh-token#browser-sso-using-prt). 
+In this case, SSO is provided at the time the application creates a network request and opens a web browser to sign the user in. When a user is redirected to an Azure AD login URL, the SSO plug-in validates the URL and checks if there is an SSO credential available for that URL. If there is one, the SSO plug-in passes the SSO credential to Azure AD, which authorizes the application to complete the network request without asking the end user to enter credentials. Additionally, if the device is known to Azure AD, the SSO plug-in will also pass the device certificate to satisfy the device-based conditional access check. 
+
+To support SSO for non-MSAL apps, the SSO plug-in implements a similar protocol to the Windows browser plug-in described in [What is a Primary Refresh Token?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
 
 Compared to MSAL-based apps, SSO plug-in acts more transparently for non-MSAL apps to integrate with the existing browser login experience that apps provide. End-user would see their familiar experience with a benefit of not having to do additional sign-in in each of the applications. 
 
