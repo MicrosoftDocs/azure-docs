@@ -767,7 +767,7 @@ productDirectory:
       imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       azureCategories:
         - developer-tools
-      url: https://docs.microsoft.com/visualstudio/
+      url: https://docs.microsoft.com/visualstudio/windows
     # Card
     - title: Visual Studio Code
       summary: A powerful, lightweight code editor for cloud development
