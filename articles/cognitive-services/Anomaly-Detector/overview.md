@@ -41,7 +41,7 @@ To run the demo, you need to create an Anomaly Detector resource and get the API
 
 ## Notebook
 
-To learn how to call the Anomaly Detector API, try this [Azure Notebook](https://aka.ms/adNotebook). This web-hosted Jupyter Notebook shows you how to send an API request and visualize the result.
+To learn how to call the Anomaly Detector API, try this [Notebook](https://aka.ms/adNotebook). This Jupyter Notebook shows you how to send an API request and visualize the result.
 
 To run the Notebook, complete the following steps:
 
