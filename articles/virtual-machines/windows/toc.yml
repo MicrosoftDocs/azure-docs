@@ -446,7 +446,7 @@
           items:
           - name: From a VM
             href: ../image-version-vm-powershell.md
-          - name: From a VHD or snapshot
+          - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-powershell.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md
@@ -468,7 +468,7 @@
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
-          - name: From a VHD or snapshot
+          - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-cli.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-cli.md
