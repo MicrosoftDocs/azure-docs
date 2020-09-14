@@ -15,7 +15,7 @@ ms.custom: cog-serv-seo-aug-2020
 keywords: display pictures, parts of speech, read selected text, translate words, reading comprehension
 ---
 
-# Quickstart: Use the Immersive Reader client library
+# Quickstart: Get started with Immersive Reader
 
 ::: zone pivot="programming-language-csharp"
 
