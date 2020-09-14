@@ -113,7 +113,7 @@ Example
 
 
 ## TLS and SSL
-Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL service using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements. Enforcing TLS connections between your database server and your client applications helps protect against "man-in-the-middle" attacks by encrypting the data stream between the server and your application. TLS is an updated protocol of Secure Sockets Layer (SSL).
+Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL service using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of Secure Sockets Layer (SSL).
 
 Azure Database for MySQL Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2). All incoming connections with TLS 1.0 and TLS 1.1 will be denied. You cannot disable or change the TLS version for connecting to Azure Database for MySQL Flexible Server.
 
