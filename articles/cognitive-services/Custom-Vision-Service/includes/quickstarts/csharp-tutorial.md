@@ -97,3 +97,5 @@ Now you've seen how to do every step of the image classification process in code
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md)
+
+* [What is Custom Vision?](./overview.md)

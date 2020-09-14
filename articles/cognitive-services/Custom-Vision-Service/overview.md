@@ -20,7 +20,7 @@ keywords:
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, according to their visual characteristics. Unlike the [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) service, Custom Vision allows you to specify the labels and train custom models to detect them.
+Azure Custom Vision is an AI service that lets you build, deploy, and improve your own image classifiers. An image classifier applies labels (which represent classes) to images, according to their visual characteristics. Unlike the [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) service, Custom Vision allows you to specify the labels and train custom models to detect them.
 
 ## What it does
 
@@ -48,4 +48,4 @@ As with all of the Cognitive Services, developers using the Custom Vision servic
 
 ## Next steps
 
-Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web, or complete an [Image classification tutorial](quickstarts/image-classification.md) to implement a basic scenario in code.
+Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web portal, or complete a [client library quickstart](quickstarts/image-classification.md) to implement the basic scenarios in code.

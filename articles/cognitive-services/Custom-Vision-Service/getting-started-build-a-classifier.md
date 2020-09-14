@@ -116,3 +116,4 @@ In this quickstart, you learned how to create and train an image classification 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md)
 
+* [What is Custom Vision?](./overview.md)

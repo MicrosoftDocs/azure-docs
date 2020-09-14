@@ -228,3 +228,5 @@ Now you've seen how every step of the object detection process can be done in co
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md)
+
+* [What is Custom Vision?](./overview.md)
