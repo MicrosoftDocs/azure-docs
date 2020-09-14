@@ -1,6 +1,6 @@
 ---
-title: Maintenance control for Azure virtual machine scale sets using PowerShell
-description: Learn how to control when maintenance is applied to your Azure virtual machine scale sets using Maintenance control and PowerShell.
+title: Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
+description: Learn how to control when automatic OS image upgrades are rolled out to your Azure virtual machine scale sets using Maintenance control and PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
@@ -10,9 +10,9 @@ ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Maintenance control for Azure virtual machine scale sets using PowerShell
+# Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
 
-Maintenance control lets you decide when to apply updates to your guest virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
 
 
 ## Enable the PowerShell module
@@ -77,7 +77,7 @@ $config
 
 Using `-MaintenanceScope OSImage` ensures that the maintenance configuration is used for controlling updates to the guest OS.
 
-If you try to create a configuration with the same name, but in a different location, you'll get an error. Configuration names must be unique to your subscription.
+If you try to create a configuration with the same name, but in a different location, you'll get an error. Configuration names must be unique to your resource group.
 
 You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
@@ -87,7 +87,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ## Associate your VMSS to the Maintenance configuration
 
-A virtual machine scale set for a given region should be associated to the corresponding Maintenance configuration for the region. By opting in to the Maintenance configuration, new OS image updates for the scale set will be automatically scheduled on the next available maintenance window.
+A virtual machine scale set can be associated to any Maintenance configuration regardless of the region and subscription of the Maintenance configuration. By opting in to the Maintenance configuration, new OS image updates for the scale set will be automatically scheduled on the next available maintenance window.
 
 Use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) to associate your virtual machine scale set the maintenance configuration.
 
