@@ -77,11 +77,13 @@ You might have to specify the subscription that you used to create your Managed 
 ## Identify the managed HSM and storage account
 
 
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
 storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
 ```
+---
 
 ## Enable logging
 
@@ -93,10 +95,13 @@ This output confirms that logging is now enabled for your Managed HSM, and it wi
 
 Optionally, you can set a retention policy for your logs such that older logs are automatically deleted. For example, set retention policy by setting the **-RetentionEnabled** flag to **$true**, and set the **-RetentionInDays** parameter to **90** so that logs older than 90 days are automatically deleted.
 
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
 
 ```
+---
 
 What's logged:
 

@@ -85,6 +85,6 @@ Managed HSM local RBAC has several built-in roles that you can assign to users, 
 
 - See an overview of [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
-- See a turorial on [Managed HSM role management](role-management.md)
+- See a tutorial on [Managed HSM role management](role-management.md)
 
 

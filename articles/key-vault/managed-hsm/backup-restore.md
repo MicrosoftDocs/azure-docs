@@ -33,14 +33,13 @@ You need to provide following information to execute a full backup:
 - Storage container SAS token with permissions `crdw`
 
 
-## Full backup and restore
-
-### Full backup
+## Full backup
 
 Backup is a long running operation. After issuing the backup command it immediately returns with a Job ID. You can check the status of backup process using this Job ID. The backup process creates a folder inside the designated container with a following naming pattern **`mhsm-{HSM_NAME}-{YYYY}{MM}{DD}{HH}{mm}{SS}`**, where HSM_NAME is the name of managed HSM being backed up and YYYY, MM, DD, HH, MM, mm, SS are the year, month, date, hour, minutes and seconds of date/time in UTC when the backup command was received.
 
 While the backup is in progress the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 # time for 30 minutes later for SAS token expiry
@@ -56,8 +55,10 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --subscription 361da5d4-a47a-4c79-afdd-d66f684f4070
 
 ```
+---
 
-### Full restore
+
+## Full restore
 
 Full restore allows you to completely restore the contents of the HSM with a previous backup. This includes all keys, versions, attributes, tags, and role assignments. This will effectively wipe out everything currently stored in the HSM and return it to the same state when the source backup was created.
 
@@ -76,6 +77,8 @@ You need to provide following information to execute a full restore:
 
 Restore is a long running operation. After issuing the restore command it immediately returns with a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 #### time for 30 minutes later for SAS token expiry
 
@@ -91,9 +94,9 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 
 #### Backup HSM 
 
-```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860
 ```
+---
 
 ## Next Steps
 - See [Manage a Managed HSM using the Azure CLI](manage-with-cli.md) to learn how to use Azure CLI to perform backup and restore operations.
