@@ -10,9 +10,14 @@ ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
+# Preview: Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
 
 Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+
+> [!IMPORTANT]
+> Maintenance control for OS image upgrades on Azure virtual machine scale sets is currently in Public Preview. An opt-in procedure is needed to use the public preview functionality described below.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Enable the PowerShell module

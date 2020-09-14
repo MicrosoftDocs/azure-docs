@@ -346,9 +346,9 @@
         href: virtual-machine-scale-sets-automatic-upgrade.md
       - name: Maintenance control
         items:
-        - name: Overview
+        - name: Overview (Preview)
           href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
-        - name: PowerShell
+        - name: PowerShell (Preview)
           href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
     - name: Automatic instance repairs
       href: virtual-machine-scale-sets-automatic-instance-repairs.md
