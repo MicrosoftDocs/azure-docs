@@ -44,7 +44,7 @@ The following table lists prerequisites for using BYOK in Managed HSM:
 | An Azure subscription |To create a Managed HSM pool, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/). |
 | A Managed HSM pool to import HSM-protected keys |For more information about the service tiers and capabilities in see [Pricing](https://azure.microsoft.com/pricing/details/key-vault/) |
 | An HSM from the supported HSMs list and a BYOK tool and instructions provided by your HSM vendor | You must have permissions for an HSM and basic knowledge of how to use your HSM. See [Supported HSMs](#supported-hsms). |
-| Azure CLI version 2.12.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).|
+| Azure CLI version 2.12.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).|
 
 ## Supported HSMs
 

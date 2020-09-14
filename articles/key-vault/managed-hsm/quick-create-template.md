@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Create an Azure key vault and a secret by using Azure Resource Manager template | Microsoft Docs
-description: Quickstart showing how to create Azure key vaults, and add secrets to the vaults by using Azure Resource Manager template.
+title: Azure Quickstart - Create an Managed HSM using an Azure Resource Manager template
+description: Quickstart showing how to create Azure an Azure Key Vault Managed HSM using Resource Manager template
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
@@ -15,11 +15,13 @@ ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 
 ---
-# Quickstart: Create an Azure Key Vault Managed HSM using Resource Manager template
+# Quickstart: Create an Key Vault Managed HSM using an Azure Resource Manager template
 
-[Azure Key Vault](./key-vault-overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying a Resource Manager template to create a key vault and a secret.
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs.  
 
-[Resource Manager template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
+[Azure Key Vault](../index.yml) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets; Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  This quickstart focuses on the process of deploying a Resource Manager template to create a Managed HSM.
+
+[Resource Manager template](../../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](../../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -115,11 +117,11 @@ The output looks similar to:
 
 # [CLI](#tab/CLI)
 
-![Resource Manager template, Key Vault integration, deploy portal validation output](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Resource Manager template, Key Vault integration, deploy portal validation CLI output](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # [PowerShell](#tab/PowerShell)
 
-![Resource Manager template, Key Vault integration, deploy portal validation output](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
+![Resource Manager template, Key Vault integration, deploy portal validation PowerShell output](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
 ---
 ## Clean up resources

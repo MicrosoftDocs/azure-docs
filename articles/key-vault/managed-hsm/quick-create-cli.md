@@ -44,18 +44,17 @@ az group create --name "ContosoResourceGroup" --location eastus2
 ## Create a Managed HSM
 
 Creating a managed HSM is a two step process:
-1. provision a Managed HSM resource
-1. activate your Managed HSM by downloading the security domain
+1. Provision a Managed HSM resource.
+1. Activate your Managed HSM by downloading the security domain.
 
 ### Provision a managed HSM
 
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
 You need to provide following inputs to create a Managed HSM resource:
-- name for the HSM
-- resource group where it will be placed in your subscription
+- NResource group where it will be placed in your subscription
 - Azure location
-- a list of initial administrators
+- A list of initial administrators 
 
 The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
 

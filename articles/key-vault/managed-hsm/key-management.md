@@ -237,13 +237,8 @@ az keyvault key import --hsm-name ContosoHSM --name myrsakey --pem-file mycert.k
 # Note the key name (myaeskey) in the URI
 
 az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --pem-file mycert.key --password 'mypassword'
-
 ```
-<<<<<<< HEAD
 
-=======
----
->>>>>>> c723a764b48316943a32b6882b8630132adf6d10
 To import a key from your on-premise HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md)
 
 ## Next steps
