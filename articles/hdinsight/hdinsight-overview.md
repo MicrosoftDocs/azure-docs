@@ -133,7 +133,7 @@ Spark, Hadoop, LLAP, Storm, and MLService do not store customer data, so these s
 Kafka and HBase store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
 
-Familiar business intelligence (BI) tools retrieve, analyze, and report data that is integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver:
+Familiar business intelligence (BI) tools retrieve, analyze, and report data that is integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver.
 
 ## Next steps
 
