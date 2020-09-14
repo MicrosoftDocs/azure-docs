@@ -182,15 +182,14 @@ To register the desktop app group to a workspace:
      - Virtual machines, if you chose to create them, which are joined to the domain and registered with the new host pool.
      - A download link for an Azure Resource Management template based on your configuration.
 
+After that, you're all done!
 
 ## Run the Azure Resource Manager template to provision a new host pool
 
-Finally, [Download our Azure Resource Manager template](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to provision your new host pool.
+If you'd rather use an automated process, [download our Azure Resource Manager template](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to provision your new host pool instead.
 
 >[!NOTE]
 >If you're using an automated process to build your environment, you'll need the latest version of the configuration JSON file. You can find the JSON file [here](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
-
-After that, you're all done!
 
 ## Next steps
 
