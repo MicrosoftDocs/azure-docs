@@ -79,7 +79,7 @@ In this section, you will use the Azure Cloud Shell to create two new regional I
 
 In this section, you will create a new enrollment group for the tenant devices.  
 
-For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-security.md#x509-certificates) with a chain of trust.
+For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
 

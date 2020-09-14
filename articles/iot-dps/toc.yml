@@ -87,24 +87,22 @@
         href: quick-enroll-device-tpm-python.md
 - name: Concepts
   items:
-  - name: Auto-provisioning
+  - name: DPS terminology
+    href: concepts-service.md
+  - name: Symmetric key attestation
+    href: concepts-symmetric-key-attestation.md
+  - name: X.509 attestation
+    href: concepts-security.md
+  - name: TPM attestation
+    href: concepts-tpm-attestation.md
+  - name: Roles and operations
     href: concepts-auto-provisioning.md  
   - name: Reprovisioning
     href: concepts-device-reprovision.md  
-  - name: Devices
-    href: concepts-device.md
-  - name: Security
-    href: concepts-security.md
-  - name: TLS support
-    href: tls-support.md
-  - name: Service
-    href: concepts-service.md
   - name: Understanding DPS IP addresses
     href: iot-dps-understand-ip-address.md
-  - name: TPM attestation
-    href: concepts-tpm-attestation.md
-  - name: Symmetric key attestation
-    href: concepts-symmetric-key-attestation.md
+  - name: TLS support
+    href: tls-support.md
   - name: Security practices for device manufacturers
     href: concepts-device-oem-security-practices.md
 - name: How-to guides

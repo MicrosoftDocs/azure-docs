@@ -81,7 +81,7 @@ DPS has many features, making it ideal for provisioning devices.
 * **Encryption for data at rest** allows data in DPS to be encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.
 
 
-You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
+You can learn more about the concepts and features involved in device provisioning by reviewing the [DPS terminology](concepts-service.md) topic along with the other conceptual topics in the same section.
 
 ## Cross-platform support
 Just like all Azure IoT services, DPS works cross-platform with a variety of operating systems. Azure offers open-source SDKs in a variety of [languages](https://github.com/Azure/azure-iot-sdks) to facilitate connecting devices and managing the service. DPS supports the following protocols for connecting devices:
