@@ -54,7 +54,7 @@ You can install and configure the diagnostics extension on an individual virtual
 
 8. In the **Sinks** tab, specify whether to send the data to locations other than Azure storage. If you select **Azure Monitor**, guest performance data will be sent to Azure Monitor Metrics. You cannot configure the event hubs sink using the Azure portal.
 
-   ![Screenshot shows the Sinks tab, with the Send diagnostic data to Azure Monitor option Enabled.](media/diagnostics-extension-windows-install/sinks.png)
+   ![Screenshot shows the Sinks tab with the Send diagnostic data to Azure Monitor option Enabled.](media/diagnostics-extension-windows-install/sinks.png)
    
    If you have not enabled a System Assigned Identity configured for your virtual machine, you may see the below warning when you save a configuration with the Azure Monitor sink. Click on the banner to enable the system assigned identity.
    

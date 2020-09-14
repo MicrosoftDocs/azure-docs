@@ -19,7 +19,7 @@ ms.date: 08/23/2019
 
 The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
-![Diagram shows an original record associated with a modified record in a Log Analytics workspace with property value pairs added to the original property.](media/custom-fields/overview.png)
+![Diagram shows an original record associated with a modified record in a Log Analytics workspace with property value pairs added to the original property in the modified record.](media/custom-fields/overview.png)
 
 For example, the sample record below has useful data buried in the event description. Extracting this data into a separate property makes it available for such actions as sorting and filtering.
 
