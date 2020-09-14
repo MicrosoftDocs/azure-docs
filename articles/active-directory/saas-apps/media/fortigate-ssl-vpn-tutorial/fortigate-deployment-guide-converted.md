@@ -1,12 +1,11 @@
 ---
-title: 'FortiGate Deployment Guide | Microsoft Docs'
+title: FortiGate deployment guide | Microsoft Docs
 description: Learn how to configure single sign-on between Azure Active Directory and FortiGate SSL VPN.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-
 ms.assetid: 18a3d9d5-d81c-478c-be7e-ef38b574cb88
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -15,130 +14,90 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
-
 ms.collection: M365-identity-device-management
 ---
 
-# FortiGate Deployment Guide
+# FortiGate deployment guide
 
-## Contents
+Using this deployment guide, you learn how to configure single sign-on between Azure Active Directory (Azure AD) and FortiGate SSL VPN.
 
-- Redeeming the FortiGate License
-- Download Firmware
-- Deploy the FortiGate VM
-   - Set a Statuc Public IP Address and Assign a Fully Qualified Domain Name
-   - Create a New Inbound Network Security Group Rule for TCP port
-- Create a Custom Azure App for FortiGate
-- Prepare for Group Matching
-   - Create Groups for Users
-- Configure the FortiGate VM
-   - Install the License
-   - Update Firmware
-   - Change the Management Port to TCP
-   - Upload the Azure Active Directory SAML Signing Certificate
-   - Upload and Configure a Custom SSL Certificate
-   - Perform Command Line Configuration
-   - Create VPN Portals and Firewall Policy
-- Test Sign-In Using Azure
+## Redeem the FortiGate license
 
-## Redeeming the FortiGate License
+The Fortinet FortiGate next-generation firewall product is available as a virtual machine in Azure infrastructure as a service (IaaS). There are two licensing modes for this virtual machine: pay-as-you-go and bring-your-own-license.
 
-The Fortinet FortiGate Next-Generation Firewall product is available as a virtual machine in Azure
-IaaS. There are two licensing modes for this virtual machine –
+Fortinet might provide members of the Azure AD "Get to Production Secure Hybrid Access (SHA)" team with licenses. In cases where no license has been provided, the pay-as-you-go deployment will also work.
 
-- Pay-as-you-go (PAYG)
-- Bring your own license (BYOL)
+If a license has been issued, Fortinet provides a registration code that must be redeemed online.
 
-While partnering with Fortinet to provide Secure Hybrid Access (SHA) guidance, Fortinet may
-provide members of the Azure AD Get to Production SHA team with licenses. In cases where no
-license has been provided, the PAYG deployment will also work.
+![Screenshot of Fortigate SSL VPN registration code.](registration-code.png)
 
-In cases where a license has been issued, Fortinet provides a registration code that must be
-redeemed online
-
-![Fortigate SSL VPN](registration-code.png)
-
-1. Register at https://support.fortinet.com/
-2. After registration, sign-in at https://support.fortinet.com/
-3. Navigate to **Asset** - > **Register/Activate**
-4. Enter the Registration Code provided by Fortinet
-5. Specify the registration code, select **The product will be used by a non-government user**
-    and click **Next**
-6. Enter a Product Description (e.g. FortiGate), set the Fortinet Partner as **Other** - > **Microsoft**
-    and click **Next**
-7. Accept the **Fortinet Product Registration Agreement** and click **Next**
-8. Accept the **Terms** and click **Confirm**
-9. Click the **License File Download** and save the license for later
+1. Register at https://support.fortinet.com/.
+2. After registration, sign-in at https://support.fortinet.com/.
+3. Go to **Asset** > **Register/Activate**.
+4. Enter the registration code provided by Fortinet.
+5. Specify the registration code, select **The product will be used by a non-government user**,
+    and select **Next**.
+6. Enter a product description (for example, FortiGate), set the Fortinet partner as **Other** > **Microsoft**, and select **Next**.
+7. Accept the **Fortinet Product Registration Agreement**, and select **Next**.
+8. Accept the **Terms** and select **Confirm**.
+9. Select the **License File Download**, and save the license for later.
 
 
-## Download Firmware
+## Download firmware
 
-At the time of writing, the Fortinet FortiGate Azure VM does not ship with the firmware version
+The Fortinet FortiGate Azure VM doesn't currently ship with the firmware version
 needed for SAML authentication. The latest version must be obtained from Fortinet.
 
-1. Sign-in at https://support.fortinet.com/
-2. Navigate to **Download** - > **Firmware Images**
-3. Click **Download** to the right of **Release Notes**
-4. Click **v6.**
-5. Click **6.**
-6. Click **6.4.**
-7. Download **FGT_VM64_AZURE-v6-build1637-FORTINET.out** by clicking on the **HTTPS** link on
-    the same row
-8. Save the file for later
+1. Sign-in at https://support.fortinet.com/.
+2. Go to **Download** > **Firmware Images**.
+3. To the right of **Release Notes**, select **Download**.
+4. Select **v6.** > **6.** > **6.4.**.
+5. Download **FGT_VM64_AZURE-v6-build1637-FORTINET.out** by selecting the **HTTPS** link on the same row.
+6. Save the file for later.
 
 
 ## Deploy the FortiGate VM
 
-1. Navigate to https://portal.azure.com and sign-in to the subscription into which you wish to
-    deploy the FortiGate Virtual Machine
-2. Create a new Resource Group or open the Resource Group into which you wish to deploy
-    the FortiGate Virtual Machine
-3. Click **Add**
-4. Enter “Forti” into the **Search the Marketplace** dialog and select **Fortinet FortiGate Next-**
-    **Generation Firewall**
-5. Select the software plan (BYOL if you have a license or PAYG if not) and click **Create**
-6. Populate the VM configuration
+1. Go to https://portal.azure.com, and sign in to the subscription into which you want to
+    deploy the FortiGate Virtual Machine.
+2. Create a new resource group, or open the resource group into which you want to deploy
+    the FortiGate Virtual Machine.
+3. Select **Add**.
+4. In **Search the Marketplace**, enter *Forti*. Select **Fortinet FortiGate Next-Generation Firewall**.
+5. Select the software plan (bring-your-own-license if you have a license, or pay-as-you-go if not). Select **Create**.
+6. Populate the VM configuration.
 
-    ![Fortigate SSL VPN](virtual-machine.png)
+    ![Screenshot of Create a virtual machine.](virtual-machine.png)
 
-7. Set the Authentication type to **Password** and provide administrative credentials for the VM
-8. Click **Review + Create**
-9. Click **Create**
-10. Wait for the VM deployment to complete
+7. Set **Authentication type** to **Password**, and provide administrative credentials for the VM.
+8. Select **Review + Create** > **Create**.
+9. Wait for the VM deployment to complete.
 
 
-### Set a Statuc Public IP Address and Assign a Fully Qualified Domain Name
+### Set a static Public IP address and assign a fully qualified domain name
 
-For a consistent user experience, it is desirable to set the Public IP address assigned to the FortiGate
-VM to be statically assigned. In addition, mapping it to a fully qualified domain name is also useful
-for the same reasons.
+For a consistent user experience, set the Public IP address assigned to the FortiGate VM to be statically assigned. In addition, map it to a fully qualified domain name.
 
-_Set a Static Public IP Address_
+1. Go to https://portal.azure.com, and open the settings for the FortiGate VM.
+2. On the **Overview** screen, select the public IP address.
 
-1. Navigate to https://portal.azure.com and open the settings for the FortiGate VM
-2. On the **Overview** screen, click on the public IP address
+    ![Screenshot of Fortigate SSL VPN.](public-ip-address.png)
 
-    ![Fortigate SSL VPN](public-ip-address.png)
-
-3. Click **Static** and then click **Save**
-
-_Assign a Fully Qualified Domain Name_
+3. Select **Static** > **Save**.
 
 If you own a publicly routable domain name for the environment into which the FortiGate VM is
-being deployed, create a Host (A) record for the VM that maps to the public IP address that is
-statically assigned above.
+being deployed, create a Host (A) record for the VM. This record maps to the preceding Public IP address that is statically assigned.
 
-### Create a New Inbound Network Security Group Rule for TCP port
+### Create a new inbound network security group rule for TCP port
 
-1. Navigate to https://portal.azure.com and open the settings for the FortiGate VM
-2. Click on **Networking** in the left-hand menu. The network interface will be listed and the
-    Inbound port rules displayed
-3. Click **Add inbound port rule**
-4. Create a new inbound port rule for TCP 8443
+1. Go to https://portal.azure.com, and open the settings for the FortiGate VM.
+2. In the menu on the left, select **Networking**. The network interface is listed, and the inbound port rules are shown.
+3. Select **Add inbound port rule**.
+4. Create a new inbound port rule for TCP 8443.
 
-    ![Fortigate SSL VPN](port-rule.png)
+    ![Screenshot of Add inbound security rule.](port-rule.png)
 
-5. Click **Add**
+5. Select **Add**.
 
 
 ## Create a Custom Azure App for FortiGate
