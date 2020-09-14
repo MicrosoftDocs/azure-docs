@@ -300,7 +300,7 @@ The following table lists the attributes in the query response.
 
 Check fetch log's lines, times, and sizes, if those settings look good replace ***DoPost*** to `true` and that will push the logs with same filters to destinations. 
 
-**4. Export the log file from Azure Blob Storage and send to Microsoft**
+You can export logs from the Azure Blob Storage when troubleshooting issues. 
 
  Follow these steps to export the log file from the Azure Blob Storage account.
 
