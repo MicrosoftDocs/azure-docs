@@ -4,13 +4,11 @@ description: 'This topic describes how to deal with ORC format in Azure Data Fac
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 09/14/2020
 ms.author: jingwang
-
 ---
 
 # ORC format in Azure Data Factory
@@ -79,7 +77,17 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type property of the copy activity source must be set to **OrcSink**. | Yes      |
+| formatSettings | A group of properties. Refer to **ORC write settings** table below. |    No      |
 | storeSettings | A group of properties on how to write data to a data store. Each file-based connector has its own supported write settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
+
+Supported **ORC write settings** under `formatSettings`:
+
+| Property      | Description                                                  | Required                                              |
+| ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| type          | The type of formatSettings must be set to **OrcWriteSettings**. | Yes                                                   |
+| fileExtension | The file extension used to name the output files, for example, `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. When file name is configured in the output dataset, it will be used as the sink file name and the file extension setting will be ignored.  | Yes when file name is not specified in output dataset |
+| maxRowsPerFile | When writing data into a folder, you can choose to write to multiple files and specify the max rows per file.  | No |
+| fileNamePrefix | Specify the file name prefix when writing data to multiple files, resulted in this pattern: `<fileNamePrefix>_00000.<fileExtension>`. If not specified, file name prefix will be auto generated. This property does not apply when source is file-based store or source has partition option enabled.  | No |
 
 ## Using Self-hosted Integration Runtime
 
