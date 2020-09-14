@@ -72,7 +72,7 @@ Link the WAF policy object to the existing Front Door frontend host and update F
 To do so, first retrieve your Front Door object using [Get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor). 
 
 ```
-$geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName myResourceGroupFD1
+$geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName FrontDoorQS_rg0
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 Next, set the frontend WebApplicationFirewallPolicyLink property to the resourceId of the `geoPolicy`using [Set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
