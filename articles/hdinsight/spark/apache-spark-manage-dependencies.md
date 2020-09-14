@@ -102,7 +102,7 @@ HDInsight cluster has built-in jar dependencies, and updates for these jar versi
 ### Use Jupyter notebook
 HDInsight Jupyter notebook PySpark kernel doesn't support installing Python packages from PyPi or Anaconda package repository directly. If you have `.zip`, `.egg`, or `.py` dependencies, and want to reference them for one Spark session, follow below steps:
 
-1. Run below sample script actions to copy `.zip`, `.egg` or `.py` files from primary storage wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/* to cluster local file system /usr/libs/pylibs. The step is needed as linux uses : to separate search path list, but HDInsight only support storage paths with scheme like wasb://. The remote storage path won't work correctly when you use `sys.path.insert`.
+1. Run below sample script actions to copy `.zip`, `.egg` or `.py` files from primary storage `wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*` to cluster local file system `/usr/libs/pylibs`. The step is needed as linux uses `:` to separate search path list, but HDInsight only support storage paths with scheme like `wasb://`. The remote storage path won't work correctly when you use `sys.path.insert`.
 
     ```bash
     sudo mkdir -p /usr/libs/pylibs
