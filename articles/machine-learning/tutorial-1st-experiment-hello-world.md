@@ -30,7 +30,6 @@ This tutorial introduces you to the core Azure Machine Learning concepts needed 
 
 > [!div class="checklist"]
 > - [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
-> - [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)
 > - [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)
 > - [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)
 > - [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)
@@ -82,24 +81,19 @@ In your tutorial directory, create a new python file called `03-run-hello.py` an
 # tutorial/03-run-hello.py
 from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 
-if __name__ == "__main__":
-    ws = Workspace.from_config()
-    experiment = Experiment(workspace=ws, name='hello-world')
+ws = Workspace.from_config()
+experiment = Experiment(workspace=ws, name='hello-world')
 
-    env = Environment.get(ws, "AzureML-Minimal")
-    config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')
-    config.run_config.environment = env
+config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')
 
-    run = experiment.submit(config)
-    aml_url = run.get_portal_url()
-    print(aml_url)
+run = experiment.submit(config)
+aml_url = run.get_portal_url()
+print(aml_url)
 ```
 
 ### Understanding the code
 
 - **`ws = Workspace.from_config()`** connect to the Azure Machine Learning workspace. The `Workspace` class allows you to communicate with your Azure Machine Learning resources. For example, to manage your compute infrastructure, models, data, and much more!
-- **`env = Environment.get(ws, "AzureML-Minimal")`** Azure Machine Learning provides the concept of an `Environment` to represent a reproducible, versioned
-Python environment for running experiments. In this case you are using a *curated* environment.
 - **`experiment = Experiment(workspace=ws, name='hello-world')`** Experiments provide a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs (for example: when hyperparameter tuning).
 - **`config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')`** To create a run in an experiment, you need the `ScriptRunConfig` class to wrap your `hello.py` code and pass it to Azure Machine Learning. As the name suggests, you can use this class to _configure_ how we want our _script_ to _run_ in Azure Machine Learning. You can see the compute target is defined to run on the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 - **`config.run_config.environment = env`** Binds the environment to the script run configuration.
