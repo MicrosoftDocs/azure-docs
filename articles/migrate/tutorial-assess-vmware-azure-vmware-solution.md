@@ -86,6 +86,7 @@ Run an assessment as follows:
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
     
         **Component** | **Effective utilization** | **Add comfort factor (2.0)**
+        --- | --- | ---  
         Cores | 2 | 4
         Memory | 8 GB | 16 GB     
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Migrate appliance 
-description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
+description: Provides a summary of support for the Azure Migrate appliance.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ---
