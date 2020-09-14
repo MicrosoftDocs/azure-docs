@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/24/2020
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with FreshDesk
@@ -49,7 +49,7 @@ To configure the integration of FreshDesk into Azure AD, you need to add FreshDe
 1. In the **Add from the gallery** section, type **FreshDesk** in the search box.
 1. Select **FreshDesk** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for FreshDesk
+## Configure and test Azure AD SSO for FreshDesk
 
 Configure and test Azure AD SSO with FreshDesk using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in FreshDesk.
 
@@ -77,9 +77,12 @@ To configure and test Azure AD SSO with FreshDesk, complete the following buildi
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
-
+     
+	c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<tenant-name>.freshdesk.com/login/saml`
+	
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. FreshDesk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **Unique User Identifier** is mapped with **user.userprincipalname** but FreshDesk expects this claim to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
 
