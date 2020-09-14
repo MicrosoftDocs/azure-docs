@@ -207,7 +207,7 @@ foreach ($Appx in $AllAppxBundles) {
 }
 ```
 >[!IMPORTANT]
->The inbox apps included in the ISO are not the latest versions of the pre-installed Windows apps. To get the latest version of all apps, you need to update the apps using the Windows Store App and perform an manual search for updates after you installed the additional languages.
+>The inbox apps included in the ISO aren't the latest versions of the pre-installed Windows apps. To get the latest version of all apps, you need to update the apps using the Windows Store App and perform an manual search for updates after you've installed the additional languages.
 
 
 When you're done, make sure to disconnect the share.
