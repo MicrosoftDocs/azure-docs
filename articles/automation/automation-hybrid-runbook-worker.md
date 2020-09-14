@@ -120,8 +120,8 @@ If you have more than 2,000 hybrid workers, to get a list of all of them, you ca
 
 ```powershell
 "Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
-$work = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
-$work | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
 ```
 
 ## Next steps
