@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SolarWindsService Desk (previously Samanage) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SolarWinds Service Desk (previously Samanage) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SolarWinds Service Desk (previously Samanage).
 services: active-directory
 author: jeevansd
@@ -67,10 +67,10 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with SolarWinds, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Samanage Single Sign-On](#configure-samanage-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure SolarWinds Service Desk Single Sign-On](#configure-solarwinds-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Samanage test user](#create-samanage-test-user)** - to have a counterpart of Britta Simon in SolarWinds that is linked to the Azure AD representation of user.
+5. **[Create SolarWinds Service Desk test user](#create-solarwinds-test-user)** - to have a counterpart of Britta Simon in SolarWinds Service Desk that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -118,7 +118,9 @@ To configure Azure AD single sign-on with SolarWinds, perform the following step
 
 	c. Logout URL
 
-### Configure SolarWinds Service Desk (Previously Samanage) Single Sign-On
+<a name="configure-solarwinds-single-sign-on"></a>
+
+### Configure SolarWinds Service Desk (previously Samanage) Single Sign-On
 
 1. In a different web browser window, log into your SolarWinds company site as an administrator.
 
@@ -184,8 +186,6 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **SolarWinds**.
-
-	![The Samanage link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
