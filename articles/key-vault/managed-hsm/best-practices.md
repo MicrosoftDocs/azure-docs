@@ -38,5 +38,7 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 - Turn on purge protection if you want to guard against force deletion of the HSM even after soft delete is turned on.
 
 ## Next Steps
-- See [Full backup/restore and selective restore](backup-restore.md) for information.
-- See [Manage managed HSM with Azure CLI](key-management.md)
+- See [Full backup/restore](backup-restore.md) for information on full HSM backup/restore.
+- See [Managed HSM logging](logging.md) to learn how to use Azure Monitor to configure logging
+- See [Manage managed HSM keys](key-management.md) for key management.
+- See [Managed HSM role management](role-management.md) for managing role assignments.
