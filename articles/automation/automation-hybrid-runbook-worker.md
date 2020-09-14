@@ -110,13 +110,13 @@ If the Hybrid Runbook Worker host machine reboots, any running runbook job resta
 
 Since they access non-Azure resources, runbooks running on a Hybrid Runbook Worker can't use the authentication mechanism typically used by runbooks authenticating to Azure resources. A runbook either provides its own authentication to local resources, or configures authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). You can also specify a Run As account to provide a user context for all runbooks.
 
-## Viewing Hybrid Runbook Workers in the portal
+## View Hybrid Runbook Workers
 
-Hybrid Runbook Workers configured on machines or servers, when Update Management or Change Tracking and Inventory features are enabled, can be inventoried in the Azure portal. You can view up to 2,000 workers in the portal by selecting the tab **System hybrid workers group** from the option **Hybrid workers group** from the left-hand pane for the selected Automation account.
+After the Update Management feature is enabled on Windows servers or VMs, you can inventory the list of system Hybrid Runbook Workers group in the Azure portal. You can view up to 2,000 workers in the portal by selecting the tab **System hybrid workers group** from the option **Hybrid workers group** from the left-hand pane for the selected Automation account.
 
 :::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Automation account system hybrid worker groups page" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
 
-If you have more than 2,000 hybrid workers, to get a list of all of them you can run the following PowerShell script:
+If you have more than 2,000 hybrid workers, to get a list of all of them, you can run the following PowerShell script:
 
 ```powershell
 "Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
