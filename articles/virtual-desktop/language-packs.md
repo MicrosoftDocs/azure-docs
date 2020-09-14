@@ -74,7 +74,7 @@ To create a custom Windows 10 Enterprise multi-session image manually:
 1. Deploy an Azure VM, then go to the Azure Gallery and select the current version of Windows 10 Enterprise multi-session you're using.
 2. After you've deployed the VM, connect to it using RDP as a local admin.
 3. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
-4. Connect to the language package, FOD and Inbox Apps file share repository and mount it to a letter drive (for example, drive E).
+4. Connect to the language package, FOD, and Inbox Apps file share repository and mount it to a letter drive (for example, drive E).
 
 ## Create a custom Windows 10 Enterprise multi-session image automatically
 
