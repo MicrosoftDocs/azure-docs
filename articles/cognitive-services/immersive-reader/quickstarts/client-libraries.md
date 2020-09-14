@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use the Immersive Reader client library'
+title: 'Quickstart: Get started Immersive Reader client library'
 titleSuffix: Azure Cognitive Services
-description: The Immersive Reader API offers client libraries that makes it easy to integrate search capabilities into your applications. Use this quickstart to start sending search requests, and get back results.
+description: The Immersive Reader client library makes it easy to integrate the Immersive Reader service into your web applications to improve reading comprehension. In this quickstart, you'll learn how to use Immersive Reader for text selection, recognizing parts of speech, reading selected text out loud, translation, and more.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -10,9 +10,9 @@ zone_pivot_groups: programming-languages-set-twenty
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: devx-track-csharp
+ms.custom: "devx-track-csharp", ""cog-serv-seo-aug-2020""
 ---
 
 # Quickstart: Use the Immersive Reader client library

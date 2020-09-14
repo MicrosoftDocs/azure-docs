@@ -27,37 +27,37 @@ Immersive Reader is designed to make reading easier and more accessible for ever
 
 Immersive Reader isolates content to improve readability. 
 
-  ![Immersive Reader](./media/immersive-reader.png)
+  ![Isolate content for improved readability with Immersive Reader](./media/immersive-reader.png)
 
 ### Display pictures for common words
 
 For commonly used terms, the Immersive Reader will display a picture.
 
-  ![Picture Dictionary](./media/picture-dictionary.png)
+  ![Picture Dictionary with Immersive Reader](./media/picture-dictionary.png)
 
 ### Highlight parts of speech
 
 Immersive Reader can be use to help learners understand parts of speech and grammar by highlighting verbs, nouns, pronouns, and more.
 
-  ![Parts of Speech](./media/parts-of-speech.png)
+  ![Show parts of speech with Immersive Reader](./media/parts-of-speech.png)
 
 ### Read content aloud
 
 Speech synthesis (or text-to-speech) is baked into the Immersive Reader service, which lets your readers select text to be read aloud. 
 
-  ![Read Aloud](./media/read-aloud.png)
+  ![Read text aloud with Immersive Reader](./media/read-aloud.png)
 
 ### Translate content in real-time
 
 Immersive Reader can translate text into many languages in real-time. This is helpful to improve comprehension for readers learning a new language.
 
-  ![Translation](./media/translation.png)
+  ![Translate text with Immersive Reader](./media/translation.png)
 
 ### Split words into syllables
 
 With Immersive Reader you can break words into syllables to improve readability or to sound out new words.
 
-  ![Syllabification](./media/syllabification.png)
+  ![Break words into syllables with Immersive Reader](./media/syllabification.png)
 
 ## How does Immersive Reader work?
 
