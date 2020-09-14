@@ -32,9 +32,10 @@ MABS provides the following features when backing up VMware virtual machines:
 
 Before you start backing up a VMware virtual machine, review the following list of limitations and prerequisites.
 
-- If you have been using MABS to protect a VMware server as a Windows Server, you can't use the same fully qualified domain name (FQDN) or static IP. If you used an FQDN to identify your VMware VM, then use a static IP address to identify your VMware server. If you used a static IP address to identify your VMware VM earlier, then use an FQDN to identify your VMware VM. You can't use a dynamic IP address. The MABS agent should not be pushed on to a Windows Server that is acting as VMWare vCenter Server.
+- If you have been using MABS to protect a vCenter server (running on Windows) as a Windows Server using the FQDN of the server, you can't protect that vCenter server as a VMware server using the FQDN of the server.
+  - You can use the static IP address of vCenter Server as a workaround.
+  - If you want to use the FQDN, you should stop the protection as a Windows Server, remove the protection agent, and then add as a VMware Server using FQDN.
 - If you use vCenter to manage ESXi servers in your environment, add vCenter (and not ESXi) to the MABS protection group.
-- MABS can't protect VMware VMs to a secondary MABS server.
 - You can't back up user snapshots before the first MABS backup. Once MABS completes the first backup, then you can back up user snapshots.
 - MABS can't protect VMware VMs with pass-through disks and physical raw device mappings (pRDM).
 - MABS can't detect or protect VMware vApps.
