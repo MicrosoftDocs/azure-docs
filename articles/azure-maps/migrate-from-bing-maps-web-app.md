@@ -81,6 +81,25 @@ See also the [Azure Maps Glossary](https://docs.microsoft.com/azure/azure-maps/g
 
 The following is a collection of code samples for each platform that cover common use cases to help you migrate your web application from Bing Maps V8 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript; however, Azure Maps also provides TypeScript definitions as an additional option through an [NPM module](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 
+**Topics**
+
+- [Load a map](#load-a-map)
+- [Localizing the map](#localizing-the-map)
+- [Setting the map view](#setting-the-map-view)
+- [Adding a pushpin](#adding-a-pushpin)
+- [Adding a custom pushpin](#adding-a-custom-pushpin)
+- [Adding a polyline](#adding-a-polyline)
+- [Adding a polygon](#adding-a-polygon)
+- [Display an infobox](#display-an-infobox)
+- [Pushpin clustering](#pushpin-clustering)
+- [Add a heat map](#add-a-heat-map)
+- [Overlay a tile layer](#overlay-a-tile-layer)
+- [Show traffic data](#show-traffic-data)
+- [Add a ground overlay](#add-a-ground-overlay)
+- [Add KML data to the map](#add-kml-data-to-the-map)
+- [Add drawing tools](#add-drawing-tools)
+
+
 ### Load a map
 
 Loading a map in both SDK’s follows the same set of steps;
@@ -720,7 +739,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 -   [Line layer options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 -   [Use data-driven style expressions](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
 
-### Display an Infobox
+### Display an infobox
 
 Additional information for an entity can be displayed on the map as an `Microsoft.Maps.Infobox` class in Bing Maps, in Azure Maps this can be achieved using the `atlas.Popup` class. The examples below add a pushpin/marker to the map, and when clicked, displays an infobox/popup.
 

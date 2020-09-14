@@ -60,6 +60,26 @@ The following are some key differences between the Google Maps and Azure Maps We
 
 This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as an additional option through an [NPM module](how-to-use-map-control.md).
 
+
+**Topics**
+
+- [Load a map](#load-a-map)
+- [Localizing the map](#localizing-the-map)
+- [Setting the map view](#setting-the-map-view)
+- [Adding a marker](#adding-a-marker)
+- [Adding a custom marker](#adding-a-custom-marker)
+- [Adding a polyline](#adding-a-polyline)
+- [Adding a polygon](#adding-a-polygon)
+- [Display an info window](#display-an-info-window)
+- [Import a GeoJSON file](#import-a-geojson-file)- 
+- [Marker clustering](#marker-clustering)
+- [Add a heat map](#add-a-heat-map)
+- [Overlay a tile layer](#overlay-a-tile-layer)
+- [Show traffic data](#show-traffic-data)
+- [Add a ground overlay](#add-a-ground-overlay)
+- [Add KML data to the map](#add-kml-data-to-the-map)
+
+
 ### Load a map
 
 Both SDKs have the same steps to load a map:
@@ -702,7 +722,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 - [Line layer options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 - [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
-### Display an Info Window
+### Display an info window
 
 Additional information for an entity can be displayed on the map as a
 `google.maps.InfoWindow` class in Google Maps. In Azure Maps, this functionality can be
@@ -1352,7 +1372,7 @@ map.layers.add(new atlas.layer.TileLayer({
 - [Tile layer class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
 - [Tile layer options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
-### Show traffic
+### Show traffic data
 
 Traffic data can be overlaid both Azure and Google maps.
 
@@ -1520,7 +1540,7 @@ Use the `atlas.layer.ImageLayer` class to overlay georeferenced images. This cla
 - [Overlay an image](map-add-image-layer.md)
 - [Image layer class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
-## Add KML to the map
+### Add KML data to the map
 
 Both Azure and Google maps can import and render KML, KMZ and GeoRSS data on the map. Azure Maps also supports GPX, GML, spatial CSV files, GeoJSON, Well Known Text (WKT), Web Mapping Services (WMS), Web Mapping Tile Services (WMTS), and Web Feature Services (WFS). Azure Maps reads the files locally into memory and in most cases can handle much larger KML files. 
 
