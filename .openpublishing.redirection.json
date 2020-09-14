@@ -1052,28 +1052,34 @@
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/reference-centos-vm.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/linux-dsvm-intro.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/geo-ai-dsvm-overview.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/provision-geo-ai-dsvm.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/use-geo-ai-dsvm.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/reference-deprecation.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
+      "redirect_document_id": false
+
     },
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
