@@ -19,25 +19,27 @@ ms.author: alsin
 
 ## Overview
 
-The Azure Hybrid Benefit for Linux allows you to save money on your Red Hat Enterprise Linux (RHEL) or SUSE Linux Enterprise Server (SLES) virtual machines (VMs) by utilizing your own pre-existing Red Hat or SUSE software subscription. With this benefit, you only pay for the infrastructure costs of your VM because the software fee is covered by your RHEL or SLES subscription. The benefit is applicable to all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
+Azure Hybrid Benefit allows you to more easily migrate your on-premise Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise (SLES) server to Azure by utilizing your own pre-existing Red Hat or SUSE software subscription. With this benefit, you only pay for the infrastructure costs of your VM because the software fee is covered by your RHEL or SLES subscription. The benefit is applicable to all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
 
 ## Benefit description
 
-The Azure Hybrid Benefit for Linux will allow you to more easily migrate your on-premise RHEL and SLES servers to Azure by converting existing RHEL and SLES PAYG VMs on Azure to bring-your-own-subscription (BYOS) billing. Typically, VMs deployed from PAYG images on Azure will charge both an infrastructure fee as well as a software fee. With the Azure Hybrid Benefit for Linux, PAYG VMs can be converted to a BYOS billing model without a redeployment, avoiding any downtime risk.
+Through Azure Hybrid Benefit you will be able to more easily migrate your on-premise RHEL and SLES servers to Azure by converting existing RHEL and SLES PAYG VMs on Azure to bring-your-own-subscription (BYOS) billing. Typically, VMs deployed from PAYG images on Azure will charge both an infrastructure fee as well as a software fee. With the Azure Hybrid Benefit, PAYG VMs can be converted to a BYOS billing model without a redeployment, avoiding any downtime risk.
 
 ![Azure Hybrid Benefit cost visualization on Linux VMs](./media/ahb-linux/ahb-cost.png)
 
 Upon enabling the benefit on a RHEL or SLES VM, you will no longer be charged for the additional software fee typically incurred on a PAYG VM. Instead, your VM will begin emitting a BYOS charge which includes only the compute hardware fee and no software fee.
+
 If you desire, you may also convert a VM which has had the benefit enabled on it back to a PAYG billing model.
 
 ## Scope of Azure Hybrid Benefit eligibility for Linux VMs
 
-The Azure Hybrid Benefit is available for all RHEL and SLES Marketplace PAYG images. The benefit is not yet available for RHEL or SLES Marketplace BYOS images or custom images.
+Azure Hybrid Benefit is available for all RHEL and SLES Marketplace PAYG images. The benefit is not yet available for RHEL or SLES Marketplace BYOS images or custom images.
+
 Reserved Instances, Dedicated Hosts, and SQL hybrid benefits are not eligible for the Azure Hybrid Benefit if you are already using the benefit with Linux VMs.
 
 ## How to get started
 
-The Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gain access to the preview, you may enable the benefit using the Azure portal or the Azure CLI.
+Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gain access to the preview, you may enable the benefit using the Azure portal or the Azure CLI.
 
 ### Preview
 
@@ -46,7 +48,7 @@ In this phase, you may gain access to the benefit by filling out the form here. 
 ### Red Hat customers
 
 1.    Fill out the preview request form above
-1.    Register with the Red Hat Cloud Access program
+1.    Register with the [Red Hat Cloud Access program](https://aka.ms/rhel-cloud-access)
 1.    Enable your Azure subscription(s) for Cloud Access, and enable the subscriptions containing the VMs you want to use the benefit with
 1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
 1.    Register your VMs receiving the benefit with a separate source of updates
@@ -67,7 +69,7 @@ You may enable the benefit on existing VMs by visiting the Configuration blade a
 You may use the 'az vm update' command to update existing VMs. For RHEL VMs, run the command with a --license-type parameter of "RHEL_BYOS". For SLES VMs, run the command with a --license-type parameter of "SLES_BYOS".
 
 #### CLI example to enable the benefit:
-```bash
+```azurecli
 # This will enable the benefit on a RHEL VM
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
 
@@ -76,7 +78,7 @@ az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 ```
 #### CLI example to disable the benefit:
 To disable the benefit, use a license-type value of "None"
-```bash
+```azurecli
 # This will disable the benefit on a VM
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
@@ -84,7 +86,7 @@ az vm update -g myResourceGroup -n myVmName --license-type None
 #### CLI example to enable the benefit on a large number of VMs
 To enable the benefit on a large number of VMs, you may use the --ids parameter in the Azure CLI.
 
-```bash
+```azurecli
 # This will enable the benefit on a RHEL VM. In this example, ids.txt is an
 # existing text file containing a delimited list of resource ids corresponding
 # to the VMs using the benefit
@@ -92,7 +94,7 @@ az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS --ids $(cat
 ```
 
 The following examples show two methods of getting a list of resource ids – one at the resource group level, one at the subscription level.
-```bash
+```azurecli
 # To get a list of all the resource ids in a resource group:
 $(az vm list -g MyResourceGroup --query "[].id" -o tsv)
 
@@ -103,6 +105,7 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ## Check AHB status of a VM
 You may view the AHB status of a VM in 3 ways: checking in the Portal, using Azure CLI, or using the Azure Instance Metadata Service (Azure IMDS).
 
+
 ### Portal
 
 View the Configuration blade and check licensing status to see if AHB is enabled for your VM.
@@ -111,19 +114,23 @@ View the Configuration blade and check licensing status to see if AHB is enabled
 
 The `az vm get-instance-view` command may be used for this purpose. Look for a licenseType field in the response. If the licenseType field exists and the value is 'RHEL_BYOS' or 'SLES_BYOS', then your VM has the benefit enabled.
 
+```azurecli
+az vm get-instance-view -g MyResourceGroup -n MyVm
+```
+
 ### Azure Instance Metadata Service
 
-From within the VM itself, you may query the IMDS Attested Metadata to determine the VM's licenseType. A licenseType value of 'RHEL_BYOS' or 'SLES_BYOS' will indicate that your VM has the benefit enabled.
+From within the VM itself, you may query the IMDS Attested Metadata to determine the VM's licenseType. A licenseType value of 'RHEL_BYOS' or 'SLES_BYOS' will indicate that your VM has the benefit enabled. Learn more about attested metadata [here](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#attested-data)
 
 ## Compliance
 
 ### Red Hat
 
-In order to use the Azure Hybrid Benefit for RHEL VMs, you must first be registered with the Red Hat Cloud Access program. You may do this via the Red Hat Cloud Access site here. Once you have enabled the benefit on your VM, you must register the VM with your own source of updates either with Red Hat Subscription Manager or Red Hat Satellite. This will ensure you remain in a supported state.
+In order to use Azure Hybrid Benefit for your RHEL VMs, you must first be registered with the Red Hat Cloud Access program. You may do this via the Red Hat Cloud Access site here. Once you have enabled the benefit on your VM, you must register the VM with your own source of updates either with Red Hat Subscription Manager or Red Hat Satellite. This will ensure you remain in a supported state.
 
 ### SUSE
 
-In order to use the Azure Hybrid Benefit for SLES VMs, you must first be registered with the SUSE Public Cloud program. Learn more about the program here. Once you have purchased SUSE subscriptions, you must register your VMs using those subscriptions to your own source of updates using either SUSE Customer Center, the Subscription Management Tool server, or SUSE Manager.
+In order to use Azure Hybrid Benefit for your SLES VMs, you must first be registered with the SUSE Public Cloud program. Learn more about the program here. Once you have purchased SUSE subscriptions, you must register your VMs using those subscriptions to your own source of updates using either SUSE Customer Center, the Subscription Management Tool server, or SUSE Manager.
 
 ## Frequently asked questions
 *Q: Can I use a license type of "RHEL_BYOS" with a SLES image, or vice-versa?*
