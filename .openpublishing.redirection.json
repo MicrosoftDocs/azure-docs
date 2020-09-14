@@ -57162,11 +57162,40 @@
       "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
       "redirect_document_id": false
     },
-
-	{
-	  "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
-	  "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
-	  "redirect_document_id": false 	
-	}
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-transliterate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-dictionary",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-languages",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-sentence",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
+      "redirect_document_id": false 	
+    }
   ]
 }

@@ -76,7 +76,7 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 When including and excluding paths, you may encounter the following attributes:
 
-- `kind` can be either `range` or `hash`. Range index functionality provides all of the functionality of a hash index, so we recommend using a range index.
+- `kind` can be either `range` or `hash`. Hash index support is limited to equality filters. Range index functionality provides all of the functionality of hash indexes as well as efficient sorting, range filters, system functions. We always recommend using a range index.
 
 - `precision` is a number defined at the index level for included paths. A value of `-1` indicates maximum precision. We recommend always setting this value to `-1`.
 
