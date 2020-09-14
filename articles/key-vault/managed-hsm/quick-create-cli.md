@@ -27,7 +27,7 @@ If you choose to install and use the CLI locally, this quickstart requires the A
 
 To sign in to Azure using the CLI you can type:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -37,7 +37,7 @@ For more information on login options via the CLI take a look at [sign in with A
 
 A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus2* location.
 
-```azurecli
+```azurecli-interactive
 az group create --name "ContosoResourceGroup" --location eastus2
 ```
 
@@ -60,7 +60,7 @@ You need to provide following inputs to create a Managed HSM resource:
  
 The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
 
-```azurecli
+```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
 az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid
 ```
@@ -85,7 +85,7 @@ To activate the HSM you send at least 3 (maximum 10) RSA public keys to the HSM.
 
 The example below shows how to use  `openssl` to generate 3 self signed certificate.
 
-```azurecli
+```azurecli-interactive
 openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
 openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
 openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
@@ -93,7 +93,7 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert
 
 Use the `az keyvault security-domain download` command to download the security domain and activate your managed HSM. The example below, uses 3 RSA key pairs (only public keys are needed for this command) and sets the quorum to 2.
 
-```azurecli
+```azurecli-interactive
 az keyvault security-domain download --hsm-name ContosoMHSM --sd-wrapping-keys ./certs/cert_0.cer ./certs/cert_1.cer ./certs/cert_2.cer --sd-quorum 2 --security-domain-file ContosoMHSM-SD.json
 ```
 Please store the security domain file and the RSA key pairs securely. You will need them for disaster recovery or for creating another managed HSM that shares same security domain, so they can share keys.
@@ -107,7 +107,7 @@ Other quickstarts and tutorials in this collection build upon this quickstart. I
 
 When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
 
-```azurecli
+```azurecli-interactive
 az group delete --name ContosoResourceGroup
 ```
 

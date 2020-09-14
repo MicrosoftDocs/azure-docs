@@ -31,13 +31,25 @@ To use the Azure CLI commands in this article, you must have the following items
 * Azure Command-Line Interface version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+
+To sign in to Azure using the CLI you can type:
+
+```azurecli
+az login
+```
+
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+
 ### Getting help with Azure Cross-Platform Command-Line Interface
 
 This article assumes that you're familiar with the command-line interface (Bash, Terminal, Command prompt).
 
 The --help or -h parameter can be used to view help for specific commands. Alternately, The Azure help [command] [options] format can also be used too. When in doubt about the parameters needed by a command, refer to help. For example, the following commands all return the same information:
 
-```azurecli
+```azurecli-interactive
 az account set --help
 az account set -h
 ```
@@ -49,19 +61,17 @@ You can also read the following articles to get familiar with Azure Resource Man
 
 ## List available role definitions
 
-
-
 ## Create a new role assignment
 
 ### Assign roles for all keys 
 
-```azurecli
+```azurecli-interactive
 az keyvault role assignment create --managed-hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
 ```
 
 ### Assign role for a specific key
 
-```azurecli
+```azurecli-interactive
 az keyvault role assignment create --managed-hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
 ```
 
@@ -71,24 +81,24 @@ az keyvault role assignment create --managed-hsm-name ContosoMHSM --role "Manage
 
 I can view role assignments
 
-```azurecli
+```azurecli-interactive
 az keyvault role assignment list --managed-hsm-name ContosoMHSM
 ```
 
 OR
-```azurecli
+```azurecli-interactive
 az keyvault role assignment list --managed-hsm-name ContosoMHSM --assignee <user, group, or service principal name>
 ```
 
 OR
 
-```azurecli
+```azurecli-interactive
 az keyvault role assignment list --managed-hsm-name ContosoMHSM --assignee <user, group, or service principal name> --scope <HSM or key>
 ```
 
 OR
 
-```azurecli
+```azurecli-interactive
 az keyvault role assignment list --managed-hsm-name ContosoMHSM --assignee <user, group, or service principal name> --scope <HSM or key> --role <role id or name>
 ```
 
@@ -99,13 +109,13 @@ az keyvault role assignment list --managed-hsm-name ContosoMHSM --assignee <user
 
 I can delete role assignments
 
-```azurecli
+```azurecli-interactive
 az keyvault role assignment delete --managed-hsm-name ContosoMHSM --role <role name or id> --assignee <user, group, or service principal name> --scope <HSM or key>
 ```
 
 OR
 
-```azurecli
+```azurecli-interactive
 az keyvault role assignment delete --managed-hsm-name ContosoMHSM --ids <role assignment IDs>
 ```
 

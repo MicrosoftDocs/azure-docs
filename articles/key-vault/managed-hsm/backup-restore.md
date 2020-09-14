@@ -18,9 +18,9 @@ ms.author: ambapat
 > [!NOTE]
 > This feature is only available for resource type managed HSM.
 
-Managed HSM supports creating a full backup of the entire contents of the HSM including all keys, versions, attributes, tags, and role assignments. The backup is encrypted with cryptographic keys associated with the HSM's security domain. 
+Managed HSM supports creating a full backup of the entire contents of the HSM including all keys, versions, attributes, tags, and role assignments. The backup is encrypted with cryptographic keys associated with the HSM's security domain.
 
-Backup is a data plane operation. The caller initiating the backup operation must have permission to perform dataAction **Microsoft.KeyVault/managedHsm/backup/start/action**. 
+Backup is a data plane operation. The caller initiating the backup operation must have permission to perform dataAction **Microsoft.KeyVault/managedHsm/backup/start/action**.
 
 Only following built-in roles have permission to perform full backup:
 - Managed HSM Administrator
@@ -32,32 +32,43 @@ You need to provide following information to execute a full backup:
 - Storage account blob storage container
 - Storage container SAS token with permissions `crdw`
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Full backup and restore
+If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
-### Full backup
+To sign in to Azure using the CLI you can type:
+
+```azurecli-interactive
+az login
+```
+
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+
+## Full backup
 
 Backup is a long running operation. After issuing the backup command it immediately returns with a Job ID. You can check the status of backup process using this Job ID. The backup process creates a folder inside the designated container with a following naming pattern **`mhsm-{HSM_NAME}-{YYYY}{MM}{DD}{HH}{mm}{SS}`**, where HSM_NAME is the name of managed HSM being backed up and YYYY, MM, DD, HH, MM, mm, SS are the year, month, date, hour, minutes and seconds of date/time in UTC when the backup command was received.
 
 While the backup is in progress the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
-
-```azurecli
+```azurecli-interactive
 # time for 30 minutes later for SAS token expiry
+
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
+
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
 
 # Generate a container sas token
+
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions crdw --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
 
-# Backup HSM 
-az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --subscription 361da5d4-a47a-4c79-afdd-d66f684f4070
+# Backup HSM
 
+az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --subscription 361da5d4-a47a-4c79-afdd-d66f684f4070
 ```
 
-### Full restore
+## Full restore
 
 Full restore allows you to completely restore the contents of the HSM with a previous backup. This includes all keys, versions, attributes, tags, and role assignments. This will effectively wipe out everything currently stored in the HSM and return it to the same state when the source backup was created.
 
@@ -65,7 +76,6 @@ Full restore allows you to completely restore the contents of the HSM with a pre
 > Full restore is a very destructive and disruptive operation. Therefore it is mandatory to have completed a full backup within last 30 minutes before a `restore` operation can be performed.
 
 Restore is a data plane operation. The caller initiating the restore operation must have permission to perform dataAction **Microsoft.KeyVault/managedHsm/restore/start/action**. The source HSM where the backup was created and the destination HSM where the restore will be performed **must** have the same Security Domain. See more [about Managed HSM Security Domain](security-domain.md).
-
 
 You need to provide following information to execute a full restore:
 - HSM name or URL
@@ -76,20 +86,22 @@ You need to provide following information to execute a full restore:
 
 Restore is a long running operation. After issuing the restore command it immediately returns with a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 
-```azurecli
-#### time for 30 minutes later for SAS token expiry
+```azurecli-interactive
+
+# time for 30 minutes later for SAS token expiry
 
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 
-#### Get storage account key
+# Get storage account key
 
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
 
-#### Generate a container sas token
+# Generate a container sas token
 
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions rl --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
+```
 
-#### Backup HSM 
+## Backup HSM 
 
 ```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860

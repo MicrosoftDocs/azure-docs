@@ -54,7 +54,7 @@ If you choose to install and use the CLI locally, this quickstart requires the A
 
 To sign in to Azure using the CLI you can type:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -64,7 +64,7 @@ az login
 
 The first step in setting up key logging is to point Azure CLI to the Managed HSM that you want to log.
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -78,7 +78,7 @@ You might have to specify the subscription that you used to create your Managed 
 
 
 
-```azurecli
+```azurecli-interactive
 hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
 storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
 ```
@@ -93,7 +93,7 @@ This output confirms that logging is now enabled for your Managed HSM, and it wi
 
 Optionally, you can set a retention policy for your logs such that older logs are automatically deleted. For example, set retention policy by setting the **-RetentionEnabled** flag to **$true**, and set the **-RetentionInDays** parameter to **90** so that logs older than 90 days are automatically deleted.
 
-```azurecli
+```azurecli-interactive
 az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
 
 ```

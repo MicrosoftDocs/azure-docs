@@ -14,18 +14,30 @@ ms.author: ambapat
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
 
-# Secure access to your Managed HSM 
+# Secure access to your Managed HSM
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
 
 This tutorial will walk you through a simple example that shows how to achieve separation of duties and access control using Azure RBAC and local Managed HSM RBAC. See [Managed HSM access control](access-control.md) to learn about Managed HSM access control model.
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+
+To sign in to Azure using the CLI you can type:
+
+```azurecli-interactive
+az login
+```
+
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## Example
 
 In this example, we're developing an application that uses an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Both the RSA key used for signing is stored in our managed HSM pool.
 
 We have identified following roles who manage, deploy, and audit our application:
+
 - **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of keys. The keys RSA or EC keys for signing, and RSA or AES keys for data encryption.
 - **Developers and operators**: The staff who develop the application and deploy it in Azure. The members of this team aren't part of the security staff. They shouldn't have access to sensitive data like RSA keys. Only the application that they deploy should have access to this sensitive data.
 - **Auditors**: This role is for contributors who aren't members of the development or general IT staff. They review the use and maintenance of certificates, keys, and secrets to ensure compliance with security standards.
@@ -69,6 +81,7 @@ To assign management plane roles (Azure RBAC) you can use Azure portal or any of
 
 
 The Azure CLI snippets in this section are built with the following assumptions:
+
 - The Azure Active Directory administrator has created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin has added users to their respective groups.
 - All resources are located in the **ContosoAppRG** resource group.
 - The HSM pool logs are stored in the **contosologstorage** storage account.
@@ -78,7 +91,7 @@ The subscription admin assigns the `Managed HSM Contributor`role to the security
 
 # [Azure CLI](#tab/azure-cli)
 
-```AzureCLI
+```azurecli-interactive
 # This role assignment allows Contoso Security Team to create new Managed HSMs
 az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
 
@@ -91,7 +104,7 @@ The security team sets up logging and assigns roles to auditors and the VM appli
 
 # [Azure CLI](#tab/azure-cli)
 
-```AzureCLI
+```azurecli-interactive
 # Enable logging
 hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
 storageresource=$(az storage account show --name contosologstorage --query id -o tsv)
@@ -110,7 +123,6 @@ storage_account_principal=$(az storage account show --id $storageresource --quer
 [ "$storage_account_principal" ] || storage_account_principal=$(az storage account update --assign-identity --id $storageresource)
 
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption" --assignee $storage_account_principal
-
 ```
 
 This tutorial only shows actions relevant to the access control for most part. Other actions and operations related to deploying application in your VM, turning on encryption with customer managed key for a storage account, creating managed HSM are not shown here to keep the example focused on access control and role management.
