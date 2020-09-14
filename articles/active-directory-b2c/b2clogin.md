@@ -37,7 +37,7 @@ These endpoints may look like:
 - <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
 
 Alternatively, the `<policy-name>` may be passed as a query parameter:
-- <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\>`</b></code>
+- <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
 - <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code>
 
 > [!IMPORTANT]
