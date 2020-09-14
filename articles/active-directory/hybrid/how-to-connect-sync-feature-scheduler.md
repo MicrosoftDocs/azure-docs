@@ -163,7 +163,7 @@ When a sync cycle is running, you cannot make configuration changes. You could w
 1. Start by telling the scheduler to stop its current cycle with the PowerShell cmdlet `Stop-ADSyncSyncCycle`.
 2. If you use a build before 1.1.281, then stopping the scheduler does not stop the current Connector from its current task. To force the Connector to stop, take the following actions:
 
-   ![Screenshot shows Synchronization Service Manager with Connectors selected an a running connector highlighted with the Stop action selected.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+   ![Screenshot shows Synchronization Service Manager with Connectors selected and a running connector highlighted with the Stop action selected.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
 
    * Start **Synchronization Service** from the start menu. Go to **Connectors**, highlight the Connector with the state **Running**, and select **Stop** from the Actions.
 
