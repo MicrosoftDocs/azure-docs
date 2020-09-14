@@ -47,7 +47,7 @@ PostgreSQL client applications are connected to the primary server using the DB 
 
 ## Failover process - planned events
 
-Planned downtime events include Azure scheduled periodic software updates and minor version upgrades or operations such as scale compute and scale storage that are initiated by customers. When configured in high availability, these operations are first applied to the standby replica while the applications continue to access the primary server. Once the standby replica is updated, primary server connections are drained, and a failover is triggered which activates the standby replica to be the primary with the same database server name. Client applications will have to reconnect with the same database server name to the new primary server and can resume their operations. A new standby server will be established in the same zone as the old primary. The overall failover time is expected to be 60-120 seconds. 
+Planned downtime events include Azure scheduled periodic software updates and minor version upgrades. When configured in high availability, these operations are first applied to the standby replica while the applications continue to access the primary server. Once the standby replica is updated, primary server connections are drained, and a failover is triggered which activates the standby replica to be the primary with the same database server name. Client applications will have to reconnect with the same database server name to the new primary server and can resume their operations. A new standby server will be established in the same zone as the old primary. The overall failover time is expected to be 60-120 seconds. 
 
 ### Reducing planned downtime with managed maintenance window
 
@@ -85,10 +85,12 @@ Flexible servers that are configured with high availability, replicate data in r
 -   Clients always connect to the primary database server.
 
 -   Ability to restart the server to pick up any static server parameter changes.
+  
+-   Periodic maintenance activities such as minor version upgrades happen at the standby first and the service is failed over to reduce downtime.  
 
 ## Zone redundant high availability - limitations
 
--   High availability is not supported in burstable compute tier.
+-   High availability is not supported with burstable compute tier.
 -   High availability is supported only in regions where multiple zones are available.
 -   Due to synchronous replication to another availability zone, applications can experience elevated write and commit latency.
 
@@ -103,7 +105,7 @@ Flexible servers that are configured with high availability, replicate data in r
 
 -   Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 
--   Planned events such as scale compute and minor version upgrades happen in both primary and standby at the same time. 
+-   Planned events such as scale compute and scale storage happens in the standby first and then on the primary server. The service is not failed over. 
 
 ## Next steps
 

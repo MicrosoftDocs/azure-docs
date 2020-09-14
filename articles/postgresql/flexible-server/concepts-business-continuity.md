@@ -45,7 +45,7 @@ Below are some planned maintenance scenarios. These events typically incur up to
 | <b>New software deployment (Azure-initiated) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance, and you can schedule when those activities to happen. For more information, check your [portal](https://aka.ms/servicehealthpm) | 
 | <b>Minor version upgrades (Azure-initiated) | Azure Database for PostgreSQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. The database server is automatically restarted with the new minor version. For more information, see [documentation](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification). You can also check your [portal](https://aka.ms/servicehealthpm).| 
 
- When the flexible server is configured with **zone redundant high availability**, the flexible server performs the scaling and the maintenance operations on the standby server first. Then the primary server is failed over to the standby. This approach reduces the application downtime to the failover time. For more information, see [Concepts - High availability](./concepts-high-availability.md).
+ When the flexible server is configured with **zone redundant high availability**, the flexible server performs the scaling and the maintenance operations on the standby server first. For more information, see [Concepts - High availability](./concepts-high-availability.md).
 
 ##  Unplanned downtime mitigation
 
