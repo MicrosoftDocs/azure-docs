@@ -40,6 +40,9 @@ To create a new node type, we will need to define three properties:
 * **Instance Count**: This will be the initial number of nodes in the new node type. 
 * **VM Size**: This will be the VM SKU which the nodes are running on. If this property is not specified the default value with be a Standard_D2. 
 
+> [!NOTE]
+> If the node type being added is the first or only node type in the cluster, the Primary property must be used.
+
 ```powershell
 $resourceGroup = "myResourceGroup"
 $clusterName = "myCluster"
@@ -68,7 +71,7 @@ Remove-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -Cluster
 
 ## Next steps
 
-In this step we added and deleted node types. To learn more about how to use client certificates, see:
+ In this step we added and deleted node types. To learn more about upgrading, see:
 
 > [!div class="nextstepaction"]
-> [Add a client certificate to a Manged Service Fabric cluster](./tutorial-managed-cluster-certificate.md)
+> [Upgrade a Service Fabric managed cluster](./tutorial-managed-cluster-upgrade.md)

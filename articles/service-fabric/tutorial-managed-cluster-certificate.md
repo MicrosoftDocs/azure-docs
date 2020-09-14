@@ -27,6 +27,10 @@ This part of the series covers how to:
 Before you begin this tutorial:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
+## Obtain a certificate
+
+You'll want to make sure you have a certificate ready for use with a Service Fabric cluster. If you don't already have one, follow [steps](/dotnet/framework/wcf/feature-details/how-to-create-temporary-certificates-for-use-during-development) to obtain a self-signed certificate for development use. 
+
 ## Deploying a Managed Service Fabric cluster with a certificate
 
 If we take a look at the template used in [Deploy a Managed Service Fabric cluster](tutorial-managed-cluster-deploy.md), there are parameters corresponding to a client certificate thumbprint in a few places. This thumbprint is used to authenticate client connections to the managed cluster.
@@ -88,7 +92,7 @@ Congratulations! You've learned about client certificates in a Managed Service F
 
 ## Next steps
 
-In this step we looked at client certificate management in a Managed Service Fabric cluster. To learn more about upgrading a cluster, see:
+ In this step we looked at client certificate management in a Managed Service Fabric cluster. To learn more about Service Fabric managed clusters, see:
 
 > [!div class="nextstepaction"]
-> [Upgrade a Managed Service Fabric cluster](./tutorial-managed-cluster-upgrade.md)
+> [Upgrade a Managed Service Fabric cluster](./overview-managed-cluster.md)

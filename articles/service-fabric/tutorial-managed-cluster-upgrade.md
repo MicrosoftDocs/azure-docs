@@ -38,7 +38,8 @@ Congratulations! You've upgraded a Managed Service Fabric cluster. When no longe
 
 ## Next steps
 
-In this step we upgraded a Managed Service Fabric cluster. To learn more about Managed Service Fabric clusters, see:
+
+In this step we upgraded a Service Fabric managed cluster. To learn more about client certificate management in Service Fabric managed clusters, see:
 
 > [!div class="nextstepaction"]
-> [Managed Service Fabric clusters](./overview-managed-cluster.md)
+> [Add a client certificate to a Manged Service Fabric cluster](./tutorial-managed-cluster-certificate.md)
