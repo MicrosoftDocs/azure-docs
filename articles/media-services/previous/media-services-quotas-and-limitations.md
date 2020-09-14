@@ -19,6 +19,8 @@ ms.author: juliako
 ---
 # Quotas and Limitations
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article describes quotas and limitations associated with Microsoft Azure Media Services.
 
 [!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]

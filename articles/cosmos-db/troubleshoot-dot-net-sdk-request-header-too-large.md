@@ -7,6 +7,7 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
+ms.custom: devx-track-dotnet
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB "Request header too large" message

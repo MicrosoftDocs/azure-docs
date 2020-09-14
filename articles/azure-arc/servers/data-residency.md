@@ -29,4 +29,4 @@ For more information about our regional resiliency and compliance support, see [
 
 ## Next steps
 
-Learn more about designing for [Azure resiliency](/architecture/reliability/architect).
+Learn more about designing for [Azure resiliency](/azure/architecture/reliability/architect).

@@ -1,23 +1,21 @@
 ---
-title: Process change feed in Azure Blob Storage (Preview) | Microsoft Docs
+title: Process change feed in Azure Blob Storage | Microsoft Docs
 description: Learn how to process change feed logs in a .NET client application
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
+ms.custom: devx-track-csharp
 ---
 
-# Process change feed in Azure Blob Storage (Preview)
+# Process change feed in Azure Blob Storage
 
 Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to read change feed records by using the blob change feed processor library.
 
-To learn more about the change feed, see [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
-
-> [!NOTE]
-> The change feed is in public preview, and is available in limited regions. To learn more about this feature along with known issues and limitations, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md). The change feed processor library is subject to change between now and when this library becomes generally available.
+To learn more about the change feed, see [Change feed in Azure Blob Storage](storage-blob-change-feed.md).
 
 ## Get the blob change feed processor library
 
@@ -213,4 +211,4 @@ The start time that you provide is rounded down to the nearest hour and the end 
 
 ## Next steps
 
-Learn more about change feed logs. See [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+Learn more about change feed logs. See [Change feed in Azure Blob Storage](storage-blob-change-feed.md)

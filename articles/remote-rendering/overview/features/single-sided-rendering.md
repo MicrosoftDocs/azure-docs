@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # :::no-loc text="Single-sided"::: rendering
@@ -59,6 +60,11 @@ void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
     settings->SetMode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
+
+## API documentation
+
+* [C# RemoteManager.SingleSidedSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
+* [C++ RemoteManager::SingleSidedSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 
 # Monitoring Azure Backup workloads
 
-Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what is going on across all solutions and can expect to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
+Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what's going on across all solutions and can expect to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
 
 ## Backup Jobs in Recovery Services vault
 
@@ -95,10 +95,10 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 
 ## Inactivating alerts
 
-To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that displays detailed information about the alert, with an **Inactivate** button on the top. Clicking this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking on the list item corresponding to that alert and selecting **Inactivate**.
+To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that displays detailed information about the alert, with an **Inactivate** button on the top. Selecting this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking on the list item corresponding to that alert and selecting **Inactivate**.
 
 ![RS Vault alert inactivation](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
 ## Next steps
 
-[Monitor Azure backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+[Monitor Azure Backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

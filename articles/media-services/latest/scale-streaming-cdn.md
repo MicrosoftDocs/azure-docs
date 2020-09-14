@@ -5,17 +5,19 @@ titleSuffix: Azure Media Services
 description: Learn about streaming content with CDN integration, as well as prefetching and Origin-Assist CDN-Prefetch.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 02/13/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Stream content with CDN integration
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.  
 
@@ -25,14 +27,19 @@ The popular content will be served directly from the CDN cache as long as the vi
 
 You also need to consider how adaptive streaming works. Each individual video fragment is cached as its own entity. For example, imagine the first time a certain video is watched. If the viewer skips around watching only a few seconds here and there, only the video fragments associated with what the person watched get cached in CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they're each cached separately in the CDN. Even if two people are watching the same bitrate, they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
 
-When deciding whether or not to enable CDN on the Media Services [streaming endpoint](streaming-endpoint-concept.md), consider the number of anticipated viewers. CDN helps only if you're expecting many viewers for your content. If the max concurrency of viewers is lower than 500, it's recommended to disable CDN since CDN scales best with concurrency.
+Except for the test environment, we recommend that CDN be enabled for both Standard and Premium streaming endpoints. Each type of streaming endpoint has a different supported throughput limit.
+It is difficult to make a precise calculation for the maximum number of concurrent streams supported by a streaming endpoint as there are  various factors to take into account. These include:
+
+- Maximum bitrates used for streaming
+- Player pre-buffer and switching behavior. Players try to burst segments from an origin and use load speed to calculate adaptive bitrate switching. If a streaming endpoint gets close to saturation, response times can vary and players start switching to lower quality. As this is reducing load on the Streaming Endpoint players, scale back to higher quality creating unwanted switching triggers.
+Overall it is safe to estimate the maximum concurrent streams by taking the maximum streaming endpoint throughput and divide this by the maximum bitrate (assuming all players use the highest bitrate.) For example, you can have a Standard streaming endpoint which is limited to 600 Mbps and the highest bitrate of 3Mbp. In this case, approximately 200 concurrent streams are supported at the top bitrate. Remember to factor in the audio bandwidth requirements as well. Although an audio stream may only be streaming at 128 kps, the total streaming adds up quickly when you multiply it by the number of concurrent streams.
 
 This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). It also explains prefetching (active caching) and the [Origin-Assist CDN-Prefetch](#origin-assist-cdn-prefetch) concept.
 
 ## Considerations
 
-* The [streaming endpoint](streaming-endpoint-concept.md) `hostname` and the streaming URL remain the same whether or not you enable CDN.
-* If you need the ability to test your content with or without CDN, create another streaming endpoint that isn't CDN enabled.
+- The [streaming endpoint](streaming-endpoint-concept.md) `hostname` and the streaming URL remain the same whether or not you enable CDN.
+- If you need the ability to test your content with or without CDN, create another streaming endpoint that isn't CDN enabled.
 
 ## Enable Azure CDN integration
 

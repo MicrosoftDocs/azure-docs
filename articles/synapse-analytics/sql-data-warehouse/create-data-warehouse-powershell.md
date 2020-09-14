@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse    
+ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
 ---
 # Quickstart: Create a Synapse SQL pool with Azure PowerShell
 

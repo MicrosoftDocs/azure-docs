@@ -239,7 +239,7 @@ It can be difficult to predict the number and names of users affected by common 
 
 [Report-only mode ](concept-conditional-access-report-only.md) allows administrators to evaluate the impact of CA policies before enabling them in their environment.
 
-Learn how to [configure report-only mode on a CA policy](howto-conditional-access-report-only.md).
+Learn how to [configure report-only mode on a CA policy](howto-conditional-access-insights-reporting.md).
 
 ### Plan for disruption
 

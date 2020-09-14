@@ -76,7 +76,7 @@ The 'DeleteState' of the backup item will change from 'NotDeleted' to 'ToBeDelet
 
 ### Undoing the deletion operation using Azure PowerShell
 
-First, fetch the relevant backup item that is in soft-delete state (that is, about to be deleted).
+First, fetch the relevant backup item that's in soft-delete state (that is, about to be deleted).
 
 ```powershell
 

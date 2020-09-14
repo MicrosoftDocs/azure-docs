@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/12/2020
+ms.date: 09/02/2020
 ---
 
 # Mapping data flows in Azure Data Factory
@@ -36,7 +36,7 @@ Mapping data flow has a unique authoring canvas designed to make building transf
 
 ### Graph
 
-The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation.
+The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
 
 ![Canvas](media/data-flow/canvas2.png "Canvas")
 

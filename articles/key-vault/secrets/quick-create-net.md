@@ -7,6 +7,7 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 
 ---
 

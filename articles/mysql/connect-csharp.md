@@ -4,7 +4,7 @@ description: This quickstart provides a C# (.NET) code sample you can use to con
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/26/2020

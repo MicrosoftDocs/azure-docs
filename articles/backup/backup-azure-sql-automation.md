@@ -316,7 +316,7 @@ ItemName                       StartTime                      EndTime
 SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32 PM
 ```
 
-The above output means that you can restore to any point-in-time between the displayed start time and end time. The times are in UTC. Construct any point-in-time in PowerShell that is within the range shown above.
+The above output means that you can restore to any point-in-time between the displayed start time and end time. The times are in UTC. Construct any point-in-time in PowerShell that's within the range shown above.
 
 > [!NOTE]
 > When a log point-in-time selected for restore, you don't need to specify the starting point, that is, the full backup from which the DB is restored. Azure Backup service will take care of the entire recovery plan, that is, which full backup to choose, what log backups to apply, and so on.
@@ -375,7 +375,7 @@ $AnotherInstanceWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConf
 
 ##### Restore as Files
 
-To restore the backup data as .bak files instead of a database, choose the **Restore as Files** option. The backed-up SQL DB can be restored to any target VM that is registered to this vault.
+To restore the backup data as .bak files instead of a database, choose the **Restore as Files** option. The backed-up SQL DB can be restored to any target VM that's registered to this vault.
 
 ```powershell
 $TargetContainer= Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName "VM name" -VaultId $vaultID
@@ -577,7 +577,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 It's important to note that Azure Backup only tracks user triggered jobs in SQL backup. Scheduled backups (including log backups) aren't visible in the portal or PowerShell. However, if any scheduled jobs fail, a [backup alert](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) is generated and shown in portal. [Use Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) to track all the scheduled jobs and other relevant information.
 
-Users can track on-demand/user triggered operations with the JobID that is returned in the [output](#on-demand-backup) of asynchronous jobs such as backup. Use [Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) PowerShell cmdlet to track job and its details.
+Users can track on-demand/user triggered operations with the JobID that's returned in the [output](#on-demand-backup) of asynchronous jobs such as backup. Use [Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) PowerShell cmdlet to track job and its details.
 
 ```powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

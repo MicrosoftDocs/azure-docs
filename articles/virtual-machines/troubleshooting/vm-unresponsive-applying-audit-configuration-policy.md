@@ -23,7 +23,7 @@ This article provides steps to resolve issues where the virtual machine (VM) bec
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays that the operating system (OS) has hung during a boot with the message **Applying Audit Policy Configuration policy**.
+When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays that the operating system (OS) was unresponsive during a boot with the message **Applying Audit Policy Configuration policy**.
 
   ![The OS booting with the message: “Applying Audit Policy Configuration policy”](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 

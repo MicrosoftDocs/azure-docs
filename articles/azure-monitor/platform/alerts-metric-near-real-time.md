@@ -107,7 +107,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Web/sites | Yes | No | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) and [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Yes | No | [App Service slots](./metrics-supported.md#microsoftwebsitesslots)|
 
-<sup>1</sup> Supported for platform metrics only (not custom metrics)
+<sup>1</sup> Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate) and custom metrics.
 
 ## Payload schema
 

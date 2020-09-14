@@ -11,6 +11,7 @@
 ---
 
 > [!div class="op_single_selector"]
+> * [C](../articles/iot-pnp/tutorial-multiple-components-c.md)
 > * [Node.js](../articles/iot-pnp/tutorial-multiple-components-node.md)
 > * [Python](../articles/iot-pnp/tutorial-multiple-components-python.md)
 > * [C#](../articles/iot-pnp/tutorial-multiple-components-csharp.md)

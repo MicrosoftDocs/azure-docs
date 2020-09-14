@@ -14,7 +14,7 @@ ms.author: kenwith
 
 # Plan an Azure Active Directory My Apps deployment
 
-Azure Active Directory (Azure AD) My Apps is a web-based portal that helps lower support costs, increase productivity and security, and reduce user frustration. The system includes detailed reporting that tracks when you access the system and notifies administrators of misuse or abuse.
+Azure Active Directory (Azure AD) My Apps is a web-based portal that helps lower support costs, increase productivity and security, and reduce user frustration. The system includes detailed reporting that tracks when you access the system and notifies administrators of misuse or abuse. To learn about using My Apps from an end-user perspective, see [My Apps portal help](../user-help/my-apps-portal-end-user-access.md).
 
 By using Azure AD My Apps, you can:
 
@@ -37,7 +37,7 @@ Azure AD My Apps benefits businesses in the following ways:
 
 **Provides intuitive user experience**: My Apps provides you with a single platform for all of your Azure single sign-on (SSO)-connected applications. You have a unified portal to find existing settings and new capabilities, like group management and self-service password reset, as they're added. The intuitive experience allows users to return to work faster and be more productive, while reducing their frustration.
 
-**Increases productivity**: All user applications in My Apps have SSO enabled. Enabling SSO across enterprise applications and Microsoft 365 creates a superior sign-in experience by reducing or eliminating additional sign-in prompts. My Apps uses self-service and dynamic membership and improves the overall security of your identity system. It does this by ensuring that the right people manage access to the applications. My Apps serves as a coherent landing page for you to quickly find resources and continue work tasks.
+**Increases productivity**: All user applications in My Apps have SSO enabled. Enabling SSO across enterprise applications and Microsoft 365 creates a superior sign-in experience by reducing or eliminating additional sign-in prompts. My Apps uses self-service and dynamic membership and improves the overall security of your identity system. My Apps ensures that the right people manage access to the applications. My Apps serves as a coherent landing page for you to quickly find resources and continue work tasks.
 
 **Manages cost**: Enabling My Apps with Azure AD can help with the divestment of on-premises infrastructures. It reduces support costs by providing you with a consistent portal to find all of your apps, request access to resources, and manage accounts.
 
@@ -50,11 +50,8 @@ Azure AD My Apps benefits businesses in the following ways:
 My Apps is free and requires no licenses to use at a basic level. However, the number of objects in your directory and the additional features you want to deploy can require additional licenses. Some common Azure AD scenarios that have licensing requirements include the following security features:
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Group-based membership](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -64,7 +61,6 @@ See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/
 Complete the following prerequisites before you begin this project:
 
 * [Integrate application SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Manage Azure AD user and group infrastructure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## Plan Azure AD My Apps deployment
@@ -84,6 +80,10 @@ The following table outlines the key use cases for a My Apps deployment:
 | User Experience| Users can manage their accounts. |
 | User Experience| Users are aware of browser compatibility. |
 | Support| Users can find support for My Apps issues. |
+
+
+> [!TIP]
+> My Apps can be used with internal company URLs while remote using Application Proxy. To learn more, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ### Best practices for deploying Azure AD My Apps
 
@@ -130,7 +130,6 @@ Users or administrators must consent to any application’s terms of use and pri
 To use administrator consent, you must be a global administrator of the organization, and the applications must be either:
 
 * Registered in your organization
-
 * Registered in another Azure AD organization and previously consented by at least one user
 
 For more information, see [Configure the way end users consent to an application in Azure Active Directory](configure-user-consent.md).
@@ -171,9 +170,7 @@ When users sign in to password-based SSO applications, they need to install and 
 If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
 * [Group Policy for Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager for Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Users who don't use password-based SSO applications also benefit from the extension. These benefits include the ability to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
@@ -184,7 +181,7 @@ A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser
 
 ## Plan your My Apps Deployment
 
-The foundation of My Apps is the application launcher portal, which users access at [https://myapps.microsoft.com](https://myapps.microsoft.com/). The My Apps page give users a single place to start their work and get to their necessary applications. Here, users find a list of all the applications they have single sign-on access to. 
+The foundation of My Apps is the application launcher portal, which users access at [https://myapps.microsoft.com](https://myapps.microsoft.com/). The My Apps page gives users a single place to start their work and get to their necessary applications. Here, users find a list of all the applications they have single sign-on access to. 
 
 > [!NOTE]
 > The same applications will be shown in the Microsoft 365 app launcher.
@@ -250,7 +247,7 @@ See [Assign users and groups to an application in Active Directory](methods-for-
 
 If during testing or deployment you want to add the groups but not yet allow the applications to show in My Apps, see [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
-### Deploy Microsoft Microsoft 365 applications to My Apps
+### Deploy Microsoft 365 applications to My Apps
 
 For Microsoft 365 applications, users receive a copy of Office based on licenses assigned to them. A prerequisite for access to Office applications is for users to be assigned the correct licenses tied to the Office applications. When you assign a user a license, they'll automatically see the applications that are associated with the license in their My Apps page and in the Microsoft 365 app launcher.
 
@@ -285,7 +282,6 @@ The following tests should be conducted with both corporate-owned devices and pe
 
 #### Application self-service capabilities test case examples
 
-
 | Business case| Expected result |
 | - | - |
 | User can manage membership to the application| User can add/remove members who have access to the app |
@@ -298,7 +294,7 @@ It’s important to plan what to do if your deployment doesn’t go as planned. 
 
 ## Manage your implementation
 
-You should use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](../users-groups-roles/directory-assign-admin-roles.md) and choose the right one to solve your needs for each persona for this application. Some roles might need to be applied temporarily and removed after the deployment is completed.
+Use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](../users-groups-roles/directory-assign-admin-roles.md) and choose the right one to solve your needs for each persona for this application. Some roles might need to be applied temporarily and removed after the deployment is completed.
 
 | Personas| Roles| Azure AD role  |
 | - | -| -|
@@ -310,22 +306,5 @@ You should use the least privileged role to accomplish a required task within Az
 
 You can use [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 
-### Troubleshoot My Apps issues
-
-Create troubleshooting guides for your support organization with common scenarios, which point to Microsoft documentation in their resolutions. You might want to create guides that break support into the tiers used by your organization.
-
-See these troubleshooting guides for reference:
-
-[Applications not appearing](access-panel-troubleshoot-application-not-appearing.md)
-
-[Unexpected applications appearing](access-panel-troubleshoot-unexpected-application.md)
-
-[User cannot sign in to My Apps](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problems using self-service application access](access-panel-troubleshoot-self-service-access.md)
-
-[Issues with the browser extension](manage-access-panel-browser-extension.md)
-
 ## Next steps
-
 [Plan a deployment of Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

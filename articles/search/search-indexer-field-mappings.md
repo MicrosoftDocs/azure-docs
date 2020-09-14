@@ -10,6 +10,7 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
+ms.custom: devx-track-csharp
 ---
 
 # Field mappings and transformations using Azure Cognitive Search indexers

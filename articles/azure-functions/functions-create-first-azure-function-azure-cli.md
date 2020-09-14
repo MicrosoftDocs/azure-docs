@@ -3,7 +3,7 @@ title: Create a function in Azure that responds to HTTP requests
 description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell"
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -77,7 +77,7 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` if you want to deploy a Java 11 functions.To learn more, see [Java versions](functions-reference-java.md#java-versions). 
+In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` if you want to your functions to run on Java 11. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
 
 # [bash](#tab/bash)
 ```bash

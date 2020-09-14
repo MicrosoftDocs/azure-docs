@@ -103,7 +103,7 @@ To see your score history, head over to the [Microsoft 365 security center](http
 
 ### How does the identity secure score relate to the Office 365 secure score?
 
-The [Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contains five distinct control and score categories:
+The [Microsoft secure score](/office365/securitycompliance/microsoft-secure-score) contains five distinct control and score categories:
 
 - Identity
 - Data
@@ -115,4 +115,4 @@ The identity secure score represents the identity part of the Microsoft secure s
 
 ## Next steps
 
-[Find out more about Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Find out more about Microsoft secure score](/office365/securitycompliance/microsoft-secure-score)

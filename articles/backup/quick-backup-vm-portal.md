@@ -34,7 +34,7 @@ A Recovery Services vault is a logical container that stores the backup data for
 
     ![Enable VM backup in the Azure portal](./media/quick-backup-vm-portal/enable-backup.png)
 
-    By default, the vault is set for Geo-Redundant storage. To further protect your data, this storage redundancy level ensures that your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region.
+    By default, the vault is set for Geo-Redundant storage. To further protect your data, this storage redundancy level ensures that your backup data is replicated to a secondary Azure region that's hundreds of miles away from the primary region.
 
     You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM.
 

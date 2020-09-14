@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: Secure development best practices
             url: secure-dev-overview.md
-          - text: Desgin phase
+          - text: Design phase
             url: secure-design.md
           - text: Development phase
             url: secure-develop.md
