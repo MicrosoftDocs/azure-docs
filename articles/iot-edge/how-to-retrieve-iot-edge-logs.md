@@ -65,13 +65,14 @@ This method accepts a JSON payload with the following schema:
 | filter | JSON section | Log filters to apply to the modules matching the `id` regular expression in the tuple. |
 | tail | integer | Number of log lines in the past to retrieve starting from the latest. OPTIONAL. |
 | since | integer | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, the logs are retrieved using the `since` value first. Then, the `tail` value is applied to the result, and the final result is returned. OPTIONAL. |
-| until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 day, 1d, 90m, 2 days 3 hours 2 minutes). OPTIONAL. |
+| until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
 | log level | integer | Filter log lines less than or equal to specified log level. Log lines should follow recommended logging format and use [Syslog severity level](https://en.wikipedia.org/wiki/Syslog#Severity_level) standard. OPTIONAL. |
 | regex | string | Filter log lines that have content that match the specified regular expression using [.NET Regular Expressions](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) format. OPTIONAL. |
 | encoding | string | Either `gzip` or `none`. Default is `none`. |
 | contentType | string | Either `json` or `text`. Default is `text`. |
 
-The logs content is truncated to the response size limit of direct methods, which is currently 128 KB.
+> [!NOTE]
+> The logs content is truncated to the response size limit of direct methods, which is currently 128 KB.
 
 A successful retrieval of logs returns a **"status": 200** followed by a payload containing the logs retrieved from the module, filtered by the settings you specify in your request.
 
@@ -187,7 +188,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 '
 ```
 
-This invocation uploads the last 100 log lines from edgeAgent and edgeAgent as well as the last 1000 log lines from tempSensor module in uncompressed text format:
+This invocation uploads the last 100 log lines from edgeAgent and edgeAgent and the last 1000 log lines from tempSensor module in uncompressed text format:
 
 ```azurecli
 az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
@@ -297,6 +298,9 @@ This method accepts a JSON payload with the following schema:
 | since | integer | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp. OPTIONAL. |
 | until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
 | edgeRuntimeOnly | boolean | If true, only return logs from Edge Agent, Edge Hub, and the Edge Security Daemon. Default: false.  OPTIONAL. |
+
+> [!IMPORTANT]
+> IoT Edge Hub logs may contain Personally Identifiable Information.
 
 A successful request to upload logs returns a **"status": 200** followed by a payload with the same schema as the **UploadModuleLogs** response.
 
