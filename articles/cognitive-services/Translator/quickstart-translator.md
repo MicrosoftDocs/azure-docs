@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: erhopf
+ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
