@@ -66,6 +66,19 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
 1. Click **Add**.
 
+## Define DevOps role
+
+1. Repeat the previous procedures to step #6 to create a role.
+
+   ![Create DevOps role](media/spring-cloud-permissions/create-dev-opps-role.png)
+1. Open the **Permissions** options.
+1. Select:
+    *Microsoft.AppPlatform/Spring*, 
+    *Write : Create or Update Azure Spring Cloud service instance*
+    *Other : Get Microsoft Azure Spring Cloud application resource upload URL*
+
+   ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png)
+1. Click **Add**.
 
 ## See also
 [Create or update Azure custom roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
