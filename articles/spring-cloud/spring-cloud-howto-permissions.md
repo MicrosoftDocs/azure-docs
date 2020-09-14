@@ -81,7 +81,7 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
    [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-2.png#lightbox)
 1. Click **Add**.
 1. Click **Review and create**.
-   ![Assignable scopes](media/spring-cloud-permissions/dev-opps-role-assignable-scopes.png)
+   ![Assignable scopes](media/spring-cloud-permissions/dev-ops-role-assignable-scopes.png)
 
 
 ## See also
