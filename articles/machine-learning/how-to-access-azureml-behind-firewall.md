@@ -28,6 +28,10 @@ On your firewall, create an _application rule_ allowing traffic to and from the 
 >
 > For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
+## Routes
+
+When configuring the outbound route for the subnet that contains Azure Machine Learning resources, use the guidance in the [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) section for securing the training environment.
+
 ## Microsoft hosts
 
 If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace.
@@ -60,7 +64,7 @@ The hosts in this section are used to install Python packages. They are required
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **anaconda.com** | Used to install default packages. |
+| **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
 | **\*.anaconda.org** | Used to get repo data. |
 | **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
 
