@@ -35,10 +35,10 @@ Provisioning from HR to the cloud involves the creation of objects (users, roles
 
 The most common scenario would be, when a new employee joins your company, they are entered into the HR system.  Once that occurs, they are provisioned to the cloud.  In this case, Azure AD.  Provisioning from HR can cover the following scenarios. 
 
-- **Hiring new employees** - When a new employee is added to cloud HR, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and other SaaS applications supported by Azure AD, with write-back of the email address to Cloud HR.
-- **Employee attribute and profile updates** - When an employee record is updated in cloud HR (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Office 365 and other SaaS applications supported by Azure AD.
+- **Hiring new employees** - When a new employee is added to cloud HR, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Microsoft 365 and other SaaS applications supported by Azure AD, with write-back of the email address to Cloud HR.
+- **Employee attribute and profile updates** - When an employee record is updated in cloud HR (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Microsoft 365 and other SaaS applications supported by Azure AD.
 - **Employee terminations** - When an employee is terminated in cloud HR, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and other SaaS applications supported by Azure AD.
-- **Employee rehires** - When an employee is rehired in cloud HR, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and other SaaS applications supported by Azure AD.
+- **Employee rehires** - When an employee is rehired in cloud HR, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Microsoft 365 and other SaaS applications supported by Azure AD.
 
 
 ## App provisioning

@@ -81,6 +81,8 @@
     href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: How to
   items:
+  - name: Portal settings
+    href: manage.md
   - name: Virtual machine scale sets
     items:
     - name: Use with an existing Azure Load Balancer - Portal

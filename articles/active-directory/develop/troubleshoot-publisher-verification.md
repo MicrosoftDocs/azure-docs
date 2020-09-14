@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot publisher verification - Microsoft identity platform | Azure
-description: Describes how to troubleshoot publisher verification (preview) for Microsoft identity platform by calling Microsoft Graph APIs.
+description: Describes how to troubleshoot publisher verification for Microsoft identity platform by calling Microsoft Graph APIs.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,8 +14,8 @@ ms.custom: aaddev
 ms.reviewer: jesakowi
 ---
 
-# Troubleshoot publisher verification (preview)
-If you are unable to complete the process or are experiencing unexpected behavior with [publisher verification (preview)](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
+# Troubleshoot publisher verification
+If you are unable to complete the process or are experiencing unexpected behavior with [publisher verification](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
 
 1. Review the [requirements](publisher-verification-overview.md#requirements) and ensure they have all been met.
 
@@ -58,7 +58,7 @@ Below are some common issues that may occur during the process.
 
 ## Making Microsoft Graph API calls 
 
-If you are having an issue but unable to understand why based on what you are seeing in the UI, it may be helpful to perform further troubleshooting by using Microsoft Graph calls to perform the same operations you can perform in the App Registration portal. During the preview phase, these APIs will only be available on the /beta endpoint of Microsoft Graph.  
+If you are having an issue but unable to understand why based on what you are seeing in the UI, it may be helpful to perform further troubleshooting by using Microsoft Graph calls to perform the same operations you can perform in the App Registration portal.
 
 The easiest way to make these requests is using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You may also consider other options like using [Postman](https://www.postman.com/), or using PowerShell to [invoke a web request](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
 

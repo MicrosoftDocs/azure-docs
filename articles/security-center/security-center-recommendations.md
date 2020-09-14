@@ -52,7 +52,7 @@ Security Center analyzes the security state of your resources to identify potent
 
     The page includes:
 
-    -**Enforce** and **Deny** buttons on supported recommendations (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
+    - **Enforce** and **Deny** buttons on supported recommendations (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
     - **Severity indicator**
     - **Freshness interval**  (where relevant) 
     - **Description** - A short description of the issue
