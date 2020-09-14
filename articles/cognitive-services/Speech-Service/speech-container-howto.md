@@ -30,7 +30,7 @@ Speech containers enable customers to build a speech application architecture th
 > * Speech Language Detection 
 > * Neural Text-to-speech
 >
-> To use the speech containers you must submit an online request, and have it approved. See the **Request access to the run the container** section below for more information.
+> To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
 
 | Function | Features | Latest |
 |--|--|--|
@@ -89,19 +89,12 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 > [!NOTE]
 > The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model, and it is *recommended* that the entire file fits in memory, which is an additional 4-6 GB. Also, the first run of either container may take longer, since models are being paged into memory.
 
-## Request access to the run the container
+## Request approval to the run the container
 
 Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
 
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-> [!IMPORTANT]
-> * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Azure resource you use to run the container must have been created with the approved Azure subscription ID. 
-
-After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article. 
-
-You won't be able to run the container if your Azure subscription has not been approved.
 
 ## Get the container image with `docker pull`
 
