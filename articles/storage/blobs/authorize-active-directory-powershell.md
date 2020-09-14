@@ -21,7 +21,7 @@ You can assign permissions to blob data to an Azure AD security principal via ro
 
 ## Supported operations
 
-The Azure Storage extensions are supported for operations on blob data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to Azure Storage containers or queues are assigned via RBAC. For example, if you have been assigned the **Blob Data Reader** role, then you can run scripting commands that read data from a container. If you have been assigned the **Blob Data Contributor** role, then you can run scripting commands that read, write, or delete a container or the data they contain.
+The Azure Storage extensions are supported for operations on blob data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to Azure Storage containers are assigned via RBAC. For example, if you have been assigned the **Blob Data Reader** role, then you can run scripting commands that read data from a container. If you have been assigned the **Blob Data Contributor** role, then you can run scripting commands that read, write, or delete a container or the data they contain.
 
 For details about the permissions required for each Azure Storage operation on a container, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
