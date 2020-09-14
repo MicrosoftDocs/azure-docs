@@ -35,7 +35,7 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |Greek | `el` |✔ | | |
 |Hungarian | `hu` |✔ | | |
 |Italian | `it` |✔ |✔ |✔ |
-|Japanese | `ja` |✔ | | |
+|Japanese | `ja` |✔ | |✔ |
 |Korean | `ko` |✔ | | |
 |Norwegian | `nb` |✔ | | |
 |Polish | `pl` |✔ | | |
