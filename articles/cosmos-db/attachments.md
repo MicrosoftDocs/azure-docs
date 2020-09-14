@@ -97,6 +97,7 @@ namespace attachments
                 foreach (Document document in response)
                 {
                     string attachmentContinuation = null;
+                    PartitionKey docPartitionKey = new PartitionKey(document.Id);
 
                     // Iterate through each attachment within the item (if any).
                     do
@@ -105,7 +106,7 @@ namespace attachments
                             document.SelfLink,
                             new FeedOptions
                             {
-                                PartitionKey = new PartitionKey(document.Id),
+                                PartitionKey = docPartitionKey,
                                 RequestContinuation = attachmentContinuation
                             }
                         );
@@ -129,6 +130,15 @@ namespace attachments
 
                             Console.WriteLine("Copied attachment ... Item Id: {0} , Attachment Id: {1}, Blob Id: {2}", document.Id, attachment.Id, blobId);
                             totalCount++;
+
+                            // Clean up attachment from Azure Cosmos DB.
+                            // Warning: please verify you've succesfully migrated attachments to blog storage prior to cleaning up Azure Cosmos DB.
+                            // await cosmosClient.DeleteAttachmentAsync(
+                            //     attachment.SelfLink,
+                            //     new RequestOptions { PartitionKey = docPartitionKey }
+                            // );
+
+                            // Console.WriteLine("Cleaned up attachment ... Document Id: {0} , Attachment Id: {1}", document.Id, attachment.Id);
                         }
 
                     } while (!string.IsNullOrEmpty(attachmentContinuation));
