@@ -33,7 +33,7 @@ The following example shows you how to create and run a job to set the light thr
 
     Select **Save and exit** to add the job to the list of saved jobs on the **Jobs** page. You can later return to a job from the list of saved jobs.
 
-    Select **Next** to move to the **Review** page. The **Review**** page shows the job configuration details. Select **Run** to submit the job.
+    Select **Next** to move to the **Review** page. The **Review** page shows the job configuration details. Select **Run** to submit the job.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Screenshot of job wizard review page":::
 
