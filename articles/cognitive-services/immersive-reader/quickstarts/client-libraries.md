@@ -6,13 +6,13 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 zone_pivot_groups: programming-languages-set-twenty
-
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: "devx-track-csharp", ""cog-serv-seo-aug-2020""
+ms.custom: "devx-track-csharp", "cog-serv-seo-aug-2020"
+keywords: display pictures, parts of speech, read selected text, translate words, reading comprehension
 ---
 
 # Quickstart: Use the Immersive Reader client library
