@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
 ### Understanding the code 
 
-Here's a description of how the code works:
+Here's a description of how the above code works:
 
 :::row:::
    :::column span="":::
@@ -107,7 +107,7 @@ Here's a description of how the code works:
 :::row-end:::
 :::row:::
    :::column span="":::
-      `experiment =  Experiment(workspace=ws, name='hello-world')`
+      `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
       [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
@@ -115,7 +115,7 @@ Here's a description of how the code works:
 :::row-end:::
 :::row:::
    :::column span="":::
-      `config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')` 
+      `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
       [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. Also specifies what compute target the script will run on.  In this code, the target is the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
