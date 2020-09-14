@@ -33,14 +33,14 @@ Get the connection information needed to connect to the Azure Database for Postg
  :::image type="content" source="./media/connect-ruby/1-connection-string.png" alt-text="Azure Database for PostgreSQL server name":::
 
 > [!NOTE]
-> The `@` symbol in the Azure Postgres username has been url encoded as `%40` in all the connection strings. 
+> The `@` symbol in the Azure Postgres username has been url encoded as `%40` in all the connection strings.
 
 ## Connect and create a table
 Use the following code to connect and create a table using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code uses a ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods. 
+The code uses a ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods.
 
-Replace the `host`, `database`, `user`, and `password` strings with your own values. 
+Replace the `host`, `database`, `user`, and `password` strings with your own values.
 
 
 ```ruby
@@ -72,19 +72,19 @@ begin
 	puts 'Inserted 3 rows of data.'
 
 rescue PG::Error => e
-    puts e.message 
-    
+    puts e.message
+
 ensure
     connection.close if connection
 end
 ```
 
 ## Read data
-Use the following code to connect and read the data using a **SELECT** SQL statement. 
+Use the following code to connect and read the data using a **SELECT** SQL statement.
 
-The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the SELECT command, keeping the results in a result set. The result set collection is iterated over using the `resultSet.each do` loop, keeping the current row values in the `row` variable. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods. 
+The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the SELECT command, keeping the results in a result set. The result set collection is iterated over using the `resultSet.each do` loop, keeping the current row values in the `row` variable. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods.
 
-Replace the `host`, `database`, `user`, and `password` strings with your own values. 
+Replace the `host`, `database`, `user`, and `password` strings with your own values.
 
 ```ruby
 require 'pg'
@@ -106,8 +106,8 @@ begin
     end
 
 rescue PG::Error => e
-    puts e.message 
-    
+    puts e.message
+
 ensure
     connection.close if connection
 end
@@ -116,9 +116,9 @@ end
 ## Update data
 Use the following code to connect and update the data using a **UPDATE** SQL statement.
 
-The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the UPDATE command. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods. 
+The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the UPDATE command. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating. See [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) for more information on these classes and methods.
 
-Replace the `host`, `database`, `user`, and `password` strings with your own values. 
+Replace the `host`, `database`, `user`, and `password` strings with your own values.
 
 ```ruby
 require 'pg'
@@ -139,8 +139,8 @@ begin
     puts 'Updated 1 row of data.'
 
 rescue PG::Error => e
-    puts e.message 
-    
+    puts e.message
+
 ensure
     connection.close if connection
 end
@@ -148,11 +148,11 @@ end
 
 
 ## Delete data
-Use the following code to connect and read the data using a **DELETE** SQL statement. 
+Use the following code to connect and read the data using a **DELETE** SQL statement.
 
 The code uses a  ```PG::Connection``` object with constructor ```new``` to connect to Azure Database for PostgreSQL. Then it calls method ```exec()``` to run the UPDATE command. The code checks for errors using the ```PG::Error``` class. Then it calls method ```close()``` to close the connection before terminating.
 
-Replace the `host`, `database`, `user`, and `password` strings with your own values. 
+Replace the `host`, `database`, `user`, and `password` strings with your own values.
 
 ```ruby
 require 'pg'
@@ -173,8 +173,8 @@ begin
     puts 'Deleted 1 row of data.'
 
 rescue PG::Error => e
-    puts e.message 
-    
+    puts e.message
+
 ensure
     connection.close if connection
 end
@@ -185,4 +185,4 @@ end
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md) <br/>
 > [!div class="nextstepaction"]
-> [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG) 
+> [Ruby Pg reference documentation](https://www.rubydoc.info/gems/pg/PG)
