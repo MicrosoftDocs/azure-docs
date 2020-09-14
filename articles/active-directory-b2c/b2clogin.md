@@ -29,7 +29,7 @@ The deprecation of login.microsoftonline.com goes into effect for all Azure AD B
 The deprecation of login.microsoftonline.com does not impact Azure Active Directory tenants. Only Azure Active Directory B2C tenants are affected by this change.
 
 ## What endpoints does this apply to
-The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows) to authenticate users. These endpoints have a `<policy-name>` parameter which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
+The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows or custom policies) to authenticate users. These endpoints have a `<policy-name>` parameter which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 These endpoints may look like:
 - <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
@@ -41,7 +41,7 @@ Alternatively, the `<policy-name>` may be passed as a query parameter:
 - <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code>
 
 > [!IMPORTANT]
-> Endpoints that use the 'policy' parameter must be update as well as [identity provider redirect URLs](#change-identity-provider-redirect-urls).
+> Endpoints that use the 'policy' parameter must be updated as well as [identity provider redirect URLs](#change-identity-provider-redirect-urls).
 
 Some Azure AD B2C customers use the shared capabilities of  Azure AD enterprise tenants like OAuth 2.0 client credentials grant flow. These features are accessed using Azure AD's login.microsoftonline.com endpoints, *which don't contain a policy parameter*. __These endpoints are not affected__.
 
