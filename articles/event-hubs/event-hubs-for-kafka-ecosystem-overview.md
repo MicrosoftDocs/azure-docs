@@ -33,9 +33,9 @@ While [Apache Kafka](https://kafka.apache.org/) is software you typically need t
 
 For more information about Event Hubs and namespaces, see [Event Hubs features](event-hubs-features.md#namespace). As a cloud service, Event Hubs uses a single stable virtual IP address as the endpoint, so clients don't need to know about the brokers or machines within a cluster. Even though Event Hubs implements the same protocol, this difference means that all Kafka traffic for all partitions is predictably routed through this one endpoint rather than requiring firewall access for all brokers of a cluster.   
 
-Scale in Event Hubs is controlled by how many throughput units you purchase, with each throughput unit entitling you to 1 Megabyte per second, or 1000 events per second of ingress and twice that volume in egress. Event Hubs can automatically scale up throughput units when you reach the throughput limit if you use the [Auto-Inflate](event-hubs-auto-inflate.md) feature; this feature work also works with the Apache Kafka protocol.  
+Scale in Event Hubs is controlled by how many throughput units you purchase, with each throughput unit entitling you to 1 Megabyte per second, or 1000 events per second of ingress and twice that volume in egress. Event Hubs can automatically scale up throughput units when you reach the throughput limit if you use the [Auto-Inflate](event-hubs-auto-inflate.md) feature; this feature work also works with the Apache Kafka protocol support.  
 
-### The Azure Messaging services fleet
+### Is the Apache Kafka even the right solution for your workload?
 
 Coming from building applications using Apache Kafka, it will also useful to understand that Azure Event Hubs is part of a fleet of services which also includes [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), and [Azure Event Grid](../event-grid/overview.md). 
 
@@ -92,13 +92,11 @@ Additionally, Event Hubs features such as [Capture](event-hubs-capture-overview.
 
 The goal of Event Hubs for Apache Kafka is to provide access to Azure Event Hub's capabilities to applications that are locked into the Apache Kafka API and would otherwise have to be backed by an Apache Kafka cluster. 
 
-As explained [above](#the-azure-messaging-services-fleet), the Azure Messaging fleet provides rich and robust coverage for a multitude of messaging scenarios, which influences when and whether overlapping Apache Kafka API features are supported.   
+As explained [above](#the-azure-messaging-services-fleet), the Azure Messaging fleet provides rich and robust coverage for a multitude of messaging scenarios, and although the following features are not currently supported through Event Hubs' support for the Apache Kafka API, we point out where and how the desired capability is available.
 
 ### Transactions
 
 [Azure Service Bus](../service-bus-messaging/service-bus-transactions.md) has robust transaction support that allows receiving and settling messages and sessions while sending outbound messages resulting from message processing to multiple target entities under the consistency protection of a transaction. The feature set not only allows for exactly-once processing of each message in a sequence, but also avoids the risk of another consumer inadvertently reprocessing the same messages as it would be the case with Apache Kafka. Service Bus is the recommended service for transactional message workloads.
-
-Support for the native transaction API of Apache Kafka is on the roadmap will be available at a date yet to be announced.
 
 ### Compression
 
@@ -113,8 +111,6 @@ The payload of any Event Hub event is a byte stream and the content can be compr
 Apache Kafka log compaction is a feature that allows evicting all but the last record of each key from a partition, which effectively turns an Apache Kafka topic into a key-value store where the last value added overrides the previous one. The key-value store pattern, even with frequent updates, is far better supported by database services like [Azure Cosmos DB](../cosmos-db/introduction.md).
 
 The log compaction feature is used by the Kafka Connect and Kafka Streams client frameworks.
-
-Support for the Apache Kafka log compaction feature will be available at a date yet to be announced, and primarily for compatibility with existing applications.  
 
 ### Kafka Streams
 
