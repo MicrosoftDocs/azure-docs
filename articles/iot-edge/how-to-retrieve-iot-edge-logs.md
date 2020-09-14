@@ -13,7 +13,7 @@ services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments
 
-Retrieve logs from the modules deployed to your IoT Edge deployments without needing physical or SSH access to the device by using the direct method included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely. The direct methods discussed in this article are generally available with the 1.0.10 release.
+Retrieve logs from your IoT Edge deployments without needing physical or SSH access to the device by using the direct methods included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely. The direct methods discussed in this article are generally available with the 1.0.10 release.
 
 For more information about direct methods, how to use them, and how to implement them in your own modules, see [Understand and invoke direct methods from IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
 
@@ -24,10 +24,10 @@ The names of these direct methods are handled case-sensitive.
 For best compatibility with this feature, the recommended logging format is:
 
 ```
-<{LogLevel}> {Timestamp} {MessageText}
+<{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{LogLevel}` should follow the [Syslog severity level format](https://wikipedia.org/wiki/Syslog#Severity_lnevel) and `{Timestamp}` should be formatted as `yyyy-mm-dd hh:mm:ss.fff zzz`.
+`{Log Level}` should follow the [Syslog severity level format](https://wikipedia.org/wiki/Syslog#Severity_lnevel) and `{Timestamp}` should be formatted as `yyyy-mm-dd hh:mm:ss.fff zzz`.
 
 The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
 
@@ -61,17 +61,17 @@ This method accepts a JSON payload with the following schema:
 |-|-|-|
 | schemaVersion | string | Set to `1.0` |
 | items | JSON array | An array with `id` and `filter` tuples. |
-| id | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) format is expected. |
+| ID | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) format is expected. |
 | filter | JSON section | Log filters to apply to the modules matching the `id` regular expression in the tuple. |
 | tail | integer | Number of log lines in the past to retrieve starting from the latest. OPTIONAL. |
-| since | integer | Only return logs since this time, as a duration (1 day, 1d, 90m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, first the logs using the `since` value are retrieved and then `tail` value of those are returned. OPTIONAL. |
-| until | integer | Only return logs before the specified time, as a rfc3339 timestamp, UNIX timestamp, or duration (1 day, 1d, 90m, 2 days 3 hours 2 minutes). OPTIONAL. |
-| loglevel | integer | Filter log lines less than or equal to specified loglevel. Log lines should follow recommended logging format and use [Syslog severity level](https://en.wikipedia.org/wiki/Syslog#Severity_level) standard. OPTIONAL. |
-| regex | string | Filter log lines which have content that match the specified regular expression using [.NET Regular Expressions](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) format. OPTIONAL. |
+| since | integer | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, the logs are retrieved using the `since` value first. Then, the `tail` value is applied to the result, and the final result is returned. OPTIONAL. |
+| until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 day, 1d, 90m, 2 days 3 hours 2 minutes). OPTIONAL. |
+| log level | integer | Filter log lines less than or equal to specified log level. Log lines should follow recommended logging format and use [Syslog severity level](https://en.wikipedia.org/wiki/Syslog#Severity_level) standard. OPTIONAL. |
+| regex | string | Filter log lines that have content that match the specified regular expression using [.NET Regular Expressions](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) format. OPTIONAL. |
 | encoding | string | Either `gzip` or `none`. Default is `none`. |
 | contentType | string | Either `json` or `text`. Default is `text`. |
 
-The logs content is truncated to the response size limit of direct methods which is currently 128KB.
+The logs content is truncated to the response size limit of direct methods, which is currently 128 KB.
 
 A successful retrieval of logs returns a **"status": 200** followed by a payload containing the logs retrieved from the module, filtered by the settings you specify in your request.
 
@@ -120,7 +120,7 @@ In the Azure portal, invoke the method with the method name `GetModuleLogs` and 
 
 Use the **UploadModuleLogs** direct method to write the logs of an IoT Edge module to an available Azure Blob Storage container.
 
-This method accepts a JSON payload very similar to **GetModuleLogs**, with the addition of the "sasUrl" key:
+This method accepts a JSON payload similar to **GetModuleLogs**, with the addition of the "sasUrl" key:
 
 ```json
     {
@@ -159,8 +159,8 @@ A successful request to upload logs returns a **"status": 200** followed by a pa
 
 | Name | Type | Description |
 |-|-|-|
-| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed` or `Unknown`. |
-| message | string | Message in case of error, empty string otherwise. |
+| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, or `Unknown`. |
+| message | string | Message if error, empty string otherwise. |
 | correlationId | string   | ID to query to status of the upload request. |
 
 For example:
@@ -276,7 +276,7 @@ In the Azure portal, invoke the method with the method name `UploadModuleLogs` a
 
 ## Use support bundle to upload logs
 
-Use the **UploadSupportBundle** direct method to bundle and upload a zip file of IoT Edge module logs to an available Azure Blob Storage container. This direct method runs the [iotedge support-bundle](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) command on your IoT Edge device to obtain the logs.
+Use the **UploadSupportBundle** direct method to bundle and upload a zip file of IoT Edge module logs to an available Azure Blob Storage container. This direct method runs the [`iotedge support-bundle`](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) command on your IoT Edge device to obtain the logs.
 
 This method accepts a JSON payload with the following schema:
 
@@ -294,9 +294,9 @@ This method accepts a JSON payload with the following schema:
 |-|-|-|
 | schemaVersion | string | Set to `1.0` |
 | sasURL | string (URI) | [Shared Access Signature URL with write access to Azure Blob Storage container](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/) |
-| since | integer | Only return logs since this time, as a duration (1 day, 1d, 90m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp. OPTIONAL. |
-| until | integer | Only return logs before the specified time, as a rfc3339 timestamp, UNIX timestamp, or duration (1 day, 1d, 90m, 2 days 3 hours 2 minutes). OPTIONAL. |
-| edgeRuntimeOnly | boolean | If true, only return logs from Edge Agent, Edge Hub and the Edge Security Daemon. **Edge Hub logs may still contain PII**. Default: false.  OPTIONAL. |
+| since | integer | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp. OPTIONAL. |
+| until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
+| edgeRuntimeOnly | boolean | If true, only return logs from Edge Agent, Edge Hub, and the Edge Security Daemon. Default: false.  OPTIONAL. |
 
 A successful request to upload logs returns a **"status": 200** followed by a payload with the same schema as the **UploadModuleLogs** response.
 
