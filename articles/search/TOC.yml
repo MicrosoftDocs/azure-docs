@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Cognitive Search?
     href: search-what-is-azure-search.md
+  - name: Feature list
+    href: search-features-list.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
