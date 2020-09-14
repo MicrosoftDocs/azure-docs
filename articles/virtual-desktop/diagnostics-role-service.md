@@ -22,7 +22,7 @@ The WVDErrors table tracks errors across all activity types. The column called "
 * True: this issue can't be mitigated on your side and recommendation is to raise a support ticket under Windows Virtual desktop if you notice an unusual high occorunce. 
 * False: you will need to investigate further. The error message itself may hint the area you need to investigate next.
 
-The following table lists common errors your admins might run into and can mitigate.
+The following table lists common errors your admins can help you with.
 
 >[!NOTE]
 >This list includes most common errors and is updated on a regular cadence. To ensure you have the most up-to-date information, be sure to check back on this article at least once a month.
