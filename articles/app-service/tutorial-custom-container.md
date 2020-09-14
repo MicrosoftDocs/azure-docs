@@ -51,7 +51,7 @@ Open the *custom-font-win-container/CustomFontSample.sln* file in Visual Studio.
 
 Type `Ctrl+F5` to run the app without debugging. The app is displayed in your default browser. 
 
-![New ASP.NET Project dialog box](media/tutorial-custom-container/local-app-in-browser.png)
+:::image type="content" source="media/tutorial-custom-container/local-app-in-browser.png" alt-text="Screenshot showing the app displayed in the default browser.":::
 
 Because it uses an installed font, the app can't run in the App Service sandbox. However, you can deploy it using a Windows container instead, because you can install the font in the Windows container.
 
@@ -59,7 +59,7 @@ Because it uses an installed font, the app can't run in the App Service sandbox.
 
 In Solution Explorer, right-click the **CustomFontSample** project and select **Add** > **Container Orchestration Support**.
 
-![New ASP.NET Project dialog box](media/tutorial-custom-container/enable-container-orchestration.png)
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Screenshot of the Solution Explorer window showing the CustomFontSample project, Add, and Container Orchestrator Support menu items selected.":::
 
 Select **Docker Compose** > **OK**.
 
@@ -93,13 +93,13 @@ You can find _InstallFont.ps1_ in the **CustomFontSample** project. It's a simpl
 
 In the Solution Explorer, right-click the **CustomFontSample** project and select **Publish**.
 
-![New ASP.NET Project dialog box](media/tutorial-custom-container/open-publish-wizard.png)
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot of Solution Explorer showing the CustomFontSample project and Publish selected.":::
 
 ### Create registry and publish
 
 In the publish wizard, select **Container Registry** > **Create New Azure Container Registry** > **Publish**.
 
-![New ASP.NET Project dialog box](media/tutorial-custom-container/create-registry.png)
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot of the publish wizard showing Containter Registry, Create New Azure Containter Registry, and the Publish button selected.":::
 
 ### Sign in with Azure account
 

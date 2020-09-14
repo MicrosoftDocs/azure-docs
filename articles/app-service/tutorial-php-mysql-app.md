@@ -24,7 +24,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone-end
 
-![PHP app running in Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
+:::image type="content" source="./media/tutorial-php-mysql-app/complete-checkbox-published.png" alt-text="Screenshot of a PHP app example titled Task List.":::
 
 In this tutorial, you learn how to:
 
@@ -494,7 +494,7 @@ remote: Running deployment command...
 
 Browse to `http://<app-name>.azurewebsites.net` and add a few tasks to the list.
 
-![PHP app running in Azure App Service](./media/tutorial-php-mysql-app/php-mysql-in-azure.png)
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
 Congratulations, you're running a data-driven PHP app in Azure App Service.
 

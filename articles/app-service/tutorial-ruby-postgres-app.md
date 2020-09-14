@@ -11,7 +11,7 @@ ms.custom: mvc, cli-validate, seodec18
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Ruby app and connect it to a PostgreSQL database. When you're finished, you'll have a [Ruby on Rails](https://rubyonrails.org/) app running on App Service on Linux.
 
-![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
+:::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Screenshot of a Ruby on Rails app example titled Tasks.":::
 
 In this tutorial, you learn how to:
 
@@ -311,7 +311,7 @@ remote: Running deployment command...
 
 Browse to `http://<app-name>.azurewebsites.net` and add a few tasks to the list.
 
-![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png)
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Screenshot of the Azure app example titled Tasks showing tasks added to the list.":::
 
 Congratulations, you're running a data-driven Ruby on Rails app in Azure App Service.
 
