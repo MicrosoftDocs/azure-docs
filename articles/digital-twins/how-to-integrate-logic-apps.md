@@ -84,9 +84,9 @@ Navigate to the [Logic Apps Custom Connector](https://portal.azure.com/#blade/Hu
 
 In the *Create Logic Apps Custom Connector* page that follows, select your subscription and resource group, and a name and deployment location for your new connector. Hit *Review + create*. This will take you to the *Review + create* tab, where you can hit *Create* at the bottom to create your resource.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="The 'Review + create' tab of the 'Create Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Create' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="The 'Create Logic Apps Custom Connector' page in the Azure portal.":::
 
-:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="The 'Review + create' tab of the 'Create Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Create' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="The 'Review + create' tab of the 'Review Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Create' button":::
 
 You'll be taken to the deployment page for the connector. When it is finished deploying, hit the *Go to resource* button to view the connector's details in the portal.
 
