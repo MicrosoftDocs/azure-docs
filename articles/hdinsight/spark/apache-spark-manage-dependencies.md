@@ -18,12 +18,10 @@ In this article, you learn how to manage dependencies for your Spark application
 
 Use quick links to jump to the section based on your user case:
 * [Set up Spark job jar dependencies using Jupyter notebook](#use-jupyter-notebook)
-* [Set up Spark job jar dependencies using Apache Livy](#use-apache-livy)
 * [Set up Spark job jar dependencies using Use Azure Toolkit for IntelliJ](#use-apache-livy)
 * [Configure jar dependencies for Spark cluster](#jar-libs-for-cluster)
 * [Safely manage jar dependencies](#safely-manage-jar-dependencies)
 * [Set up Spark job Python packages using Jupyter notebook](#use-jupyter-notebook-1)
-* [Set up Spark job Python packages using Apache Livy notebook](#use-apache-livy-1)
 * [Safely manage Python packages for Spark cluster](#python-packages-for-cluster)
 
 ## Jar libs for one Spark job
@@ -67,17 +65,6 @@ After configuring external packages, you can run import in code cell to verify i
 import com.microsoft.azure.cosmosdb.spark._
 ```
 
-### Use Apache Livy
-Apache Livy accepts a list of jar paths in the POST request for creating Spark session. Use `jars` property for it. 
-
-**Sample for submitting a Spark batch job with referenced jar files**
-
-```cmd
-curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>", "conf":{ "spark.jars" : "wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/azure-cosmosdb-spark_2.3.0_2.11-1.3.3.jar" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
-```
-
-Use the [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for jar files on your clusters primary storage. Note that HDInsight disables use of local file paths to access jars through Livy. 
-
 ### Use Azure Toolkit for IntelliJ
 [Azure Toolkit for IntelliJ plug-in](./apache-spark-intellij-tool-plugin.md) provides UI experience to submit Spark Scala application to an HDInsight cluster. It provides `Referenced Jars` and `Referenced Files` properties to configure jar libs paths when submitting the Spark application. See more details about [How to use Azure Tookit for IntelliJ plug-in for HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
 
@@ -113,24 +100,23 @@ HDInsight cluster has built-in jar dependencies, and updates for these jar versi
 
 ## Python packages for one Spark job
 ### Use Jupyter notebook
-HDInsight Jupyter notebook PySpark kernel doesn't support installing Python packages from PyPi or Anaconda package repository directly. If you have `.zip`, `.egg`, or `.py` dependencies, you can upload files to the cluster primary storage and use the [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for reference.
+HDInsight Jupyter notebook PySpark kernel doesn't support installing Python packages from PyPi or Anaconda package repository directly. If you have `.zip`, `.egg`, or `.py` dependencies, and want to reference them for one Spark session, follow below steps:
 
-Use comma-separated list of `.zip`, `.egg`, or `.py` paths for multiple files, Globs are allowed. These dependencies will be placed to PYTHONPATH for Python apps.
+1. Run below sample script actions to copy `.zip`, `.egg` or `.py` files from primary storage wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/* to cluster local file system /usr/libs/pylibs. The step is needed as linux uses : to separate search path list, but HDInsight only support storage paths with scheme like wasb://. The remote storage path won't work correctly when you use `sys.path.insert`.
 
-```
-%%configure { "conf": {"spark.submit.pyFiles": "wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/mymodule.py" }}
-```
+    ```bash
+    sudo mkdir -p /usr/libs/sparklibs
+    sudo hadoop fs -copyToLocal wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*.* /usr/libs/pylibs
+    ```
 
-### Use Apache Livy
-Apache Livy accepts a list of Python file paths in the POST request for creating Spark session. Use `pyFiles` property for it. 
+2. In your notebook, run below code in a code cell with PySpark kernel:
 
-**Sample for submitting a Spark batch job with referenced Python files**
+   ```python
+   import sys
+   sys.path.insert(0, "/usr/libs/sparklibs/pypackage.zip")
+   ```
 
-```cmd
-curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "kind":"pyspark", "file":"<path to application file>", "conf":{ "spark.submit.pyFiles" : "wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/mymodule.py" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
-```
-
-Use the [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for Python files on your clusters primary storage. Note that HDInsight disables use of local file paths to access files through Livy. 
+3. Run `import` to check if your packages have been included succeessfully.  
 
 ## Python packages for cluster
 You can install Python packages from Anaconda to the cluster using conda command via script actions. The packages installed are at cluster level and apply to all applications. 
