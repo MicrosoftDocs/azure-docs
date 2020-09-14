@@ -31,13 +31,13 @@ If you use the Azure Monitor integration feature of the Azure IoT Hub service to
 
 Tenant administrators can use the IoT devices blade of the Azure IoT Hub extension in the Azure portal to delete a device, which deletes the data associated with that device.
 
-It is also possible to perform delete operations for devices using REST APIs. For more information, see [Service - Delete Device](/rest/api/iothub/service/registrymanager/deletedevice).
+It is also possible to perform delete operations for devices using REST APIs. For more information, see [Service - Delete Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice).
 
 ## Exporting customer data
 
 Tenant administrators can utilize copy and paste within the IoT devices pane of the Azure IoT Hub extension in the Azure portal to export data associated with a device.
 
-It is also possible to perform export operations for devices using REST APIs. For more information, see [Service - Get Device](/rest/api/iothub/service/registrymanager/getdevice).
+It is also possible to perform export operations for devices using REST APIs. For more information, see [Service - Get Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice).
 
 > [!NOTE]
 > When you use Microsoft's enterprise services, Microsoft generates some information, known as system-generated logs. Some Azure IoT Hub system-generated logs are not accessible or exportable by tenant administrators. These logs constitute factual actions conducted within the service and diagnostic data related to individual devices.

@@ -12,7 +12,8 @@ ms.date: 05/15/2020
 
 # Azure Monitor Frequently Asked Questions
 
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor.
+This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](https://docs.microsoft.com/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
 
 ## General
 
@@ -94,7 +95,7 @@ You can move a workspace between resource groups or subscriptions but not to a d
 ### Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" when opening Log Analytics from a VM? 
 Many resource providers are automatically registered, but you may need to manually register some resource providers. The scope for registration is always the subscription. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information.
 
-### Why am I am getting no access error message when opening Log Analytics from a VM? 
+### Why am I getting no access error message when opening Log Analytics from a VM? 
 To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
 
 ## Metrics
@@ -519,9 +520,54 @@ However, there are still cases where even when server-side monitoring is enabled
 
 In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and this would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).     
 
-## Azure Monitor for containers
 
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+## OpenTelemetry
+
+### What is OpenTelemetry
+
+A new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
+
+### Why is Microsoft / Azure Monitor investing in OpenTelemetry?
+
+We believe it better serves our customers for three reasons:
+   1. Enable support for more customer scenarios.
+   2. Instrument without fear of vendor lock-in.
+   3. Increase customer transparency and engagement.
+
+It also aligns with Microsoft’s strategy to [embrace open source](https://opensource.microsoft.com/).
+
+### What additional value does OpenTelemetry give me?
+
+In addition to the reasons above, OpenTelemetry is more efficient at-scale and provides consistent design/configurations across languages.
+
+### How can I test out OpenTelemetry?
+
+Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel).
+
+### What does GA mean in the context of OpenTelemetry?
+
+The OpenTelemetry community defines Generally Available (GA) [here](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302). However, OpenTelemetry “GA” does not mean feature parity with the existing Application Insights SDKs. Azure Monitor will continue to recommend our current Application Insights SDKs for customers requiring features such as [pre-aggregated metrics](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [live metrics](app/live-stream.md), [adaptive sampling](app/sampling.md#adaptive-sampling), [profiler](app/profiler-overview.md), and [snapshot debugger](app/snapshot-debugger.md) until the OpenTelemetry SDKs reach feature maturity.
+
+### Can I use Preview builds in production environments?
+
+It’s not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information.
+
+### What’s the difference between OpenTelemetry SDK and auto-instrumentation?
+
+The OpenTelemetry specification defines [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk). In short, “SDK” is a language-specific package that collects telemetry data across the various components of your application and sends the data to Azure Monitor via an exporter.
+
+The concept of auto-instrumentation (sometimes referred to as bytecode injection, codeless, or agent-based) refers to the capability to instrument your application without changing your code. For example, check out the [OpenTelemetry Java Auto-instrumentation Readme](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) for more information.
+
+### What’s the OpenTelemetry Collector?
+
+The OpenTelemetry Collector is described in its [GitHub readme](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector). Currently Microsoft does not utilize the OpenTelemetry Collector and depends on direct exporters that send to Azure Monitor’s Application Insights.
+
+### What’s the difference between OpenCensus and OpenTelemetry?
+
+[OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. Azure Monitor’s current [production-recommended Python SDK](app/opencensus-python.md) is based on OpenCensus, but eventually all Azure Monitor’s SDKs will be based on OpenTelemetry.
+
+
+## Azure Monitor for containers
 
 ### Health feature is in private preview
 
@@ -529,7 +575,7 @@ We are planning to make a series of changes to add functionality and address you
 
 ### What does *Other Processes* represent under the Node view?
 
-**Other processes** is intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
+**Other processes** are intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
 
 What are these **Other Processes**? 
 
@@ -559,7 +605,7 @@ For agent version ciprod12042019 and later, by default these two properties are 
 
 Join other tables to include these property values in the results.
 
-Modify your queries to include Image and ImageTag properties from the ```ContainerInventory``` table by joining on ContainerID property. You can include the Name property (as it previously appeared in the ```ContainerLog``` table) from KubepodInventory table's ContaineName field by joining on the ContainerID property.This is the recommended option.
+Modify your queries to include Image and ImageTag properties from the ```ContainerInventory``` table by joining on ContainerID property. You can include the Name property (as it previously appeared in the ```ContainerLog``` table) from KubepodInventory table's ContaineName field by joining on the ContainerID property. This is the recommended option.
 
 The following example is a sample detailed query that explains how to get these field values with joins.
 
@@ -660,8 +706,8 @@ If after you enable Azure Monitor for containers for an AKS cluster, you delete 
 
 See the [Network firewall requirements](insights/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
 
+
 ## Azure Monitor for VMs
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### Can I onboard to an existing workspace?
 If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the [supported regions](insights/vminsights-configure-workspace.md#supported-regions).
@@ -735,7 +781,7 @@ Response time is an approximation. Since we do not instrument the code of the ap
 
 This approximation works well for protocols that are request/response based: a single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but not satisfied for other protocols.
 
-### Are their limitations if I am on the Log Analytics Free pricing plan?
+### Are there limitations if I am on the Log Analytics Free pricing plan?
 If you have configured Azure Monitor with a Log Analytics workspace using the *Free* pricing tier, Azure Monitor for VMs Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM is not monitored and reflected on the Map page.  
 
 Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to Azure Monitor for VMs. 
