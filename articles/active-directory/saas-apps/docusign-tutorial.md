@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with DocuSign | Microsoft Docs'
-description: Learn how to configure the single sign-on between Azure Active Directory and DocuSign.
+description: Learn how to configure single sign-on (SSO) between Azure Active Directory and DocuSign.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -40,6 +40,8 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment t
 * DocuSign supports **just-in-time** user provisioning.
 
 * DocuSign supports [automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+
+* Once you configure DocuSign you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding DocuSign from the gallery
 

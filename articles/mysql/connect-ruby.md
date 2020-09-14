@@ -67,7 +67,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 ## Connect and create a table
 Use the following code to connect and create a table by using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) several times to run the DROP, CREATE TABLE, and INSERT INTO commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2#Usage) several times to run the DROP, CREATE TABLE, and INSERT INTO commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 ```ruby
@@ -112,7 +112,7 @@ end
 ## Read data
 Use the following code to connect and read the data by using a **SELECT** SQL statement. 
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class.new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the SELECT commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class.new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2#Usage) to run the SELECT commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 
@@ -151,7 +151,7 @@ end
 ## Update data
 Use the following code to connect and update the data by using an **UPDATE** SQL statement.
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the UPDATE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2#Usage) to run the UPDATE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 
@@ -188,7 +188,7 @@ end
 ## Delete data
 Use the following code to connect and read the data by using a **DELETE** SQL statement. 
 
-The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the DELETE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2#Usage) to run the DELETE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 
