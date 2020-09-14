@@ -137,7 +137,7 @@ This command will begin the deployment, and you can view the deployment status i
 
 ### Validate that the deployment was successful
 
-Locate the *Runtime Status* in the IoT Edge Module Settings for the spatial-analysis module in your IoT Hub instance on the Azure Portal. The **Desired Value** and **Reported Value** for the *Runtime Status* should say `Running`. See below for what this will look like on the Azure Portal.
+Locate the *Runtime Status* in the IoT Edge Module Settings for the spatial-analysis module in your IoT Hub instance on the Azure portal. The **Desired Value** and **Reported Value** for the *Runtime Status* should say `Running`. See below for what this will look like on the Azure portal.
 
 ![Example deployment verification](./media/spatial-analysis/deployment-verification.png)
 
@@ -180,7 +180,7 @@ Wait for setup to complete, and navigate to your resource in the Azure portal. G
 * `IotHubConnectionString` – The connection string to your Azure IoT hub, this can be retrieved from the keys section of your Azure IoT hub resource 
 ![Configure Parameters](./media/spatial-analysis/solution-app-config-page.png)
 
-Once these 2 settings are added, click **Save**. Then click **Authentication/Authorization** in the left navigation menu, and update it with the desired level of authentication. We recommend Azure Active Director(AAD) express. 
+Once these 2 settings are added, click **Save**. Then click **Authentication/Authorization** in the left navigation menu, and update it with the desired level of authentication. We recommend Azure Active Director (Azure AD) express. 
 
 ### Test the app
 
