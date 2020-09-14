@@ -39,7 +39,7 @@ In the top menu, click on **Product > Scheme > Edit Scheme...**.
 
 In the **Run** view, click on **Arguments** tab.
 
-![Edit Scheme - Swift](../../media/ios/quickstart-ios-env-vars.png)
+![Edit Scheme environment variables - Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 In the **Environment Variables** section, add the following names and values, supplying the values given when you created your Immersive Reader resource.
 
