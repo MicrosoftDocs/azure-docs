@@ -87,9 +87,9 @@ You don't need to add applications that use MSAL or ASWebAuthenticationSession t
 
 #### Allow creating SSO session from any application
 
-By default, the Azure AD SSO plug-in provides SSO for authorized apps only when the SSO plug-in already has a shared credential. The Azure AD SSO plug-in can acquire a shared credential when it is called by another ADAL or MSAL-based application during token acquisition. Most of the Microsoft apps use Microsoft Authenticator or SSO plug-in. That means that by default SSO outside of native app flows is best effort.  
+By default, the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when the SSO plug-in already has a shared credential. The Microsoft Enterprise SSO plug-in can acquire a shared credential when it is called by another ADAL or MSAL-based application during token acquisition. Most of the Microsoft apps use Microsoft Authenticator or SSO plug-in. That means that by default SSO outside of native app flows is best effort.  
 
-Enabling `browser_sso_interaction_enabled` flag enables non-MSAL apps and Safari browser to do the initial bootstrapping and get a shared credential. If the Azure AD SSO plug-in doesn’t have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside Safari browser, ASWebAuthenticationSession, SafariViewController, or another whitelisted native application.  
+Enabling `browser_sso_interaction_enabled` flag enables non-MSAL apps and Safari browser to do the initial bootstrapping and get a shared credential. If the Microsoft Enterprise SSO plug-in doesn’t have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside Safari browser, ASWebAuthenticationSession, SafariViewController, or another whitelisted native application.  
 
 - **Key**: `browser_sso_interaction_enabled`
 - **Type**: `Integer`
@@ -99,7 +99,7 @@ We recommend enabling this flag to get more consistent experience across all app
 
 #### Disable OAuth2 application prompts
 
-The Azure AD SSO plug-in provides SSO by appending shared credentials to network requests coming from allowed applications. Some OAuth2 applications might be enforcing end-user prompt on the protocol layer. Shared credential would be ignored for those apps.  
+The Microsoft Enterprise SSO plug-in provides SSO by appending shared credentials to network requests coming from allowed applications. Some OAuth2 applications might be enforcing end-user prompt on the protocol layer. Shared credential would be ignored for those apps.  
 
 Enabling `disable_explicit_app_prompt` flag restricts ability of both native and web applications to force an end-user prompt on the protocol layer and bypass SSO.
 
@@ -148,7 +148,7 @@ In this case, SSO is provided at the time the application creates a network requ
 
 To support SSO for non-MSAL apps, the SSO plug-in implements a similar protocol to the Windows browser plug-in described in [What is a Primary Refresh Token?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
 
-Compared to MSAL-based apps, the SSO plug-in acts more transparently for non-MSAL apps to integrate with the existing browser login experience that apps provide. The end user would see their familiar experience with a benefit of not having to do additional sign-in in each of the applications. 
+Compared to MSAL-based apps, the SSO plug-in acts more transparently for non-MSAL apps by integrating with the existing browser login experience that apps provide. The end user would see their familiar experience with a benefit of not having to do additional sign-in in each of the applications. For example, instead of displaying native account picker, SSO plug-in adds SSO sessions to the web-based account picker experience. 
 
 ## Next steps
 
