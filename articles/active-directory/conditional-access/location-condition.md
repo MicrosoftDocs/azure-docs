@@ -188,11 +188,11 @@ When you create or update named locations, for bulk updates, you can upload or d
 
 When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address is not used because there is no validation that it comes from a trusted source, so would present a method for faking an IP address.
 
-When a cloud proxy is in place, a policy that is used to require a domain joined device can be used, or the inside corpnet claim from AD FS.
+When a cloud proxy is in place, a policy that is used to require a hybrid Azure AD joined device can be used, or the inside corpnet claim from AD FS.
 
 ### API support and PowerShell
 
-API and PowerShell is not yet supported for named locations.
+A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
 ## Next steps
 

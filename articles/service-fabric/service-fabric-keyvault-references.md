@@ -155,4 +155,4 @@ reference as container repository password.
 
 ## Next steps
 
-* [Azure KeyVault Documentation](https://docs.microsoft.com/azure/key-vault/)
+* [Azure KeyVault Documentation](../key-vault/index.yml)

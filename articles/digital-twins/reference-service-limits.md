@@ -31,4 +31,4 @@ These are the service limits of Azure Digital Twins during public preview.
 ## Next steps
 
 Learn more about the current preview release of Azure Digital Twins in the service overview:
-* [Overview: What is Azure Digital Twins?](overview.md)
+* [*Overview: What is Azure Digital Twins?*](overview.md)

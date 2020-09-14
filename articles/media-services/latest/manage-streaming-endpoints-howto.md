@@ -4,7 +4,7 @@ title: Manage streaming endpoints with Azure Media Services v3
 description: This article demonstrates how to manage streaming endpoints with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -13,17 +13,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/11/2020
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel 
+ms.custom: "devx-track-azurecli, devx-track-csharp"
 
 ---
 
 # Manage streaming endpoints with  Media Services v3
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 When your Media Services account is created a **default** [Streaming Endpoint](streaming-endpoint-concept.md) is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
-This article shows you how to execute the [start](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) command on your streaming endpoint using different technologies. 
+This article shows you how to execute the [start](/rest/api/media/streamingendpoints/start) command on your streaming endpoint using different technologies. 
  
 > [!NOTE]
 > You are only billed when your Streaming Endpoint is in running state.
@@ -44,7 +47,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 For more information, see: 
 
-* The [start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) reference documentation.
+* The [start a StreamingEndpoint](/rest/api/media/streamingendpoints/start) reference documentation.
 * Starting a streaming endpoint is an asynchronous operation. 
 
     For information about how to monitor long-running operations, see [Long-running operations](media-services-apis-overview.md).
@@ -68,7 +71,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-For more information, see [az ams streaming-endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+For more information, see [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
 
 ## Use SDKs
 
@@ -104,4 +107,4 @@ See the complete [.NET code sample](https://github.com/Azure-Samples/media-servi
 ## Next steps
 
 * [Media Services v3 OpenAPI Specification (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Streaming Endpoint operations](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [Streaming Endpoint operations](/rest/api/media/streamingendpoints)

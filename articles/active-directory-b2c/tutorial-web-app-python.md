@@ -11,7 +11,7 @@ ms.date: 06/12/2020
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Enable authentication in a Python web application with Azure AD B2C

@@ -83,4 +83,4 @@ The following suggestions apply for optimal application scaling efficiency, perf
 
 ## Next steps
 
-Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
+Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.

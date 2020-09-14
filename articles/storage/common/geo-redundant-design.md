@@ -11,6 +11,7 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Use geo-redundancy to design highly available applications

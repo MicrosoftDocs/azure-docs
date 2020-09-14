@@ -43,7 +43,7 @@ This diagram highlights the pieces that make up the [Custom Speech portal](https
 A Speech service subscription is required before you can use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to create a custom model. Follow these instructions to create a standard Speech service subscription: [Create a Speech Subscription](get-started.md#new-resource).
 
 > [!NOTE]
-> Please be sure to create standard (S0) subscriptions, free trial (F0) subscriptions are not supported.
+> Please be sure to create standard (S0) subscriptions, free (F0) subscriptions are not supported.
 
 Once you've created an Azure account and a Speech service subscription, you'll need to sign in to [Custom Speech portal](https://speech.microsoft.com/customspeech) and connect your subscription.
 

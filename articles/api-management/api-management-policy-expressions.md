@@ -1,6 +1,6 @@
 ---
 title: Azure API Management policy expressions | Microsoft Docs
-description: Learn about policy expressions in Azure API Management.
+description: Learn about policy expressions in Azure API Management. See examples and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -22,7 +22,7 @@ For more information:
 
 - See how to supply context information to your backend service. Use the [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) and [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) policies to supply this information.
 - See how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize access to operations based on token claims.
-- See how to use an [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace to see how policies are evaluated and the results of those evaluations.
+- See how to use an [API Inspector](./api-management-howto-api-inspector.md) trace to see how policies are evaluated and the results of those evaluations.
 - See how to use expressions with the [Get from cache](api-management-caching-policies.md#GetFromCache) and [Store to cache](api-management-caching-policies.md#StoreToCache) policies to configure API Management response caching. Set a duration that matches the response caching of the backend service as specified by the backed service's `Cache-Control` directive.
 - See how to perform content filtering. Remove data elements from the response received from the backend using the [Control flow](api-management-advanced-policies.md#choose) and [Set body](api-management-transformation-policies.md#SetBody) policies.
 - To download the policy statements, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub repo.
@@ -247,5 +247,5 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Nexonia | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Nexonia.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a93b771a-9bc3-444a-bdc0-457f8bb7e780
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Nexonia
 

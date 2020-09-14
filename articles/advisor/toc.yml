@@ -19,15 +19,15 @@
     href: advisor-get-started.md
 - name: How-to guides
   items:
-  - name: Improve reliability of Azure application
+  - name: Reliability
     href: advisor-high-availability-recommendations.md
-  - name: Make resources more secure
+  - name: Security
     href: advisor-security-recommendations.md
-  - name: Improve performance of Azure applications
+  - name: Performance efficiency
     href: advisor-performance-recommendations.md
-  - name: Reduce service costs
+  - name: Cost optimization
     href: advisor-cost-recommendations.md
-  - name: Achieve operational excellence
+  - name: Operational excellence
     href: advisor-operational-excellence-recommendations.md
   - name: Configure recommendations
     href: view-recommendations.md
@@ -35,24 +35,28 @@
     href: permissions.md
   - name: Configure Alerts for recommendations
     href: advisor-alerts-portal.md
+  - name: Configure recommendations summary
+    href: advisor-recommendations-digest.md
   - name: Bulk remediation for recommendations
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph
     href: advisor-azure-resource-graph.md
+  - name: Consume Advisor score 
+    href: azure-advisor-score.md
 - name: Reference
   items:
   - name: Security Center
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
-    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
+    href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
   - name: App Service
-    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
+    href: ../app-service/app-service-best-practices.md
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/advisor/
+    href: /rest/api/advisor/
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
+    href: /cli/azure/advisor?view=azure-cli-latest
   - name: PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+    href: /powershell/module/az.advisor/?view=azps-1.2.0
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -9,6 +9,6 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ---
 
-# Preview: Azure Image Builder overview
+# Preview: Azure Image Builder overview in Windows
 
 [!INCLUDE [virtual-machines-image-builder-overview](../../../includes/virtual-machines-image-builder-overview.md)]

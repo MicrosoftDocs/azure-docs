@@ -6,6 +6,7 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
+ms.custom: devx-track-java
 ---
 
 # Tutorial: Scale an application in Azure Spring Cloud
@@ -21,7 +22,7 @@ After you finish, you'll know how to make quick manual changes to each applicati
 To follow these procedures, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* A deployed Azure Spring Cloud service instance.  Follow the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to get started.
+* A deployed Azure Spring Cloud service instance.  Follow the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart.md) to get started.
 * At least one application already created in your service instance.
 
 ## Navigate to the Scale page in the Azure portal

@@ -12,7 +12,7 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Connect FAQ
+# Azure Active Directory Connect cloud provisioning FAQ
 
 Read about frequently asked questions for Azure Active Directory (Azure AD) Connect cloud provisioning.
 
@@ -68,7 +68,7 @@ When you delete the configuration, cloud provisioning does not automatically rem
 
 **Q:  What does it mean that Exchange hybrid is not supported?**
 
-The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory.  The cloud provisioning agent currently does not synchronize these attributes back into your on-premises directory and thus it is not supported as a replacement for Azure AD Connect.
+The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Microsoft 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory.  The cloud provisioning agent currently does not synchronize these attributes back into your on-premises directory and thus it is not supported as a replacement for Azure AD Connect.
 
 **Q:  Can I install the cloud provisioning agent on Windows Server Core?**
 

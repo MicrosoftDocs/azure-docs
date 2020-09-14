@@ -1,14 +1,13 @@
 ---
 title: Azure HDInsight Create a cluster - error dictionary
 description: Learn how to troubleshoot errors that occur when creating Azure HDInsight clusters
-
 author: karkrish
 ms.author: v-todmc
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/19/2019
+ms.date: 08/24/2020
 ---
 
 
@@ -21,19 +20,17 @@ This article describes resolutions to errors you might come across when creating
 
 ## Error code: DeploymentDocument 'CsmDocument_2_0' failed the validation
 
-### Error
+**Error**: "Script Action location cannot be accessed URI:\<SCRIPT ACTION URL\>"
 
-"Script Action location cannot be accessed URI:\<SCRIPT ACTION URL\>"
-
-#### Error message
+### Error message 1
 
 "The remote server returned an error: (404) Not Found."
 
-### Cause
+#### Cause
 
 The HDInsight service can't access the script action URL that you provided as part of the Create Cluster request. The service receives the preceding error message when it tries to access the script action.
 
-### Resolution
+#### Resolution
 
 - For an HTTP or HTTPS URL, verify the URL by trying to go to it from an incognito browser window.
 - For a WASB URL, be sure that the script exists in the storage account that you give in the request. Also make sure that the storage key for this storage account is correct.
@@ -41,37 +38,29 @@ The HDInsight service can't access the script action URL that you provided as pa
 
 ---
 
-## Error code: DeploymentDocument 'CsmDocument_2_0' failed the validation
-
-### Error
-
-"Script Action location cannot be accessed URI: \<SCRIPT_ACTION_URL\>"
-
-#### Error message
+### Error message 2
 
 "The given script URI \<SCRIPT_URI\> is in ADLS, but this cluster has no data lake storage principal"
 
-### Cause
+#### Cause
 
 The HDInsight service can't access the script action URL that you provided as part of the Create Cluster request. The service receives the preceding error message when it tries to access the script action.
 
-### Resolution
+#### Resolution
 
 Add the corresponding Azure Data Lake Storage Gen 1 account to the cluster. Also add the service principal that accesses the Data Lake Storage Gen 1 account to the cluster.
 
 ---
 
-## Error code: DeploymentDocument 'CsmDocument_2_0' failed the validation
-
-### Error
+### Error message 3
 
 "VM size '\<CUSTOMER_SPECIFIED_VM_SIZE\>' provided in the request is invalid or not supported for role '\<ROLE\>'. Valid values are: \<VALID_VM_SIZE_FOR_ROLE\>."
 
-### Cause
+#### Cause
 
 The virtual machine size that you specified isn't allowed for the role. This error might occur because the VM size value doesn't work as expected or isn't suitable for the computer role.
 
-### Resolution
+#### Resolution
 
 The error message lists the valid values for the VM size. Select one of these values and retry the Create Cluster request.
 

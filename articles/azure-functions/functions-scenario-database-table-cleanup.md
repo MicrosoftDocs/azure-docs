@@ -1,15 +1,16 @@
 ---
 title: Use Azure Functions to perform a database clean up task 
 description: Use Azure Functions to schedule a task that connects to Azure SQL Database to periodically clean up rows.
-
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/02/2019
+
 ---
 
 # Use Azure Functions to connect to an Azure SQL Database
 
-This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database or Azure SQL Managed Instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. To support this scenario, you must also set a database connection string as an app setting in the function app. For Azure SQL Managed Instance you need to [enable public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) to be able to connect from Azure Functions. This scenario uses a bulk operation against the database. 
+This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database or Azure SQL Managed Instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. To support this scenario, you must also set a database connection string as an app setting in the function app. For Azure SQL Managed Instance you need to [enable public endpoint](../azure-sql/managed-instance/public-endpoint-configure.md) to be able to connect from Azure Functions. This scenario uses a bulk operation against the database. 
 
 If this is your first experience working with C# Functions, you should read the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
@@ -19,7 +20,7 @@ If this is your first experience working with C# Functions, you should read the 
 
 + This article demonstrates a Transact-SQL command that executes a bulk cleanup operation in the **SalesOrderHeader** table in the AdventureWorksLT sample database. To create the AdventureWorksLT sample database, complete the steps in the article [Create a database in Azure SQL Database using the Azure portal](../azure-sql/database/single-database-create-quickstart.md).
 
-+ You must add a [server-level firewall rule](../sql-database/sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart. This rule is required to be able access the SQL Database instance from your local computer.  
++ You must add a [server-level firewall rule](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) for the public IP address of the computer you use for this quickstart. This rule is required to be able access the SQL Database instance from your local computer.  
 
 ## Get connection information
 

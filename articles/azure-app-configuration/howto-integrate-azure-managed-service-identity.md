@@ -1,16 +1,17 @@
 ---
-title: Authenticate using Azure managed identities 
+title: Use managed identities to access App Configuration
 titleSuffix: Azure App Configuration
-description: Authenticate to Azure App Configuration using Azure managed identities
+description: Authenticate to Azure App Configuration using managed identities
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
 ---
-# Integrate with Azure Managed Identities
+# Use managed identities to access App Configuration
 
-Azure Active Directory [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
+Azure Active Directory [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string.
 
 Azure App Configuration and its .NET Core, .NET Framework, and Java Spring client libraries have managed identity support built into them. Although you aren't required to use it, the managed identity eliminates the need for an access token that contains secrets. Your code can access the App Configuration store using only the service endpoint. You can embed this URL in your code directly without exposing any secret.
 
@@ -66,7 +67,7 @@ To set up a managed identity in the portal, you first create an application and 
 
     ![Add a managed identity](./media/add-managed-identity.png)
 
-1. Optional: If you wish to grant access to Key Vault as well, follow the directions in [Provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity).
+1. Optional: If you wish to grant access to Key Vault as well, follow the directions in [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
 ## Use a managed identity
 
@@ -78,7 +79,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
 
-1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store. 
+1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
 
     ```json
     "AppConfig": {
@@ -177,6 +178,9 @@ To set up a managed identity in the portal, you first create an application and 
 
     You can now access Key Vault references just like any other App Configuration key. The config provider will use the `KeyVaultClient` that you configured to authenticate to Key Vault and retrieve the value.
 
+> [!NOTE]
+> `ManagedIdentityCredential` only supports managed identity authentication. It doesn't work in local environments. If you want to run the code locally, consider using `DefaultAzureCredential`, which supports service principal authentication as well. Check the [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) for details.
+
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## Deploy from local Git
@@ -236,7 +240,7 @@ http://<app_name>.azurewebsites.net
 
 ## Use managed identity in other languages
 
-App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. You can use your store's URL endpoint instead of its full connection string when you configure one of these providers. 
+App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. You can use your store's URL endpoint instead of its full connection string when you configure one of these providers.
 
 For example, you can update the .NET Framework console app created in the quickstart to specify the following settings in the *App.config* file:
 

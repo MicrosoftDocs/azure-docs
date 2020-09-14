@@ -1,6 +1,6 @@
 ---
-title: Revoke user access for emergency in Azure Active Directory | Microsoft Docs
-description: Add users in bulk in the Azure AD admin center in Azure Active Directory
+title: Revoke user access in an emergency in Azure Active Directory | Microsoft Docs
+description: How to revoke all access for a user in Azure Active Directory
 services: active-directory 
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -10,7 +10,7 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 06/26/2020
+ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -33,7 +33,7 @@ Access tokens and refresh tokens are frequently used with thick client applicati
 
 Azure AD then reevaluates its authorization policies. If the user is still authorized, Azure AD issues a new access token and refresh token.
 
-Access tokens can be a security concern if access must be revoked within a time that is shorter than the lifetime of the token, which is usually around an hour. For this reason, Microsoft is actively working to bring [continuous access evaluation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation) to Office 365 applications, which helps ensure invalidation of access tokens in near real time.  
+Access tokens can be a security concern if access must be revoked within a time that is shorter than the lifetime of the token, which is usually around an hour. For this reason, Microsoft is actively working to bring [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) to Microsoft 365 applications, which helps ensure invalidation of access tokens in near real time.  
 
 ## Session tokens (cookies)
 
@@ -55,13 +55,13 @@ For a hybrid environment with on-premises Active Directory synchronized with Azu
 
 As an admin in the Active Directory, connect to your on-premises network, open PowerShell, and take the following actions:
 
-1. Disable the user in Active Directory. Refer to [Disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Disable the user in Active Directory. Refer to [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Reset the user’s password twice in the Active Directory. Refer to [Set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Reset the user’s password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
 
     > [!NOTE]
     > The reason for changing a user’s password twice is to mitigate the risk of pass-the-hash, especially if there are delays in on-premises password replication. If you can safely assume this account isn't compromised, you may reset the password only once.
@@ -78,18 +78,18 @@ As an admin in the Active Directory, connect to your on-premises network, open P
 
 As an administrator in Azure Active Directory, open PowerShell, run ``Connect-AzureAD``, and take the following actions:
 
-1. Disable the user in Azure AD. Refer to [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Disable the user in Azure AD. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Revoke the user’s Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Revoke the user’s Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Disable the user’s devices. Refer to [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Disable the user’s devices. Refer to [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -97,9 +97,9 @@ As an administrator in Azure Active Directory, open PowerShell, run ``Connect-Az
 
 ## Optional steps
 
-- [Wipe corporate data from Intune-managed applications](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe).
+- [Wipe corporate data from Intune-managed applications](/mem/intune/apps/apps-selective-wipe).
 
-- [Wipe corporate owned devices be resetting device to factory default settings](https://docs.microsoft.com/mem/intune/remote-actions/devices-wipe).
+- [Wipe corporate owned devices be resetting device to factory default settings](/mem/intune/remote-actions/devices-wipe).
 
 > [!NOTE]
 > Data on the device cannot be recovered after a wipe.

@@ -15,6 +15,8 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | --- | --- | --- | --- |
 | Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
 | Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
+| Digital twins | Number of incoming relationships to a single twin | 5,000 | No |
+| Digital twins | Number of outgoing relationships from a single twin | 5,000 | No |
 | Routing | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
 | Routing | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
 | Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
@@ -24,7 +26,7 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
 | Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
 | Query | Number of characters in a query | 8,000 | Yes |
-| Query | Number of `JOINS` in a query | 1 | Yes |
+| Query | Number of `JOINS` in a query | 5 | Yes |
 
 ### Rate limits
 
@@ -35,11 +37,11 @@ This table reflects the rate limits of different APIs.
 | Models API | Number of requests per second | 100 | Yes |
 | Digital Twins API | Number of requests per second | 1,000 | Yes |
 | Query API | Number of requests per second | 500 | Yes |
-| Query API | Query units per second | 4,000 | Yes |
+| Query API | [Query Units](../articles/digital-twins/concepts-query-units.md) per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |
 
 ### Other limits
 
-Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [*Digital Twins Definition Language (DTDL) - version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Query latency details and other guidelines on writing queries during preview can be found in [How-to: Query the twin graph](../articles/digital-twins/how-to-query-graph.md).
+Query latency details and other guidelines on writing queries during preview can be found in [*How-to: Query the twin graph*](../articles/digital-twins/how-to-query-graph.md).

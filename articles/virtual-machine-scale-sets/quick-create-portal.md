@@ -40,8 +40,9 @@ First, create a public Standard Load Balancer by using the portal. The name and 
     | Type          | Select **Public**.       |
     | SKU           | Select **Standard**.       |
     | Public IP address | Select **Create new**. |
-    | Public IP address name  | *MyPip*   |
+    | Public IP address name  | *myPip*   |
     | Assignment| Static |
+    | Availability zone | Select **Zone-redundant**. |
 
 1. When you are done, select **Review + create** 
 1. After it passes validation, select **Create**. 
@@ -51,11 +52,11 @@ First, create a public Standard Load Balancer by using the portal. The name and 
 ## Create virtual machine scale set
 You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
 
-1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. The **Create a virtual machine scale set** page will open. 
+1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. Select **Create** on the **Virtual machine scale sets** page, which will open the **Create a virtual machine scale set** page. 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myVMSSResourceGroup* for the name and then select **OK** . 
 1. Type *myScaleSet* as the name for your scale set.
 1. In **Region**, select a region that is close to your area.
-1. Leave the default value of **ScaleSet VMs** for **Orchestrator**.
+1. Leave the default value of **ScaleSet VMs** for **Orchestration mode**.
 1. Select a marketplace image for **Image**. In this example, we have chosen *Ubuntu Server 18.04 LTS*.
 1. Enter your desired username, and select which authentication type you prefer.
    - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).

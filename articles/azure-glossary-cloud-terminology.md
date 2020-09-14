@@ -47,7 +47,7 @@ A command-line interface that can be used to manage Azure services from Windows,
 
 ## <a name="powershell"></a>Azure PowerShell
 A command-line interface to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI.
-See [How to install and configure Azure PowerShell](/powershell/azure/overview)
+See [How to install and configure Azure PowerShell](/powershell/azure/)
 
 ## <a name="arm-model"></a>Azure Resource Manager deployment model
 One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Microsoft Azure (the other is the classic deployment model). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.

@@ -164,7 +164,7 @@
     - name: Front Door
       href: https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies
     - name: Application Gateway
-      href: https://docs.microsoft.com/rest/api/virtualnetwork/webapplicationfirewallpolicies
+      href: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy
   - name: .NET
     href: /dotnet/api
   - name: Java

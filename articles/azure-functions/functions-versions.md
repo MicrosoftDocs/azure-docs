@@ -2,6 +2,7 @@
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
 
 ---
@@ -86,7 +87,7 @@ The following are the changes to be aware of before upgrading a 2.x app to 3.x.
 
 #### .NET
 
-* [Synchronous server operations are disabled by default](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+* [Synchronous server operations are disabled by default](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
 
 ### Changing version of apps in Azure
 

@@ -2,12 +2,12 @@
 title: 'Troubleshoot network link performance: Azure'
 description: This page provides a standardized method of testing Azure network link performance.
 services: expressroute
-author: tracsman
+author: duongau
 
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
 
 ---
@@ -117,7 +117,7 @@ If you're not sure where the edge of the cloud actually is, isolating the Azure 
 ![2][2]
 
 >[!NOTE]
-> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to an MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Office 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
+> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to an MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Microsoft 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
 >
 >
 
@@ -173,9 +173,8 @@ Test setup:
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Region|Estimated<br/>Distance (km)|Latency|1 Session<br/>Bandwidth|Maximum<br/>Bandwidth|
+| ExpressRoute<br/>Location|Azure<br/>Region | Estimated<br/>Distance (km) | Latency|1 Session<br/>Bandwidth | Maximum<br/>Bandwidth |
+| ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | West US 2        |    191 km |   5 ms | 262.0 Mbits/sec |  3.74 Gbits/sec |
 | Seattle | West US          |  1,094 km |  18 ms |  82.3 Mbits/sec |  3.70 Gbits/sec |
 | Seattle | Central US       |  2,357 km |  40 ms |  38.8 Mbits/sec |  2.55 Gbits/sec |

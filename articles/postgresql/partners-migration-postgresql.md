@@ -23,7 +23,7 @@ To broadly support your Azure Database for PostgreSQL solution, you can choose f
 | ![Pactera][6] |**Pactera**<br>Pactera is a global company offering consulting, digital, technology, and operations services to the world’s leading enterprises. From their roots in engineering to the latest in digital transformation, they give customers a competitive edge. Their proven methodologies and tools ensure your data is secure, authentic, and accurate.|[Website][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contact][pactera_contact] | |
 
 ## Next steps
-To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/en-US/).
+To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/).
 
 <!--Image references-->
 [1]: ./media/partner-migration-postgresql/SNP_Logo.png

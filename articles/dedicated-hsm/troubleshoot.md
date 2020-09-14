@@ -1,5 +1,5 @@
 ﻿---
-title: What is Dedicated HSM? - Azure Dedicated HSM | Microsoft Docs
+title: Troubleshoot Dedicated HSM - Azure Dedicated HSM | Microsoft Docs
 description: Overview of Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
 services: dedicated-hsm
 author: msmbaldwin
@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.custom: "mvc, seodec18"
 ms.date: 12/07/2018
 ms.author: mbaldwin
@@ -18,7 +18,7 @@ ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
-# Troubleshooting
+# Troubleshooting the Azure Dedicated HSM service
 
 The Azure Dedicated HSM service has two distinct facets. Firstly, the registration and deployment in Azure of the HSM devices with their underlying network components. Secondly, the configuration of the HSM devices in preparation for use/integration with a given workload or application. Although the Thales Luna Network HSM devices are the same in Azure as you would purchase directly from Thales, the fact they are a resource in Azure creates some unique considerations. These considerations and any resulting troubleshooting insights or best practices, are documented here to ensure high visibility and access to critical information. Once the service is in use, definitive information is available via support requests to either Microsoft or Thales directly. 
 

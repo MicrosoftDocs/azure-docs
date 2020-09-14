@@ -10,7 +10,7 @@ ms.date: 01/30/2020
 
 # View and create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps
 
-You can view the underlying queries that produce the results from [Azure Monitor logs](../log-analytics/log-analytics-overview.md) and create queries that filter the results based your specific criteria. For example, you can find messages based on a specific interchange control number. Queries use the [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), which you can edit if you want to view different results. For more information, see [Azure Monitor log queries](../azure-monitor/log-query/query-language.md).
+You can view the underlying queries that produce the results from [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) and create queries that filter the results based your specific criteria. For example, you can find messages based on a specific interchange control number. Queries use the [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), which you can edit if you want to view different results. For more information, see [Azure Monitor log queries](../azure-monitor/log-query/query-language.md).
 
 ## Prerequisites
 

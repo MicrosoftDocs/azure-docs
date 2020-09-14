@@ -8,7 +8,7 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Azure Queue storage client library v12 for Python
@@ -25,7 +25,12 @@ Use the Azure Queue storage client library v12 for Python to:
 * Delete messages from a queue
 * Delete a queue
 
-[API reference documentation](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-queue/) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Additional resources:
+
+* [API reference documentation](https://docs.microsoft.com/python/api/azure-storage-queue/index)
+* [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+* [Package (Python Package Index)](https://pypi.org/project/azure-storage-queue/)
+* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## Prerequisites
 

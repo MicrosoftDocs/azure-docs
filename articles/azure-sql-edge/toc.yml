@@ -8,6 +8,8 @@
     href: features.md
   - name: Release notes
     href: release-notes.md
+  - name: Usage and diagnostics data collection
+    href: usage-and-diagnostics-data-configuration.md
 - name: Quickstarts
   expanded: true
   items:
@@ -75,3 +77,11 @@
     items:
     - name: Date_Bucket (Transact-SQL)
       href: date-bucket-tsql.md
+    - name: Date retention and cleanup
+      items:
+      - name: Data retention overview
+        href: data-retention-overview.md
+      - name: Enable or disable data retention
+        href: data-retention-enable-disable.md
+      - name: Data retention cleanup
+        href: data-retention-cleanup.md

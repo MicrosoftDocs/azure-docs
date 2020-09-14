@@ -17,6 +17,8 @@
   items:
   - name: Use Web app
     href: tutorial-use-personalizer-web-app.md
+  - name: Use Chat bot
+    href: tutorial-use-personalizer-chat-bot.md
   - name: Use Azure Notebook
     href: tutorial-use-azure-notebook-generate-loop-data.md
     displayName: jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency

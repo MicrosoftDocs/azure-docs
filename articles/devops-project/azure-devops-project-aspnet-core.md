@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 ---
 
 # Create a CI/CD pipeline for .NET with Azure DevOps Starter

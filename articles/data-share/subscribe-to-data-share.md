@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/10/2019
+ms.date: 08/14/2020
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -32,10 +32,10 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role. 
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
 
-### Receive data into a SQL-based source:
+### Receive data into a SQL-based target:
 
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the Contributor role. 
-* Permission for the data share resource's managed identity to access the Azure SQL Database or Azure SQL Data Warehouse. This can be done through the following steps: 
+* Permission for the data share resource's managed identity to access the Azure SQL Database or Azure Synapse Analytics. This can be done through the following steps: 
     1. Set yourself as the Azure Active Directory Admin for the SQL server.
     1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
     1. Use Query Editor (preview) to execute the following script to add the Data Share Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. You must connect using Active Directory and not SQL Server authentication. 
@@ -72,7 +72,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
 
-   ![Invitations](./media/invitations.png "List of invitations") 
+   ![List of Invitations](./media/invitations.png "List of invitations") 
 
 1. Select the share you would like to view. 
 
@@ -87,38 +87,35 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    For the **Received Share Name** field, you may leave the default specified by the data provide, or specify a new name for the received share. 
 
-   ![Target data share account](./media/target-data-share.png "Target data share account") 
-
-1. Once you've agreed to the terms of use and specified a location for your share, Select on *Accept and configure*. A share subscription will be created.
-
-   For snapshot-based sharing, the next screen will ask you to select a target storage account for your data to be copied into. 
+   Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription will be created. 
 
    ![Accept options](./media/accept-options.png "Accept options") 
 
-   If you prefer to accept the invitation now but configure your target data store at a later time, select *Accept and configure later*. To continue configuring your storage later, see [configure dataset mappings](how-to-configure-mapping.md) page for detailed steps on how to resume your data share configuration. 
-
-   For in-place sharing, see [configure dataset mappings](how-to-configure-mapping.md) page for detailed steps on how to resume your data share configuration. 
+   This takes you to your the received share in your Data Share account. 
 
    If you don't want to accept the invitation, Select *Reject*. 
 
-## Configure storage
-1. Under *Target Storage Settings*, select the Subscription, Resource group, and storage account that you'd like to receive your data into. 
+## Configure received share
+Follow the steps below to configure where you want to receive data.
 
-   ![Target storage settings](./media/target-storage-settings.png "Target storage") 
+1. Select **Datasets** tab. Check the box next to the dataset you'd like to assign a destination to. Select **+ Map to target** to choose a target data store. 
 
-1. To receive regular update of your data, make sure you enable the snapshot settings. Note that you will only see a snapshot setting schedule if your data provider has included it in the data share. 
+   ![Map to target](./media/dataset-map-target.png "Map to target") 
 
-   ![Snapshot settings](./media/snapshot-settings.png "Snapshot settings") 
+1. Select a target data store type that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. 
 
-1. Select *Save*. 
+   For in-place sharing, select a data store in the Location specified. The Location is the Azure data center where data provider's source data store is located at. Once dataset is mapped, you can follow the link in the Target Path to access the data.
 
-> [!IMPORTANT]
-> If you are receiving SQL-based data and would like to receive that data into a SQL-based source, visit [configure a dataset mapping](how-to-configure-mapping.md) how-to guide to learn how to configure a SQL Server as the destination for your dataset. 
+   ![Target storage account](./media/dataset-map-target-sql.png "Target storage") 
+
+1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**.
+
+   ![Enable snapshot schedule](./media/enable-snapshot-schedule.png "Enable snapshot schedule")
 
 ## Trigger a snapshot
 These steps only apply to snapshot-based sharing.
 
-1. You can trigger a snapshot in the Received Shares -> Details tab by selecting **Trigger snapshot**. Here, you can trigger a full or  incremental snapshot of your data. If it is your first time receiving data from your data provider, select full copy. 
+1. You can trigger a snapshot by selecting **Details** tab followed by **Trigger snapshot**. Here, you can trigger a full or  incremental snapshot of your data. If it is your first time receiving data from your data provider, select full copy. 
 
    ![Trigger snapshot](./media/trigger-snapshot.png "Trigger snapshot") 
 
@@ -127,7 +124,7 @@ These steps only apply to snapshot-based sharing.
    ![Consumer datasets](./media/consumer-datasets.png "Consumer dataset mapping") 
 
 ## View history
-To view a history of your snapshots, navigate to Received Shares -> History. Here you'll find a history of all snapshots that were generated for the past 60 days. 
+This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you'll find history of all snapshots that were generated for the past 30 days. 
 
 ## Next steps
 In this tutorial, you learned how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to [Concepts: Azure Data Share Terminology](terminology.md).

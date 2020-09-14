@@ -17,11 +17,11 @@ We support only one full backup per day. You can't have differential backup and 
 
 ### Do successful backup jobs create alerts?
 
-No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor). However, if you're interested having alerts even for successful jobs, you can use [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](./backup-azure-monitoring-built-in-monitor.md). However, if you're interested having alerts even for successful jobs, you can use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### Can I see scheduled backup jobs in the Backup Jobs menu?
 
-The Backup Job menu will only show ad-hoc backup jobs. For scheduled jobs, use [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+The Backup Job menu will only show ad-hoc backup jobs. For scheduled jobs, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### Are future databases automatically added for backup?
 
@@ -46,7 +46,7 @@ Running the pre-registration script sets the required permissions to allow Azure
 
 ### Will backups work after migrating SAP HANA from SDC to MDC?
 
-Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) of the troubleshooting guide.
+Refer to [this section](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) of the troubleshooting guide.
 
 ### Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
 
@@ -106,7 +106,7 @@ Then full backup will again be triggered on Node 1 and after that completes, log
 
 ### Why can't I see the HANA system I want my database to be restored to?
 
-Check if all the prerequisites for the restore to target SAP HANA instance are met. For more information, see [Prerequisites - Restore SAP HANA databases in Azure VM](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
+Check if all the prerequisites for the restore to target SAP HANA instance are met. For more information, see [Prerequisites - Restore SAP HANA databases in Azure VM](./sap-hana-db-restore.md#prerequisites).
 
 ### Why is the Overwrite DB restore failing for my database?
 
@@ -122,4 +122,4 @@ Yes, you can use streaming backups triggered on a HANA database running on SLES 
 
 ## Next steps
 
-Learn how to [back up SAP HANA databases](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) running on Azure VMs.
+Learn how to [back up SAP HANA databases](./backup-azure-sap-hana-database.md) running on Azure VMs.

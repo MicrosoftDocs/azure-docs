@@ -7,7 +7,8 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
-manager: eliotga
+manager: philmea
+ms.custom: devx-track-csharp
 ---
 
 # Symmetric key attestation
@@ -21,7 +22,7 @@ Symmetric key enrollments also provide a great way for legacy devices, with limi
 
 ## Symmetric key creation
 
-By default, the Device Provisioning Service creates new symmetric keys with a default length of 32 bytes when new enrollments are saved with the **Auto-generate keys** option enabled.
+By default, the Device Provisioning Service creates new symmetric keys with a default length of 64 bytes when new enrollments are saved with the **Auto-generate keys** option enabled.
 
 ![Auto Generate symmetric keys](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 

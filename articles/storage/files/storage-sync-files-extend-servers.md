@@ -255,9 +255,8 @@ The Server Registration UI should open automatically after you install the Azure
 
    ![A screenshot of the Server Registration UI](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | Value | Description |
+   | ----- | ----- |
    | **Azure Subscription** | The subscription that contains the Storage Sync Service for this tutorial. |
    | **Resource Group** | The resource group that contains the Storage Sync Service. Use _afsresgroup101918_ for this tutorial. |
    | **Storage Sync Service** | The name of the Storage Sync Service. Use _afssyncservice02_ for this tutorial. |
@@ -297,9 +296,8 @@ A server endpoint represents a specific location on a registered server. For exa
 
 1. On the **Add server endpoint** pane, enter the following information to create a server endpoint:
 
-   | | |
-   | ----- | ----- |
    | Value | Description |
+   | ----- | ----- |
    | **Registered server** | The name of the server you created. Use *afsvm101918* for this tutorial. |
    | **Path** | The Windows Server path to the drive you created. Use *f:\filestosync* in this tutorial. |
    | **Cloud Tiering** | Leave disabled for this tutorial. |

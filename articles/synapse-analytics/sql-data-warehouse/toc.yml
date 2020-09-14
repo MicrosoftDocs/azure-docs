@@ -122,7 +122,7 @@
         href: /azure/sql-database/transparent-data-encryption-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
       - name: TDE with Bring Your Own Key
         href: /azure/sql-database/transparent-data-encryption-byok-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-  - name: Data loading
+  - name: Data ingestion and preparation
     items:
     - name: Overview
       href: design-elt-data-loading.md
@@ -182,6 +182,8 @@
         href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Clean up cache
         href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+    - name: Machine learning predictions
+      href: sql-data-warehouse-predict.md
     - name: Tables
       items:
       - name: Overview
@@ -220,8 +222,6 @@
         href: sql-data-warehouse-develop-user-defined-schemas.md
       - name: Variable assignment
         href: sql-data-warehouse-develop-variable-assignment.md
-      - name: Views
-        href: sql-data-warehouse-develop-views.md
   - name: Querying
     items:
     - name: Dynamic SQL
@@ -282,7 +282,7 @@
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL
       href: sql-data-warehouse-encryption-tde-tsql.md
-  - name: Load data
+  - name: Load and prepare data
     items:
     - name: From Azure Data Lake Storage (ADLS)
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
@@ -295,7 +295,7 @@
     - name: Samples
       items:
       - name: New York Taxi 
-        href: load-data-from-azure-blob-storage-using-polybase.md
+        href: load-data-from-azure-blob-storage-using-copy.md
       - name: Contoso 
         href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
       - name: Wide World Importers

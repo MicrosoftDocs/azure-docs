@@ -5,16 +5,18 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/10/2020
+ms.date: 07/30/2020
+ms.custom: devx-track-csharp
 ---
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB
 
-This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. 
+This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database.
 
 ## Azure portal
 
 ### Create new database or container with autoscale
+
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB explorer.](https://cosmos.azure.com/)
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
@@ -46,12 +48,14 @@ To provision autoscale on shared throughput database, select the **Provision dat
 > When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
 ## Azure Cosmos DB .NET V3 SDK for SQL API
+
 Use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources. 
 
 > [!IMPORTANT]
 > You can use the .NET SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. The migration scenario is currently supported in only the Azure portal. 
 
 ### Create database with shared throughput
+
 ```csharp
 // Create instance of CosmosClient
 CosmosClient cosmosClient = new CosmosClient(Endpoint, PrimaryKey);
@@ -64,6 +68,7 @@ database = await cosmosClient.CreateDatabaseAsync(DatabaseName, throughputProper
 ```
 
 ### Create container with dedicated throughput
+
 ```csharp
 // Get reference to database that container will be created in
 Database database = await cosmosClient.GetDatabase("DatabaseName");
@@ -77,6 +82,7 @@ container = await database.CreateContainerAsync(autoscaleContainerProperties, au
 ```
 
 ### Read the current throughput (RU/s)
+
 ```csharp
 // Get a reference to the resource
 Container container = cosmosClient.GetDatabase("DatabaseName").GetContainer("ContainerName");
@@ -92,16 +98,18 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
 ### Change the autoscale max throughput (RU/s)
+
 ```csharp
 // Change the autoscale max throughput (RU/s)
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
 ## Azure Cosmos DB Java V4 SDK for SQL API
-You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure/azure-cosmos) of the Azure Cosmos DB Java SDK for SQL API to manage autoscale resources. 
+
+You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure/azure-cosmos) of the Azure Cosmos DB Java SDK for SQL API to manage autoscale resources.
 
 > [!IMPORTANT]
-> You can use the Java SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. The migration scenario is currently supported in only the Azure portal. 
+> You can use the Java SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. The migration scenario is currently supported in only the Azure portal.
 
 ### Create database with shared throughput
 
@@ -228,18 +236,30 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput));
 ```
 
---- 
+---
 
-## Cassandra API 
-See this article on [how to use CQL commands](manage-scale-cassandra.md#use-autoscale) to enable autoscale.
+## Cassandra API
 
-## Azure Cosmos DB API for MongoDB 
-See this article on [how to use MongoDB extension commands](mongodb-custom-commands.md) to enable autoscale.
+Azure Cosmos DB accounts for Cassandra API can be provisioned for autoscale using [CQL commands](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) or [Azure Resource Manager templates](resource-manager-samples.md).
+
+## Azure Cosmos DB API for MongoDB
+
+Azure Cosmos DB accounts for MongoDB API can be provisioned for autoscale using [MongoDB extension commands](mongodb-custom-commands.md), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) or [Azure Resource Manager templates](resource-manager-samples.md).
 
 ## Azure Resource Manager
-You can use an Resource Manager template to provision autoscale throughput on a database or container for any API. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
+
+Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-samples.md) for samples.
+
+## Azure CLI
+
+Azure CLI can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure CLI Samples for Azure Cosmos DB](cli-samples.md).
+
+## Azure PowerShell
+
+Azure PowerShell can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure PowerShell samples for Azure Cosmos DB](powershell-samples.md).
 
 ## Next steps
+
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Review the [autoscale FAQ](autoscale-faq.md).

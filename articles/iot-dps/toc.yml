@@ -92,11 +92,13 @@
   - name: Symmetric key attestation
     href: concepts-symmetric-key-attestation.md
   - name: X.509 attestation
-    href: concepts-security.md
+    href: concepts-x509-attestation.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
   - name: Roles and operations
     href: concepts-auto-provisioning.md  
+  - name: Virtual networks support
+    href: virtual-network-support.md
   - name: Reprovisioning
     href: concepts-device-reprovision.md  
   - name: Understanding DPS IP addresses

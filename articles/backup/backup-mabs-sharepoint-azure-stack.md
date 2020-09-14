@@ -71,7 +71,7 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
         After running ConfigureSharePoint.exe, you'll need to rerun it if there's a change in the SharePoint farm administrator credentials.
 
-1. To create a protection group, click **Protection** > **Actions** > **Create Protection Group** to open the **Create New Protection Group** wizard in the MABS console.
+1. To create a protection group, select **Protection** > **Actions** > **Create Protection Group** to open the **Create New Protection Group** wizard in the MABS console.
 
 1. In **Select Protection Group Type**, select **Servers**.
 
@@ -79,7 +79,7 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
     When you expand the SharePoint server  MABS queries VSS to see what data MABS can protect.  If the SharePoint database is remote, MABS connects to it. If SharePoint data sources don't appear, check that the VSS writer is running on the SharePoint server and any remote SQL Server, and ensure the MABS agent is installed on both the SharePoint server and remote SQL Server. Also, ensure that SharePoint databases aren't being protected elsewhere as SQL Server databases.
 
-1. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure backup \(for short or long\-term\).
+1. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure Backup \(for short or long\-term\).
 
 1. In **Select short\-term goals**, specify how you want to back up to short\-term storage on disk.   In **Retention range** you specify how long you want to keep the data on disk. In **Synchronization frequency**, you specify how often you want to run an incremental backup to disk. If you don't want to set a backup interval, you can check just before  a recovery point so that MABS will run an express full backup just before each recovery point is scheduled.
 
@@ -97,9 +97,9 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
 1. In **Specify online retention policy**, you can specify how the recovery points created from the daily/weekly/monthly/yearly backups are retained in Azure.
 
-1. In **Choose online replication**, specify how the initial full replication of data will occur. You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. [Read more](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. In **Choose online replication**, specify how the initial full replication of data will occur. You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. [Read more](./backup-azure-backup-import-export.md).
 
-1. On the  **Summary** page, review your settings. After you click **Create Group**, initial replication of the data occurs. When it finishes, the protection group status will show as **OK** on the **Status** page. Backup then takes place in line with the protection group settings.
+1. On the  **Summary** page, review your settings. After you select **Create Group**, initial replication of the data occurs. When it finishes, the protection group status will show as **OK** on the **Status** page. Backup then takes place in line with the protection group settings.
 
 ## Monitoring
 
@@ -111,19 +111,19 @@ After the protection group's been created, the initial replication occurs and MA
 
 ### Set up monitoring notifications
 
-1. In the MABS Administrator Console, click **Monitoring** > **Action** > **Options**.
+1. In the MABS Administrator Console, select **Monitoring** > **Action** > **Options**.
 
-2. Click **SMTP Server**, type the server name, port, and email address from which notifications will be sent. The address must be valid.
+2. Select **SMTP Server**, type the server name, port, and email address from which notifications will be sent. The address must be valid.
 
 3. In **Authenticated SMTP server**, type a user name and password. The user name and password must be the domain account name of the person whose "From" address is described in the previous step. Otherwise, the notification delivery fails.
 
-4. To test the SMTP server settings, click **Send Test E-mail**, type the e-mail address where you want MABS to send the test message, and then click **OK**. Click **Options** > **Notifications** and select the types of alerts about which recipients want to be notified. In **Recipients** type the e-mail address for each recipient to whom you want MABS to send copies of the notifications.
+4. To test the SMTP server settings, select **Send Test E-mail**, type the e-mail address where you want MABS to send the test message, and then select **OK**. Select **Options** > **Notifications** and select the types of alerts about which recipients want to be notified. In **Recipients** type the e-mail address for each recipient to whom you want MABS to send copies of the notifications.
 
 ### Publish Operations Manager alerts
 
-1. In the MABS Administrator Console, click **Monitoring** > **Action** > **Options** > **Alert Publishing** > **Publish Active Alerts**
+1. In the MABS Administrator Console, select **Monitoring** > **Action** > **Options** > **Alert Publishing** > **Publish Active Alerts**
 
-2. After you enable **Alert Publishing**, all existing MABS alerts that might require a user action are published to the **MABS Alerts** event log. The Operations Manager agent that is installed on the MABS server then publishes these alerts to the Operations Manager and continues to update the console as new alerts are generated.
+2. After you enable **Alert Publishing**, all existing MABS alerts that might require a user action are published to the **MABS Alerts** event log. The Operations Manager agent that's installed on the MABS server then publishes these alerts to the Operations Manager and continues to update the console as new alerts are generated.
 
 ## Restore a SharePoint item from disk by using MABS
 
@@ -143,10 +143,10 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 5. You can also browse through various recovery points and select a database or item to recover. Select **Date > Recovery time**, and then select the correct **Database > SharePoint farm > Recovery point > Item**.
 
     ![MABS SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Right-click the item, and then select **Recover** to open the **Recovery Wizard**. Click **Next**.
+6. Right-click the item, and then select **Recover** to open the **Recovery Wizard**. Select **Next**.
 
     ![Review Recovery Selection](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. Select the type of recovery that you want to perform, and then click **Next**.
+7. Select the type of recovery that you want to perform, and then select **Next**.
 
     ![Recovery Type](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -156,7 +156,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
    >
 8. Select the **Recovery Process** that you want to use.
 
-   * Select **Recover without using a recovery farm** if the SharePoint farm hasn't changed and is the same as the recovery point that is being restored.
+   * Select **Recover without using a recovery farm** if the SharePoint farm hasn't changed and is the same as the recovery point that's being restored.
    * Select **Recover using a recovery farm** if the SharePoint farm has changed since the recovery point was created.
 
      ![Recovery Process](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -164,10 +164,10 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![Staging Location1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    MABS attaches the content database that is hosting the SharePoint item to the temporary SQL Server instance. From the content database, it recovers the item and puts it on the staging file location on MABS. The recovered item that's on the staging location now needs to be exported to the staging location on the SharePoint farm.
+    MABS attaches the content database that's hosting the SharePoint item to the temporary SQL Server instance. From the content database, it recovers the item and puts it on the staging file location on MABS. The recovered item that's on the staging location now needs to be exported to the staging location on the SharePoint farm.
 
     ![Staging Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Select **Specify recovery options**, and apply security settings to the SharePoint farm or apply the security settings of the recovery point. Click **Next**.
+10. Select **Specify recovery options**, and apply security settings to the SharePoint farm or apply the security settings of the recovery point. Select **Next**.
 
     ![Recovery Options](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -175,7 +175,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
     > You can choose to throttle the network bandwidth usage. This minimizes impact to the production server during production hours.
     >
     >
-11. Review the summary information, and then click **Recover** to begin recovery of the file.
+11. Review the summary information, and then select **Recover** to begin recovery of the file.
 
     ![Recovery summary](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. Now select the **Monitoring** tab in the **MABS Administrator Console** to view the **Status** of the recovery.
@@ -198,7 +198,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
    > Because the SharePoint farm is protected for long-term retention in Azure, no catalog information (metadata) is available on the MABS server. As a result, whenever a point-in-time SharePoint content database needs to be recovered, you need to catalog the SharePoint farm again.
    >
    >
-3. Click **Re-catalog**.
+3. Select **Re-catalog**.
 
     ![MABS SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -206,10 +206,10 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![MABS SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    After cataloging is finished, the status changes to *Success*. Click **Close**.
+    After cataloging is finished, the status changes to *Success*. Select **Close**.
 
     ![MABS SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Click the SharePoint object shown in the MABS **Recovery** tab to get the content database structure. Right-click the item, and then click **Recover**.
+4. Select the SharePoint object shown in the MABS **Recovery** tab to get the content database structure. Right-click the item, and then select **Recover**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
@@ -244,7 +244,7 @@ The following procedure uses the example of a server farm with two front-end Web
 
 1. On *Server2*, at a command prompt, change the directory to `_MABS installation location_\bin\` and run **ConfigureSharepoint**. For more information about ConfigureSharePoint, see [Configure backup](#configure-backup).
 
-1. Select the protection group that the server farm belongs to, and then click **Modify protection group**.
+1. Select the protection group that the server farm belongs to, and then select **Modify protection group**.
 
 1. In the Modify Group Wizard, on the **Select Group Members** page, expand *Server2* and select the server farm, and then complete the wizard.
 

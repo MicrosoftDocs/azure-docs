@@ -2,12 +2,12 @@
 title: Data migration options from StorSimple 8000 series devices
 description: Provides an overview of the options to migrate data from StorSimple 8000 series.
 services: storsimple
-author: priestlg
+author: alkohli
 
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020 
-ms.author: v-grpr
+ms.author: alkohli
 
 ---
 # Options to migrate data from StorSimple 8000 series

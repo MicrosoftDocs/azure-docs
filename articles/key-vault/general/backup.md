@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault backup | Microsoft Docs
+title: Back up a secret, key, or certificate stored in Azure Key Vault | Microsoft Docs
 description: Use this document to help back up a secret, key, or certificate stored in Azure Key Vault.
 services: key-vault
 author: ShaneBala-keyvault
@@ -7,109 +7,112 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: sudbalas
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
 # Azure Key Vault backup
 
-This document will show you how to perform a backup of the individual secrets, keys, and certificates stored in your key vault. This backup is intended to provide you with an offline copy of all your secrets in the unlikely event that you lose access to your key vault.
+This document shows you how to back up secrets, keys, and certificates stored in your key vault. A backup is intended to provide you with an offline copy of all your secrets in the unlikely event that you lose access to your key vault.
 
 ## Overview
 
-Key Vault automatically provides several features to maintain availability and prevent data loss. This backup should only be attempted if there is a critical business justification to maintain a backup of your secrets. Backing up secrets in your key vault may introduce additional operational challenges such as maintaining multiple sets of logs, permissions, and backups when secrets expire or rotate.
+Azure Key Vault automatically provides features to help you maintain availability and prevent data loss. Back up secrets only if you have a critical business justification. Backing up secrets in your key vault may introduce operational challenges such as maintaining multiple sets of logs, permissions, and backups when secrets expire or rotate.
 
-Key Vault maintains availability in disaster scenarios and will automatically fail over requests to a paired region without any intervention needed from a user. For more information please see the following link. [Azure Key Vault Disaster Recovery](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)
+Key Vault maintains availability in disaster scenarios and will automatically fail over requests to a paired region without any intervention from a user. For more information, see [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
 
-Key Vault protects against accidental and malicious deletion of your secrets through soft-delete and purge protection. If you want protection against accidental or malicious deletion of your secrets, please configure soft-delete and purge protection features on your key vault. For more information, please see the following document. [Azure Key Vault Recovery](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
+If you want protection against accidental or malicious deletion of your secrets, configure soft-delete and purge protection features on your key vault. For more information, see [Azure Key Vault soft-delete overview](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## Limitations
 
-Azure Key Vault does not currently support a way to back up an entire key vault in a single operation. Any attempt to use the commands listed in this document to perform an automated backup of a key vault will not be supported by Microsoft or the Azure Key Vault Team.
+Key Vault doesn't currently provide a way to back up an entire key vault in a single operation. Any attempt to use the commands listed in this document to do an automated backup of a key vault may result in errors and won't be supported by Microsoft or the Azure Key Vault team. 
 
-Attempting to use the commands shown in the document below to create custom automation may result in errors.
+Also consider the following consequences:
 
-* Backing up secrets with multiple versions may cause timeout errors.
-* Backup creates a point-in-time snapshot. Secrets may renew during a backup causing a mismatch of encryption keys.
-* Exceeding key vault service limits for requests per second will cause your key vault to be throttled and will cause the backup to fail.
+* Backing up secrets that have multiple versions might cause time-out errors.
+* A backup creates a point-in-time snapshot. Secrets might renew during a backup, causing a mismatch of encryption keys.
+* If you exceed key vault service limits for requests per second, your key vault will be throttled, and the backup will fail.
 
 ## Design considerations
 
-When you back up an object stored in key vault (secret, key, or certificate) the backup operation downloads the object as an encrypted blob. This blob cannot be decrypted outside of Azure. To get usable data from this blob, you must restore the blob into a key vault within the same Azure Subscription and Azure Geography.
-[Azure Geographies](https://azure.microsoft.com/global-infrastructure/geographies/)
+When you back up a key vault object, such as a secret, key, or certificate, the backup operation will download the object as an encrypted blob. This blob can't be decrypted outside of Azure. To get usable data from this blob, you must restore the blob into a key vault within the same Azure subscription and [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Prerequisites
 
-* Contributor level or higher permissions on an Azure Subscription
-* A primary key vault containing secrets you want to back up
+To back up a key vault object, you must have: 
+
+* Contributor-level or higher permissions on an Azure subscription.
+* A primary key vault that contains the secrets you want to back up.
 * A secondary key vault where secrets will be restored.
 
-## Back up and restore with Azure portal
+## Back up and restore from the Azure portal
+
+Follow the steps in this section to back up and restore objects by using the Azure portal.
 
 ### Back up
 
-1. Navigate to the Azure portal.
+1. Go to the Azure portal.
 2. Select your key vault.
-3. Navigate to the object (secret, key, or certificate) you want to back up.
+3. Go to the object (secret, key, or certificate) you want to back up.
 
-    ![Image](../media/backup-1.png)
+    ![Screenshot showing where to select the Keys setting and an object in a key vault.](../media/backup-1.png)
 
 4. Select the object.
-5. Select 'Download Backup'
+5. Select **Download Backup**.
 
-    ![Image](../media/backup-2.png)
+    ![Screenshot showing where to select the Download Backup button in a key vault.](../media/backup-2.png)
     
-6. Click the 'Download' Button.
+6. Select **Download**.
 
-    ![Image](../media/backup-3.png)
+    ![Screenshot showing where to select the Download button in a key vault.](../media/backup-3.png)
     
 7. Store the encrypted blob in a secure location.
 
 ### Restore
 
-1. Navigate to the Azure portal.
+1. Go to the Azure portal.
 2. Select your key vault.
-3. Navigate to the type of object (secret, key, or certificate) you want to restore.
-4. Select 'Restore Backup'
+3. Go to the type of object (secret, key, or certificate) you want to restore.
+4. Select **Restore Backup**.
 
-    ![Image](../media/backup-4.png)
+    ![Screenshot showing where to select Restore Backup in a key vault.](../media/backup-4.png)
     
-5. Browse to the location where you stored the encrypted blob.
-6. Select "Ok".
+5. Go to the location where you stored the encrypted blob.
+6. Select **OK**.
 
-## Back up and restore with the Azure CLI
+## Back up and restore from the Azure CLI
 
 ```azurecli
-## Login To Azure
+## Log in to Azure
 az login
 
-## Set your Subscription
+## Set your subscription
 az account set --subscription {AZURE SUBSCRIPTION ID}
 
-## Register Key Vault as a Provider
+## Register Key Vault as a provider
 az provider register -n Microsoft.KeyVault
 
-## Backup a Certificate in Key Vault
+## Back up a certificate in Key Vault
 az keyvault certificate backup --file {File Path} --name {Certificate Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Backup a Key in Key Vault
+## Back up a key in Key Vault
 az keyvault key backup --file {File Path} --name {Key Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Backup a Secret in Key Vault
+## Back up a secret in Key Vault
 az keyvault secret backup --file {File Path} --name {Secret Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Certificate in Key Vault
+## Restore a certificate in Key Vault
 az keyvault certificate restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Key in Key Vault
+## Restore a key in Key Vault
 az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Secret in Key Vault
+## Restore a secret in Key Vault
 az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
 ```
 
 ## Next steps
 
-Turn on logging and monitoring for your Azure Key Vault. [Azure Key Vault Logging](https://docs.microsoft.com/azure/key-vault/general/logging)
+Turn on [logging and monitoring](https://docs.microsoft.com/azure/key-vault/general/logging) for Key Vault.

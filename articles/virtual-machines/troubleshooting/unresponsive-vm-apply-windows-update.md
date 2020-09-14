@@ -22,7 +22,7 @@ This article provides steps to resolve issues where Windows Update (KB) generate
 
 ## Symptoms
 
-When using [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, the Windows Update (KB) in progress is displayed, but fails with error code: 'C01A001D'.
+When using [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, the Windows Update (KB) in progress is displayed, but fails with error code: 'C01A001D'.
 
 ![unresponsive Windows Update](./media/unresponsive-vm-apply-windows-update/unresponsive-windows-update.png)
 
@@ -44,17 +44,17 @@ A core file can't be created in the file system. The operating system is unable 
 
 ### Create and access a repair VM
 
-1. Follow [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
+1. Follow [steps 1-3 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 2. Connect to the Repair VM using Remote Desktop Connection.
 
 ### Free up space on the hard disk
 
 If the disk isn't already 1 Tb, you must resize it. Once the disk is 1 TB, perform a disk cleanup and a defragmentation of the drive.
 
-1. Check if the disk is full. If the disk is below 1 Tb, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Check if the disk is full. If the disk is below 1 Tb, [expand it to a maximum of 1 Tb using PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
 2. Once the disk is 1 Tb, perform a disk cleanup.
-    - [Detach the data disk from the broken VM](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-    - [Attach the data disk to a functioning VM](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+    - [Detach the data disk from the broken VM](../windows/detach-disk.md).
+    - [Attach the data disk to a functioning VM](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
     - Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
 3. After resizing and cleanup, defragment the drive:
 
@@ -110,4 +110,4 @@ If the disk isn't already 1 Tb, you must resize it. Once the disk is 1 TB, perfo
 
 ### Rebuild the VM
 
-Use [step 5 of the VM repair commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to reassemble the VM.
+Use [step 5 of the VM repair commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to reassemble the VM.

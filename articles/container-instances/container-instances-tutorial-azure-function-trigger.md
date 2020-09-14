@@ -3,7 +3,7 @@ title: Tutorial - Trigger container group by Azure function
 description: Create an HTTP-triggered, serverless PowerShell function to automate creation of Azure container instances
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use an HTTP-triggered Azure function to create a container group
@@ -28,7 +28,7 @@ Additional steps in this article use Azure PowerShell. If you need to install or
 
 ## Create a basic PowerShell function
 
-Follow steps in [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-powershell.md) to create a PowerShell function using the HTTP Trigger template. Use the default Azure function name **HttpTrigger**. As shown in the quickstart, test the function locally, and publish the project to a function app in Azure. This example is a basic HTTP-triggered function that returns a text string. In later steps in this article, you modify the function to create a container group.
+Follow steps in [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) to create a PowerShell function using the HTTP Trigger template. Use the default Azure function name **HttpTrigger**. As shown in the quickstart, test the function locally, and publish the project to a function app in Azure. This example is a basic HTTP-triggered function that returns a text string. In later steps in this article, you modify the function to create a container group.
 
 This article assumes you publish the project using the name *myfunctionapp*, in an Azure resource group automatically named according to the function app name (also *myfunctionapp*). Substitute your unique function app name and resource group name in later steps.
 
@@ -196,7 +196,7 @@ In this tutorial, you created an Azure function that takes an HTTP request and t
 
 For a detailed example to launch and monitor a containerized job, see the blog post [Event-Driven Serverless Containers with PowerShell Azure Functions and Azure Container Instances](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) and accompanying [code sample](https://github.com/anthonychu/functions-powershell-run-aci).
 
-See the [Azure Functions documentation](/azure/azure-functions/) for detailed guidance on creating Azure functions and publishing a functions project. 
+See the [Azure Functions documentation](../azure-functions/index.yml) for detailed guidance on creating Azure functions and publishing a functions project. 
 
 <!-- IMAGES -->
 

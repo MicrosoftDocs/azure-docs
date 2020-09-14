@@ -3,8 +3,10 @@ title: Azure Functions SignalR Service trigger binding
 description: Learn to send SignalR Service messages from Azure Functions.
 author: chenyl
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
+
 ---
 
 # SignalR Service trigger binding for Azure Functions
@@ -38,7 +40,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### With Traditional model
 
-Traditional model obeys the convention of Azure Function developed by C#. If you're not familiar with it, you can learn from [documents](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
+Traditional model obeys the convention of Azure Function developed by C#. If you're not familiar with it, you can learn from [documents](./functions-dotnet-class-library.md).
 
 ```cs
 [FunctionName("SignalRTest")]
