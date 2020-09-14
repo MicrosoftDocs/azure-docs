@@ -18,7 +18,7 @@ Connections that don't reach Windows Virtual Desktop won't show up in diagnostic
 
 ## Common error scenarios
 
-The WVDErrors table tracks errors across all activity types that are tracked by the service. The column ServiceError provides an additional flag that helps you to understand whether the issue is or isn't related to the service. If the column states:
+The WVDErrors table tracks errors across all activity types. The column called "ServiceError" provides an additional flag marked either "True" or "False." This flag will tell you whether the error is related to the service.
 * True: this issue can't be mitigated on your side and recommendation is to raise a support ticket under Windows Virtual desktop if you notice an unusual high occorunce. 
 * False: you will need to investigate further. The error message itself may hint the area you need to investigate next.
 
