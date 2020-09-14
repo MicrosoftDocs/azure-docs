@@ -188,7 +188,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 '
 ```
 
-This invocation uploads the last 100 log lines from edgeAgent and edgeAgent and the last 1000 log lines from tempSensor module in uncompressed text format:
+This invocation uploads the last 100 log lines from edgeAgent and edgeHub with the last 1000 log lines from tempSensor module in uncompressed text format:
 
 ```azurecli
 az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
