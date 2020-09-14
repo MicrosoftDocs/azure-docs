@@ -66,7 +66,7 @@ import com.microsoft.azure.cosmosdb.spark._
 ```
 
 ### Use Azure Toolkit for IntelliJ
-[Azure Toolkit for IntelliJ plug-in](./apache-spark-intellij-tool-plugin.md) provides UI experience to submit Spark Scala application to an HDInsight cluster. It provides `Referenced Jars` and `Referenced Files` properties to configure jar libs paths when submitting the Spark application. See more details about [How to use Azure Tookit for IntelliJ plug-in for HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
+[Azure Toolkit for IntelliJ plug-in](./apache-spark-intellij-tool-plugin.md) provides UI experience to submit Spark Scala application to an HDInsight cluster. It provides `Referenced Jars` and `Referenced Files` properties to configure jar libs paths when submitting the Spark application. See more details about [How to use Azure Toolkit for IntelliJ plug-in for HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
 
 ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
@@ -116,7 +116,7 @@ HDInsight Jupyter notebook PySpark kernel doesn't support installing Python pack
    sys.path.insert(0, "/usr/libs/pylibs/pypackage.zip")
    ```
 
-3. Run `import` to check if your packages have been included succeessfully.  
+3. Run `import` to check if your packages have been included successfully.  
 
 ## Python packages for cluster
 You can install Python packages from Anaconda to the cluster using conda command via script actions. The packages installed are at cluster level and apply to all applications. 
