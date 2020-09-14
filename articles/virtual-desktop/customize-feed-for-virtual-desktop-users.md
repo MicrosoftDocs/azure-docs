@@ -101,7 +101,7 @@ You can change the display name for a published remote desktop by setting a frie
 
 3. Under Services, select **Windows Virtual Desktop**.
 
-4. On the Windows Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the app group you want to edit. (For example, if you want to add the desktop app group, select the app group named **Desktop**.)
+4. On the Windows Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the app group you want to edit. (For example, if you want to edit the display name of the desktop app group, select the app group named **Desktop**.)
 
 5. Select **Applications** in the menu on the left side of the screen.
 
