@@ -18,8 +18,6 @@ ms.custom: mvc
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written for Python and is included in the Azure IoT Hub Device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
@@ -46,11 +44,11 @@ git clone https://github.com/Azure/azure-iot-sdk-python
 
 ## Run the sample device
 
-The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. This quickstart uses the *pnp_thermostat.py* file. This sample code implements an IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
+The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. This quickstart uses the *simple_thermostat.py* file. This sample code implements an IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
 
 Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 
-Open the **pnp_thermostat.py** file in a text editor. Notice how it:
+Open the **simple_thermostat.py** file in a text editor. Notice how it:
 
 1. Defines a single device twin model identifier (DTMI) that uniquely represents the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json). A DTMI must be known to the user and varies dependent on the scenario of device implementation. For the current sample, the model represents a thermostat that has telemetry, properties, and commands associated with monitoring temperature.
 
@@ -66,7 +64,7 @@ Open the **pnp_thermostat.py** file in a text editor. Notice how it:
 
     1. Updates properties. The model we are using, **Thermostat**, defines `targetTemperature` and `maxTempSinceLastReboot` as the two properties for our Thermostat, so that is what we will be using. Properties are updated using the `patch_twin_reported_properties` method defined on the `device_client`.
 
-    1. Starts listening for command requests using the **execute_command_listener** function. The function sets up a 'listener' to listen for commands coming from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and `create_user_response_handler`. 
+    1. Starts listening for command requests using the **execute_command_listener** function. The function sets up a 'listener' to listen for commands coming from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and `create_user_response_handler`.
         - The `user_command_handler` function defines what the device should do when it receives a command. For instance, if your alarm goes off, the effect of receiving this command is you wake up. Think of this as the 'effect' of the command being invoked.
         - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. For instance, if your alarm goes off, you respond by hitting snooze, which is feedback to the service. Think of this as the reply you give to the service. You can view this response in the portal.
 
@@ -79,7 +77,7 @@ Open the **pnp_thermostat.py** file in a text editor. Notice how it:
 Now that you've seen the code, use the following command to run the sample:
 
 ```cmd/sh
-python pnp_thermostat.py
+python simple_thermostat.py
 ```
 
 You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates:

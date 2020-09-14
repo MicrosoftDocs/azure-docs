@@ -51,7 +51,7 @@ In this quickstart, you use a sample thermostat device, written in Python, as th
 1. Run the sample thermostat device with the following command:
 
     ```cmd/sh
-    python pnp_thermostat.py
+    python simple_thermostat.py
     ```
 
 1. You see messages saying that the device has sent some information and reported itself online. These messages indicate that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you need it to confirm the service sample is working.

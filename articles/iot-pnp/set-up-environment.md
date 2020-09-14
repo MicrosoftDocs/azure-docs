@@ -64,7 +64,7 @@ Most of the quickstarts and tutorials use the *ID scope* of your DPS configurati
 az iot dps show --name my-pnp-dps --query properties.idScope
 ```
 
-All the quickstarts and tutorials use a DPS device enrollment. Use the following command to create a `my-pnp-device` device enrollment in your DPS instance. Replace `my-pnp-dps` with the unique name you chose for your DPS instance. Make a note of the registration ID and primary key values to use in the quickstarts and tutorials:
+All the quickstarts and tutorials use a DPS device enrollment. Use the following command to create a `my-pnp-device` *individual device enrollment* in your DPS instance. Replace `my-pnp-dps` with the unique name you chose for your DPS instance. Make a note of the registration ID and primary key values to use in the quickstarts and tutorials:
 
 ```azurecli-interactive
 az iot dps enrollment create --attestation-type symmetrickey --dps-name my-pnp-dps --resource-group my-pnp-resourcegroup --enrollment-id my-pnp-device --device-id my-pnp-device --query '{registrationID:registrationId,primaryKey:attestation.symmetricKey.primaryKey}'
