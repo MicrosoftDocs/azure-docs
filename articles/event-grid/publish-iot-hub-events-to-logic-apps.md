@@ -2,11 +2,11 @@
 title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
 description: This tutorial shows how to use the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
 services: iot-hub, event-grid
-author: robinsh
+author: philmea
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 07/07/2020
-ms.author: robinsh 
+ms.date: 09/14/2020
+ms.author: philmea 
 ms.custom: devx-track-azurecli
 ---
 
@@ -124,8 +124,6 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
 1. Select **New step**. This opens a window to **Choose an action**.
 
-1. Select the **All** tab.
-
 1. Search for **Outlook**.
 
 1. Based on your email provider, find and select the matching connector. This tutorial uses **Outlook.com**. The steps for other email providers are similar. 
@@ -178,15 +176,20 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 1. Create the event subscription with the following values: 
 
-   1. In the **EVENT SUBSCRIPTION DETAILS** section, do the following tasks:
-        1. Provide a **name** for the event subscription. 
-        2. Select **Event Grid Schema** for **Event Schema**. 
-   2. In the **TOPIC DETAILS** section, do the following tasks:
-       1. Confirm that the **Topic type** is set to **IoT Hub**. 
-       2. Confirm that the name of the IoT hub is set as the value for the **Source Resource** field. 
-       3. Enter a name for the **system topic** that will be created for you. To learn about system topics, see [Overview of system topics](system-topics.md).
+   1. In the **EVENT SUBSCRIPTION DETAILS** section:
+      1. Provide a **name** for the event subscription. 
+      2. Select **Event Grid Schema** for **Event Schema**. 
+   2. In the **TOPIC DETAILS** section:
+      1. Confirm that the **Topic type** is set to **IoT Hub**. 
+      2. Confirm that the name of the IoT hub is set as the value for the **Source Resource** field. 
+      3. Enter a name for the **system topic** that will be created for you. To learn about system topics, see [Overview of system topics](system-topics.md).
+   3. In the **EVENT TYPES** section:
+      1. Select the **Filter to Event Types** drop-down.
+      1. Deselect  the **Device Created** and **Device Deleted** checkboxes, leaving only the **Device Connected** and **Device Disconnected** checkboxes selected.
 
-   3. In the **ENDPOINT DETAILS** section, do the following tasks: 
+         ![select subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   
+   1. In the **ENDPOINT DETAILS** section: 
        1. Select **Endpoint Type** as **Web Hook**.
        2. Click **select an endpoint**, paste the URL that you copied from your logic app, and confirm selection.
 
@@ -221,7 +224,6 @@ Test your logic app by quickly simulating a device connection using the Azure CL
     ![Example alert mail](./media/publish-iot-hub-events-to-logic-apps/alert-mail.png)
 
 1. When the simulation completes, you will recieve an email notifying you of a "DeviceDisconnected" event. 
-
 
 ## Clean up resources
 
