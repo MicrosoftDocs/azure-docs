@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with SolarWinds, perform the following step
 
 <a name="configure-solarwinds-single-sign-on"></a>
 
-### Configure SolarWinds Service Desk (previously Samanage) Single Sign-On
+### Configure SolarWinds Service Desk Single Sign-On
 
 1. In a different web browser window, log into your SolarWinds company site as an administrator.
 

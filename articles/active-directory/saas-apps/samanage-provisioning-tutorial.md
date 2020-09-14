@@ -17,7 +17,7 @@ ms.author: Zhchia
 
 This tutorial describes the steps you need to perform in both SolarWinds Service Desk (previously Samanage) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [SolarWinds Service Desk](https://www.samanage.com/pricing/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## Migrate to the new SolarWinds Service Desk (previously Samanage) application
+## Migrate to the new SolarWinds Service Desk application
 
 If you have an existing integration with SolarWinds Service Desk, see the following section about upcoming changes. If you're setting up SolarWinds Service Desk for the first time, you can skip this section and move to **Capabilities supported**.
 
@@ -75,7 +75,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## Step 5. Configure automatic user provisioning to SolarWinds Service Desk (previously Samanage) 
+## Step 5. Configure automatic user provisioning to SolarWinds Service Desk 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
