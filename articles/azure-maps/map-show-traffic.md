@@ -54,7 +54,7 @@ The following tool lets you switch between the different traffic overlay setting
 
 There are two different traffic controls that can be added to the map. The first control, `TrafficControl`, adds a toggle button that can be used to turn traffic on and off. Options for this control allow you to specify when traffic settings to use when show traffic. By default this control will display relative traffic flow and incident data, however, you could change this to show absolute traffic flow and no incidents if desired. The second control, `TrafficLegendControl`, adds a traffic flow legend to the map that helps user understand what the color code road highlights mean. This control will only appear on the map when traffic flow data is displayed on the map and will be hidden at all other times.
 
-The following code shows how to add these traffic controls to the map.
+The following code shows how to add the traffic controls to the map.
 
 ```JavaScript
 //Att the traffic control toogle button to the top right corner of the map.
