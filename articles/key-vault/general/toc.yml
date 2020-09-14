@@ -61,14 +61,10 @@
       href: security-baseline.md
     - name: Security recommendations for Azure Key Vault
       href: security-recommendations.md
-<<<<<<< HEAD
-  - name: Notifications
-=======
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-  - name: Notifications (preview)
->>>>>>> 37092c846f0ce965a2b33628eaa763f68645dbc7
+  - name: Notifications
     items:
     - name: Monitor with Azure Event Grid
       href: event-grid-overview.md
