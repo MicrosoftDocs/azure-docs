@@ -135,7 +135,7 @@ At a high level:
 
 ## Modify the iOS project
 
-Now that you have modified your app backend to send just the **id** of a notification, change your iOS app to handle that ID, and retrieve the rich message from your backend:
+Now that you've modified your app backend to send just the *ID* of a notification, change your iOS app to handle that ID, and retrieve the rich message from your backend:
 
 1. Open your iOS project, and enable remote notifications by going to your main app target in the **Targets** section.
 2. Select **Capabilities**, enable **Background Modes**, and check the **Remote Notifications** checkbox.
