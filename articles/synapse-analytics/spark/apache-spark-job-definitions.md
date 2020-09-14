@@ -15,20 +15,22 @@ ms.date: 04/15/2020
 This tutorial demonstrates how to use the Azure Synapse Studio to create Apache Spark job definitions, and then submit them to an Apache Spark pool.
 
 This tutorial covers the following tasks:
-
-* Create an Apache Spark job definition for PySpark (Python)
-* Create an Apache Spark job definition for Spark(Scala)
-* Create an Apache Spark job definition for .NET Spark(C#/F#)
-* Submit an Apache Spark job definition as a batch job
-* Add an Apache Spark job definition into pipeline
+> [!div class="checklist"]
+>
+> - Create an Apache Spark job definition for PySpark (Python)
+> - Create an Apache Spark job definition for Spark(Scala)
+> - Create an Apache Spark job definition for .NET Spark(C#/F#)
+> - Submit an Apache Spark job definition as a batch job
+> - Add an Apache Spark job definition into pipeline
 
 ## Prerequisites
 
 Before you start with this tutorial, make sure to meet the following requirements:
 
 * An Azure Synapse Analytics workspace. For instructions, see [Create an Azure Synapse Analytics workspace](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
-* An Apache Spark pool
-* An ADLS Gen2 storage account. You need to be the Storage Blob Data Owner of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually.
+* An Apache Spark pool.
+* An ADLS Gen2 storage account. You need to be the **Storage Blob Data Owner** of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually.
+* Link the required ADLS Gen2 storage account in Synapse Studio.
 
 ## Create an Apache Spark job definition for PySpark (Python)
 
@@ -36,17 +38,23 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
 1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) to download **wordcount.py** and **shakespear.txt**. And then, upload these files into Azure Storage: Click **Data**, select **Storage accounts**, and upload related files to your ADLS Gen2 filesystem. Skip this step if your files are already in the Azure storage. 
+2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) to download **sample files for python.zip**, then unzip the compressed package, and extract the **wordcount.py** and **shakespear.txt** files. 
+
+     ![sample files](./media/apache-spark-job-definitions/sample-files.png)
+
+3. Upload **wordcount.py** and **shakespear.txt** files into Azure Storage: Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2** (hozhaobdbj), then, upload the sample files to your ADLS Gen2 filesystem. And create a folder, here is the folder named result. Skip this step if your files are already in the Azure storage. 
 
      ![upload python file](./media/apache-spark-job-definitions/upload-python-file.png)
 
-3. Click **Develop** hub, Select **Spark job definitions** from the left pane, click '…' Action node next to the **Spark job definition**, then select **New Spark job definition** in the context menu.
+4. Click **Develop** hub, click on '+' icon and select **Spark job definition** to create a new Spark job definition. Or click '…' Action node next to the Spark job definitions, then select **New Spark job definition** in the context menu.
 
      ![create new definition for python](./media/apache-spark-job-definitions/create-new-definition.png)
 
-4. Select **PySpark (Python)** from the Language drop down list in the Apache Spark job definition main window.
+5. Select **PySpark (Python)** from the Language drop down list in the Apache Spark job definition main window.
 
-5. Fill in information for Apache Spark job definition. You can copy the sample information.
+     ![select python](./media/apache-spark-job-definitions/select-python.png)
+
+6. Fill in information for Apache Spark job definition. 
 
      |  Property   | Description   |  
      | ----- | ----- |  
@@ -62,7 +70,7 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
      ![Set the value of the Spark job definition for Python](./media/apache-spark-job-definitions/create-py-definition.png)
 
-6. Select **Publish** to save the Apache Spark job definition.
+7. Select **Publish** to save the Apache Spark job definition.
 
      ![publish py definition](./media/apache-spark-job-definitions/publish-py-definition.png)
 
