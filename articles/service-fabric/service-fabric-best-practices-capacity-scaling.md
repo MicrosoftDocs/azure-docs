@@ -43,6 +43,9 @@ Using automatic scaling through virtual machine scale sets will make your versio
 > [!NOTE]
 > Your primary node type that hosts stateful Service Fabric system services must be Silver durability level or greater. After you enable Silver durability, cluster operations such as upgrades, adding or removing of nodes, and so on will be slower because the system optimizes for data safety over speed of operations.
 
+> [!IMPORTANT]
+> Service Fabric autoscaling supports `Default` and `NewestVM` virtual machine scale set [scale-in configurations](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md).
+
 Vertical scaling a virtual machine scale set is a destructive operation. Instead, horizontally scale your cluster by adding a new scale set with the desired SKU. Then, migrate your services to your desired SKU to complete a safe vertical scaling operation. Changing a virtual machine scale set resource SKU is a destructive operation because it reimages your hosts, which removes all locally persisted state.
 
 Your cluster uses Service Fabric [node properties and placement constraints](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) to decide where to host your application's services. When you're vertically scaling your primary node type, declare identical property values for `"nodeTypeRef"`. You can find these values in the Service Fabric extension for virtual machine scale sets. 
