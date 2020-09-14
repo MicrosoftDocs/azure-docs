@@ -51,9 +51,8 @@ Prerequisites for this tutorial are:
 
 ## Review the sample video
 
-When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This tutorial uses the video file to simulate a live stream.
 
-Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to the [toy car inference video](https://www.videolan.org/vlc/) to start playback. As you watch the video note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck. In this tutorial, you'll use Live Video Analytics on IoT Edge to detect such toy trucks and publish associated inference events to IoT Edge Hub.
+This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv/) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck. In this tutorial, you'll use Live Video Analytics on IoT Edge to detect such toy trucks and publish associated inference events to IoT Edge Hub.
 
 ## Overview
 
@@ -135,9 +134,12 @@ Once finished, if the model is ready as per your satisfaction, you can export it
 
 1. In VSCode, navigate to "src/cloud-to-device-console-app/operations.json"
 
-  1. Under GraphTopologySet, ensure the following is true:<br/>`"topologyUrl" : " https:// https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/customvision/topology.json"`
-  1. Under GraphInstanceSet, ensure: "topologyName" : "CustomVisionWithHttpExtension" and change the rtspUrl parameter value to – "rtsp://rtspsim:554/media/t2.mkv"
-  1. Under GraphTopologyDelete, ensure "name": " CustomVisionWithHttpExtension"
+1. Under GraphTopologySet, ensure the following is true:<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+1. Under GraphInstanceSet, ensure: 
+    1. "topologyName" : "InferencingWithHttpExtension"
+    1. Add the following to the top of parameters array - `{"name": "inferencingUrl","value": "http://cv:80/image"},`
+    1. Change the rtspUrl parameter value to – "rtsp://rtspsim:554/media/t2.mkv"    
+1. Under GraphTopologyDelete, ensure "name": "InferencingWithHttpExtension"
 1. Right click on "src/edge/ deployment.customvision.template.json" file and click on **Generate IoT Edge Deployment Manifest**.
 
     > [!div class="mx-imgBorder"]
@@ -202,6 +204,10 @@ If you open the graph topology for this tutorial in a browser, you will see that
             "topologyName": "CustomVisionWithHttpExtension",
             "description": "Sample graph description",
             "parameters": [
+              { 
+                "name": "inferencingUrl",
+                "value": "http://cv:80/image"
+              },
               {
                 "name": "rtspUrl",
                 "value": "rtsp://rtspsim:554/media/t2.mkv"
