@@ -111,5 +111,5 @@ If the device keys are not installed in the factory, a [hardware security module
 Now that you have an understanding of Symmetric Key attestation, check out the following articles to learn more:
 
 * [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
-* [Learn about the concepts in auto-provisioning](./concepts-auto-provisioning.md)
+* [Learn about the concepts of provisioning](about-iot-dps.md#provisioning-process)
 * [Get started using auto-provisioning](./quick-setup-auto-provision.md) 

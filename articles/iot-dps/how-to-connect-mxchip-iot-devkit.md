@@ -1,18 +1,18 @@
 ---
 title: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub  | Microsoft Docs
 description: How to use Azure IoT Hub Device Provisioning Service (DPS) auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
-author: liydu
-ms.author: liydu
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
+manager: eliotgra
 ---
 
 # Use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub
 
-This article describes how to use Azure IoT Hub Device Provisioning Service [auto-provisioning](concepts-auto-provisioning.md), to register the MXChip IoT DevKit with Azure IoT Hub. In this tutorial, you learn how to:
+This article describes how to use the Azure IoT Hub Device Provisioning Service to [provisioning](about-iot-dps.md#provisioning-process) the MXChip IoT DevKit to an Azure IoT Hub. In this tutorial, you learn how to:
 
 * Configure the global endpoint of the Device Provisioning service on a device.
 * Use a unique device secret (UDS) to generate an X.509 certificate.

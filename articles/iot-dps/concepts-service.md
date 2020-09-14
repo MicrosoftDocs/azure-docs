@@ -12,7 +12,7 @@ manager: eliotga
 
 # IoT Hub Device Provisioning Service (DPS) terminology
 
-IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service, you can [provision](concepts-auto-provisioning.md) millions of devices in a secure and scalable manner.
+IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service, you can [provision](about-iot-dps.md#provisioning-process) millions of devices in a secure and scalable manner.
 
 Device provisioning is a two part process. The first part is establishing the initial connection between the device and the IoT solution by *registering* the device. The second part is applying the proper *configuration* to the device based on the specific requirements of the solution. Once both steps have been completed, the device has been fully *provisioned*. Device Provisioning Service automates both steps to provide a seamless provisioning experience for the device.
 

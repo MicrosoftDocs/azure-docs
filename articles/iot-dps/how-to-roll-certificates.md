@@ -15,7 +15,7 @@ During the lifecycle of your IoT solution, you'll need to roll certificates. Two
 
 Rolling certificates is a security best practice to help secure your system in the event of a breach. As part of [Assume Breach Methodology](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft advocates the need for having reactive security processes in place along with preventative measures. Rolling your device certificates should be included as part of these security processes. The frequency in which you roll your certificates will depend on the security needs of your solution. Customers with solutions involving highly sensitive data may roll certificate daily, while others roll their certificates every couple years.
 
-Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. Afterwards, the device can reprovision itself with the IoT hub using normal [auto-provisioning](concepts-auto-provisioning.md) with the Device Provisioning Service.
+Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. Afterwards, the device can reprovision itself with the IoT hub using normal [provisioning](about-iot-dps.md#provisioning-process) with the Device Provisioning Service (DPS).
 
 
 ## Obtain new certificates
@@ -31,7 +31,7 @@ The second way is to create your own X.509 certificates using a tool like OpenSS
 
 ## Roll the certificate on the device
 
-Certificates on a device should always be stored in a safe place like a [hardware security module (HSM)](concepts-device.md#hardware-security-module). The way you roll device certificates will depend on how they were created and installed in the devices in the first place. 
+Certificates on a device should always be stored in a safe place like a [hardware security module (HSM)](concepts-service.md#hardware-security-module). The way you roll device certificates will depend on how they were created and installed in the devices in the first place. 
 
 If you got your certificates from a third party, you must look into how they roll their certificates. The process may be included in your arrangement with them, or it may be a separate service they offer. 
 
