@@ -18,7 +18,7 @@ In this article, you learn how to manage dependencies for your Spark application
 
 Use quick links to jump to the section based on your user case:
 * [Set up Spark job jar dependencies using Jupyter notebook](#use-jupyter-notebook)
-* [Set up Spark job jar dependencies using Use Azure Toolkit for IntelliJ](#use-apache-livy)
+* [Set up Spark job jar dependencies using Use Azure Toolkit for IntelliJ](#use-azure-toolkit-for-intellij)
 * [Configure jar dependencies for Spark cluster](#jar-libs-for-cluster)
 * [Safely manage jar dependencies](#safely-manage-jar-dependencies)
 * [Set up Spark job Python packages using Jupyter notebook](#use-jupyter-notebook-1)
