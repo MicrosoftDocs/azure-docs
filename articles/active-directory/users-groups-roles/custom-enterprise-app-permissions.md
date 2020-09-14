@@ -16,7 +16,11 @@ ms.custom: it-pro
 
 # Enterprise application permissions for custom roles in Azure Active Directory
 
-This article contains the currently available Enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article you'll find permission lists for some common scenarios and the full list of enterprise app permissions.
+This article contains the currently available Enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article you'll find: permission lists for some common scenarios and the full list of enterprise app permissions.
+
+## Required license plan
+
+Using this feature requires an Azure AD Premium P1 license for your Azure AD organization. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Delegate only App Proxy connectors
 
