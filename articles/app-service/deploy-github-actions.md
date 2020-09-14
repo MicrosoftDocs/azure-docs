@@ -24,7 +24,7 @@ For an Azure App Service workflow, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
+|**Authentication** | 1. Define a service principal or publish profile. <br /> 2. Create a GitHub secret. |
 |**Build** | 1. Set up the environment. <br /> 2. Build the web app. |
 |**Deploy** | 1. Deploy the web app. |
 
