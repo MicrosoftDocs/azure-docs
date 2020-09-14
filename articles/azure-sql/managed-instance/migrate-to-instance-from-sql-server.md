@@ -120,7 +120,7 @@ RESTORE of native backups (.bak files) taken from a SQL Server instance, availab
 
 The following diagram provides a high-level overview of the process:
 
-![This diagram shows SQL Server with an arrow labeled BACKUP / Upload to URL flowing to Azure Storage and a second arrow labeled RESTORE from URL flowing from Azure Storage to a Managed Instance of SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![Diagram shows SQL Server with an arrow labeled BACKUP / Upload to URL flowing to Azure Storage and a second arrow labeled RESTORE from URL flowing from Azure Storage to a Managed Instance of SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 The following table provides more information regarding the methods you can use depending on source SQL Server version you are running:
 
