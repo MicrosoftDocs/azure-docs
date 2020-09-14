@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (AD) with:
 
-- [Azure AD Application Proxy](#secure-hybrid-access-(sha)-through-azure-ad-application-proxy)
+- [Azure AD Application Proxy](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
 
 - [Your existing application delivery controllers and networks](#sha-through-networking-and-delivery-controllers)
 
