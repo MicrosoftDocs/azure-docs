@@ -22,6 +22,13 @@ If migrating an existing web application, check to see if it is using an open-so
 - Leaflet – Lightweight 2D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentation](https://leafletjs.com/)
 - OpenLayers - A 2D map control for the web that supports projections. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentation](https://openlayers.org/)
 
+If developing using a JavaScript framework, one of the following open source projects may be useful:
+
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around azure maps.
+- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
+- [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
+- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
+
 ## Key features support
 
 The table lists key API features in the Google Maps V3 JavaScript SDK and the supported API feature in the Azure Maps Web SDK.
@@ -40,7 +47,7 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 | Geocoder service        | ✓                          |
 | Directions service      | ✓                          |
 | Distance Matrix service | ✓                          |
-| Elevation service       | Planned                    |
+| Elevation service       | Planned                     |
 
 ## Notable differences in the web SDKs
 
