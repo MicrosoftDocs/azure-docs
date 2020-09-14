@@ -32,8 +32,8 @@ Before continuing with this example, you'll need to set up the following resourc
 
 ### Example telemetry scenario
 
-This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using an Azure function. There are many possible configurations and matching strategies you can use for this, but the example for this article contains the following parts:
-* A thermometer device in IoT Hub, with a known device ID.
+This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using an Azure function. There are many possible configurations and matching strategies you can use for sending messages, but the example for this article contains the following parts:
+* A thermometer device in IoT Hub, with a known device ID
 * A digital twin to represent the device, with a matching ID
 
 > [!NOTE]
@@ -41,7 +41,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 
 Whenever a temperature telemetry event is sent by the thermostat device, Azure function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart an IoT Hub device sends Temperature telemetry through IoT Hub to an Azure Function, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart, an IoT Hub device sends Temperature telemetry through IoT Hub to an Azure Function, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
 ## Add a model and twin
 
@@ -222,7 +222,7 @@ You can also verify your status of the publish process in the [Azure portal](htt
 2. In the **Create Event Subscription** page, fill the fields as follows:
     1. Under **Name**, name the subscription what you would like.
     2. Under **Event Schema**, choose **Event Grid Schema**.
-    3. Under **Event Types**, choose **Device Telemetry** checkbox and un-check other event types.
+    3. Under **Event Types**, choose **Device Telemetry** checkbox and uncheck other event types.
     4. Under **Endpoint Details**, 
         1. Endpoint Type: Select _Azure function_.
         2. Endpoint: Choose _Select an endpoint_ link. In the window that opens, verify the below details 

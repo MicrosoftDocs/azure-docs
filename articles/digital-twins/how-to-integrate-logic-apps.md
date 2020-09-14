@@ -106,7 +106,9 @@ In the *Edit Logic Apps Custom Connector* page that follows, configure this info
     - Import mode: OpenAPI file (leave default)
     - File: This will be the custom Swagger file you downloaded earlier. Hit *Import*, locate the file on your machine (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.json*), and hit *Open*.
 * **General information**
-    - Icon, Icon background color, Description: Fill whatever values you would like.
+    - Icon: Upload an icon that you like
+    - Icon background color: Enter hexadecimal code in the format '#xxxxxx' for your color. You can search for it on search engine.
+    - Description: Fill whatever values you would like.
     - Scheme: HTTPS (leave default)
     - Host: The *host name* of your Azure Digital Twins instance.
     - Base URL: / (leave default)
@@ -166,7 +168,22 @@ Navigate to the [Logic Apps](https://portal.azure.com/#blade/HubsExtension/Brows
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="The 'Logic Apps' page in the Azure portal. Highlight around 'Create logic app' button":::
 
-In the *Logic app* page that follows, select your subscription and resource group, and a name and deployment location for your new logic app. Hit *Review + create*. This will take you to the *Review + create* tab, where you can hit *Create* at the bottom to create your resource.
+
+In the *Logic app* page that follows, enter the following details:
+
+Project details:
+* _Subscription_: Select your Azure subscription
+    * _Resource group_: Select your resource group 
+
+Instance details:
+* _Logic App name_: Choose a name for your logic app
+* _Select the location_: Choose Region or Integration Service Environment
+* _Location_: Choose a location from the dropdown
+* _Log Analytics_: You can toggle it _On_ if you would like to push runtime events to Log Analytics 
+
+Select _Review + create_ button.
+
+This will take you to the *Review + create* tab, where you can review your details and hit *Create* at the bottom to create your resource.
 
 You'll be taken to the deployment page for the logic app. When it is finished deploying, hit the *Go to resource* button to continue to the *Logic Apps Designer*, where you will fill in the logic of the workflow.
 
@@ -189,9 +206,9 @@ Select it to display the list of APIs contained in that connector. Use the searc
 You may be asked to sign in with your Azure credentials to connect to the connector. If you get a *Permissions requested* dialogue, follow the prompts to grant consent for your app and accept.
 
 In the new *DigitalTwinsAdd* box, fill the fields as follows:
-* id: Fill the *Twin ID* of the digital twin in your instance that you'd like the Logic App to update.
-* Item - 1: This field is where you'll enter the body that the chosen API request requires. For *DigitalTwinsUpdate*, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
-* api-version: In the current public preview, this value is *2020-05-31-preview*
+* _id_: Fill the *Twin ID* of the digital twin in your instance that you'd like the Logic App to update.
+* _Item - 1_: This field is where you'll enter the body that the chosen API request requires. For *DigitalTwinsUpdate*, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
+* _api-version_: In the current public preview, this value is *2020-05-31-preview*
 
 Hit *Save* in the Logic Apps Designer.
 
