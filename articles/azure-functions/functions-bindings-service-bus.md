@@ -22,7 +22,7 @@ Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/
 ## Add to your Functions app
 
 > [!NOTE]
-> The Service Bus binding does not currently support using a managed identity for authentication. Please use a [Service Bus shared access signature](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature).
+> The Service Bus binding doesn't currently support authentication using a managed identity. Instead, please use a [Service Bus shared access signature](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature).
 
 ### Functions 2.x and higher
 
