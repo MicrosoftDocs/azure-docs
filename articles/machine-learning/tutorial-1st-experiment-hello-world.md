@@ -72,7 +72,7 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## Create control script
+## Create a control script
 
 A *control script* allows you to run your `hello.py` script in the cloud.  The control script lets you control how and where your machine learning code is run.  
 
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
-### Understanding the code 
+### Understanding the code
 
 Here's a description of how the control script works:
 
