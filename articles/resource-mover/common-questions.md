@@ -37,7 +37,7 @@ Using Resource Mover, you can currently move the following resources across regi
 
 ### Can I move resources across any region?
 
-Currently, you can move resources from any source public region to any target public region. Support for resources in Azure Government regions isn't available currently. 
+Currently, you can move resources from any source public region to any target public region subject to the (resource type support in that region](https://azure.microsoft.com/en-in/global-infrastructure/services/). Support for resources in Azure Government regions isn't available currently. 
 
 ### Can I move resources across subscriptions while moving them across regions?
 
