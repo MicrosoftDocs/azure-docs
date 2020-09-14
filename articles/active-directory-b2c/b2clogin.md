@@ -32,13 +32,13 @@ The deprecation of login.microsoftonline.com does not impact Azure Active Direct
 The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows or custom policies) to authenticate users. These endpoints have a `<policy-name>` parameter which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 These endpoints may look like:
-- <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
 
-- <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
+- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
 
 Alternatively, the `<policy-name>` may be passed as a query parameter:
-- <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
-- <code>https://\<tenant-name\>.b2clogin.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code>
+- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
+- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code>
 
 > [!IMPORTANT]
 > Endpoints that use the 'policy' parameter must be updated as well as [identity provider redirect URLs](#change-identity-provider-redirect-urls).
@@ -58,8 +58,15 @@ When you use *b2clogin.com* as your redirect URL:
 There are several modifications you might need to make to migrate your applications to *b2clogin.com*:
 
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*.
-* Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references.
+* Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references. This may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
 * Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](custom-policy-ui-customization.md).
+
+An old endpoint may look like:
+- <b><code>https://login.microsoft.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>
+
+A corresponding updated endpoint would look like:
+- <code><b>https://\<tenant-name\>.b2clogin.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>
+
 
 ## Change identity provider redirect URLs
 
