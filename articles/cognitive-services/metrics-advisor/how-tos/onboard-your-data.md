@@ -175,7 +175,7 @@ There are several advanced settings to enable data ingested in a customized way,
  
 Give a custom name for the data feed, which will be displayed in your workspace. Then click on **Submit**. In the data feed details page, you can use the ingestion progress bar to view status information.
 
-:::image type="content" source="../media/datafeeds/ingestion-progress.png" alt-text="Ingestion progress bar":::
+:::image type="content" source="../media/datafeeds/ingestion-progress.png" alt-text="Ingestion progress bar" lightbox="../media/datafeeds/ingestion-progress.png":::
 
 
 To check ingestion failure details: 

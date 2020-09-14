@@ -27,7 +27,7 @@ After you sign into into the demo site, you will see a **Data feed** page. a dat
 
 There are several data feeds listed, which are ingested from different types of data sources, such as Azure SQL database or Azure Table. Each uses slightly different configuration settings to connect to the associated data stores.
 
-:::image type="content" source="../media/sample-datafeeds.png" alt-text="Sample data list":::
+:::image type="content" source="../media/sample-datafeeds.png" alt-text="Sample data list" lightbox="../media/sample-datafeeds.png":::
 
 ## Explore the data feed configurations
 
@@ -39,14 +39,14 @@ Click on the *Sample - Cost/Revenue - City/Category* data feed. You'll see sever
 * Logs of when the data feed was updated.   
 * Data feed information and settings.
 
-:::image type="content" source="../media/data-feed-view.png" alt-text="Data feed view":::
+:::image type="content" source="../media/data-feed-view.png" alt-text="Data feed view" lightbox="../media/data-feed-view.png":::
 
 
 ## View time series visualizations and configurations
 
 Click into the *cost* metric in the *Sample - Cost/Revenue - City/Category* data feed. You'll see the associated time series sliced by dimensions, with visualizations according to the historical metric data. The blue band around the metric data represents the expected value range from Metrics Advisor's machine learning models. Points that fall outside of this band will be marked as red dots, which are detected anomalies. 
 
-![Series visualization](../media/series-visualization.png "Series visualization")
+:::image type="content" source="../media/series-visualization.png" alt-text="Series visualization" lightbox="../media/series-visualization.png":::
 
 The anomaly detection is configurable by tuning the **detecting configurations** on the left side of metric details page. Multiple anomaly detection methods are available and you can combine them. You can additionally try different sensitivities, detecting directions, and other configurations. The **Advanced configuration** link at the bottom of **detecting configurations** lets you create more complex and customized detection settings, which can be used on groups or individual series. 
 
@@ -54,7 +54,7 @@ You can also tune anomaly detection by providing feedback to the detection algor
 
 At the bottom of the **Add feedback** panel, there's a link of **To incident hub**, which will direct you to incident analysis page and analyze root cause of the incident.  
 
-![Incident link](../media/incident-link.png "Incident link")
+:::image type="content" source="../media/incident-link.png" alt-text="Incident link" lightbox="../media/incident-link.png":::
 
 ## Explore anomaly detection results and perform root cause analysis
 
@@ -62,7 +62,7 @@ When you click the **To incident hub** link from an anomaly, you will see an inc
 
 The **Diagnostics** section shows a tree of the incident, along with several tabs for diagnosing the incident.
 
-![Incident diagnostic](../media/incident-diagnostic.png "Incident diagnostic")
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Incident diagnostic" lightbox="../media/incident-diagnostic.png":::
 
 By pinpointing root cause of the incident, you can take take action and mitigate the issue before the situation gets worse. You can also explore more insights by clicking through the other diagnostic features provided. 
 
