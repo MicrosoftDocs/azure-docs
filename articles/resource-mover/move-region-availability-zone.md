@@ -67,8 +67,7 @@ Select resources you want to move.
     ![Button to get started](./media/move-region-availability-zone/get-started.png)
 
 3. In **Move resources** > **Source + destination**, select the source subscription and region.
-4. In **Destination**, select the region to which you want to move the VMs. 
-5. In **Metadata region**, select where you want to store metadata about resources you're moving. A resource group is created specifically for this purpose. Then click **Next**.
+4. In **Destination**, select the region to which you want to move the VMs. Then click **Next**.
 
      ![Page to fill in source and destination subscription/region](./media/move-region-availability-zone/source-target.png)
 
