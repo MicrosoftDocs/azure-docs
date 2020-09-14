@@ -36,6 +36,8 @@ Here is how to enable alerts for your Azure Digital Twins instance:
 
 For a guided walkthrough of filling out these fields, see [*Overview of alerts in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Below are some examples of what the steps will look like for Azure Digital Twins.
 
+### Select conditions
+
 Here is an excerpt from the *Select condition* process illustrating what types of alert signals are available for Azure Digital Twins. On this page you can filter the type of signal, and select the signal that you want from a list.
 
 :::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Screenshot showing the first Configure Signal Logic page. There is a highlight on the Signal type box to select metrics or activity logs, and a list of metrics underneath that can be selected":::
@@ -43,11 +45,12 @@ Here is an excerpt from the *Select condition* process illustrating what types o
 After selecting a signal, you'll be asked to configure the logic of the alert. You can filter on a dimension, set a threshold value for your alert, and set the frequency of checks for the condition. Here is an example of setting up an alert for when the average Routing Failure Rate metric goes above 5%.
 
 :::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot showing the second Configure Signal Logic page. The page shows the metrics history, has an area to filter on a dimension such as Event Grid operations, and a section for defining alert logic such as 'average is greater than 5'":::
- 
-After settings up alerts, they'll show up back on the *Alerts* page for your instance.
+
+### Verify success
+
+After setting up alerts, they'll show up back on the *Alerts* page for your instance.
  
 :::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot showing the Alerts page and button to add. There is one alert configured" lightbox="media/troubleshoot-alerts/alerts-post.png":::
-
 
 ## Next steps
 
