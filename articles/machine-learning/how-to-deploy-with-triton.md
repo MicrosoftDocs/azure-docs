@@ -18,7 +18,7 @@ Model deployment in Azure Machine Learning with Triton for high performance infe
 
 The benefits of using Triton include better utilization of Graphical Processing Units (GPUs) and more cost-effective inferencing.
 
-Please note this Triton Private Preview release is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Please note this Triton Public Preview release is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Architectural overview
 
