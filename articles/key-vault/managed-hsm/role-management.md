@@ -1,6 +1,6 @@
 ---
-title: Managed HSM dataplane role management - Azure Key Vault | Microsoft Docs
-description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
+title: Managed HSM data plane role management - Azure Key Vault | Microsoft Docs
+description: Use this article to manage role assignments for your managed HSM 
 services: key-vault
 author: amitbapat
 manager: msmbaldwin
@@ -32,8 +32,9 @@ For a list of all Managed HSM built-in roles and the operations they permit, see
 To use the Azure CLI commands in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* Azure Command-Line Interface version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-* An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
+* Azure Command-Line Interface version 2.12.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM pool using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
+
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
 

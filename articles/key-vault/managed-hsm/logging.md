@@ -33,7 +33,7 @@ Use this tutorial to help you get started with Managed HSM logging. You'll creat
 To complete this tutorial, you must have the following:
 
 * An existing Managed HSM pool that you have been using.  
-* If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.10.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+* If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * An existing storage account where you want to store Managed HSM logs. If you don't have one see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli)
 * Sufficient storage on Azure for your Managed HSM logs.
 

@@ -1,6 +1,6 @@
 ---
-title: Manage a Managed HSM using CLI - Azure Key Vault | Microsoft Docs
-description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
+title: Manage keys in a managed HSM - Azure Key Vault | Microsoft Docs
+description: Use this article to manage keys in a managed HSM
 services: key-vault
 author: amitbapat
 manager: msmbaldwin
@@ -268,7 +268,7 @@ az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKey
 
 ```
 ---
-To import a key from your on-premise HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-key-byok.md)
+To import a key from your on-premise HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md)
 
 ## Next steps
 
