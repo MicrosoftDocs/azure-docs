@@ -2,7 +2,7 @@
 title: Quickstart - Deploy Docker container to container instance - Docker CLI
 description: In this quickstart, you use the Docker CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
 ms.topic: quickstart
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.custom: devx-track-javascript
 ---
 
@@ -10,16 +10,16 @@ ms.custom: devx-track-javascript
 
 Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy to a container instance on-demand when you develop cloud-native apps and you want to switch seamlessly from local development to cloud deployment.
 
-In this quickstart, you use native Docker CLI commands to deploy a Docker container and make its application available in Azure Container Instances. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/) (beta). A few seconds after you execute a `docker run` command, you can browse to the application running in the container:
+In this quickstart, you use native Docker CLI commands to deploy a Docker container and make its application available in Azure Container Instances. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/). A few seconds after you execute a `docker run` command, you can browse to the application running in the container:
 
 :::image type="content" source="media/quickstart-docker-cli/view-application-running-in-an-azure-container-instance.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
-For this quickstart, you need to install Docker Desktop Edge version 2.3.2.0 or later, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux) (beta). 
+For this quickstart, you need to install the latest Docker Desktop version that supports ACI Integration, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux). 
 
 > [!IMPORTANT]
-> This feature is currently in preview, and requires beta (preview) features in Docker. Read more about [Stable and Edge versions of Docker Desktop](https://docs.docker.com/desktop/#stable-and-edge-versions). Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
+> Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
 
 [!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]
 
