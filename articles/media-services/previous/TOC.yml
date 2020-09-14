@@ -318,11 +318,6 @@
         href: hybrid-design-drm-sybsystem.md
       - name: Reference multi-DRM design
         href: media-services-cenc-with-multidrm-access-control.md
-  - name: Analyze
-    href: media-services-analytics-overview.md
-    items:
-    - name: Analyze media using Azure portal
-      href: media-services-portal-analyze.md
     - name: Process with Indexer
       href: media-services-index-content.md
       items:
