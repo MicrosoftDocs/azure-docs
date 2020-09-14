@@ -47,15 +47,19 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
 1. Select the permissions:
 
-From *Microsoft.AppPlatform/Spring*, select:
+From *Microsoft.AppPlatform/Spring*
+
+select:
 
     *Read : Get Azure Spring Cloud service instance*
 
     *Other : List Azure Spring Cloud service instance test keys*
 
-From *Microsoft.AppPlatform/Spring/apps/deployments*, select: 
+From *Microsoft.AppPlatform/Spring/apps/deployments*
 
-    Other : *Start Microsoft Azure Spring Cloud application deployment*
+select: 
+
+    *Other : Start Microsoft Azure Spring Cloud application deployment*
 
     *Other : Stop Microsoft Azure Spring Cloud application deployment*
 
@@ -73,6 +77,8 @@ From *Microsoft.AppPlatform/Spring/apps/deployments*, select:
 Select the permissions:
   
 From: *Microsoft.AppPlatform/Spring*
+
+select:
  
     *Write : Create or Update Azure Spring Cloud service instance*
 
@@ -81,6 +87,8 @@ From: *Microsoft.AppPlatform/Spring*
     *Other : Get Microsoft Azure Spring Cloud application resource upload URL*
 
 From: *Microsoft.AppPlatform/Spring/apps*
+
+select:
 
     *Write : Write Microsoft Azure Spring Cloud application*
 
@@ -91,6 +99,8 @@ From: *Microsoft.AppPlatform/Spring/apps*
     *Other : Get Microsoft Azure Spring Cloud application resource upload URL
 
 From *Microsoft.AppPlatform/Spring/apps/deployments*
+
+select:
 
     *Write : Write Microsoft Azure Spring Cloud application deployment*
 
@@ -103,6 +113,8 @@ From *Microsoft.AppPlatform/Spring/apps/deployments*
     *Other : Stop Microsoft Azure Spring Cloud application deployment*
 
 From: *Microsoft.AppPlatform/Spring/apps/deployments/skus*
+
+select:
 
     *Read: List application deployment available skus*
 
@@ -122,13 +134,19 @@ From: *Microsoft.AppPlatform/Spring/apps/deployments/skus*
 
 From: *Microsoft.AppPlatform/Spring*
 
+select:
+
     *Read : Get Azure Spring Cloud service instance*
 
 From: *Microsoft.AppPlatform/Spring/apps*
 
+select:
+
     *Read : Read Microsoft Azure Spring Cloud application*
 
 From: *Microsoft.AppPlatform/Spring/apps/deployments*
+
+select:
 
     *Read : Read Microsoft Azure Spring Cloud application deployment*
 
