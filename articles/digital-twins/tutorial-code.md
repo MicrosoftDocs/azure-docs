@@ -227,6 +227,18 @@ dotnet run
 ```
 "Upload a model" will be printed in the output, but there is no output yet to indicate whether or not models were uploaded successfully.
 
+>[!TIP]
+> If you receive the following error;
+>
+> `Azure.Identity.AuthenticationFailedException: InteractiveBrowserCredential authentication failed: A configuration issue 
+is preventing authentication`
+>
+> `The request body must contain the following parameter: 'client_assertion' or 'client_secret'.` 
+>
+> Then make sure you have set "Treat application as a public client." to "Yes" in the Azure Active Directory Application Registration - Authentication section.
+>
+> See [Common Invalid Client Errors](https://github.com/azuread/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#common-invalid-client-errors)
+
 To add a print statement indicating whether models are actually uploaded successfully, add the following code right after the previous section:
 
 ```csharp
