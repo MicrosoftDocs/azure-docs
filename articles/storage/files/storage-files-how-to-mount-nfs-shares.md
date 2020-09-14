@@ -27,7 +27,7 @@ ms.custom: references_regions
 - [Create an NFS share](storage-files-how-to-create-nfs-shares.md).
 
     > [!IMPORTANT]
-    > Since encryption-in-transit is not currently available with NFS shares, we recommend disabling your storage account's public endpoint and configuring private endpoints, or other networking solutions, to ensure your data is secure and only accessible via your network.
+    > NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
 
 - Use one of the following networking solutions:
     - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).

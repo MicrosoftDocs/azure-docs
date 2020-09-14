@@ -38,7 +38,7 @@ This article answers common questions about Azure Files features and functionali
     
     Azure Blob storage is useful for massive-scale, cloud-native applications that need to store unstructured data. To maximize performance and scale, Azure Blob storage is a simpler storage abstraction than a true file system. You can access Azure Blob storage only through REST-based client libraries (or directly through the REST-based protocol).
 
-    Azure Files is specifically a file system. Azure Files has all the file abstracts that you know and love from years of working with on-premises operating systems. Like Azure Blob storage, Azure Files offers a REST interface and REST-based client libraries. Unlike Azure Blob storage, Azure Files offers SMB or NFS access to Azure file shares. File shares can be mounted directly on Windows, Linux, or macOS, either on-premises or in cloud VMs, without writing any code or attaching any special drivers to the file system. You also can cache Azure file shares on on-premises file servers by using Azure File Sync for quick access, close to where the data is used. 
+    Azure Files is specifically a file system. Azure Files has all the file abstracts that you know and love from years of working with on-premises operating systems. Like Azure Blob storage, Azure Files offers a REST interface and REST-based client libraries. Unlike Azure Blob storage, Azure Files offers SMB or NFS access to Azure file shares. File shares can be mounted directly on Windows, Linux, or macOS, either on-premises or in cloud VMs, without writing any code or attaching any special drivers to the file system. You also can cache Azure SMB file shares on on-premises file servers by using Azure File Sync for quick access, close to where the data is used. 
    
     For a more in-depth description on the differences between Azure Files and Azure Blob storage, see [Introduction to the core Azure Storage services](../common/storage-introduction.md). To learn more about Azure Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
@@ -281,17 +281,13 @@ This article answers common questions about Azure Files features and functionali
 
 ## Network File System
 
-### Can my current application take advantage of NFS?
+### When should I use Azure Files NFS
 
-Any application using NFS version 4.1 should work with minimal or no modifications.
-
-### My environment uses NFS v3.0, can I use NFS v4.1?
-
-Potentially, applications written for NFS 3.0 can work with NFS 4.x but applications written for 4.x will not work with 3.0.
+See [NFS shares (preview)](storage-files-compare-protocols.md#nfs-shares-preview) for details.
 
 ### How do I backup data stored in NFS shares?
 
-Currently, there is no first party support for backup. There are third party options such as rsync, tar, or any tool that supports NFS 4.1 which can copy data.
+Backing up your data on NFS shares can either be orchestrated using familiar tooling like rsync or products from one of our third-party backup partners. Multiple backup partners including [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438), and [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) were part of our initial preview and have extended their solutions to work with both SMB 3.0 and NFS 4.1 for Azure Files.
 
 ### Can I migrate existing data to an NFS share?
 
