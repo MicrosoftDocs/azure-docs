@@ -15,6 +15,8 @@ ms.author: ambapat
 ---
 # Managed HSM access control
 
+> [!NOTE] Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **managed HSMs**. To learn more about access control for managed HSM, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md).
+
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
 
 ## Access control model

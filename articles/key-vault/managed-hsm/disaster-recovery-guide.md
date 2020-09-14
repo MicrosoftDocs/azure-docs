@@ -20,22 +20,20 @@ You may wish to create an exact replica of your HSM if the original is lost or u
 - A catastrophic failure in the region resulted in all member partitions being destroyed
 
 You can re-create the HSM instance in same or different region if you have following:
-- The [Security Domain](security-domain.md)
+- The [Security Domain](security-domain.md) of the source HSM
 - The private keys (at least quorum number) that encrypt the security domain
-- The most recent full HSM [backup](backup-restore.md)
+- The most recent full HSM [backup](backup-restore.md) from the source HSM
 
 Here are the steps of the disaster recovery procedure:
 1. Create a new HSM Instance.
-1. When the HSM is in "Provisioned" state, activate "Security Domain restore mode". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer.
-1. Download a SecurityDomainExchangeKey (public key). This key can only be retrieved when "security domain restore mode" is activated.
-1. Create a "Security Domain Transfer File". You will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
-1. Upload the security domain to activate the HSM.
+1. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response which will be downloaded a SecurityDomainExchangeKey (public key). 
+1. Create and then upload the "Security Domain Transfer File". You will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process. 
 1. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. This allows easy roll-back. 
 1. Restore the recent HSM backup from the source HSM
 
 The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 
-### Create a new HSM
+## Create a new HSM
 
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an hsm name, and the geographic location.
 
@@ -65,7 +63,7 @@ The output of this command shows properties of the Managed HSM that you've creat
 Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
 
 
-### Activate the security domain recovery mode
+## Activate the Security Domain recovery mode
 
 In the normal create process we initialize and download a new Security Domain at this point. However, since we are executing a disaster recovery procedure, we request the HSM to enter Security Domain Recovery Mode and download a Security Domain Exchange Key. This is an RSA public key that will be used to encrypt the security domain before uploading it to the HSM. The corresponding private key is protected inside the HSM, to keep your Security Domain contents safe during the transfer.
 
@@ -76,7 +74,7 @@ az keyvault security-domain init-recovery --hsm-name ContosoMHSM2 --sd-exchange-
 ```
 ---
 
-### Upload source HSM's security domain
+## Upload Security Domain to destination HSM
 
 For this step you will need following:
 - The Security Domain Exchange Key you downloaded in previous step.
@@ -100,7 +98,7 @@ az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key Con
 
 Now both the source HSM (ContosoMHSM) and the destination HSM (ContosoMHSM2) have the same security domain. We can now resotre a full backup from the source HSM into the destination HSM.
 
-### Create a backup (as a restore point) of your new HSM
+## Create a backup (as a restore point) of your new HSM
 
 It is always a good idea to take a full backup before you execute a full HSM restore, so that you have a restore point in case something goes wrong with the restore.
 
