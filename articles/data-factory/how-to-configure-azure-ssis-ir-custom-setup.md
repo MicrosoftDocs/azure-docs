@@ -35,7 +35,7 @@ You can install both free (unlicensed) and paid (licensed) components with stand
 
 The following limitations apply only to standard custom setups:
 
-- If you want to use *gacutil.exe* in your script to install assemblies in the global assembly cache (GAC), you need to provide *gacutil.exe* as part of your custom setup. Or you can use the copy that's provided in our *Public Preview* container, discussed later in the **Standard custom setup samples** section.
+- If you want to use *gacutil.exe* in your script to install assemblies in the global assembly cache (GAC), you need to provide *gacutil.exe* as part of your custom setup. Or you can use the copy that's provided in the *Sample* folder of our *Public Preview* container, discussed later in the **Standard custom setup samples** section.
 
 - If you want to reference a subfolder in your script, *msiexec.exe* doesn't support the `.\` notation to reference the root folder. Use a command such as `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` instead of `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
