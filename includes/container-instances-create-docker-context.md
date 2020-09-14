@@ -22,7 +22,7 @@ docker login azure
 When prompted, enter or select your Azure credentials.
 
 
-Run `docker context create aci` to create an ACI context. This context associates Docker with your Azure subscription so you can create container instances. For example, to create a context called *myacicontext*:
+Create an ACI context by running `docker context create aci`. This context associates Docker with an Azure subscription and resource group so you can create and manage container instances. For example, to create a context called *myacicontext*:
 
 ```
 docker context create aci myacicontext

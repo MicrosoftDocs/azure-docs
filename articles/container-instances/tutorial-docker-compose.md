@@ -2,7 +2,7 @@
 title: Tutorial - Use Docker Compose to deploy multi-container group
 description: Use Docker Compose to build and run a multi-container application and then bring up the application in to Azure Container Instances
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 09/14/2020
 ms.custom: 
 ---
 
@@ -10,11 +10,13 @@ ms.custom:
 
 In this tutorial, you use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally and then deploy it as a [container group](container-instances-container-groups.md) in Azure Container Instances. 
 
-Run in Azure Container Instances on-demand when you develop cloud-native apps with Docker and you want to switch seamlessly from local development to cloud deployment. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/) (beta). You can use native Docker commands to run either [a single container instance](quickstart-docker-cli.md) or multi-container group in Azure.
+Run containers in Azure Container Instances on-demand when you develop cloud-native apps with Docker and you want to switch seamlessly from local development to cloud deployment. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/). You can use native Docker commands to run either [a single container instance](quickstart-docker-cli.md) or multi-container group in Azure.
 
 > [!IMPORTANT]
-> This feature is currently in preview, and requires beta (preview) features in Docker. Read more about [Stable and Edge versions of Docker Desktop](https://docs.docker.com/desktop/#stable-and-edge-versions). Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
+> Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [Docker ACI Integration](https://github.com/docker/aci-integration-beta) GitHub repository.
 
+> [!TIP]
+> You can use the [Docker extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) instead of Docker commands to perform many of the steps in this article.
 
 In this article, you:
 
@@ -30,7 +32,7 @@ In this article, you:
 
 * **Azure CLI** - You must have the Azure CLI installed on your local computer. Version 2.10.1 or later is recommended. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-* **Docker Desktop Edge version 2.3.2.0 or later** - Installation packages are available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux) (beta). 
+* **Docker Desktop** - The latest installation packages that support ACI Integration are available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux). 
 
 [!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
@@ -77,7 +79,7 @@ services:
 
 In the `azure-vote-front` configuration, make the following two changes:
 
-1. Update the `image` property, `azure-vote-front`. Prefix the image name with the login server name of your Azure container registry, \<acrName\>.azurecr.io. For example, if your registry is named *myregistry*, the login server name is *myregistry.azurecr.io* (all lowercase), and the image property is then `myregistry.azurecr.io/azure-vote-front`.
+1. Update the `image` property in the `azure-vote-front` service. Prefix the image name with the login server name of your Azure container registry, \<acrName\>.azurecr.io. For example, if your registry is named *myregistry*, the login server name is *myregistry.azurecr.io* (all lowercase), and the image property is then `myregistry.azurecr.io/azure-vote-front`.
 1. Change the `ports` mapping to `80:80`. Save the file.
 
 The updated file should look similar to the following:
@@ -93,7 +95,7 @@ services:
 
   azure-vote-front:
     build: ./azure-vote
-    image: myregistry.azurecr.io/zure-vote-front
+    image: myregistry.azurecr.io/azure-vote-front
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -104,7 +106,7 @@ services:
 By making these substitutions, the `azure-vote-front` image you build in the next step is tagged for your Azure container registry, and the image can be pulled to run in Azure Container Instances.
 
 > [!TIP]
-> You don't have to use an Azure container registry for this scenario. For example, you can choose a private repository in Docker Hub to host your application image. If you choose a different registry, update the image property appropriately.
+> You don't have to use an Azure container registry for this scenario. For example, you could choose a private repository in Docker Hub to host your application image. If you choose a different registry, update the image property appropriately.
 
 ## Run multi-container application locally
 
@@ -114,7 +116,7 @@ Run [docker-compose up](https://docs.docker.com/compose/reference/up/), which us
 docker-compose up --build -d
 ```
 
-When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images. Three images have been downloaded or created. The `azure-vote-front` image contains the front-end application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
+When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images. Three images have been downloaded or created. The `azure-vote-front` image contains the front-end application, which uses the `uwsgi-nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
 
 ```
 $ docker images
@@ -142,7 +144,7 @@ To see the running application, enter `http://localhost:80` in a local web brows
 After trying the local application, run [docker-compose down](https://docs.docker.com/compose/reference/down/) to stop the application and remove the containers.
 
 ```console
-docker compose down
+docker-compose down
 ```
 
 ## Push image to container registry
@@ -234,5 +236,7 @@ In this tutorial, you used Docker Compose to switch from running a multi-contain
 > * Push the application image to your container registry
 > * Create an Azure context for Docker
 > * Bring up the application in Azure Container Instances
+
+You can also use the [Docker extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) instead of Docker commands to perform many of the steps in this article to integrate with Azure Container Instances.
 
 If you want to take advantage of more features in Azure Container Instances, use Azure tools to specify a multi-container group. For example, see the tutorials to deploy a container group using the Azure CLI with a [YAML file](container-instances-multi-container-yaml.md), or deploy using an [Azure Resource Manager template](container-instances-multi-container-group.md). 
