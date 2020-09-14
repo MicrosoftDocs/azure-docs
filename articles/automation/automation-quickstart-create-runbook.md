@@ -82,7 +82,7 @@ Once the runbook is published, the overview page is shown.
 
 1. When the job status is `Running` or `Completed`, click **Output** to open the Output pane and view the runbook output.
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="Screenshot of teh Output pane showing the runbook output.":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="Screenshot of the Output pane showing the runbook output.":::
 
 ## Clean up resources
 
