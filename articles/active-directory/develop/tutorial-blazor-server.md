@@ -97,18 +97,24 @@ However, you can instead use the [Microsoft.Identity.Web](https://github.com/Azu
 > Microsoft.Identity.Web is currently in preview.
 
 First, download the following NuGet packages to have access to the libraries:
--	Microsoft.Identity.Web (0.2.2 preview)
--	Microsoft.Identity.Web.UI (0.2.2 preview)
 
-If using .NET CLI, you can find instructions for downloading the packages on [https://www.nuget.org/packages/Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
+-	Microsoft.Identity.Web
+-	Microsoft.Identity.Web.UI
 
-Or you can use Visual Studio:
+If you're using the .NET CLI, install the packages by executing these commands:
+
+```dotnetcli
+dotnet add package Microsoft.Identity.Web --version 0.2.2-preview
+dotnet add package Microsoft.Identity.Web.UI --version 0.2.2-preview
+```
+
+If you're using Visual Studio:
 
 ![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web package highlighted.](./media/tutorial-blazor-server/nuget-package-1.png)
 
 ![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web.UI package highlighted.](./media/tutorial-blazor-server/nuget-package-2.png)
 
-Next, perform a couple small code changes to swap out the old authentication code and plug-in the new code.
+Next, perform a couple small code changes to swap out the old authentication code and plug in the new code.
 
 Open *Startup.cs* and replace this code:
 
