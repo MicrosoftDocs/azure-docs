@@ -68,9 +68,11 @@ Additional configuration options can be added to extend SSO functionality to add
 
 #### Enable SSO for apps that don't use MSAL
 
-The SSO plug-in allows any application to participate in single sign on even if it was not developed using a Microsoft SDK like MSAL. The SSO plug-in is installed automatically by devices that have downloaded the Authenticator app and registered their device with your organization. Your organization likely uses the Authenticator app today for scenarios like multi-factor authentication, password-less authentication, and conditional access. It can be turned on for your applications using using any MDM provider, although Microsoft has made it easy to configure inside the Microsoft Endpoint Manager of Intune. An allow list is used to configure these applications to use the SSO plugin installed by the Authenticator app.
+The SSO plug-in allows any application to participate in single sign-on even if it was not developed using a Microsoft SDK like MSAL. The SSO plug-in is installed automatically by devices that have downloaded the Authenticator app and registered their device with your organization. Your organization likely uses the Authenticator app today for scenarios like multi-factor authentication, password-less authentication, and conditional access. It can be turned on for your applications using any MDM provider, although Microsoft has made it easy to configure inside the Microsoft Endpoint Manager of Intune. An allow list is used to configure these applications to use the SSO plugin installed by the Authenticator app.
 
 Only apps that use native Apple network technologies or webviews are supported. If application ships its own network layer implementation, Microsoft Enterprise SSO plug-in is not supported.  
+
+Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use MSAL:
 
 - **Key**: `AppAllowList`
 - **Type**: `String`
