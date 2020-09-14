@@ -1,5 +1,5 @@
 ---
-title: how to add datafeeds from different sources to Metrics Advisor
+title: How to add data feeds from different sources to Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: add different data feeds to Metrics Advisor
 services: cognitive-services
@@ -228,7 +228,7 @@ You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy
 * **Authorization Header**:Specify the authorization header value of Elasticsearch Cluster.
 * **Query**:Specify the query to get data. Placeholder @StartTime is supported.(e.g. when data of 2020-06-21T00:00:00Z is ingested, @StartTime = 2020-06-21T00:00:00)
 
-## <span id="http">Http Request</span>
+## <span id="http">HTTP request</span>
 
 * **Request URL**: A HTTP url which can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Request HTTP method**: Use GET or POST.

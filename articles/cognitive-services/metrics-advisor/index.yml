@@ -26,7 +26,7 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Explore the demo site
-          url: quickstarts/explore-the-demo.md     
+          url: quickstarts/explore-demo.md     
         - text: Monitor your first metric on web
           url: quickstarts/web-portal.md
         - text: Use the REST APIs to customize your solution

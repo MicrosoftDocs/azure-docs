@@ -1,5 +1,5 @@
 ---
-title: Metrics Advisor Frequently Asked Questions
+title: Metrics Advisor frequently asked questions
 titleSuffix: Azure Cognitive Services
 description: Frequently asked questions about the Metrics Advisor service.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: aahi
 ---
 
 
-# Metrics Advisor Frequently Asked Questions
+# Metrics Advisor frequently asked questions
 
 ### What is the cost of my instance?
 
@@ -25,7 +25,7 @@ The [demo website](https://anomaly-detector.azurewebsites.net/) is publicly avai
 
 ### Why can't I create the resource? The "Pricing tier" is unavailable and it says "You have already created 1 S0 for this subscription"?
 
-![one_instance_allowed](media/pricing.png "You have already created 1 F0 for this subscription")
+:::image type="content" source="media/pricing.png" alt-text="Message when an F0 resource already exists":::
 
 During public preview, only one instance of Metrics Advisor is allowed to created under a subscription, in one region.
 
@@ -91,5 +91,5 @@ Please refer to [anomaly detection configurations](how-tos/configure-metrics.md#
 
 ## Next Steps
 - [Metrics Advisor overview](overview.md)
-- [Try the demo site](quickstarts/explore-the-demo.md)
+- [Try the demo site](quickstarts/explore-demo.md)
 - [Use the web portal](quickstarts/web-portal.md)

@@ -16,7 +16,7 @@ ms.author: aahi
 
 Use this article to start configuring your Metrics Advisor instance using the web portal. To browse the metrics for a specific data feed, go to the **Data feeds** page and select one of the feeds. This will display a list of metrics associated with it.
 
-:::image type="content" source="../media/metrics/select-metric.png" alt-text="Select a metric":::
+:::image type="content" source="../media/metrics/select-metric.png" alt-text="Select a metric" lightbox="../media/metrics/select-metric.png":::
 
 Click on one of the metric names to see its details. In this detailed view, you can switch to another metric in the same data feed using the drop down list in the top right corner of the screen.
 
@@ -40,7 +40,7 @@ This configuration will be applied to all the series in this metric, except for 
 
 There are additional parameters like **Direction**, and **Valid anomaly** that can be used to further tune the configuration. You can combine different detection methods as well. 
 
-:::image type="content" source="../media/configuration-combination.png" alt-text="Configuration combination":::
+:::image type="content" source="../media/configuration-combination.png" alt-text="Configuration combination" lightbox="../media/configuration-combination.png":::
 
 ### Tune the configuration for a specific series or group
 
@@ -48,9 +48,9 @@ Click **Advanced configuration** below the metric level configuration options to
 
 This configuration will be applied to the group of series or specific series instead of the metric level configuration. After setting the conditions for this group, save it.
 
-:::image type="content" source="../media/advanced-configuration.png" alt-text="Advanced configuration":::
+:::image type="content" source="../media/advanced-configuration.png" alt-text="Advanced configuration" lightbox="../media/advanced-configuration.png":::
 
-### Anomaly Detection Methods
+### Anomaly detection methods
 
 Metrics Advisor offers multiple anomaly detection methods. You can use one or combine them using logical operators by clicking the **+** button. 
 
@@ -103,7 +103,7 @@ Use the following steps to use this mode:
  Hard threshold is a basic method for anomaly detection. You can set an upper and/or lower bound to determine the expected value range. Any points fall out of the boundary will be identified as an anomaly. 
 
 
-## Preset Events
+## Preset events
 
 Sometimes, expected events and occurrences (such as holidays) can generate anomalous data. Using preset events, you can add flags to the anomaly detection output, during specified times. This feature should be configured after your data feed is onboarded. Each metric can only have one preset event configuration.
 

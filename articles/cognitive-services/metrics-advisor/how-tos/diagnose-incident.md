@@ -121,9 +121,9 @@ Select a series from your data feed. You can choose the same granularity or a di
 After selecting a shifted comparison, you can select whether you want to compare the data values, the delta values, or the percentage delta.
 
 > [!Note]
-> 1. Data value is the raw data value.
-> 2. Delta value is the difference between raw value and compared value.
-> 3. Percentage delta value is the difference between raw value and compared value divided by compared value.
+> * **Data value** is the raw data value.
+> * **Delta value** is the difference between raw value and compared value.
+> * **Percentage delta value** is the difference between raw value and compared value divided by compared value.
 
 ## Related incidents across metrics
 

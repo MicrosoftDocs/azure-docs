@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/14/2020
 ms.author: aahi
 ---
 
@@ -56,7 +56,7 @@ To create a web hook, you will need to add the following information:
 |Username / Password | For authenticating to the API address. Leave this black if authentication isn't needed.         |
 |Header     | Custom headers in the API call.        |
 
-:::image type="content" source="../media/alerts/create_web_hook.png" alt-text="web hook creation window.":::
+:::image type="content" source="../media/alerts/create-web-hook.png" alt-text="web hook creation window.":::
 
 When a notification is pushed through a web hook, you can use the following APIs to get details of the alert. Set the *timestamp* and *alertSettingGuid* in your API service, which is being pushed to, then use the following queries: 
 - `query_alert_result_anomalies`
@@ -79,7 +79,7 @@ To create an Azure DevOps hook, you will need to add the following information
 > You need to grant write permissions if you want Metrics Advisor to create work items based on anomaly alerts. 
 > After creating hooks, you can use them in any of your alert settings. Manage your hooks in the **hook settings** page.
 
-## Add or Edit alert settings
+## Add or edit alert settings
 
 Go to metrics detail page to find the **Alert settings** section, in the bottom left corner of metrics detail page. It lists all alert settings that apply to the selected detection configuration. When a new detection configuration is created, there's no alert setting, and no alerts will be sent.  
 You can use the **add**, **edit** and **delete** icons to modify alert settings.
@@ -132,7 +132,7 @@ The **Operator** selector is the logical relationship of each section, to determ
 
 :::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operator for multiple alert setting section":::
 
-## Next Steps
+## Next steps
 
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
 - [Diagnose an incident](diagnose-incident.md).

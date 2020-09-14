@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/14/2020
 ms.author: aahi
 ---
 
@@ -30,11 +30,11 @@ You can try to [backfill](manage-data-feeds.md#backfill-your-data-feed) historic
 
 To avoid loading partial data, we recommend two approaches:
 
-1. Generate data in one transaction:
+* Generate data in one transaction:
 
     Ensure the metric values for all dimension combinations at the same timestamp are stored to the data source in one transaction. In the above example, wait until data from all data sources is ready, and then load it into Metrics Advisor in one transaction. Metrics Advisor can poll the data feed regularly until data is successfully (or partially) retrieved.
 
-2. Delay data ingestion by setting a proper value for the **Ingestion time offset** parameter:
+* Delay data ingestion by setting a proper value for the **Ingestion time offset** parameter:
 
     Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [advanced settings](manage-data-feeds.md#advanced-settings) for details.
 
@@ -58,8 +58,8 @@ Next, you'll need to specify the connection information for the data source, and
 
 After the connection string and query string are set, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
 
-1. Your connection string and query are correct.
-2. Your Metrics Advisor instance is able to connect to the data source if there are firewall settings.
+* Your connection string and query are correct.
+* Your Metrics Advisor instance is able to connect to the data source if there are firewall settings.
 
 ### Schema configuration
 
@@ -97,11 +97,11 @@ Metrics Advisor can automatically perform aggregation(for example SUM, MAX, MIN)
 
 Consider the following scenarios:
 
-1. *I do not need to include the roll-up analysis for my data.*
+* *I do not need to include the roll-up analysis for my data.*
 
     You do not need to use the Metrics Advisor roll-up.
 
-2. *My data has already rolled up and the dimension value is represented by: NULL or Empty (Default), NULL only, Others.*
+* *My data has already rolled up and the dimension value is represented by: NULL or Empty (Default), NULL only, Others.*
 
     This option means Metrics Advisor doesn't need to roll up the data because the rows are already summed. For example, if you select *NULL only*, then the second data row in the below example will be seen as an aggregation of all countries and language *EN-US*; the fourth data row which has an empty value for *Country* however will be seen as an ordinary row which might indicate incomplete data.
     
@@ -112,7 +112,7 @@ Consider the following scenarios:
     | US      | EN-US    | 12000  |
     |         | EN-US    | 5000   |
 
-2. *I need Metrics Advisor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by <some string>*
+* *I need Metrics Advisor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by <some string>*
 
     Some data sources such as Cosmos DB or Azure Blob Storage do not support certain calculations like *group by* or *cube*. Metrics Advisor provides the roll up option to automatically generate a data cube during ingestion.
     This option means you need Metrics Advisor to calculate the roll-up using the algorithm you've selected and use the specified string to represent the roll-up in Metrics Advisor. This won't change any data in your data source.

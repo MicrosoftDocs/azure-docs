@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: aahi
 ---
 
@@ -66,7 +66,7 @@ The **Diagnostics** section shows a tree of the incident, along with several tab
 
 By pinpointing root cause of the incident, you can take take action and mitigate the issue before the situation gets worse. You can also explore more insights by clicking through the other diagnostic features provided. 
 
-## Next Step
+## Next steps
 
 - [Use the web portal](web-portal.md)
 - [Use the REST API](rest-api.md)

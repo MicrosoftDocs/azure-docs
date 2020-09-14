@@ -495,7 +495,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/alert/anomaly/co
 
 ###	Query anomaly detection results
 
-There are different ways to get detection result. For instance, you can activaly query detection result periodiacally using detection config you created, or you could be notified through alert, and then you can use this alert to query corresponding anomalies.
+There are different ways to get detection result. For instance, you can actively query detection result periodically using detection config you created, or you could be notified through alert, and then you can use this alert to query corresponding anomalies.
 
 In following sample, it shows how to query alert, and using this alert to query anomalies related to this alert.
 

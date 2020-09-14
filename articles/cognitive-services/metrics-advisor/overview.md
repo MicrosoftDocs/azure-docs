@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: overview
-ms.date: 09/03/2020
+ms.date: 09/14/2020
 ms.author: aahi
 ---
 
@@ -56,8 +56,8 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
     4. View diagnostic insights
 1. Use the REST API to customize your instance.
 
-## Next Steps
+## Next steps
 
-* Try the [demo site](quickstarts/explore-the-demo.md).
+* Try the [demo site](quickstarts/explore-demo.md).
 * Explore a quickstart: [Monitor your first metric on web](quickstarts/web-portal.md).
 * Explore a quickstart: [Use the REST APIs to customize your solution](quickstarts/rest-api.md).

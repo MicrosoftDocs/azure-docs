@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: aahi
 ---
 
@@ -220,7 +220,7 @@ You can specify the minimum interval when retrying to pull data from the source.
 | Hourly, Custom (< 1 Day)      | 10 minutes |
 | Yearly | 1 day          |
 
-### Grace Period
+### Grace period
 
 > [!Note]
 > The grace period begins at the regular ingestion time, plus specified ingestion time offset.
@@ -239,7 +239,7 @@ There are two roles to manage data feed permissions: *Administrator*, and *Viewe
 
 * A *Viewer* is able to view the data feed or metrics, but is not able to make changes. 
 
-## Next Steps
+## Next steps
 - [Metrics Advisor overview](overview.md)
-- [Try the demo site](quickstarts/explore-the-demo.md)
+- [Try the demo site](quickstarts/explore-demo.md)
 - [Use the web portal](quickstarts/web-portal.md)
