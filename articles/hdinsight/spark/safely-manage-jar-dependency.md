@@ -1,5 +1,5 @@
 ---
-title: Manage JAR dependencies - Azure HDInsight  
+title: Safely manage jar dependencies - Azure HDInsight  
 description: This article discusses best practices for managing Java Archive (JAR) dependencies for HDInsight applications.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 02/05/2020
 ---
 
-# JAR dependency management best practices
+# Safely manage jar dependencies
 
 Components installed on HDInsight clusters have dependencies on third-party libraries. Usually, a specific version of common modules like Guava is referenced by these built-in components. When you submit an application with its dependencies, it can cause a conflict between different versions of the same module. If the component version that you reference in the classpath first, built-in components may throw exceptions because of version incompatibility. However, if built-in components inject their dependencies to the classpath first, your application may throw errors like `NoSuchMethod`.
 
