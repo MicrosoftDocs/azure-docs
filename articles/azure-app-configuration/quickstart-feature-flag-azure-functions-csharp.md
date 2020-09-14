@@ -16,7 +16,7 @@ ms.author: alkemper
 
 In this quickstart, you create an implementation of feature management in an Azure Functions app using Azure App Configuration. You will use the App Configuration service to centrally store all your feature flags and control their states. 
 
-The .NET Feature Management libraries extend the framework with comprehensive feature flag support. These libraries are built on top of the .NET configuration system. They seamlessly integrate with App Configuration through its .NET configuration provider.
+The .NET Feature Management libraries extend the framework with feature flag management and support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
 
 ## Prerequisites
 
@@ -88,22 +88,16 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
                 [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
                 ILogger log)
             {
-                log.LogInformation("C# HTTP trigger function processed a request.");
-    
-                string message = "The Feature Flag named Beta is turned OFF";
+                string message;
                 using (ServiceProvider serviceProvider = services.BuildServiceProvider())
                 {
                     FeatureManager = serviceProvider.GetRequiredService<IFeatureManager>();
-                }
-    
-                if (await FeatureManager.IsEnabledAsync("Beta"))
-                {
-                    message = "The Feature Flag named Beta has been turned ON!";
+                    message = await FeatureManager.IsEnabledAsync("Beta")
+                     ? "The Feature Flag 'Beta' is turned ON!"
+                     : "The Feature Flag 'Beta' is turned OFF";
                 }
                 
-                return message != null
-                    ? (ActionResult)new OkObjectResult(message)
-                    : new BadRequestObjectResult($"Error message: Please create the appropriate feature flag in App Configuration.");   
+                return (ActionResult)new OkObjectResult(message); 
             }
     ```
 
@@ -133,9 +127,9 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
     ![Quickstart Function debugging in VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-1. Paste the URL for the HTTP request into your browser's address bar. The following image shows the response in the browser to the local GET request returned by the function.
+1. Paste the URL for the HTTP request into your browser's address bar. The following image shows the response indicating that the feature flag `Beta` is disabled. 
 
-    ![Quickstart Function feature flag disabled](./media/quickstarts/functions-launch-disabled.png)
+    ![Quickstart Function feature flag disabled](./media/quickstarts/functions-launch-ff-disabled.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created.
 
@@ -143,9 +137,9 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 1. Return to your command prompt and cancel the running process by pressing `Ctrl-C`.  Restart your application by pressing F5. 
 
-1. Copy the URL of your function from the Azure Functions runtime output using the same process as in Step 3. Paste the URL for the HTTP request into your browser's address bar. The browser response should have changed, as shown in the image below.
+1. Copy the URL of your function from the Azure Functions runtime output using the same process as in Step 3. Paste the URL for the HTTP request into your browser's address bar. The browser response should have changed to indicate the feature flag `Beta` is turned on, as shown in the image below.
  
-    ![Quickstart Function feature flag enabled](./media/quickstarts/functions-launch-enabled.png)
+    ![Quickstart Function feature flag enabled](./media/quickstarts/functions-launch-ff-enabled.png)
 
 ## Clean up resources
 
