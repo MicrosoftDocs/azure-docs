@@ -48,7 +48,7 @@ Complete the installation steps described previously before you begin. If you do
 az login
 ```
 
-![login](./media/how-to-manage-dps-with-cli/login.jpg)
+![Screenshot shows a command prompt window that runs the command az login.](./media/how-to-manage-dps-with-cli/login.jpg)
 
 ### 2. Create a resource group IoTHubBlogDemo in eastus
 
