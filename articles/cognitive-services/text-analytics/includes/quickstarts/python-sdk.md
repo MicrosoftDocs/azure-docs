@@ -111,7 +111,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner) 
-* [Personally Identifiable Information recognition](#pii-recognition) 
+* [Personally Identifiable Information recognition](#personally-identifiable-information-recognition) 
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -479,7 +479,7 @@ Linked Entities:
                 Length: 11
 ```
 
-## PII Recognition
+## Personally Identifiable Information recognition
 
 Create a new function called `pii_recognition_example` that takes the client as an argument, then calls the `recognize_pii_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
 
