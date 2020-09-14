@@ -109,6 +109,9 @@ Enter the important information you gathered earlier in the [Prerequisites](#pre
 >[!NOTE]
 > You can revisit/edit this information at any time by selecting the same icon to pull up the Sign In box again. It will keep the values that you passed in.
 
+> [!TIP]
+> If a SignalRService.subscribe error message is shown when you connect, make sure that your ADT URL is prefixed with *https://*.
+
 If you see a *Permissions requested* pop-up window from Microsoft, grant consent for this application and accept to continue.
 
 ## Add the sample data
