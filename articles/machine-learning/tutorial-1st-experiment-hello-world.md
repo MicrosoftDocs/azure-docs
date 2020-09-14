@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Hello world"
 titleSuffix: Azure Machine Learning
-description: Part 1 of the Azure ML Get Started series shows how to  submit a trivial "hello world" python script to the cloud.
+description: Part 2 of the Azure ML Get Started series shows how to  submit a trivial "hello world" python script to the cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -44,7 +44,7 @@ This tutorial introduces you to the core Azure Machine Learning concepts needed 
 
 ## Create `hello.py`
 
-Create a new subdirectory called `src` under the `tutorial` directory to store code that we want to process on an Azure Machine Learning compute cluster. In the `src` subdirectory create your hello world script `hello.py`:
+Create a new subdirectory called `src` under the `tutorial` directory to store code that you want to process on an Azure Machine Learning compute cluster. In the `src` subdirectory create your hello world script `hello.py`:
 
 ```python
 # src/hello.py
@@ -72,9 +72,9 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## Create a control-plane python script
+## Create a control script
 
-To run in the cloud, you create a *control-plane* script. A control-plane script is where you control _how_ your code is submitted to Azure. Contrastingly, the code you wish to submit (in this case `hello.py`) is referred to as the _data plane_. Typically, the data plane contains the code defining your models, data preparation, and controlling the training itself.
+A *control script* allows you to run your `hello.py` script in the cloud.  The control script lets you control how and where your machine learning code is run.  
 
 In your tutorial directory, create a new python file called `03-run-hello.py` and copy-and-paste the code below into that file:
 
@@ -93,9 +93,9 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
-### Understanding the code 
+### Understanding the code
 
-Here's a description of how the above code works:
+Here's a description of how the control script works:
 
 :::row:::
    :::column span="":::
@@ -140,7 +140,7 @@ Here's a description of how the above code works:
 
 ## Run in the cloud
 
-You can submit your script using:
+Run your control script, which in turn runs `hello.py` on the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
 ```bash
 python 03-run-hello.py
@@ -149,7 +149,7 @@ python 03-run-hello.py
 The output will contain a link to the Azure ML Studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Follow the link and navigate to the "Outputs + logs" tab. There you can see a file
+Follow the link and navigate to the **Outputs + logs** tab. There you can see a file
 `70_driver_log.txt` like this:
 
 ```txt

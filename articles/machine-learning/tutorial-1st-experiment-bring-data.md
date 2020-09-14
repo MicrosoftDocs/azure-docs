@@ -167,7 +167,7 @@ tutorial
 If you did not run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with
 `download=True` in your `train.py` script.
 
-To run the modified training script locally, we can call:
+To run the modified training script locally, call:
 
 ```bash
 python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
@@ -179,12 +179,12 @@ _momentum_ hyperparameters without having to hard-code them in the training scri
 
 ## Upload the data to Azure
 
-In order to run this script in Azure Machine Learning, we need to make your training data available in Azure. Your Azure Machine Learning workspace comes equipped with a _default_ **Datastore** - an Azure Blob storage account - that you can use to store your training data.
+In order to run this script in Azure Machine Learning, you need to make your training data available in Azure. Your Azure Machine Learning workspace comes equipped with a _default_ **Datastore** - an Azure Blob storage account - that you can use to store your training data.
 
 >[!NOTE] 
 > Azure Machine Learning allows you to connect other cloud-based datastores that store your data. For more details, see [datastores documentation](./concept-data.md).  
 
-Create a new (control-plane) python script called `05-upload-data.py` in the `tutorial` directory:
+Create a new Python control script called `05-upload-data.py` in the `tutorial` directory:
 
 ```python
 # tutorial/05-upload-data.py
@@ -212,9 +212,9 @@ To check the upload was successful:
 1. Select your storage account. In your storage account, there is a container called "azureml-blobstore-GUID". You should find the CIFAR10 data uploaded to
 the target path.
 
-## Create a control-plane python script
+## Create a control script
 
-As you have done previously, create a new control-plane python script called `06-run-pytorch-data.py`:
+As you have done previously, create a new Python control script called `06-run-pytorch-data.py`:
 
 ```python
 # tutorial/06-run-pytorch-data.py
@@ -276,7 +276,7 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-In this session, we saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
+In this session, you saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
 
 You saw how to modify your training script to accept a data path via the command line. By using a `Dataset` you were able to mount a directory to the remote run. Using a `Dataset` also made it possible to alternate between local and cloud data.
 
