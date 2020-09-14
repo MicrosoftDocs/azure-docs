@@ -57,10 +57,18 @@ First, create an Azure resource group:
 az group create --name myResourceGroup --location westus2
 ```
 
-Then, create an AKS cluster:
+Then, create an AKS cluster by either providing an SSH key or allowing Azure AD integration.
+
+The following example show the first option to create an AKS cluster using the `--generate-ssh-keys` parameter to create an SSH Key for you. The example puts the private key in the default location on your local device.
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
+az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --generate-ssh-keys
+```
+
+If you want to allow Azure AD integration, you can [create a new cluster using Azure RBAC and managed Azure AD integration](https://docs.microsoft.com/en-us/azure/aks/manage-azure-rbac#create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration). The following example shows how you can create the AKS cluster and enable Azure AD with RBAC enabled by default. 
+
+```azurecli-interactive
+az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --enable-aad
 ```
 
 A successful cluster creation using managed identities contains this service principal profile information:
