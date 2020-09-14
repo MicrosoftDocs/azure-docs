@@ -25,21 +25,21 @@ In this quickstart, you build an iOS app from scratch and integrate the Immersiv
 
 Create a new project in Xcode.
 
-![New Project](../../media/ios/xcode-create-project.png)
+![New Project - Swift](../../media/ios/xcode-create-project.png)
 
 Choose **Single View App**.
 
-![New Single View App](../../media/ios/xcode-single-view-app.png)
+![New Single View App - Swift](../../media/ios/xcode-single-view-app.png)
 
 ## Set up authentication
 
 In the top menu, click on **Product > Scheme > Edit Scheme...**.
 
-![Edit Scheme](../../media/ios/quickstart-ios-edit-scheme.png)
+![Edit Scheme - Swift](../../media/ios/quickstart-ios-edit-scheme.png)
 
 In the **Run** view, click on **Arguments** tab.
 
-![Edit Scheme](../../media/ios/quickstart-ios-env-vars.png)
+![Edit Scheme - Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 In the **Environment Variables** section, add the following names and values, supplying the values given when you created your Immersive Reader resource.
 
@@ -551,19 +551,19 @@ function sendContentToReader(message) {
 
 Set the archive scheme in Xcode by selecting a simulator or device target.
 
-![Archive scheme](../../media/ios/xcode-archive-scheme.png)
+![Archive scheme - Swift](../../media/ios/xcode-archive-scheme.png)
 
-![Select Target](../../media/ios/xcode-select-target.png)
+![Select Target - Swift](../../media/ios/xcode-select-target.png)
 
 In Xcode, press **Ctrl+R** or click on the play button to run the project. The app should launch on the specified simulator or device.
 
 In your app, you should see:
 
-![Sample app](../../media/ios/sample-app-ipad.png)
+![Sample app - Swift](../../media/ios/sample-app-ipad.png)
 
 When you click on the **Immersive Reader** button, you'll see the Immersive Reader launched with the content on app.
 
-![Immersive Reader](../../media/ios/immersive-reader-ipad.png)
+![Immersive Reader - Swift](../../media/ios/immersive-reader-ipad.png)
 
 ## Next steps
 

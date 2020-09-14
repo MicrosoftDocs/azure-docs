@@ -26,11 +26,11 @@ In this quickstart, you build a web app from scratch and integrate Immersive Rea
 
 Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 2.1. Name the project "QuickstartSampleWebApp".
 
-![New Project](../../media/quickstart-csharp/1-createproject.png)
+![New project - C#](../../media/quickstart-csharp/1-createproject.png)
 
-![Configure New Project](../../media/quickstart-csharp/2-configureproject.png)
+![Configure new project - C#](../../media/quickstart-csharp/2-configureproject.png)
 
-![New ASP.NET Core Web Application](../../media/quickstart-csharp/3-createmvc.png)
+![New ASP.NET Core web application - C#](../../media/quickstart-csharp/3-createmvc.png)
 
 ## Set up authentication
 
@@ -290,13 +290,13 @@ From the menu bar, select **Debug > Start Debugging**, or press **F5** to start 
 
 In your browser, you should see:
 
-![Sample app](../../media/quickstart-csharp/4-buildapp.png)
+![Sample app - C#](../../media/quickstart-csharp/4-buildapp.png)
 
 ## Launch the Immersive Reader
 
 When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
-![Immersive Reader](../../media/quickstart-csharp/5-viewimmersivereader.png)
+![Immersive Reader - C#](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## Next steps
 
