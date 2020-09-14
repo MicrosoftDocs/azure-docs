@@ -27,16 +27,16 @@ To use the new feature, follow the steps below.
 
     ![Manage provisioning](media/how-to-configure/manage1.png)
 4. Under **Configuration**, select your configuration.
-5. Under **Validate** click the **Provision a user** button.  This will bring up the 
+5. Under **Validate** click the **Provision a user** button. 
 
  ![Provision a user](media/how-to-on-demand-provision/on-demand2.png)
 
-6. This will bring up the on demand provisioning screen.  Enter the **distinguished name** of a user or group and click the **Provision** button.  
+6. On the on-demand provisioning screen.  Enter the **distinguished name** of a user or group and click the **Provision** button.  
  
- ![Provisioning on demand](media/how-to-on-demand-provision/on-demand3.png)
-7. This will kick off the process.  Once it completes you should see a success screen and 4 green check boxes indicating it was successfully provisioned.  If you receive and error, you will see that on the left of the screen.
+ ![Provisioning on-demand](media/how-to-on-demand-provision/on-demand3.png)
+7. Once it completes, you should see a success screen and 4 green check boxes indicating it was successfully provisioned.  Any errors will appear to the left.
 
-  ![Provisioning on demand](media/how-to-on-demand-provision/on-demand4.png)
+  ![Success](media/how-to-on-demand-provision/on-demand4.png)
 
 Now you can look at the user or group and determine if the changes you made in the configuration have been applied.  The remainder of this document will describe the individual sections that are displayed in the details of a successfully synchronized user or group.
 
@@ -70,7 +70,7 @@ This section provides information on the user or group that was provisioned or e
 
 Using this information, you can see the values of the attributes after the configuration is applied.  Do they look similar to what was imported or are the different?  Does the configuration apply successful?  
 
-This will allow you to trace the attribute transformation as it moves through the cloud and into your Azure AD tenant.
+This will process allow you to trace the attribute transformation as it moves through the cloud and into your Azure AD tenant.
 
 ![User scope details](media/how-to-on-demand-provision/on-demand12.png)
 
