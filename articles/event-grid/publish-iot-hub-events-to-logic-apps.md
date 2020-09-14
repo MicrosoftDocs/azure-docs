@@ -14,13 +14,15 @@ ms.custom: devx-track-azurecli
 
 Azure Event Grid enables you to react to events in IoT Hub by triggering actions in your downstream business applications.
 
-This article walks through a sample configuration that uses IoT Hub and Event Grid. At the end, you have an Azure logic app set up to send a notification email every time a device connects or disconnects to your IoT hub. 
+This article walks through a sample configuration that uses IoT Hub and Event Grid. At the end, you have an Azure logic app set up to send a notification email every time a device connects or disconnects to your IoT hub. Event Grid can be used to get timely notification about critical devices disconnecting. Metrics and Diagnostics can take several (i.e. 20 or more -- though we don't want to put a number on it) minutes to show up in logs/alerts. That might be unacceptable for critical infrastructure.
 
 ## Prerequisites
 
 * An active Azure subscription. If you don't have a subscription, you can [create a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 * An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications. 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create an IoT hub
 
@@ -39,7 +41,7 @@ You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the
 1. Run the following command to create a new resource group:
 
    ```azurecli
-   az group create --name {your resource group name} --location eastus
+   az group create --name {your resource group name} --location westus
    ```
     
 1. Run the following command to create an IoT hub:
@@ -122,7 +124,9 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
 1. Select **New step**. This opens a window to **Choose an action**.
 
-1. Search for **Email**.
+1. Select the **All** tab.
+
+1. Search for **Outlook**.
 
 1. Based on your email provider, find and select the matching connector. This tutorial uses **Outlook.com**. The steps for other email providers are similar. 
 
@@ -136,7 +140,7 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
    * **To**: Enter the email address to receive the notification emails. For this tutorial, use an email account that you can access for testing. 
 
-   * **Subject**: Fill in the text for the subject. When you click on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {event Type}`. If you can't see Dynamic content, select the **Add dynamic content** hyperlink -- this toggles it on and off.
+   * **Subject**: Fill in the text for the subject. When you click on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {eventType}`. If you can't see Dynamic content, select the **Add dynamic content** hyperlink -- this toggles it on and off.
 
    * **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. If you can't see the Dynamic content, select the **Add dynamic content** hyperlink under the **Body** text box. If it doesn't show you the fields you want, click *more* in the Dynamic content screen to include the fields from the previous action.
 
