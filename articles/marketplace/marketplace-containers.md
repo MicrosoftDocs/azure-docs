@@ -2,20 +2,19 @@
 title: Publishing guide for container offers in Azure Marketplace 
 description: This article describes the requirements to publish container offers in Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: dsindona
-
+author: keferna
+ms.author: keferna
+ms.date: 09/04/2020
 ---
 
 # Publishing guide for container offers
 
 Container offers help you publish your container image to Azure Marketplace. Use this guide to understand the requirements for this offer. 
 
-Container offers are transaction offers that are deployed and billed through Azure Marketplace. The call to action that a user sees is "Get It Now."
+Container offers are transaction offers that are deployed and billed through Azure Marketplace. The listing option that a user sees is "Get It Now."
 
 Use the *Container* offer type when your solution is a Docker container image that's set up as a Kubernetes-based Azure container service instance. 
 

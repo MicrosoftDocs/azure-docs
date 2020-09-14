@@ -104,8 +104,6 @@ Conditional Access is an Azure AD Premium capability and requires a premium lice
 
 On Azure AD registered Windows devices sign in to the device is considered a prompt. For example, if you have configured the sign-in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the sign-in frequency policy by signing in to the device and will be not prompted again when opening Office apps.
 
-If you have configured different Sign-in frequency for different web apps that are running in the same browser session, the strictest policy will be applied to both apps because all apps running in the same browser session share a single session token.
-
 ### Policy 2: Persistent browser session
 
 1. Create new policy
@@ -135,5 +133,5 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ## Next steps
 
-* If you want to know how to configure a Conditional Access policy, see the article [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
+* If you want to know how to configure a Conditional Access policy, see the article [Require MFA for specific apps with Azure Active Directory Conditional Access](../authentication/tutorial-enable-azure-mfa.md).
 * If you are ready to configure Conditional Access policies for your environment, see the article [Best practices for Conditional Access in Azure Active Directory](best-practices.md).

@@ -92,7 +92,7 @@ Next, the command needs to have a completion rule. This rule tells the user that
 1. Back in the **Completion rules** section, select **Save** to save all changes. 
 
 
- > [!NOTE]
+    > [!NOTE]
     > It's not necessary to use the default completion rule that comes with the command. If needed, you can delete the existing default completion rule and add your own rule.
 
 ### Try it out

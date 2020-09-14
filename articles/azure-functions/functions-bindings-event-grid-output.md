@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit, tracking-python
+ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
 ---
 
 # Azure Event Grid output binding for Azure Functions

@@ -4,6 +4,7 @@ description: A .NET tutorial that helps you develop a multi-tier app in Azure th
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # .NET multi-tier application using Azure Service Bus queues
@@ -21,11 +22,11 @@ You will learn the following:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. You can also try out the [.NET on-premises/cloud hybrid application](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
+In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. You can also try out the [.NET on-premises/cloud hybrid application](../azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
 
 The following screenshot shows the completed application.
 
-![][0]
+![Screenshot of the application's Submit page.][0]
 
 ## Scenario overview: inter-role communication
 To submit an order for processing, the front-end UI component, running
@@ -48,7 +49,7 @@ configured with filter rules that restrict the set of messages passed to
 the subscription queue to those that match the filter. The following example uses
 Service Bus queues.
 
-![][1]
+![Diagram showing the communication between the Web Role, the Service Bus, and the Worker Role.][1]
 
 This communication mechanism has several advantages over direct
 messaging:
@@ -76,7 +77,7 @@ messaging:
   pull messages at their own maximum rate. This pattern is often
   termed the *competing consumer* pattern.
   
-  ![][2]
+  ![Diagram showing the communication between the Web Role, the Service Bus, and two Worker Roles.][2]
 
 The following sections discuss the code that implements this architecture.
 
@@ -106,27 +107,27 @@ queue and displays status information about the queue.
    then click **Azure Cloud Service**. Name the project
    **MultiTierApp**. Then click **OK**.
    
-   ![][9]
+   ![Screenshot of the New Project dialog box with Cloud selected and Azure Cloud Service Visual C# highlighted and outlined in red.][9]
 3. From the **Roles** pane, double-click **ASP.NET Web
    Role**.
    
-   ![][10]
+   ![Screenshot of the New Microsoft Azure Cloud Service dialog box with ASP.NET Web Role selected and WebRole1 also selected.][10]
 4. Hover over **WebRole1** under **Azure Cloud Service solution**, click
    the pencil icon, and rename the web role to **FrontendWebRole**. Then click **OK**. (Make sure you enter "Frontend" with a lower-case 'e,' not "FrontEnd".)
    
-   ![][11]
+   ![Screenshot of the New Microsoft Azure Cloud Service dialog box with the solution renamed to FrontendWebRole.][11]
 5. From the **New ASP.NET Project** dialog box, in the **Select a template** list, click **MVC**.
    
-   ![][12]
+   ![Screenshotof the New ASP.NET Project dialog box with MVC highlighted and outlined in red and the Change Authentication option outlined in red.][12]
 6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, ensure that **No Authentication** is selected, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
    
-    ![][16]
+    ![Screenshot of the Change Authentication dialog box with the No Authentication option selected and outlined in red.][16]
 7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
 8. In **Solution Explorer**, in the **FrontendWebRole** project, right-click **References**, then click
    **Manage NuGet Packages**.
 9. Click the **Browse** tab, then search for **WindowsAzure.ServiceBus**. Select the **WindowsAzure.ServiceBus** package, click **Install**, and accept the terms of use.
    
-   ![][13]
+   ![Screenshot of the Manage NuGet Packages dialog box with the WindowsAzure.ServiceBus highlighted and the Install option outlined in red.][13]
    
    Note that the required client assemblies are now referenced and some new code files have been added.
 10. In **Solution Explorer**, right-click **Models** and click **Add**,
@@ -218,10 +219,10 @@ In this section, you create the various pages that your application displays.
    created earlier. Right-click within the `Submit()` method (the overload of `Submit()` that takes no parameters), and then choose
    **Add View**.
    
-   ![][14]
+   ![Screenshot of the code with focus on the Submit method and a drop-down list with the Add View option highlighted.][14]
 6. A dialog box appears for creating the view. In the **Template** list, choose **Create**. In the **Model class** list, select the **OnlineOrder** class.
    
-   ![][15]
+   ![A screenshot of the Add View dialog box with the Template and Model class drop-down lists outlined in red.][15]
 7. Click **Add**.
 8. Now, change the displayed name of your application. In **Solution Explorer**, double-click the
    **Views\Shared\\_Layout.cshtml** file to open it in the Visual
@@ -230,7 +231,7 @@ In this section, you create the various pages that your application displays.
    **Northwind Traders Products**.
 10. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
     
-    ![][28]
+    ![Screenshot of the code with three lines of  H T M L Action Link code highlighted.][28]
 11. Finally, modify the submission page to include some information about
     the queue. In **Solution Explorer**, double-click the
     **Views\Home\Submit.cshtml** file to open it in the Visual Studio
@@ -243,7 +244,7 @@ In this section, you create the various pages that your application displays.
 12. You now have implemented your UI. You can press **F5** to run your
     application and confirm that it looks as expected.
     
-    ![][17]
+    ![Screenshot of the application's Submit page.][17]
 
 ### Write the code for submitting items to a Service Bus queue
 Now, add code for submitting items to a queue. First, you
@@ -359,14 +360,14 @@ Service Bus queue.
        }
        else
        {
-           return View(order);
+           return View(order); 
        }
    }
    ```
 9. You can now run the application again. Each time you submit an
    order, the message count increases.
    
-   ![][18]
+   ![Screenshot of the application's Submit page with the message count incremented to 1.][18]
 
 ## Create the worker role
 You will now create the worker role that processes the order
@@ -377,16 +378,16 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
    **Roles** folder under the **MultiTierApp** project.
 3. Click **Add**, and then click **New Worker Role Project**. The **Add New Role Project** dialog box appears.
    
-   ![][26]
+   ![Screenshot of the Soultion Explorer pane with the New Worker Role Project option and Add option highlighted.][26]
 4. In the **Add New Role Project** dialog box, click **Worker Role with Service Bus Queue**.
    
-   ![][23]
+   ![Screenshot of the Ad New Role Project dialog box with the Worker Role with Service Bus Queue option highlighted and outlined in red.][23]
 5. In the **Name** box, name the project **OrderProcessingRole**. Then click **Add**.
 6. Copy the connection string that you obtained in step 9 of the "Create a Service Bus namespace" section to the clipboard.
 7. In **Solution Explorer**, right-click the **OrderProcessingRole** you created in step 5 (make sure that you right-click **OrderProcessingRole** under **Roles**, and not the class). Then click **Properties**.
 8. On the **Settings** tab of the **Properties** dialog box, click inside the **Value** box for **Microsoft.ServiceBus.ConnectionString**, and then paste the endpoint value you copied in step 6.
    
-   ![][25]
+   ![Screenshot of the Properties dialog box with the Settings tab selected and the Microsoft.ServiceBus.ConnectionString table row outlined in red.][25]
 9. Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In **Solution Explorer**, right-click the **OrderProcessingRole** class (right-click the class icon, not the role). Click **Add**, then click **Existing Item**.
 10. Browse to the subfolder for **FrontendWebRole\Models**, and then double-click **OnlineOrder.cs** to add it to this project.
 11. In **WorkerRole.cs**, change the value of the **QueueName** variable from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
@@ -418,9 +419,9 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
     can do this by right-clicking the emulator icon in the notification
     area of your taskbar and selecting **Show Compute Emulator UI**.
     
-    ![][19]
+    ![Screenshot of what appears when you click the emulator icon. Show Compute Emulator UI is in the list of options.][19]
     
-    ![][20]
+    ![Screenshot of the Microsoft Azure Compute Emulator (Express) dialog box.][20]
 
 ## Next steps
 To learn more about Service Bus, see the following resources:  

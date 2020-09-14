@@ -38,7 +38,7 @@ The following database solutions are supported with backup feature:
 
 ## Requirements and restrictions
 * The Backup and Restore feature requires the App Service plan to be in the **Standard**, **Premium** or **Isolated** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** and **Isolated** tiers allow a greater number of daily back ups than **Standard** tier.
-* You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+* You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
 * Backups of TLS enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
 * Backups of TLS enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.
@@ -155,7 +155,7 @@ The database backup for the app is stored in the root of the .zip file. For SQL 
 
 ## Automate with scripts
 
-You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
 For samples, see:
 
@@ -165,4 +165,4 @@ For samples, see:
 <a name="nextsteps"></a>
 
 ## Next Steps
-For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). 
+For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md).

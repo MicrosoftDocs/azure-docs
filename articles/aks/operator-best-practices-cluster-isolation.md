@@ -26,7 +26,7 @@ Kubernetes provides features that let you logically isolate teams and workloads 
   * More advanced scheduler features include taints and tolerations, node selectors, and node and pod affinity or anti-affinity. For more information about these features, see [Best practices for advanced scheduler features in AKS][aks-best-practices-advanced-scheduler].
 * **Networking** includes the use of network policies to control the flow of traffic in and out of pods.
 * **Authentication and authorization** include the user of role-based access control (RBAC) and Azure Active Directory (AD) integration, pod identities, and secrets in Azure Key Vault. For more information about these features, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
-* **Containers** include pod security policies, pod security contexts, scanning images and runtimes for vulnerabilities. Also involves using App Armor or Seccomp (Secure Computing) to restrict container access to the underlying node.
+* **Containers** includes the Azure Policy Add-on for AKS to enforce pod security, the use of pod security contexts, and scanning both images and the runtime for vulnerabilities. Also involves using App Armor or Seccomp (Secure Computing) to restrict container access to the underlying node.
 
 ## Logically isolate clusters
 
@@ -38,7 +38,7 @@ With logical isolation, a single AKS cluster can be used for multiple workloads,
 
 Logical separation of clusters usually provides a higher pod density than physically isolated clusters. There's less excess compute capacity that sits idle in the cluster. When combined with the Kubernetes cluster autoscaler, you can scale the number of nodes up or down to meet demands. This best practice approach to autoscaling lets you run only the number of nodes required and minimizes costs.
 
-Kubernetes environments, in AKS or elsewhere, aren't completely safe for hostile multi-tenant usage. In a multi-tenant environment multiple tenants are working on a common, shared infrastructure. As a result if all tenants cannot be trusted, you need to do additional planning to avoid one tenant impacting the security and service of another. Additional security features such as *Pod Security Policy* and more fine-grained role-based access controls (RBAC) for nodes make exploits more difficult. However, for true security when running hostile multi-tenant workloads, a hypervisor is the only level of security that you should trust. The security domain for Kubernetes becomes the entire cluster, not an individual node. For these types of hostile multi-tenant workloads, you should use physically isolated clusters.
+Kubernetes environments, in AKS or elsewhere, aren't completely safe for hostile multi-tenant usage. In a multi-tenant environment multiple tenants are working on a common, shared infrastructure. As a result if all tenants cannot be trusted, you need to do additional planning to avoid one tenant impacting the security and service of another. Additional security features such as *Pod Security Policy* and more fine-grained role-based access control (RBAC) for nodes make exploits more difficult. However, for true security when running hostile multi-tenant workloads, a hypervisor is the only level of security that you should trust. The security domain for Kubernetes becomes the entire cluster, not an individual node. For these types of hostile multi-tenant workloads, you should use physically isolated clusters.
 
 ## Physically isolate clusters
 

@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Designing for high availability'
 description: This page provides architectural recommendations for high availability while using Azure ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: rambala
+ms.author: duau
 
 ---
 
@@ -15,6 +15,9 @@ ms.author: rambala
 
 ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there is no single point of failure in the ExpressRoute path within Microsoft network. To maximize the availability, the customer and the service provider segment of your ExpressRoute circuit should also be architected for high availability. In this article, first let's look into network architecture considerations for building robust network connectivity using an ExpressRoute, then let's look into the fine-tuning features that help you to improve the high availability of your ExpressRoute circuit.
 
+>[!NOTE]
+>The concepts described in this article equally applies when an ExpressRoute circuit is created under Virtual WAN or outside of it.
+>
 
 ## Architecture considerations
 

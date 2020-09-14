@@ -1,12 +1,12 @@
 ---
 title: Lead management for Dynamics 365 Customer Engagement - Microsoft commercial marketplace
 description: Learn how to set up Dynamics 365 Customer Engagement to manage leads from Microsoft AppSource and Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Configure lead management for Dynamics 365 Customer Engagement
@@ -22,7 +22,7 @@ The following user permissions are necessary to complete the steps in this artic
 
 * Administrator rights on your Dynamics 365 Customer Engagement instance to be able to install a solution.
 * Tenant admin rights to create a new service account for the lead service used to send leads from commercial marketplace offers.
-* Access to the Office 365 admin portal.
+* Access to the admin portal.
 * Access to the Azure portal.
 
 ## Install the solution

@@ -7,7 +7,7 @@ ms.date: 06/26/2020
 
 # Report Azure DevTest Labs usage across multiple labs and subscriptions
 
-Most large organizations want to track resource usage to be more effective with those resources by visualizing trends and outliers in the usage. Based on resource usage the lab owners or managers can customize the labs to [improve resource usage and costs](https://docs.microsoft.com/azure/billing/billing-getting-started). In Azure DevTest Labs, you can download resource usage per lab allowing a deeper historical look into the usage patterns. These usage patterns can help pinpoint changes to improve efficiency. Most enterprises want both individual lab usage and overall usage across [multiple labs and subscriptions](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+Most large organizations want to track resource usage to be more effective with those resources by visualizing trends and outliers in the usage. Based on resource usage the lab owners or managers can customize the labs to [improve resource usage and costs](../cost-management-billing/manage/getting-started.md). In Azure DevTest Labs, you can download resource usage per lab allowing a deeper historical look into the usage patterns. These usage patterns can help pinpoint changes to improve efficiency. Most enterprises want both individual lab usage and overall usage across [multiple labs and subscriptions](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 This article discusses how to handle resource usage information across multiple labs and subscriptions.
 
@@ -19,8 +19,8 @@ This section discusses how to export resource usage for a single lab.
 
 Before you can export resource usage of DevTest Labs, you have to set up an Azure Storage account to allow the different files that contain the usage data to be stored. There are two common ways to execute the export of data:
 
-* [DevTest Labs REST API](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* The PowerShell Az.Resource module [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) with the action of `exportResourceUsage`, the lab resource ID, and the necessary parameters. 
+* [DevTest Labs REST API](/rest/api/dtl/labs/exportresourceusage) 
+* The PowerShell Az.Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) with the action of `exportResourceUsage`, the lab resource ID, and the necessary parameters. 
 
     The [export or delete personal data](personal-data-delete-export.md) article contains a sample PowerShell script with detailed information on the data that is exported. 
 
@@ -43,8 +43,8 @@ These files are stored in the *labresourceusage* blob container under the lab na
 
 To export the usage information for multiple labs consider using 
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), available in many languages, including PowerShell, or 
-* [Azure Automation runbook](https://docs.microsoft.com/azure/automation/), use PowerShell, Python, or a custom graphical designer to write the export code.
+* [Azure Functions](../azure-functions/index.yml), available in many languages, including PowerShell, or 
+* [Azure Automation runbook](../automation/index.yml), use PowerShell, Python, or a custom graphical designer to write the export code.
 
 Using these technologies, you can execute the individual lab exports on all the labs at a specific date and time. 
 
@@ -64,7 +64,7 @@ Some common storage solutions are: [SQL Server](https://azure.microsoft.com/serv
 
 ## Visualizing data and gathering insights
 
-Use a data visualization tool of your choice to connect to your long-term storage to display the usage data and gather insights to verify usage efficiency. For example, [Power BI](https://docs.microsoft.com/power-bi/power-bi-overview) can be used to organize and display the usage data. 
+Use a data visualization tool of your choice to connect to your long-term storage to display the usage data and gather insights to verify usage efficiency. For example, [Power BI](/power-bi/power-bi-overview) can be used to organize and display the usage data. 
 
 You can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create, link, and manage your resources within a single location interface. If greater control is needed, the individual resource can be created within a single resource group and managed independently of the Data Factory service.  
 

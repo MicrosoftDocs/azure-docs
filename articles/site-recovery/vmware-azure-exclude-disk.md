@@ -38,7 +38,7 @@ Before you exclude disks from replication:
 
 ## Exclude disks from replication
 
-1. When you [enable replication](site-recovery-hyper-v-site-to-azure.md) for a VMware VM, after selecting the VMs that you want to replicate, in the **Enable replication** > **Properties** > **Configure properties** page, review the **Disks to Replicate** column. By default all disks are selected for replication.
+1. When you [enable replication](./hyper-v-azure-tutorial.md) for a VMware VM, after selecting the VMs that you want to replicate, in the **Enable replication** > **Properties** > **Configure properties** page, review the **Disks to Replicate** column. By default all disks are selected for replication.
 2. If you don't want to replicate a specific disk, in **Disks to replicate** clear the selection for any disks you want to exclude. 
 
     ![Exclude disks from replication](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)

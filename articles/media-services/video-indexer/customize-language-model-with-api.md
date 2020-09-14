@@ -9,7 +9,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/04/2020
-ms.author: anzaman
+ms.author: kumud
 ---
 
 # Customize a Language model with the Video Indexer API

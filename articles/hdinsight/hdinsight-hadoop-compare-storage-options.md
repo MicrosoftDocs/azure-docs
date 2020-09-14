@@ -58,6 +58,12 @@ You can create clusters using combinations of services for primary and optional 
 > [!NOTE]
 > Data Lake Storage Gen2 primary storage is not supported for Spark 2.1 or 2.2 clusters.
 
+## Data replication
+
+Azure HDInsight does not store customer data. The primary means of storage for a cluster are its associated storage accounts. You can attach your cluster to an existing storage account, or create a new storage account during the cluster creation process. If a new account is created, it will be created as a locally redundant storage (LRS) account, and will satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net).
+
+You can validate that HDInsight is properly configured to store data in a single region by ensuring that the storage account associated with your HDInsight is LRS or another storage option mentioned on [Trust Center](https://azuredatacentermap.azurewebsites.net).
+ 
 ## Next steps
 
 * [Azure Storage overview](./overview-azure-storage.md)

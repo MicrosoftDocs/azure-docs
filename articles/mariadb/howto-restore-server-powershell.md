@@ -5,8 +5,9 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/26/2020
+ms.custom: devx-track-azurepowershell
 ---
 # How to back up and restore an Azure Database for MariaDB server using PowerShell
 
@@ -163,4 +164,4 @@ original server are restored.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize Azure Database for MariaDB server parameters using PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [How to generate an Azure Database for MariaDB connection string with PowerShell](howto-connection-string-powershell.md)

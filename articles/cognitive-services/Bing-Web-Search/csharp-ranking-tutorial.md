@@ -11,6 +11,7 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # Build a console app search client in C#

@@ -1,12 +1,12 @@
 ---
 title: Register a SaaS application - Azure Marketplace 
 description: Learn how to use the Azure portal to register a SaaS application and receive an Azure Active Directory security token.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Register a SaaS application
@@ -82,7 +82,7 @@ Post<br>
 
 |  Property name     |  Required         |  Description |
 |  ---------------   |  ---------------  | ------------ |
-|  `grant-type`      |  True      |  Grant type. Use `"client_credentials"`. |
+|  `grant_type`      |  True      |  Grant type. Use `"client_credentials"`. |
 |  `client_id`       |  True      |  Client/app identifier associated with the Azure AD app. |
 |  `client_secret`   |  True      |  Secret associated with the Azure AD app. |
 |  `resource`        |  True      |  Target resource for which the token is requested. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` because Marketplace SaaS API is always the target resource in this case. |

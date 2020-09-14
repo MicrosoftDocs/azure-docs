@@ -1,13 +1,13 @@
 ---
 title: Azure Stack Edge limits | Microsoft Docs
-description: Describes system limits and recommended sizes for the Azure Stack Edge.
+description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge, including service limits, device limits, and storage limits.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 08/28/2020
 ms.author: alkohli
 ---
 

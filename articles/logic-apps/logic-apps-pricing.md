@@ -72,27 +72,27 @@ For logic apps that you create and run in an ISE, you pay a [fixed price](https:
 
 ## Connectors
 
-Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](https://docs.microsoft.com/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
+Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
 
 <a name="triggers"></a>
 
 ## Triggers
 
-Triggers are special actions that create a logic app instance when a specific event happens. Triggers act in different ways, which affect how the logic app is metered. Here are the various kinds of triggers that exist in Azure Logic Apps:
+A trigger is always the first step in a logic app workflow and is a special action that creates and runs a logic app instance when specific criteria are met or a specific event happens. Triggers act in different ways, which affect how the logic app is metered. Here are the various kinds of triggers that exist in Azure Logic Apps:
 
-* **Polling trigger**: This trigger continually checks an endpoint for messages that satisfy the criteria for creating a logic app instance and starting the workflow. Even when no logic app instance gets created, Logic Apps meters each polling request as an execution. To specify the polling interval, set up the trigger through the Logic App Designer.
+* **Recurrence trigger**: You can use this generic trigger, which isn't specific to any service or system, to start any logic app workflow and create a logic app instance that runs based on the recurrence interval that you set up in the trigger. For example, you can set up a Recurrence trigger that runs every three days or on a more complex schedule.
+
+* **Polling trigger**: You can use this more specialized recurrence trigger, which is usually associated with the managed connector for a specific service or system, to check for events or messages that meet the criteria for creating and running logic app instance based on the recurrence interval that you set up in the trigger. Even when no logic app instance gets created, for example, when triggers are skipped, the Logic Apps service meters each polling request as an execution. To specify the polling interval, set up the trigger through the Logic App Designer.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook trigger**: This trigger waits for a client to send a request to a specific endpoint. Each request sent to the webhook endpoint counts as an action execution. For example, the Request and HTTP Webhook trigger are both webhook triggers.
-
-* **Recurrence trigger**: This trigger creates a logic app instance based on the recurrence interval that you set up in the trigger. For example, you can set up a Recurrence trigger that runs every three days or on a more complex schedule.
+* **Webhook trigger**: Rather than use a polling trigger, you can use a webhook trigger to wait for the client to send a request to your logic app at a specific endpoint URL. Each request that's sent to the webhook endpoint counts as an action execution. For example, the Request and HTTP Webhook trigger are both generic webhook triggers. Some connectors for services or systems also have webhook triggers.
 
 <a name="actions"></a>
 
 ## Actions
 
-Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
+Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
 
 Azure Logic Apps meters all successful and unsuccessful actions as executions. However, Logic Apps doesn't meter these actions:
 
@@ -117,7 +117,7 @@ If you have an [*integration service environment* (ISE)](../logic-apps/connect-v
 
 To choose between a Free, Basic, or Standard integration account, review these use case descriptions:
 
-* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **Basic**: For when you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity
 

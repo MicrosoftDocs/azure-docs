@@ -1,12 +1,12 @@
 ---
 title: What is a test drive? Microsoft commercial marketplace
 description: Explanation of Marketplace test drive feature
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 06/19/2020
-ms.author: dsindona
 ---
 
 # What is a test drive?
@@ -39,7 +39,17 @@ For details on configuring one of these test drives, see the link under [Next st
 
 ### Azure Resource Manager test drive
 
-This deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. This is the only test drive option for virtual machine or Azure app offers.
+This deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. The Azure Resource Manager test drive is available for these offer types: 
+
+- Azure applications
+- Dynamics 365 for Business Central
+- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Operations
+- SaaS
+- Virtual machines
+
+>[!NOTE]
+>This is the only test drive option for virtual machine and Azure application offers.
 
 ### Hosted test drive
 
@@ -69,7 +79,7 @@ The process of turning an architecture of resources into a test drive can be dau
 
 ## Generate leads from your test drive
 
-A commercial marketplace test drive is a great tool for marketers. We recommend you incorporate it in your go-to-market efforts when you launch to generate more leads for your business. For detailed guidance, see [Customer leads from your commercial marketplace offer](https://github.com/partner-center-portal/commercial-marketplace-get-customer-leads.md).
+A commercial marketplace test drive is a great tool for marketers. We recommend you incorporate it in your go-to-market efforts when you launch to generate more leads for your business. For detailed guidance, see [Customer leads from your commercial marketplace offer](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 If you close a deal with a test drive lead, be sure to register it at [Microsoft Partner Sales Connect](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Also, we would love to hear about your customer wins where a test drive played a role.
 

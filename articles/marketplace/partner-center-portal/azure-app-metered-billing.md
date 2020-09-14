@@ -1,12 +1,12 @@
 ---
 title: Metered billing for managed applications using the marketplace metering service | Azure Marketplace
 description: This documentation is a guide for ISVs publishing Azure applications with flexible billing models. 
-author: qianw211
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
+ms.author: mingshen
+author: mingshen-ms
 ---
 
 # Managed application metered billing 
@@ -106,21 +106,13 @@ The maximum number of dimensions that can be configured for a single offer is 18
 
 ## Get support
 
-If one of the following cases applies, you can open a support ticket.
+If you have one of the following issues, you can open a support ticket.
 
 * Technical issues with marketplace metering service API.
 * An issue that needs to be escalated because of an error or bug on your side (ex. wrong usage event).
 * Any other issues related to metered billing.
 
-Follow the steps below to submit your support ticket:
-
-1. Go to the [support page](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). The first few dropdown menus are automatically filled out for you. For Marketplace support, identify the product family as **Cloud and Online Services**, the product as **Marketplace Publisher**. Do not change the pre-populated dropdown menu selections.
-2. Under "Select the product version", select **Live offer management**.
-3. Under "Select a category that best describe the issue", choose **Azure Applications offer**.
-4. Under "Select a problem that best describes the issue", select **metered billing**.
-5. By selecting the **Next** button, you will be directed to the **Issue details** page, where you can enter more details on your issue.
-
-For more publisher support options, see [support for the commercial marketplace program in Partner Center](support.md).
+Follow the instruction in [Support for the commercial marketplace program in Partner Center](./support.md) to understand publisher support options and open support ticket with Microsoft.
 
 ## Next steps
 

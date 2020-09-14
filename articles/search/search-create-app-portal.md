@@ -27,7 +27,7 @@ Before you begin, you must have the following:
 
 + [Microsoft Edge (latest version)](https://www.microsoft.com/edge) or Google Chrome.
 
-+ A [search index](search-create-index-portal.md) to use as the basis of your generated application. 
++ A [search index](search-what-is-an-index.md) to use as the basis of your generated application. 
 
   This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images (the wizard supports adding images to the results page). To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
 
@@ -57,7 +57,7 @@ The wizard provides a basic layout for rendered search results that includes spa
 
 1. In Description, choose a field that provides details that might help someone decide whether to click through to that particular document.
 
-   ![data source page for sample data](media/search-create-app-portal/configure-results.png)
+   ![configure results for sample data](media/search-create-app-portal/configure-results.png)
 
 ## Add a sidebar
 
@@ -107,4 +107,4 @@ If you are using a free service, remember that you are limited to three indexes,
 While the default app is useful for initial exploration and small tasks, reviewing the APIs early on will help you understand the concepts and workflow on a deeper level:
 
 > [!div class="nextstepaction"]
-> [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Create an index using .NET SDK](./search-get-started-dotnet.md)

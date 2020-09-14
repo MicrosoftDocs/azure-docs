@@ -9,7 +9,7 @@ ms.date: 06/26/2020
 
 The following table includes links to bash scripts built using the Azure CLI scripts for Azure Lab Services. 
 
-| | |
+| Script | Description |
 |---|---|
 | [Create and verify availability of a VM](scripts/create-verify-virtual-machine-in-lab-cli.md) | Creates a Windows virtual machine with minimal configuration. |
 | [Start a VM](scripts/start-connect-virtual-machine-in-lab-cli.md) | Starts a VM. |

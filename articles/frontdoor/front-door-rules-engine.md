@@ -1,9 +1,9 @@
 ---
-title: Azure Front Door
+title: Rules Engine for Azure Front Door architecture and terminology
 description: This article provides an overview of the Azure Front Door Rules Engine feature. 
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,7 +11,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
+ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what the Rules Engine feature does. 
 ---
 

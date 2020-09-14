@@ -4,8 +4,9 @@ description: Learn how to set up and manage data encryption for your Azure Datab
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 01/13/2020
+ms.topic: how-to
+ms.date: 01/13/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal
@@ -17,13 +18,13 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
 * You must have an Azure subscription and be an administrator on that subscription.
 * In Azure Key Vault, create a key vault and key to use for a customer-managed key.
 * The key vault must have the following properties to use as a customer-managed key:
-  * [Soft delete](../key-vault/general/overview-soft-delete.md)
+  * [Soft delete](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Purge protected](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Purge protected](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

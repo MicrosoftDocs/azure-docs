@@ -27,4 +27,4 @@ When you add permissions to your app registration, you can **add API access** to
 
 ## Next steps
 
-- [Understanding the Azure Active Directory application manifest](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
+- [Understanding the Azure Active Directory application manifest](./reference-app-manifest.md)

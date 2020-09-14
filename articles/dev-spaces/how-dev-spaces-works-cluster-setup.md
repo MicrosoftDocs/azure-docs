@@ -15,8 +15,6 @@ Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Ku
 
 To prepare your AKS cluster for Dev Spaces, verify your AKS cluster is in a region [supported by Azure Dev Spaces][supported-regions] and you are running Kubernetes 1.10.3 or later. You can enable Azure Dev Spaces from the Azure CLI by running `az aks use-dev-spaces`.
 
-For an example of setting up an AKS cluster for Dev Spaces, see the [team development quickstart][quickstart-team].
-
 When Azure Dev Spaces is enabled on your AKS cluster, it installs the controller for your cluster. The controller resides outside your AKS cluster. It drives the behavior and communication between the client-side tooling and the AKS cluster. Once it is enabled, you can interact with the controller using the client-side tooling.
 
 The controller performs the following actions:
@@ -87,10 +85,8 @@ You can use the client-side tooling from the command line as part of the `azds` 
 
 To learn more about using the client-side tooling to prepare and run your code in your dev space, see [How preparing a project for Azure Dev Spaces works][how-it-works-prep].
 
-To get started using Azure Dev Spaces for team development, see the [team development in Azure Dev Spaces][quickstart-team] quickstart.
 
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
 [how-it-works-up]: how-dev-spaces-works-up.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[quickstart-team]: quickstart-team-development.md

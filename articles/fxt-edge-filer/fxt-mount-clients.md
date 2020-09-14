@@ -88,14 +88,14 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Required settings | |
+| Required settings | Description |
 --- | ---
 ``hard`` | Soft mounts to the Azure FXT Edge Filer cluster are associated with application failures and possible data loss.
 ``proto=netid`` | This option supports appropriate handling of NFS network errors.
 ``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
 ``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
 
-| Preferred settings  | |
+| Preferred settings  | Description |
 --- | ---
 ``nointr``            | If your clients use older OS kernels (before April 2008) that support this option, use it. The option "intr" is the default.
 

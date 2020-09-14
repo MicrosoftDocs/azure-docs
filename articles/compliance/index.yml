@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 05/06/2020
+  ms.date: 07/07/2020
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -258,7 +258,7 @@ conceptualContent:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ccpa
           itemType: concept
           text: CCPA (US California)
-        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ccsl-irap-australia
+        - url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-australian-security-and-privacy-requirements/
           itemType: concept
           text: IRAP and CCSL (Australia)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cs-mark-gold-japan
@@ -301,13 +301,13 @@ conceptualContent:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-g-cloud-uk
           itemType: concept
           text: G-Cloud (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-isms-korea
+          itemType: concept
+          text: ISMS (Korea)
 
     # Card
     - title: Regional
       links:
-        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-isms-korea
-          itemType: concept
-          text: ISMS (Korea)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-it-grundschutz-workbook-germany
           itemType: concept
           text: IT-Grundschutz (Germany)
@@ -317,13 +317,13 @@ conceptualContent:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-meity-india
           itemType: concept
           text: MeitY (India)
-        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-mtcs-singapore
+        - url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-singapore/
           itemType: concept
           text: MTCS (Singapore)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-my-number-act-japan
           itemType: concept
           text: My Number (Japan)
-        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nz-cc-framework-nz
+        - url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-new-zealand/
           itemType: concept
           text: NZ CC (New Zealand)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-pasf-uk
@@ -389,7 +389,7 @@ additionalContent:
             - text: FedRAMP High
               url: ../governance/blueprints/samples/fedramp-h/index.md
             - text: HIPAA HITRUST
-              url: ../governance/blueprints/samples/hipaa-hitrust/index.md
+              url: /azure/governance/blueprints/samples/hipaa-hitrust-9-2
             - text: IRS 1075
               url: ../governance/blueprints/samples/irs-1075/index.md
             - text: ISO 27001
@@ -407,13 +407,15 @@ additionalContent:
         - title: Country/Region privacy and compliance guides
           links:
             - text: Australian security and privacy requirements
-              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-0c790495
+              url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-australian-security-and-privacy-requirements/
             - text: Singapore security and privacy requirements
-              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-ced8dbf9
+              url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-singapore/
+            - text: Japan security and privacy requirements
+              url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-the-japan-security-and-privacy-requirements/
             - text: Malaysian security and privacy requirements
               url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-8b936d6a
             - text: New Zealand security and privacy requirements
-              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-f19e44c2
+              url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-new-zealand/
             - text: Navigating your way to the cloud in Europe 
               url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
             - text: Navigating your way to the cloud in Asia
@@ -427,67 +429,63 @@ additionalContent:
           links:
             - text: BIR-2012 baseline coverage user guide
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=f49ee594-6c56-4b6f-93c1-646850798354&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
-            - text: CDSA-compliant content protection
-              url: https://gallery.technet.microsoft.com/Azure-Implementing-CDSA-8087c7a2
             - text: CIS Azure foundations 
               url: https://azure.microsoft.com/mediahandler/files/resourcefiles/cis-microsoft-azure-foundations-security-benchmark/CIS_Microsoft_Azure_Foundations_Benchmark_v1.0.0.pdf
             - text: CJIS cloud computing mapping
               url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=f33bf55e-1f0e-41e4-a442-7182365833a0&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
             - text: CSA CAIQ
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=a966a424-ecfd-4de2-9739-b08aee2d3ca0&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
-            - text: FCA Microsoft's approach to cloud guidance
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=991d2ba5-da00-48ed-a95e-a16f61db384c&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+              url: https://azure.microsoft.com/resources/microsoft-azure-responses-to-cloud-security-alliance-consensus-assessments-initiative-questionnaire-v301/
             - text: FERPA implementation guide
-              url: https://gallery.technet.microsoft.com/Azure-FERPA-Implementation-441b6b71
+              url: https://azure.microsoft.com/resources/microsoft-azure-ferpa-implementation-guide/
             - text: GDPR control mapping
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
             - text: GxP guidelines
-              url: https://gallery.technet.microsoft.com/Azure-GxP-Guidelines-ab1b98d9
-            - text: HIPAA/HITECH Act implementation
-              url: https://gallery.technet.microsoft.com/Azure-HIPAAHITECH-Act-1d27efb0
+              url: https://azure.microsoft.com/resources/microsoft-azure-gxp-guidelines-april/
+            - text: HITRUST customer responsibility matrix
+              url: https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=3ccde498-4761-4be0-be8b-cd8d379a3a4f&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_Healthcare_Blueprint
 
         # Card
         - title: Implementation and mappings
           links:
-            - text: HITRUST customer responsibility matrix
-              url: https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=3ccde498-4761-4be0-be8b-cd8d379a3a4f&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_Healthcare_Blueprint
             - text: ISO 27001 security controls
-              url: https://gallery.technet.microsoft.com/13-Effective-Security-72447e11
+              url: https://azure.microsoft.com/resources/13-effective-security-controls-for-iso-27001-compliance-when-using-microsoft-azure/
             - text: IT-Grundschutz workbook
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=2b6fa69b-4cab-4f15-8e7b-560e0291e7f7&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
+              url: https://azure.microsoft.com/resources/it-grundschutz-konformitt-mit-azure/
             - text: NEN7510-2011 standard coverage guide
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=3285c45c-921c-49ad-b881-be43e0b70490&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
             - text: NERC CIP standards
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=f5362bc0-0594-4fd2-a4a9-9b74b6a33c20&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
+              url: https://azure.microsoft.com/resources/microsoft-azure-nerc-cip-standards-and-cloud-computing/
             - text: NZ GCIO cloud computing considerations
-              url: https://gallery.technet.microsoft.com/Response-to-GCIO-Cloud-e117bbb9
+              url: https://azure.microsoft.com/resources/microsoft-azure-response-to-nz-gcio-cloud-computing-information-security-privacy-considerations
             - text: PCI DSS 3.2.1 responsibility matrix
-              url: https://gallery.technet.microsoft.com/Azure-PCI-DSS-Responsibilit-02d4b4b2
+              url: https://docs.microsoft.com/azure/governance/blueprints/samples/pci-dss-3.2.1
+            - text: SCI guidance
+              url: https://azure.microsoft.com/resources/microsoft-azure-regulation-systems-compliance-and-integrity-sci-cloud-implementation-guide/
             - text: SOX guidance
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=447ddef4-e55d-41f8-b233-328934efb461&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance%20Guides
+              url: https://azure.microsoft.com/resources/microsoft-azure-guidance-for-sarbanes-oxley-sox/
             - text: UK OFFICIAL cloud security controls
-              url: https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1
+              url: https://azure.microsoft.com/resources/14-cloud-security-controls-for-uk-cloud-using-microsoft-azure
  
         # Card
         - title: White papers and analyst reports
           links:
             - text: Overview of Azure compliance
               url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers
-            - text: Azue security, privacy and compliance
-              url: https://gallery.technet.microsoft.com/Response-to-GCIO-Cloud-e117bbb9
+            - text: Enabling data residency and data protection
+              url: https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/
             - text: Data residency and security
-              url: https://gallery.technet.microsoft.com/Azure-for-Secure-Worlwide-19b91d44
+              url: https://azure.microsoft.com/resources/azure-for-secure-worldwide-public-sector-cloud-adoption
             - text: Azure RFI on security and compliance
-              url: https://gallery.technet.microsoft.com/Azure-Standard-Response-to-5de19cb6
+              url: https://azure.microsoft.com/resources/azure-standard-response-to-rfi-on-security-privacy-and-compliance/
             - text: Azure Internet of Things compliance
-              url: https://gallery.technet.microsoft.com/Azure-and-Data-Compliance-bda1f632
+              url: https://azure.microsoft.com/resources/microsoft-azure-and-data-compliance-in-the-internet-of-things-iot-context/
             - text: IDC - Azure manages regulatory challenges 
               url: https://azure.microsoft.com/resources/azure-is-helping-organizations-manage-regulatory-challenges/
             - text: Azure risk compliance guide
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=edee9b14-3661-4a16-ba83-c35caf672bd7&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
+              url: https://azure.microsoft.com/resources/risk-assessment-and-compliance-guide-for-financial-institutions-in-the-microsoft-cloud-/
             - text: Shared responsibilities for cloud computing
-              url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
-            - text: Government cloud assurance guide
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=c24c11f2-2cd4-444a-9160-19762855ad3a&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
+              url: https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/
             - text: Azure export controls
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=c24c11f2-2cd4-444a-9160-19762855ad3a&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
+              url: https://azure.microsoft.com/resources/microsoft-azure-cloud-services-us-uk-and-eu-export-controls/
+            - text: Azure enables a world of compliance
+              url: https://azure.microsoft.com/resources/azure-enables-a-world-of-compliance/

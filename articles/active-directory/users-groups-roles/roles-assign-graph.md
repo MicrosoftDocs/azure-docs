@@ -20,11 +20,11 @@ You can automate how you assign roles to user accounts using the Microsoft Graph
 
 ## Required permissions
 
-Connect to your Azure AD organization using a Global administrator account or Privileged Identity administrator to assign or remove roles.
+Connect to your Azure AD organization using a Global administrator or Privileged role administrator account to assign or remove roles.
 
 ## POST Operations on RoleAssignment
 
-HTTP request to create a role assignment between a user and a role definition.
+### Example 1: Create a role assignment between a user and a role definition.
 
 POST
 
@@ -39,7 +39,7 @@ Body
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"  // Don't use "resourceScope" attribute in Azure AD role assignments. It will be deprecated soon.
 }
 ```
 
@@ -49,7 +49,7 @@ Response
 HTTP/1.1 201 Created
 ```
 
-HTTP request to create a role assignment where the principal or role definition does not exist
+### Example 2: Create a role assignment where the principal or role definition does not exist
 
 POST
 
@@ -63,7 +63,7 @@ Body
 {
     "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"  //Don't use "resourceScope" attribute in Azure AD role assignments. It will be deprecated soon.
 }
 ```
 
@@ -72,11 +72,31 @@ Response
 ``` HTTP
 HTTP/1.1 404 Not Found
 ```
+### Example 3: Create a role assignment on a single resource scope
 
-HTTP request to create a single resource scoped role assignment on a built-in role definition.
+POST
 
-> [!NOTE] 
-> Built-in roles today have a limitation where they can be scoped only to the “/” organization-wide scope or the “/AU/*” scope. Single resource scoping does not work for built-in roles, but works for custom roles.
+``` HTTP
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+```
+
+Body
+
+``` HTTP
+{
+    "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
+    "roleDefinitionId":"e9b2b976-1dea-4229-a078-b08abd6c4f84",    //role template ID of a custom role
+    "directoryScopeId":"/13ff0c50-18e7-4071-8b52-a6f08e17c8cc"  //object ID of an application
+}
+```
+
+Response
+
+``` HTTP
+HTTP/1.1 201 Created
+```
+
+### Example 4: Create an administrative unit scoped role assignment on a built-in role definition which is not supported
 
 POST
 
@@ -89,8 +109,8 @@ Body
 ``` HTTP
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
+    "roleDefinitionId":"29232cdf-9323-42fd-ade2-1d097af3e4de",    //role template ID of Exchange Administrator
+    "directoryScopeId":"/administrativeUnits/13ff0c50-18e7-4071-8b52-a6f08e17c8cc"    //object ID of an administrative unit
 }
 ```
 
@@ -104,23 +124,17 @@ HTTP/1.1 400 Bad Request
         "code":"Request_BadRequest",
         "message":
         {
-            "lang":"en",
-            "value":"Provided authorization scope is not supported for built-in role definitions."},
-            "values":
-            [
-                {
-                    "item":"scope",
-                    "value":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
-                }
-            ]
+            "message":"The given built-in role is not supported to be assigned to a single resource scope."
         }
     }
 }
 ```
 
+Only a subset of built-in roles are enabled for Administrative Unit scoping. Refer to [this documentation](./roles-admin-units-assign-roles.md) for the list of built-in roles supported over an administrative unit.
+
 ## GET Operations on RoleAssignment
 
-HTTP request to get a role assignment for a given principal
+### Example 5: Get role assignments for a given principal
 
 GET
 
@@ -132,21 +146,25 @@ Response
 
 ``` HTTP
 HTTP/1.1 200 OK
-{ 
-    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":"/"
-} ,
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":"/"
+"value":[
+            { 
+                "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
+                "directoryScopeId":"/"  
+            } ,
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"fe930be7-5e62-47db-91af-98c3a49a38b1",
+                "directoryScopeId":"/"
+            }
+        ]
 }
 ```
 
-HTTP request to get a role assignment for a given role definition.
+### Example 6: Get role assignments for a given role definition.
 
 GET
 
@@ -159,14 +177,18 @@ Response
 ``` HTTP
 HTTP/1.1 200 OK
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":"/"
+"value":[
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"fe930be7-5e62-47db-91af-98c3a49a38b1",
+                "directoryScopeId":"/"
+            }
+     ]
 }
 ```
 
-HTTP request to get a role assignment by ID.
+### Example 7: Get a role assignment by ID.
 
 GET
 
@@ -182,13 +204,44 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"
+}
+```
+
+### Example 8: Get role assignments for a given scope
+
+
+GET
+
+``` HTTP
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId eq '/d23998b1-8853-4c87-b95f-be97d6c6b610'
+```
+
+Response
+
+``` HTTP
+HTTP/1.1 200 OK
+{
+"value":[
+            { 
+                "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
+                "directoryScopeId":"/d23998b1-8853-4c87-b95f-be97d6c6b610"
+            } ,
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
+                "directoryScopeId":"/d23998b1-8853-4c87-b95f-be97d6c6b610"
+            }
+        ]
 }
 ```
 
 ## DELETE Operations on RoleAssignment
 
-HTTP request to delete a role assignment between a user and a role definition.
+### Example 9: Delete a role assignment between a user and a role definition.
 
 DELETE
 
@@ -201,7 +254,7 @@ Response
 HTTP/1.1 204 No Content
 ```
 
-HTTP request to delete a role assignment that no longer exists
+### Example 10: Delete a role assignment that no longer exists
 
 DELETE
 
@@ -215,7 +268,7 @@ Response
 HTTP/1.1 404 Not Found
 ```
 
-HTTP request to delete a role assignment between self and built-in role definition
+### Example 11: Delete a role assignment between self and Global Administrator role definition
 
 DELETE
 
@@ -234,12 +287,14 @@ HTTP/1.1 400 Bad Request
         "message":
         {
             "lang":"en",
-            "value":"Cannot remove self from built-in role definitions."},
+            "value":"Removing self from Global Administrator built-in role is not allowed"},
             "values":null
         }
     }
 }
 ```
+
+We prevent users from deleting their own Global Administrator role to avoid a scenario where a tenant has zero Global Administrators. Removing other roles assigned to self is allowed.
 
 ## Next steps
 

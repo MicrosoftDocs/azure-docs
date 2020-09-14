@@ -55,11 +55,11 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Azure storage account size limits
 
-Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) and [Azure Files scale targets](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
+Here are the limits on the size of data that can be copied into a storage account. Make sure that the data you upload conforms to these limits. 
 
-| Size of data copied into Azure storage account                      | Default limit          |
-|---------------------------------------------------------------------|------------------------|
-| Block Blob and page blob                                            | 500 TB per storage account. <br> This includes data from all the sources including Data Box Disk.|
+| Type of data             | Default limit          |
+|--------------------------|------------------------|
+| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [Azure standard storage scale targets](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts), and [Azure Files scale target](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> The limits include data from all the sources, including Data Box Disk.|
 
 
 ## Azure object size limits

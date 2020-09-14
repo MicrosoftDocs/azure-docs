@@ -117,11 +117,24 @@ For other versions, prepare machines as summarized in the table.
 --- | --- | ---
 **Install Hyper-V Linux Integration Services** | Rebuild the Linux init image so it contains the necessary Hyper-V drivers. Rebuilding the init image ensures that the VM will boot in Azure. | Most new versions of Linux distributions have this included by default.<br/><br/> If not included, install manually for all versions except those called out above.
 **Enable Azure Serial Console logging** | Enabling console logging helps you troubleshoot. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM.<br/><br/> Follow [these instructions](../virtual-machines/troubleshooting/serial-console-linux.md) to enable.
-**Update device map file** | Update the device map file with the device name-to-volume associations, so you use persistent device identifiers. | Install manually for all versions except those called out above.
+**Update device map file** | Update the device map file with the device name-to-volume associations, so you use persistent device identifiers. | Install manually for all versions except those called out above. (Only applicable in agent-based VMware scenario)
 **Update fstab entries** |	Update entries to use persistent volume identifiers.	| Update manually for all versions except those called out above.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
+
+The following table summarizes the steps performed automatically for the operating systems listed above.
+
+
+| Action                                      | Agent\-Based VMware Migration | Agentless VMware Migration | Hyper\-V   |
+|---------------------------------------------|-------------------------------|----------------------------|------------|
+| Install Hyper\-V Linux Integration Services | Yes                           | Yes                        | Not needed |
+| Enable Azure Serial Console logging         | Yes                           | Yes                        | No         |
+| Update device map file                      | Yes                           | No                         | No         |
+| Update fstab entries                        | Yes                           | Yes                        | No         |
+| Remove udev rule                            | Yes                           | Yes                        | No         |
+| Update network interfaces                   | Yes                           | Yes                        | No         |
+| Enable ssh                                  | No                            | No                         | No         |
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 

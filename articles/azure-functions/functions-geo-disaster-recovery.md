@@ -18,7 +18,7 @@ Azure Functions run in a specific region.  To get higher availability, you can d
 * Active/active. Both regions are active and receiving events (duplicate or rotationally). Active/active is recommended for HTTPS functions in combination with Azure Front Door.
 * Active/passive. One region is active and receiving events, while a secondary is idle.  When failover is required, the secondary region is activated and takes over processing.  This is recommended for non-HTTP functions like Service Bus and Event Hubs.
 
-Read how to [run apps in multiple regions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) for more information on multi-region deployments.
+Read how to [run apps in multiple regions](/azure/architecture/reference-architectures/app-service-web-app/multi-region) for more information on multi-region deployments.
 
 ## Active/active for HTTPS functions
 

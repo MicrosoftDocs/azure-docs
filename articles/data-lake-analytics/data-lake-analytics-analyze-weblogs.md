@@ -2,12 +2,10 @@
 title: Analyze Website logs using Azure Data Lake Analytics
 description: Learn how to analyze website logs using Azure Data Lake Analytics to run U-SQL functions and queries.
 services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
 ---
 # Analyze Website logs using Azure Data Lake Analytics

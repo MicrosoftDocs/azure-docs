@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor for Networks (Preview)
-description: A quick overview for Azure Monitor for Network which provides a comprehensive view of health and metrics for all deployed network resource without any configuration.
+description: A quick overview for Azure Monitor for Network that provides a comprehensive view of health and metrics for all deployed network resource without any configuration.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -10,7 +10,7 @@ ms.date: 11/07/2019
 ---
 
 # Azure Monitor for Networks (Preview)
-Azure Monitor for Network provides a comprehensive view of health and metrics for all deployed network resource without any configuration. The advanced search capability helps identify resource dependencies, enabling scenarios such as identifying resources that are hosting your website by simply searching for hosted website name.
+Azure Monitor for Network provides a comprehensive view of health and metrics for all deployed network resource without any configuration. The advanced search capability helps identify resource dependencies that enable scenarios like identifying resources that are hosting your website by searching for the hosted website name.
 
 The Azure Monitor for Networks **Overview** page provides an effortless way to visualize the inventory of your networking resources along with resource health and alerts. It is divided into four key functional areas:
 
@@ -44,15 +44,15 @@ You can click on each element in the grid view. Click on the Health icon to redi
 The **Alerts** grid on the right provides a view of all the alerts generated for the selected resources across all subscriptions. Click on the alert counts to navigate to detailed alerts page.
 
 ## Dependency view
-The **Dependency** view helps visualize how the resource is configured. Currently dependency view is only supported for Application Gateway. Dependency view can be accessed by clicking on the Application Gateway resource name from the metrics grid view.
+The **Dependency** view helps visualize how the resource is configured. Currently dependency view is now supported for Application Gateway, Virtual WAN, and Load Balancer. For example, in the case of Application Gateway, Dependency view can be accessed by clicking on the Application Gateway resource name from the metrics grid view. This also applies to Virtual WAN and Load Balancer. 
 
 ![Application Gateway view](media/network-insights-overview/application-gateway.png)
 
-The **Dependency** view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules and backend pool. The connecting edges are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools such as VMSS and VM instances.
+The **Dependency** view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules and backend pool. The connecting edges are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools such as virtual machine scale set and virtual machine instances.
 
 ![Dependency view](media/network-insights-overview/dependency-view.png)
 
-The dependency graph enables easy navigation to configuration settings. Right click on a backend pool to access to other functionality. For example, if the backend pool is a VM then you can directly access VM Insights and Network Watcher connection troubleshoot to identify connectivity issues.
+The dependency graph enables easy navigation to configuration settings. Right click on a back-end pool to access to other functionality. For example, if the back-end pool is a virtual machine, you can directly access virtual machine insights and the Network Watcher connection to troubleshoot and identify connectivity issues.
 
 ![Dependency view menu](media/network-insights-overview/dependency-view-menu.png)
 
@@ -62,8 +62,8 @@ The search and filter bar on the dependency view provide an effortless way to se
 
 Different filters provide help to narrow down on to a specific path and state. For example, select only *Unhealthy* from the **Health Status** drop down to show all the edges where state is *Unhealthy*.
 
-Click on **Detailed Metric View** to launch a pre-configured workbook with detailed metrics for the application gateway, all backend pool resources and front end IPs. 
+Click on **Detailed Metric View** to launch a pre-configured workbook with detailed metrics for the application gateway, all backend pool resources and front-end IPs. 
 
 ## Next steps 
 
-- Learn more about network monitoring at What is [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Learn more about network monitoring at What is [Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).

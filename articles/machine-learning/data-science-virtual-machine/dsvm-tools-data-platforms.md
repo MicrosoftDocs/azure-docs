@@ -22,13 +22,13 @@ The following data platform tools are supported on the DSVM.
 
 ## SQL Server Developer Edition
 
-| | |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | A local relational database instance      |
 | Supported DSVM editions      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
-| Typical uses      | Rapid development locally with smaller dataset <br/> Run In-database R   |
-| Links to samples      |    A small sample of a New York City dataset is loaded into the SQL database:<br/>  `nyctaxi` <br/> Jupyter sample showing Microsoft Machine Learning Server and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| Related tools on the DSVM       | SQL Server Management Studio <br/> ODBC/JDBC drivers<br/> pyodbc, RODBC<br />Apache Drill      |
+| Typical uses      | <ul><li>Rapid development locally with smaller dataset</li><li>Run In-database R</li></ul> |
+| Links to samples      | <ul><li>A small sample of a New York City dataset is loaded into the SQL database:<br/>  `nyctaxi`</li><li>Jupyter sample showing Microsoft Machine Learning Server and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
+| Related tools on the DSVM       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC drivers</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
 
 > [!NOTE]
 > SQL Server Developer Edition can be used only for development and test purposes. You need a license or one of the SQL Server VMs to run it in production.
@@ -50,7 +50,7 @@ To run SQL Server Management Studio, you can search for "SQL Server Management S
 
 By default, the database server with the default database instance runs automatically. You can use tools like SQL Server Management Studio on the VM to access the SQL Server database locally. Local administrator accounts have admin access on the database.
 
-Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL databases, and Azure SQL Data Warehouse from applications written in multiple languages, including Python and Machine Learning Server.
+Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL databases, and Azure Synapse Analytics from applications written in multiple languages, including Python and Machine Learning Server.
 
 ### How is it configured and installed on the DSVM? 
 
@@ -59,13 +59,13 @@ Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL
 
 ## Apache Spark 2.x (Standalone)
 
-| | |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | A standalone (single node in-process) instance of the popular Apache Spark platform; a system for fast, large-scale data processing and machine-learning     |
 | Supported DSVM editions      | Linux     |
-| Typical uses      | * Rapid development of Spark/PySpark applications locally with a smaller dataset and later deployment on large Spark clusters such as Azure HDInsight<br/> * Test Microsoft Machine Learning Server Spark context <br />* Use SparkML or Microsoft's open-source [MMLSpark](https://github.com/Azure/mmlspark) library to build ML applications |
-| Links to samples      |    Jupyter sample: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft Machine Learning Server (Spark context): /dsvm/samples/MRS/MRSSparkContextSample.R |
-| Related tools on the DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark Kernels)<br/>Microsoft Machine Learning Server, SparkR, Sparklyr <br />Apache Drill      |
+| Typical uses      | <ul><li>Rapid development of Spark/PySpark applications locally with a smaller dataset and later deployment on large Spark clusters such as Azure HDInsight</li><li>Test Microsoft Machine Learning Server Spark context</li><li>Use SparkML or Microsoft's open-source [MMLSpark](https://github.com/Azure/mmlspark) library to build ML applications</li></ul> |
+| Links to samples      |    Jupyter sample:<ul><li>~/notebooks/SparkML/pySpark</li><li>~/notebooks/MMLSpark</li></ul><p>Microsoft Machine Learning Server (Spark context): /dsvm/samples/MRS/MRSSparkContextSample.R</p> |
+| Related tools on the DSVM       | <ul><li>PySpark, Scala</li><li>Jupyter (Spark/PySpark Kernels)</li><li>Microsoft Machine Learning Server, SparkR, Sparklyr</li><li>Apache Drill</li></ul> |
 
 ### How to use it
 You can submit Spark jobs on the command line by running the `spark-submit` or `pyspark` command. You can also create a Jupyter notebook by creating a new notebook with the Spark kernel.

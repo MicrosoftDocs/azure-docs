@@ -13,7 +13,7 @@ ms.custom: mvc
 
 The following table includes links to bash scripts built using the Azure CLI.
 
-| | |
+| Script | Description |
 |-|-|
 |**Create app**||
 | [Create an app and deploy files with FTP](./scripts/cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and deploys a file to it using FTP. |

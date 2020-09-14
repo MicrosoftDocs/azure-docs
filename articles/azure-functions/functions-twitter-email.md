@@ -7,7 +7,7 @@ ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
-ms.custom: mvc, cc996988-fb4f-47
+ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47"
 ---
 
 # Create a function that integrates with Azure Logic Apps
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restrictions in logic apps. 
 > If you have a Gmail consumer account, you can use the Gmail connector with only specific Google-approved apps and services, 
-> or you can [create a Google client app to use for authentication in your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+> or you can [create a Google client app to use for authentication in your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
 > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 + This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
@@ -303,4 +303,3 @@ Advance to the next tutorial to learn how to create a serverless API for your fu
 > [Create a serverless API using Azure Functions](functions-create-serverless-api.md)
 
 To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
-

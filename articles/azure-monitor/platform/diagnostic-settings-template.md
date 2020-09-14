@@ -27,7 +27,7 @@ See [Deploy resources with Resource Manager templates and Azure PowerShell](../.
 
 
 ## Resource logs
-For resource logs, add a resource of type `<resource namespace>/providers/diagnosticSettings` to the template. The properties section follows the format described in [Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Provide a `category` in the `logs` section for each of the categories valid for the resource that you want to collect. Add the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md).
+For resource logs, add a resource of type `<resource namespace>/providers/diagnosticSettings` to the template. The properties section follows the format described in [Diagnostic Settings - Create Or Update](/rest/api/monitor/diagnosticsettings/createorupdate). Provide a `category` in the `logs` section for each of the categories valid for the resource that you want to collect. Add the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md).
 
 Following is a template that collects a resource log category for a particular resource to a Log Analytics workspace, storage account, and event hub.
 
@@ -141,7 +141,7 @@ Following is an example that creates a diagnostic setting for an autoscale setti
 ```
 
 ## Activity log
-For the Azure Activity log, add a resource of type `Microsoft.Insights/diagnosticSettings`. The available categories are listed in [Categories in the Activity Log](activity-log-view.md#categories-in-the-activity-log). Following is a template that collects all Activity log categories to a Log Analytics workspace, storage account, and event hub.
+For the Azure Activity log, add a resource of type `Microsoft.Insights/diagnosticSettings`. The available categories are listed in [Categories in the Activity Log](./activity-log.md#view-the-activity-log). Following is a template that collects all Activity log categories to a Log Analytics workspace, storage account, and event hub.
 
 
 ```json

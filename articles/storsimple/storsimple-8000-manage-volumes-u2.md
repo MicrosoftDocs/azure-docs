@@ -46,7 +46,7 @@ If you are using the tiered volume for archival data, select the **Use this volu
 
 Refer to the following table for maximum provisioned capacity for each device and volume type. (Note that locally pinned volumes are not available on a virtual device.)
 
-|  | Maximum tiered volume size | Maximum locally pinned volume size |
+| Type | Maximum tiered volume size | Maximum locally pinned volume size |
 | --- | --- | --- |
 | **Physical devices** | | |
 | 8100 |64 TB |8 TB |

@@ -23,7 +23,7 @@ Assessments you create with Server Assessment are a point-in-time snapshot of da
 **Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.(concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 An Azure VM assessment in Server Assessment provides two sizing criteria options:
 
@@ -35,7 +35,7 @@ An Azure VM assessment in Server Assessment provides two sizing criteria options
 
 ## How is an assessment done?
 
-An assessment done in Azure Migrate Server Assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be done. [Learn more.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation)
+An assessment done in Azure Migrate Server Assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be done. [Learn more.](./concepts-assessment-calculation.md)
 
 ## What's in an Azure VM assessment?
 
@@ -65,7 +65,7 @@ Here's what's included in an AVS assessment in Server Assessment:
 | **Target location** | Specifies the AVS private cloud location to which you want to migrate.<br/><br/> AVS Assessment in Server Assessment currently supports these target regions: East US, West Europe, West US. |
 | **Storage type** | Specifies the storage engine to be used in AVS.<br/><br/> Note that AVS assessments only supports vSAN as a default storage type. |
 **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in AVS. RIs are currently not supported for AVS nodes. |
-**Node type** | Specifies the [AVS Node type](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) used to map the on-premises VMs. Note that default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. |
+**Node type** | Specifies the [AVS Node type](../azure-vmware/concepts-private-clouds-clusters.md) used to map the on-premises VMs. Note that default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. |
 **FTT Setting, RAID Level** | Specifies the applicable Failure to Tolerate and Raid combinations. The selected FTT option combined with the on-premises VM disk requirement will determine the total vSAN storage required in AVS. |
 **Sizing criterion** | Sets the criteria to be used to _right-size_ VMs for AVS. You can opt for _performance-based_ sizing or _as on-premises_ without considering the performance history. |
 **Performance history** | Sets the duration to consider in evaluating the performance data of machines. This property is applicable only when the sizing criteria is _performance-based_. |

@@ -1,6 +1,6 @@
 ---
 title: Add a tile layer to a map | Microsoft Azure Maps
-description: In this article, you will learn how to overlay a tile Layer on a map by using the Microsoft Azure Maps Web SDK. Tile layers allow you to render images on a map.
+description: Learn how to superimpose images on maps. See an example that uses the Azure Maps Web SDK to add a tile layer containing a weather radar overlay to a map.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen
+ms.custom: codepen, devx-track-javascript
 ---
 
 # Add a tile layer to a map
@@ -32,6 +32,7 @@ The tile URL passed into a Tile layer must be an http or an https URL to a TileJ
 * `{quadkey}` - Tile quadkey identifier based on the Bing Maps tile system naming convention.
 * `{bbox-epsg-3857}` - A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
 * `{subdomain}` - A placeholder for the subdomain values, if specified the `subdomain` will be added.
+* `{azMapsDomain}` - A placeholder to align the domain and authentication of tile requests with the same values used by the map.
 
 ## Add a tile layer
 

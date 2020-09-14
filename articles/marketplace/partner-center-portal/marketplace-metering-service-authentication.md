@@ -1,12 +1,12 @@
 ---
 title: Marketplace metering service authentication strategies | Azure Marketplace
 description: Metering service authentication strategies supported in the Azure Marketplace. 
-author: qianw211
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/21/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Marketplace metering service authentication strategies
@@ -140,7 +140,7 @@ For example, follow the steps below to authenticate using a Windows VM,
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -151,4 +151,4 @@ For example, follow the steps below to authenticate using a Windows VM,
 ## Next steps
 
 * [Create an Azure application offer](./create-new-azure-apps-offer.md)
-* [Create a transactable SaaS offer](./offer-creation-checklist.md)
+* [Plan a SaaS offer](../plan-saas-offer.md)

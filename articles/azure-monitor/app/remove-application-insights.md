@@ -225,4 +225,4 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 ## Next steps
 
-- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)
+- [Azure Monitor](../overview.md)

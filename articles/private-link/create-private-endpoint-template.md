@@ -1,6 +1,6 @@
 ---
 title: Create a private endpoint in Azure Private Link
-description: In this quickstart, you use an Azure Resource Manager template to create a private endpoint.
+description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private endpoint.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -10,27 +10,29 @@ ms.date: 05/26/2020
 ms.author: allensu
 ---
 
-# Quickstart: Create a private endpoint by using an Azure Resource Manager template
+# Quickstart: Create a private endpoint by using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template to create a private endpoint.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private endpoint.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 You can also complete this quickstart by using the [Azure portal](create-private-endpoint-portal.md), [Azure PowerShell](create-private-endpoint-powershell.md), or the [Azure CLI](create-private-endpoint-cli.md).
 
-## Prerequisite
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+
+## Prerequisites
 
 You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a private endpoint
+## Review the template
 
 This template creates a private endpoint for an instance of Azure SQL Database.
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
-
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
+:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -45,9 +47,9 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): The network interface for the virtual machine.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): The virtual machine used to test the private connection with private endpoint to the instance of SQL Database.
 
-### Deploy the template
+## Deploy the template
 
-Here's how to deploy the Azure Resource Manager template to Azure:
+Here's how to deploy the ARM template to Azure:
 
 1. To sign in to Azure and open the template, select **Deploy to Azure**. The template creates the private endpoint, the instance of SQL Database, the network infrastructure, and a virtual machine to validate.
 
@@ -61,7 +63,7 @@ Here's how to deploy the Azure Resource Manager template to Azure:
 ## Validate the deployment
 
 > [!NOTE]
-> The Azure Resource Manager template generates a unique name for the virtual machine myVm<b>{uniqueid}</b> resource, and for the SQL Database sqlserver<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
+> The ARM template generates a unique name for the virtual machine myVm<b>{uniqueid}</b> resource, and for the SQL Database sqlserver<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
 
 ### Connect to a VM from the internet
 

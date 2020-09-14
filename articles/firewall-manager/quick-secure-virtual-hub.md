@@ -1,36 +1,38 @@
 ---
 title: 'Quickstart: Secure virtual hub using Azure Firewall Manager - Resource Manager template'
-description: Learn how to secure your virtual hub using Azure Firewall Manager.
+description: In this quickstart, you learn how to secure your virtual hub using Azure Firewall Manager.
 services: firewall-manager
 author: vhorne
-ms.service: firewall
+ms.service: firewall-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 
-# Quickstart: Secure your virtual hub using Azure Firewall Manager - Resource Manager template
+# Quickstart: Secure your virtual hub using Azure Firewall Manager - ARM template
 
-In this quickstart, you use a Resource Manager template to secure your virtual hub using Azure Firewall Manager. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to secure your virtual hub using Azure Firewall Manager. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a secured virtual hub
+## Review the template
 
 This template creates a secured virtual hub using Azure Firewall Manager, along with the necessary resources to support the scenario.
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
-
-:::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
+:::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -46,9 +48,9 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### Deploy the template
+## Deploy the template
 
-Deploy Resource Manager template to Azure:
+Deploy the ARM template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, a virtual WAN and virtual hub, the network infrastructure, and two virtual machines.
 
@@ -81,7 +83,7 @@ Now, test the firewall rules to confirm that it works as expected.
 
 So now you've verified that the firewall rules are working:
 
-* You can browse to the one allowed FQDN, but not to any others.
+- You can browse to the one allowed FQDN, but not to any others.
 
 ## Clean up resources
 

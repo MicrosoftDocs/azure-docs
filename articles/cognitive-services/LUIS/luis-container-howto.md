@@ -21,7 +21,7 @@ The following video demonstrates using this container.
 
 [![Container demonstration for Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Authoring APIs for packaged apps:
 
 ### Container requirements and recommendations
 
-This container supports minimum and recommended values for the settings:
+The below table lists minimum and recommended values for the container host. Your requirements may change depending on traffic volume.
 
 |Container| Minimum | Recommended | TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|

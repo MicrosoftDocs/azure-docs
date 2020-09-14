@@ -4,7 +4,8 @@ description: This tutorial describes how to create an Azure Managed Application 
 ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat
-ms.date: 06/20/2019
+ms.date: 06/20/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Create managed application with custom actions and resources

@@ -1,4 +1,4 @@
-- name: Azure Firewall Manager Documentation
+- name: Azure Firewall Manager documentation
   href: index.yml
 - name: Overview
   items:
@@ -44,12 +44,16 @@
     href: migrate-to-policy.md
   - name: DNS settings
     href: dns-settings.md
+  - name: Deploy multiple public IPs - PowerShell
+    href: multiple-public-ip-powershell.md
+  - name: Define a rule hierarchy
+    href: rule-hierarchy.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/azure-firewall/network/firewall
+    href: /cli/azure/ext/azure-firewall/network/firewall/policy
   - name: Azure PowerShell
-    href: /powershell/module/az.network/new-azfirewall
+    href: /powershell/module/az.network/new-azfirewallpolicy
   - name: .NET
     href: /dotnet/api
   - name: Java
@@ -59,7 +63,7 @@
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/firewall
+    href: /rest/api/virtualnetwork/firewallpolicies
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
 - name: Resources

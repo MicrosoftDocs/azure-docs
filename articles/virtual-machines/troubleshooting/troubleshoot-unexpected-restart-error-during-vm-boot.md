@@ -23,7 +23,7 @@ This article provides steps to resolve issues where the virtual machine (VM) exp
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you'll see that the screenshot displays Windows installation failing with the following error:
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you'll see that the screenshot displays Windows installation failing with the following error:
 
 **The computer restarted unexpectedly or encountered an unexpected error. Windows installation cannot proceed. To install Windows, click "OK" to restart the computer, and then restart the installation.**
 
@@ -33,7 +33,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 ## Cause
 
-The machine is attempting to do an initial boot of a [generalized image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), but encounters trouble due to a custom answer file (unattend.xml) being processed. Custom answer files are not supported in Azure. 
+The machine is attempting to do an initial boot of a [generalized image](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), but encounters trouble due to a custom answer file (unattend.xml) being processed. Custom answer files are not supported in Azure. 
 
 The answer file is a special XML file that contains setting definitions and values for the configuration settings you want to automate during the installation of a Windows Server operating system installation. The configuration options include instructions on how to partition disks, where to find the Windows image to be installed, product keys to apply, and other commands you would like to run.
 
@@ -53,7 +53,7 @@ This situation occurs when an image was prepared for use in Azure, but it used a
 
 - In the previous command, replace `<NameOfYourAnswerFile.XML>` with the name of your file.
 
-To fix this issue, follow [the Azure guidance on preparing/capturing an image](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) and prepare a new generalized image. During sysprep, do not use `/unattend:<answerfile>` flag. Instead, use only the flags below:
+To fix this issue, follow [the Azure guidance on preparing/capturing an image](../windows/upload-generalized-managed.md) and prepare a new generalized image. During sysprep, do not use `/unattend:<answerfile>` flag. Instead, use only the flags below:
 
 `sysprep /oobe /generalize /shutdown`
 

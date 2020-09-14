@@ -1,19 +1,16 @@
 ---
-title: Deploy Windows 7 virtual machine Windows Virtual Desktop - Azure
-description: How to configure and deploy a Windows 7 virtual machine on Windows Virtual Desktop.
-services: virtual-desktop
+title: Deploy Windows 7 virtual machine Windows Virtual Desktop (classic) - Azure
+description: How to configure and deploy a Windows 7 virtual machine on Windows Virtual Desktop Windows Virtual Desktop (classic).
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Deploy a Windows 7 virtual machine on Windows Virtual Desktop
+# Deploy a Windows 7 virtual machine on Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the current version of Windows Virtual Desktop, see [this article](../deploy-windows-7-virtual-machine.md).
 
 The process to deploy a Windows 7 virtual machine (VM) on Windows Virtual Desktop is slightly different than for VMs running later versions of Windows. This guide will tell you how to deploy Windows 7.
 

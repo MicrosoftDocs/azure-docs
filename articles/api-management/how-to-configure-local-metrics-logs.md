@@ -201,7 +201,7 @@ The self-hosted gateway outputs logs to `stdout` and `stderr` by default. You ca
 kubectl logs <pod-name>
 ```
 
-If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics. 
+If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics. 
 
 The self-hosted gateway also supports a number of protocols including `localsyslog`, `rfc5424`, and `journal`. The below table summarizes all the options supported. 
 
@@ -233,4 +233,3 @@ Here is a sample configuration of local logging:
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 * Learn about [configuring and persisting logs in the cloud](how-to-configure-local-metrics-logs.md)
-

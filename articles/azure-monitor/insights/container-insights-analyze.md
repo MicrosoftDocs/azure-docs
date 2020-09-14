@@ -61,7 +61,7 @@ Health state calculates overall cluster status as the *worst of* the three state
 
 The following table provides a breakdown of the calculation that controls the health states for a monitored cluster on the multi-cluster view.
 
-| |Status |Availability |
+| Monitored cluster |Status |Availability |
 |-------|-------|-----------------|
 |**User pod**| | |
 | |Healthy |100% |

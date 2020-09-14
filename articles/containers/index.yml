@@ -14,10 +14,10 @@ highlightedContent:
       url: https://azure.microsoft.com/updates/?category=containers
     - itemType: concept
       title: A microservices approach to applications
-      url: /azure/service-fabric/service-fabric-overview-microservices
+      url: ../service-fabric/service-fabric-overview-microservices.md
     - itemType: concept
       title: Understanding Kubernetes
-      url: /azure/aks/concepts-clusters-workloads
+      url: ../aks/concepts-clusters-workloads.md
 
 # conceptualContent section (optional)
 conceptualContent:
@@ -26,133 +26,133 @@ conceptualContent:
     # Card
     - title: Deploy Kubernetes on Azure
       links:
-        - url: /azure/aks/intro-kubernetes
+        - url: ../aks/intro-kubernetes.md
           itemType: overview
           text: What is Azure Kubernetes Service?
-        - url: /azure/aks/tutorial-kubernetes-prepare-app
+        - url: ../aks/tutorial-kubernetes-prepare-app.md
           itemType: tutorial
           text: Prepare an application for AKS
-        - url: /azure/aks/kubernetes-walkthrough 
+        - url: ../aks/kubernetes-walkthrough.md
           itemType: tutorial
           text: Create an AKS cluster (CLI)
       # footerLink (optional)
       footerLink:
-        url: /azure/aks/ 
+        url: ../aks/index.yml
         text: See more
     # Card
     - title: Test and develop AKS applications
       links:
-        - url: /azure/dev-spaces/how-dev-spaces-works-local-process-kubernetes
+        - url: /visualstudio/containers/overview-local-process-kubernetes
           itemType: concept
           text: How Local Process with Kubernetes works
-        - url: /azure/dev-spaces/how-to/local-process-kubernetes-vs-code
+        - url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
           itemType: how-to-guide
           text: Use Local Process with Kubernetes with Visual Studio Code
-        - url: /azure/dev-spaces/how-to/local-process-kubernetes-visual-studio
+        - url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
           itemType: how-to-guide
           text: Use Local Process with Kubernetes with Visual Studio
     # Card
     - title: Create cloud apps for web and mobile
       links:
-        - url: /azure/app-service/overview
+        - url: ../app-service/overview.md
           itemType: overview
           text: What is App Service?
-        - url: /azure/app-service/app-service-web-tutorial-custom-domain
+        - url: ../app-service/app-service-web-tutorial-custom-domain.md
           itemType: get-started
           text: Map a custom domain to your app
-        - url: /azure/app-service/configure-ssl-bindings
+        - url: ../app-service/configure-ssl-bindings.md
           itemType: tutorial
           text: Secure a custom domain with an SSL binding
-        - url: /azure/app-service/app-service-web-get-started-windows-container
+        - url: ../app-service/quickstart-custom-container.md
           itemType: get-started
           text: Run a custom Windows container
-        - url: /azure/app-service/containers/quickstart-docker
+        - url: ../app-service/containers/quickstart-docker.md
           itemType: quickstart 
           text: Run a custom Linux container
-        - url: /azure/app-service/containers/quickstart-multi-container
+        - url: ../app-service/containers/quickstart-multi-container.md
           itemType: quickstart 
           text: Create a Linux multi-container app
       # footerLink (optional)
       footerLink:
-        url: /azure/app-service/ 
+        url: ../app-service/index.yml
         text: See more
     # Card
     - title: Run containers on Azure
       links:
-        - url: /azure/container-instances/container-instances-overview
+        - url: ../container-instances/container-instances-overview.md
           itemType: overview
           text: Container Instances overview
-        - url: https://docs.microsoft.com/learn/modules/run-docker-with-azure-container-instances/
+        - url: /learn/modules/run-docker-with-azure-container-instances/
           itemType: learn
           text: Run containerized apps using Docker with Azure Container Instances
-        - url: /azure/container-instances/container-instances-using-azure-container-registry
+        - url: ../container-instances/container-instances-using-azure-container-registry.md
           itemType: how-to-guide
           text: Deploy an image from Azure Container Registry
-        - url: /azure/container-registry/container-registry-quickstart-task-cli
+        - url: ../container-registry/container-registry-quickstart-task-cli.md
           itemType: get-started
           text: Build, push, and run image using Azure CLI
       # footerLink (optional)
       footerLink:
-        url: /azure/container-instances/ 
+        url: ../container-instances/index.yml
         text: See more
     # Card
     - title: Job scheduling and compute management
       links:
-        - url: /azure/batch/batch-technical-overview
+        - url: ../batch/batch-technical-overview.md
           itemType: overview
           text: What is Batch?
-        - url: /azure/batch/quick-create-cli
+        - url: ../batch/quick-create-cli.md
           itemType: get-started
           text: Run your first Batch job with the Azure CLI
-        - url: /azure/batch/tutorial-parallel-dotnet
+        - url: ../batch/tutorial-parallel-dotnet.md
           itemType: tutorial
           text: Run a parallel workload with Azure Batch using the .NET API
       # footerLink (optional)
       footerLink:
-        url: /azure/batch/ 
+        url: ../batch/index.yml
         text: See more
     # Card
     - title: Microservice development and container orchestration
       links:
-        - url: /azure/service-fabric/service-fabric-overview
+        - url: ../service-fabric/service-fabric-overview.md
           itemType: overview
           text: What is Azure Service Fabric?
-        - url: /azure/service-fabric/service-fabric-quickstart-dotnet
+        - url: ../service-fabric/service-fabric-quickstart-dotnet.md
           itemType: quickstart
           text: Deploy a .NET reliable services application to Service Fabric
-        - url: /azure/service-fabric/service-fabric-cluster-creation-for-windows-server
+        - url: ../service-fabric/service-fabric-cluster-creation-for-windows-server.md
           itemType: how-to-guide
           text: Create a standalone cluster running on Windows Server
       # footerLink (optional)
       footerLink:
-        url: /azure/service-fabric/ 
+        url: ../service-fabric/index.yml
         text: See more
     # Card
     - title: Store and manage container images
       links:
-        - url: /azure/container-registry/container-registry-intro
+        - url: ../container-registry/container-registry-intro.md
           itemType: overview
           text: What is Azure Container Registry?
-        - url: /azure/container-registry/container-registry-get-started-azure-cli
+        - url: ../container-registry/container-registry-get-started-azure-cli.md
           itemType: get-started
           text: Create a private container registry using Azure CLI
-        - url: /azure/container-registry/container-registry-quickstart-task-cli
+        - url: ../container-registry/container-registry-quickstart-task-cli.md
           itemType: get-started
           text: Build, push, and run image using Azure CLI
       # footerLink (optional)
       footerLink:
-        url: /azure/container-registry/ 
+        url: ../container-registry/index.yml
         text: See more
     # Card
     - title: Managed OpenShift service
       links:
-        - url: /azure/openshift/intro-openshift
+        - url: ../openshift/intro-openshift.md
           itemType: overview
           text: What is Azure Red Hat OpenShift?
-        - url: /azure/openshift/howto-setup-environment
+        - url: ../openshift/howto-setup-environment.md
           itemType: how-to-guide
           text: Set up your Azure Red Hat OpenShift dev environment
-        - url: /azure/openshift/tutorial-create-cluster
+        - url: ../openshift/tutorial-create-cluster.md
           itemType: tutorial
           text: Create an Azure Red Hat OpenShift cluster
       # footerLink (optional)
@@ -162,16 +162,16 @@ conceptualContent:
     # Card
     - title: Serverless application development
       links:
-        - url: /azure/azure-functions/functions-overview
+        - url: ../azure-functions/functions-overview.md
           itemType: overview
           text: Introduction to Azure Functions
-        - url: /azure/azure-functions/functions-create-first-function-vs-code
+        - url: ../azure-functions/functions-create-first-function-vs-code.md
           itemType: quickstart
           text: Create your first function
-        - url: /azure/azure-functions/functions-triggers-bindings
+        - url: ../azure-functions/functions-triggers-bindings.md
           itemType: overview
           text: Integrate with other Azure services
       # footerLink (optional)
       footerLink:
-        url: /azure/azure-functions/ 
+        url: ../azure-functions/index.yml
         text: See more

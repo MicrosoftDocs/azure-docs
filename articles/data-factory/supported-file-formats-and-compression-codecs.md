@@ -1,6 +1,6 @@
 ---
-title: Supported file formats in Azure Data Factory 
-description: 'This topic describes the file formats and compression codes that are supported by file-based connectors in Azure Data Factory.'
+title: Supported file formats by copy activity in Azure Data Factory
+description: 'This topic describes the file formats and compression codes that are supported by copy activity in Azure Data Factory.'
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -8,12 +8,12 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/16/2020
 ms.author: jingwang
 
 ---
 
-# Supported file formats and compression codecs in Azure Data Factory
+# Supported file formats and compression codecs by copy activity in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *This article applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*

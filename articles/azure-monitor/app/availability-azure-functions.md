@@ -10,7 +10,7 @@ ms.date: 05/04/2020
 
 # Create and run custom availability tests using Azure Functions
 
-This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function with your own business logic. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test even if this feature is not available in your region.
+This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function with your own business logic. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](./monitor-web-app-availability.md) in the portal. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test even if this feature is not available in your region.
 
 > [!NOTE]
 > This example is designed solely to show you the mechanics of how the TrackAvailability() API call works within an Azure Function. Not how to write the underlying HTTP Test code/business logic that would be required to turn this into a fully functional availability test. By default if you walk through this example you will be creating an availability test that will always generate a failure.
@@ -19,7 +19,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 - If you have an Application Insights Resource:
     - By default Azure Functions creates an Application Insights resource but if you would like to use one of your already created resources you will need to specify that during creation.
-    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean up) with the following choices.
+    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](../../azure-functions/functions-create-scheduled-function.md) (stop before clean up) with the following choices.
         -  Select the **Monitoring** tab near the top.
 
             ![ Create an Azure Functions app with your own App Insights resource](media/availability-azure-functions/create-function-app.png)
@@ -31,7 +31,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
         - Select **Review + create**
 - If you do not have an Application Insights Resource created yet for your timer triggered function:
     - By default when you are creating your Azure Functions application it will create an Application Insights resource for you.
-    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean-up).
+    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](../../azure-functions/functions-create-scheduled-function.md) (stop before clean-up).
 
 ## Sample code
 
@@ -41,7 +41,7 @@ Copy the code below into the run.csx file (this will replace the pre-existing co
 >![Azure function's run.csx in Azure portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> For the Endpoint Address you would use: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Unless your resource is located in a region like Azure Government or Azure China in which case consult this article on [overriding the default endpoints](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) and select the appropriate Telemetry Channel endpoint for your region.
+> For the Endpoint Address you would use: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Unless your resource is located in a region like Azure Government or Azure China in which case consult this article on [overriding the default endpoints](./custom-endpoints.md#regions-that-require-endpoint-modification) and select the appropriate Telemetry Channel endpoint for your region.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -173,7 +173,7 @@ If you ran everything as is (without adding business logic), then you will see t
 
 ## Query in Logs (Analytics)
 
-You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../../azure-monitor/log-query/log-query-overview.md).
+You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../log-query/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Availability results](media/availability-azure-functions/availabilityresults.png)
@@ -183,5 +183,6 @@ You can use Logs(analytics) to view you availability results, dependencies, and 
 
 ## Next steps
 
-- [Application Map](../../azure-monitor/app/app-map.md)
-- [Transaction diagnostics](../../azure-monitor/app/transaction-diagnostics.md)
+- [Application Map](./app-map.md)
+- [Transaction diagnostics](./transaction-diagnostics.md)
+

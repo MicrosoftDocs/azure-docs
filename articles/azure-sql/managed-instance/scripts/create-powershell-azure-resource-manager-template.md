@@ -5,7 +5,7 @@ description: Use this Azure PowerShell example script to create a managed instan
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: "seo-dt-2019"
+ms.custom: "seo-dt-2019, devx-track-azurepowershell"
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
@@ -133,6 +133,6 @@ Once the script completes, the managed instance can be accessed from all Azure s
 
 ## Next steps
 
-For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional PowerShell script samples for Azure SQL Managed Instance can be found in [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).

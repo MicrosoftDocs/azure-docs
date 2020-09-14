@@ -100,7 +100,7 @@ You can also use the unary operators +,-, ~, and NOT in queries, as shown in the
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result.
+You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result. Additionally, you can use the `IS_DEFINED` type checking function to query based on the presence or absence of a given JSON property. For instance, `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` returns any JSON item that does not have a value for `isRegistered`.
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
 title: Test drive technical configuration, Microsoft commercial marketplace
 description: Learn about test drives. Test drives allow new customers to test drive your offer before committing to the purchase. 
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
+author: keferna
+ms.author: keferna
 ---
 
 # Test drive technical configuration

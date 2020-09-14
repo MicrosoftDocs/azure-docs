@@ -17,7 +17,7 @@ This article provides details about technical support policies and limitations f
 ## Service updates and releases
 
 * For release information, see [AKS release notes](https://github.com/Azure/AKS/releases).
-* For information on features in preview, see [AKS preview features and related projects](https://github.com/Azure/AKS/blob/master/previews.md).
+* For information on features in preview, see [AKS preview features and related projects](https://awesomeopensource.com/projects/aks?categoryPage=11).
 
 ## Managed features in AKS
 
@@ -49,7 +49,7 @@ Because worker nodes are sensitive, Microsoft takes great care to limit their ba
 Microsoft provides technical support for the following:
 
 > [!NOTE]
-> Any cluster actions taken by Microsoft support are made with user consent under a built-in Kubernetes ["edit"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) role of the name `aks-support-rolebinding`. With this role AKS support is enabled to edit cluster configuration and resources to troubleshoot and diagnose cluster issues, but the role can not modify permissions nor create roles or role bindings. Role access is only enabled under active support tickets with just-in-time (JIT) access.
+> Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.
 
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
 * Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes master nodes, API server, etcd, and kube-dns, for example).
@@ -72,7 +72,7 @@ Microsoft doesn't provide technical support for the following:
   > Microsoft can provide best-effort support for third-party open-source projects such as Helm and Kured. Where the third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS-specific bugs, Microsoft supports examples and applications from Microsoft documentation.
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Issues about multicloud or multivendor build-outs. For example, Microsoft doesn't support issues related to running a federated multipublic cloud vendor solution.
-* Network customizations other than those listed in the [AKS documentation](https://docs.microsoft.com/azure/aks/).
+* Network customizations other than those listed in the [AKS documentation](./index.yml).
   > [!NOTE]
   > Microsoft does support issues and bugs related to network security groups (NSGs). For example, Microsoft Support can answer questions about an NSG failure to update or an unexpected NSG or load balancer behavior.
 
@@ -134,7 +134,7 @@ Although customers can sign in to and change worker nodes, doing this is discour
 
 ## Network ports, access, and NSGs
 
-As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and whitelisting URLs can make your cluster unsupportable.
+As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and adding URLs to an allow list can make your cluster unsupportable.
 
 > [!NOTE]
 > Currently, AKS doesn't allow you to completely lock down egress traffic from your cluster. To control the list of URLs and ports your cluster can use for outbound traffic see  [limit egress traffic](limit-egress-traffic.md).
@@ -146,7 +146,7 @@ AKS supports only stable features within the upstream Kubernetes project. Unless
 In two scenarios, alpha or beta features might be rolled out before they're generally available:
 
 * Customers have met with the AKS product, support, or engineering teams and have been asked to try these new features.
-* These features have been [enabled by a feature flag](https://github.com/Azure/AKS/blob/master/previews.md). Customers must explicitly opt in to use these features.
+* These features have been [enabled by a feature flag](https://awesomeopensource.com/projects/aks?categoryPage=11). Customers must explicitly opt in to use these features.
 
 ## Preview features or feature flags
 

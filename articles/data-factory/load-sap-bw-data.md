@@ -264,7 +264,7 @@ After this, all subsequent delta DTPs and Data Factory delta extractions work as
 
 To set the status of the delta DTP to **Fetched**, you can use the following option to run the delta DTP manually:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*No Data Transfer; Delta Status in Source: Fetched*
 
 ## Next steps
 

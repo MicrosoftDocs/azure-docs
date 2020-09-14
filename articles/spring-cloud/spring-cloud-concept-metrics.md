@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Understand metrics for Azure Spring Cloud
@@ -86,67 +86,47 @@ The following tables show the available metrics and details.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| Tomcat Global Error (deprecated)<br><br>(to be removed after July 1st, 2020)  | tomcat.global.error | Count | Number of errors that occurred in processed requests |
 >| tomcat.global.error | tomcat.global.error | Count | Number of errors that occurred in processed requests |
 
 ### Performance
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| System CPU Usage Percentage (deprecated)<br><br>(to be removed after July 1st, 2020) | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
 >| system.cpu.usage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
->| App CPU Usage Percentage (deprecated)<br><br>(removed after July 1st 2020) | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
 >| process.cpu.usage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
->| App Memory Assigned (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed memory could be less than initial memory. Committed memory will always be greater than or equal to memory used. |
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
->| App Memory Used (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
 >| jvm.memory.used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
->| App Memory Max (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
 >| jvm.memory.max | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
->| Max Available Old Generation Data Size (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
 >| jvm.gc.max.data.size | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
->| Old Generation Data Size (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full GC. |
 >| jvm.gc.live.data.size | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full GC. |
->| Old Generation Data Size (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
 >| jvm.gc.memory.promoted | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
->| Promote to Young Generation Data Size (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
 >| jvm.gc.memory.allocated | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
->| GC Pause Count (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
 >| jvm.gc.pause.total.count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
->| GC Pause Total Time (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
 >| jvm.gc.pause.total.time | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
 
 ### Request
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| Tomcat Total Sent Bytes (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent |
 >| tomcat.global.sent | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent |
->| Tomcat Total Received Bytes (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.received | Bytes | Amount of data Tomcat web server received |
 >| tomcat.global.received | tomcat.global.received | Bytes | Amount of data Tomcat web server received |
->| Tomcat Request Total Time (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.request (total-time) | Milliseconds | Total time of Tomcat web server to process the requests |
->| Tomcat Request Total Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
 >| tomcat.global.request.total.count | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
->| Tomcat Request Max Time (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
 >| tomcat.global.request.max | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
 
 ### Session
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| Tomcat Session Max Active Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
 >| tomcat.sessions.active.max | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
->| Tomcat Session Max Alive Time (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session was alive |
 >| tomcat.sessions.alive.max | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session was alive |
->| Tomcat Session Created Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.created | Count | Number of sessions that have been created |
 >| tomcat.sessions.created | tomcat.sessions.created | Count | Number of sessions that have been created |
->| Tomcat Session Expired Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.expired | Count | Number of sessions that have expired |
 >| tomcat.sessions.expired | tomcat.sessions.expired | Count | Number of sessions that have expired |
->| Tomcat Session Rejected Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
 
 ## See also
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analyze logs and metrics with diagnostics settings](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

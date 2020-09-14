@@ -49,7 +49,7 @@ Azure VPN gateway will advertise the following routes to your on-premises BGP de
 
 * Your VNet address prefixes
 * Address prefixes for each Local Network Gateways connected to the Azure VPN gateway
-* Routes learned from other BGP peering sessions connected to the Azure VPN gateway, **except default route or routes overlapped with any VNet prefix**.
+* Routes learned from other BGP peering sessions connected to the Azure VPN gateway, **except default routes or routes overlapped with any VNet prefix**.
 
 ### How many prefixes can I advertise to Azure VPN gateway?
 We support up to 4000 prefixes. The BGP session is dropped if the number of prefixes exceeds the limit.

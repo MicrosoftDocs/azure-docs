@@ -125,5 +125,5 @@ To remove your VM from Change Tracking and Inventory management:
 ## Next steps
 
 * For details of working with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* To find out more about tracking software changes, see [Track software changes in your environment with Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* To find out more about tracking software changes, see [Track software changes in your environment with Change Tracking](./change-tracking.md).
 * To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

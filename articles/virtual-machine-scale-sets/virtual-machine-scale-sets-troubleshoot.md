@@ -18,7 +18,7 @@ ms.custom: avverma
 Some things to consider include:
 
 * How many vCPUs does each VM have, and are you loading each vCPU?
-  The preceding sample Azure Quickstart template has a do_work.php script, which loads a single vCPU. If you’re using a VM bigger than a single-vCPU VM size like Standard_A1 or D1, you’d need to run this load multiple times. Check how many vCPUs for your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  The preceding sample Azure Quickstart template has a do_work.php script, which loads a single vCPU. If you’re using a VM bigger than a single-vCPU VM size like Standard_A1 or D1, you’d need to run this load multiple times. Check how many vCPUs for your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * How many VMs in the virtual machine scale set, are you doing work on each one?
   
     A scale-out event only takes place when the average CPU across **all** the VMs in a scale set exceeds the threshold value, over the time internal defined in the autoscale rules.
@@ -68,7 +68,7 @@ Some things to consider include:
     If the data is not there, it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://azure.microsoft.com/status/).
     
     Once you’ve been through these steps, if you're still having autoscale problems, you can try the following resources: 
-    * Read the forums on [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
+    * Read the forums on [Microsoft Q&A question page](/answers/topics/azure-virtual-machines.html), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Log a support call. Be prepared to share the template and a view of your performance data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

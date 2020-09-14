@@ -3,6 +3,7 @@ title: 'Azure Event Hubs - Send/receive events using the .NET Framework'
 description: 'Quickstart: This article provides a walkthrough for creating a .NET Framework application that sends events to Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Send events to or receive events from Azure Event Hubs using .NET Framework

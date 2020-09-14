@@ -50,7 +50,7 @@ Before integrating applications with Azure AD, it is important to know where you
 * Will you need to clean up user/group databases before integrating?  (This is a pretty important question. Garbage in, garbage out.)
 
 ### Access management inventory
-* How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [RBAC](../../role-based-access-control/role-assignments-portal.md) for example?
+* How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) for example?
 * Who needs access to what?
 
 Maybe you don't have the answers to all of these questions up front but that's okay.  This guide can help you answer some of those questions and make some informed decisions.

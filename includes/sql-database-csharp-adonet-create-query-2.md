@@ -75,7 +75,7 @@ The C# program is logically one .cs file, and is physically divided into several
     View the report output here, then press any key to end the program...
     ```
 
-<a name="cs_1_connect"/>
+<a name="cs_1_connect"></a>
 
 ### Connect to SQL Database using ADO.NET
 
@@ -125,7 +125,7 @@ namespace csharp_db_test
         }
 ```
 
-<a name="cs_2_return"/>
+<a name="cs_2_return"></a>
 
 ### Methods that return T-SQL statements
 
@@ -233,7 +233,7 @@ static string Build_6_Tsql_SelectEmployees()
 }
 ```
 
-<a name="cs_3_submit"/>
+<a name="cs_3_submit"></a>
 
 ### Submit T-SQL to the database
 

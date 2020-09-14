@@ -199,7 +199,7 @@ When copy data from Cosmos DB, unless you want to [export JSON documents as-is](
 
 To copy data to Azure Cosmos DB (SQL API), set the **sink** type in Copy Activity to **DocumentDbCollectionSink**. 
 
-The following properties are supported in the Copy Activity **source** section:
+The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

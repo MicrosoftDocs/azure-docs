@@ -1,6 +1,6 @@
 ---
 title: Metrics for Azure NetApp Files | Microsoft Docs
-description: Describes metrics for Azure NetApp Files.
+description: Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. Use these metrics to understand usage and performance.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche

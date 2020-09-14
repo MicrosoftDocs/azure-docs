@@ -430,7 +430,7 @@ If Bing determines that the user may have intended to search for something diffe
 
 Responses from the Bing Web Search API may contain the following headers:
 
-|||
+| Header | Description |
 |-|-|
 |`X-MSEdge-ClientID`|The unique ID that Bing has assigned to the user|
 |`BingAPIs-Market`|The market that was used to fulfill the request|
@@ -440,7 +440,7 @@ It is particularly important to persist the client ID and return it with subsequ
 
 However, when you call the Bing Web Search API from JavaScript, your browser's built-in security features (CORS) might prevent you from accessing the values of these headers.
 
-To gain access to the headers, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+To gain access to the headers, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that filters response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our [tutorial app](tutorial-bing-web-search-single-page-app.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
 

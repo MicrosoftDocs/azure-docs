@@ -17,6 +17,9 @@ ms.author: juliako
 
 ---
 # Scaling Media Processing overview 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This page gives an overview of how and why to scale media processing. 
 
 ## Overview
@@ -55,13 +58,13 @@ Achieve the scaling media processing task with one of these technologies:
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [REST](/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 
 > [!NOTE]
-> To get the latest version of Java SDK and get started developing with Java, see [Get started with the Java client SDK for Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> To get the latest version of Java SDK and get started developing with Java, see [Get started with the Java client SDK for Media Services](./media-services-java-how-to-use.md). <br/>
 > To download the latest PHP SDK for Media Services, look for version 0.5.7 of the Microsoft/WindowAzure package in the [Packagist repository](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## Media Services learning paths
@@ -69,4 +72,3 @@ Achieve the scaling media processing task with one of these technologies:
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

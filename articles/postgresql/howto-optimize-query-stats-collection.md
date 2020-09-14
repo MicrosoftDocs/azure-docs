@@ -4,7 +4,7 @@ description: This article describes how you can optimize query stats collection 
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
 ---
 

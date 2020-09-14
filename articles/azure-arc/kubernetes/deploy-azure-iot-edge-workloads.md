@@ -22,7 +22,7 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Az
 
 ## Pre-requisites
 
-* [Register an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) and [deploy the simulated temperature sensor module](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Be sure to note the device's connection string.
+* [Register an IoT Edge device](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) and [deploy the simulated temperature sensor module](../../iot-edge/quickstart-linux.md#deploy-a-module). Be sure to note the device's connection string.
 
 * Use [IoT Edge's support for Kubernetes](https://aka.ms/edgek8sdoc) to deploy it via Azure Arc's Flux operator.
 

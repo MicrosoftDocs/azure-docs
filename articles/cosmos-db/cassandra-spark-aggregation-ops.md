@@ -73,7 +73,7 @@ sc.cassandraTable("books_ks", "books").count
 ```
 
 **Output:**
-```
+```bash
 res48: Long = 5
 ```
 

@@ -1,18 +1,17 @@
 ---
 title: Azure applications managed application offer publishing guide - Azure Marketplace
 description: This article describes the requirements for publishing a managed application in Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.author: dsindona
-
+author: msjogarrig
+ms.author: jogarrig
+ms.date: 09/04/2020
 ---
 
 # Publishing guide for Azure managed applications
 
-An Azure *managed application* offer is one way to publish an Azure application in Azure Marketplace. Managed applications are transact offers that are deployed and billed through Azure Marketplace. The call to action that a user sees is *Get It Now*.
+An Azure *managed application* offer is one way to publish an Azure application in Azure Marketplace. Managed applications are transact offers that are deployed and billed through Azure Marketplace. The listing option that a user sees is *Get It Now*.
 
 This article explains the requirements for the managed application offer type.
 

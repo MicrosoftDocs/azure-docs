@@ -21,7 +21,7 @@ Node-to-node security helps secure communication between the VMs or computers in
 
 ![Diagram of node-to-node communication][Node-to-Node]
 
-Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows security](https://msdn.microsoft.com/library/ff649396.aspx) for Windows Server computers.
+Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](/previous-versions/msp-n-p/ff649801(v=pandp.10)) or [Windows security](/previous-versions/msp-n-p/ff649396(v=pandp.10)) for Windows Server computers.
 
 ### Node-to-node certificate security
 
@@ -48,7 +48,7 @@ Client-to-node security authenticates clients and helps secure communication bet
 
 ![Diagram of client-to-node communication][Client-to-Node]
 
-Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows security](https://msdn.microsoft.com/library/ff649396.aspx), though the recommendation is to use X.509 certificate authentication whenever possible.
+Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](/previous-versions/msp-n-p/ff649801(v=pandp.10)) or [Windows security](/previous-versions/msp-n-p/ff649396(v=pandp.10)), though the recommendation is to use X.509 certificate authentication whenever possible.
 
 ### Client-to-node certificate security
 
@@ -89,7 +89,7 @@ Set the Administrator and User client roles when you create the cluster. Assign 
 
 ## X.509 certificates and Service Fabric
 
-X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx). You use [Key Vault](../key-vault/general/overview.md) to manage certificates for Service Fabric clusters in Azure.
+X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](/dotnet/framework/wcf/feature-details/working-with-certificates). You use [Key Vault](../key-vault/general/overview.md) to manage certificates for Service Fabric clusters in Azure.
 
 Some important things to consider:
 

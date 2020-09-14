@@ -22,7 +22,7 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 
 - **An Azure VNet**. See the following section for VNet requirements and configuration. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (CLI), or other methods.
   - To create an Azure Resource Manager-based VNet, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). A Resource Manager-based VNet is recommended for new deployments, and is supported only on pools that use Virtual Machine Configuration.
-  - To create a classic VNet, see [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md). A classic VNet is supported only on pools that use Cloud Services Configuration.
+  - To create a classic VNet, see [Create a virtual network (classic) with multiple subnets](/previous-versions/azure/virtual-network/create-virtual-network-classic). A classic VNet is supported only on pools that use Cloud Services Configuration.
 
 ## VNet requirements
 
@@ -57,7 +57,7 @@ When you add a UDR, define the route for each related Batch IP address prefix, a
 ![User-defined route](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Batch service IP addresses can change over time. To prevent outages due to an IP address change, create a process to refresh Batch service IP addresses automatically and keep them up to date in your route table. Alternately, you can [create a pool with specified IP addresses that you control](create-pool-public-ip.md).
+> Batch service IP addresses can change over time. To prevent outages due to an IP address change, create a process to refresh Batch service IP addresses automatically and keep them up to date in your route table.
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: Common issues during VHD creation (FAQ)
 description: Frequently asked questions about common issues when creating a virtual hard disk (VHD).
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/09/2020
 ---
 
@@ -15,7 +15,7 @@ These frequently asked questions (FAQ) cover common issues you might encounter w
 
 ## How do I create a VM from the Azure portal using a VHD in premium storage?
 
-Azure Marketplace does not currently support creating VM offers from images on managed storage or from Azure Premium Storage. For details, see [Azure Managed Disks Overview](../../virtual-machines/windows/managed-disks-overview.md).
+Azure Marketplace does not currently support creating VM offers from images on managed storage or from Azure Premium Storage. For details, see [Azure Managed Disks Overview](../../virtual-machines/managed-disks-overview.md).
 
 ## Can I use Generation 2 VMs for offers?
 
@@ -29,8 +29,8 @@ You can't. After a VM is created, users (including owners) can't update the host
 
 These articles explain how to perform RDS resets for Windows- and Linux-based VMs:
 
-* [How to reset the Remote Desktop service or its login password in a Windows VM](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-* [How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+* [How to reset the Remote Desktop service or its login password in a Windows VM](/azure/virtual-machines/troubleshooting/reset-rdp)
+* [How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension](/azure/virtual-machines/extensions/vmaccess)
 
 ## How do I generate new SSH certificates?
 
@@ -54,7 +54,7 @@ Yes, if hosted on Azure. Azure assigns a unique identifier, called the [Azure Vi
 
 ## In a VM, how do I manage the custom script extension in the startup task?
 
-For details on using the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and troubleshooting steps on Windows systems, see [Custom Script Extension for Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/).
+For details on using the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and troubleshooting steps on Windows systems, see [Custom Script Extension for Windows](/azure/virtual-machines/extensions/custom-script-windows).
 
 ## Are 32-bit applications or services supported in Azure Marketplace?
 

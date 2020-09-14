@@ -75,7 +75,7 @@ To select a workspace created by Security Center:
 1. Security Center will automatically enable a Security Center solution on the workspace per the pricing tier set for the subscription. 
 
 > [!NOTE]
-> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
+> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the standard tier, Security Center enables the *Security* solution on the default workspace.
 > Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 For more information about existing log analytics accounts, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
@@ -148,7 +148,7 @@ Selecting a data collection tier in Azure Security Center will only affect the s
 
 
 > [!NOTE]
-> These security events sets are available only on Security Center’s Standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+> These security events sets are available only on Security Center’s standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
 >
 >
@@ -209,15 +209,17 @@ Security center will install the Log Analytics agent extension side by side to t
     - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Azure Security Center](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
  
 ### Turn off automatic provisioning <a name="offprovisioning"></a>
-You can turn off automatic provisioning from resources at any time by turning off this setting in the security policy. 
+To turn off automatic provisioning of the Log Analytics agent:
 
+1. From Security Center's menu in the portal, select **Pricing & settings**.
+2. Select the relevant subscription.
 
-1. Return to the Security Center main menu and select the Security policy.
-2. Click **Edit settings** in the row of the subscription for which you want to disable automatic provisioning.
-3. On the **Security policy – Data Collection** page, under **Auto provisioning** select **Off**.
-4. Select **Save**.
+   ![Select subscription][7]
 
-   ![Disable auto provisioning][6]
+3. Select **Data Collection**.
+4. Under **Auto Provisioning**, select **Off** to disable automatic provisioning.
+5. Select **Save**. 
+
 
 When auto provisioning is disabled (turned off), the default workspace configuration section is not displayed.
 

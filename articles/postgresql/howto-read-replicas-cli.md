@@ -4,8 +4,9 @@ description: Learn how to manage read replicas in Azure Database for PostgreSQL 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 06/09/2020
+ms.topic: how-to
+ms.date: 07/10/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and manage read replicas from the Azure CLI, REST API
@@ -79,9 +80,9 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 
 If you haven't set the `azure.replication_support` parameter to **REPLICA** on a General Purpose or Memory Optimized master server and restarted the server, you receive an error. Complete those two steps before you create a replica.
 
-A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
-
 > [!IMPORTANT]
+> Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
+>
 > Before a master server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ### List replicas

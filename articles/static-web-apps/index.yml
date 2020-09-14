@@ -28,13 +28,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create your first Angular app
-            url: /azure/static-web-apps/getting-started?tabs=angular
+            url: ./getting-started.md?tabs=angular
           - text: Create your first React app
-            url: /azure/static-web-apps/getting-started?tabs=react
+            url: ./getting-started.md?tabs=react
           - text: Create your first Vue app
-            url: /azure/static-web-apps/getting-started?tabs=vue
+            url: ./getting-started.md?tabs=vue
           - text: Create your first app (no framework)
-            url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
+            url: ./getting-started.md?tabs=vanilla-javascript
       - linkListType: learn
         links:
           - text: Publish an Angular, React, Svelte, or Vue JavaScript app and API

@@ -1,11 +1,11 @@
 ---
 title: Company work accounts and Partner Center 
 description: How to check whether your company has a work account set up with Microsoft, create a new work account, or set up multiple work accounts to use with Partner Center. 
-author: dsindona
-ms.author: parthp 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 05/30/2019
 ---
 

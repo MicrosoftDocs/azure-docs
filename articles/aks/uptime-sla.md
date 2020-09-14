@@ -20,9 +20,8 @@ Customers can still create unlimited free clusters with a service level objectiv
 
 ## Region availability
 
-Uptime SLA is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
 
 ## Limitations
@@ -35,7 +34,7 @@ Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is dete
 
 ## Before you begin
 
-* Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 or later
+* Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 or later
 
 ## Creating a new cluster with Uptime SLA
 
@@ -128,7 +127,7 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->
-[vm-skus]: ../virtual-machines/linux/sizes.md
+[vm-skus]: ../virtual-machines/sizes.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md

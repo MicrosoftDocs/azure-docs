@@ -30,26 +30,29 @@ This article shows you how to accomplish security filtering using the following 
 
 ## Prerequisites
 
-This article assumes you have an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure Cognitive Search service](https://docs.microsoft.com/azure/search/search-create-service-portal), and [Azure Cognitive Search Index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+This article assumes you have an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), an[Azure Cognitive Search service](search-create-service-portal.md), and an [index](search-what-is-an-index.md).  
 
 ## Create security field
 
 Your documents must include a field specifying which groups have access. This information becomes the filter criteria against which documents are selected or rejected from the result set returned to the issuer.
 Let's assume that we have an index of secured files, and each file is accessible by a different set of users.
+
 1. Add field `group_ids` (you can choose any name here) as a `Collection(Edm.String)`. Make sure the field has a `filterable` attribute set to `true` so that search results are filtered based on the access the user has. For example, if you set the `group_ids` field to `["group_id1, group_id2"]` for the document with `file_name` "secured_file_b", only users that belong to group ids "group_id1" or "group_id2" have read access to the file.
+   
    Make sure the field's `retrievable` attribute is set to `false` so that it is not returned as part of the search request.
+
 2. Also add `file_id` and `file_name` fields for the sake of this example.  
 
-```JSON
-{
-    "name": "securedfiles",  
-    "fields": [
-        {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "file_name", "type": "Edm.String"},
-        {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
-    ]
-}
-```
+    ```JSON
+    {
+        "name": "securedfiles",  
+        "fields": [
+            {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+            {"name": "file_name", "type": "Edm.String"},
+            {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
+        ]
+    }
+    ```
 
 ## Pushing data into your index using the REST API
   
@@ -102,13 +105,13 @@ If you need to update an existing document with the list of groups, you can use 
 }
 ```
 
-For full details on adding or updating documents, you can read [Edit documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+For full details on adding or updating documents, you can read [Edit documents](/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## Apply the security filter
 
 In order to trim documents based on `group_ids` access, you should issue a search query with a `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, where 'group_id1, group_id2,...' are the groups to which the search request issuer belongs.
 This filter matches all documents for which the `group_ids` field contains one of the given identifiers.
-For full details on searching documents using Azure Cognitive Search, you can read [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+For full details on searching documents using Azure Cognitive Search, you can read [Search Documents](/rest/api/searchservice/search-documents).
 Note that this sample shows how to search documents using a POST request.
 
 Issue the HTTP POST request:

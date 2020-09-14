@@ -1,7 +1,7 @@
 ---
 title: Create a stored access policy with .NET
 titleSuffix: Azure Storage
-description: Learn how to create a stored access policy using the .NET client library.
+description: Use Azure Storage and .NET to create a stored access policy. Exercise additional levels of control over service-level shared access signatures on the server.
 services: storage
 author: tamram
 
@@ -11,6 +11,7 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Create a stored access policy with .NET
@@ -37,7 +38,7 @@ The underlying REST operation to create a stored access policy is [Set Container
 
 The following code examples create a stored access policy on a container. You can use the access policy to specify constraints for a service SAS on the container or its blobs.
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 To create a stored access policy on a container with version 12 of the .NET client library for Azure Storage, call one of the following methods:
 
@@ -88,7 +89,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 To create a stored access policy on a container with version 12 of the .NET client library for Azure Storage, call one of the following methods:
 

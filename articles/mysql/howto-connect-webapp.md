@@ -4,7 +4,7 @@ description: Instructions for how to properly connect an existing Azure App Serv
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 

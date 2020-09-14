@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 07/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,10 +27,11 @@ This article presents three scenarios to configure Conditional Access policies f
 
 In the Conditional Access, these client apps are known to be protected with an app protection policy. More information about app protection policies can be found in the article, [App protection policies overview](/intune/apps/app-protection-policy)
 
-For a list of eligible client apps, see [App protection policy requirement](concept-conditional-access-grant.md).
+> [!WARNING]
+> Not all applications are supported as approved applications or support application protection policies. For a list of eligible client apps, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
->    The or clause is used within the policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md).
+> "Require one of the selected controls" under grant controls is like an OR clause. This is used within policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. **Require app protection policy** is enforced if an app is supported in both policies. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## Scenario 1: Office 365 apps require approved apps with app protection policies
 
@@ -51,9 +52,9 @@ Organizations must complete the following steps in order to require the use of a
 1. Under **Conditions**, select **Device platforms**.
    1. Set **Configure** to **Yes**.
    1. Include **Android** and **iOS**.
-1. Under **Conditions**, select **Client apps (preview)**.
+1. Under **Conditions**, select **Client apps**.
    1. Set **Configure** to **Yes**.
-   1. Select **Mobile apps and desktop clients** and **Modern authentication clients**.
+   1. Select **Mobile apps and desktop clients** and deselect everything else.
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
    - **Require app protection policy (preview)**
@@ -72,10 +73,9 @@ For the Conditional Access policy in this step, configure the following componen
    1. Under **Include**, select **All users** or the specific **Users and groups** you wish to apply this policy to. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Office 365 Exchange Online**.
-1. Under **Conditions**:
-   1. **Client apps (preview)**:
-      1. Set **Configure** to **Yes**.
-      1. Select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
+1. Under **Conditions**, select **Client apps**:
+   1. Set **Configure** to **Yes**.
+   1. Select **Exchange ActiveSync clients** and deselect everything else.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require app protection policy**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
@@ -103,9 +103,9 @@ Organizations must complete the following steps in order to require the use of a
 1. Under **Conditions**, select **Device platforms**.
    1. Set **Configure** to **Yes**.
    1. Include **Android** and **iOS**.
-1. Under **Conditions**, select **Client apps (preview)**.
+1. Under **Conditions**, select **Client apps**.
    1. Set **Configure** to **Yes**.
-   1. Select **Browser**.
+   1. Select **Browser** and deselect everything else.
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
    - **Require app protection policy (preview)**
@@ -136,9 +136,9 @@ Organizations must complete the following three steps in order to require the us
 1. Under **Conditions**, select **Device platforms**.
    1. Set **Configure** to **Yes**.
    1. Include **Android** and **iOS**.
-1. Under **Conditions**, select **Client apps (preview)**.
+1. Under **Conditions**, select **Client apps**.
    1. Set **Configure** to **Yes**.
-   1. Select **Mobile apps and desktop clients** and **Modern authentication clients**.
+   1. Select **Mobile apps and desktop clients** and deselect everything else.
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
    - **Require app protection policy (preview)**
@@ -155,10 +155,9 @@ Organizations must complete the following three steps in order to require the us
    1. Under **Include**, select **All users** or the specific **Users and groups** you wish to apply this policy to. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Office 365 Exchange Online**.
-1. Under **Conditions**:
-   1. **Client apps (preview)**:
-      1. Set **Configure** to **Yes**.
-      1. Select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
+1. Under **Conditions**, select **Client apps**:
+   1. Set **Configure** to **Yes**.
+   1. Select **Exchange ActiveSync clients** and deselect everything else.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require app protection policy**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
