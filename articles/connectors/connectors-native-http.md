@@ -162,16 +162,15 @@ Here is the same example that shows the HTTP action's JSON definition in the und
    "type": "Http"
 }
 ```
-
-<a name="asynchronous-pattern"></a>
-
 ## Content with application/x-www-form-urlencoded type
 
 To handle content that has `application/x-www-form-urlencoded` type in HTTP requests, you can add `content-type` header and set it to `application/x-www-form-urlencoded`. And provide form-urlecoded data as the body of the HTTP request.
 
 For example, suppose you have a logic app that sends an HTTP POST request to a website, which supports the `application/x-www-form-urlencoded` type. Here's how this action might look:
 
-![Multipart form data](./media/connectors-native-http/http-action-urlencoded.png)
+![Screenshot that shows an HTTP request with the 'content-type' header set to 'application/x-www-form-urlencoded'](./media/connectors-native-http/http-action-urlencoded.png)
+
+<a name="asynchronous-pattern"></a>
 
 ## Asynchronous request-response behavior
 
