@@ -340,7 +340,7 @@
       href: virtual-machine-scale-sets-upgrade-scale-set.md
     - name: Networking for scale sets
       href: virtual-machine-scale-sets-networking.md
-    - name: VMSS OS image updates
+    - name: OS image upgrades
       items:
       - name: Automatic OS upgrades
         href: virtual-machine-scale-sets-automatic-upgrade.md
