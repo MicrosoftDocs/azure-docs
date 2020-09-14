@@ -70,25 +70,23 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
     1. If it is not found, it looks for a match in the global ACR
-    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
+    1. If it is not found, the system builds a new image (which will be cached and pushed to the workspace ACR)
 1. Downloading your zipped project file to temporary storage on the compute node
 1. Unzipping the project file
 1. The compute node executing `python <entry script> <arguments>`
 1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
 1. Scaling down compute, including removing temporary storage (Relates to Kubernetes)
 
-When you're using AKS, the scaling up and down of the compute is controlled by Kubernetes, using the dockerfile built or found as described above. 
-
 ### Azure ML router
 
-The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. Scaling of azureml-fe is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md). There is one azureml-fe per cluster.
+The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. Scaling of azureml-fe is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md). There is one azureml-fe service per cluster, which may be running on multiple pods.
 
 > [!IMPORTANT]
 > When using a cluster configured as __dev-test__, the self-scaler is **disabled**.
 
 Azureml-fe scales both up (vertically) to use more cores, and out (horizontally) to use more pods. When making the decision to scale up, the time that it takes to route incoming inference requests is used. If this time exceeds the threshold, a scale-up occurs. If the time to route incoming requests continues to exceed the threshold, a scale-out occurs.
 
-When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens.
+When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens. Scaling up and out will only occur if there are enough cluster resources available.
 
 ## Deploy to AKS
 
