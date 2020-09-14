@@ -238,6 +238,8 @@ To deploy your code to an App Service app, use the `azure/webapps-deploy@v2` act
 
 Below is the sample workflow to build and deploy a Node.js app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
+### JavaScript 
+
 ```yaml
 on: [push]
 
@@ -287,6 +289,8 @@ jobs:
 # [App-level credentials](#tab/applevel)
 
 Below is the sample workflow to build and deploy a Node.js app to Azure using the app's publish profile. Note how the `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+
+### JavaScript 
 
 ```yaml
 # File: .github/workflows/workflow.yml
