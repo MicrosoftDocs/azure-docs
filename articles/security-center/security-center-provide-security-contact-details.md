@@ -35,7 +35,7 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 |Aspect|Details|
 |----|:----|
 |Release state:|Generally Available|
-|Pricing:|Free tier|
+|Pricing:|Free|
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov (partial)<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||

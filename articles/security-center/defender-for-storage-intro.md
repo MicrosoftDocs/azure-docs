@@ -21,8 +21,9 @@ This layer of protection allows you to address threats *without* requiring you t
 
 |Aspect|Details|
 |----|:----|
-|Release state:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)|
-|Pricing:|**Azure Defender for Storage** required|
+|Release state:|Generally available|
+|Pricing:|**Azure Defender for Storage** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Protected storage types|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
 
