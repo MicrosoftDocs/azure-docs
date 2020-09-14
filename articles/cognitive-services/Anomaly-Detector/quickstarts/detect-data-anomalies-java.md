@@ -97,7 +97,7 @@ Create a method called `detectAnomaliesLatest()` to detect the anomaly status of
 
 3. Otherwise, find the positions of change points in the data set. The response's `isChangePoint` field contains a boolean value indicating whether a given data point is a trend change point. Get the JSON array and iterate through it, printing the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
 
-    [!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectChangePoint)]
+    [!code-java[detect change points](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectChangePoint)]
 
 ## Load your time series data and send the request
 

@@ -109,7 +109,7 @@ Call the Anomaly Detector API to determine if your latest data point is an anoma
 
 Call the API to detect change points in the time series data using the client's [detect_change_point()](https://go.microsoft.com/fwlink/?linkid=2090370) method. Store the returned [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090370) object. Iterate through the response's `is_change_point` list, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
 
-[!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=changePointDetection)]
+[!code-python[detect change points](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=changePointDetection)]
 
 ## Run the application
 

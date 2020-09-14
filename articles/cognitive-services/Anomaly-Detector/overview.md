@@ -30,6 +30,7 @@ With the Anomaly Detector, you can automatically detect anomalies throughout you
 |---------|---------|
 |Detect anomalies as they occur in real-time. | Detect anomalies in your streaming data by using previously seen data points to determine if your latest one is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data as it's created. |
 |Detect anomalies throughout your data set as a batch. | Use your time series to detect any anomalies that might exist throughout your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.         |
+|Detect change points throughout your data set as a batch. | Use your time series to detect any trend change points that exist in your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.    |
 | Get additional information about your data. | Get useful details about your data and any observed anomalies, including expected values, anomaly boundaries and positions. |
 | Adjust anomaly detection boundaries. | The Anomaly Detector API automatically creates boundaries for anomaly detection. Adjust these boundaries to increase or decrease the API's sensitivity to data anomalies, and better fit your data. |
 
@@ -40,7 +41,7 @@ To run the demo, you need to create an Anomaly Detector resource and get the API
 
 ## Notebook
 
-To learn how to call the Anomaly Detector API, try this [Azure Notebook](https://aka.ms/adNotebook). This web-hosted Jupyter Notebook shows you how to send an API request and visualize the result.
+To learn how to call the Anomaly Detector API, try this [Notebook](https://aka.ms/adNotebook). This Jupyter Notebook shows you how to send an API request and visualize the result.
 
 To run the Notebook, complete the following steps:
 

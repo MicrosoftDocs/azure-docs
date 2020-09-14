@@ -98,7 +98,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 4. Otherwise, find the positions of anomalies in the data set. The response's `isChangePoint` field contains a boolean value indicating whether a given data point is an anomaly. Iterate through the list, and print the index of any `True` values. These values correspond to the indices of trend change points points, if any were found.
 
-    [!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectChangePoint)]
+    [!code-python[detect change points](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectChangePoint)]
 
 ## Send the request
 
