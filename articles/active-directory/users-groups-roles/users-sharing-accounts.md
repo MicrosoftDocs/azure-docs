@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 Sometimes organizations need to use a single username and password for multiple people, which typically happens in two cases:
 
 * When accessing applications that require a unique sign in and password for each user, whether on-premises apps or consumer cloud services (for example, corporate social media accounts).
-* When creating multi-user environments. You might have a single, local account that has elevated privileges and is used to do core setup, administration, and recovery activities. For example, the local "global administrator" account for Office 365 or the root account in Salesforce.
+* When creating multi-user environments. You might have a single, local account that has elevated privileges and is used to do core setup, administration, and recovery activities. For example, the local "global administrator" account for Microsoft 365 or the root account in Salesforce.
 
 Traditionally, these accounts are shared by distributing the credentials (username and password) to the right individuals or storing them in a shared location where multiple trusted agents can access them.
 
