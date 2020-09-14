@@ -3,20 +3,16 @@ title: Configure CI/CD with GitHub Actions
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with GitHub Actions. Customize the build tasks and execute complex deployments.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python
+ms.custom: devx-track-python, github-actions-azure
 
 ---
 
 # Deploy to App Service using GitHub Actions
 
 [GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the Azure App Service Actions for GitHub, you can automate your workflow to deploy to [Azure App Service](overview.md) using GitHub Actions.
-
-> [!IMPORTANT]
-> GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
-> 
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
@@ -57,9 +53,13 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 # [App-level credentials](#tab/applevel)
 
-You can use app-level credentials by using the publish profile for your app. Go to your app's management page in the portal. In the **Overview** page, click **Get Publish profile** option.
+You can use app-level credentials by using publish profile for your app. 
 
-You will need the contents of the file later.
+1. Go to your app service in the Azure Portal. 
+
+1. On the **Overview** page, select **Get Publish profile**.
+
+1. Save the downloaded file. You will use the contents of the file to create a GitHub secret.
 
 ---
 
@@ -83,14 +83,14 @@ When you configure the workflow file later, you use the secret for the input `cr
 
 In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
-To use [app-level credentials](#generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Give the secret the name like `azureWebAppPublishProfile`.
+To use [app-level credentials](#generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Name the secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
-When you configure the workflow file later, you use the secret for the input `publish-profile` of the deploy Azure Web App action. For example:
+When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFILE` in the deploy Azure Web App action. For example:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
   with:
-    publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+    publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 ```
 
 ---
@@ -111,10 +111,19 @@ The following examples show the part of the workflow that sets up the environmen
 **JavaScript**
 
 ```yaml
-    - name: Setup Node 10.x
+env:
+  NODE_VERSION: '14.x'                # set this to the node version to use
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: ${{ env.NODE_VERSION }}
 ```
 **Python**
 
@@ -153,17 +162,27 @@ The following examples show the part of the workflow that builds the web app, in
 
 **JavaScript**
 
+If your app is not in the root directory, you can set `working-directory` or change for npm directory in `pushd`. 
 ```yaml
-    - name: 'Run npm'
-      shell: bash
+env:
+  NODE_VERSION: '14.x'                # set this to the node version to use
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: npm install, build, and test
       run: |
-        # If your web app project is not located in your repository's root
-        # Please change your directory for npm in pushd
-        pushd .
         npm install
         npm run build --if-present
         npm run test --if-present
-        popd
+      working-directory: my-app-folder # set to the folder with your app if it is not the root directory
 ```
 
 **Python**
@@ -224,6 +243,11 @@ on: [push]
 
 name: Node.js
 
+env:
+  AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '14.x'                # set this to the node version to use
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -236,21 +260,23 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
-    - name: Setup Node 10.x
+    - name: Setup Node ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: ${{ env.NODE_VERSION }}
     
     - name: 'npm install, build, and test'
       run: |
         npm install
         npm run build --if-present
         npm run test --if-present
+      working-directory:  my-app-path
                
     # deploy web app using Azure credentials
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'node-rn'
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
     # Azure logout 
     - name: logout
@@ -260,36 +286,45 @@ jobs:
 
 # [App-level credentials](#tab/applevel)
 
-Below is the sample workflow to build and deploy a Node.js app to Azure using the app's publish profile. Note how the `publish-profile` input references the `azureWebAppPublishProfile` secret that you created earlier.
+Below is the sample workflow to build and deploy a Node.js app to Azure using the app's publish profile. Note how the `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
 # File: .github/workflows/workflow.yml
 
-on: push
+on:
+  push:
+    branches:
+      - master
+
+env:
+  AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-    
-    - name: Setup Node 10.x
+    - uses: actions/checkout@master
+    - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
-    - name: 'npm install, build, and test'
+        node-version: ${{ env.NODE_VERSION }}
+    - name: npm install, build, and test
       run: |
+        # Build and test the project, then
+        # deploy to Azure Web App.
         npm install
         npm run build --if-present
         npm run test --if-present
-       
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v2
-          with: 
-            app-name: node-rn
-            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+      working-directory: my-app-path
+    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 ```
 
 ---
