@@ -12,7 +12,7 @@ ms.author: cynthn
 
 # Maintenance control for Azure virtual machine scale sets 
 
-Manage your virtual machine scale sets [automatic OS image updates](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), using maintenance control.
+Manage [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for your virtual machine scale sets using maintenance control.
 
 Maintenance control lets you decide when to apply updates to OS disks in your virtual machine scale sets through an easier and more predictable experience. 
 
