@@ -1,8 +1,9 @@
 ---
 title: Assess Hyper-V VMs for migration to Azure VMs with Server Assessment in Azure Migrate
 description: Learn how to assess Hyper-V VMs for migration to Azure VMs with Server Assessment.
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 09/14/2020
+ms.custom: MVC
 #Customer intent: As a Hyper-V admin, I want to assess my Hyper-V VMs in preparation for migration to Azure.
 ---
 

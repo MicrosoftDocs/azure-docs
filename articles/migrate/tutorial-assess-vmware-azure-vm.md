@@ -1,8 +1,9 @@
 ---
 title: Assess VMware VMs for migration to Azure VMs with Server Assessment in Azure Migrate
 description: Learn how to assess VMware VMs for migration to Azure VMs with Server Assessment.
-ms.topic: how-to
-ms.date: 09/01/2020
+ms.topic: tutorial
+ms.date: 09/14/2020
+ms.custom: MVC
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 

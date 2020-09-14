@@ -2,7 +2,8 @@
 title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
 description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
+ms.custom: MVC
 #Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
 ---
 
