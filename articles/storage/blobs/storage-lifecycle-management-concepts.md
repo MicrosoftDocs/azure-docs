@@ -373,7 +373,7 @@ The **Last accessed** option is available in preview in the following regions:
 
 #### How last access time tracking works
 
-When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) are not access operations.
+When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) are not access operations, and therefore don't update the last access time.
 
 To minimize the impact on read access latency, only the first read of the day updates the last access time. Subsequent reads on the same date do not update the last access time. 
 If a blob is modified between reads, the last access time is the more recent of the two values.
@@ -385,7 +385,7 @@ In the following example, blobs are moved to cool storage if they haven't been a
   "rules": [
     {
       "enabled": true,
-      "name": "move-to-cool",
+      "name": "last-accessed-thirty-days-ago",
       "type": "Lifecycle",
       "definition": {
         "actions": {
