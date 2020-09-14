@@ -80,6 +80,9 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
    [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-2.png#lightbox)
 1. Click **Add**.
+1. Click **Review and create**.
+   ![Assignable scopes](media/spring-cloud-permissions/dev-opps-role-assignable-scopes.png)
+
 
 ## See also
 [Create or update Azure custom roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
