@@ -1,5 +1,5 @@
 ---
-title: Overview of Maintenance control for Azure virtual machines scale sets
+title: Overview of Maintenance control for Azure virtual machine scale sets
 description: Learn how to control when maintenance is applied to your Azure virtual machine scale sets using Maintenance Control.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -10,7 +10,7 @@ ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Managing platform updates with Maintenance Control 
+# Maintenance control for Azure virtual machine scale sets 
 
 Manage your virtual machine scale sets OS image updates, that don't require a reboot, using maintenance control. 
 
@@ -36,12 +36,12 @@ The entire workflow comes down to these steps:
 
 You can create and manage maintenance configurations using any of the following options:
 
-- [Azure PowerShell](virtual-machines-scale-sets-maintenance-control-powershell.md)
+- [Azure PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)
 
 
 ## Next steps
 
-Learn how to control when maintenance is applied to your Azure virtual machines scale sets using Maintenance control and PowerShell.
+Learn how to control when maintenance is applied to your Azure virtual machine scale sets using Maintenance control and PowerShell.
 
 > [!div class="nextstepaction"]
-> [VMSS Maintenance control using PowerShell](virtual-machines-scale-sets-maintenance-control-powershell.md)
+> [VMSS Maintenance control using PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)

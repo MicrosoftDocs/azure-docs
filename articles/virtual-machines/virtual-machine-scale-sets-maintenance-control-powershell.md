@@ -1,6 +1,6 @@
 ---
-title: Maintenance control for Azure virtual machines scale sets using PowerShell
-description: Learn how to control when maintenance is applied to your Azure virtual machines scale sets using Maintenance control and PowerShell.
+title: Maintenance control for Azure virtual machine scale sets using PowerShell
+description: Learn how to control when maintenance is applied to your Azure virtual machine scale sets using Maintenance control and PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
@@ -10,9 +10,10 @@ ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Control updates with Maintenance Control and Azure PowerShell
+# Maintenance control for Azure virtual machine scale sets using PowerShell
 
-Maintenance control lets you decide when to apply updates to your guest virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+Maintenance control lets you decide when to apply updates to your guest virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+
 
 ## Enable the PowerShell module
 
@@ -34,7 +35,7 @@ You may also be asked to confirm that you want to install from an *untrusted rep
 
 ## Connect to an Azure account
 
-Connect to your desired Azure account using [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-4.6.1) and [Set-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-4.6.1).
+Connect to your desired Azure account using [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) and [Set-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Connect-AzAccount
