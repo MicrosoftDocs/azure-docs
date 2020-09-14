@@ -123,7 +123,7 @@ For a list of all Azure Monitor support metrics, which includes Azure Storage, s
 
 #### List the metric definition
 
-You can list the metric definition of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0) cmdlet.
+You can list the metric definition of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
 
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of an individual storage service, such as the blob, file, table, or queue service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
@@ -134,7 +134,7 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Reading metric values
 
-You can read account-level metric values of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) cmdlet.
+You can read account-level metric values of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -145,7 +145,7 @@ You can read account-level metric values of your storage account or the individu
 
 #### List the account-level metric definition
 
-You can list the metric definition of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions) command.
+You can list the metric definition of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
  
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of an individual storage service, such as the blob, file, table, or queue service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
@@ -155,7 +155,7 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Read account-level metric values
 
-You can read the metric values of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) command.
+You can read the metric values of your storage account or the individual storage service, such as the blob, file, table, or queue service. Use the [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
