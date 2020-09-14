@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to connect Logic Apps to Azure Digital Twins, using a custom connector
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/14/2020
+ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -25,9 +25,12 @@ In this article, you will use the [Azure portal](https://portal.azure.com) to **
 
 ## Prerequisites
 
-If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
-
-Sign in to the [Azure portal](https://portal.azure.com) with this account.
+Azure subscription. If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
+Sign in to the [Azure portal](https://portal.azure.com) with this account. \
+You will also need to
+- Set up an Azure Digital Twins instance
+- Get app registration client secret
+- Add a digital twin
 
 ### Set up Azure Digital Twins instance
 
@@ -50,7 +53,18 @@ Hit *Certificates and secrets* from the registration's menu, and select *+ New c
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal view of an Azure AD app registration. There's a highlight around 'Certificates and secrets' in the resource menu, and a highlight on the page around 'New client secret'":::
 
 Enter whatever values you would like for Description and Expires, and hit *Add*.
-The secret will be added to the list of client secrets on the *Certificates and secrets* page. Take note of its value to use later (you can also copy it to the clipboard with the Copy icon).
+The secret will be added to the list of client secrets on the *Certificates and secrets* page. Take note of its _Value_ to use later (you can also copy it to the clipboard with the Copy icon).
+Enter _Description_ for your client secret, select timeline for _Expires_ and hit _Add_. 
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Add client secret":::
+
+Look for the status of your client secret in notifications by selecting the notification icon.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/notifications.png" alt-text="check notifications":::
+
+Now, verify that the client secret is visible on the Certificates & secrets page with _Expires_ and _Value_ fields. Take note of its _Value_ to use later (you can also copy it to the clipboard with the Copy icon)
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Copy client secret value":::
 
 ### Add a digital twin
 
@@ -71,6 +85,8 @@ Navigate to the [Logic Apps Custom Connector](https://portal.azure.com/#blade/Hu
 In the *Create Logic Apps Custom Connector* page that follows, select your subscription and resource group, and a name and deployment location for your new connector. Hit *Review + create*. This will take you to the *Review + create* tab, where you can hit *Create* at the bottom to create your resource.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="The 'Review + create' tab of the 'Create Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Create' button":::
+
+:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="The 'Review + create' tab of the 'Create Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Create' button":::
 
 You'll be taken to the deployment page for the connector. When it is finished deploying, hit the *Go to resource* button to view the connector's details in the portal.
 

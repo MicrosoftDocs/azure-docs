@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to ingest device telemetry messages from IoT Hub.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
-ms.date: 8/11/2020
+ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -39,13 +39,13 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 > [!NOTE]
 > This example uses a straightforward ID match between the device ID and a corresponding digital twin's ID, but it is possible to provide more sophisticated mappings from the device to its twin (such as with a mapping table).
 
-Whenever a temperature telemetry event is sent by the thermometer device, the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
+Whenever a temperature telemetry event is sent by the thermostat device, Azure function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart an IoT Hub device sends Temperature telemetry through IoT Hub to an Azure Function, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
 ## Add a model and twin
 
-You'll need a twin to update with IoT hub information.
+You can add/upload a model using the CLI command below, and then create a twin using this model to update IoT hub information.
 
 The model looks like this:
 ```JSON
@@ -130,7 +130,8 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### Update your Azure function code
 
-Now that you understand the code from the earlier samples, open Visual Studio and replace your Azure function's code with this sample code.
+Now that you understand the code from the earlier samples, open Visual Studio and replace your Azure function's code with this sample code. \
+If you haven't created your Azure function, use [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) to create one.
 
 ```csharp
 using System;
@@ -192,21 +193,50 @@ namespace IotHubtoTwins
     }
 }
 ```
+Save your function code and publish the function App to Azure. 
+You can do this by referring to [Publish the Function App](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) section of [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
+
+You can see the output in the Visual Studio as shown below:
+
+```cmd
+1>------ Build started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
+1>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
+2>------ Publish started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
+2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
+2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\Out\
+2>Publishing C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\adtIngestFunctionSample - 20200911112545669.zip to https://adtingestfunctionsample20200818134346.scm.azurewebsites.net/api/zipdeploy...
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
+```
+You can also verify your status of the publish process in the [Azure portal](https://portal.azure.com/). Search for your _resource group_ and navigate to _Activity log_.
+
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Screenshot of the Azure portal that shows status of the publish process.":::
 
 ## Connect your function to IoT Hub
 
-1. Set up an event destination for hub data. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance. Under **Events**, create a subscription for your Azure function. 
+1. Set up an event destination for hub data. \
+    In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the prerequisites section. Under **Events**, create a subscription for your Azure function. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot of the Azure portal that shows Adding an event subscription.":::
 
 2. In the **Create Event Subscription** page, fill the fields as follows:
     1. Under **Name**, name the subscription what you would like.
     2. Under **Event Schema**, choose **Event Grid Schema**.
-    3. Under **System Topic Name**, choose a unique name.
-    4. Under **Event Types**, choose **Device Telemetry** as the event type to filter to.
-    5. Under **Endpoint Details**, select your Azure function as an endpoint.
+    3. Under **Event Types**, choose **Device Telemetry** checkbox and un-check other event types.
+    4. Under **Endpoint Details**, 
+        1. Endpoint Type: Select _Azure function_.
+        2. Endpoint: Choose _Select an endpoint_ link. In the window that opens, verify the below details 
+            1. _Subscription_: Your Azure subscription
+            1. _Resource group_: Your resource group
+            1. _Function app_: Your function app name
+            1. _Slot_: Production
+            1. _Function_: Select your Azure function from the dropdown. Save your details by selecting _Confirm Selection_ button.
+            
+    Select _Create_ button to create Event subscription.
+            
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details":::
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/event-subscription-2.png" alt-text="Screenshot of the Azure portal that shows the event subscription details":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Screenshot of the Azure portal to select Azure function":::
 
 ## Send simulated IoT data
 
