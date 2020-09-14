@@ -18,7 +18,6 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - **Azure Communication Services (ACS) client libraries** For this quickstart, you'll need to install the Azure Communication Services Common and Calling client libraries.
 
-
 ## Create an Android app with an Empty Activity
 
 From Android Studio, select Start a new Android Studio project.
@@ -35,7 +34,7 @@ Select Minimum client library of "API 26: Android 8.0 (Oreo)" or greater.
 
 ## Add the Azure Communication Services Calling client library to Your App
 
-TODO: update with instructions [here](TODO-MISSING-LINK.md)
+<!-- TODO: update with instructions [here](TODO-MISSING-LINK.md) -->
 
 ## Add permissions to application manifest
 
@@ -79,127 +78,9 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-## Request permissions at runtime
+## Setup the layout for the app
 
-For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, permissions are granted at runtime instead of when the app is installed.
-
-In order to support this, the activity can be configured to request these permissions `onCreate` within `MainActivity.java`:
-
-*TODO: these assume that the user is using a quickstart. Any way we can generalize this to not require utilization of a demo app?*
-
-Navigate to **MainActivity.java** and replace the content with the following code
-
-```java
-package com.contoso.acsquickstart;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-
-import com.azure.communication.calling.Call;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.ParticipantsUpdatedEvent;
-import com.azure.communication.calling.StartCallOptions;
-import com.azure.communication.calling.VideoOptions;
-import com.azure.communication.common.CommunicationUser;
-import com.azure.communication.common.client.CommunicationUserCredential;
-
-public class MainActivity extends AppCompatActivity {
-    private static final String[] allPermissions = new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
-    private static final String UserToken = "<User_Access_Token>";
-
-    private CallAgent agent;
-    private Call call;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        getAllPermissions();
-        createAgent();
-        Button callButton = findViewById(R.id.call_button);
-        callButton.setOnClickListener(l -> startCall());
-    }
-
-    private void startCall() {
-        EditText calleeIdView = findViewById(R.id.callee_id);
-        String calleeId = calleeIdView.getText().toString();
-        StartCallOptions options = new StartCallOptions();
-        options.setVideoOptions(new VideoOptions(null));
-        call = agent.call(
-                getApplicationContext(),
-                new CommunicationUser[] {new CommunicationUser(calleeId)},
-                options);
-    }
-
-    private void onParticipantsUpdated(ParticipantsUpdatedEvent args) {
-        Log.d("test", "onParticipantsUpdated");
-    }
-
-    private void createAgent() {
-        try {
-            CommunicationUserCredential credential = new CommunicationUserCredential(UserToken);
-            agent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
-        } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    /**
-     * Request each required permission if the app doesn't already have it.
-     */
-    private void getAllPermissions() {
-        ArrayList<String> permissionsToAskFor = new ArrayList<>();
-        for (String permission : allPermissions) {
-            if (ActivityCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
-                permissionsToAskFor.add(permission);
-            }
-        }
-        if (!permissionsToAskFor.isEmpty()) {
-            ActivityCompat.requestPermissions(this, permissionsToAskFor.toArray(new String[0]), 1);
-        }
-    }
-
-    /**
-     * Ensure all permissions were granted, otherwise inform the user permissions are missing.
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, int[] grantResults) {
-        boolean allPermissionsGranted = true;
-        for (int result : grantResults) {
-            allPermissionsGranted &= (result == PackageManager.PERMISSION_GRANTED);
-        }
-        if (!allPermissionsGranted) {
-            Toast.makeText(this, "All permissions are needed to make the call.", Toast.LENGTH_LONG).show();
-            finish();
-        }
-    }
-}
-
-```
-
-> [!NOTE]
-> When designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information see the [Android Permissions Guide.](https://developer.android.com/training/permissions/requesting)
-
-## Create an agent from the user access token for placing calls
-
-With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. See the documentation [here](../../user-access-tokens.md) for more information on user access tokens. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
-
-## Make an Outbound Call
-
-Input for the callee id and the call button can be added through the designer or by editing the layout xml. Create a button with an id of `call_button` and a text input of `callee_id`. Navigate to **app/src/main/res/layout/activity_main.xml** and insert the following code:
+Two inputs are needed: a text input for the callee id, and a button for placing the call. These can be added through the designer or by editing the layout xml. Create a button with an id of `call_button` and a text input of `callee_id`. Navigate to (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -233,6 +114,142 @@ Input for the callee id and the call button can be added through the designer or
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
+
+## Create the main activity scaffolding and bindings
+
+With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` as well as add the bindings for the call button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+
+Navigate to **MainActivity.java** and replace the content with the following code:
+
+```java
+package com.contoso.acsquickstart;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.azure.communication.calling.CallAgent;
+import com.azure.communication.calling.CallClient;
+import com.azure.communication.calling.CommunicationUser;
+import com.azure.communication.calling.StartCallOptions;
+import com.azure.communication.calling.VideoOptions;
+import com.azure.communication.common.client.CommunicationUserCredential;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+    
+    private CallAgent agent;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        getAllPermissions();
+        createAgent();
+        
+        // Bind call button to call `startCall`
+        Button callButton = findViewById(R.id.call_button);
+        callButton.setOnClickListener(l -> startCall());
+    }
+
+    /**
+     * Request each required permission if the app doesn't already have it.
+     */
+    private void getAllPermissions() {
+        // See section on requesting permissions
+    }
+
+    /**
+      * Create the call agent for placing calls
+      */
+    private void createAgent() {
+        // See section on creating the call agent
+    }
+
+    /**
+     * Place a call to the callee id provided in `callee_id` text input.
+     */
+    private void startCall() {
+        // See section on starting the call
+    }
+}
+
+```
+
+## Request permissions at runtime
+
+For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, permissions are granted at runtime instead of when the app is installed. In order to support this, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
+
+```java
+/**
+ * Request each required permission if the app doesn't already have it.
+ */
+private void getAllPermissions() {
+    String[] requiredPermissions = new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
+    ArrayList<String> permissionsToAskFor = new ArrayList<>();
+    for (String permission : requiredPermissions) {
+        if (ActivityCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+            permissionsToAskFor.add(permission);
+        }
+    }
+    if (!permissionsToAskFor.isEmpty()) {
+        ActivityCompat.requestPermissions(this, permissionsToAskFor.toArray(new String[0]), 1);
+    }
+}
+```
+
+> [!NOTE]
+> When designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information see the [Android Permissions Guide.](https://developer.android.com/training/permissions/requesting)
+
+## Create an agent from the user access token
+
+With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user acces tokens check the [User Access Tokens](../../user-access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
+
+```java
+/**
+ * Create the call agent for placing calls
+ */
+private void createAgent() {
+    String UserToken = "<User_Access_Token>";
+
+    try {
+        CommunicationUserCredential credential = new CommunicationUserCredential(UserToken);
+        agent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
+    } catch (Exception ex) {
+        Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
+    }
+}
+```
+
+## Start a call using the call agent
+
+Placing the call can be done via the call agent, and just requires providing a list of callee ids and the call options. For the quickstart, the default call options without video and a single callee id from the text input will used.
+
+```java
+/**
+ * Place a call to the callee id provided in `callee_id` text input.
+ */
+private void startCall() {
+    EditText calleeIdView = findViewById(R.id.callee_id);
+    String calleeId = calleeIdView.getText().toString();
+    
+    StartCallOptions options = new StartCallOptions();
+    options.setVideoOptions(new VideoOptions(null));
+    agent.call(
+        getApplicationContext(),
+        new CommunicationUser[] {new CommunicationUser(calleeId)},
+        options);
+}
+```
+
 
 ## Launch the app and call the echo bot
 

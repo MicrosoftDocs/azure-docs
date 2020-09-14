@@ -56,7 +56,7 @@
         href: concepts/telephony-sms/concepts.md
       - name: Plan your telephony and SMS solution 
         href: concepts/telephony-sms/plan-solution.md
-  - name: Voice and video Calling
+  - name: Voice and video calling
     items:
       - name: Calling client library overview
         href: concepts/voice-video-calling/calling-sdk-features.md
@@ -71,7 +71,7 @@
   - name: Call flows
     href: concepts/call-flows.md
   - name: Client libraries and REST APIs
-    href: concepts/sdk-options.md
+    href: concepts/sdk-options.md 
   - name: Pricing model
     href: concepts/pricing.md
   - name: Identity model
@@ -82,8 +82,6 @@
     href: concepts/event-handling.md
   - name: Notifications
     href: concepts/notifications.md
-  - name: Region availability and data residency
-    href: concepts/privacy.md
 - name: Samples
   items:
   - name: Group calling hero sample
@@ -92,8 +90,8 @@
     href: samples/chat-hero-sample.md
 - name: References
   items:
-  - name: REST API Documentation
-    href: https://docs.microsoft.com/en-us/rest/api/azure/
+  - name: REST API documentation
+    href: https://docs.microsoft.com/rest/api/azure/
 - name: Resources
   items:
   - name: Roadmap

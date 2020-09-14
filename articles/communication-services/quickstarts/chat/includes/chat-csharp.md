@@ -17,7 +17,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
-- Obtain a `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
+- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client.
 
 ## Setting up
 
@@ -58,7 +58,7 @@ The following classes handle some of the major features of the Azure Communicati
 To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client.
 ```csharp
 // Your unique Azure Communication service endpoint
-var endpoint = "https://<RESOURCE_NAME>.communcationservices.azure.com";
+var endpoint = "https://<RESOURCE_NAME>.communicationservices.azure.com";
 CommunicationUserCredential communicationUserCredential = new CommunicationUserCredential("<User Access Token>");
 ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 ```
@@ -140,13 +140,13 @@ foreach (Page<ChatMessage> page in allMessages.AsPages(continuationToken, maxPag
 
 `GetMessages` returns different types of messages which can be identified by `chatMessage.Type`. These types are:
 
--`Text`: Regular chat message sent by a thread member.
+- `Text`: Regular chat message sent by a thread member.
 
--`ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
 
--`ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
 
--`ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
+- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -157,10 +157,10 @@ Once a thread is created, you can then add and remove users from it. By adding u
 
 Use `AddMembers` method to add thread members to the thread identified by threadId.
 
-- Use `members` to list the members to be added to the chat thread;
-- `user`, required, is the identity you get for this new user.
-- `displayName`, optional, is the display name for the thread member.
-- `shareHistoryTime`, optional, time from which the chat history is shared with the member. To share history since the beginning of chat thread, set it to DateTime.MinValue. To share no history, previous to when the member was added, set it to the current time. To share partial history, set it to a point in time between the thread creation and the current time.
+ - Use `members` to list the members to be added to the chat thread;
+ - `user`, required, is the identity you get for this new user.
+ - `displayName`, optional, is the display name for the thread member.
+ - `shareHistoryTime`, optional, time from which the chat history is shared with the member. To share history since the beginning of chat thread, set it to DateTime.MinValue. To share no history, previous to when the member was added, set it to the current time. To share partial history, set it to a point in time between the thread creation and the current time.
 
 ```csharp
 var member1 = new ChatThreadMember(new CommunicationUser("member-id-1")));
@@ -190,3 +190,5 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
+
+#read-only test

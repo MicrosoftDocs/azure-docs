@@ -62,7 +62,7 @@ namespace UserAccessTokensQuickstart
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static async System.Threading.Tasks.Task Main(string[] args)
         {
             Console.WriteLine("Azure Communication Services - User Access Tokens Quickstart");
 
@@ -92,8 +92,8 @@ var client = new CommunicationIdentityClient(ConnectionString);
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. You should maintain a mapping between your application's users and Communication Services generated identities (e.g. by storing them in your application server's database).
 
 ```csharp
-var response = await client.CreateUserAsync();
-var user = response.Value;
+var userResponse = await client.CreateUserAsync();
+var user = userResponse.Value;
 Console.WriteLine($"\nCreated a user with ID: {user.Id}");
 ```
 
@@ -105,10 +105,10 @@ Use the `issueToken` method to issue an access token for a Communication Service
 
 ```csharp
 // Issue an access token with the "voip" scope for a new user
-var response = await client.IssueTokenAsync(user, scopes: new [] { CommunicationTokenScope.VoIP });
-var token =  response.Token;
-var expiresAt = response.ExpiresAt;
-Console.WriteLine($"\nIssued a token with 'voip' scope that expires at {expiresAt}:");
+var tokenResponse = await client.IssueTokenAsync(user, scopes: new [] { CommunicationTokenScope.VoIP });
+var token =  tokenResponse.Value.Token;
+var expiresOn = tokenResponse.Value.ExpiresOn;
+Console.WriteLine($"\nIssued a token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
 

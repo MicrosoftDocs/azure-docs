@@ -19,7 +19,7 @@ There are two separate families of Calling SDKs, for *clients* and *services.* C
 
 The Service SDKs are yet available, and provide "raw" access to the voice and video data planes, suitable for integration with bots and other services. To learn more about this and other upcoming features, check out the [product roadmap](../../roadmap.md). 
 
-## Calling Client SDK capabilities
+## Calling client SDK capabilities
 
 The following list presents the set of features which are currently available in the Azure Communication Services Calling Client SDKs.
 

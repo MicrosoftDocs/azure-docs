@@ -33,7 +33,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - In a terminal or command window, run the `python --version` command to check that Python is installed.
 - To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
 
-## Setting Up
+## Setting up
 
 ### Create a new Python application
 

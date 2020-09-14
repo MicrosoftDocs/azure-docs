@@ -12,7 +12,7 @@ ms.custom: include file
 ms.author: chrwhit
 ---
 
-## Listing Your Owned Phone Numbers
+## Listing your owned phone numbers
 
 To list all the phone numbers owned by your Azure Communications Services resource, use the code snippet below:
 

@@ -9,10 +9,10 @@ ms.author: mikben
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on how to get a `User Access Token` see [here](../../user-access-tokens.md)
-- Optional: Complete the quickstart for getting started with adding calling to your application [here](../getting-started-with-calling.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-access-tokens.md)
+- Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
-## Setting Up
+## Setting up
 
 ### Install the client library
 
@@ -51,7 +51,7 @@ callAgent = await callClient.createCallAgent(tokenCredential);
 
 To create and start a call you need to call one of the APIs on `CallClient` and provide Communication Services Identity of a user that you've provisioned using the Communication Services Management client library.
 
-Call creation and start is synchronous and ou'll receive call instance, allowing you to subscribe to all events on the call.
+Call creation and start is synchronous and you'll receive a call instance, allowing you to subscribe to all events on the call.
 
 ### Place a 1:1 call to a user or a 1:n call with users and PSTN
 
@@ -224,7 +224,7 @@ if (remoteParticipantStream.isAvailable) {
 }
 ```
 
-### Remote Video Stream properties
+### Remote video stream properties
 
 ```js
 
@@ -233,7 +233,7 @@ const type: boolean = remoteParticipantStream.isAvailable; // indicates if remot
 
 ```
 
-### Renderer Methods and Properties
+### Renderer methods and properties
 
 ```js
 
@@ -268,7 +268,7 @@ view.updateScalingMode('crop')
 ```
 
 
-## Device Management
+## Device management
 
 `DeviceManager` lets you enumerate local devices that can be used in a call to transmit your audio/video streams. It also allows you to request permission from a user to access their microphone and camera using the native browser API.
 

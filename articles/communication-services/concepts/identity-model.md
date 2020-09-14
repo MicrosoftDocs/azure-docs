@@ -177,4 +177,6 @@ const user = await client.deleteUser();
 
 ## Next steps
 
- - [Learn about authentication and authorization](./authentication.md)
+- Get started with [generating user access tokens](../quickstarts/user-access-tokens.md)
+- [Learn about authentication and authorization](./authentication.md)
+- [Learn about client and server architecture](../concepts/client-and-server-architecture.md)

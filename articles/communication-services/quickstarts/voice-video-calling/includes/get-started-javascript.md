@@ -17,9 +17,9 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 - An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../user-access-tokens.md).
 
-## Setting Up
+## Setting up
 
-### Create a new Node.js Application
+### Create a new Node.js application
 
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
@@ -39,6 +39,7 @@ Use the `npm install` command to install the Azure Communication Services Callin
 
 ```console
 npm install @azure/communication-calling --save
+npm install @azure/communication-common --save
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
@@ -84,7 +85,7 @@ Here is the code:
 </html>
 ```
 
-Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements we so we can attach our business logic.
+Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic.
 
 ```javascript
 import { CallClient, CallAgent, CommunicationUser } from "@azure/communication-calling";

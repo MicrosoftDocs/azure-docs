@@ -1,5 +1,6 @@
 ---
 title: Group Chat Hero Sample
+titleSuffix: An Azure Communication Services sample overview
 description: Overview of chat hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
 author: ddematheu
 manager: nimag
@@ -16,10 +17,10 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
+<!----
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Add correct repo value in instructions
-
+> links to our Hero Sample repo need to be updated when the sample is publicly available.
+---->
 
 The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web client library can be used to build a group calling experience.
 
@@ -41,19 +42,19 @@ Once your configure your display name and emoji, you can join the chat session. 
 
 Components of the main chat screen:
 
-1. **Main Chat Area**: This is the core chat experience where users can send and receives messages. To send messages, you can use the input area and press enter (or use the send button). Chat messages received are categorized by the sender with the correct name and emoji. You will see two types of notifications in the chat area: 1) typing notifications when a user is typing and 2) sent and read notifications for messages.
-2. **Header**: This is where the user will see the title of the chat thread and the controls for toggling participant and settings side bars, and a leave button to exit the chat session.
-3. **Side Bar**: This is where participants and setting information are shown when toggled using the controls in the header. The participants side bar contains a list of participants in the chat and a link to invite participants to the chat session. The settings side bar allows you to configure the chat thread title. 
+- **Main Chat Area**: This is the core chat experience where users can send and receives messages. To send messages, you can use the input area and press enter (or use the send button). Chat messages received are categorized by the sender with the correct name and emoji. You will see two types of notifications in the chat area: 1) typing notifications when a user is typing and 2) sent and read notifications for messages.
+- **Header**: This is where the user will see the title of the chat thread and the controls for toggling participant and settings side bars, and a leave button to exit the chat session.
+- **Side Bar**: This is where participants and setting information are shown when toggled using the controls in the header. The participants side bar contains a list of participants in the chat and a link to invite participants to the chat session. The settings side bar allows you to configure the chat thread title. 
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
 ## Prerequisites
 
-1. Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-2. [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
-3. [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
-4. [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
-5. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
+- [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
+- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploying the service & client app
 
@@ -79,13 +80,13 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 1. Go to the Chat folder
 2. Open the `Chat.csproj` solution in Visual Studio
-3. Run the project.
+3. Run the project.*
 
-* The browser will open at localhost:5000 (where the node is deploying the client app)
+*The browser will open at localhost:5000 (where the node is deploying the client app)
 
 #### Troubleshooting
 
-1. Solution doesn\'t build, it throws errors during NPM installation/build
+- Solution doesn't build, it throws errors during NPM installation/build
 
 Clean/rebuild the C# solution
 
@@ -95,6 +96,10 @@ Clean/rebuild the C# solution
 2. Create a new publish profile and select your Azure subscription.
 3. Before publishing, add your connection string with `Edit App Service Settings`, and fill in `ResourceConnectionString` as the key and provide your connection string (copied from appsettings.json) as the value.
 
+## Clean up resources
+
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
+
 ## Next steps
 
 For more information, see the following articles:
@@ -102,7 +107,7 @@ For more information, see the following articles:
 - Learn about [chat concepts](../concepts/chat/concepts.md)
 - Familiarize yourself with our [chat client library](../concepts/chat/sdk-features.md)
 
-## Additional Reading
+## Additional reading
 
 - [Azure Communication Preview](https://github.com/Azure/communication-preview) - To learn more about the chat web sdk
 - [Redux](https://redux.js.org/) - Client-side state management

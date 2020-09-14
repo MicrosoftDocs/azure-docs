@@ -1,5 +1,6 @@
 ---
 title: Group calling hero sample
+titleSuffix: An Azure Communication Services sample overview
 description: Overview of calling hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample.
 author: ddematheu
 manager: nimag
@@ -16,9 +17,10 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
+<!----
 > [!WARNING]
 > The two links to our Hero Sample repo need to be updated when the sample is publicly available.
-
+---->
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web client library can be used to build a group calling experience.
 
@@ -42,19 +44,19 @@ Once your configure your display name and devices, you can join the call session
 
 Components of the main calling screen:
 
-1. **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
-2. **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
-3.  **Side Bar**: This is where participants and setting information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
+- **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
+- **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
+- **Side Bar**: This is where participants and setting information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
 Below you'll find more information on prerequisites, steps to set up the sample, and step-by-step tutorials to help familiarize yourself with its various components.
 
 ## Prerequisites
 
-1. Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-2. [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
-3. [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
-4. [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
-5. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
+- [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
+- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploy the service & client applications
 
@@ -84,7 +86,7 @@ The browser will open at `localhost:5000`. You should now be able to proceed wit
 
 #### Troubleshooting
 
-1. The solution doesn't build; it throws errors during NPM installation/build.
+- The solution doesn't build; it throws errors during NPM installation/build.
 
 Try to clean/rebuild the projects.
 
@@ -94,15 +96,19 @@ Try to clean/rebuild the projects.
 2. Create a new publish profile and select your Azure subscription.
 3. Before publishing, add your connection string with `Edit App Service Settings`, and fill in `ResourceConnectionString` as the key and provide your connection string (copied from appsettings.json) as the value.
 
+## Clean up resources
+
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
+
 ## Next steps
 
 For more information, see the following articles:
 
 - Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Learn about calling client library capabilities [here](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Learn more about how calling works [here](../concepts/voice-video-calling/about-call-types.md)
+- Learn about [calling client library capabilities](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
 
-## Additional Reading
+## Additional reading
 
 - [Azure Communication Preview](https://github.com/Azure/communication-preview) - To learn more about the calling web sdk
 - [Redux](https://redux.js.org/) - Client-side state management

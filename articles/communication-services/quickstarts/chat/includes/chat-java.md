@@ -18,7 +18,7 @@ ms.author: mikben
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- A `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
+- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client.
 
 
 ## Setting up
@@ -31,12 +31,21 @@ Open your terminal or command window and navigate to the directory where you wou
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, the `src/main/java directory` contains the project source code, the `src/test/java` directory contains the test source, and the pom.xml file is the project's Project Object Model, or POM.
+You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, the `src/main/java directory` contains the project source code, the `src/test/java` directory contains the test source, and the pom.xml file is the project's Project Object Model, or [POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
+
+Update your application's POM file to use Java 8 or higher:
+
+```xml
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+```
 
 ### Add the package references for the chat client library
-Add the project [POM file](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) to your Maven application.
 
-Reference the `azure-communication-chat` package, which contains the Chat APIs:
+In your POM file, reference the `azure-communication-chat` package with the Chat APIs:
 
 ```xml
 <dependency>
@@ -46,7 +55,7 @@ Reference the `azure-communication-chat` package, which contains the Chat APIs:
 </dependency>
 ```
 
-For authentication, your client needs to use the `azure-communication-common` package:
+For authentication, your client needs to reference the `azure-communication-common` package:
 
 ```xml
 <dependency>
@@ -127,16 +136,6 @@ ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThread
 String chatThreadId = chatThreadClient.getChatThreadId();
 ```
 
-## Get a chat thread client
-
-The `getChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc.
-`chatThreadId` is the unique ID of the existing chat thread.
-
-```Java
-String chatThreadId = "Id";
-ChatThread chatThread = chatClient.getChatThread(chatThreadId);
-```
-
 ## Send a message to a chat thread
 
 Use the `sendMessage` method to send a message to the thread you just created, identified by chatThreadId.
@@ -158,6 +157,17 @@ SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendC
 String chatMessageId = sendChatMessageResult.getId();
 ```
 
+
+## Get a chat thread client
+
+The `getChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc.
+`chatThreadId` is the unique ID of the existing chat thread.
+
+```Java
+String chatThreadId = "Id";
+ChatThread chatThread = chatClient.getChatThread(chatThreadId);
+```
+
 ## Receive chat messages from a chat thread
 
 You can retrieve chat messages by polling the `listMessages` method on the chat thread client at specified intervals.
@@ -177,13 +187,13 @@ chatMessagesResponse.iterableByPage().forEach(resp -> {
 
 `listMessages` returns different types of messages which can be identified by `chatMessage.getType()`. These types are:
 
--`Text`: Regular chat message sent by a thread member.
+- `Text`: Regular chat message sent by a thread member.
 
--`ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
 
--`ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
 
--`ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
+- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 

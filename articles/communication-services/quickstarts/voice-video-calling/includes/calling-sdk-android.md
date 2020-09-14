@@ -9,10 +9,10 @@ ms.author: mikben
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on how to get a `User Access Token` see [here](../../user-access-tokens.md)
-- Optional: Complete the quickstart for getting started with adding calling to your application [here](../getting-started-with-calling.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-access-tokens.md)
+- Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
-## Setting Up
+## Setting up
 
 ### Add the client library to your app
 TODO
@@ -220,7 +220,7 @@ RemoteVideoStream remoteVideoStream = remoteParticipant.getVideoStreams().get(0)
 
 ```
 
-### Remote Video Stream properties
+### Remote video stream properties
 
 ```java
 
@@ -247,7 +247,7 @@ layout.addView(uiView);
 
 ```
 
-### Remote Video Renderer Methods and Properties
+### Remote video renderer methods and properties
 
 ```java
 
@@ -274,7 +274,7 @@ remoteVideoRendererResumeFuture.get();
 
 ```
 
-## Device Management
+## Device management
 
 `DeviceManager` lets you enumerate local devices that can be used in a call to transmit your audio/video streams. It also allows you to request permission from a user to access their microphone and camera using the native browser API.
 

@@ -5,18 +5,21 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ---
+
+**TODO: Remove references to Spool - add instructions to add client library**
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on how to get a `User Access Token` see [here](../../user-access-tokens.md)
-- Optional: Complete the quickstart for getting started with adding calling to your application [here](../getting-started-with-calling.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-access-tokens.md)
+- Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
-## Setting Up
+## Setting up
 
 ### Add the client library to your app
 
-In Xcode, create a new iOS project and select the **Single View Application** template. This tutorial uses the [SwiftUI framework][swift_ui], so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**
+In Xcode, create a new iOS project and select the **Single View Application** template. This tutorial uses the SwiftUI framework, so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**
 
 ![Screenshot showing the create new project window in XCode](../media/ios/xcode-new-ios-project.png)
 
@@ -29,12 +32,11 @@ Add the request for microphone access. Right-click the `Info.plist` entry of the
 
 Add the Azure Communication Services Calling client library to your project. 
 
-- Download the [Azure Communication Services Calling client library][TODO] framework provided as a zip file, and unzip it. **TODO this link still references SPOOL**
 - In Xcode, click on your project file to and select the build target to open the project settings editor.
 - Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
-- In the bottom left of the dialog, chose **Add Files**, navigate to the **SpoolCallingSDK.framework** directory of the un-zipped client library package.
+- In the bottom left of the dialog, chose **Add Files**, navigate to the **SpoolCallingSDK.framework** directory of the client library package.
 
-[!NOTE]
+>[!NOTE]
 Currently the client library includes multiple binaries, each targeting different architectures. To build an app that runs on the simulator you should select the **SpoolCallingSDK.framework**  included under the **x86_64** directory
 
 Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **SpoolCallingSDK.framework**
@@ -290,8 +292,8 @@ let targetSurface: UIView = renderer.target;
 
 Where:
 
-* [HTMLNode] target - an HTML node that should be used as a placeholder for stream to render in
-* [string] scalingMode - one of 'Stretch' | 'Crop' | 'Fit'
+* target - an HTMLNode that should be used as a placeholder for stream to render in
+* scalingMode - one of the following strings: 'Stretch' | 'Crop' | 'Fit'
 
 As a result of this call, `remoteVideoRenderer` is added to the `activeRenderers` collection:
 
@@ -301,7 +303,7 @@ remoteParticipantStream.activeRenderers[0] == remoteVideoRenderer
 
 ```
 
-### Remote Video Renderer MEthods and Properties
+### Remote video renderer methods and properties
 
 ```swift
 // [Bool] isRendering - indicating if stream is being rendered
@@ -321,7 +323,7 @@ await remoteVideoRenderer.pauseWithCompletionHandler(completionHandler: nil); //
 await remoteVideoRenderer.resumeWithCompletionHandler(completionHandler: nil); // resume rendering
 ```
 
-## Device Management
+## Device management
 
 `DeviceManager` lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera using native browser APIs. You can access `deviceManager` on the `callClient` object:
 

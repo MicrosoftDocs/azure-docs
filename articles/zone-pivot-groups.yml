@@ -676,7 +676,7 @@ groups:
   prompt: Choose a platform
   pivots:
   - id: platform-azp
-    title: Azure Portal
+    title: Azure portal
   - id: platform-javascript
     title: JavaScript
 - id: acs-plat-azp-net
@@ -684,7 +684,7 @@ groups:
   prompt: Choose a platform
   pivots:
   - id: platform-azp
-    title: Azure Portal
+    title: Azure portal
   - id: platform-net
     title: .NET
 - id: acs-plat-azp-arm-net-python-go-powershell
@@ -692,9 +692,9 @@ groups:
   prompt: Choose a platform
   pivots:
   - id: platform-azp
-    title: Azure Portal
+    title: Azure portal
   - id: platform-arm
-    title: ARM Client
+    title: AAzure resource manager
   - id: platform-net
     title: .NET
   - id: platform-python

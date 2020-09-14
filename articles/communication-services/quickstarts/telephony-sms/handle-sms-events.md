@@ -32,7 +32,7 @@ Get started with Azure Communication Services by using Azure Event Grid to handl
 - An Azure Communication Service resource. Further details can be found in the [Create an Azure Communication Resource](../create-communication-resource.md) quickstart.
 - An SMS enabled telephone number. [Get a phone number](./get-phone-number.md).
 
-## Setting Up
+## Setting up
 
 ### Enable Event Grid resource provider
 
@@ -48,7 +48,7 @@ In the Azure portal:
 
 It may take a moment for the registration to finish. Select **Refresh** to update the status. When **Status** is **Registered**, you're ready to continue.
 
-### Event Grid Viewer Deployment
+### Event Grid Viewer deployment
 
 For this quickstart, we will use the [Azure Event Grid Viewer Sample](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) to view events in near-real time. This will provide the user with the experience of a real-time feed. In addition, the payload of each event should be available for inspection as well.  
 
@@ -64,7 +64,7 @@ On the **Create Event Subscription** page, Enter a **name** for the event subscr
 
 You can subscribe to specific events to tell Event Grid which of the SMS events you want to track, and where to send the events. Select the events you'd like to subscribe to from the dropdown menu. For SMS you'll have the option to choose `SMS Received` and `SMS Delivery Report Received`. 
 
-For a full list of events supported by Azure Communication Services, see [here](../../concepts/event-handling.md).
+Check out the full list of [events supported by Azure Communication Services](../../concepts/event-handling.md).
 
 ![Screenshot showing the SMS Received and SMS Delivery Report Received event types being selected](./media/handle-sms-events/select-events-create-eventsub.png)
 
@@ -89,7 +89,7 @@ To view event triggers, we must generate events in the first place.
 - `SMS Received` events are generated when the Communication Services phone number receives a text message. To trigger an event, just send a message from your phone to the phone number attached to your Communication Services resource.
 - `SMS Delivery Report Received` events are generated when you send an SMS to a user using a Communication Services phone number. To trigger and event, you are required to enable `Delivery Report` in the options of the [sent SMS](../telephony-sms/send.md). Try sending a message to your phone with `Delivery Report`. Completing this action incurs a small cost of a few USD cents or less in your Azure account.
 
-For a full list of events supported by Azure Communication Services, see [here](../../concepts/event-handling.md).
+Check out the full list of [events supported by Azure Communication Services](../../concepts/event-handling.md).
 
 ### Receiving SMS events
 
@@ -99,13 +99,13 @@ Once you complete either action above you will notice that  `SMS Received` and `
 
 ![Screenshot showing the Event Grid Schema for an SMS Delivery Report Event.](./media/handle-sms-events/SMS-Delivery-Report-Received.png)
 
-For more information on the event schemas and other eventing concepts see [here](../../concepts/event-handling.md)
+Learn more about the [event schemas and other eventing concepts](../../concepts/event-handling.md)
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about cleaning up resources [here](../create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
 
-## Next Steps
+## Next steps
 
 In this quickstart, you learned how to consume SMS events. You can receive SMS messages by creating an Event Grid subscription.
 

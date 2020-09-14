@@ -33,7 +33,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - In a terminal or command window, run `mvn -v` to check that maven is installed.
 - To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
 
-## Setting Up
+## Setting up
 
 ### Create a new Java application
 
@@ -113,7 +113,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an `SmsClient` with your connection string. The code below retrieves the endoint and credential strings for the resource from environment variables named `COMMUNICATION_SERVICES_ENDPOINT_STRING` and `COMMUNICATION_SERVICES_CREDENTIAL_STRING` (Credential is the `Key` from the Azure Portal. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an `SmsClient` with your connection string. The code below retrieves the endoint and credential strings for the resource from environment variables named `COMMUNICATION_SERVICES_ENDPOINT_STRING` and `COMMUNICATION_SERVICES_CREDENTIAL_STRING` (Credential is the `Key` from the Azure portal. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `main` method:
 

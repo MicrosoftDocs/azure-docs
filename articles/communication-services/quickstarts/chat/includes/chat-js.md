@@ -18,7 +18,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
-- Obtain a `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
+- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client.
 
 ## Setting up
 
@@ -80,16 +80,6 @@ let chatClient = new ChatClient(endpointUrl, new CommunicationUserCredential(use
 
 ```
 
-## Get a chat thread client
-
-The `getChatThreadClient` method returns a `chatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. threadId is the unique ID of the existing chat thread.
-
-```JavaScript
-
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
-
-```
-
 ## Start a chat thread
 
 Use the `createThread` method to create a chat thread.
@@ -120,6 +110,16 @@ let createThreadRequest =
 };
 let chatThreadClient= await chatClient.createThread(createThreadRequest);
 let threadId = chatThreadClient.threadId;
+
+```
+
+## Get a chat thread client
+
+The `getChatThreadClient` method returns a `chatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. threadId is the unique ID of the existing chat thread.
+
+```JavaScript
+
+let chatThreadClient = await chatClient.getChatThreadClient(threadId);
 
 ```
 
@@ -156,7 +156,7 @@ let messageId = sendChatMessageResult.id;
 
 ## Receive chat messages from a chat thread
 
-With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. For complete list of events you can subscribe to, see event details [here](../../../concepts/chat/concepts.md#real-time-signaling-events).
+With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-signaling-events).
 
 ```JavaScript
 
@@ -186,13 +186,13 @@ For deleted messages `chatMessage.deletedOn` returns a datetime value indicating
 
 `listMessages` returns different types of messages which can be identified by `chatMessage.type`. These types are:
 
--`Text`: Regular chat message sent by a thread member.
+- `Text`: Regular chat message sent by a thread member.
 
--`ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
 
--`ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
 
--`ThreadActivity/RemoveMember`: System message that indicates a member has been removed from the chat thread.
+- `ThreadActivity/RemoveMember`: System message that indicates a member has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 

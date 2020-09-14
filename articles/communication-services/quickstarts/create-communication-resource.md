@@ -16,7 +16,7 @@ zone_pivot_groups: acs-plat-azp-net
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure portal or with the .NET management client library. The management client library allows you to create, configure, update and delete your resource and interfaces with [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azure's deployment and management service. All functionality available in the client libraries is available in the Azure portal. 
+Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure portal or with the .NET management client library. The management client library allows you to create, configure, update and delete your resource and interfaces with [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azure's deployment and management service. All functionality available in the client libraries is available in the Azure portal. 
 
 > [!WARNING]
 > Note that Communication Services availability is restricted to the US geography during public preview. Also note that communication resources cannot be transferred to a different subscription during public preview.
@@ -31,7 +31,7 @@ Get started with Azure Communication Services by provisioning your first Communi
 
 ## Access your connection strings and service endpoints
 
-Connection strings allow the Communication Services client libraries to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Management (ARM) APIs. 
+Connection strings allow the Communication Services client libraries to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Management APIs. 
 
 After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services client libraries. Note that you have access to primary and secondary keys. This can be useful in scenarios where you would like to provide temporary access to your Communication Services resources to a third party or staging environment.
 
@@ -84,11 +84,11 @@ If you created the environment variable with your IDE open, you may need to clos
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about cleaning up resources [here](./create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
 
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time. 
 
-## Next Steps
+## Next steps
 
 In this quickstart you learned how to:
 

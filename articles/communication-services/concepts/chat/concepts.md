@@ -41,61 +41,63 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 Communication Services Chat shares user-generated messages as well as system-generated messages called **Thread activities**. Thread activities are generated when a chat thread is updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain the text messages as well as the system messages in chronological order. This helps you identify when a member was added or removed or when the chat thread topic was updated. Supported message types are:  
 
- - `Text`: Actual message composed and sent by user as part of chat conversation. 
+    - `Text`: Actual message composed and sent by user as part of chat conversation. 
+  - `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread. For example:
 
- - `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread. For example:
-```xml
+    ```xml
 
-<addmember>
-    <eventtime>1598478187549</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <detailedinitiatorinfo>
-        <friendlyName>User 1</friendlyName>
-    </detailedinitiatorinfo>
-    <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</id>
-        <friendlyName>User 1</friendlyName>
-    </detailedtargetinfo>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-        <friendlyName>User 2</friendlyName>
-    </detailedtargetinfo>
-</addmember>
+    <addmember>
+        <eventtime>1598478187549</eventtime>
+        <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
+        <detailedinitiatorinfo>
+            <friendlyName>User 1</friendlyName>
+        </detailedinitiatorinfo>
+        <rosterVersion>1598478184564</rosterVersion>
+        <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</target>
+        <detailedtargetinfo>
+            <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</id>
+            <friendlyName>User 1</friendlyName>
+        </detailedtargetinfo>
+        <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
+        <detailedtargetinfo>
+            <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
+            <friendlyName>User 2</friendlyName>
+        </detailedtargetinfo>
+    </addmember>
 
-```  
+    ```  
 
- - `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread. For example:
-```xml
+  - `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread. For example:
 
-<deletemember>
-    <eventtime>1598478187642</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <detailedinitiatorinfo>
-        <friendlyName>User 1</friendlyName>
-    </detailedinitiatorinfo>
-    <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-        <friendlyName>User 2</friendlyName>
-    </detailedtargetinfo>
-</deletemember>
+    ```xml
 
-```
+    <deletemember>
+        <eventtime>1598478187642</eventtime>
+        <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
+        <detailedinitiatorinfo>
+            <friendlyName>User 1</friendlyName>
+        </detailedinitiatorinfo>
+        <rosterVersion>1598478184564</rosterVersion>
+        <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
+        <detailedtargetinfo>
+            <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
+            <friendlyName>User 2</friendlyName>
+        </detailedtargetinfo>
+    </deletemember>
 
- - `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated. For example:
-```xml
+    ```
 
-<topicupdate>
-    <eventtime>1598477591811</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <value>New topic</value>
-</topicupdate>
+  - `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated. For example:
 
-```
+    ```xml
+
+    <topicupdate>
+        <eventtime>1598477591811</eventtime>
+        <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
+        <value>New topic</value>
+    </topicupdate>
+
+    ```
 
 ## Real-time signaling 
 
@@ -115,9 +117,9 @@ Real-time signaling allows your users to chat in real-time. Your services can us
 
 You can use [Azure Cognitive APIs](https://docs.microsoft.com/azure/cognitive-services/) with the Chat client library to add intelligent features to your applications. For example, you can:
 
-1. Enable users to chat with each other in different languages. 
-2. Help a support agent prioritize tickets by detecting a negative sentiment of an incoming issue from a customer.
-3. Analyze the incoming messages for key detection and entity recognition, and prompt relevant info to the user in your app based on the message content.
+- Enable users to chat with each other in different languages. 
+- Help a support agent prioritize tickets by detecting a negative sentiment of an incoming issue from a customer.
+- Analyze the incoming messages for key detection and entity recognition, and prompt relevant info to the user in your app based on the message content.
 
 One way to achieve this is by having your trusted service act as a member of a chat thread. Let's say you want to enable language translation. This service will be responsible for listening to the messages being exchanged by other members [1], calling cognitive APIs to translate the content to desired language[2,3] and sending the translated result as a message in the chat thread[4]. 
 

@@ -18,7 +18,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Python](https://www.python.org/downloads/)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart
-- Obtain a `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md).
+- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client.
 
 ## Setting up
 
@@ -62,13 +62,13 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create a chat client
 
-To create a chat client, you'll use Communications Service endpoint and the access token that was generated as part of pre-requisite steps. You need to use the `CommunicationIdentityClient` class from the `Administration client library` to create user and issue a token to pass to your chat client. For details, see [here](../../user-access-tokens.md)
+To create a chat client, you'll use Communications Service endpoint and the access token that was generated as part of pre-requisite steps. You need to use the `CommunicationIdentityClient` class from the `Administration client library` to create user and issue a token to pass to your chat client. Learn more about [User Access Tokens](../../user-access-tokens.md).
 
 ```python
-from azure.communication.chat import ChatClient
+from azure.communication.chat import ChatClient, CommunicationUserCredential
 endpoint = "https://<RESOURCE_NAME>.communcationservices.azure.com"
 token = "<User Access Token>"
-chat_client = ChatClient(token, endpoint)
+chat_client = ChatClient(endpoint, CommunicationUserCredential(token))
 ```
 
 ## Start a chat thread
@@ -83,7 +83,7 @@ The response `chat_thread_client` is used to perform operations on the newly cre
 
 ```python
 from azure.communication.chat import ChatThreadMember
-topic="test topic",
+topic="test topic"
 thread_members=[ChatThreadMember(
     user='<user>',
     display_name='name',
@@ -100,7 +100,7 @@ thread_id = 'id'
 chat_thread_client = chat_client.get_chat_thread_client(thread_id)
 ```
 
-## Send message to thread
+## Send a message to a chat thread
 
 Use `send_message` method to send a message to a chat thread you just created, identified by threadId.
 
@@ -120,7 +120,7 @@ sender_display_name='sender name'
 send_message_result = chat_thread_client.send_message(content, priority=priority, sender_display_name=sender_display_name)
 ```
 
-## Receive messages from a chat thread
+## Receive chat messages from a chat thread
 
 You can retrieve chat messages by polling the `list_messages` method at specified intervals.
 
@@ -131,13 +131,13 @@ chat_messages = chat_thread_client.list_messages()
 
 `list_messages` returns different types of messages which can be identified by `ChatMessage.type`. These types are:
 
--`Text`: Regular chat message sent by a thread member.
+- `Text`: Regular chat message sent by a thread member.
 
--`ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
 
--`ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
 
--`ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
+- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 

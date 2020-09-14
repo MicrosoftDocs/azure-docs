@@ -95,8 +95,8 @@ const identityClient = new CommunicationIdentityClient(connectionString);
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. You should maintain a mapping between your application's users and Communication Services generated identities (e.g. by storing them in your application server's database).
 
 ```javascript
-let response = await identityClient.createUser();
-const { user } = response;
+let userResponse = await identityClient.createUser();
+const { user } = userResponse;
 console.log(`\nCreated a user with ID: ${user.id}`);
 ```
 
@@ -108,8 +108,8 @@ Use the `issueToken` method to issue an access token for a Communication Service
 
 ```javascript
 // Issue an access token with the "voip" scope for a new user
-let response = await identityClient.issueToken(user, ["voip"]);
-const { token, expiresOn } = response;
+let tokenResponse = await identityClient.issueToken(user, ["voip"]);
+const { token, expiresOn } = tokenResponse;
 console.log(`\nIssued a token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```

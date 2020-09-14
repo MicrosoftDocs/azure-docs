@@ -38,8 +38,7 @@ To communicate with Azure Communication Services, you must first authenticate yo
 
 ### Option 1: Managed Identity
 
-If your code is running as a service in Azure, the easiest way to authenticate is to acquire a managed identity from Azure. More about managed identities, including
-how to enable them on your service, can be found [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+If your code is running as a service in Azure, the easiest way to authenticate is to acquire a managed identity from Azure. Learn more about [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 If you've enabled managed identity on your service, you can create a Communication Services management client like this:
 
@@ -54,8 +53,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIde
 
 ### Option 2: Service Principal
 
-Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. Documentation on creating and managing
-a service principal in Azure Active Directory can be found [here](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. Learn more using documentation on [creating and managing a service principal in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 After you've created your service principal, you'll need to collect the following information about it from the Azure portal:
 
@@ -82,7 +80,7 @@ Now that you're authenticated, you can use your management client to make API ca
 
 For each of the following examples, we'll be assigning our Communication Services resources to an existing resource group.
 
-If you need to create a resource group, you can do so by using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or the [ARM Management client library](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+If you need to create a resource group, you can do so by using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or the [Azure Resource Management client library](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### Create and manage a Communication Services resource
 

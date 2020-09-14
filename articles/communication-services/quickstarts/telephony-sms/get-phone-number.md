@@ -75,9 +75,9 @@ Select the Phone Numbers tab in the menu to manage your phone numbers.
 
 ![Azure Communication Resource Main](../media/manage-phone-azure-portal-phones.png)
 
-To purchase a new number, follow the instructions [here](#get-phone-number).
+To purchase a new number, follow the [instructions](#get-phone-number).
 
-## Configure your  phone numbers
+## Configure your phone numbers
 
 When you select a phone number, configuration settings will be displayed for the number. These settings include routing configuration.
 
@@ -103,7 +103,7 @@ Common questions and issues:
 
 - When a Communication Services resource is deleted, the phone numbers associated with that resource will be automatically released at the same time.
 
-## Next Steps
+## Next steps
 
 In this quickstart you learned how to:
 

@@ -32,7 +32,7 @@ Azure Communication Services client libraries require `user access tokens` to ac
 
 ![Diagram showing user access token architecture.](../media/scenarios/archdiagram-access.png)
 
-For additional information on best identity management practices see [here](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+For additional information review [best identity management practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 
 ## Browser communication
 

@@ -30,17 +30,17 @@ ms.author: marobert
 
 1. Use a text editor to create a file called **issue-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.
 
-  ```python
-  import os
-  from azure.communication.administration import CommunicationIdentityClient
+   ```python
+   import os
+   from azure.communication.administration import CommunicationIdentityClient
 
-  try:
+   try:
       print('Azure Communication Services - User Access Tokens Quickstart')
       # Quickstart code goes here
-  except Exception as ex:
+   except Exception as ex:
       print('Exception:')
       print(ex)
-  ```
+   ```
 
 ### Install the package
 
