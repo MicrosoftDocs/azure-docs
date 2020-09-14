@@ -1,6 +1,6 @@
 ﻿---
 title: Migrate to Azure role-based access control | Microsoft Docs
-description: Learn how to migrate from vault access polices to azure roles.
+description: Learn how to migrate from vault access policies to Azure roles.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -13,11 +13,11 @@ ms.author: mbaldwin
 ---
 # Migrate from vault access policy to an Azure role-based access control (preview) permission model
 
-Vault access policy model is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. With vault access policy model, you can control access by assigning individual permissions to security principal(user, group, service principal, managed identity) at Key Vault scope. 
+Vault access policy model is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principal(user, group, service principal, managed identity) at Key Vault scope. 
 
-Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) that provides fine-grained access management of Azure resources. Azure RBAC for Key Vault keys, secrets and certificates access management is currently in Public Preview. With Azure RBAC you control access to resources by creating roles assignments, which consists of three elements: security principal , role definition (predefined set of permissions), and scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) that provides fine-grained access management of Azure resources. Azure RBAC for Key Vault keys, secrets, and certificates access management is currently in Public Preview. With Azure RBAC you control access to resources by creating roles assignments, which consists of three elements: security principal, role definition (predefined set of permissions), and scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-Before migrating to Azure RBAC, it is important to understand its benefits and limitations.
+Before migrating to Azure RBAC, it's important to understand its benefits and limitations.
 
 Azure RBAC key benefits over vault access policies:
 - Provides unified access control model for Azure resources - same API across Azure services
@@ -44,7 +44,7 @@ Key Vault built-in roles for keys, certificates, and secrets access management:
 
 For more information about existing built-in roles, see [Azure built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
-Vault access policies can can be assigned with individually selected permissions or with predefined permission templates.
+Vault access policies can be assigned with individually selected permissions or with predefined permission templates.
 
 Access policies predefined permission templates:
 - Key, Secret, Certificate Management
@@ -88,26 +88,26 @@ Azure RBAC for Key Vault allows roles assignment at following scopes:
 
 Vault access policy permission model is limited to assign policy only at Key Vault resource level, which 
 
-In general, it is best practice to have one key vault per application and manage access at key vault level. Although, there are scenarios when managing access at other scopes can simplify access management.
+In general, it's best practice to have one key vault per application and manage access at key vault level. There are scenarios when managing access at other scopes can simplify access management.
 
-- **Infrastructure, security administrators and operators** : managing group of key vaults at management group, subscription or resource group level with vault access policies requires maintaining polices for each key vault. Azure RBAC allows creating one role assignment at management group, subscription, or resource group and that assignment would also apply to any new key vaults created under the same scope. It this scenario it is recommended to use Privileged Identity Management with just-in time access versus providing permanent access.
+- **Infrastructure, security administrators and operators: managing group of key vaults at management group, subscription or resource group level with vault access policies requires maintaining policies for each key vault. Azure RBAC allows creating one role assignment at management group, subscription, or resource group. That assignment will apply to any new key vaults created under the same scope. In this scenario, it's recommended to use Privileged Identity Management with just-in time access over providing permanent access.
  
-- **Aplications** : there are scenarios when application would need to share secret with other application. Using vault access polices separate key vault had to be created to avoid giving access to all secrets. Azure RBAC allows to assign role with scope for individual secret instead using single key vault.
+- **Applications: there are scenarios when application would need to share secret with other application. Using vault access polices separate key vault had to be created to avoid giving access to all secrets. Azure RBAC allows assign role with scope for individual secret instead using single key vault.
 
 ## Vault access policy to Azure RBAC migration steps
 There are many differences between Azure RBAC and vault access policy permission model. In order, to avoid outages during migration, below steps are recommended.
  
 1. **Identify and assign roles**: identify built-in roles based on mapping table above and create custom roles when needed. Assign roles at scopes, based on scopes mapping guidance. For more information on how to assign roles to key vault, see [Provide access to Key Vault with an Azure role-based access control (preview)](rbac-guide.md)
 1. **Validate roles assignment**: role assignments in Azure RBAC can take several minutes to propagate. For guide how to check role assignments, see [List roles assignments at scope](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope)
-1. **Configure monitoring and alerting on key vault**: it is important to enable logging and setup alerting for access denied exceptions. For more information, see [Monitoring and alerting for Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/alert)
-1. **Set Azure role-based access control permission model on Key Vault**: enabling Azure RBAC permission model will invalidate all existing access policies. In case of an error, permission model can be switched back with all existing access policies remaining untouched.
+1. **Configure monitoring and alerting on key vault**: it's important to enable logging and setup alerting for access denied exceptions. For more information, see [Monitoring and alerting for Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/alert)
+1. **Set Azure role-based access control permission model on Key Vault**: enabling Azure RBAC permission model will invalidate all existing access policies. If an error, permission model can be switched back with all existing access policies remaining untouched.
 
 > [!NOTE]
 > When Azure RBAC permission model is enabled, all scripts which attempt to update access policies will fail. It is important to update those scripts to use Azure RBAC.
 
 ## Troubleshooting
--  Role assignment not working after several minutes - there are situation when role assignments can take longer. It is important to write retry logic in code to cover those cases.
-- Role assignments disappeared when Key Vault was deleted (soft-delete) and recovered - it is currently limitations of soft-delete feature across all Azure services. It is required to recreate all role assignments after recovery.    
+-  Role assignment not working after several minutes - there are situations when role assignments can take longer. It's important to write retry logic in code to cover those cases.
+- Role assignments disappeared when Key Vault was deleted (soft-delete) and recovered - it's currently a limitation of soft-delete feature across all Azure services. It's required to recreate all role assignments after recovery.    
 
 ## Learn more
 
