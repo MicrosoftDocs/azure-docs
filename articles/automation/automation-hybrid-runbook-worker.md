@@ -114,7 +114,7 @@ Since they access non-Azure resources, runbooks running on a Hybrid Runbook Work
 
 Hybrid Runbook Workers configured on machines or servers, when Update Management or Change Tracking and Inventory features are enabled, can be inventoried in the Azure portal. You can view up to 2,000 workers in the portal by selecting the tab **System hybrid workers group** from the option **Hybrid workers group** from the left-hand pane for the selected Automation account.
 
-:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Automation account system hybrid worker groups page" border="false" lightbox="../media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Automation account system hybrid worker groups page" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
 
 If you have more than 2,000 hybrid workers, to get a list of all of them you can run the following PowerShell script:
 
