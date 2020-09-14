@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 09/14/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -37,7 +37,7 @@ To use security keys for logging in to web apps and services, you must have a br
 
 Azure AD joined devices that you pilot with must run Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
 
-Hybrid Azure AD joined devices must run Windows 10 Insider Build 18945 or newer.
+Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
 
 ## Enable passwordless authentication method
 
