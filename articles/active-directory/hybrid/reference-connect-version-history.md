@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
-description: This article lists all releases of Azure AD Connect and Azure AD Sync
+description: This article lists all releases of Azure AD Connect and Azure AD Sync.
 services: active-directory
 author: billmath
 manager: daveba
@@ -239,7 +239,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 
 ## 1.3.21.0
 >[!IMPORTANT]
->There is a known issue with upgrading Azure AD Connect from an earlier version to 1.3.21.0 where the O365 portal does not reflect the updated version even though Azure AD Connect upgraded successfully.
+>There is a known issue with upgrading Azure AD Connect from an earlier version to 1.3.21.0 where the Microsoft 365 portal does not reflect the updated version even though Azure AD Connect upgraded successfully.
 >
 > To resolve this you need to import the **AdSync** module and then run the`Set-ADSyncDirSyncConfiguration` PowerShell cmdlet on the Azure AD Connect server.  You can use the following steps:
 >

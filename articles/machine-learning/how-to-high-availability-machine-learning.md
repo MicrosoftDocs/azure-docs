@@ -1,5 +1,5 @@
 ---
-title: How to increase resiliency
+title: Resiliency & high availability
 titleSuffix: Azure Machine Learning
 description: Learn how to make your Azure Machine Learning resources more resilient to outages by using a high-availability configuration.
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/16/2020
+ms.date: 09/16/2020
 ---
 
 # Increase Azure Machine Learning resiliency

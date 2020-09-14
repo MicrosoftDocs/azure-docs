@@ -43,7 +43,7 @@ Once the technical setup is in place, you should incorporate these leads into yo
 
 **Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
 
-> If O365 authentication was selected, check if the user account and password is valid. If Azure Active Directory was selected, check if the tenant ID, application ID and application secret key matches what was set up on Azure Active Directory. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
+> If Microsoft 365 authentication was selected, check if the user account and password is valid. If Azure Active Directory was selected, check if the tenant ID, application ID and application secret key matches what was set up on Azure Active Directory. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
 
 **Could not save the lead to Dynamics CRM. User does not have create permissions for the leadsourcecode attribute in the lead entity** 
 
