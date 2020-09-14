@@ -26,7 +26,7 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
 1. Perform a manual failover to the new region.
 
-    When the region that's being removed is currently the write region for the account, you'll need to initiate a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step. 
+    When the region that's being removed is currently the write region for the account, you'll need to start a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step. 
     
     To start a failover, see [Perform manual failover on an Azure Cosmos account](how-to-manage-database-account.md#manual-failover).
 
