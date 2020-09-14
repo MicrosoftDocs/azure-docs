@@ -325,12 +325,7 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, add a `using` statement for the relationship base type in the SDK:skip this if already added.
-```csharp
-using Azure.DigitalTwins.Core.Serialization;
-```
-
-Next, add a new static method to the `Program` class, underneath the `Main` method:
+Add a new static method to the `Program` class, underneath the `Main` method:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
