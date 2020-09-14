@@ -15,7 +15,7 @@ ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 
 ---
-# Quickstart: Set and retrieve a secret from Azure Key Vault using Resource Manager template
+# Quickstart: Create an Azure Key Vault Managed HSM using Resource Manager template
 
 [Azure Key Vault](./key-vault-overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying a Resource Manager template to create a key vault and a secret.
 
