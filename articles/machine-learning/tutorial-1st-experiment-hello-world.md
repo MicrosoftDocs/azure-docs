@@ -93,22 +93,13 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
-### Understanding the code (using table)
+### Understanding the code 
 
+Here's a description of how the code works:
 
-| Code |Description  |
-|---------|---------|---------| 
-|`ws = Workspace.from_config()`    |  [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.    |
-|`experiment =  Experiment(workspace=ws, name='hello-world')`      |  [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.       |
-|`config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')`      |   [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. Also specifies what compute target the script will run on.  In this code, the target is the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).    |
-|`run = experiment.submit(config)`     |  Submits your script. This submission is called a **run**.  A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics and more.       |
-|`aml_url = run.get_portal_url()`      |  The `run` object provides a handle on the execution of your code. Monitor its progress from the Azure Machine Learning Studio with the URL that is printed from the python script.       |
-|
-
-### Understanding the code  (using columns)
 :::row:::
    :::column span="":::
-      `ws = Workspace.from_config()` 
+      `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
       [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
@@ -119,7 +110,7 @@ if __name__ == "__main__":
       `experiment =  Experiment(workspace=ws, name='hello-world')`
    :::column-end:::
    :::column span="2":::
-      [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs. 
+      [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -132,10 +123,10 @@ if __name__ == "__main__":
 :::row-end:::
 :::row:::
    :::column span="":::
-      `run = experiment.submit(config)` 
+      `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submits your script. This submission is called a **run**.  A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics and more.
+       Submits your script. This submission is called a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).  A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics and more.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -146,6 +137,7 @@ if __name__ == "__main__":
         The `run` object provides a handle on the execution of your code. Monitor its progress from the Azure Machine Learning Studio with the URL that is printed from the python script.  
    :::column-end:::
 :::row-end:::
+
 ## Run in the cloud
 
 You can submit your script using:
