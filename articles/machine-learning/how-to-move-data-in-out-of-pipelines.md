@@ -81,7 +81,7 @@ Once you've created a named input, you can choose its access mode: `as_mount()` 
 
 To pass a dataset to your pipeline step:
 
-1. Use `TabularDataset.as_named_inputs()` or `FileDataset.as_named_input()` (no 's' at end) to create a `DatasetConsumptionConfig` object
+1. Use `TabularDataset.as_named_input()` or `FileDataset.as_named_input()` (no 's' at end) to create a `DatasetConsumptionConfig` object
 1. Use `as_mount()` or `as_download()` to set the access mode
 1. Pass the datasets to your pipeline steps using either the `arguments` or the `inputs` argument
 
@@ -93,7 +93,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[iris_dataset.as_named_inputs('iris').as_mount()]
+    inputs=[iris_dataset.as_named_input('iris').as_mount()]
 )
 ```
 
@@ -108,7 +108,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[train.as_named_inputs('train').as_download(), test.as_named_inputs('test').as_download()]
+    inputs=[train.as_named_input('train').as_download(), test.as_named_input('test').as_download()]
 )
 ```
 
@@ -123,8 +123,8 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_inputs('train').as_download()]
-    inputs=[test.as_named_inputs('test').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    inputs=[test.as_named_input('test').as_download()]
 )
 
 # In pipeline script
