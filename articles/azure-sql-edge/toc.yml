@@ -109,7 +109,7 @@
     href: create-stream-analytics-job.md
   - name: Troubleshoot deployment issues
     href: troubleshooting.md
-- name: resources
+- name: Resources
   items:
   - name: Transact-SQL (T-SQL) Reference
     href: https://docs.microsoft.com/sql/t-sql/language-reference
