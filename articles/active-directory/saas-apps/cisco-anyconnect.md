@@ -169,17 +169,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Cisco AnyConnect test user
 
-In this section, you test your Azure AD single sign-on configuration with following options.
-
-Click on Test this application in Azure portal and you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO
-
-You can use Microsoft Access Panel. When you click the Cisco AnyConnect tile in the Access Panel, you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In this section, you create a user called Britta Simon in Cisco AnyConnect. Work with [Cisco AnyConnect support team](https://www.cisco.com/c/en/us/support/index.html) to add the users in the Cisco AnyConnect platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-When you click the Cisco AnyConnect tile in the Access Panel, you should be automatically signed in to the Cisco AnyConnect for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on Test this application in Azure portal and you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO
+* You can use Microsoft Access Panel. When you click the Cisco AnyConnect tile in the Access Panel, you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next Steps
 
