@@ -33,8 +33,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Managed HSM Basic concepts
-            url: basic-concepts.md
+          - text: Managed HSM best practices
+            url: best-practices.md
           - text: Managed HSM access control
             url: access-control.md
           - text: Security domain
