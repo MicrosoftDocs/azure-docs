@@ -29,7 +29,7 @@ landingContent:
           - text: What is Azure AD B2C?
             url: overview.md
           - text: Compare solutions for External Identities
-            url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c
+            url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?context=azure/active-directory-b2c/context/active-directory-b2c-context
           - text: Get started with Azure AD B2C
             url: tutorial-create-tenant.md
           - text: Technical and feature overview
@@ -43,13 +43,13 @@ landingContent:
       - linkListType: learn
         links:
           - text: Authentication and authorization
-            url: /azure/active-directory/develop/authentication-vs-authorization?context=azure/active-directory-b2c/context/active-directory-b2c-context
+            url: /azure/active-directory/develop/authentication-vs-authorization.md?context=azure/active-directory-b2c/context/active-directory-b2c-context
           - text: Tokens
-            url: /azure/active-directory/develop/security-tokens?context=azure/active-directory-b2c/context/active-directory-b2c-context
+            url: /azure/active-directory/develop/security-tokens.md?context=azure/active-directory-b2c/context/active-directory-b2c-context
           - text: Protocols
-            url: /azure/active-directory/develop/v2-app-types?context=azure/active-directory-b2c/context/active-directory-b2c-context
+            url: /azure/active-directory/develop/v2-app-types.md?context=azure/active-directory-b2c/context/active-directory-b2c-context
           - text: Authentication library
-            url: /azure/active-directory/develop/msal-overview?context=azure/active-directory-b2c/context/active-directory-b2c-context
+            url: /azure/active-directory/develop/msal-overview.md?context=azure/active-directory-b2c/context/active-directory-b2c-context
           - text: 'Build a web site: HTML, CSS, JavaScript'
             url: https://docs.microsoft.com/learn/modules/build-simple-website/
 
