@@ -203,7 +203,7 @@ az storage account keys list -n akvrotationstorage
 - [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## Learn more
-- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](../general/event-grid-overview.md)
+- Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
 - How to: [Create your first function in the Azure portal](../../azure-functions/functions-create-first-azure-function.md)
 - How to: [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
-- [Azure Event Grid event schema for Azure Key Vault (preview)](../../event-grid/event-schema-key-vault.md)
+- [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)
