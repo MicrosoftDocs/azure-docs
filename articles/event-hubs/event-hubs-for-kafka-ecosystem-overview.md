@@ -29,11 +29,11 @@ Conceptually, Kafka and Event Hubs are very similar: they're both partitioned lo
 
 ### Key differences between Apache Kafka and Event Hubs
 
-While [Apache Kafka](https://kafka.apache.org/) is software you need to install and operate, Event Hubs is a fully managed cloud service. There are no servers, disks, or networks to manage and monitor and no brokers to configure. You create a namespace, which is an endpoint with a fully qualified domain name, and then you create Event Hubs (topics) within that namespace. 
+While [Apache Kafka](https://kafka.apache.org/) is software you typically need to install and operate, Event Hubs is a fully managed, cloud-native service. There are no servers, disks, or networks to manage and monitor and no brokers to consider or configure, ever. You create a namespace, which is an endpoint with a fully qualified domain name, and then you create Event Hubs (topics) within that namespace. 
 
 For more information about Event Hubs and namespaces, see [Event Hubs features](event-hubs-features.md#namespace). As a cloud service, Event Hubs uses a single stable virtual IP address as the endpoint, so clients don't need to know about the brokers or machines within a cluster. Even though Event Hubs implements the same protocol, this difference means that all Kafka traffic for all partitions is predictably routed through this one endpoint rather than requiring firewall access for all brokers of a cluster.   
 
-Scale in Event Hubs is controlled by how many throughput units you purchase, with each throughput unit entitling you to 1 MB per second, or 1000 events per second of ingress. Event Hubs can automatically scale up throughput units when you reach the throughput limit if you use the [Auto-Inflate](event-hubs-auto-inflate.md) feature; this feature work also works with Apache Kafka.  
+Scale in Event Hubs is controlled by how many throughput units you purchase, with each throughput unit entitling you to 1 Megabyte per second, or 1000 events per second of ingress and twice that volume in egress. Event Hubs can automatically scale up throughput units when you reach the throughput limit if you use the [Auto-Inflate](event-hubs-auto-inflate.md) feature; this feature work also works with the Apache Kafka protocol.  
 
 ### The Azure Messaging services fleet
 
