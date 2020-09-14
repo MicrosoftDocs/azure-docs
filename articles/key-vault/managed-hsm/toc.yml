@@ -16,6 +16,12 @@
 
 - name: Tutorials 
   items:
+  - name: Manage with the Azure CLI
+    href: key-management.md
+  - name: Managed HSM role management
+    href: role-management.md
+  - name: Secure access to your Managed HSM
+    href: secure-your-mhsm.md
   - name: Set up logging for managed HSM pool
     href: logging.md
   - name: Disaster recovery
