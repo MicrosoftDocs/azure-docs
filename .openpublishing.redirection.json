@@ -21963,6 +21963,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/tutorial-assess-import.md",
+      "redirect_url": "tutorial-discover-import",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-prepare-vmware.md",
+      "redirect_url": "tutorial-discover-vmware",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/migrate/tutorial-prepare-hyper-v.md",
+      "redirect_url": "tutorial-discover-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-prepare-physical.md",
+      "redirect_url": "tutorial-discover-physical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-assess-vmware.md",
+      "redirect_url": "tutorial-assess-vmware-azure-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/deploy-appliance.md",
       "redirect_url": "migrate-appliance-architecture",
       "redirect_document_id": false

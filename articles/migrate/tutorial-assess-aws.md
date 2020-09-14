@@ -1,18 +1,17 @@
 ---
-title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
-description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
+title: Assess AWS instances for migration to Azure with Azure Migrate Server Assessment
+description: Describes how to assess AWS instances for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-#Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
+#Customer intent: As a server admin, I want to assess my AWS instances in preparation for migration to Azure.
 ---
 
-# Tutorial: Assess physical servers for migration to Azure
+# Tutorial: Assess AWS instances for migration to Azure
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess on-premises physical servers for migration to Azure, using the Azure Migrate: Server Assessment tool.
-
+This article shows you how to assess Amazon Web Services (AWS) instances for migration to Azure, using the Azure Migrate: Server Assessment tool.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -27,10 +26,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- Before you follow this tutorial to assess your machines for migration to Azure VMs, make sure you've discovered the machines you want to assess:
-    - To discover machines using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-physical.md). 
-    - To discover machines using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
-- Make sure physical machines you want to assess aren't running Windows Server 2003, or SUSE Linux. Assessment isn't supported for these machines.
+- Before you follow the steps in this tutorial, complete the first tutorial in this series to [discover your on-premises inventory](tutorial-discover-aws.md). 
+- Make sure AWS instances aren't running Windows Server 2003, or SUSE Linux. Assessment isn't supported for these machines.
 
 
 ## Decide which assessment to run
@@ -49,22 +46,21 @@ Run an assessment as follows:
 
 1. On the **Servers** page > **Windows and Linux servers**, click **Assess and migrate servers**.
 
-   ![Location of Assess and migrate servers button](./media/tutorial-assess-physical/assess.png)
+   ![Location of Assess and migrate servers button](./media/tutorial-assess-aws/assess.png)
 
-2. In **Azure Migrate: Server Assessment**, click **Assess**.
+2. In **Azure Migrate: Server Assessment, click **Assess**.
 
-    ![Location of the Assess button](./media/tutorial-assess-physical/assess-servers.png)
+    ![Location of the Assess button](./media/tutorial-assess-aws/assess-servers.png)
 
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
 
     - If you discovered machines using the appliance, select **Machines discovered from Azure Migrate appliance**.
     - If you discovered machines using an imported CSV file, select **Imported machines**. 
-    
 5. Specify a name for the assessment. 
 6. Click **View all** to review the assessment properties.
 
-    ![Location of the View all button to review assessment properties](./media/tutorial-assess-physical/assessment-name.png)
+    ![Location of the View all button to review assessment properties](./media/tutorial-assess-aws/assessment-name.png)
 
 7. In **Assessment properties** > **Target Properties**:
     - In **Target location**, specify the Azure region to which you want to migrate.
@@ -85,9 +81,11 @@ Run an assessment as follows:
         - If you're using performance-based assessment, Azure Migrate suggests a value for you.
         - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
-        **Component** | **Effective utilization** | **Add comfort factor (2.0)**
-        Cores | 2 | 4
-        Memory | 8 GB | 16 GB    
+        **Details** | **Utilization** | **Add comfort factor (2.0)**
+        Read IOPS | 100 | 200
+        Write IOPS | 100 | 200
+        Read throughput | 100 Mbps | 200 Mbps
+        Write throughput | 100 Mbps | 200 Mbps
    
 9. In **Pricing**:
     - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. Server Assessment estimates the cost for that offer.
@@ -103,7 +101,7 @@ Run an assessment as follows:
 
 10. Click **Save** if you make changes.
 
-    ![Assessment properties](./media/tutorial-assess-physical/assessment-properties.png)
+    ![Assessment properties](./media/tutorial-assess-aws/assessment-properties.png)
 
 11. In **Assess Servers**, click **Next**.
 12. In **Select machines to assess**, select **Create New**, and specify a group name. 
@@ -127,7 +125,7 @@ To view an assessment:
 1. In **Servers** > **Azure Migrate: Server Assessment**, click the number next to **Assessments**.
 2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
-    ![Assessment summary](./media/tutorial-assess-physical/assessment-summary.png)
+    ![Assessment summary](./media/tutorial-assess-aws/assessment-summary.png)
 
 3. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
  
@@ -160,12 +158,13 @@ The assessment summary shows the estimated compute and storage cost of running V
 
 Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
 
-![Confidence rating](./media/tutorial-assess-physical/confidence-rating.png)
+![Confidence rating](./media/tutorial-assess-aws/confidence-rating.png)
 
 The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
 > [!NOTE]
 > Confidence ratings aren't assigned if you create an assessment based on a CSV file.
+
 
 Confidence ratings are as follows.
 

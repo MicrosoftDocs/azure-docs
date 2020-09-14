@@ -1,17 +1,17 @@
 ---
-title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
-description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
+title: Assess VMware VMs for migration to Azure VMs with Server Assessment in Azure Migrate
+description: Learn how to assess VMware VMs for migration to Azure VMs with Server Assessment.
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-#Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
+#Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 
-# Tutorial: Assess physical servers for migration to Azure
+# Tutorial: Assess VMware VMs for migration to Azure VMs
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess on-premises physical servers for migration to Azure, using the Azure Migrate: Server Assessment tool.
+This article shows you how to assess discovered VMware virtual machines (VMs) in preparation for migration to Azure VMs, using the Azure Migrate: Server Assessment tool.
 
 
 In this tutorial, you learn how to:
@@ -27,10 +27,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- Before you follow this tutorial to assess your machines for migration to Azure VMs, make sure you've discovered the machines you want to assess:
-    - To discover machines using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-physical.md). 
-    - To discover machines using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
-- Make sure physical machines you want to assess aren't running Windows Server 2003, or SUSE Linux. Assessment isn't supported for these machines.
+Before you follow this tutorial to assess your machines for migration to Azure VMs, make sure you've discovered the machines you want to assess:
+
+- To discover machines using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md). 
+- To discover machines using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
 
 
 ## Decide which assessment to run
@@ -43,17 +43,18 @@ Decide whether you want to run an assessment using sizing criteria based on mach
 **As-is on-premises** | Assess based on machine configuration data/metadata.  | Recommended Azure VM size is based on the on-premises VM size.<br/><br> The recommended Azure disk type is based on what you select in the storage type setting in the assessment.
 **Performance-based** | Assess based on collected dynamic performance data. | Recommended Azure VM size is based on CPU and memory utilization data.<br/><br/> The recommended disk type is based on the IOPS and throughput of the on-premises disks.
 
+
 ## Run an assessment
 
 Run an assessment as follows:
 
 1. On the **Servers** page > **Windows and Linux servers**, click **Assess and migrate servers**.
 
-   ![Location of Assess and migrate servers button](./media/tutorial-assess-physical/assess.png)
+   ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Server Assessment**, click **Assess**.
 
-    ![Location of the Assess button](./media/tutorial-assess-physical/assess-servers.png)
+    ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
@@ -61,12 +62,12 @@ Run an assessment as follows:
     - If you discovered machines using the appliance, select **Machines discovered from Azure Migrate appliance**.
     - If you discovered machines using an imported CSV file, select **Imported machines**. 
     
-5. Specify a name for the assessment. 
-6. Click **View all** to review the assessment properties.
+1. Specify a name for the assessment. 
+1. Click **View all** to review the assessment properties.
 
-    ![Location of the View all button to review assessment properties](./media/tutorial-assess-physical/assessment-name.png)
+    ![Location of the View all button to review assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
-7. In **Assessment properties** > **Target Properties**:
+1. In **Assessment properties** > **Target Properties**:
     - In **Target location**, specify the Azure region to which you want to migrate.
         - Size and cost recommendations are based on the location that you specify.
         - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#supported-geographies-azure-government)
@@ -76,7 +77,7 @@ Run an assessment as follows:
     - In **Reserved Instances**, specify whether you want to use reserve instances for the VM when you migrate it.
         - If you select to use a reserved instance, you can't specify  '**Discount (%)**, or **VM uptime**. 
         - [Learn more](https://aka.ms/azurereservedinstances).
-8. In **VM Size**:
+ 7. In **VM Size**:
  
     - In **Sizing criterion**, select if you want to base the assessment on machine configuration data/metadata, or on performance-based data. If you use performance data:
         - In **Performance history**, indicate the data duration on which you want to base the assessment
@@ -87,9 +88,9 @@ Run an assessment as follows:
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
         **Component** | **Effective utilization** | **Add comfort factor (2.0)**
         Cores | 2 | 4
-        Memory | 8 GB | 16 GB    
+        Memory | 8 GB | 16 GB     
    
-9. In **Pricing**:
+8. In **Pricing**:
     - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. Server Assessment estimates the cost for that offer.
     - In **Currency**, select the billing currency for your account.
     - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
@@ -101,14 +102,17 @@ Run an assessment as follows:
     - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
     - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 
-10. Click **Save** if you make changes.
+9. Click **Save** if you make changes.
 
-    ![Assessment properties](./media/tutorial-assess-physical/assessment-properties.png)
+    ![Assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
-11. In **Assess Servers**, click **Next**.
-12. In **Select machines to assess**, select **Create New**, and specify a group name. 
-13. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
-14. In **Review + create assessment, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
+10. In **Assess Servers**, click **Next**.
+11. In **Select machines to assess**, select **Create New**, and specify a group name. 
+12. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
+
+     ![Add VMs to a group](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
+
+13. In **Review + create assessment, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
 
 
     > [!NOTE]
@@ -127,7 +131,7 @@ To view an assessment:
 1. In **Servers** > **Azure Migrate: Server Assessment**, click the number next to **Assessments**.
 2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
-    ![Assessment summary](./media/tutorial-assess-physical/assessment-summary.png)
+    ![Assessment summary](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
 
 3. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
  
@@ -160,7 +164,7 @@ The assessment summary shows the estimated compute and storage cost of running V
 
 Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
 
-![Confidence rating](./media/tutorial-assess-physical/confidence-rating.png)
+![Confidence rating](./media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
 
 The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
@@ -182,4 +186,4 @@ Confidence ratings are as follows.
 ## Next steps
 
 - Find machine dependencies using [dependency mapping](concepts-dependency-visualization.md).
-- Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Set up [agentless](how-to-create-group-machine-dependencies-agentless.md) or [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
