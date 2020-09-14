@@ -1,8 +1,8 @@
 ---
 title: Set up PBR materials in 3ds Max
 description: Explains how to set up physically based rendering materials in 3ds Max and export them into FBX format.
-author: muxanickms
-ms.author: misams
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ---
