@@ -63,27 +63,14 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 
 ## Release history
 
-### 4.4.0-beta.2 (Unreleased)
-#### Key Bug Fixes
-* Fixed RequestTimeoutException when enable tcnative.
+### 4.5.0-beta.1 (Unreleased)
 
-### 4.4.0-beta.1 (2020-08-27)
-#### New Features
-* Added new API to efficiently load many documents (via list of pk/id pairs or all documents for a set of pk values).
-* Added new `deleteItem` API.
-* Enabled query metrics by default.
+### 4.4.0 (2020-09-12)
 #### Key Bug Fixes
-* Fixed NPE in `GatewayAddressCache`.
-* Fixing query metric issue for zero item response.
-* Improved performance (reduced CPU usage) for address parsing and Master-Key authentication.
-
-### 4.3.2-beta.2 (2020-08-17)
-#### Key Bug Fixes
-* No changes from previous version, releasing for compatibility issues with spring data modules.
-
-### 4.3.2-beta.1 (2020-08-14)
-#### Key Bug Fixes
-* Fixed issue in RntbdServiceEndpoint to avoid early closure of an unused TCP connection.
+* Fixed RequestTimeoutException when enabling `netty-tcnative-boringssl` dependency.
+* Fixed memory leak issue on `Delete` operations in `GATEWAY` mode.
+* Fixed a leak in `CosmosClient` instantiation when endpoint uri is invalid.
+* Improved `CPU History` diagnostics.
 
 ### 4.3.1 (2020-08-13)
 #### Key Bug Fixes
