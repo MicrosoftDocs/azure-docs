@@ -26,8 +26,6 @@ For a list of all Managed HSM built-in roles and the operations they permit, see
 
 ## Prerequisites
 
-# [Azure CLI](#tab/azure-cli)
-
 To use the Azure CLI commands in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
@@ -68,15 +66,14 @@ You can also read the following articles to get familiar with Azure Resource Man
 
 Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2@contoso.com** for all  **keys** (scope `/keys`) in the ContosoHSM.
 
-# [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
 ```
+
 ### Assign role for a specific key
 
 Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2@contoso.com** for a specific key named **myrsakey**.
 
-# [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
 ```
@@ -86,20 +83,18 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 Use `az keyvault role assignment list` to list role assignments.
 
 All role assignments at scope / (default when no --scope is specified) for all users (default when --assignee is specified)
-# [Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM
 ```
 
 All the role assignments at the HSM level for a specific user **user1@contoso.com**.
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
 All role assignments for a specific user **user2@contoso.com** for a specific key **myrsakey**.
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey
@@ -107,7 +102,6 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 A specific role assignment for role **Managed HSM Crypto Officer** for a specific user **user2@contoso.com** for a specific key **myrsakey**
 
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey --role "Managed HSM Crypto Officer"
@@ -117,8 +111,6 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 Use `az keyvault role assignment delete` command to delete a **Managed HSM Crypto Officer** role assigned to user **user2@contoso.com** for key **myrsakey2**.
 
-# [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2
 ```
@@ -126,8 +118,6 @@ az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Cr
 ## List all available role definitions
 
 Use `az keyvault role definition list` command to list all the role definitions.
-
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az keyvault role definition list --hsm-name ContosoMHSM
@@ -139,5 +129,3 @@ az keyvault role definition list --hsm-name ContosoMHSM
 - See a turorial on [Managed HSM role management](role-management.md)
 - Learn more about [Managed HSM access control model](access-control.md)
 - See all the [built-in roles for Managed HSM local RBAC](built-in-roles.md)
-
- 

@@ -86,8 +86,6 @@ The Azure CLI snippets in this section are built with the following assumptions:
 
 The subscription admin assigns the `Managed HSM Contributor`role to the security team. This role allows the security team to manage existing HSM pools and create new ones. If there are existing Managed HSM pools, they will need to be assigned the "Managed HSM Administrator" role to be able to mange them.
 
-# [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 # This role assignment allows Contoso Security Team to create new Managed HSMs
 az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
@@ -96,10 +94,7 @@ az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Se
 az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --scope / --role "Managed HSM Administrator"
 ```
 
-
 The security team sets up logging and assigns roles to auditors and the VM application.
-
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 # Enable logging
@@ -125,7 +120,6 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 This tutorial only shows actions relevant to the access control for most part. Other actions and operations related to deploying application in your VM, turning on encryption with customer managed key for a storage account, creating managed HSM are not shown here to keep the example focused on access control and role management.
 
 Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault. Give similar consideration when you secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../../storage/blobs/security-recommendations.md), and other Azure resources.
-
 
 ## Resources
 

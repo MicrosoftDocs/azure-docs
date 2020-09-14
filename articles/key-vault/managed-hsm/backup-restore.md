@@ -39,8 +39,6 @@ Backup is a long running operation. After issuing the backup command it immediat
 
 While the backup is in progress the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
-# [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 # time for 30 minutes later for SAS token expiry
 
@@ -100,5 +98,5 @@ az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemoba
 ```
 
 ## Next Steps
-- See [Manage a Managed HSM using the Azure CLI](manage-with-cli.md) to learn how to use Azure CLI to perform backup and restore operations.
+- See [Manage a Managed HSM using the Azure CLI](quick-create-cli.md).
 - Learn more about [Managed HSM Security Domain](security-domain.md)

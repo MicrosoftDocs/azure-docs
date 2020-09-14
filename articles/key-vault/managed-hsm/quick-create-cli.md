@@ -19,7 +19,6 @@ In this quickstart, you create and activate a managed HSM pool with Azure CLI. A
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
@@ -40,7 +39,6 @@ A resource group is a logical container into which Azure resources are deployed 
 az group create --name "ContosoResourceGroup" --location eastus2
 ```
 
-
 ## Create a Managed HSM
 
 Creating a managed HSM is a two step process:
@@ -56,14 +54,16 @@ You need to provide following inputs to create a Managed HSM resource:
 - resource group where it will be placed in your subscription
 - Azure location
 - a list of initial administrators
- 
+
 The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
 az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid
 ```
-> [!NOTE] Create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
+
+> [!NOTE]
+> Create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
 
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
@@ -72,8 +72,8 @@ The output of this command shows properties of the Managed HSM that you've creat
 
 Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
 
-
 ### Activate your managed HSM
+
 All data plane commands are disabled until the HSM  is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM you must download the [Security Domain](security-domain.md).
 
 To activate your HSM you need:
@@ -95,10 +95,10 @@ Use the `az keyvault security-domain download` command to download the security 
 ```azurecli-interactive
 az keyvault security-domain download --hsm-name ContosoMHSM --sd-wrapping-keys ./certs/cert_0.cer ./certs/cert_1.cer ./certs/cert_2.cer --sd-quorum 2 --security-domain-file ContosoMHSM-SD.json
 ```
+
 Please store the security domain file and the RSA key pairs securely. You will need them for disaster recovery or for creating another managed HSM that shares same security domain, so they can share keys.
 
 After successfully downloading the security domain, your HSM will be in active state and ready for you to use.
-
 
 ## Clean up resources
 

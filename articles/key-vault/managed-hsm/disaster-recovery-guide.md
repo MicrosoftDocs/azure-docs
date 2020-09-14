@@ -1,6 +1,6 @@
 ---
-title: What to do in the event of an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
-description: Learn what to do in the event of an Azure service disruption that affects Managed HSM.
+title: What to do if there is an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
+description: Learn what to do f there is an Azure service disruption that affects Managed HSM.
 services: key-vault
 author: amitbapat
 
@@ -18,7 +18,7 @@ You may wish to create an exact replica of your HSM if the original is lost or u
 - It was deleted and then purged.
 - A catastrophic failure in the region resulted in all member partitions being destroyed.
 
-You can re-create the HSM instance in same or different region if you have following:
+You can re-create the HSM instance in same or different region if you have the following:
 - The [Security Domain](security-domain.md) of the source HSM.
 - The private keys (at least quorum number) that encrypt the security domain.
 - The most recent full HSM [backup](backup-restore.md) from the source HSM.
@@ -26,18 +26,18 @@ You can re-create the HSM instance in same or different region if you have follo
 Here are the steps of the disaster recovery procedure:
 
 1. Create a new HSM Instance.
-1. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response which will be downloaded a SecurityDomainExchangeKey (public key).
+1. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response, which will be downloaded a SecurityDomainExchangeKey (public key).
 1. Create and then upload the "Security Domain Transfer File". You will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
-1. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. This allows easy roll-back.
+1. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. Backups allow for easy roll-back.
 1. Restore the recent HSM backup from the source HSM
 
-The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
+The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This feature maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 
 ## Create a new HSM
 
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
-You need to provide following inputs to create a Managed HSM resource:
+You must provide following inputs to create a Managed HSM resource:
 
 - The name for the HSM.
 - The resource group where it will be placed in your subscription.
@@ -45,8 +45,6 @@ You need to provide following inputs to create a Managed HSM resource:
 - A list of initial administrators.
 
 The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
-
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -65,9 +63,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 ## Activate the Security Domain recovery mode
 
-In the normal create process we initialize and download a new Security Domain at this point. However, since we are executing a disaster recovery procedure, we request the HSM to enter Security Domain Recovery Mode and download a Security Domain Exchange Key. This is an RSA public key that will be used to encrypt the security domain before uploading it to the HSM. The corresponding private key is protected inside the HSM, to keep your Security Domain contents safe during the transfer.
-
-# [Azure CLI](#tab/azure-cli)
+In the normal create process we initialize and download a new Security Domain at this point. However, since we are executing a disaster recovery procedure, we request the HSM to enter Security Domain Recovery Mode and download a Security Domain Exchange Key. The Security Domain Exchange Key is an RSA public key that will be used to encrypt the security domain before uploading it to the HSM. The corresponding private key is protected inside the HSM, to keep your Security Domain contents safe during the transfer.
 
 ```azurecli-interactive
 az keyvault security-domain init-recovery --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM2-SDE.cer
@@ -86,9 +82,7 @@ The `az keyvault security-domain upload` command performs following operations:
 - create a Security Domain Upload blob encrypted with the Security Domain Exchange Key we downloaded in the previous step and then
 - Upload the Security Domain Upload blob to the HSM to complete security domain recovery
 
-In the example below we use the Security Domain from the **ContosoMHSM**, the 2 of the corresponding private keys, and upload it to **ContosoMHSM2** which is waiting to receive a Security Domain. 
-
-# [Azure CLI](#tab/azure-cli)
+In the example below we use the Security Domain from the **ContosoMHSM**, the 2 of the corresponding private keys, and upload it to **ContosoMHSM2**, which is waiting to receive a Security Domain. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
@@ -106,8 +100,6 @@ To create an HSM backup, you will need following
 
 In the example below, we use `az keyvault backup` command to the HSM backup in the storage container **mhsmbackupcontainer** a storage account **ContosoBackup**. We create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the backup.
 
-# [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
@@ -123,7 +115,6 @@ For this step you need following:
 - The storage account and the blob container where the source HSM’s backups are stored
 - The folder name from where you want to restore the backup. If you create regular backups, there will many folders inside this container.
 
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
