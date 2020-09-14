@@ -276,4 +276,6 @@ To import a key from your on-premise HSM to managed HSM, see [Import HSM-protect
 
 - For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md)
 
-- See 
+- Learn more about [Managed HSM role management](role-management.md)
+
+- Learn more about [Managed HSM best practices](best-practices.md)
