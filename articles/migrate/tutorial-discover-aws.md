@@ -70,7 +70,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 Set up an account that the appliance can use to access AWS instances.
 
-- For Windows servers, set up a local user account on all the Windows servers that you want to include in the discovery. The user account needs to be added to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users.
+- For Windows servers, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users.
  - For Linux servers, you need a root account on the Linux servers that you want to discover.
 
 

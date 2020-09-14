@@ -238,5 +238,5 @@ After discovery, you can verify that the VMs appear in the Azure portal:
 
 ## Next steps
 
-- [Assess VMware VMs](tutorial-assess-vmware.md) for migration to Azure VMs..
+- [Assess VMware VMs](tutorial-assess-vmware.md) for migration to Azure VMs.
 - [Review the data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery.
