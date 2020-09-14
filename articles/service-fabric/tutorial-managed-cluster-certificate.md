@@ -95,4 +95,4 @@ Congratulations! You've learned about client certificates in a Managed Service F
  In this step we looked at client certificate management in a Managed Service Fabric cluster. To learn more about Service Fabric managed clusters, see:
 
 > [!div class="nextstepaction"]
-> [Upgrade a Managed Service Fabric cluster](./overview-managed-cluster.md)
+> [Service Fabric managed clusters overview](./overview-managed-cluster.md)
