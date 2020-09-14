@@ -35,7 +35,7 @@ For more information about Event Hubs and namespaces, see [Event Hubs features](
 
 Scale in Event Hubs is controlled by how many throughput units you purchase, with each throughput unit entitling you to 1 Megabyte per second, or 1000 events per second of ingress and twice that volume in egress. Event Hubs can automatically scale up throughput units when you reach the throughput limit if you use the [Auto-Inflate](event-hubs-auto-inflate.md) feature; this feature work also works with the Apache Kafka protocol support.  
 
-### Is the Apache Kafka even the right solution for your workload?
+### Is Apache Kafka the right solution for your workload?
 
 Coming from building applications using Apache Kafka, it will also useful to understand that Azure Event Hubs is part of a fleet of services which also includes [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), and [Azure Event Grid](../event-grid/overview.md). 
 
@@ -92,7 +92,7 @@ Additionally, Event Hubs features such as [Capture](event-hubs-capture-overview.
 
 The goal of Event Hubs for Apache Kafka is to provide access to Azure Event Hub's capabilities to applications that are locked into the Apache Kafka API and would otherwise have to be backed by an Apache Kafka cluster. 
 
-As explained [above](#the-azure-messaging-services-fleet), the Azure Messaging fleet provides rich and robust coverage for a multitude of messaging scenarios, and although the following features are not currently supported through Event Hubs' support for the Apache Kafka API, we point out where and how the desired capability is available.
+As explained [above](#is-apache-kafka-the-right-solution-for-your-workload), the Azure Messaging fleet provides rich and robust coverage for a multitude of messaging scenarios, and although the following features are not currently supported through Event Hubs' support for the Apache Kafka API, we point out where and how the desired capability is available.
 
 ### Transactions
 
