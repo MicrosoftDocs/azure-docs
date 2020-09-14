@@ -25,6 +25,11 @@ This article explains how to resolve a problem in which you cannot make a Remote
 
 You cannot make an RDP connection or any other type of connection to any other ports to a VM in Azure because the network interface in the VM is disabled.
 
+![Click disk name](./media/troubleshoot-rdp-nic-disabled/Disconnected.PNG)
+
+![Click disk name](./media/troubleshoot-rdp-nic-disabled/Disabled.PNG)
+
+
 ## Solution
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
