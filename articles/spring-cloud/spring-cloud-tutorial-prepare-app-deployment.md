@@ -1,6 +1,6 @@
 ---
-title: How to prepare a Java Spring application for deployment in Azure Spring Cloud
-description: Learn how to prepare a Java Spring application for deployment to Azure Spring Cloud.
+title: How to prepare an application for deployment in Azure Spring Cloud
+description: Learn how to prepare an application for deployment to Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Prepare a Java Spring application for deployment in Azure Spring Cloud
+# Prepare an application for deployment in Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
 Azure Spring Cloud provides robust services to host, monitor, scale, and update a Steeltoe app. This article shows how to prepare an existing Steeltoe application for deployment to Azure Spring Cloud. 
