@@ -64,13 +64,14 @@ In the Azure portal, invoke the method with the method name `RestartModule` and 
 
 ![Invoke direct method 'RestartModule' in Azure portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
 
-## Experimental methods
+## Other direct method features
 
-New direct method options are available as experimental features to test, including:
+As of the 1.0.10 release, new method options are available, including:
 
-* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): Retrieve module logs and upload them to Azure Blob Storage.
-* [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): Check on the status of an upload logs request.
-* [GetLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): Retrieve module logs inline in the response of the direct method.
+* [GetModuleLogs](how-to-retrieve-iot-edge-logs.md#retrieve-module-logs): Retrieve module logs inline in the response of the direct method.
+* [UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs): Retrieve module logs and upload them to Azure Blob Storage.
+* [GetTaskStatus](how-to-retrieve-iot-edge-logs.md#get-module-logs-upload-request-status): Check on the status of an upload logs request.
+* [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#use-support-bundle-to-upload-logs): Retrieve module logs using a support bundle and upload a zip file to Azure Blob Storage.
 
 ## Next steps
 
