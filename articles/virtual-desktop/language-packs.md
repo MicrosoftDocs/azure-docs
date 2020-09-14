@@ -47,7 +47,7 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
 
 To create the content repository for language packages and FODs and a repository for the Inbox Apps packages:
 
-1. On an Azure VM, download the Windows 10 Multi-Language ISO, FODs and Inbox Apps for Windows 10 Enterprise multi-session, version 1903/1909, and 2004 images from the links in [Prerequisites](#prerequisites).
+1. On an Azure VM, download the Windows 10 Multi-Language ISO, FODs, and Inbox Apps for Windows 10 Enterprise multi-session, version 1903/1909, and 2004 images from the links in [Prerequisites](#prerequisites).
 
 2. Open and mount the ISO files on the VM.
 
