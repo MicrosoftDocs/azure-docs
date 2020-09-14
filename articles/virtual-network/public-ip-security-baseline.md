@@ -14,7 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Public IP
 
-This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md) to Azure Public IP. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Public IP. **Controls** not applicable to Azure Public IP have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md) to Azure Public IP. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Public IP. **Controls** not applicable to Azure Public IP have been excluded.  Note Azure Public IPs do not store customer data.
 
 To see how Azure Public IP completely maps to the Azure Security Benchmark, see the [full Azure Public IP security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -44,7 +44,7 @@ Azure PowerShell or Azure CLI can be used to look up or perform actions on resou
 
 ### 2.2: Configure central security log management
 
-**Guidance**: Use Azure Activity Log to monitor configurations and detect changes to your Public IP instances. Other than at the control plane (for example, Azure portal), Public IP itself does not generate logs related to network traffic. 
+**Guidance**: Use Azure Activity Log to monitor configurations and detect changes to your Public IP instances. Other than at the control plane (for example, Azure portal), Public IP itself does not generate logs related to network traffic.
 
 Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
