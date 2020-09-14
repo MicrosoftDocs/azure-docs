@@ -39,21 +39,21 @@ Connect to your desired Azure account using [Connect-AzAccount](https://docs.mic
 
 ```azurepowershell-interactive
 Connect-AzAccount
-Set-AzContext 42c974dd-2c03-4f1b-96ad-b07f050aaa74
+Set-AzContext 00a000aa-0a00-0a0a-00aa-a00a000aaa00
 
-$RGName="Ignite2020"
-$MaintenanceConfig="MyMaintenanceConfig"
+$RGName="myMaintenanceRG"
+$MaintenanceConfig="myMaintenanceConfig"
 $location="eastus2"
-$vmss="ShantSVMSS"
+$vmss="myMaintenanceVMSS"
 ```
 
 ## Create a maintenance configuration
 
-Create a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus*. If you already have a resource group that you want to use, you can skip this part. Just replace the resource group name with your own in the rest of the examples.
+Create a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus2*. If you already have a resource group that you want to use, you can skip this part. Just replace the resource group name with your own in the rest of the examples.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
-   -Location eastus `
+   -Location eastus2 `
    -Name myMaintenanceRG
 ```
 
@@ -61,8 +61,8 @@ Use [New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmai
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
-   -ResourceGroup myMaintenanceRG `
-   -Name myConfig `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
    -MaintenanceScope OSImage `
    -Location $location `
    -StartDateTime "2020-10-01 00:00" `
