@@ -196,4 +196,4 @@ In this tutorial, you:
 > [!div class="checklist"]
 > * Created an Azure Migrate project 
 > * Discovered servers using an imported CSV file. 
-Now, run an assessment for [VMware VM migration to Azure VMs](tutorial-assess-vmware-vm.md), [VMware VM migration to AVS](tutorial-assess-vmware-azure-vmware-solution.md), [Hyper-V VM migration](tutorial-assess-hyper-v.md), or [physical server migration](tutorial-assess-physical-servers.md).  
+Now, run an assessment for [VMware VM migration to Azure VMs](tutorial-assess-vmware.md).
