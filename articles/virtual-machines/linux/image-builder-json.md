@@ -136,7 +136,7 @@ For more information on deploying this feature, see [Configure managed identitie
 
 ## Properties: source
 
-Image Builder currently only supports HyperV generation 1 images and VMs, the `source` section contains information about the source image that will be used by Image Builder.
+The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
 
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
 - PlatformImage - indicated the source image is a Marketplace image.
@@ -565,7 +565,7 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {

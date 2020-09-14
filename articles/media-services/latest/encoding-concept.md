@@ -5,20 +5,22 @@ titleSuffix: Azure Media Services
 description: This article explains about encoding video and audio with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
 
 # Encoding video and audio with Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 The term encoding in Media Services applies to the process of converting files containing digital video and/or audio from one standard format to another, with the purpose of (a) reducing the size of the files, and/or (b) producing a format that's compatible with a broad range of devices and apps. This process is also referred to as video compression, or transcoding. See the [Data compression](https://en.wikipedia.org/wiki/Data_compression) and the [What Is Encoding and Transcoding?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) for further discussion of the concepts.
 

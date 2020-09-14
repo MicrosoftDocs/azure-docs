@@ -29,6 +29,10 @@
     href: fusion.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Connect data sources
@@ -54,6 +58,8 @@
         href: connect-microsoft-defender-advanced-threat-protection.md
       - name: Azure ATP
         href: connect-azure-atp.md
+      - name: Azure DDoS Protection
+        href: connect-azure-ddos-protection.md
       - name: Azure Firewall
         href: connect-azure-firewall.md
       - name: Azure Security Center
@@ -171,6 +177,10 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
+- name: Reference (New!)
+  items:
+  - name: REST APIs
+    href: https://docs.microsoft.com/rest/api/securityinsights/
 - name: Resources
   items:
   - name: Useful resources
@@ -178,7 +188,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
-    href: https://blogs.msdn.com/b/azuresecurity/
+    href: https://docs.microsoft.com/archive/blogs/azuresecurity/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing

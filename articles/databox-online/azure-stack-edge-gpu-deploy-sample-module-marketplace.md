@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/09/2020
 ms.author: alkohli
 ---
 
-# Deploy a GPU enabled IoT module from Azure Marketplace on Azure Stack Edge device
+# Deploy a GPU enabled IoT module from Azure Marketplace on Azure Stack Edge GPU device
 
 This article describes how to deploy a Graphics Processing Unit (GPU) enabled IoT Edge module from Azure Marketplace on your Azure Stack Edge device. 
 
@@ -29,9 +29,7 @@ The GPU sample module in this article includes PyTorch and TensorFlow benchmarki
 Before you begin, make sure you have:
 
 - You've access to a GPU enabled 1-node Azure Stack Edge device. This device is activated with a resource in Azure. 
-- You've configured compute on this device. 
-    - Follow the steps in [Tutorial: Configure compute on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-configure-compute.md).
-    - Make sure to 
+- You've configured compute on this device. Follow the steps in [Tutorial: Configure compute on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-configure-compute.md).
 - The following development resources on a Windows client:
     - [Visual Studio Code](https://code.visualstudio.com/)  
     - [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).   

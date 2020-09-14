@@ -20,6 +20,8 @@ ms.custom: devx-track-csharp
 ---
 # Detect Motions with Azure Media Analytics
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > The **Azure Media Motion Detector** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
  

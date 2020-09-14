@@ -84,11 +84,6 @@
       href: tutorial-firmware-update.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
     - name: TLS support
@@ -178,6 +173,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Security
       items:
+        - name: Security baseline
+          href: security-baseline.md
         - name: Recommendations
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Security from the ground up
@@ -461,6 +458,9 @@
       href: https://docs.microsoft.com/rest/api/iothub/certificates
     - name: Resource Manager template
       href: /azure/templates/microsoft.devices/iothub-allversions
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
     - name: Feature and API retirement
       items:
         - name: Operations monitoring

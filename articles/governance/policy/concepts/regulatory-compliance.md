@@ -50,7 +50,7 @@ represents a **control** that shows its compliance state, the **compliance domai
 responsibility information, and how many non-compliant and compliant policy definitions make up that
 **control**.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="A sample of the Regulatory Compliance overview for the NIST SP 800-53 R4 built-in definition.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Screenshot of the Regulatory Compliance overview for the NIST SP 800-53 R4 built-in definition showing compliant and non-compliant controls.":::
 
 Selecting a **control** opens a page of details about that control. The **Overview** contains the
 information from `description` and `requirements`. Under the **Policies** tab are all the individual
@@ -62,13 +62,13 @@ the currently viewed **control**.
 > An evaluation type of **Microsoft managed** is for a [static](./definition-structure.md#type)
 > policy definition `type`.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="A sample of the Regulatory Compliance policy definitions in the Boundary Protection control of the System and Communications Protection domain of the NIST SP 800-53 R4 built-in definition.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot of the Regulatory Compliance details for the Boundary Protection control of the NIST SP 800-53 R4 built-in definition.":::
 
 From the same **control** page, changing to the **Resource compliance** tab shows all resources this
 **control**'s policy definitions include. Filters are available for name or ID, compliance state,
 resource type, and location.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="A sample of the Regulatory Compliance resources impacted by policy definitions in the Boundary Protection control of the System and Communications Protection domain of the NIST SP 800-53 R4 built-in definition.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Screenshot of resource compliance to the Boundary Protection control of the NIST SP 800-53 R4 built-in definition.":::
 
 ## Regulatory Compliance in SDK
 

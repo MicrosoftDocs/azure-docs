@@ -31,6 +31,7 @@ properties from related resource types. Here is the list of tables available in 
 |ResourceContainers |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AdvisorResources |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
 |HealthResources |Includes resources _related_ to `Microsoft.ResourceHealth`. |
 |MaintenanceResources |Includes resources _related_ to `Microsoft.Maintenance`. |
 |SecurityResources |Includes resources _related_ to `Microsoft.Security`. |
@@ -178,8 +179,10 @@ explicitly defined as part of the request.
 As a **preview**, REST API version `2020-04-01-preview` adds a property to scope the query to a
 [management group](../../management-groups/overview.md). This preview API also makes the
 subscription property optional. If a management group or a subscription list isn't defined, the
-query scope is all resources the authenticated user can access. The new `managementGroupId` property
-takes the management group ID, which is different from the name of the management group. When
+query scope is all resources, which includes
+[Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) delegated
+resources, that the authenticated user can access. The new `managementGroupId` property takes the
+management group ID, which is different from the name of the management group. When
 `managementGroupId` is specified, resources from the first 5000 subscriptions in or under the
 specified management group hierarchy are included. `managementGroupId` can't be used at the same
 time as `subscriptions`.

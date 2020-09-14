@@ -19,6 +19,8 @@ ms.custom: devx-track-csharp
 ---
 # Indexing Media Files with Azure Media Indexer 2 Preview
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > The **Azure Media Indexer 2** media processor will be retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 

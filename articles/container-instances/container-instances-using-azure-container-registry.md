@@ -4,7 +4,6 @@ description: Learn how to deploy containers in Azure Container Instances by pull
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -26,6 +25,9 @@ Azure Container Registry provides additional [authentication options](../contain
 
 > [!NOTE]
 > You can't authenticate to Azure Container Registry to pull images during container group deployment by using a [managed identity](container-instances-managed-identity.md) configured in the same container group.
+
+> [!NOTE]
+> You can't pull images from [Azure Container Registry](../container-registry/container-registry-vnet.md) deployed into an Azure Virtual Network at this time.
 
 In the following section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault. 
 

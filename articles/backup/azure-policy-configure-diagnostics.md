@@ -16,7 +16,7 @@ To simplify the creation of diagnostics settings at scale (with LA as the destin
 
 * The policy can be applied at one time to all Recovery Services vaults in a particular subscription (or to a resource group within the subscription). The user assigning the policy needs to have **Owner** access to the subscription to which the policy is assigned.
 
-* The LA Workspace as specified by the user (to which diagnostics data will be sent) can be in a different subscription from the vaults to which the policy is assigned. The user needs to have **Reader**, **Contributor** or **Owner** access to the subscription in which the specified LA Workspace exists.
+* The LA Workspace as specified by the user (to which diagnostics data will be sent) can be in a different subscription from the vaults to which the policy is assigned. The user needs to have **Reader**, **Contributor**, or **Owner** access to the subscription in which the specified LA Workspace exists.
 
 * Management Group scope is currently unsupported.
 

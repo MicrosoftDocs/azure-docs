@@ -6,12 +6,12 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge technical specifications and compliance
+# Technical specifications and compliance for Azure Stack Edge with GPU 
 
 The hardware components of your Azure Stack Edge with an onboard Graphics Processing Unit (GPU) adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe hardware, power supply units (PSUs), storage capacity, enclosures, and environmental standards.
 

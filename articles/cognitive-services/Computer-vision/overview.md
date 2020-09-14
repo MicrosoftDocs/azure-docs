@@ -30,7 +30,7 @@ Computer Vision can power many digital asset management (DAM) scenarios. DAM is 
 
 ## Optical Character Recognition (OCR)
 
-Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses the latest models and works with text on a variety of surfaces and backgrounds. These inclue receipts, posters, business cards, letters, and whiteboards. The two OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](#next-steps) to get started.
+Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses the latest models and works with text on a variety of surfaces and backgrounds. These include receipts, posters, business cards, letters, and whiteboards. The two OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](#next-steps) to get started.
 
 ## Analyze images for insight
 

@@ -17,7 +17,9 @@ ms.author: juliako
 
 ---
 
-# Use Azure CLI to create an Azure AD app and configure it to access Media Services API 
+# Use Azure CLI to create an Azure AD app and configure it to access Media Services API
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)

@@ -384,7 +384,7 @@ The algorithm uses the following logic:
 - When a message is found, the runtime waits two seconds and then checks for another message
 - When no message is found, it waits about four seconds before trying again.
 - After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.
-- The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json.md#queues).
+- The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json-v1.md#queues).
 
 For local development the maximum polling interval defaults to two seconds.
 

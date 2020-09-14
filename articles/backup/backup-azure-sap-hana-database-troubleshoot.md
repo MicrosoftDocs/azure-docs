@@ -92,7 +92,7 @@ Note the following points:
 
 - By default, the restored db name will be populated with the backup item name. In this case, h21(sdc).
 - Selecting the target as H11 won't change the restored db name automatically. **It should be edited to h11(sdc)**. Regarding SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
-- Since SDC can have only single database, you also need to click the checkbox to allow override of the existing database data with the recovery point data.
+- Since SDC can have only single database, you also need to select the checkbox to allow override of the existing database data with the recovery point data.
 - Linux is case-sensitive. So be careful to preserve the case.
 
 ### Multiple Container Database (MDC) restore
@@ -160,7 +160,7 @@ Upgrades from SDC to MDC that don't cause a SID change can be handled as follows
 - Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana)
 - Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register)
-- Click **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC
+- Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC
 - The older SDC database will continue to exist in the vault and have old backed-up data retained according to the policy
 - Configure backup for these databases
 
@@ -173,7 +173,7 @@ Upgrades from SDC to MDC that cause a SID change can be handled as follows:
 - Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana) with correct details (new SID and MDC). Due to a change in SID, you may face issues with successfully running the script. Contact Azure Backup support if you face issues.
 - Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register)
-- Click **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC
+- Select **Rediscover DBs** for the same VM. This action should show the new DBs in step 3 as SYSTEMDB and Tenant DB, not SDC
 - The older SDC database will continue to exist in the vault and have old backed up data retained according to the policy
 - Configure backup for these databases
 

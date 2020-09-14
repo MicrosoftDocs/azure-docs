@@ -1,16 +1,16 @@
 ---
-title: Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device| Microsoft Docs
-description: Describes how to create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device via the Windows PowerShell interface.
+title: Create and manage a Kubernetes cluster on Azure Stack Edge GPU device| Microsoft Docs
+description: Describes how to create and manage a Kubernetes cluster on Azure Stack Edge GPU device via the Windows PowerShell interface.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ---
-# Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge device
+# Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge GPU device
 
 On your Azure Stack Edge device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then you can connect to and manage the cluster locally from a client machine via a native tool such as *kubectl*.
 

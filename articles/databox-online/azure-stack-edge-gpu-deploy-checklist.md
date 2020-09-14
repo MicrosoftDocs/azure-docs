@@ -1,16 +1,16 @@
 ---
-title: Predeployment checklist to deploy Azure Stack Edge device | Microsoft Docs
-description: This article describes the information that can be gathered before you deploy your Azure Stack Edge device.
+title: Predeployment checklist to deploy Azure Stack Edge GPU device | Microsoft Docs
+description: This article describes the information that can be gathered before you deploy your Azure Stack Edge GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/29/2020
+ms.date: 08/31/2020
 ms.author: alkohli 
 ---
-# Deployment checklist for your Azure Stack Edge device  
+# Deployment checklist for your Azure Stack Edge GPU device  
 
 This article describes the information that can be gathered ahead of the actual deployment of your Azure Stack Edge device. 
 

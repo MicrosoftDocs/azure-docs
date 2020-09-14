@@ -1040,7 +1040,9 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 * [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 

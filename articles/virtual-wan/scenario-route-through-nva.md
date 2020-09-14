@@ -42,7 +42,7 @@ The following connectivity matrix, summarizes the flows supported in this scenar
 | **Non-NVA VNets**| &#8594; |   Static |      X   |        X     |      X    |
 | **Branches**     | &#8594; |   Static |      X   |        X     |      X    |
 
-Each of the cells in the connectivity matrix describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow. Consider the following:
+Each of the cells in the connectivity matrix describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow. An "X" means that connectivity is provided natively by Virtual WAN, and "Static" means that connectivity is provided by Virtual WAN using static routes. Consider the following:
 
 * NVA Spokes are not managed by Virtual WAN. As a result, the mechanisms with which they will communicate to other VNets or branches are maintained by the user. Connectivity to the NVA VNet is provided by a VNet peering, and a Default route to 0.0.0.0/0 pointing to the NVA as next hop should cover connectivity to the Internet, to other spokes, and to branches
 * NVA VNets will know about their own NVA spokes, but not about NVA spokes connected to other NVA VNets. For example, in Table 1, VNet 2 knows about VNet 5 and VNet 6, but not about other spokes such as VNet 7 and VNet 8. A static route is required to inject other spokes' prefixes into NVA VNets

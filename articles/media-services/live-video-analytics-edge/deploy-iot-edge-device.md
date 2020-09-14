@@ -33,7 +33,7 @@ If you intend to use Live Video Analytics to record video continuously to the cl
 
 This is an optional step. You can use this Azure CLI command to do so:
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1
 ```
 
@@ -42,7 +42,7 @@ You can use this command to start the streaming endpoint
 > [!IMPORTANT]
 > Your subscription will start getting billed at this point.
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 

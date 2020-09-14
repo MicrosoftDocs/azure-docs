@@ -162,7 +162,7 @@ You can remove a user or a group added to Azure AD Connect Health and Azure RBAC
 [//]: # (End of RBAC section)
 
 ## Next steps
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)

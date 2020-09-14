@@ -18,7 +18,10 @@ ms.author: juliako
 ms.reviewr: cenkdin
 
 ---
-# Creating Filters with Azure Media Services REST API 
+# Creating Filters with Azure Media Services REST API
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)

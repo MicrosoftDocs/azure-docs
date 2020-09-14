@@ -1,6 +1,6 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Stack Edge | Microsoft Docs
-description: Learn how to configure compute role on Azure Stack Edge and use it to transform data before sending to Azure.
+title: Tutorial to filter, analyze data with compute on Azure Stack Edge GPU | Microsoft Docs
+description: Learn how to configure compute role on Azure Stack Edge GPU and use it to transform data before sending to Azure.
 services: databox
 author: alkohli
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Configure compute
-> * Get Kubernetes API endpoint
+> * Get Kubernetes endpoints
 
  
 ## Prerequisites
@@ -101,7 +101,7 @@ To configure a client to access Kubernetes cluster, you will need the Kubernetes
     
         ![Device page in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
 
-        The `aseuser` config file allows you to debug any issues related to `iotedge` namespace in your Kubernetes cluster. For more information, see [Debug Kubernetes issues](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge). 
+        You can use this config file to sign into the Kubernetes dashboard or debug any issues in your Kubernetes cluster. For more information, see [Access Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#access-dashboard). 
 
 
 ## Next steps

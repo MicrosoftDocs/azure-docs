@@ -23,7 +23,7 @@ Create a SQL Managed Instance with the **Enable public endpoint** option selecte
 ## Enable Azure SQL Managed Instance public endpoint
 You can also enable public endpoint on an existing SQL Managed Instance under **Security** > **Virtual network** > **Public endpoint** > **Enable**.
 
-   ![Enable public endpoint](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Enable public endpoint")
+   ![Enable public endpoint using managed instance VNET](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Enable public endpoint")
 
 ## Verify NSG rules
 Check the Network Security Group has the correct **Inbound security rules** that allow connections from Azure services.

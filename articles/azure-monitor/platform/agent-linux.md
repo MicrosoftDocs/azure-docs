@@ -47,11 +47,19 @@ Starting with versions released after August 2018, we are making the following c
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-The python2 executable must be aliased to "python" using the following command:
+The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
 
-```
-alternatives --set python `which python2`
-```
+1. Run the following command to remove any existing aliases.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Run the following command to create the alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## Supported Linux hardening
 The OMS Agent has limited customization support for Linux. 

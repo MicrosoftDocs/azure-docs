@@ -17,6 +17,9 @@ ms.author: juliako
 
 ---
 # Scaling Media Processing overview 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This page gives an overview of how and why to scale media processing. 
 
 ## Overview

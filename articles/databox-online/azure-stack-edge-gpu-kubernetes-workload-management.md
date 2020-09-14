@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/01/2020
 ms.author: alkohli
 ---
 
@@ -23,11 +23,11 @@ The two common types of workloads that you can deploy on your Azure Stack Edge d
 
 - **Stateless applications** do not preserve their state and save no data to persistent storage. All of the user and session data stays with the client. Some examples of stateless applications include web frontends like Nginx, and other web applications.
 
-    You can create a Kubernetes Deployment to deploy a stateless application on your cluster. 
+    You can create a Kubernetes deployment to deploy a stateless application on your cluster. 
 
 - **Stateful applications** require that their state be saved. Stateful applications use persistent storage, such as persistent volumes, to save data for use by the server or by other users. Examples of stateful applications include databases like MongoDB.
 
-    You can create a Kubernetes Deployment to deploy a stateful application. 
+    You can create a Kubernetes deployment to deploy a stateful application. 
 
 ## Deployment flow
 
@@ -43,11 +43,11 @@ There are three primary ways of deploying your workloads. Each of these deployme
 
 ![Kubernetes workload deployment](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Local deployment**: This is through command-line access tool such as `kubectl` that allows you to deploy K8 `yamls`. You connect to the K8 cluster on your Azure Stack Edge that you create by using the `kubeconfig` file. For more information, go to [Access a Kubernetes cluster via kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Local deployment**: This deployment is through the command-line access tool such as `kubectl` that allows you to deploy Kubernetes `yamls`. You access the Kubernetes cluster on your Azure Stack Edge via a `kubeconfig` file. For more information, go to [Access a Kubernetes cluster via kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
-- **IoT Edge deployment**: This is through IoT Edge, which connects to the Azure IoT Hub. You connect to the K8 cluster on your Azure Stack Edge device via the `iotedge` namespace. The IoT Edge agents deployed in this namespace are responsible for connectivity to Azure. You apply the `IoT Edge deployment.json` configuration using Azure DevOps CI/CD. Namespace and IoT Edge management is done through cloud operator.
+- **IoT Edge deployment**: This is through IoT Edge, which connects to the Azure IoT Hub. You connect to the Kubernetes cluster on your Azure Stack Edge device via the `iotedge` namespace. The IoT Edge agents deployed in this namespace are responsible for connectivity to Azure. You apply the `IoT Edge deployment.json` configuration using Azure DevOps CI/CD. Namespace and IoT Edge management is done through cloud operator.
 
-- **Azure/Arc deployment**: Azure Arc is a hybrid management tool that will allow you to deploy applications on your K8 clusters. You connect the K8 cluster on your Azure Stack Edge device via the `azure-arc namespace`. Agents are deployed in this namespace that are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. Azure Arc will also allow you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure-Arc enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Azure/Arc deployment**: Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. You connect the Kubernetes cluster on your Azure Stack Edge device via the `azure-arc namespace`. Agents are deployed in this namespace that are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. Azure Arc will also allow you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure-Arc enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## Choose the deployment type
 
@@ -55,9 +55,9 @@ While deploying applications, consider the following information:
 
 - **Single or multiple types**: You can choose a single deployment option or a mix of different deployment options.
 - **Cloud versus local**: Depending on your applications, you can choose local deployment via kubectl or cloud deployment via IoT Edge and Azure Arc. 
-    - Local deployment is more suited for development scenarios. When you choose a local deployment, you are restricted to the network in which your Azure Stack Edge device is deployed.
+    - When you choose a local deployment, you are restricted to the network in which your Azure Stack Edge device is deployed.
     - If you have a cloud agent that you can deploy, you should deploy your cloud operator and use cloud management.
-- **IoT vs Azure Arc**: Choice of deployment also depends on the intent of your product scenario. If you are deploying applications or containers that have deeper integration with IoT or IoT ecosystem, then you should pick the IoT Edge way of deploying applications. If you have existing Kubernetes deployments, Azure Arc would be the preferred choice.
+- **IoT vs Azure Arc**: Choice of deployment also depends on the intent of your product scenario. If you are deploying applications or containers that have deeper integration with IoT or IoT ecosystem, then select IoT Edge to deploy your applications. If you have existing Kubernetes deployments, Azure Arc would be the preferred choice.
 
 
 ## Next steps
@@ -72,4 +72,4 @@ To deploy an app via IoT Edge, see:
 
 To deploy an app via Azure Arc, see:
 
-- [Deploy an application using Azure Arc](azure-stack-edge-gpu-deploy-sample-module.md).
+- [Deploy an application using Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).

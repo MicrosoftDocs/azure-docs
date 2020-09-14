@@ -11,7 +11,7 @@ ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
-# Kubernetes on your Azure Stack Edge device
+# Kubernetes on your Azure Stack Edge GPU device
 
 Kubernetes is a popular open-source platform to orchestrate containerized applications. This article provides an overview of Kubernetes and then describes how Kubernetes works on your Azure Stack Edge device. 
 

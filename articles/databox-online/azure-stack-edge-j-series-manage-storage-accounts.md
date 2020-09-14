@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ---
@@ -18,7 +18,7 @@ This article describes how to manage Edge storage accounts on your Azure Stack E
 
 ## About Edge storage accounts
 
-You can transfer data from your Azure Stack Edge device via the SMB, NFS, or REST protocols. To transfer data to Blob storage using the REST APIs , you need to create Edge storage accounts on your Azure Stack Edge. 
+You can transfer data from your Azure Stack Edge device via the SMB, NFS, or REST protocols. To transfer data to Blob storage using the REST APIs, you need to create Edge storage accounts on your Azure Stack Edge. 
 
 The Edge storage accounts that you add on the Azure Stack Edge device are mapped to Azure Storage accounts. Any data written to the Edge storage accounts is automatically pushed to the cloud.
 

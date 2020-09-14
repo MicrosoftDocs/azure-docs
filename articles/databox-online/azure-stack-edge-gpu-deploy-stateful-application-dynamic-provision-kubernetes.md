@@ -1,6 +1,6 @@
 ---
-title: Use kubectl to deploy Kubernetes stateful app via dynamically provisioned share on Azure Stack Edge device| Microsoft Docs
-description: Describes how to create and manage a Kubernetes stateful application deployment via a dynamically provisioned share using kubectl on a Microsoft Azure Stack Edge device.
+title: Use kubectl to deploy Kubernetes stateful app via dynamically provisioned share on Azure Stack Edge GPU device| Microsoft Docs
+description: Describes how to create and manage a Kubernetes stateful application deployment via a dynamically provisioned share using kubectl on a Microsoft Azure Stack Edge GPU device.
 services: databox
 author: alkohli
 
@@ -11,7 +11,7 @@ ms.date: 08/26/2020
 ms.author: alkohli
 ---
 
-# Use kubectl to run a Kubernetes stateful application with StorageClass on your Azure Stack Edge device
+# Use kubectl to run a Kubernetes stateful application with StorageClass on your Azure Stack Edge GPU device
 
 This article shows you how to deploy a single-instance stateful application in Kubernetes using a StorageClass to dynamically provision storage and a deployment. The deployment uses `kubectl` commands on an existing Kubernetes cluster and deploys the MySQL application. 
 

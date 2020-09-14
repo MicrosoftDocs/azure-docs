@@ -45,6 +45,7 @@ Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes a
 ## Prebuilt models
 
 Form Recognizer also includes Prebuilt models for unique form types.
+
 ### Prebuilt Receipt model
 The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. 
 
@@ -71,9 +72,11 @@ Follow a quickstart to get started extracting data from your forms. We recommend
     * [Train without labels - cURL](quickstarts/curl-train-extract.md)
     * [Train without labels - Python](quickstarts/python-train-extract.md)
     * [Train with labels - Python](quickstarts/python-labeled-data.md)
-  * Extract data from USA sales receipts
+  * Extract data from sales receipts
     * [Extract receipt data - cURL](quickstarts/curl-receipts.md)
     * [Extract receipt data - Python](quickstarts/python-receipts.md)
+  * Extract data from business cards
+    * [Extract business card data - Python](quickstarts/python-business-cards.md)
   * Extract text and table structure from forms
     * [Extract layout data - Python](quickstarts/python-layout.md)
 
@@ -87,6 +90,7 @@ You'll use the following APIs to train models and extract structured data from f
 | **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
 | **Analyze Form** |Analyze a single document passed in as a stream to extract text, key/value pairs and tables from the form with your custom model.  |
 | **Analyze Receipt** |Analyze a single receipt document to extract key information and other receipt text.|
+| **Analyze Business Card** |Analyze a business card to extract key information and text.|
 | **Analyze Layout** |Analyze the layout of a form to extract text and table structure.|
 
 Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
