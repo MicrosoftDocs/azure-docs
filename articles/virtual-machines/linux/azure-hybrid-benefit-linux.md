@@ -143,6 +143,7 @@ A: It may take some time for your Red Hat Cloud Access subscription registration
 
 ## Common errors
 This section contains a list of common errors and steps for mitigation.
+
 | Error | Mitigation |
 | ----- | ---------- |
 | "The subscription is not registered for the Linux private preview of Azure Hybrid Benefit. For step-by-step instructions, refer to https://aka.ms/ahb-linux" |Fill out the form at https://aka.ms/ahb-linux-form to register for the Linux preview of the Azure Hybrid Benefit.
