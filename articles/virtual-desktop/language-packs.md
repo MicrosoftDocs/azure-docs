@@ -232,7 +232,7 @@ To run sysprep:
 
 ## Enable languages in Windows settings app
 
-Finally, after host pool deployement you'll need to add the language to each user's language list so they can select their preferred language in the Settings menu.
+Finally, after you deploy the host pool, you'll need to add the language to each user's language list so they can select their preferred language in the Settings menu.
 
 To ensure your users can select the languages you installed, sign in as the user, then run the following PowerShell cmdlet to add the installed language packs to the Languages menu. You can also set up this script as an automated task or logon script that activates when the user signs in to their session.
 
