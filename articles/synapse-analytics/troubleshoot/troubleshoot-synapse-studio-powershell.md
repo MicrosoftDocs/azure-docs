@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Synapse Studio (preview) connectivity PowerShell 
+title: Troubleshoot Synapse Studio (preview) connectivity with PowerShell 
 description: Troubleshoot Azure Synapse Studio connectivity using PowerShell
 author: julieMSFT 
 ms.service: synapse-analytics 

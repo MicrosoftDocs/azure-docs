@@ -5,26 +5,28 @@ titleSuffix: Azure Media Services
 description: Learn about terminology and concepts for Azure Media Services.
 services: media-servicesgit
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 02/18/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
 
 # Media Services terminology and concepts
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 This topic gives a brief overview of Azure Media Services terminology and concepts. The article also provides links to articles with an in-depth explanation of Media Services v3 concepts and functionality.
 
 The fundamental concepts described in these topics should be reviewed before starting development.
 
 > [!NOTE]
-> Currently, you can use the [Azure portal](https://portal.azure.com/) to: manage Media Services v3 [Live Events](live-events-outputs-concept.md), view (not manage) v3 [Assets](assets-concept.md), and [get info about accessing APIs](access-api-portal.md).
+> Currently, you can use the [Azure portal](https://portal.azure.com/) to: manage Media Services v3 [Live Events](live-events-outputs-concept.md), view (not manage) v3 [Assets](assets-concept.md), and [get info about accessing APIs](./access-api-howto.md).
 > For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -42,7 +44,7 @@ The fundamental concepts described in these topics should be reviewed before sta
 |---|---|---|
 |Assets and uploading content|To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account and upload your digital files into **Assets**.|[Cloud upload and storage](storage-account-concept.md)<br/><br/>[Assets concept](assets-concept.md)|
 |Encoding content|Once you upload your high-quality digital media files into Assets, you can encode them into formats that can be played on a wide variety of browsers and devices. <br/><br/>To encode with Media Services v3, you need to create **Transforms** and **Jobs**.|[Transforms and Jobs](transforms-jobs-concept.md)<br/><br/>[Encoding with Media Services](encoding-concept.md)|
-|Analyzing content (Video Indexer)|Media Services v3 lets you extract insights from your video and audio files using Media Services v3 presets. To analyze your content using Media Services v3 presets, you need to create **Transforms** and **Jobs**.<br/><br/>If you want more detailed insights, use [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) directly.|[Analyzing video and audio files](analyzing-video-audio-files-concept.md)|
+|Analyzing content (Video Indexer)|Media Services v3 lets you extract insights from your video and audio files using Media Services v3 presets. To analyze your content using Media Services v3 presets, you need to create **Transforms** and **Jobs**.<br/><br/>If you want more detailed insights, use [Video Indexer](../video-indexer/index.yml) directly.|[Analyzing video and audio files](analyzing-video-audio-files-concept.md)|
 |Packaging and delivery|Once your content is encoded, you can take advantage of **Dynamic Packaging**. In Media Services, a **Streaming Endpoint** is the dynamic packaging service used to deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. <br/><br/>When creating the **Streaming Locator**, in addition to the asset's name, you need to specify **Streaming Policy**. **Streaming Policies** enable you to define streaming protocols and encryption options (if any) for your **Streaming Locators**. Dynamic Packaging is used whether you stream your content live or on-demand. <br/><br/>You can use Media Services **Dynamic Manifests** to stream only a specific rendition or subclips of your video.|[Dynamic packaging](dynamic-packaging-overview.md)<br/><br/>[Streaming Endpoints](streaming-endpoint-concept.md)<br/><br/>[Streaming Locators](streaming-locators-concept.md)<br/><br/>[Streaming Policies](streaming-policy-concept.md)<br/><br/>[Dynamic manifests](filters-dynamic-manifest-overview.md)<br/><br/>[Filters](filters-concept.md)|
 |Content protection|With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. <br/><br/>If specifying encryption options on your stream, create the **Content Key Policy** and associate it with your **Streaming Locator**. The **Content Key Policy** enables you to configure how the content key is delivered to end clients.<br/><br/> Try to reuse policies whenever the same options are needed.| [Content Key Policies](content-key-policy-concept.md)<br/><br/>[Content protection](content-protection-overview.md)|
 |Live streaming|Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoint**. A live event can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). |[Live streaming overview](live-streaming-overview.md)<br/><br/>[Live Events and Live Outputs](live-events-outputs-concept.md)|

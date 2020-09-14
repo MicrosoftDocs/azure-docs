@@ -98,7 +98,7 @@ The following network settings are available in Azure Red Hat OpenShift 4:
     * "Private" routes will default to internal load balancer (this can be changed).
 
 ## Network security groups
-Network security groups will be created in the nodes' resource group, which is locked. The network security groups are assigned directly to the subnets not on the node's NICs. The network security groups are immutable, which means you do not have the permissions to change them. 
+Network security groups will be created in the node's resource group, which is locked. The network security groups are assigned directly to the subnets, not on the node's NICs. The network security groups are immutable, which means you do not have the permissions to change them. 
 
 However, with a publicly visible API server, you cannot create network security groups and assign them to the NICs.
 

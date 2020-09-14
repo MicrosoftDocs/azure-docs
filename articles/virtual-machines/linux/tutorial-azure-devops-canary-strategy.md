@@ -27,7 +27,7 @@ This article shows how to set up a CI/CD pipeline that uses the canary strategy 
 
 ### Configure CI/CD on virtual machines
 
-You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
+You can add virtual machines as targets to a [deployment group](/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
 
 ### Canary deployments
 
@@ -85,5 +85,5 @@ You can get started with Azure easily. With Azure DevOps Projects, start running
 
 ## Additional resources
 
-- [Deploy to Azure virtual machines by using Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implement continuous deployment of your app to an Azure virtual machine scale set](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Deploy to Azure virtual machines by using Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implement continuous deployment of your app to an Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

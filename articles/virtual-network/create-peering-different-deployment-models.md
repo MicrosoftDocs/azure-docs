@@ -140,7 +140,7 @@ Complete the following steps using the Azure classic CLI and the Azure CLI. You 
 
 ## <a name="powershell"></a>Create peering - PowerShell
 
-1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [Az](https://www.powershellgallery.com/packages/Az/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [Az](https://www.powershellgallery.com/packages/Az/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
 3. In PowerShell, sign in to Azure by entering the `Add-AzureAccount` command. The account you sign in with must have the necessary permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#requirements-and-constraints).
 4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:

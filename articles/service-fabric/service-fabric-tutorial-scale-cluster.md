@@ -33,7 +33,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
 
 ## Important considerations and guidelines
@@ -59,7 +59,7 @@ For more information, read [cluster capacity guidance](service-fabric-cluster-ca
 
 ## Export the template for the resource group
 
-After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) and setting up your resource group successfully, export the Resource Manager template for the resource group. Exporting the template allows you to automate future deployments of the cluster and its resources because the template contains all the complete infrastructure.  For more info on exporting templates, read [Manage Azure Resource Manager resource groups by using the Azure portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) and setting up your resource group successfully, export the Resource Manager template for the resource group. Exporting the template allows you to automate future deployments of the cluster and its resources because the template contains all the complete infrastructure.  For more info on exporting templates, read [Manage Azure Resource Manager resource groups by using the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group containing the cluster (**sfclustertutorialgroup**, if you are following this tutorial). 
 
@@ -830,7 +830,7 @@ Foreach($node in $nodes)
 ```
 
 ## Increase node resources 
-After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs by replacing the original node type with a new node type (with updated VM SKU or OS image). For further details, see [Scale up an Azure Service Fabric node type](service-fabric-scale-up-node-type.md).
+After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs by replacing the original node type with a new node type (with updated VM SKU or OS image). For further details, see [Scale up an Azure Service Fabric node type](service-fabric-scale-up-primary-node-type.md).
 
 > [!IMPORTANT]
 > Never attempt an in-place change of VM SKU or OS image, which is a dangerous operation and unsupported.

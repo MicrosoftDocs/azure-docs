@@ -15,7 +15,7 @@ A lab is the infrastructure that encompasses a group of resources, such as Virtu
 ## Virtual machine
 An Azure VM is one of several types of [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it, although you still need to maintain the VM by performing certain tasks, such as configuring, patching, and installing the software that runs on it.
 
-[Overview of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+[Overview of Windows virtual machines in Azure](../virtual-machines/windows/overview.md) gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
 ## Claimable VM
 An Azure Claimable VM is a virtual machine that is available for use by any lab user with permissions. A lab admin can prepare VMs with specific base images and artifacts and save them to a shared pool. A lab user can then claim a working VM from the pool when they need one with that specific configuration.
@@ -23,7 +23,7 @@ An Azure Claimable VM is a virtual machine that is available for use by any lab 
 A VM that is claimable is not initially assigned to any particular user, but will show up in every user's list under "Claimable virtual machines". After a VM is claimed by a user, it is moved up to their "My virtual machines" area and is no longer claimable by any other user.
 
 ## Environment
-In DevTest Labs, an environment refers to a collection of Azure resources in a lab. [This blog post](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) discusses how to create multi-VM environments from your Azure Resource Manager templates.
+In DevTest Labs, an environment refers to a collection of Azure resources in a lab. [This blog post](./devtest-lab-faq.md#blog-post) discusses how to create multi-VM environments from your Azure Resource Manager templates.
 
 ## Base images
 Base images are VM images with all the tools and settings preinstalled and configured to quickly create a VM. You can provision a VM by picking an existing base and adding an artifact to install your test agent. You can then save the provisioned VM as a base so that the base can be used without having to reinstall the test agent for each provisioning of the VM.
@@ -52,7 +52,7 @@ Policies help in controlling cost in your lab. For example, you can create a pol
 Caps is a mechanism to minimize waste in your lab. For example, you can set a cap to restrict the number of VMs that can be created per user, or in a lab.
 
 ## Security levels
-Security access is determined by Azure Role-Based Access Control (RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC.
+Security access is determined by Azure role-based access control (Azure RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC.
 
 * Permission - A permission is a defined access to a specific action (e.g. read-access to all virtual machines).
 * Role - A role is a set of permissions that can be grouped and assigned to a user. For example, the *subscription owner* role has access to all resources within a subscription.
@@ -70,7 +70,7 @@ Since scopes are hierarchical, when a user has permissions at a certain scope, t
 ## Azure Resource Manager templates
 All of the concepts discussed in this article can be configured by using Azure Resource Manager templates, which let you define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
 
-[Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
+[Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

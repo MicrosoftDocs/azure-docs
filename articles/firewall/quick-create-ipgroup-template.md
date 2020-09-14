@@ -1,34 +1,36 @@
 ---
 title: 'Quickstart: Create an Azure Firewall and IP Groups - Resource Manager template'
-description: Learn how to use a Resource Manager template to create an Azure Firewall and IP Groups.
+description: In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to create an Azure Firewall and IP Groups.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/06/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 
-# Quickstart: Create an Azure Firewall and IP Groups - Resource Manager template
+# Quickstart: Create an Azure Firewall and IP Groups - ARM template
 
-In this quickstart, you use a Resource Manager template to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule. An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule. An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create an Azure Firewall and IP Groups
+## Review the template
 
 This template creates an Azure Firewall and IP Groups, along with the necessary resources to support the Azure Firewall.
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
-
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
+:::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -42,9 +44,9 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-### Deploy the template
+## Deploy the template
 
-Deploy Resource Manager template to Azure:
+Deploy the ARM template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, the network infrastructure, and two virtual machines.
 
@@ -71,7 +73,7 @@ In the Azure portal, review the deployed resources, especially the firewall rule
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Network rules.":::
 
-To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
 ## Clean up resources
 

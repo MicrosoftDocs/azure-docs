@@ -68,7 +68,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> The -EnableSoftDelete flag must be used for TLS termination to function properly. If you're configuring [Key Vault soft-delete through the Portal](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), the retention period must be kept at 90 days, the default value. Application Gateway doesn't support a different retention period yet. 
+> The -EnableSoftDelete flag must be used for TLS termination to function properly. If you're configuring [Key Vault soft-delete through the Portal](../key-vault/general/soft-delete-overview.md#soft-delete-behavior), the retention period must be kept at 90 days, the default value. Application Gateway doesn't support a different retention period yet. 
 
 ### Create a virtual network
 

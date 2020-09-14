@@ -30,10 +30,7 @@ Currently, integrated security solutions include vulnerability assessment by [Qu
 > [!NOTE]
 > Security Center does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 
-To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to standard tier customers, see: 
-
-- [Integrated vulnerability scanner for virtual machines](built-in-vulnerability-assessment.md).
-- [Deploying a partner vulnerability scanning solution](partner-vulnerability-assessment.md).
+To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to standard tier customers, see [vulnerability assessments for your Azure Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 Security Center also offers vulnerability analysis for your:
 
@@ -86,7 +83,7 @@ Select **VIEW** for additional information and options such as:
 Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), and partner solutions.
 
 > [!NOTE]
-> The Standard tier of Security Center is required at the subscription level for the discovered solutions feature. See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
+> The standard tier of Security Center is required at the subscription level for the discovered solutions feature. See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
 >
 
 Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.

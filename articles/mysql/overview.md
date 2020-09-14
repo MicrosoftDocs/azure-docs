@@ -33,6 +33,9 @@ For a set of Azure CLI samples, see:
 
 - [Azure CLI samples for Azure Database for MySQL](sample-scripts-azure-cli.md)
 
+## Automated patching
+The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates for the underlying hardware, OS and database engine. For MySQL engine, minor version upgrades are automatic and included as part of the patching release. When the community releases a minor version, it is automatically integrated as part of the testing cycle for the service. The testing of the minor version is performed on some of the canonical workloads for MySQL. The minor versions release of MySQL engine is evaluated for reliability (no crashes), availability, security and performance. Not every minor version is released to production in the service but is evaluted based on the criticality of the bug fixes and new incremental value. This is to strike the right balance between new incremental value and minimizing the variables in the system for stability. There is no user action or configuration settings required for patching. The patching frequency is service managed based on the criticality of the payload. In general, the service follows monthly release schedule as part of the continuous integration and release. Users can subscribe to the [planned maintenance notification](concepts-monitoring.md) to receive notification of the upcoming maintenance 72 hours before the event.
+
 ## Adjust performance and scale within seconds
 The Azure Database for MySQL service offers several service tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-service-tiers.md) for details.
 
@@ -59,4 +62,11 @@ Now that you've read an introduction to Azure Database for MySQL and answered th
 
 - See the pricing page for cost comparisons and calculators. [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 - Get started by creating your first server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Build your first app using your preferred language: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)
+- Build your first app using your preferred language:
+  - [Python](./connect-python.md)
+  - [Node.JS](./connect-nodejs.md)
+  - [Java](./connect-java.md)
+  - [Ruby](./connect-ruby.md)
+  - [PHP](./connect-php.md)
+  - [.NET (C#)](./connect-csharp.md)
+  - [Go](./connect-go.md)

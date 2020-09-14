@@ -15,7 +15,7 @@ manager: dikamath
 
 For administrative access to your Private Cloud vCenter, you can temporarily escalate your CloudSimple privileges.  Using elevated privileges, you can install VMware solutions, add identity sources, and manage users.
 
-New users can be created on the vCenter SSO domain and given access to vCenter.  When you create new users, add them to the CloudSimple builtin groups for accessing vCenter.  For more information, see [CloudSimple Private Cloud permission model of VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
+New users can be created on the vCenter SSO domain and given access to vCenter.  When you create new users, add them to the CloudSimple builtin groups for accessing vCenter.  For more information, see [CloudSimple Private Cloud permission model of VMware vCenter](./learn-private-cloud-permissions.md).
 
 > [!CAUTION]
 > Don’t make any configuration changes for management components. Actions taken during the escalated privileged state can adversely impact your system or can cause your system to become unavailable.
@@ -83,5 +83,5 @@ Once your administrative tasks are complete, you should de-escalate your privile
 
 ## Next steps
 
-* [Set up vCenter identity sources to use Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
-* Install backup solution to [backup workload virtual machines](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)
+* [Set up vCenter identity sources to use Active Directory](./set-vcenter-identity.md)
+* Install backup solution to [backup workload virtual machines](./backup-workloads-veeam.md)

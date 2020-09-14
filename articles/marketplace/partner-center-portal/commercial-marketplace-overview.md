@@ -1,6 +1,6 @@
 ---
-title: Overview of the Commercial Marketplace portal in Partner Center 
-description: Learn more about the Commercial Marketplace portal in Partner Center and how to list and sell offers on Azure Marketplace, AppSource, and through the Cloud Solution Provider (CSP) program.
+title: Overview of the commercial marketplace portal in Partner Center 
+description: Learn more about the Microsoft commercial marketplace portal in Partner Center and how to list and sell offers on Azure Marketplace, AppSource, and through the Cloud Solution Provider (CSP) program.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.author: keferna
 ms.date: 05/19/2020
 ---
 
-# Overview of the Commercial Marketplace Portal in Partner Center
+# Overview of the commercial marketplace Portal in Partner Center
 
-Welcome to the Commercial Marketplace Portal in Partner Center. The [commercial marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/) helps you monetize your products and services, reach customers, and grow your business.
+Welcome to the commercial marketplace Portal in Partner Center. The [commercial marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/) helps you monetize your products and services, reach customers, and grow your business.
 
 These articles cover the basics of creating and using your Partner Center account. This includes creating new offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), managing your existing offers that were migrated from the Cloud Partner Portal, and providing resources to help with questions and collect your feedback.
 
@@ -23,9 +23,9 @@ Partner Center is the hub of a Microsoft partner experience. For organizations w
 
 ## Migration from the Cloud Partner Portal
 
-Partner Center is evolving to better integrate all aspects of our relationship with software publishers. As part of this evolution, we have migrated all commercial marketplace offer management from the [Cloud Partner Portal](https://cloudpartner.azure.com/) to Partner Center.
+Partner Center is evolving to better integrate all aspects of our relationship with software publishers. As part of this evolution, we have migrated all commercial marketplace offer management from the Cloud Partner Portal (CPP) to Partner Center.
 
-Existing publishers who previously used the Cloud Partner Portal will find a familiar but improved and intuitive user experience with Partner Center. Users will be seamlessly directed to the appropriate location. Customers won't be affected by this partner experience upgrade.
+Existing publishers who previously used the CPP will find a familiar but improved and intuitive user experience with Partner Center. Users will be seamlessly directed to the appropriate location. Customers won't be affected by this partner experience upgrade.
 
 ### Improvements on publishing and offer management user experience
 

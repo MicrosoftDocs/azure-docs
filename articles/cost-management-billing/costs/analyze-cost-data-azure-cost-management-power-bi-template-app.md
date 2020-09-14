@@ -3,9 +3,10 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Azure Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
-ms.topic: conceptual
+ms.date: 07/24/2020
+ms.topic: how-to
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: benshy
 ---
 
@@ -13,9 +14,12 @@ ms.reviewer: benshy
 
 This article explains how to install and use the Azure Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-You download the app into Power BI Desktop. You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
+You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
 
 The Azure Cost Management Power BI App currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
+> [!NOTE]
+> Power BI template apps don't support downloading the PBIX file.
 
 ## Prerequisites
 

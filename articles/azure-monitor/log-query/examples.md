@@ -12,7 +12,7 @@ ms.date: 03/16/2020
 # Azure Monitor log query examples
 This article includes various examples of [queries](log-query-overview.md) using the [Kusto query language](/azure/kusto/query/) to retrieve different types of log data from Azure Monitor. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
 
-See the [Kusto language reference](https://docs.microsoft.com/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Azure Monitor.
+See the [Kusto language reference](/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Azure Monitor.
 
 ## Events
 
@@ -371,7 +371,7 @@ suspicious_users_that_later_logged_in
 
 ## Usage
 
-The `Usage` data type can be used to track the ingested data volume by solution or data type. There are other techniques to study ingested data volumes by [computer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) or [Azure subscription, resource group or resource](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+The `Usage` data type can be used to track the ingested data volume by solution or data type. There are other techniques to study ingested data volumes by [computer](../platform/manage-cost-storage.md#data-volume-by-computer) or [Azure subscription, resource group or resource](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### Data volume by solution
 

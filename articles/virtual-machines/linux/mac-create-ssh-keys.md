@@ -4,7 +4,7 @@ description: How to create and use an SSH public-private key pair for Linux VMs 
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
 
@@ -12,7 +12,7 @@ ms.author: cynthn
 
 # Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure
 
-With a secure shell (SSH) key pair, you can create virtual machines (VMs) in Azure that use SSH keys for authentication, eliminating the need for passwords to sign in. This article shows you how to quickly generate and use an SSH public-private key file pair for Linux VMs. You can complete these steps with the Azure Cloud Shell, a macOS or Linux host, the Windows Subsystem for Linux, and other tools that support OpenSSH. 
+With a secure shell (SSH) key pair, you can create virtual machines (VMs) in Azure that use SSH keys for authentication. This article shows you how to quickly generate and use an SSH public-private key file pair for Linux VMs. You can complete these steps with the Azure Cloud Shell, a macOS or Linux host. 
 
 > [!NOTE]
 > VMs created using SSH keys are by default configured with passwords disabled, which greatly increases the difficulty of brute-force guessing attacks. 
@@ -33,10 +33,10 @@ The following command creates an SSH key pair using RSA encryption and a bit len
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-If you use the [Azure CLI](/cli/azure) to create your VM with the [az vm create](/cli/azure/vm#az-vm-create) command, you can optionally generate SSH public and private key files using the `--generate-ssh-keys` option. The key files are stored in the ~/.ssh directory unless specified otherwise with the `--ssh-dest-key-path` option. The `--generate-ssh-keys` option will not overwrite existing key files, instead returning an error. In the following command, replace *VMname* and *RGname* with your own values:
+If you use the [Azure CLI](/cli/azure) to create your VM with the [az vm create](/cli/azure/vm#az-vm-create) command, you can optionally generate SSH public and private key files using the `--generate-ssh-keys` option. The key files are stored in the ~/.ssh directory unless specified otherwise with the `--ssh-dest-key-path` option. If an ssh key pair already exists and the  `--generate-ssh-keys` option is used, a new key pair will not be generated but instead the existing key pair will be used. In the following command, replace *VMname* and *RGname* with your own values:
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --generate-ssh-keys 
+az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 
 ```
 
 ## Provide an SSH public key when deploying a VM
@@ -92,4 +92,4 @@ If the VM is using the just-in-time access policy, you need to request access be
 
 * For more information on working with SSH key pairs, see [Detailed steps to create and manage SSH key pairs](create-ssh-keys-detailed.md).
 
-* If you have difficulties with SSH connections to Azure VMs, see [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md).
+* If you have difficulties with SSH connections to Azure VMs, see [Troubleshoot SSH connections to an Azure Linux VM](../troubleshooting/troubleshoot-ssh-connection.md).

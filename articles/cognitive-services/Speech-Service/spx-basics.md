@@ -20,7 +20,27 @@ In this article, you learn the basic usage patterns of the Speech CLI, a command
 
 ## Basic usage
 
-This section shows a few basic SPX commands that are often useful for first-time testing and experimentation. Start by performing some speech recognition using your default microphone by running the following command.
+This section shows a few basic SPX commands that are often useful for first-time testing and experimentation. Start by viewing the help built in to the tool by running the following command.
+
+```shell
+spx
+```
+
+Notice **see:** help topics listed right of command parameters. You can enter these commands to get detailed help about sub-commands.
+
+You can search help topics by keyword. For example, enter the following command to see a list of Speech CLI usage examples:
+
+```shell
+spx help find --topics "examples"
+```
+
+Enter the following command to see options for the recognize command:
+
+```shell
+spx help recognize
+```
+
+Now use the Speech service to perform some speech recognition using your default microphone by running the following command.
 
 ```shell
 spx recognize --microphone
@@ -57,7 +77,7 @@ The commands in the previous section are great for quickly seeing how the Speech
 If you have a directory of audio files, it's easy with the Speech CLI to quickly run batch-speech recognition. Simply run the following command, pointing to your directory with the `--files` command. In this example, you append `\*.wav` to the directory to recognize all `.wav` files present in the dir. Additionally, specify the `--threads` argument to run the recognition on 10 parallel threads.
 
 > [!NOTE]
-> The `--threads` argument can be also used in the next section for `spx synthesize` commands, and the available threads will depend on the CPU and it's current load percentage.
+> The `--threads` argument can be also used in the next section for `spx synthesize` commands, and the available threads will depend on the CPU and its current load percentage.
 
 ```shell
 spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\speech_output.tsv --threads 10

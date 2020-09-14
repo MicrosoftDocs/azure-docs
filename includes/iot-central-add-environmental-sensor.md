@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: iot-central
  ms.topic: include
- ms.date: 03/12/2020
+ ms.date: 07/07/2020
  ms.author: dobett
  ms.custom: include file
 ---
@@ -74,12 +74,11 @@ In your Azure IoT Central application, add a real device to the device template 
 
 1. On the **Devices** page, select the **Environmental sensor** device template.
 
-    > [!TIP]
-    > Be sure to select the template to use before you select **+ New**, otherwise you'll create an unassociated device.
-
 1. Select **+ New**.
 
-1. Make sure that **Simulated** is **Off**. Then select **Create**.
+1. In the **Create a new device** dialog, make sure that **Environmental Sensor** is the template type and that **Simulate this device?** is set to **No**.
+
+1. Then select **Create**.
 
 Click on the device name, and then select **Connect**. Make a note of the device connection information on the **Device Connection** page - **ID scope**, **Device ID**, and **Primary key**. You need these values when you create your device code:
 

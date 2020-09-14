@@ -22,7 +22,7 @@
     href: create-blueprint-rest-api.md
   - name: Create a blueprint - ARM template
     displayName: assign, compliance, resource manager
-    href: ../../azure-resource-manager/templates/deploy-to-subscription.md??toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json
+    href: ../../azure-resource-manager/templates/deploy-to-subscription.md?toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json#azure-blueprints
 - name: Tutorials
   items:
   - name: Create from a blueprint sample
@@ -41,9 +41,15 @@
     href: ./samples/azure-security-benchmark.md
   - name: Australian Government ISM PROTECTED
     items:
+    - name: Overview
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/index.md
     - name: Control mapping
       displayName: standards, Australian, Government, ISM, PROTECTED
       href: ./samples/ism-protected/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/deploy.md
   - name: Canada Federal PBMM
     items:
     - name: Overview
@@ -102,17 +108,9 @@
     - name: Steps to deploy
       displayName: standards, fedramp, high
       href: ./samples/fedramp-h/deploy.md
-  - name: HIPAA HITRUST
-    items:
-    - name: Overview
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/index.md
-    - name: Control mapping
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/deploy.md
+  - name: HIPAA HITRUST 9.2
+    displayName: standards, HIPAA HITRUST
+    href: ./samples/hipaa-hitrust-9-2.md
   - name: IRS 1075
     items:
     - name: Overview

@@ -4,7 +4,7 @@ description: This article highlights how to register data sources in Azure Data 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 # Register data sources in Azure Data Catalog

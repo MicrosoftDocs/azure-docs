@@ -35,10 +35,10 @@ With Scheduled Events, your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 
-- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
+- [Platform initiated maintenance](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (for example, VM reboot, live migration or memory preserving updates for host)
 - Virtual machine is running on [degraded host hardware](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) that is predicted to fail soon
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
-- [Spot VM](spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions.
+- [Spot VM](../spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions.
 
 ## The Basics  
 
@@ -136,7 +136,7 @@ In the case where there are scheduled events, the response contains an array of 
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
 | NotBefore| Time after which this event can start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 | Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
-| EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platfrom. <li>`User`: This event is initiated by user. |
+| EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platform. <li>`User`: This event is initiated by user. |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
@@ -186,7 +186,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -230,4 +230,4 @@ if __name__ == '__main__':
 - Watch [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) to see a demo. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events GitHub repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
-- Learn about [planned maintenance for Linux virtual machines in Azure](planned-maintenance.md).
+- Learn about [planned maintenance for Linux virtual machines in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json).

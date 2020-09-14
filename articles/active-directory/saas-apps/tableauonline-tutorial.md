@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Tableau Online | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Tableau Online.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1d4b1149-ba3b-4f4e-8bce-9791316b730d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Online
 

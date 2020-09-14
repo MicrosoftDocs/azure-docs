@@ -1,5 +1,5 @@
 ---
-title: Apache Spark in Azure Synapse Analytics - Core Concepts
+title: Apache Spark core concepts
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different concepts.
 services: synapse-analytics 
 author: euangMS 

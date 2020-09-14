@@ -32,6 +32,6 @@ When the volume container has no associated volumes, backup policies, and cloud 
 
 The list of volume containers is updated to reflect the deleted volume container.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
+![Screenshot of the Volume container page. The tabular list of volume containers no longer contains the deleted container.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
 
 

@@ -65,7 +65,7 @@ Some configuration changes may take some time to take effect.  Allow for several
    
 <a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2FApp-Service-Environment-AzFirewall%2Fazuredeploy.json" target="_blank">
 
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png"/>
+<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png" alt="Button to Deploy to Azure Gov" />
 </a>
 
 This template deploys an **ILB ASE** into the Azure Government or Azure DoD regions.

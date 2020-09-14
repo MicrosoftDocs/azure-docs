@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
@@ -91,7 +91,7 @@ You can combine the two models. Provisioning throughput on both the database and
 
 After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. 
 
-To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) of a database or container, find the maximum of:
+To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-database-operations) of a database or container, find the maximum of:
 
 * 400 RU/s 
 * Current storage in GB * 10 RU/s

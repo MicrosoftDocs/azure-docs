@@ -7,8 +7,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/28/2020
+ms.date: 08/17/2020
 ms.author: pafarley
+ms.custom: "devx-track-javascript, devx-track-csharp"
 zone_pivot_groups: programming-languages-set-ten
 ---
 

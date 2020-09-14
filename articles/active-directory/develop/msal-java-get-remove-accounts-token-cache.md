@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 #Customer intent: As an application developer using the Microsoft Authentication Library for Java (MSAL4J), I want to learn how to get and remove accounts stored in the token cache.
 ---
 

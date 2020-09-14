@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: overview
 ---
 # What is Azure Blueprints?
@@ -148,7 +148,7 @@ To assign or unassign a blueprint, your account needs the following permissions:
 
 The following built-in roles are available:
 
-|RBAC Role | Description |
+|Azure role | Description |
 |-|-|
 |[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
 |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |

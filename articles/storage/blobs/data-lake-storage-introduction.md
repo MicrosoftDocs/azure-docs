@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 Introduction
-description: Provides an overview of Azure Data Lake Storage Gen2 
+description: Read an introduction to Azure Data Lake Storage Gen2. Learn key features. Review supported Blob storage features, Azure service integrations, and platforms.
 author: normesta
 ms.service: storage
 ms.topic: overview

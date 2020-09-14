@@ -126,7 +126,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
-  **DeviceModel** |  |
+  DeviceModel | Description |
   --- | ---
   Type (node, gateway)  | Type of the device - Node or Gateway |
   Manufacturer  | Name of the manufacturer |
@@ -135,7 +135,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Name  | Name to identify resource. For example, model name or product name. |
   Description  | Provide a meaningful description of the model. |
   Properties  | Additional properties from the manufacturer. |
-  **Device** |  |
+  **Device** | **Description** |
   DeviceModelId  |ID of the associated device model. |
   HardwareId   |Unique ID for the device, such as a MAC address.  |
   ReportingInterval |Reporting interval in seconds. |
@@ -144,7 +144,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user-defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
   Properties  |Additional properties from the manufacturer.  |
-  **SensorModel** |  |
+  **SensorModel** | **Description** |
   Type (analog, digital)  |Mention analog or digital sensor.|
   Manufacturer  | Name of manufacturer. |
   ProductCode  | Product code or model name or number. For example, RS-CO2-N01.  |
@@ -158,7 +158,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Name  | Name to identify resource. For example, the model name or product name.
   Description  | Provide a meaningful description of the model.
   Properties  | Additional properties from the manufacturer.
-  **Sensor**  |  |
+  **Sensor**  | **Description** |
   HardwareId  | Unique ID for the sensor set by the manufacturer.
   SensorModelId  | ID of the associated sensor model.
   Location  | Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).

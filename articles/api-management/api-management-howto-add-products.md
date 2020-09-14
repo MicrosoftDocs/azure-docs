@@ -1,6 +1,6 @@
 ---
 title: How to create and publish a product in Azure API Management
-description: Learn how to create and publish products in Azure API Management.
+description: Learn how to create and publish products in Azure API Management. Once a product is published, developers can begin to use the product's APIs.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -81,7 +81,7 @@ Developers must first subscribe to a product to get access to the API. When they
 4. Choose an API and click **Select**.
 
 > [!TIP]
-> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) or PowerShell command.
+> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) or PowerShell command.
 
 ## Next steps
 

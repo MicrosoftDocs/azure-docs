@@ -1,13 +1,13 @@
 ---
-title: Mapping data flow Visual Monitoring
-description: How to visually monitor Azure Data Factory Data Flows
+title: Monitoring mapping data flows
+description: How to visually monitor mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/03/2020
+ms.date: 08/19/2020
 ---
 
 # Monitor Data Flows
@@ -22,7 +22,7 @@ When you execute your pipeline, you can monitor the pipeline and all of the acti
 
 You see statistics at this level as well including the run times and status. The Run ID at the activity level is different than the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Selecting the eyeglasses gives you deep details on your data flow execution.
 
-![Data Flow Monitoring](media/data-flow/mon002.png "Data Flow Monitoring")
+![Data Flow Monitoring](media/data-flow/monitoring-details.png "Data Flow Monitoring")
 
 When you're in the graphical node monitoring view, you can see a simplified view-only version of your data flow graph.
 
@@ -71,6 +71,10 @@ You can also see detailed timing for each partition transformation step if you o
          ]
 }
 ```
+
+### Post processing time
+
+When you select a sink transformation icon in your map, the slide-in panel on the right will show an additional data point called "post processing time" at the bottom. This is the amount time spent executing your job on the Spark cluster *after* your data has been loaded, transformed, and written. This time can include closing connection pools, driver shutdown, deleting files, coalescing files, etc. When you perform actions in your flow like "move files" and "output to single file", you will likely see an increase in the post processing time value.
   
 ## Monitor Icons
 

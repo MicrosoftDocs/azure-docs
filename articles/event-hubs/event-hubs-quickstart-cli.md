@@ -3,7 +3,8 @@ title: Create an event hub using Azure CLI - Azure Event Hubs | Microsoft Docs
 description: This quickstart describes how to create an event hub using Azure CLI and then send and receive events using Java.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.author: spelluru
+ms.author: spelluru 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create an event hub using Azure CLI
@@ -65,10 +66,10 @@ Congratulations! You have used Azure CLI to create an Event Hubs namespace, and 
 
 In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials: 
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-java-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)

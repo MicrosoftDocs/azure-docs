@@ -11,7 +11,7 @@ ms.author: daperlov
 ms.reviewer: jrasnick
 ---
 
-# Ingesting data into Azure Data Lake Storage Gen2 
+# Ingest data into Azure Data Lake Storage Gen2 
 
 In this article, you'll learn how to ingest data from one location to another in an Azure Data Lake Gen 2 (Azure Data Lake Gen 2) storage account using Azure Synapse Analytics.
 
@@ -26,26 +26,26 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 
 1. Open the Azure Synapse Analytics UX and go to the **Manage** tab.
 1. Under **External connections**, select **Linked services**.
-1. To add a linked service, click **New**.
-1. Select the Azure Data Lake Storage Gen2 tile from the list and click **Continue**.
-1. Enter your authentication credentials. Account key, service principal, and managed identity are currently supported authentication types. Click test connection to verify your credentials are correct. 
-1. Click **Create** when finished.
+1. To add a linked service, select **New**.
+1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
+1. Enter your authentication credentials. Account key, service principal, and managed identity are currently supported authentication types. Select test connection to verify your credentials are correct. 
+1. Select **Create** when finished.
 
 ## Create pipeline
 
 A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from Azure Data Lake Gen 2 into a SQL pool.
 
-1. Go to the **Orchestrate** tab. Click on the plus icon 
+1. Go to the **Orchestrate** tab. Select on the plus icon 
 next to the pipelines header and select **Pipeline**.
 1. Under **Move and Transform** in the activities pane, drag **Copy data** onto the pipeline canvas.
-1. Click on the copy activity and go to the **Source** tab. Click **New** to create a new source dataset.
-1. Select Azure Data Lake Storage Gen2 as your data store and click continue.
-1. Select DelimitedText as your format and click continue.
-1. In the set properties pane, select the ADLS linked service you created. Specify the file path of your source data and specify whether the first row has a header. You can import the schema from the file store or a sample file. Click OK when finished.
-1. Go to the **Sink** tab. Click **New** to create a new sink dataset.
-1. Select Azure Data Lake Storage gen2 as your data store and click continue.
-1. Select DelimitedText as your format and click continue.
-1. In the set properties pane, select the ADLS linked service you created. Specify the path of the folder where you wish to write data. Click OK when finished.
+1. Select on the copy activity and go to the **Source** tab. Select **New** to create a new source dataset.
+1. Select Azure Data Lake Storage Gen2 as your data store and select continue.
+1. Select DelimitedText as your format and select continue.
+1. In the set properties pane, select the ADLS linked service you created. Specify the file path of your source data and specify whether the first row has a header. You can import the schema from the file store or a sample file. Select OK when finished.
+1. Go to the **Sink** tab. Select **New** to create a new sink dataset.
+1. Select Azure Data Lake Storage gen2 as your data store and select continue.
+1. Select DelimitedText as your format and select continue.
+1. In the set properties pane, select the ADLS linked service you created. Specify the path of the folder where you wish to write data. Select OK when finished.
 
 ## Debug and publish pipeline
 
@@ -53,7 +53,7 @@ Once you've finished configuring your pipeline, you can execute a debug run befo
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 1. Once the pipeline can run successfully, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to the Synapse Analytics service.
-1. Wait until you see the **Successfully published** message. To see notification messages, click the bell button on the top-right. 
+1. Wait until you see the **Successfully published** message. To see notification messages, select the bell button on the top-right. 
 
 
 ## Trigger and monitor the pipeline

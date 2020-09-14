@@ -215,10 +215,10 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 Alternatively, you can perform what is typically referred to as a two upgrade. With a two-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn't execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a two-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
 
 ## Next steps
-To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx)
+To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
 
-To learn best practices on versioning data contracts, see [Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx)
+To learn best practices on versioning data contracts, see [Data Contract Versioning](/dotnet/framework/wcf/feature-details/data-contract-versioning)
 
-To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx)
+To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
+To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)

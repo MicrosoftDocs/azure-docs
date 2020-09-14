@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
@@ -98,7 +99,7 @@ Before you get started, make sure to:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md).
 
 1. From the menu bar, choose **File** > **Save All**.
 

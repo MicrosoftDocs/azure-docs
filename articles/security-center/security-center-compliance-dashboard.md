@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-To step through the features covered in this tutorial, you must have Security Center’s Standard pricing tier. You can try Security Center Standard at no cost.
+To step through the features covered in this tutorial, you must have Security Center’s standard pricing tier. You can try Security Center Standard at no cost.
 To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 walks you through how to upgrade to Standard.
 

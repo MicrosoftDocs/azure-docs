@@ -9,7 +9,7 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ---
 
 # How to model complex data types in Azure Cognitive Search
@@ -58,7 +58,7 @@ The following JSON document is composed of simple fields and complex fields. Com
 
 ## Creating complex fields
 
-As with any index definition, you can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) to create a schema that includes complex types. 
+As with any index definition, you can use the portal, [REST API](/rest/api/searchservice/create-index), or [.NET SDK](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) to create a schema that includes complex types. 
 
 The following example shows a JSON index schema with simple fields, collections, and complex types. Notice that within a complex type, each sub-field has a type and may have attributes, just as top-level fields do. The schema corresponds to the example data above. `Address` is a complex field that isn't a collection (a hotel has one address). `Rooms` is a complex collection field (a hotel has many rooms).
 

@@ -26,7 +26,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * An existing [storage container](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
 
 * If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

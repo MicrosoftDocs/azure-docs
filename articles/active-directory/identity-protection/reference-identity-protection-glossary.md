@@ -157,4 +157,4 @@ A configuration or condition in Azure Active Directory, which makes the director
 
 ## See also
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

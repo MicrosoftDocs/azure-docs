@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/17/2020
+ms.date: 08/06/2020
 ms.author: swmachan
 ---
 
@@ -132,7 +132,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The entire text included in the request cannot exceed 5,000 characters including spaces.
+* The entire text included in the request cannot exceed 10,000 characters including spaces.
 
 ## Response body
 
@@ -276,7 +276,7 @@ The response body is:
     }
 ]
 ```
-The response is similar to the response from the previous example. Since language auto-detection was requested, the response also includes information about the language detected for the input text. 
+The response is similar to the response from the previous example. Since language auto-detection was requested, the response also includes information about the language detected for the input text. The language auto-detection works better with longer input text.
 
 ### Translate with transliteration
 
@@ -313,6 +313,7 @@ Translating multiple strings at once is simply a matter of specifying an array o
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
+The response contains the translation of all pieces of text in the exact same order as in the request.
 The response body is:
 
 ```

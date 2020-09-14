@@ -33,7 +33,7 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 
 Follow the steps below to achieve the scenario outlined in this article:
 
-1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](/powershell/azure/) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 2. Create a resource group using the following settings:
 
     ```powershell
@@ -41,7 +41,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     $myResourceGroup = "contosofabrikam"
     ```
 
-    For more information, see Step 2 of [Create a Resource Group](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    For more information, see Step 2 of [Create a Resource Group](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 3. [Create an Availability Set](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) to contain your VMs. For this scenario, use the following command:
 
@@ -49,14 +49,14 @@ Follow the steps below to achieve the scenario outlined in this article:
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Follow instructions steps 3 through 5 in [Create a Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) article to prepare the creation of a VM with a single NIC. Execute step 6.1, and use the following instead of step 6.2:
+4. Follow instructions steps 3 through 5 in [Create a Windows VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) article to prepare the creation of a VM with a single NIC. Execute step 6.1, and use the following instead of step 6.2:
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Then complete [Create a Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) steps 6.3 through 6.8.
+    Then complete [Create a Windows VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) steps 6.3 through 6.8.
 
 5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) article. Use the following configuration settings:
 

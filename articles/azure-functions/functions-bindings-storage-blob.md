@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Azure Blob storage bindings for Azure Functions overview
 
-Azure Functions integrates with [Azure Storage](https://docs.microsoft.com/azure/storage/) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Blob storage allows you to build functions that react to changes in blob data as well as read and write values.
+Azure Functions integrates with [Azure Storage](../storage/index.yml) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Blob storage allows you to build functions that react to changes in blob data as well as read and write values.
 
 | Action | Type |
 |---------|---------|

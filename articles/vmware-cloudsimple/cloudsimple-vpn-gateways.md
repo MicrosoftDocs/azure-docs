@@ -1,6 +1,6 @@
 ---
 title:  Azure VMware Solution by CloudSimple - VPN gateways
-description: Learn about CloudSimple Site-to-Site VPN and Point-to-Site VPN concepts 
+description: Learn about CloudSimple site-to-site and point-to-site VPN gateways, which are used to send encrypted traffic between a CloudSimple region and other resources.
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/20/2019 

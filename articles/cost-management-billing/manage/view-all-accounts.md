@@ -1,11 +1,12 @@
 ---
 title: View your billing accounts in Azure portal 
-description: Learn how to view your billing accounts in Azure portal.
+description: Learn how to view your billing accounts in the Azure portal. See scope information for Enterprise, Microsoft Customer, and Microsoft Partner Agreements.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -34,7 +35,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 |Scope  |Definition  |
 |---------|---------|
-|Billing account     | Represents an agreement that a customer accepts to use Azure. It contains one ore more subscriptions.  |
+|Billing account     | Represents an agreement that a customer accepts to use Azure. It contains one or more subscriptions.  |
 |Subscription     |  Represents a grouping of Azure resources. Invoice is generated at this scope. Other billing information such as payment methods and usage address is associated to this scope.|
 
 ### Enterprise Agreement

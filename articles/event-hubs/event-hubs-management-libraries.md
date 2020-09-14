@@ -3,6 +3,7 @@ title: Management libraries - Azure Event Hubs| Microsoft Docs
 description: This article provides information on the library that you can use to manage Azure Event Hubs namespaces and entities from .NET.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Event Hubs management libraries
@@ -21,7 +22,7 @@ To get started using the Event Hubs management libraries, you must authenticate 
 
 * [Use the Azure portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
+* [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have **Owner** permissions for the resource group on which you want to run.
 

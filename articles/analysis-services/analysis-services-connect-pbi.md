@@ -32,6 +32,9 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 5. If prompted, enter your login credentials. 
 
+   > [!NOTE]
+   > One-time passcode (OTP) accounts aren't supported. 
+
 6. In **Navigator**, expand the server, then select the model or perspective you want to connect to, and then click **Connect**. Click a model or perspective to show all objects for that view.
 
     The model opens in Power BI Desktop with a blank report in Report view. The Fields list displays all non-hidden model objects. Connection status is displayed in the lower-right corner.

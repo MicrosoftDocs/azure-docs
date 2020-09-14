@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/25/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -31,11 +31,14 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 
 ### Install production certificates
 
-Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config.yaml file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config.yaml file. However, these temporary certificates expire after three months and aren't secure for production scenarios.
+Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config.yaml file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config.yaml file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
+
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Install production certificates on an IoT Edge device](how-to-manage-device-certificates.md).
+For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
 
 ### Have a device management plan
 
@@ -172,7 +175,7 @@ Obtain the images with the Docker pull command to place in your private registry
 | IoT Edge runtime container | Docker pull command |
 | --- | --- |
 | [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
-| [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
 Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
 
@@ -311,9 +314,9 @@ You can do so in the **createOptions** of each module. For example:
 
 ### Consider tests and CI/CD pipelines
 
-For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md).
+For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## Next steps
 
 * Learn more about [IoT Edge automatic deployment](module-deployment-monitoring.md).
-* See how IoT Edge supports [Continuous integration and continuous deployment](how-to-ci-cd.md).
+* See how IoT Edge supports [Continuous integration and continuous deployment](how-to-continuous-integration-continuous-deployment.md).

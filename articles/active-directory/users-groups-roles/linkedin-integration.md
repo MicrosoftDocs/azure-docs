@@ -24,11 +24,11 @@ You can allow users in your organization to access their LinkedIn connections wi
 >
 > Exceptions:
 >
-> * The setting is not available for customers using Microsoft Cloud for US Government, Microsoft Cloud Germany, or Azure and Office 365 operated by 21Vianet in China.
+> * The setting is not available for customers using Microsoft Cloud for US Government, Microsoft Cloud Germany, or Azure and Microsoft 365 operated by 21Vianet in China.
 > * The setting is off by default for Azure AD organizations provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
 > * The setting is off by default for organizations provisioned in France.
 >
-> Once LinkedIn account connections are enabled for your organization, the account connections work after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user's access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+> Once LinkedIn account connections are enabled for your organization, the account connections work after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user's access to an application](../manage-apps/methods-for-removing-user-access.md).
 
 ## Enable LinkedIn account connections in the Azure portal
 
@@ -94,7 +94,7 @@ To use the group from step two as the selected group in the LinkedIn account con
    **Enabled** | The **Show LinkedIn features in Office applications** setting in Office 2016 Options is enabled. Users in your organization can use LinkedIn features in their Office 2016 applications.
    **Disabled** | The **Show LinkedIn features in Office applications** setting in Office 2016 Options is disabled and end users can't change this setting. Users in your organization can't use LinkedIn features in their Office 2016 applications.
 
-This group policy affects only Office 2016 apps for a local computer. If users disable LinkedIn in their Office 2016 apps, they can still see LinkedIn features in Office 365.
+This group policy affects only Office 2016 apps for a local computer. If users disable LinkedIn in their Office 2016 apps, they can still see LinkedIn features in Microsoft 365.
 
 ## Next steps
 

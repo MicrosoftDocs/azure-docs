@@ -565,7 +565,7 @@ In contrast, to specify a managed disk configuration in a template, remove the `
 }
 ```
 
-The same changes also apply [data disks](../../virtual-machines/windows/using-managed-disks-template-deployments.md).
+The same changes also apply [data disks](../../virtual-machines/using-managed-disks-template-deployments.md).
 
 ### Verify that VM extensions are available in Azure Stack
 

@@ -6,13 +6,19 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 07/08/2020
+ms.custom: devx-track-csharp
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB
 Azure Database for MariaDB supports connecting your Azure Database for MariaDB server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
 ## Obtain SSL certificate
+
+
 Download the certificate needed to communicate over SSL with your Azure Database for MariaDB server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (this tutorial uses c:\ssl for example).
 **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
+
+> [!IMPORTANT] 
+> SSL root certificate is set to expire starting October 26th, 2020 (10/26/2020). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
 
 See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
@@ -42,9 +48,10 @@ mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p
 > When using the MySQL command-line interface on Windows, you may receive an error `SSL connection error: Certificate signature check failed`. If this occurs, replace the `--ssl-mode=REQUIRED --ssl-ca={filepath}` parameters with `--ssl`.
 
 ## Enforcing SSL connections in Azure 
+
 ### Using the Azure portal
 Using the Azure portal, visit your Azure Database for MariaDB server, and then click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting, and then click **Save**. Microsoft recommends to always enable the **Enforce SSL connection** setting for enhanced security.
-![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
+![enable-ssl for MariaDB server](./media/howto-configure-ssl/enable-ssl.png)
 
 ### Using Azure CLI
 You can enable or disable the **ssl-enforcement** parameter by using Enabled or Disabled values respectively in Azure CLI.

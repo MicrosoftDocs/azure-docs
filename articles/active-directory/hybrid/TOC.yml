@@ -31,7 +31,7 @@
      - name: What is Azure AD Connect and Connect Health?
        href: whatis-azure-ad-connect.md
      - name: Choose the right authentication
-       href: https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn
+       href: ./choose-ad-authn.md
      - name: Identity synchronization and duplicate attribute resiliency
        href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
    - name: Password hash synchronization
@@ -107,6 +107,8 @@
       href:  how-to-connect-install-express.md
     - name: Install Azure AD Connect Federation or other Custom settings
       href:  how-to-connect-install-custom.md
+    - name: Import and export configuration settings
+      href:  how-to-connect-import-export-config.md
     - name: Install Azure AD Connect with Pass-through Authentication (PTA)
       href:  how-to-connect-pta-quick-start.md 
     - name: Install Azure AD Connect Health
@@ -264,6 +266,8 @@
       href: how-to-connect-health-diagnose-sync-errors.md
     - name: Azure AD Connect Health alert catalog
       href: how-to-connect-health-alert-catalog.md
+    - name: Azure AD Connect Health data retrieval
+      href: how-to-connect-health-data-retrieval.md
   - name: Manage Azure AD Connect Sync  
     items:
     - name: Staging server and disaster recovery
@@ -341,7 +345,7 @@
   - name: Azure AD Pass-through Authentication agent version history
     href: reference-connect-pta-version-history.md
   - name: Connector version history
-    href: reference-connect-sync-connector-version-history.md
+    href: /microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history
   - name: Accounts and permissions
     href: reference-connect-accounts-permissions.md
   - name: Azure AD Connect FAQ
@@ -376,3 +380,5 @@
     href: reference-connect-msexchuserholdpolicies.md
   - name: Understanding Azure AD Connect 1.4.xx.x device disappearance
     href: reference-connect-device-disappearance.md
+  - name: Azure AD Connect version history archive
+    href:  reference-connect-version-history-archive.md

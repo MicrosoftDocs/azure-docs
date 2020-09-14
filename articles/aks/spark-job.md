@@ -345,7 +345,7 @@ Check out Spark documentation for more details.
 
 <!-- LINKS - internal -->
 [acr-aks]: cluster-container-registry-integration.md
-[acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-[aks-quickstart]: https://docs.microsoft.com/azure/aks/
-[azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
-[storage-account]: https://docs.microsoft.com/azure/storage/common/storage-azure-cli
+[acr-create]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./index.yml
+[azure-cli]: /cli/azure/?view=azure-cli-latest
+[storage-account]: ../storage/blobs/storage-quickstart-blobs-cli.md

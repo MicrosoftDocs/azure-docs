@@ -23,13 +23,13 @@ ms.subservice: disks
 
 ## Getting started
 
-If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](disks-use-storage-explorer-managed-disks.md)
+If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](../disks-use-storage-explorer-managed-disks.md)
 
 To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
 This kind of managed disk has two unique states:
 
-- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) has been generated.
+- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 > [!NOTE]
@@ -127,4 +127,3 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## Next steps
 
 Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM. 
-

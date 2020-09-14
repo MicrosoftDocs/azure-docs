@@ -14,7 +14,7 @@ A control that allows a user to specify one or more files to upload.
 
 ## UI sample
 
-![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
+![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft-common-fileupload.png)
 
 ## Schema
 

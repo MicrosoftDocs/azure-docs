@@ -36,7 +36,12 @@ For Ubuntu 18.04 LTS:
 * [AzureDeploy.json][template2]
 * [AzureDeploy.Parameters.json][parameters2]
 
-The difference between the two templates is the **vmImageSku** attribute being set to "18.04-LTS" and each node's **typeHandlerVersion** being set to 1.1.
+For Ubuntu 18.04 LTS the difference between the two templates are 
+* the **vmImageSku** attribute being set to "18.04-LTS"
+* each node's **typeHandlerVersion** being set to 1.1
+* Microsoft.ServiceFabric/clusters resource's
+   - **apiVersion** being set to "2019-03-01" or higher
+   - **vmImage** property being set to "Ubuntu18_04"
 
 This template deploys a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The [AzureDeploy.json][template] deploys a number resources, including the following.
 
@@ -157,7 +162,7 @@ sfctl cluster health
 
 ## Clean up resources
 
-If you're not immediately moving on to the next article, you might want to [delete the cluster](service-fabric-cluster-delete.md) to avoid incurring charges.
+If you're not immediately moving on to the next article, you might want to [delete the cluster](./service-fabric-tutorial-delete-cluster.md) to avoid incurring charges.
 
 ## Next steps
 

@@ -144,9 +144,9 @@ When loading data into replicated tables, try to minimize rebuilds by batching l
 
 For example, this load pattern loads data from four sources and invokes four rebuilds.
 
-        Load from source 1.
+- Load from source 1.
 - Select statement triggers rebuild 1.
-        Load from source 2.
+- Load from source 2.
 - Select statement triggers rebuild 2.
 - Load from source 3.
 - Select statement triggers rebuild 3.

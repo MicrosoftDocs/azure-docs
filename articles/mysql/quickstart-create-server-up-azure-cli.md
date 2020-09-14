@@ -7,7 +7,7 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Database for MySQL using a simple Azure CLI command - az mysql up (preview)
@@ -70,7 +70,7 @@ admin-password | System generated | The password of the administrator user.
 
 Once your server is created, it comes with the following settings:
 
-- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az mysql up` command is run from and whitelists that IP address.
+- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az mysql up` command is run from and allows that IP address.
 - "Allow access to Azure services" is set to ON. This setting configures the server's firewall to accept connections from all Azure resources, including resources not in your subscription.
 - The `wait_timeout` parameter is set to 8 hours
 - An empty database named "sampledb" is created

@@ -62,15 +62,15 @@ PowerShell runbooks are based on Windows PowerShell. You directly edit the code 
 * You must be familiar with PowerShell scripting.
 * Runbooks can't use [parallel processing](automation-powershell-workflow.md#use-parallel-processing) to execute multiple actions in parallel.
 * Runbooks can't use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume runbook if there's an error.
-* You can include only PowerShell Workflow runbooks and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) cmdlet, which creates a new job.
+* You can include only PowerShell Workflow runbooks and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) cmdlet, which creates a new job.
 
 ### Known issues
 
 The following are current known issues with PowerShell runbooks:
 
-* PowerShell runbooks can't retrieve an unencrypted [variable asset](automation-variables.md) with a null value.
+* PowerShell runbooks can't retrieve an unencrypted [variable asset](./shared-resources/variables.md) with a null value.
 * PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
-* A [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
+* A [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
 * A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
 
 ## PowerShell Workflow runbooks

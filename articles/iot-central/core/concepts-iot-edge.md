@@ -7,6 +7,7 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: [device-developer, iot-edge]
 ---
 
 # Connect Azure IoT Edge devices to an Azure IoT Central application
@@ -53,7 +54,7 @@ In Azure IoT Central, you can import a deployment manifest to create a device te
 
 ![Flowchart of deployment manifest life cycle](./media/concepts-iot-edge/dmflow.png)
 
-IoT Plug and Play (preview) models an IoT Edge device as follows:
+IoT Central models an IoT Edge device as follows:
 
 * Every IoT Edge device template has a device capability model.
 * For every custom module listed in the deployment manifest, a module capability model is generated.

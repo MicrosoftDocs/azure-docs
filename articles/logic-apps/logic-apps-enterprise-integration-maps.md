@@ -59,7 +59,7 @@ map that references the assembly.
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, find and select your storage account. From your storage account menu, select **Storage Explorer**. |
     |||
 
-  * For maps, you can currently add larger maps by using the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * For maps, you can currently add larger maps by using the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
 
 You don't need a logic app when creating and adding maps. 
 However, to use a map, your logic app needs linking to 
@@ -305,7 +305,7 @@ you can now upload your map.
 
 ### Add maps more than 2 MB
 
-Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
 
 <!--
 

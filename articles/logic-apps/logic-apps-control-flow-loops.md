@@ -30,8 +30,7 @@ For limits on the number of "Until" loops in a logic app run, see
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -39,17 +38,11 @@ For limits on the number of "Until" loops in a logic app run, see
 
 ## "Foreach" loop
 
-A "Foreach loop" repeats one or more actions 
-on each array item and works only on arrays. 
-Iterations in a "Foreach" loop run in parallel. 
-However, you can run iterations one at a time 
-by setting up a [sequential "Foreach" loop](#sequential-foreach-loop). 
+A "Foreach loop" repeats one or more actions on each array item and works only on arrays. Here are some considerations when you use "Foreach" loops:
 
-Here are some considerations when you use "Foreach" loops:
+* By default, iterations in a "Foreach" loop run at the same time, or in parallel. This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential "Foreach" loop iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a "Foreach" loop by using the [Delay action](../connectors/connectors-native-delay.md), you need to set the loop to run sequentially.
 
-* In nested loops, iterations always run sequentially, 
-not in parallel. To run operations in parallel for items 
-in a nested loop, create and [call a child logic app](../logic-apps/logic-apps-http-endpoint.md).
+  The exception to the default behavior are nested loops where iterations always run sequentially, not in parallel. To run operations in parallel for items in a nested loop, create and [call a child logic app](../logic-apps/logic-apps-http-endpoint.md).
 
 * To get predictable results from operations on variables during each loop iteration, 
 run those loops sequentially. For example, when a concurrently running loop ends, 
@@ -67,7 +60,7 @@ This example logic app sends a daily summary for a website RSS feed.
 The app uses a "Foreach" loop that sends an email for each new item.
 
 1. [Create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com or Office 365 Outlook account.
+with an Outlook.com account or a work or school account.
 
 2. Between the RSS trigger and send email action, 
 add a "Foreach" loop. 
@@ -210,7 +203,7 @@ then sends an email that confirms the current value.
 > [!NOTE]
 > These steps use Office 365 Outlook, but you can 
 > use any email provider that Logic Apps supports. 
-> [Check the connectors list here](https://docs.microsoft.com/connectors/). 
+> [Check the connectors list here](/connectors/). 
 > If you use another email account, the general steps stay the same, 
 > but your UI might look slightly different. 
 
@@ -408,7 +401,7 @@ The default is one hour.
 ## Get support
 
 * For questions, visit the 
-[Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
