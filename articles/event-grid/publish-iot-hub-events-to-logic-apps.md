@@ -28,15 +28,11 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the portal.
 
-1. Sign in to the (Azure portal)[https://portal.azure.com/]. 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. On the upper right of the page, select the Cloud Shell button.
 
    ![Cloud Shell button](./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png)
-
-1. The Cloud Shell terminal appears.
-
-   ![Cloud Shell terminal](./media/publish-iot-hub-events-to-logic-apps/cloud-shell-terminal.png)
 
 1. Run the following command to create a new resource group:
 
@@ -189,7 +185,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
          ![select subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
    
-   1. In the **ENDPOINT DETAILS** section: 
+   4. In the **ENDPOINT DETAILS** section: 
        1. Select **Endpoint Type** as **Web Hook**.
        2. Click **select an endpoint**, paste the URL that you copied from your logic app, and confirm selection.
 
@@ -197,7 +193,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
          When you're done, the pane should look like the following example: 
 
-        ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+         ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
 1.  Select **Create**.
 
@@ -221,9 +217,9 @@ Test your logic app by quickly simulating a device connection using the Azure CL
 
 1. When the simulated device connects to IoT Hub, you will recieve an email notifying you of a "DeviceConnected" event.
 
-    ![Example alert mail](./media/publish-iot-hub-events-to-logic-apps/alert-mail.png)
-
 1. When the simulation completes, you will recieve an email notifying you of a "DeviceDisconnected" event. 
+
+    ![Example alert mail](./media/publish-iot-hub-events-to-logic-apps/alert-mail.png)
 
 ## Clean up resources
 
