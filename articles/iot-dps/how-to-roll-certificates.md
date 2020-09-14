@@ -70,7 +70,7 @@ If you're rolling certificates in response to a security breach, you should use 
 
     These steps should be completed for the primary and secondary certificate, if both are compromised.
 
-    ![Manage individual enrollments](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![Manage individual enrollments with a security breach](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
 3. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as a device registration for it exists there. You can address this two ways: 
 
@@ -91,7 +91,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 2. Click **Secondary Certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
 
-    ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![Manage individual enrollments using the secondary certificate expiration](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
 3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
 
@@ -113,7 +113,7 @@ To update a group enrollment in response to a security breach, you should use on
 
 5. Click **CA Certificate**, and select your new root CA certificate. Then click **Save**. 
 
-    ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![Select the new root CA certificate for a compromised certificate](./media/how-to-roll-certificates/select-new-root-cert.png)
 
 6. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways: 
 
@@ -133,7 +133,7 @@ To update a group enrollment in response to a security breach, you should use on
 
     This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
 
-    ![Manage individual enrollments](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![Manage individual enrollments for a compromised intermediate](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
 3. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways: 
@@ -159,7 +159,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 3. Click **CA Certificate**, and select your new root CA certificate under the **Secondary Certificate** configuration. Then click **Save**. 
 
-    ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![Select the new root CA certificate for expiration](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
 4. Later when the primary certificate has expired, click the **Certificates** tab for your Device Provisioning service instance. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name, and click **OK**.
 
@@ -176,7 +176,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
     This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
 
-   ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![Manage enrollment groups using the secondary certificate expiring](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
 3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
 
