@@ -18,6 +18,18 @@
       href: common-questions-server-migration.md
 - name: Tutorials
   items:
+  - name: Discover
+    items:
+    - name: Discover VMware VMs
+      href: tutorial-discover-vmware.md
+    - name: Discover Hyper-V VMs
+      href: tutorial-discover-hyper-v.md
+    - name: Discover physical servers
+      href: tutorial-discover-physical.md
+    - name: Discover AWS instances
+      href: tutorial-discover-aws.md
+    - name: Discover imported servers
+      href: tutorial-discover-import.md
   - name: Assess and migrate VMware VMs
     items:
     - name: Prepare VMware for assessment and migration
