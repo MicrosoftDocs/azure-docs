@@ -182,7 +182,7 @@ This capability is not supported in an email verified tenant.
 
 ### NoPublisherDomainOnApplication	 
 
-The target application (<AppId>) does must have a Publisher Domain set. Set a Publisher Domain and try again.
+The target application (\<AppId\>) must have a Publisher Domain set. Set a Publisher Domain and try again.
 
 ### PublisherDomainMismatch	 
 
