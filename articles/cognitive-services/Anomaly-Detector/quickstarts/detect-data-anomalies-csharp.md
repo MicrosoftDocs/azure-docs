@@ -102,7 +102,7 @@ While this application is written in C#, the API is a RESTful web service compat
 
 4. Otherwise, find the positions of change points in the data set. The response's `isChangePoint` field contains an array of boolean values, each of which indicates whether a data point was identified as a change point. Convert this to a string array with the response object's `ToObject<bool[]>()` function. Iterate through the array, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
 
-    [!code-csharp[Detect anomalies batch](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectChangePoints)]
+    [!code-csharp[Detect change points](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectChangePoints)]
 
 ## Load your time series data and send the request
 

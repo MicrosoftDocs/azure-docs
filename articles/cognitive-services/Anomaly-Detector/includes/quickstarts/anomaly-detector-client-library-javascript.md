@@ -118,7 +118,7 @@ Call the Anomaly Detector API to determine if your latest data point is an anoma
 
 Call the API to detect change points in the time series with the client's [detectChangePoint()](https://go.microsoft.com/fwlink/?linkid=2090788) method. Store the returned [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) object. Iterate through the response's `isChangePoint` list, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
 
-[!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=changePointDetection)]
+[!code-javascript[detect change points](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=changePointDetection)]
 
 ## Run the application
 
