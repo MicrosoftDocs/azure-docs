@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: blobs
 ms.custom: contperfq1
 ---
 
