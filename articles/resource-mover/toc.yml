@@ -18,9 +18,9 @@
   items:
   - name: Move overview
     href: about-move-process.md
-  - name: Support matrix for Azure VM region move
+  - name: Support-Move Azure VMs across regions
     href: support-matrix-move-region-azure-vm.md
-  - name: Support matrix for Azure SQL region move
+  - name: Support-Move Azure SQL across regions
     href: support-matrix-move-region-sql.md
 - name: How-to Guides
   items:
@@ -34,11 +34,11 @@
       href: move-region-within-resource-group.md
   - name: Manage region moves
     items:
-    - name: Modify target settings for a region move
+    - name: Modify destination settings
       href: modify-target-settings.md
-    - name: Remove resources from a region move collection
+    - name: Remove resources from a move collection
       href: remove-move-resources.md
-    - name: Manage resources created by the region move process
+    - name: Manage resources created during move
       href: manage-resources-created-move-process.md
 - name: Resources
   items:
