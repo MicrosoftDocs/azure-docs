@@ -302,8 +302,6 @@ Check fetch log's lines, times, and sizes, if those settings look good replace *
 
 You can export logs from the Azure Blob Storage when troubleshooting issues. 
 
- Follow these steps to export the log file from the Azure Blob Storage account.
-
 ## Troubleshooting the Azure Stack Edge device
 
 The following section is provided for help with debugging and verification of the status of your Azure Stack Edge device.
