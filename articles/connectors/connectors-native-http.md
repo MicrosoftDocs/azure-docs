@@ -167,7 +167,7 @@ Here is the same example that shows the HTTP action's JSON definition in the und
 
 ## Content with application/x-www-form-urlencoded type
 
-To handle content that has `application/x-www-form-urlencoded` type in HTTP requests, you can add `content-type` header and set it to `application/x-www-form-urlencoded`. And provide form-urlecoded data as the body of the HTTP request.
+To provide form-urlencoded data in the body for an HTTP request, you have to specify that the data has the `application/x-www-form-urlencoded` content type. In the HTTP trigger or action, add the `content-type` header. Set the header value to `application/x-www-form-urlencoded`.
 
 For example, suppose you have a logic app that sends an HTTP POST request to a website, which supports the `application/x-www-form-urlencoded` type. Here's how this action might look:
 
@@ -266,4 +266,3 @@ For more information about trigger and action parameters, see these sections:
 
 * [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 * [Connectors for Logic Apps](../connectors/apis-list.md)
-
