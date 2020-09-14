@@ -164,7 +164,7 @@ As you can see, with a couple of lines of code, you're able to leverage the Micr
 
 ## Retrieving data from Microsoft Graph
 
-[Microsoft Graph](/graph/overview) offers range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issues by the Microsoft identity platform. In this section, you add code can display the signed in user's emails on the application's "fetch data" page.
+[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issues by the Microsoft identity platform. In this section, you add code can display the signed in user's emails on the application's "fetch data" page.
 
 Before you start, log out of your app since be making changes to the required permissions, and your current token won't work.
 
