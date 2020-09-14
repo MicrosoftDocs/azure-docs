@@ -781,7 +781,7 @@ Response time is an approximation. Since we do not instrument the code of the ap
 
 This approximation works well for protocols that are request/response based: a single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but not satisfied for other protocols.
 
-### Are their limitations if I am on the Log Analytics Free pricing plan?
+### Are there limitations if I am on the Log Analytics Free pricing plan?
 If you have configured Azure Monitor with a Log Analytics workspace using the *Free* pricing tier, Azure Monitor for VMs Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM is not monitored and reflected on the Map page.  
 
 Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to Azure Monitor for VMs. 

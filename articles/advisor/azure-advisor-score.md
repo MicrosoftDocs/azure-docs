@@ -6,7 +6,7 @@ ms.date: 09/09/2020
 
 ---
 
-# Advisor score to get the most out of Azure
+# Optimize Azure workloads using Advisor score
 
 ## Introduction to Advisor score
 
