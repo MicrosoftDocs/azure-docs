@@ -74,11 +74,9 @@ The following table summarizes the role assignments to teams and resources to ac
 | Managed identify of the VM used by the Application| None | Managed HSM Crypto User |
 | Managed identity of the Storage account used by the Application| None| Managed HSM Service Encryption |
 
-
 The three team roles need access to other resources along with HSM pool permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need `Contributor` access to those resource types. Auditors need read access to the Storage account where the HSM pool logs are stored.
 
 To assign management plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign HSM pool data plane roles you must use Azure CLI.
-
 
 The Azure CLI snippets in this section are built with the following assumptions:
 
@@ -132,9 +130,9 @@ Our example describes a simple scenario. Real-life scenarios can be more complex
 
 ## Resources
 
-* [Azure RBAC documentation](../../role-based-access-control/overview.md)
-* [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-* [Manage Azure RBAC with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Azure RBAC documentation](../../role-based-access-control/overview.md)
+- [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
+- [Manage Azure RBAC with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
 
 ## Next steps
 

@@ -34,6 +34,7 @@ You need to provide following information to execute a full backup:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+<<<<<<< HEAD
 If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 To sign in to Azure using the CLI you can type:
@@ -44,13 +45,21 @@ az login
 
 For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
+=======
+>>>>>>> a4e994a17d5a34a89d154d812de00eb9c7237826
 ## Full backup
 
 Backup is a long running operation. After issuing the backup command it immediately returns with a Job ID. You can check the status of backup process using this Job ID. The backup process creates a folder inside the designated container with a following naming pattern **`mhsm-{HSM_NAME}-{YYYY}{MM}{DD}{HH}{mm}{SS}`**, where HSM_NAME is the name of managed HSM being backed up and YYYY, MM, DD, HH, MM, mm, SS are the year, month, date, hour, minutes and seconds of date/time in UTC when the backup command was received.
 
 While the backup is in progress the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
+<<<<<<< HEAD
 ```azurecli-interactive
+=======
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+>>>>>>> a4e994a17d5a34a89d154d812de00eb9c7237826
 # time for 30 minutes later for SAS token expiry
 
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
@@ -67,6 +76,8 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 
 az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --subscription 361da5d4-a47a-4c79-afdd-d66f684f4070
 ```
+---
+
 
 ## Full restore
 
@@ -86,9 +97,10 @@ You need to provide following information to execute a full restore:
 
 Restore is a long running operation. After issuing the restore command it immediately returns with a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 
-```azurecli-interactive
+# [Azure CLI](#tab/azure-cli)
 
-# time for 30 minutes later for SAS token expiry
+```azurecli-interactive
+#### time for 30 minutes later for SAS token expiry
 
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 
@@ -103,7 +115,6 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 
 ## Backup HSM 
 
-```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860
 ```
 

@@ -72,21 +72,20 @@ Use `az keyvault key create` command to create a key.
 
 ### Create an RSA key
 
-The example below shows how to create a 3070-bit **RSA** key that will be only used for **get, wrap, unwrap** operations (--ops). 
+The example below shows how to create a 3070-bit **RSA** key that will be only used for **wrapKey, unwrapKey** operations (--ops). 
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az keyvault key create --hsm-name ContosoMHSM --name myrsakey --ops get wrap unwrap --kty RSA-HSM --size 3072
+az keyvault key create --hsm-name ContosoMHSM --name myrsakey --ops wrapKey unwrapKey --kty RSA-HSM --size 3072
 
 ## OR
 # Note the key name (myrsakey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey --ops get wrap unwrap --kty RSA-HSM --size 3072
-
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey --ops wrapKey unwrapKey --kty RSA-HSM --size 3072
 ```
 
-Note, that the `get` operation only returns the public key and key attributes. It does not return the private key (in case of asymmetric key), or the key material (in case of symmetric key).
+Note, that the `get` operation only returns the public key and key attributes. It does not return the private key (in case of asymmetric key, or the key material (in case of symmetric key).
 
 ### Create an EC key
 
@@ -232,7 +231,7 @@ az keyvault key backup --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys
 
 ```
 
-## Restore a single key backup
+## Restore a single key from backup
 
 Use `az keyvault key restore` to restore a single key. The source HSM where the backup was created must share the same security domain as the target HSM where the key is being restored.
 
@@ -273,3 +272,10 @@ To import a key from your on-premise HSM to managed HSM, see [Import HSM-protect
 - For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault).
 
 - For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md)
+<<<<<<< HEAD
+=======
+
+- Learn more about [Managed HSM role management](role-management.md)
+
+- Learn more about [Managed HSM best practices](best-practices.md)
+>>>>>>> a4e994a17d5a34a89d154d812de00eb9c7237826

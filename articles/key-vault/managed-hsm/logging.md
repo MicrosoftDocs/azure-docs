@@ -77,11 +77,13 @@ You might have to specify the subscription that you used to create your Managed 
 ## Identify the managed HSM and storage account
 
 
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
 storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
 ```
+---
 
 ## Enable logging
 
@@ -93,9 +95,10 @@ This output confirms that logging is now enabled for your Managed HSM, and it wi
 
 Optionally, you can set a retention policy for your logs such that older logs are automatically deleted. For example, set retention policy by setting the **-RetentionEnabled** flag to **$true**, and set the **-RetentionInDays** parameter to **90** so that logs older than 90 days are automatically deleted.
 
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
-
 ```
 
 What's logged:
@@ -112,7 +115,7 @@ What's logged:
 
 ## Access your logs
 
-Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs.
+Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs. For information on Azure Storage, see [Create, download, and list blobs with Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 TODO (msmbaldwin) : please add link to Azure Storage tutorial for accessing storage blobs
 
@@ -170,7 +173,6 @@ The following table lists the field names and descriptions:
 | **identity** |Identity from the token that was presented in the REST API request. This is usually a "user," a "service principal". |
 | **requestUri** | The REST API request URI |
 | **clientInfo** | 
-
 
 ## Use Azure Monitor logs
 

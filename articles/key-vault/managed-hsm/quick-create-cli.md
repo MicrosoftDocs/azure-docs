@@ -14,6 +14,7 @@ ms.date: 09/15/2020
 ms.author: ambapat
 #Customer intent:As a security admin who is new to Azure, I want to provision and activate a managed HSM
 ---
+
 # Quickstart: Provision and activate a managed HSM pool using Azure CLI
 
 In this quickstart, you create and activate a managed HSM pool with Azure CLI. Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. For more information on Managed HSM you may review the [Overview](overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. Once that you have completed that, you will store a secret.
