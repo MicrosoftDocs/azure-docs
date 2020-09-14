@@ -36,7 +36,7 @@ A user can start Remote Desktop clients and is able to authenticate, however the
 
 ## User loses existing feed and no remote resource is displayed (no feed)
 
-This error usually appears after a usuer moved their subscription from one Azure AD tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Azure AD tenant.
+This error usually appears after a user moved their subscription from one Azure AD tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Azure AD tenant.
 
 To resolve this, all you need to do is reassign the users to their app groups.
 
