@@ -79,7 +79,7 @@ When using Azure Monitor with Private Link, you get access to network logging su
 
 - [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](platform/gateway.md) 
 
-- [See getting started with Application Insights](//azure/azure-monitor/app/app-insights-overview#get-started)
+- [See getting started with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
 
 - [How to set up availability web tests](app/monitor-web-app-availability.md)
 
