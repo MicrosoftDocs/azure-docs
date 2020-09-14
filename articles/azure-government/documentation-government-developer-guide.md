@@ -65,7 +65,7 @@ The [Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/ove
 For more information on Azure Government Compliance, refer to the [compliance documentation](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance) and watch this [video](https://channel9.msdn.com/blogs/Azure-Government/Compliance-on-Azure-Government). 
 
 ## Endpoint mapping
-Service endpoints in Azure Government are different than in Azure.  For a mapping between Azure and Azure Government endpoints, see [Compare Azure Government to global Azure](compare-azure-government-global-azure.md#guidance-for-developers).
+Service endpoints in Azure Government are different than in Azure.  For a mapping between Azure and Azure Government endpoints, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md#guidance-for-developers).
 
 ## Next steps
 For more information about Azure Government, see the following resources:
