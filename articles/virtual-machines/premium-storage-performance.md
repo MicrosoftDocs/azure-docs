@@ -125,7 +125,7 @@ The PerfMon counters are available for processor, memory and, each logical disk 
 | **Max. Memory** |Amount of memory required to run application smoothly |% Committed Bytes in Use |Use vmstat |
 | **Max. CPU** |Amount CPU required to run application smoothly |% Processor time |%util |
 
-Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal).
 
 
 
