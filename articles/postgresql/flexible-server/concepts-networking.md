@@ -117,5 +117,5 @@ Azure Database for PostgreSQL - Flexible Server supports connecting your client 
 Azure Database for PostgreSQL - Flexible Server only supports encrypted connections using Transport Layer Security. All incoming connections with TLS 1.0 and TLS 1.1 will be denied. 
 
 ## Next steps
-*Learn how to create a flexible server with **private access (VNet integration)** in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
+* Learn how to create a flexible server with **private access (VNet integration)** in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
 * Learn how to create a flexible server with **public access (allowed IP addresses)** in [the Azure portal](how-to-manage-firewall-portal.md) or [the Azure CLI](how-to-manage-firewall-cli.md).
