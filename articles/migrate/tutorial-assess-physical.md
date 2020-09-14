@@ -125,7 +125,7 @@ An assessment describes:
 To view an assessment:
 
 1. In **Servers** > **Azure Migrate: Server Assessment**, click the number next to **Assessments**.
-2. In **Assessments**, select an assessment to open it.
+2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
     ![Assessment summary](./media/tutorial-assess-physical/assessment-summary.png)
 
