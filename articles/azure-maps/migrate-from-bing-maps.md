@@ -17,7 +17,7 @@ This guide provides insights on how to migrate web, mobile and server-based appl
 
 ## Azure Maps platform overview
 
-Azure Maps provides developers from all industries powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context for web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geofencing, Map Data, Weather Data, and many more services accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms. [Azure Maps is also available in Power BI](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-getting-started).
+Azure Maps provides developers from all industries powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context for web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geofencing, Map Data, Weather Data, and many more services accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms. [Azure Maps is also available in Power BI](power-bi-visual-getting-started.md).
 
 ## High-level platform comparison
 
@@ -94,7 +94,7 @@ Here is a list of useful technical resources for Azure Maps.
 
 Developers can seek migration support through the [forums](https://aka.ms/AzureMapsForums) or through one of the many Azure support options: <https://azure.microsoft.com/support/options/>
 
-## New Terminology 
+## New terminology 
 
 The following is a list of common Bing Maps terms and that are known by a different term in Azure Maps.
 

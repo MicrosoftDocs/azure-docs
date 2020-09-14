@@ -418,8 +418,8 @@ You may use Custom images to represent points on a map. The map below uses a cus
 
 <center>
 
-![yellow pushpin image](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-ylw\_pushpin.png</center>
+![yellow pushpin image](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>
+yellow-pushpin.png</center>
 
 **Before: Google Maps**
 
@@ -1756,7 +1756,7 @@ Learn more about the Azure Maps Web SDK.
 > [How to use the drawing tools module](set-drawing-options.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)d)
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [Azure Maps Web SDK Service API reference documentation](https://docs.microsoft.com/javascript/api/azure-maps-control/)

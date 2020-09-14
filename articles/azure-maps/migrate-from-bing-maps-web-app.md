@@ -447,9 +447,9 @@ When using a Symbol layer, the data must be added to a data source, and the data
 
 Custom images can be used to represent points on a map. The following image is used in the below examples and uses a custom image to display a point on the map at (latitude: 51.5, longitude: -0.2) and offsets the position of the marker so that the point of the pushpin icon aligns with the correct position on the map.
 
-| ![Azure Maps add puspin](media/migrate-bing-maps-web-app/ylw_pushpin.png)|
+| ![Azure Maps add puspin](media/migrate-bing-maps-web-app/yellow-pushpin.png)|
 |:-----------------------------------------------------------------------:|
-| ylw\_pushpin.png                                                        |
+| yellow-pushpin.png                                                        |
 
 
 **Before: Bing Maps**

@@ -43,6 +43,14 @@
       href: migrate-from-google-maps-android-app.md
     - name: Migrate a web service
       href: migrate-from-google-maps-web-services.md
+  - name: Migrate from Bing Maps
+    items:
+    - name: Migrate from Bing Maps
+      href: migrate-from-bing-maps.md
+    - name: Migrate a web app
+      href: migrate-from-bing-maps-web-app.md
+    - name: Migrate a web service
+      href: migrate-from-bing-maps-web-services.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps

@@ -20,7 +20,7 @@ This article shows you how to get data of shapes that are drawn on the map. We u
 
 The following function gets the drawn shape's source data and outputs it to the screen. 
 
-```Javascript
+```javascript
 function getDrawnShapes() {
     var source = drawingManager.getSource();
 

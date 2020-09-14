@@ -35,7 +35,7 @@ The following code highlights the fired event as you interact with the Symbol La
 
 ## Interact with HTML Marker
 
-The following code adds Javascript map events to an HTML marker. It also highlights the name of the events that get fired up as you interact with the HTML marker.
+The following code adds JavaScript map events to an HTML marker. It also highlights the name of the events that get fired up as you interact with the HTML marker.
 
 <br/>
 

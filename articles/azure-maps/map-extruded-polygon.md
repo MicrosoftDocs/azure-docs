@@ -42,7 +42,7 @@ A choropleth map can be rendered using the polygon extrusion layer. Set the `hei
 
 Azure Maps uses an extended version of the GeoJSON schema that provides a definition for circles as noted [here](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle). An extruded circle can be rendered on the map by creating a `point` feature with a `subType` property of `Circle` and a numbered `Radius` property representing the radius in **meters**. For example:
 
-```Javascript
+```javascript
 {
     "type": "Feature",
     "geometry": {

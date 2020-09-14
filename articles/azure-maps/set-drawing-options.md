@@ -45,7 +45,7 @@ Once the drawing tools module is loaded in your application, you can enable draw
 
 The following code creates an instance of the drawing manager and sets the drawing **mode** option. 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon"
@@ -72,7 +72,7 @@ The drawing manager supports three different ways of interacting with the map to
 
 The following code enables the polygon drawing mode and sets the type of drawing interaction that the drawing manager should adhere to `freehand`. 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon",
