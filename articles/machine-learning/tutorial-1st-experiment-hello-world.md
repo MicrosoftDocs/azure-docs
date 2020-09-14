@@ -38,7 +38,7 @@ This tutorial introduces you to the core Azure Machine Learning concepts needed 
 
 ## Prerequisites
 
-- Complete [Part 1 of the tutorial on local machine setup](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace or [notebook virtual machine](tutorial-1st-experiment-sdk-setup-local.md).
+- Complete [Part 1 of the tutorial on local machine setup](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace or [notebook virtual machine](tutorial-1st-experiment-sdk-setup.md).
 - Familiarity with Python and Machine Learning concepts.
 - A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
 
@@ -93,14 +93,50 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
-### Understanding the code
+### Understanding the code 
 
-- **`ws = Workspace.from_config()`** connect to the Azure Machine Learning workspace. The `Workspace` class allows you to communicate with your Azure Machine Learning resources. For example, to manage your compute infrastructure, models, data, and much more!
-- **`experiment = Experiment(workspace=ws, name='hello-world')`** Experiments provide a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs (for example: when hyperparameter tuning).
-- **`config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')`** To create a run in an experiment, you need the `ScriptRunConfig` class to wrap your `hello.py` code and pass it to Azure Machine Learning. As the name suggests, you can use this class to _configure_ how we want our _script_ to _run_ in Azure Machine Learning. You can see the compute target is defined to run on the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
-- **`run = experiment.submit(config)`** Submits your script. We refer to such a submission as a **run**, which encapsulates a single execution of your code. A run can be used to monitor the script progress, capture the output, analyze the results, visualize metrics and more!
-- **`aml_url = run.get_portal_url()`** The `run` object provides a handle on the execution of our code. We can monitor its progress
-from the Azure Machine Learning Studio with the URL that is printed from the python script.
+Here's a description of how the above code works:
+
+:::row:::
+   :::column span="":::
+      `ws = Workspace.from_config()`
+   :::column-end:::
+   :::column span="2":::
+      [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      `experiment =  Experiment( ... )`
+   :::column-end:::
+   :::column span="2":::
+      [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      `config = ScriptRunConfig( ... )` 
+   :::column-end:::
+   :::column span="2":::
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. Also specifies what compute target the script will run on.  In this code, the target is the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      `run = experiment.submit(config)`
+   :::column-end:::
+   :::column span="2":::
+       Submits your script. This submission is called a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).  A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics and more.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      `aml_url = run.get_portal_url()` 
+   :::column-end:::
+   :::column span="2":::
+        The `run` object provides a handle on the execution of your code. Monitor its progress from the Azure Machine Learning Studio with the URL that is printed from the python script.  
+   :::column-end:::
+:::row-end:::
 
 ## Run in the cloud
 
