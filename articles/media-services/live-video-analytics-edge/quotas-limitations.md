@@ -63,8 +63,7 @@ At the time of the preview release, the Live Video Analytics on IoT Edge does no
 
 You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T.
 
-Further, you should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
-
+Further, you should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported. 
 
 ## Next steps
 
