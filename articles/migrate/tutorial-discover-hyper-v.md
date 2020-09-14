@@ -222,7 +222,7 @@ Alternatively, do this in the Local Group Policy Editor on the appliance:
 
 
 
-## Step 6: Start continuous discovery
+## Start continuous discovery
 
 The appliance needs to connect to Hyper-V hosts to discover VMs.
 
