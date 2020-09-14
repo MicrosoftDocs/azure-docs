@@ -98,7 +98,7 @@ To create a remediation task to mitigate compliance issues, click **Create Remed
 
 Click **Remediate** to create the remediation task and then **Remediate** to start it. You will most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
 
-[![Remediation](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![Screenshot shows the Policy Remediation pane for Monitor | Virtual Machines.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 Once the remediation tasks are complete, your VMs should be compliant with agents installed and enabled for Azure Monitor for VMs. 
