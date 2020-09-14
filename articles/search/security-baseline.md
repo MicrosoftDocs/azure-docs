@@ -920,7 +920,7 @@ Control access to the keys used to authenticate requests for all other operation
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Search" namespace to create custom policies to audit or enforce the configuration of your Azure Cognitive Search resources. You may also use built-in Azure Policy definitions for Cognitive Search services such as:
 
-Enable audit logging for Azure resources
+- Enable audit logging for Azure resources
 
 Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization. 
 
