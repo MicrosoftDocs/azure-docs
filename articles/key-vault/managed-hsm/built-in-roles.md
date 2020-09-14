@@ -27,6 +27,7 @@ Managed HSM local RBAC has several built-in roles that you can assign to users, 
 |Managed HSM Crypto Service Encryption| Grants permission to use a key for service encryption. |33413926-3206-4cdd-b39a-83574fe37a17|
 |Managed HSM Backup| Grants permission to perform single key or whole HSM backup. |7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
 
+## Permitted operations
 > [!NOTE]  
 > - An 'X' indicates that a role is allowed to perform the data action. Empty cell indicates the role does not have pemission to perform that data action.
 > - All the data action names have a 'Microsoft.KeyVault/managedHsm' prefix, which is omitted in the tables below for brevity.
