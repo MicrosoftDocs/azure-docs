@@ -66,9 +66,9 @@
       href: security-baseline.md
     - name: Security recommendations for Azure Key Vault
       href: security-recommendations.md
-  - name: Notifications (preview)
+  - name: Notifications
     items:
-    - name: Monitor with Azure Event Grid (preview)
+    - name: Monitor with Azure Event Grid
       href: event-grid-overview.md
   - name: Soft-delete
     items:
