@@ -42,7 +42,7 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
      ![sample files](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.py** and **shakespeare.txt** files into your ADLS Gen2 filesystem. 
+3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.py** and **shakespeare.txt** into your ADLS Gen2 filesystem. 
 
      ![upload python file](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -58,9 +58,9 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
      |  Property   | Description   |  
      | ----- | ----- |  
-     |Job definition name| Enter a name for your Apache Spark job definition. This name can be updated at any time until it's published. Sample: `job definition sample`|
-     |Main definition file| The main file used for the job. Select a PY file from your storage. You can select **Upload file** to upload the file to a storage account. Sample: `abfss://…/path/to/wordcount.py`|
-     |Command-line arguments| Optional arguments to the job. Sample: `abfss://…/path/to/ shakespeare.txt` `abfss://…/path/to/result` *Note: Two arguments for the sample job definition separated by space.*|
+     |Job definition name| Enter a name for your Apache Spark job definition. This name can be updated at any time until it's published. <br> Sample: `job definition sample`|
+     |Main definition file| The main file used for the job. Select a PY file from your storage. You can select **Upload file** to upload the file to a storage account. <br> Sample: `abfss://…/path/to/wordcount.py`|
+     |Command-line arguments| Optional arguments to the job. <br> Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result` <br> *Note: Two arguments for the sample job definition are separated by a space.*|
      |Reference files| Additional files used for reference in the main definition file. You can select **Upload file** to upload the file to a storage account. |
      |Spark pool| The job will be submitted to the selected Apache Spark pool.|
      |Spark version| Version of Apache Spark that the Apache Spark pool is running.|
@@ -70,7 +70,7 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
      ![Set the value of the Spark job definition for Python](./media/apache-spark-job-definitions/create-py-definition.png)
 
-7. Select **Publish** to save the Apache Spark job definition.
+7. Click **Publish** to save the Apache Spark job definition.
 
      ![publish py definition](./media/apache-spark-job-definitions/publish-py-definition.png)
 
@@ -84,7 +84,7 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
  
      ![sample files scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.jar** and **shakespeare.txt** files into your ADLS Gen2 filesystem.
+ 3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.jar** and **shakespeare.txt** into your ADLS Gen2 filesystem.
  
      ![prepare scala structure](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
@@ -98,10 +98,10 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
 
      |  Property   | Description   |  
      | ----- | ----- |  
-     |Job definition name| Enter a name for your Apache Spark job definition. This name can be updated at any time until it's published. Sample: `scala`|
-     |Main definition file| The main file used for the job. Select a JAR file from your storage. You can select **Upload file** to upload the file to a storage account. Sample: `abfss://…/path/to/wordcount.jar`|
-     |Main class name| The fully qualified identifier or the main class that is in the main definition file. Sample: `WordCount`|
-     |Command-line arguments| Optional arguments to the job. Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result` *Note: Two arguments for the sample job definition separated by space.* |
+     |Job definition name| Enter a name for your Apache Spark job definition. This name can be updated at any time until it's published. <br> Sample: `scala`|
+     |Main definition file| The main file used for the job. Select a JAR file from your storage. You can select **Upload file** to upload the file to a storage account. <br> Sample: `abfss://…/path/to/wordcount.jar`|
+     |Main class name| The fully qualified identifier or the main class that is in the main definition file. <br> Sample: `WordCount`|
+     |Command-line arguments| Optional arguments to the job. <br> Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result` <br> *Note: Two arguments for the sample job definition are separated by a space.* |
      |Reference files| Additional files used for reference in the main definition file. You can select **Upload file** to upload the file to a storage account.|
      |Spark pool| The job will be submitted to the selected Apache Spark pool.|
      |Spark version| Version of Apache Spark that the Apache Spark pool is running.|
@@ -111,7 +111,7 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
 
      ![Set the value of the Spark job definition for scala](./media/apache-spark-job-definitions/create-scala-definition.png)
 
- 7. Select **Publish** to save the Apache Spark job definition.
+ 7. Click **Publish** to save the Apache Spark job definition.
 
       ![publish scala definition](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
@@ -124,7 +124,7 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
 
      ![sample dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.zip** and **shakespeare.txt** files into your ADLS Gen2 filesystem.
+ 3. Click **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.zip** and **shakespeare.txt** into your ADLS Gen2 filesystem.
  
      ![prepare dotnet structure](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
@@ -138,10 +138,10 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
     
      |  Property   | Description   |  
      | ----- | ----- |  
-     |Job definition name| Enter a name for your Apache Spark job definition. This name can be updated at any time until it's published. Sample: `dotnet`|
-     |Main definition file| The main file used for the job. Select a ZIP file that contains your .NET for Apache Spark application (that is, the main executable file, DLLs containing user-defined functions, and other required files) from your storage. You can select **Upload file** to upload the file to a storage account. Sample: `abfss://…/path/to/wordcount.zip`|
-     |Main executable file| The main executable file in the main definition ZIP file. Sample: `WordCount`|
-     |Command-line arguments| Optional arguments to the job. Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result` *Note: Two arguments for the sample job definition separated by space.* |
+     |Job definition name| Enter a name for your Apache Spark job definition. This name can be updated at any time until it's published. <br> Sample: `dotnet`|
+     |Main definition file| The main file used for the job. Select a ZIP file that contains your .NET for Apache Spark application (that is, the main executable file, DLLs containing user-defined functions, and other required files) from your storage. You can select **Upload file** to upload the file to a storage account. <br> Sample: `abfss://…/path/to/wordcount.zip`|
+     |Main executable file| The main executable file in the main definition ZIP file. <br> Sample: `WordCount`|
+     |Command-line arguments| Optional arguments to the job. <br> Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result` <br> *Note: Two arguments for the sample job definition are separated by a space.* |
      |Reference files| Additional files needed by the worker nodes for executing the .NET for Apache Spark application that isn't included in the main definition ZIP file (that is, dependent jars, additional user-defined function DLLs, and other config files). You can select **Upload file** to upload the file to a storage account.|
      |Spark pool| The job will be submitted to the selected Apache Spark pool.|
      |Spark version| Version of Apache Spark that the Apache Spark pool is running.|
@@ -151,7 +151,7 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
 
      ![Set the value of the Spark job definition for dotnet](./media/apache-spark-job-definitions/create-net-definition.png)
 
- 7. Select **Publish** to save the Apache Spark job definition.
+ 7. Click **Publish** to save the Apache Spark job definition.
 
       ![publish dotnet definition](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
