@@ -10,9 +10,8 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: [seo-lt-2019, references_regions]
 ms.date: 07/15/2020
-ms.custom: references_regions
 ---
 
 # Azure Data Factory Managed Virtual Network (preview)
