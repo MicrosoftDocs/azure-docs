@@ -84,10 +84,10 @@ No, you do not need to restart the database server to start using the new certif
 ### 3. What will happen if I do not update the root certificate before October 26, 2020 (10/26/2020)?
 If you do not update the root certificate before October 26, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the PostgreSQL database server and application will experience connectivity issues to your PostgreSQL database server.
 
-### 4. What is the impact if using App Service with Azure Database for PostgreSQL ?
+### 4. What is the impact if using App Service with Azure Database for PostgreSQL?
 For Azure app services, connecting to Azure Database for PostgreSQL, we can have two possible scenarios and it depends on how on you are using SSL with your application.
-*   If you are relying on App Service platform for managing the SSL cert, you should not see any impact with the certificate change . This certificates is included in App Service at platform level and there is no action needed.
-*   If you are explicitly including the path to SSL cert file in your code , then you would need to download the new cert and update the code to use the new cert.
+*   If you are relying on App Service platform for managing the SSL cert, you should not see any impact with the certificate change. This certificate is included in App Service at platform level and there is no action needed.
+*   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert.
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for PostgreSQL?
 If you are trying to connection to the Azure Database for MySQL using Azure Kubernetes Services (AKS), it is similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).
