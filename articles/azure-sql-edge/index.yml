@@ -72,7 +72,7 @@ landingContent:
             url: deploy-onnx.md
 
   # Card 
-  - title: Timeseries Data Processing
+  - title: Time series Data Processing
     linkLists:
       - linkListType: concept
         links:
