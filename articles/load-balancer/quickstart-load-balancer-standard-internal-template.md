@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs by using an ARM template
