@@ -105,7 +105,7 @@ Azure Marketplace is an online applications and services marketplace where you c
 8. On the **IoT Edge Custom Modules** pane, set *Restart Policy* to always and *Desired Status* to running.
 9. On the **IoT Edge Custom Modules** pane, click **Save**.
 10. On the **Set modules** page click **Next**.
-11. On the **Specify Route (optional)** section of the **Set Modules** page, specify the routes for module to module, or module to IoT Edge Hub communication. For more information on configruing routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
+11. On the **Specify Route (optional)** section of the **Set Modules** page, specify the routes for module to module, or module to IoT Edge Hub communication. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
 12. Click **Next**.
 13. Click **Submit**.
 
