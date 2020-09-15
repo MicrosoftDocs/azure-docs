@@ -136,7 +136,7 @@ First, verify that the Azure Digital Twins permissions settings were properly se
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
 
 Or, see how to connect your client application to your instance by writing the client app's authentication code:
