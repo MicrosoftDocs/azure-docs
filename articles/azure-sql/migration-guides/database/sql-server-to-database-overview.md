@@ -136,57 +136,57 @@ The following partners can provide alternative methods for migration as well:
 
 :::row:::
    :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/Blitzz_logo_84.png" alt-text="Blitzz":::](https://www.blitzz.io/product)
+      [:::image type="content" source="media/sql-server-to-database-overview/Blitzz_logo_84.png" alt-text="Blitzz":::](https://www.blitzz.io/product)
    :::column-end:::
    :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/blueprint_logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
+      [:::image type="content" source="media/sql-server-to-database-overview/blueprint_logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
    :::column-end:::
    :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/Cognizant-220.1.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
+      [:::image type="content" source="media/sql-server-to-database-overview/Cognizant-220.1.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
    :::column-end:::   
 :::row-end:::
 :::row:::
    :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/commvault-220.png" alt-text="Commvault":::](https://www.commvault.com/supported-technologies/microsoft)
+      [:::image type="content" source="media/sql-server-to-database-overview/commvault-220.png" alt-text="Commvault":::](https://www.commvault.com/supported-technologies/microsoft)
    :::column-end:::   
    :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/DataSunrise_database_security_logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
+      [:::image type="content" source="media/sql-server-to-database-overview/DataSunrise_database_security_logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
    :::column-end:::
    :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/dbbest-logo.png" alt-text="DBBTest":::](https://www.dbbest.com/)
+      [:::image type="content" source="media/sql-server-to-database-overview/dbbest-logo.png" alt-text="DBBTest":::](https://www.dbbest.com/)
    :::column-end:::   
 :::row-end:::
 :::row:::
    :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/DXC_logo_cropped.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
+      [:::image type="content" source="media/sql-server-to-database-overview/DXC_logo_cropped.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
    :::column-end:::
    :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/InfosysLogo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
+     [:::image type="content" source="media/sql-server-to-database-overview/InfosysLogo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
    :::column-end:::
    :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/nayatech_migVisor_logo_small.png" alt-text="MigVisor":::](https://www.migvisor.com/)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/sql-server-to-managed-instance-overview/querysurge_logo-84.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)
-   :::column-end:::
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/quest_logo_cropped1.png" alt-text="Quest":::](https://www.quest.com/products/shareplex/)
-   :::column-end:::   
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/rhipe-logo-small_final1.png" alt-text="Rhipe":::](https://www.rhipe.com/services/azure-migration/)
+      [:::image type="content" source="media/sql-server-to-database-overview/nayatech_migVisor_logo_small.png" alt-text="MigVisor":::](https://www.migvisor.com/)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/scalability-experts-logo3.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
-   :::column-end:::   
-   :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/wipro-220.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
+      [:::image type="content" source="media/sql-server-to-database-overview/querysurge_logo-84.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)
    :::column-end:::
    :::column span="":::
-     [:::image type="content" source="media/sql-server-to-managed-instance-overview/Zen3-logo-220.png" alt-text="Zen":::](https://www.zen3.com/cloud-migration/)
+     [:::image type="content" source="media/sql-server-to-database-overview/quest_logo_cropped1.png" alt-text="Quest":::](https://www.quest.com/products/shareplex/)
+   :::column-end:::   
+   :::column span="":::
+     [:::image type="content" source="media/sql-server-to-database-overview/rhipe-logo-small_final1.png" alt-text="Rhipe":::](https://www.rhipe.com/services/azure-migration/)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+     [:::image type="content" source="media/sql-server-to-database-overview/scalability-experts-logo3.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
+   :::column-end:::   
+   :::column span="":::
+     [:::image type="content" source="media/sql-server-to-database-overview/wipro-220.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
+   :::column-end:::
+   :::column span="":::
+     [:::image type="content" source="media/sql-server-to-database-overview/Zen3-logo-220.png" alt-text="Zen":::](https://www.zen3.com/cloud-migration/)
    :::column-end:::
 :::row-end:::
 
