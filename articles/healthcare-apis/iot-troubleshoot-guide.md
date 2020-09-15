@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 09/15/2020
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
@@ -19,6 +19,41 @@ You can use the conversion mapping JSON copies for editing and archiving outside
 
 > [!TIP]
 > If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the Azure IoT Connector for FHIR, make sure to include copies of your conversion mapping JSON to help with the troubleshooting process.
+
+## Device and FHIR Conversion Mapping JSON Template Validations for Azure IoT Connector for FHIR (preview)
+In this section, you'll learn about the validation process that the Azure portal and Azure IoT Connector for FHIR perform to validate the Device and FHIR conversion mapping JSON templates before allowing them to be saved for use. 
+
+**Azure portal**
+
+|Action|Required|
+|------|--------|
+|Simple JSON format validation|True|
+|Schema validation|True|
+
+**Device Mapping**
+
+|Element|Required|
+|------|--------|
+|TypeName|True|
+|TypeMatchExpression|True|
+|DeviceIdExpression|True|
+|TimestampExpression|True|
+|Values[].ValueName|True|
+|Values[].ValueExpression|True|
+
+> [!NOTE]
+> Values[].ValueName and Values[].ValueExpression
+>
+> These elements are only required if you have a value entry in the array - it is valid to have no values mapped.  This is used when the telemetry being sent is an event.  For example: When a wearable IoMT device is put on or removed.  The element(s) do not have any values except for a name that Azure IoT Connector for FHIR  matches and emits.  On the FHIR conversion, Azure IoT Connector for FHIR maps it to a code-able concept based on the semantic type - no actual values are populated.
+
+**FHIR Mapping**
+
+|Element |Required|
+|------|--------|
+|TypeName|True|
+
+> [!NOTE]
+> This is the only required FHIR Mapping element validated at this time.
 
 ## Error messages and fixes for Azure IoT Connector for FHIR (preview)
 
