@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 As an access package manager, you can change the users who can request an access package at any time by editing the policy or adding a new policy. This article describes how to change the request settings for an existing access package.
 
-## Choose between one or multiple polices
+## Choose between one or multiple policies
 
 The way you specify who can request an access package is with a policy. Before creating a new policy or editing an existing policy in an access package, you need to determine how many policies the access package needs. 
 

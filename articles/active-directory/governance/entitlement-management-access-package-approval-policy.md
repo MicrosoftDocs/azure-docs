@@ -154,7 +154,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Click **Next**.
 
-## Add Requestor information (preview) to an access package
+## Collect additional requestor information for approval (preview)
 
 1. Go to the **Requestor information** tab and click the **Questions** sub tab.
  
@@ -183,6 +183,8 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
 
 1. Fill out the remaining tabs (e.g., Lifecycle) based on your needs.
+
+After you have configured requestor information in your access package policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions (Preview)](entitlement-management-request-approve.md#view-requestors-answers-to-questions-preview)
 
 ## Next steps
 - [Change lifecycle settings for an access package](entitlement-management-access-package-lifecycle-policy.md)
