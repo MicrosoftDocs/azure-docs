@@ -334,8 +334,3 @@ In this tutorial, we saw how to upload data to Azure using a `Datastore`. The da
 You saw how to modify your training script to accept a data path via the command line. By using a `Dataset` you were able to mount a directory to the remote run. 
 
 In this session, you saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
-
-- The Azure Machine Learning VS Code Extension: This makes it easier to submit remote runs, and also interact with Azure Machine Learning. For example, you can upload data, create experiments, etc.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Clean up Resources](tutorial-1st-experiment-cleanup.md)
