@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/08/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -22,19 +22,9 @@ Service-level encryption supports the use of either Microsoft-managed keys or cu
 
 To doubly encrypt your data, you must first create a storage account that is configured for infrastructure encryption. This article describes how to create a storage account that enables infrastructure encryption.
 
-## About the feature
+## Register to use infrastructure encryption
 
-To create a storage account that has infrastructure encryption enabled, you must first register to use this feature with Azure. Due to limited capacity, be aware that it may take several months before requests for access are approved.
-
-You can create a storage account with infrastructure encryption enabled in the following regions:
-
-- East US
-- South Central US
-- West US 2
-
-### Register to use infrastructure encryption
-
-To register to use infrastructure encryption with Azure Storage, use PowerShell or Azure CLI.
+To create a storage account that has infrastructure encryption enabled, you must first register to use this feature with Azure by using PowerShell or Azure CLI.
 
 # [PowerShell](#tab/powershell)
 
@@ -43,6 +33,19 @@ To register with PowerShell, call the [Register-AzProviderFeature](/powershell/m
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName AllowRequireInfraStructureEncryption
+```
+
+To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowRequireInfraStructureEncryption
+```
+
+After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with PowerShell, call the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -54,27 +57,6 @@ az feature register --namespace Microsoft.Storage \
     --name AllowRequireInfraStructureEncryption
 ```
 
-# [Template](#tab/template)
-
-N/A
-
----
-
-### Check the status of your registration
-
-To check the status of your registration for infrastructure encryption, use PowerShell or Azure CLI.
-
-# [PowerShell](#tab/powershell)
-
-To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowRequireInfraStructureEncryption
-```
-
-# [Azure CLI](#tab/azure-cli)
-
 To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
@@ -82,27 +64,7 @@ az feature show --namespace Microsoft.Storage \
     --name AllowRequireInfraStructureEncryption
 ```
 
-# [Template](#tab/template)
-
-N/A
-
----
-
-### Re-register the Azure Storage resource provider
-
-After your registration is approved, you must re-register the Azure Storage resource provider. Use PowerShell or Azure CLI to re-register the resource provider.
-
-# [PowerShell](#tab/powershell)
-
-To re-register the resource provider with PowerShell, call the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az-provider-register) command.
+After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az-provider-register) command.
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
