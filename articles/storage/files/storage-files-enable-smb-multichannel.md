@@ -54,14 +54,26 @@ Get-AzProviderFeature -FeatureName AllowSMBMultichannel -ProviderNamespace Micro
 
 
 ## Enable (Disable) SMB Multichannel 
+Once you have created a FileStorage account, you can follow the instructions to update SMB Multichannel settings for your storage account.
 
+# [Portal](#tab/azure-portal)
 1. Sign into the Azure portal and navigate to the FileStorage storage account you want to configure SMB Multichannel.
 1. Select **File shares** under **File service**, and then select **File share settings**.
 1. Toggle **SMB Multichannel** to **on** (or **off** to disable) and select **save**.
 
 :::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Screenshot of storage account, smb multichannel is toggled on.":::
 
-Any changes to SMB Multichannel configuration settings will apply to all file shares under the storage account. You will need to remount the share on your client for the changes to take effect, though.
+If the SMB Multichannel option not visible under File share settings or you get an failed to update error while updating the configuration, please make sure that your subscription is registered and you in one of the supported regions with supported account type and replication. See details on the  availablity section.
+
+
+# [PowerShell](#tab/azure-powershell)
+Azure PowerShell does not yet support configuring SMB Multichannel. Please see the portal instructions to configure SMB Multichannel on storage account.
+
+# [Azure CLI](#tab/azure-cli)
+Azure CLI does not yet support configuring SMB Multichannel. Please see the portal instructions to configure SMB Multichannel on storage account.
+
+> [!NOTE]
+> Any changes to SMB Multichannel configuration settings will apply to all file shares under the storage account. You will need to remount the share on your client for the changes to take effect, though.
 
 
 ## Next steps 
