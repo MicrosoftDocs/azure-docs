@@ -64,7 +64,7 @@ To register your apps manually, choose the Azure Active Directory (Azure AD) ten
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You'll need it to configure the Visual Studio configuration file for this project (that is, `ClientId` in the *TodoListService\Web.config* file).
 1. In the **Expose an API** section, select **Add a scope**, accept the proposed Application ID URI (api://{clientId}) by selecting **Save and Continue**, and then enter the following information:
  
-   a. For **Scope name**, use **access_as_user**.  
+   a. For **Scope name**, enter **access_as_user**.  
    b. For **Who can consent**, ensure that the **Admins and users** option is selected.  
    c. In the **Admin consent display name** box, enter **Access TodoListService as a user**.  
    d. In the **Admin consent description** box, enter **Accesses the TodoListService web API as a user**.  
@@ -94,7 +94,7 @@ To add the new scope to the TodoListClient *app.config* file, do the following:
 
 ## Register the TodoListClient client app
 
-In this section, you configure your TodoListClient project by registering a new application in the **App registrations** portal. If the client and server are considered *the same application*, you can reuse the same application that's registered in step 2. Use the same application if you want users to sign in with a Microsoft personal account.
+In this section, you register your TodoListClient app in **App registrations** in the Azure portal, and then configure the code in the TodoListClient project. If the client and server are considered *the same application*, you can reuse the application that's registered in step 2. Use the same application if you want users to sign in with a Microsoft personal account.
 
 ### Register the app
 
@@ -105,7 +105,7 @@ To register the TodoListClient app, do the following:
 1. When the **Register an application page** opens, enter your application's registration information:
 
    a. In the **Name** section, enter a meaningful application name that will be displayed to users of the app (for example, **NativeClient-DotNet-TodoListClient**).  
-   b. For **Supported account types**, enter **Accounts in any organizational directory**.  
+   b. For **Supported account types**, select **Accounts in any organizational directory**.  
    c. Select **Register** to create the application.
    
    > [!NOTE]
