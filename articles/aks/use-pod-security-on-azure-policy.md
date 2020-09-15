@@ -23,7 +23,7 @@ This document assumes you have the following which are deployed in the walk-thro
 
 * Registered the `Microsoft.ContainerService` and `Microsoft.PolicyInsights` resource providers using `az provider register`
 * Azure CLI 2.12 or greater
-* An AKS cluster on a supported version of 1.15 or greater installed with the Azure Policy Add-on
+* An AKS cluster on a version of 1.15 or greater installed with the Azure Policy Add-on
 
 ## Overview of securing pods with Azure Policy for AKS
 
