@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for VMs health
-description: 
+title: Configure monitoring in Azure Monitor for VMs guest health using resource manager template (preview)
+description: Describes how to modify default monitoring in Azure Monitor for VMs guest health at scale using resource manager templates.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -9,14 +9,14 @@ ms.date: 09/08/2020
 
 ---
 
-# Configure monitoring in Azure Monitor for VMs guest health (preview)
+# Configure monitoring in Azure Monitor for VMs guest health using resource manager template (preview)
 Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring at scale using resource manager templates. 
 
 See [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md) for an explanation of health states and criteria and configuring them in the Azure portal. This article will focus on implementing this same monitoring logic using resource manager templates.
 
 
 ## Overview
-Guest health configuration is kept in a [Data Collection Rule (DCR)](./platform/data-collection-rule-overview.md). The default configuration for each monitor can't be changed, but you can create one or more overrides that change different properties of the monitor. The override can defined any details of the monitor including the health states that should be enabled and the criteria for each state.
+Guest health configuration is kept in a [Data Collection Rule (DCR)](../platform/data-collection-rule-overview.md). The default configuration for each monitor can't be changed, but you can create one or more overrides that change different properties of the monitor. The override can defined any details of the monitor including the health states that should be enabled and the criteria for each state.
 
 ## Scope
 Overrides have one or more scopes the define which VMs the override should be applied to. The scope can be a subscription, resource group, or a single VM. Even if the override is in a DCR associated to a particular VM, it's only applied to that VM if the VM is within one of the scopes of the override. This allows you to broadly associate a smaller number of DCRs to a set of VMs but provide granluar control of overrides within the DCR itself.

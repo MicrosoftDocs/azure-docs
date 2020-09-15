@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for VMs health
-description: 
+title: Enable Azure Monitor for VMs guest health (preview)
+description: Describes how to enable Azure Monitor for VMs guest health in your subscription and how to onboard VMs.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -58,7 +58,7 @@ The following Azure resource providers need to registered for your subscription 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights
 
-You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using armclient, postman, or another method to make authenticated call to ARM:
+You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using armclient, postman, or another method to make authenticated call to ARM:
 
 ```
 POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Microsoft.WorkloadMonitor/register?api-version=2019-10-01
@@ -66,7 +66,7 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 ```
 
 ## Create Azure Monitor Data Collection Rule (DCR)
-[Data Collection Rules (DCR)](platform/data-collection-rule-overview.md) define data coming into Azure Monitor and specify where that data should be sent or stored. 
+[Data Collection Rules (DCR)](../platform/data-collection-rule-overview.md) define data coming into Azure Monitor and specify where that data should be sent or stored. 
 
 Azure Monitor Agent Data Collection Rule (Azure object) must be created in order for health data to start flowing. DCR must be created in the same region as target Log Analytics workspace of the VM. It is recommended to have one DCR containing VM Health rules per subscription and all DCRs in a dedicated resource group such as `AzureMonitor-DataCollectionRules`.
 
@@ -82,7 +82,7 @@ Click the **Upgrade** option for a VM that's already been enabled for Azure Moni
 \<screenshot\>
 
 ## Enable VM using resource manager templates
-You can enable a VM for guest health using the following resource manager template. This installs the guest health extension and creates the association with the data collection rule. You can deploy this template using any [deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell).
+You can enable a VM for guest health using the following resource manager template. This installs the guest health extension and creates the association with the data collection rule. You can deploy this template using any [deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 
 For example, use the following commands to deploy the template and parameters file to a resource group using PowerShell or Azure CLI.

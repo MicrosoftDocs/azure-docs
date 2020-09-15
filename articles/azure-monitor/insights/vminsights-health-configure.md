@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for VMs health
-description: 
+title: Configure monitoring in Azure Monitor for VMs guest health (preview)
+description: Describes how to modify default monitoring for Azure Monitor for VMs guest health (preview) using the Azure portal.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

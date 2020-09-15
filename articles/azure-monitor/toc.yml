@@ -986,7 +986,7 @@
         href: insights/vminsights-health-enable.md
       - name: Configure
         href: insights/vminsights-health-configure.md
-        - name: Analyze data with log queries
+    - name: Analyze data with log queries
       href: insights/vminsights-log-search.md
     - name: Visualize data with workbooks
       href: insights/vminsights-workbooks.md

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for VMs health
-description: 
+title: Azure Monitor for VMs guest health (preview)
+description: Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. 
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
