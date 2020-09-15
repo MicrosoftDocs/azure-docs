@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 07/27/2020
 ---
 
-# Create an Azure Stream Analytics job in Azure SQL Edge 
+# Create a data streaming job in Azure SQL Edge 
 
 This article explains how to create a T-SQL streaming job in Azure SQL Edge. You create the external stream input and output objects, and then you define the streaming job query as part of the streaming job creation.
 

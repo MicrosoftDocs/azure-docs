@@ -46,9 +46,9 @@ Azure Marketplace is an online applications and services marketplace where you c
    |IoT Hub   |  Name of the IoT Hub where the IoT Edge device is registered and then select "Deploy to a device" option|
    |IoT Edge Device Name  |  Name of the IoT Edge device where SQL Edge would be deployed |
 
-4. On the **Set Modules** page, navigate to the section on deployment modules and click **Configure** against the SQL Edge module. 
+4. On the **Set Modules** page, navigate to the section on deployment modules, and click **Configure** against the SQL Edge module. 
 
-5. On the **IoT Edge Custom Modules** pane, specify the desired values for the environment variables and/or customize the create options and desired properties for the module. For a complete list of supported environment variables refer [SQL Server Container Environment Variables](/sql/linux/sql-server-linux-configure-environment-variables/).
+5. On the **IoT Edge Custom Modules** pane, specify the desired values for the environment variables and/or customize the create options and desired properties for the module. For, a complete list of supported environment variables refer [SQL Server Container Environment Variables](/sql/linux/sql-server-linux-configure-environment-variables/).
 
    |**Parameter**  |**Description**|
    |---------|---------|
@@ -60,7 +60,7 @@ Azure Marketplace is an online applications and services marketplace where you c
    > [!NOTE]
    > Please do not change or update the **Image URI** or the **ACCEPT_EULA** settings on the module.
 
-6. On the **IoT Edge Custom Modules** pane, update the container create options desired value for the **Host Port**. If you need to deploy more than one SQL DB Edge module, please make sure to update the mounts option to create a new source & target pair for the persistent volume. For more information on mounts and volume, refer [Use volumes](https://docs.docker.com/storage/volumes/) on docker documentation. 
+6. On the **IoT Edge Custom Modules** pane, update the container create options desired value for the **Host Port**. If you need to deploy more than one SQL DB Edge module, ensure that you update the mounts option to create a new source & target pair for the persistent volume. For more information on mounts and volume, refer [Use volumes](https://docs.docker.com/storage/volumes/) on docker documentation. 
 
    ```json
        {
@@ -105,7 +105,7 @@ Azure Marketplace is an online applications and services marketplace where you c
 8. On the **IoT Edge Custom Modules** pane, set *Restart Policy* to always and *Desired Status* to running.
 9. On the **IoT Edge Custom Modules** pane, click **Save**.
 10. On the **Set modules** page click **Next**.
-11. On the **Specify Route (optional)** of the **Set Modules** page, specify the routes for module to module or module to IoT Edge Hub communication see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
+11. On the **Specify Route (optional)** section of the **Set Modules** page, specify the routes for module to module, or module to IoT Edge Hub communication. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
 12. Click **Next**.
 13. Click **Submit**.
 
@@ -135,7 +135,7 @@ The following steps use the Azure SQL Edge command-line tool, **sqlcmd**, inside
 
 ## Create and query data
 
-The following sections walk you through using **sqlcmd** and Transact-SQL to create a new database, add data, and run a simple query.
+The following sections walk you through using **sqlcmd** and Transact-SQL to create a new database, add data, and run a query.
 
 ### Create a new database
 
@@ -217,6 +217,7 @@ In this quickstart, you deployed a SQL Edge Module on an IoT Edge device.
 
 ## Next Steps
 
-- [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
-- [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).
+- [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md)
+- [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md)
 - [Data Streaming in Azure SQL Edge](stream-data.md)
+- [Troubleshoot deployment errors](troubleshoot.md)

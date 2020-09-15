@@ -21,9 +21,9 @@ Performs cleanup of obsolete records from tables that have data retention polici
 
 ```sql
 sys.sp_cleanup_data_retention   
-    { [@schema_name = ] 'schema_name',  
-    { [@table_name = ] 'table_name'},   
-    [ [@rowcount =] rowcount OUTPUT]    
+    { [@schema_name = ] 'schema_name' },  
+    { [@table_name = ] 'table_name' },   
+    [ [@rowcount =] rowcount OUTPUT ]    
 
 ```
 

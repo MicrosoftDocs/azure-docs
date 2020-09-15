@@ -13,15 +13,15 @@ ms.date: 09/22/2020
 
 # Securing Azure SQL Edge
 
-As the adoption of IoT and Edge computing increases across industries, so does the number devices and the data generated from these devices. The increased volume of data and the number of device endpoints poses a significant challenge in terms of security of data and the devices. 
+With the increase in adoption of IoT and Edge computing across industries, there is a increase in the number of devices and the data generated from these devices. The increased volume of data and the number of device endpoints poses a significant challenge in terms of security of data and the devices. 
 
-Azure SQL Edge offers multiple features and capabilities that make it relatively easier to secure the IoT data within the SQL Server databases. Additionally, Azure SQL Edge is built using the same SQL engine that powers Microsoft SQL Server and Azure SQL, and shares the same security capabilities, makes it easy to extend the same security policies and practices from cloud to the edge.
+Azure SQL Edge offers multiple features and capabilities that make it relatively easier to secure the IoT data within the SQL Server databases. Azure SQL Edge is built using the same SQL engine that powers Microsoft SQL Server and Azure SQL, sharing the same security capabilities, which makes it easier to extend the same security policies and practices from cloud to the edge.
 
 Just like Microsoft SQL Server and Azure SQL, securing Azure SQL Edge deployments can be viewed as a series of steps involving four areas: the platform, authentication, objects (including data) and applications that access the system. 
 
 ## Platform and system security
 
-The platform for Azure SQL Edge includes the physical docker host on which Azure SQL Edge is running, the operating system on the docker host and the networking systems connecting the physical device to applications and clients. 
+The platform for Azure SQL Edge includes the physical docker host, the operating system on the host, and the networking systems connecting the physical device to applications and clients. 
 
 Implementing platform security starts with keeping unauthorized users off the network. Some of the best practices include, but is not limited to:
 - Implementing firewall rules to ensure organizational security policy. 
@@ -38,7 +38,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 - *SQL Authentication*:
 
-    SQL authentication refers to the authentication of a user when connecting to Azure SQL Edge using username and password. A **server admin** login with a username and password must be specified when the server is being created. Using these credentials, a **server admin** can authenticate to any database on that server or instance as the database owner. After that, additional SQL logins and users can be created by the server admin, which enable users to connect using username and password.
+    SQL authentication refers to the authentication of a user when connecting to Azure SQL Edge using username and password. The SQL **sa** login password must be specified during SQL Edge deployment. After that, additional SQL logins and users can be created by the server admin, which enable users to connect using username and password.
 
     For more information on creating and managing logins and users in SQL Edge, refer [Create a Login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) and [Create Database User](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user).
 
@@ -75,7 +75,7 @@ Encryption does not solve access control problems. However, it enhances security
 
 
 > [!NOTE]
-> Azure SQL Edge does not include the mssql-conf utility. All configurations including encryption related configuration needs to be performed through the [mssql-conf file](configure.md#configure-by-using-an-mssqlconf-file) or [environment variables](configure.md#configure-by-using-environment-variables). 
+> Azure SQL Edge does not include the mssql-conf utility. All configurations including encryption related configuration needs to be performed through the [mssql.conf file](configure.md#configure-by-using-an-mssqlconf-file) or [environment variables](configure.md#configure-by-using-environment-variables). 
 
 
 Similar to Azure SQL and Microsoft SQL Server, Azure SQL Edge provides the same mechanism to create and use certificates to enhance object and connection security. For more information, see, [CREATE CERTIFICATE (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql).
@@ -104,6 +104,7 @@ Azure SQL Edge provides the same Auditing mechanisms as SQL Server. For more inf
 
 ## Next steps
 
-[Getting Started with security features](https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started)
-[Running Azure SQL Edge as a non-root user](configure.md#run-azure-sql-edge-as-non-root-user) 
-[Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/overview)
+- [Getting Started with security features](https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started)
+- [Running Azure SQL Edge as a non-root user](configure.md#run-azure-sql-edge-as-non-root-user)
+- [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/overview)
+
