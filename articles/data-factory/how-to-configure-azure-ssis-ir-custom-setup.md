@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
+ms.date: 09/15/2020
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -35,7 +35,7 @@ You can install both free (unlicensed) and paid (licensed) components with stand
 
 The following limitations apply only to standard custom setups:
 
-- If you want to use *gacutil.exe* in your script to install assemblies in the global assembly cache (GAC), you need to provide *gacutil.exe* as part of your custom setup. Or you can use the copy that's provided in our *Public Preview* container, discussed later in the "Instructions" section.
+- If you want to use *gacutil.exe* in your script to install assemblies in the global assembly cache (GAC), you need to provide *gacutil.exe* as part of your custom setup. Or you can use the copy that's provided in the *Sample* folder of our *Public Preview* container, see the **Standard custom setup samples** section below.
 
 - If you want to reference a subfolder in your script, *msiexec.exe* doesn't support the `.\` notation to reference the root folder. Use a command such as `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` instead of `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
