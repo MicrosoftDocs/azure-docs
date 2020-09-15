@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
@@ -144,11 +144,11 @@ There are no code changes needed in those apps as long as following conditions a
 - Application is using standard protocols to communicate with Azure AD (for example, OAuth2, SAML, WS-Federation)
 - Application doesn't collect plaintext username and password in the native UI
 
-In this case, SSO is provided at the time the application creates a network request and opens a web browser to sign the user in. When a user is redirected to an Azure AD login URL, the SSO plug-in validates the URL and checks if there is an SSO credential available for that URL. If there is one, the SSO plug-in passes the SSO credential to Azure AD, which authorizes the application to complete the network request without asking the end user to enter credentials. Additionally, if the device is known to Azure AD, the SSO plug-in will also pass the device certificate to satisfy the device-based conditional access check. 
+In this case, SSO is provided when the application creates a network request and opens a web browser to sign the user in. When a user is redirected to an Azure AD login URL, the SSO plug-in validates the URL and checks if there is an SSO credential available for that URL. If there is one, the SSO plug-in passes the SSO credential to Azure AD, which authorizes the application to complete the network request without asking the user to enter their credentials. Additionally, if the device is known to Azure AD, the SSO plug-in will also pass the device certificate to satisfy the device-based conditional access check. 
 
-To support SSO for non-MSAL apps, the SSO plug-in implements a similar protocol to the Windows browser plug-in described in [What is a Primary Refresh Token?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
+To support SSO for non-MSAL apps, the SSO plug-in implements a protocol similar to the Windows browser plug-in described in [What is a Primary Refresh Token?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
 
-Compared to MSAL-based apps, the SSO plug-in acts more transparently for non-MSAL apps by integrating with the existing browser login experience that apps provide. The end user would see their familiar experience with a benefit of not having to do additional sign-in in each of the applications. For example, instead of displaying native account picker, SSO plug-in adds SSO sessions to the web-based account picker experience. 
+Compared to MSAL-based apps, the SSO plug-in acts more transparently for non-MSAL apps by integrating with the existing browser login experience that apps provide. The end user would see their familiar experience, with the benefit of not having to perform additional sign-ins in each of the applications. For example, instead of displaying the native account picker, the SSO plug-in adds SSO sessions to the web-based account picker experience. 
 
 ## Next steps
 
