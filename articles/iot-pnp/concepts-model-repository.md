@@ -13,6 +13,9 @@ services: iot-pnp
 
 The Azure IoT model repository enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). The models stored in the model repository service can be shared with solution developers either privately through access control or publicly without requiring any authentication to integrate and develop the IoT Plug and Play cloud solution.
 
+> [!NOTE]
+> Device builders can choose to implement IoT Plug and Play device models directly on a device or in an IoT Edge module.
+
 You can access the model repository using the:
 
 - [Azure IoT model repository](https://aka.ms/iotmodelrepo) portal

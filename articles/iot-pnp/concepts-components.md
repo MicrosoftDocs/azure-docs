@@ -63,7 +63,7 @@ The model ID is stored in a device twin property as the following screenshot sho
 
 :::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Model ID in digital twin property":::
 
-A DTDL model without components is a useful simplification for a device with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device to be an IoT Plug and Play device - you create a DTDL model that describes your actual device without the need to define any components.
+A DTDL model without components is a useful simplification for a device or IoT Edge module with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device or module to be an IoT Plug and Play device or module - you create a DTDL model that describes your actual device or module without the need to define any components.
 
 ## Multiple components
 
