@@ -197,6 +197,23 @@ To enable SMB signing in your Azure Device:
 4. In the local web UI, go to **Shut down or restart**.
 5. Select **Restart**.
 
+## Enable backup operator privileges
+Backup operator privileges allow the local user to XXX SMB shares.
+
+To enable Backup Operator privileges in your Azure Device:
+
+1. In the top-right corner of the local web UI of your device, select **Settings**.
+
+   ![Enable SMB signing](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Enable** Backup Operator Privileges
+
+   ![Enable Backup Operator Privileges](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+
+3. **Select Apply**.
+4. In the local web UI, go to **Shut down or restart**.
+5. Select **Restart**.
+
 ## Enable TLS 1.1
 
 By default, Azure Data Box uses Transport Layer Security (TLS) 1.2 for encryption as it is more secure than TSL 1.1. However, if you or your clients are using a browser to access data that does not support TLS 1.2, you may enable TLS 1.1.
