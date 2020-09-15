@@ -6,7 +6,7 @@ documentationcenter: ''
 author: asinn826
 manager: westonh
 editor: ''
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
@@ -43,7 +43,7 @@ Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gai
 
 ### Preview
 
-In this phase, you may gain access to the benefit by filling out the form here. Once you fill out the form, your Azure subscription(s) will be enabled for the benefit and you will receive a confirmation from Microsoft within 3 business days.
+In this phase, you may gain access to the benefit by filling out the form [here](https://aka.ms/ahb-linux-form). Once you fill out the form, your Azure subscription(s) will be enabled for the benefit and you will receive a confirmation from Microsoft within 3 business days.
 
 ### Red Hat customers
 
@@ -62,7 +62,7 @@ In this phase, you may gain access to the benefit by filling out the form here. 
 
 ### Enabling the benefit in the Azure portal
 
-You may enable the benefit on existing VMs by visiting the Configuration blade and following the steps there. You may enable the benefit on new VMs during the VM create experience.
+You may enable the benefit on existing VMs by visiting the **Configuration** blade and following the steps there. You may enable the benefit on new VMs during the VM create experience.
 
 ### Enabling the benefit in the Azure CLI
 
@@ -148,3 +148,6 @@ This section contains a list of common errors and steps for mitigation.
 | ----- | ---------- |
 | "The subscription is not registered for the Linux private preview of Azure Hybrid Benefit. For step-by-step instructions, refer to https://aka.ms/ahb-linux" | Fill out the form at https://aka.ms/ahb-linux-form to register for the Linux preview of the Azure Hybrid Benefit.
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | In order to use the benefit with RHEL VMs, you must first register your Azure subscription(s) with Red Hat Cloud Access. Visit this link to learn more about how to register your Azure subscriptions for Red Hat Cloud Access
+
+## Next steps
+* Get started with the with the preview by filling out the form [here](https://aka.ms/ahb-linux-form)
