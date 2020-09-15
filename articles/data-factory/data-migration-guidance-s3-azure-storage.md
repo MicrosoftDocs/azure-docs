@@ -56,7 +56,7 @@ Alternatively, if you do not want data to be transferred over public Internet, y
 
 Migrate data over public Internet:
 
-![Diagram shows migration over the Internet by H T T P from an A W S S3 store through Azure Integration Runtime in A D F Azure to Azure Storage, The runtime has a control channel with Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
+![Diagram shows migration over the Internet by H T T P from an A W S S3 store through Azure Integration Runtime in A D F Azure to Azure Storage. The runtime has a control channel with Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
 - In this architecture, data is transferred securely using HTTPS over public Internet. 
 - Both the source Amazon S3 as well as the destination Azure Blob Storage or Azure Data Lake Storage Gen2 are configured to allow traffic from all network IP addresses.  Refer to the second architecture below on how you can restrict network access to specific IP range. 
@@ -65,7 +65,7 @@ Migrate data over public Internet:
 
 Migrate data over private link: 
 
-![Diagram shows migration over a private peering connection from an A W S S3 store through self-hosted integration runtime on Azure virtual machines to V Net service endpoints to Azure storage Azure Storage. The runtime has a control channel with Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
+![Diagram shows migration over a private peering connection from an A W S S3 store through self-hosted integration runtime on Azure virtual machines to V Net service endpoints to Azure Storage. The runtime has a control channel with Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - In this architecture, data migration is done over a private peering link between AWS Direct Connect and Azure Express Route such that data never traverses over public Internet.  It requires use of AWS VPC and Azure Virtual network. 
 - You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture.  You can manually scale up your self-hosted IR VMs or scale out to multiple VMs (up to 4 nodes) to fully utilize your network and storage IOPS/bandwidth. 
