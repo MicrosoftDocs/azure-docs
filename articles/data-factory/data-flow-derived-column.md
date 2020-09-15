@@ -37,7 +37,7 @@ When using the mapping data flow [expression builder](concepts-data-flow-express
 
 ![Create new column](media/data-flow/derive-add-column.png "Create new column")
 
-When working with complex columns, you can create sucolumns. To do this, click on the plus icon next to any column and select **Add subcolumn**. For more information on handling complex types in data flow, see [JSON handling in mapping data flow](format-json.md#mapping-data-flow-properties).
+When working with complex columns, you can create subcolumns. To do this, click on the plus icon next to any column and select **Add subcolumn**. For more information on handling complex types in data flow, see [JSON handling in mapping data flow](format-json.md#mapping-data-flow-properties).
 
 ![Add subcolumn](media/data-flow/derive-add-subcolumn.png "Add Subcolumn")
 
