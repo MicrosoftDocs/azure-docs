@@ -242,7 +242,7 @@ To enable Azure Defender for SQL:
 
 1. On the **Overview** page, select the **Server name** link. The server page will open.
 
-1. On the **SQL server** page, find the **Security** section and select **Azure Defender**.
+1. On the **SQL server** page, find the **Security** section and select **Security center**.
 
    1. Select **ON** under **Azure Defender for SQL** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
 
@@ -250,7 +250,7 @@ To enable Azure Defender for SQL:
 
       You can also configure emails to receive security alerts, storage details, and threat detection types.
 
-1. Return to the **SQL databases** page of your database and select **Azure Defender** under the **Security** section. Here you'll find various security indicators available for the database.
+1. Return to the **SQL databases** page of your database and select **Security center** under the **Security** section. Here you'll find various security indicators available for the database.
 
     ![Threat status](./media/secure-database-tutorial/threat-status.png)
 

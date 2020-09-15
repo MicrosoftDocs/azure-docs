@@ -20,12 +20,12 @@ ms.date: 09/21/2020
 
 You can receive notifications about the detected threats via [email notifications](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) or [Azure portal](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
-[Advanced Threat Protection](../database/threat-detection-overview.md) is part of the [Azure Defender for SQL](../database/azure-defender-for-sql.md)  offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL Azure Defender portal.
+[Advanced Threat Protection](../database/threat-detection-overview.md) is part of the [Azure Defender for SQL](../database/azure-defender-for-sql.md)  offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central Azure Defender for SQL portal.
 
 ##  Azure portal
 
 1. Sign into the  [Azure portal](https://portal.azure.com). 
-2. Navigate to the configuration page of the instance of SQL Managed Instance you want to protect. Under **Security**, select **Azure Defender**.
+2. Navigate to the configuration page of the instance of SQL Managed Instance you want to protect. Under **Security**, select **Security center**.
 3. In the Azure Defender for SQL configuration page
    - Turn **ON** Azure Defender for SQL.
    - Configure the **list of emails** to receive security alerts upon detection of anomalous database activities.
