@@ -70,9 +70,9 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.
 
-**Graph**:
+**Chart**:
 
-:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a graph.":::
+:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
 
 **Table**:
 
