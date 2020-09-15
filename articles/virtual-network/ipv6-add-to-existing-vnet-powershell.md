@@ -1,7 +1,7 @@
 ---
 title: Upgrade an IPv4 application to IPv6 in Azure Virtual Network - PowerShell
 titlesuffix: Azure Virtual Network
-description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure Powershell.
+description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
