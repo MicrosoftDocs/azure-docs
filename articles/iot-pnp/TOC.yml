@@ -43,6 +43,8 @@
     href: tutorial-multiple-components-python.md
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
+  - name: Interact with an MXChip device (Sample)
+    href: https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
 - name: Concepts
   items:
   - name: Architecture
