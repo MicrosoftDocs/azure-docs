@@ -55,7 +55,7 @@ For users logged in with a personal [Microsoft account (MSA)](https://account.mi
 
 ## Issue with interactive browser authentication
 
-When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library**, you may experience issues with the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
+When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, you may experience issues with the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method.
 
 This is not the latest version of the library. The latest version is **1.2.2**.
 
