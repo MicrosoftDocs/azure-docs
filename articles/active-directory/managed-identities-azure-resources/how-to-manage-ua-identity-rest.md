@@ -34,8 +34,6 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 - If you are using Azure CLI local console, sign in to Azure using `az login` with an account that is associated with the Azure subscription you would like to deploy or retrieve user-assigned managed identity information.
 - Retrieve a Bearer access token using `az account get-access-token` to perform the following user-assigned managed identity operations.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## Create a user-assigned managed identity 
 
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
