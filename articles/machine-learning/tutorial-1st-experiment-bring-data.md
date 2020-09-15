@@ -345,4 +345,6 @@ In this tutorial, we saw how to upload data to Azure using a `Datastore`. The da
 
 You saw how to modify your training script to accept a data path via the command line. By using a `Dataset` you were able to mount a directory to the remote run. 
 
-In this session, you saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
+Now that you have a model, learn:
+
+* How to [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md)
