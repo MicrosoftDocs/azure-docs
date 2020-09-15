@@ -8,10 +8,10 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 ---
 
 # Quickstart: Use Service Bus topics and subscriptions with Java
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
 In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
+
+> [!WARNING]
+>  This quickstart uses the old azure-servicebus packages. For a quickstart that uses the latest azure-messaging-servicebus package, see [Send and receive messages using azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ In this quickstart, you write Java code to send messages to an Azure Service Bus
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
 
-![Add Microsoft Azure Libraries for Java to your Eclipse project](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
+![Add Microsoft Azure Libraries for Java to your Eclipse project](media/service-bus-java-how-to-use-topics-subscriptions-legacy/eclipse-azure-libraries-java.png)
 
 You also need to add the following JARs to the Java Build Path:
 
@@ -111,7 +111,7 @@ public class MyServiceBusTopicClient {
 Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a limit on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB.
 
-## How to receive messages from a subscription
+## Receive messages from a subscription
 Update the **main** method to create three **SubscriptionClient** objects for three subscriptions, and invoke a helper method that asynchronously receives messages from the Service Bus topic. The sample code assumes that you created a topic named **BasicTopic** and three subscriptions named **Subscription1**, **Subscription2**, and **Subscription3**. If you used different names for them, update the code before testing it. 
 
 ```java
@@ -454,6 +454,6 @@ For more information, see [Service Bus queues, topics, and subscriptions][Servic
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
-[0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
-[2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
-[3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
+[0]: ./media/service-bus-java-how-to-use-topics-subscriptions-legacy/sb-queues-13.png
+[2]: ./media/service-bus-java-how-to-use-topics-subscriptions-legacy/sb-queues-04.png
+[3]: ./media/service-bus-java-how-to-use-topics-subscriptions-legacy/sb-queues-09.png
