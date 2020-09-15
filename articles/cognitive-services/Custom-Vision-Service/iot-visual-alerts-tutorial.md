@@ -95,13 +95,13 @@ people, an empty desk, a desk with a toy truck, and so on).
 
 ## Train the Custom Vision model
 
-Once the app has finished capturing images, it will upload them and then switch to the **Waiting For Trained Model** state. At this point, you need to go to the [Custom Vision portal](https://www.customvision.ai/) and build a model based on the new training images. The following animation shows an example of this process.
+Once the app has finished capturing images, it will upload them and then switch to the **Waiting For Trained Model** state. At this point, you need to go to the [Custom Vision website](https://www.customvision.ai/) and build a model based on the new training images. The following animation shows an example of this process.
 
 ![Animation: tagging multiple images of bananas](./media/iot-visual-alerts-tutorial/labeling.gif)
 
 To repeat this process with your own scenario:
 
-1. Sign in to the [Custom Vision portal](http://customvision.ai).
+1. Sign in to the [Custom Vision website](http://customvision.ai).
 1. Find your target project, which should now have all the training images that the app uploaded.
 1. For each visual state that you want to identify, select the appropriate images and manually apply the tag.
     * For example, if your goal is to distinguish between an empty room and a room with people in it, we recommend tagging five or more images with people as a new class, **People**, and tagging five or more images without people as the **Negative** tag. This will help the model differentiate between the two states.

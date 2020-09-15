@@ -38,9 +38,9 @@ Additionally, you can choose from several varieties of the Custom Vision algorit
 
 ## What it includes
 
-The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision home page](https://customvision.ai/). You can create, test, and train a model through either interface or use both together.
+The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision website](https://customvision.ai/). You can create, test, and train a model through either interface or use both together.
 
-![Custom Vision home page in a Chrome browser window](media/browser-home.png)
+![Custom Vision website in a Chrome browser window](media/browser-home.png)
 
 ## Data privacy and security
 

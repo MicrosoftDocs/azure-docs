@@ -71,7 +71,7 @@ The prediction endpoint is the reference that you can use to submit an image to 
 
 ## Test the prediction endpoint
 
-In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console. The value of the `publishedModelName` variable should correspond to the "Published as" value found on the Custom Vision portal's **Performance** tab. 
+In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console. The value of the `publishedModelName` variable should correspond to the "Published as" value found on the Custom Vision website's **Performance** tab. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_prediction)]
 
