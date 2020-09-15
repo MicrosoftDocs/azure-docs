@@ -25,126 +25,65 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-To complete this article, you need:
+To complete the steps in this article, you must have the following items:
 
-* Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
+- A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+- The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+    
+    [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+    
+    To sign in to Azure using the CLI you can type:
+    
+    ```azurecli
+    az login
+    ```
+- The object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user?view=azure-cli-latest#az_ad_user_show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
 
-    1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
+    ```azurecli-interactive
+    az ad user show --id <your-email-address> --query "objectId"
+    ```
 
-        # [CLI](#tab/CLI)
-        ```azurecli-interactive
-        echo "Enter your email address that is used to sign in to Azure:" &&
-        read upn &&
-        az ad user show --id $upn --query "objectId" &&
-        echo "Press [ENTER] to continue ..."
-        ```
+You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account?view=azure-cli-latest#az_account_show) command. You can limit the output to the tenant ID only with the `--query` parameter.
 
-        # [PowerShell](#tab/PowerShell)
-        ```azurepowershell-interactive
-        $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-        (Get-AzADUser -UserPrincipalName $upn).Id
-        Write-Host "Press [ENTER] to continue..."
-        ```
+    ```azurecli-interactive
+    az account show --query "tenantId"
+    ```
 
-        ---
-    2. Write down the object ID. You need it in the next section of this quickstart.
+## Create a manage HSM
 
-## Create a vault and a secret
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-managed-hsm-create/).
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
+[!code-json[<Azure Resource Manager template create managed HSM>](~/quickstart-templates/101-managed-hsm-create/azuredeploy.json)]
 
-[!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
+The Azure resource defined in the template:
 
-Two Azure resources are defined in the template:
-
-* **Microsoft.KeyVault/vaults**: create an Azure key vault.
-* **Microsoft.KeyVault/vaults/secrets**: create an key vault secret.
+* **Microsoft.KeyVault/managedHSMs**: create an Azure Key Vault managed HSM.
 
 More Azure Key Vault template samples can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json"><img src="../media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-managed-hsm-create%2Fazuredeploy.json"><img src="../media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Select or enter the following values.
 
-    ![Resource Manager template, Key Vault integration, deploy portal](../media/quick-create-template/create-key-vault-using-template-portal.png)
+    ![Resource Manager template, Key Vault integration, deploy portal](../media/quick-create-template/create-managed-hsm-using-template-portal.png)
 
     Unless it is specified, use the default value to create the key vault and a secret.
 
-    * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    * **Location**: select a location.  For example, **Central US**.
-    * **Key Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validate the deployment.
-    * **Tenant Id**: the template function automatically retrieves your tenant id.  Don't change the default value.
-    * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
-    * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**.
-    * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in Prerequisites.
-    * **I agree to the terms and conditions state above**: Select.
+    - **Subscription**: Select an Azure subscription.
+    - **Resource group**: Select **Create new**, enter a unique name for the resource group, and then click **OK**.
+    - **Location**: Select a location. For example, **South Central US**.
+    - **managedHSMName**: Enter a name for your managed HSM.
+    - **SKU**: Enter the Name and Family of the managed HSM you wish to create.  For this quickstart, enter "Standard_B1" for the Name and "B" for the Family.
+    - **Tenant Id**: The template function automatically retrieves your tenant id; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved in [Prerequisites](#prerequisites).
+    * **initialAdminObjectIds**: Enter the Object ID that you retrieved in [Prerequisites](#prerequisites).
+
 3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification:
 
     ![Resource Manager template, Key Vault integration, deploy portal notification](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
-
-## Validate the deployment
-
-You can either use the Azure portal to check the key vault and the secret, or use the following Azure CLI or Azure PowerShell script to list the secret created.
-
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-echo "Enter your key vault name:" &&
-read keyVaultName &&
-az keyvault secret list --vault-name $keyVaultName &&
-echo "Press [ENTER] to continue ..."
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$keyVaultName = Read-Host -Prompt "Enter your key vault name"
-Get-AzKeyVaultSecret -vaultName $keyVaultName
-Write-Host "Press [ENTER] to continue..."
-```
-
----
-
-The output looks similar to:
-
-# [CLI](#tab/CLI)
-
-![Resource Manager template, Key Vault integration, deploy portal validation CLI output](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
-
-# [PowerShell](#tab/PowerShell)
-
-![Resource Manager template, Key Vault integration, deploy portal validation PowerShell output](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
-
----
-
-## Clean up resources
-
-Other Key Vault quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-When no longer needed, delete the resource group, which deletes the Key Vault and related resources. To delete the resource group by using Azure CLI or Azure Powershell:
-
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
-
----
 
 ## Next steps
 

@@ -39,7 +39,7 @@ For more information on login options via the CLI take a look at [sign in with A
 
 ## Example
 
-In this example, we're developing an application that uses an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Both the RSA key used for signing is stored in our managed HSM pool.
+In this example, we're developing an application that uses an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Both the RSA key used for signing is stored in our managed HSM.
 
 We have identified following roles who manage, deploy, and audit our application:
 
@@ -52,11 +52,11 @@ There's another role that's outside the scope of our application: the subscripti
 We need to authorize the following operations for our roles:
 
 **Security team**
-- Create Managed HSM pool.
-- Download Managed HSM pool security domain (for disaster recovery)
+- Create the managed HSM.
+- Download the managed HSM security domain (for disaster recovery)
 - Turn on logging.
 - Generate or import keys
-- Create HSM pool backups for disaster recovery.
+- Create the managed HSM backups for disaster recovery.
 - Set Managed HSM local RBAC to grant permissions to users and applications for specific operations.
 - Roll the keys periodically.
 
@@ -67,9 +67,9 @@ We need to authorize the following operations for our roles:
 **Auditors**
 - Review keys expiry dates to ensure keys are up-to-date
 - Monitor role assignments to ensure keys can only be accessed by authorized users/applications
-- Review the HSM pool logs to confirm proper use of keys in compliance with data security standards.
+- Review the managed HSM logs to confirm proper use of keys in compliance with data security standards.
 
-The following table summarizes the role assignments to teams and resources to access the HSM pool.
+The following table summarizes the role assignments to teams and resources to access the managed HSM.
 
 | Role | Management plane role | Data plane role |
 | --- | --- | --- |
@@ -79,16 +79,16 @@ The following table summarizes the role assignments to teams and resources to ac
 | Managed identify of the VM used by the Application| None | Managed HSM Crypto User |
 | Managed identity of the Storage account used by the Application| None| Managed HSM Service Encryption |
 
-The three team roles need access to other resources along with HSM pool permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need `Contributor` access to those resource types. Auditors need read access to the Storage account where the HSM pool logs are stored.
+The three team roles need access to other resources along with managed HSM permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need `Contributor` access to those resource types. Auditors need read access to the Storage account where the managed HSM logs are stored.
 
-To assign management plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign HSM pool data plane roles you must use Azure CLI.
+To assign management plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign managed HSM data plane roles you must use Azure CLI.
 
 The Azure CLI snippets in this section are built with the following assumptions:
 
 - The Azure Active Directory administrator has created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin has added users to their respective groups.
 - All resources are located in the **ContosoAppRG** resource group.
-- The HSM pool logs are stored in the **contosologstorage** storage account.
-- The **ContosoMHSM** HSM pool and the **contosologstorage** storage account are in the same Azure location.
+- The managed HSM logs are stored in the **contosologstorage** storage account.
+- The **ContosoMHSM** managed HSM and the **contosologstorage** storage account are in the same Azure location.
 
 The subscription admin assigns the `Managed HSM Contributor`role to the security team. This role allows the security team to manage existing managed HSMs and create new ones. If there are existing managed HSMs, they will need to be assigned the "Managed HSM Administrator" role to be able to mange them.
 
@@ -96,7 +96,7 @@ The subscription admin assigns the `Managed HSM Contributor`role to the security
 # This role assignment allows Contoso Security Team to create new Managed HSMs
 az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
 
-# This role assignment allows Contoso Security Team to become administrator of existing Managed HSM pool
+# This role assignment allows Contoso Security Team to become administrator of existing managed HSM
 az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --scope / --role "Managed HSM Administrator"
 ```
 
