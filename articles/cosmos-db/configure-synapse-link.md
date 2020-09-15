@@ -45,16 +45,15 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 
 1. Your account is now enabled to use Synapse Link. Next see how to create analytical store enabled containers to automatically start replicating your operational data from the transactional store to the analytical store.
 
-### Azure Resource Manager template
-
-The [Azure Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
+> [!NOTE]
+> Turning on Synapse Link does not turn on the analytical store automatically. Once you enable Synapse Link on the Cosmos DB account, enable analytical store on containers when you create them, to start replicating your operation data to analytical store. 
 
 ## <a id="create-analytical-ttl"></a> Create an Azure Cosmos container with analytical store
 
 You can turn on analytical store on an Azure Cosmos container while creating the container. You can use the Azure portal or configure the `analyticalTTL` property during container creation by using the Azure Cosmos DB SDKs.
 
 > [!NOTE]
-> Currently you can enable analytical store for **new** containers (both in new and existing accounts).
+> Currently you can enable analytical store for **new** containers (both in new and existing accounts). You can migrate data from your exisitng containers to new containers using [Azure Cosmos DB migration tools.](cosmosdb-migrationchoices.md)
 
 ### Azure portal
 
@@ -219,6 +218,10 @@ Synapse SQL serverless (a preview feature which, was previously referred to as *
 ## <a id="analyze-with-powerbi"></a>Use Synapse SQL serverless to analyze and visualize data in Power BI
 
 You can build a Synapse SQL serverless database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. To learn more, see how to use [Synapse SQL serverless to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
+
+## Azure Resource Manager template
+
+The [Azure Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
 
