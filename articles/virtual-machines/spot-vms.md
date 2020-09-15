@@ -72,7 +72,7 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **Graph**:
 
-:::image type="content" source="./media/spot-graph.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a graph.":::
+:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a graph.":::
 
 **Table**:
 

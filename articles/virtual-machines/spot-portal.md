@@ -12,7 +12,7 @@ ms.reviewer: jagaveer
 
 # Deploy Spot VMs using the Azure portal
 
-Using [Spot VMs](../spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
+Using [Spot VMs](spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
 Pricing for Spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For more information about setting the max price, see [Spot VMs - Pricing](spot-vms.md#pricing).
 
@@ -30,7 +30,7 @@ On the **Basics** tab, in the **Instance details** section, **No** is the defaul
 
 ![Screen capture for choosing no, don't use an Azure spot instance](./media/spot-portal/no.png)
 
-It you select **Yes**, the section expands and you can choose your [eviction type and eviction policy](../spot-vms.md#eviction-policy). 
+It you select **Yes**, the section expands and you can choose your [eviction type and eviction policy](spot-vms.md#eviction-policy). 
 
 ![Screen capture for choosing yes, use an Azure spot instance](./media/spot-portal/yes.png)
 
