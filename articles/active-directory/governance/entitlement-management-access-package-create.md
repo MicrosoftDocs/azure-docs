@@ -97,7 +97,7 @@ On the **Resource roles** tab, you select the resources to include in the access
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 
-    If you are a Global administrator, a User administrator, or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. If you only want to select resources that are currently in the selected catalog, check the **Only see** check box at the top of the Select pane.
+    If you are a Global administrator, a User administrator, or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. To see all the resources that can be added to the catalog, check the **See all** check box at the top of the Select pane. If you only want to select resources that are currently in the selected catalog, leave the check box **See all** unchecked (default state).
 
 1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.
 

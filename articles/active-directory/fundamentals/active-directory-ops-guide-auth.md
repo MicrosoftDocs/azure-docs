@@ -90,7 +90,7 @@ Passwords by themselves aren't secure enough to prevent bad actors from gaining 
 
 ### On-premises outage authentication resiliency
 
-In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure MFA allow users to access SaaS applications and Office 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren't available.
+In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure MFA allow users to access SaaS applications and Microsoft 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren't available.
 
 If your on-premises organization is lacking an outage resiliency strategy or has one that isn't integrated with Azure AD, you should deploy Azure AD PHS and define a disaster recovery plan that includes PHS. Enabling Azure AD PHS will allow users to authenticate against Azure AD should your on-premises Active Directory be unavailable.
 
@@ -244,7 +244,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 - Have a small set of core policies that can apply to multiple applications
 - Define empty exception groups and add them to the policies to have an exception strategy
 - Plan for [break glass](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
-- Ensure a consistent experience across Office 365 client applications, for example, Teams, OneDrive for Business, Outlook, etc.) by implementing the same set of controls for services such as Exchange Online and Sharepoint Online
+- Ensure a consistent experience across Microsoft 365 client applications, for example, Teams, OneDrive, Outlook, etc.) by implementing the same set of controls for services such as Exchange Online and Sharepoint Online
 - Assignment to policies should be implemented through groups, not individuals
 - Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD P2, then you can use access reviews to automate the process
 
@@ -297,7 +297,7 @@ Below are a list of apps with permissions you might want to scrutinize for Micro
 
 | Resource | Permission |
 | :- | :- |
-| Office 365 Exchange Online | EAS.AccessAsUser.All |
+| Exchange Online | EAS.AccessAsUser.All |
 | | EWS.AccessAsUser.All |
 | | Mail.Read |
 | Microsoft Graph API | Mail.Read |
@@ -334,7 +334,7 @@ Below are the user and group settings that can be locked down if there isn't an 
 
 #### Group settings
 
-**Self-Service Group Management / Users can create Security groups / O365 groups.** If there is no current self-service initiative for groups in the cloud, customers might decide to turn it off until they are ready to use this capability.
+**Self-Service Group Management / Users can create Security groups / Microsoft 365 groups.** If there is no current self-service initiative for groups in the cloud, customers might decide to turn it off until they are ready to use this capability.
 
 #### Groups recommended reading
 
