@@ -16,6 +16,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/media-services/previous/media-services-process-content-with-indexer2.md",
+      "redirect_url": "/azure/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-motion-detection.md",
+      "redirect_url": "/azure/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-video-summarization.md",
+      "redirect_url": "/azure/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-video-optical-character-recognition.md",
+      "redirect_url": "/azure/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-face-and-emotion-detection.md",
+      "redirect_url": "/azure/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-content-moderation.md",
+      "redirect_url": "/azure/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-analytics-overview.md",
+      "redirect_url": "/azure/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-portal-analyze.md",
+      "redirect_url": "/azure/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-api-management-certs.md",
       "redirect_url": "/previous-versions/azure/azure-api-management-certs",
       "redirect_document_id": false
@@ -838,6 +878,11 @@
     {
       "source_path": "articles/power-bi-workspace-collections/whats-new.md",
       "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/whats-new",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/users-groups-roles/custom-enterprise-apps.md",
+      "redirect_url": "/azure/active-directory/users-groups-roles/roles-custom-overview",
       "redirect_document_id": false
     },
     {
@@ -21958,6 +22003,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/tutorial-assess-import.md",
+      "redirect_url": "tutorial-discover-import",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-prepare-vmware.md",
+      "redirect_url": "tutorial-discover-vmware",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/migrate/tutorial-prepare-hyper-v.md",
+      "redirect_url": "tutorial-discover-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-prepare-physical.md",
+      "redirect_url": "tutorial-discover-physical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-assess-vmware.md",
+      "redirect_url": "tutorial-assess-vmware-azure-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/deploy-appliance.md",
       "redirect_url": "migrate-appliance-architecture",
       "redirect_document_id": false
@@ -26010,6 +26080,11 @@
     {
       "source_path": "articles/storage/common/storage-auth-aad-script.md",
       "redirect_url": "/azure/storage/common/authorize-active-directory-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/authorize-active-directory-powershell.md",
+      "redirect_url": "/azure/storage/blobs/authorize-active-directory-powershell",
       "redirect_document_id": true
     },
     {
@@ -35429,7 +35504,7 @@
     },
     {
       "source_path": "articles/active-directory/manage-apps/add-non-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
+      "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
       "redirect_document_id": false
     },
     {
@@ -53373,6 +53448,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/home.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-graph-api-quickstart.md",
       "redirect_url": "/azure/active-directory/develop/microsoft-graph-intro",
       "redirect_document_id": false
@@ -56932,11 +57012,75 @@
       "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
       "redirect_document_id": false
     },
-
-	{
-	  "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
-	  "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
-	  "redirect_document_id": false 	
-	}
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-transliterate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-dictionary",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-languages",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-sentence",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
+      "redirect_document_id": false 	
+    },
+    {
+    "source_path": "articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-portal",
+    "redirect_document_id": false 	
+    },
+    {
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-cli",
+    "redirect_document_id": false 	
+    },
+    {
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-powershell",
+    "redirect_document_id": false 	
+   },
+   {
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-template",
+    "redirect_document_id": false 	
+   },
+   {
+    "source_path": "articles/iot-dps/concepts-security.md",
+    "redirect_url": "/azure/iot-dps/concepts-service#attestation-mechanism",
+    "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/iot-dps/concepts-device.md",
+    "redirect_url": "/azure/iot-dps/concepts-service",
+    "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
+    "redirect_url": "/azure/iot-dps/concepts-roles-operations",
+    "redirect_document_id": false
+    }
   ]
 }

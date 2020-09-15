@@ -967,6 +967,8 @@
       - name: Using Resource Manager templates
         href: manage-sql-with-resource-manager.md
         displayName: ARM
+      - name: Move between regions
+        href: how-to-move-regions.md
     - name: Global distribution
       items:
       - name: Configure multi-master
