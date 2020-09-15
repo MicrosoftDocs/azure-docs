@@ -97,8 +97,8 @@ The following architecture diagram shows the implementation.
 
 13. The Secret key is generated and displayed in the Client secret section.
 
->[!NOTE]
-> You'll need the client secret later.
+    >[!NOTE]
+    > You'll need the client secret later.
 
 14. Go to **Overview** and get the **Client ID** and **Tenant ID**.
 
