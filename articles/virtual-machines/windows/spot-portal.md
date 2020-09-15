@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 09/14/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ---
@@ -33,6 +33,14 @@ On the **Basics** tab, in the **Instance details** section, **No** is the defaul
 It you select **Yes**, the section expands and you can choose your [eviction type and eviction policy](../spot-vms.md#eviction-policy). 
 
 ![Screen capture for choosing yes, use an Azure spot instance](media/spot-portal/yes.png)
+
+You can also compare the pricing and eviction rates with other similar regions by selecting **View pricing history and compare prices in nearby regions**.
+
+In this example, the East US 2 region is less expensive and has a lower eviction rate than the East US region.
+
+:::image type="content" source="./media/pricing.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates.":::
+
+You can change the region by selecting the choice that works the best for you and then selecting **OK**.
 
 
 ## Next steps

@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 09/14/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ---
@@ -66,6 +66,19 @@ Pricing for Spot VMs is variable, based on region and SKU. For more information,
 
 With variable pricing, you have option to set a max price, in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available.
 
+## Priving and eviction history
+
+You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.
+
+**Graph**:
+
+:::image type="content" source="./media/pricing-graph.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a graph.":::
+
+**Table**:
+
+:::image type="content" source="./media/pricing-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+
+You can also query using the [REST API and the Unified Pricing API – Retail Rates endpoint](/rest/api/cost-management/retail-prices/azure-retail-prices) to query for information about Spot pricing.
 
 ##  Frequently asked questions
 
