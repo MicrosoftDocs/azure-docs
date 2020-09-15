@@ -110,4 +110,4 @@ Articles
 ## Community Resources
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Microsoft Q&A question page for Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
+* [Q&A page for Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
