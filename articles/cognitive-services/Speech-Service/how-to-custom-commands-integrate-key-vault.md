@@ -37,34 +37,34 @@ The following articles provide background on azure key vault and managed identit
 1. In Azure portal, find the speech resource you used to create the custom command application. Then, go to **Identity** tab.
 
   > [!div class="mx-imgBorder"]
-  > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-enable-managed-identity.png)
+  > ![Enable managed identity](media/custom-commands/how-to-custom-commands-integrate-key-vault-enable-managed-identity.png)
 
   If the Status is **Off**, switch to **On** and **Save**. You will be presented with an Object ID for the created identity as below.
 
   > [!div class="mx-imgBorder"]
-  > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-enabled-managed-identity.png)
+  > ![Enabled managed identity](media/custom-commands/how-to-custom-commands-integrate-key-vault-enabled-managed-identity.png)
 
 1. To give the managed identity an access to your key vault. Locate the key vault in azure portal. Then, go to **Access Policies** tab.
 
   > [!div class="mx-imgBorder"]
-  > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-access-policies.png)
+  > ![Key vault access policies](media/custom-commands/how-to-custom-commands-integrate-key-vault-access-policies.png)
 
   Click on **+ Add Access Policy**. Select **Get** operation under **Secret permissions**. Click on **Select principal** and locate the managed identity for the speech resource via Object ID or its name.
 
   > [!div class="mx-imgBorder"]
-  > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-acccess-policy.png)
+  > ![Add an access policy](media/custom-commands/how-to-custom-commands-integrate-key-vault-acccess-policy.png)
 
 ## Referencing secrets in the key vault in calling web endpoints.
 
 1. In Speech portal, go to Key vault configuration under **Settings > Key vault**. Enter the name of the key vault where secrets will be referenced from. Please also give the key vault a name, an alphanumeric string including dash, to reference in the application.
 
   > [!div class="mx-imgBorder"]
-  > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-settings.png)
+  > ![Custom Commands key vault setting](media/custom-commands/how-to-custom-commands-integrate-key-vault-settings.png)
 
 1. Finally, go to settings for the web endpoint. Then, click on **Add a header** or **Add a query parameter** depending on how you want to pass the secret to the endpoint. Reference the key vault secret in this format `{Nickname.SecretName}` as below.
 
   > [!div class="mx-imgBorder"]
-  > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-reference-secrets.png)
+  > ![Custom Commands referencing a key vault secret](media/custom-commands/how-to-custom-commands-integrate-key-vault-reference-secrets.png)
 
   > [!NOTE]
   > - You can reference key vault secrets only in query or header parameters or in a part of the url of the web endpoints.
