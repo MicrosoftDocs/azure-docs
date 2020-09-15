@@ -147,7 +147,7 @@ Check that the zipped file is secure, before you deploy it.
         --- | --- | ---
         Hyper-V (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
 
-## Create the appliance VM
+### Create the appliance VM
 
 Import the downloaded file, and create the VM.
 
