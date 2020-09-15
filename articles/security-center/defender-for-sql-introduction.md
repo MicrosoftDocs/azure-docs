@@ -35,9 +35,6 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 
 - **Azure Defender for SQL servers on machines (Preview)** extends the protections for your Azure-native SQL Servers to fully support hybrid environments and protect SQL servers (all supported version) hosted in Azure, other cloud environments, and even on-premises machines
 
-  > [!TIP]
-  > A downloadable version of an Excel workbook that contains all the build versions of Microsoft SQL Server together with their current support lifecycle stage for 2005 through to the current version is available [here](https://aka.ms/SQLServerbuilds).
-  
 
 ## What are the benefits of Azure Defender for SQL?
 
