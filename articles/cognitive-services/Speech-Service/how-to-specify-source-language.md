@@ -134,7 +134,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 ```
 
 >[!Note]
-> `speech_recognition_language` and `endpoint_id` properties are deprecated from the `SpeechConfig` class in Python. The use of these properties are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
+> `speech_recognition_language` and `endpoint_id` properties are deprecated from the `SpeechConfig` class in Python. The use of these properties is discouraged, and they shouldn't be used when constructing a `SpeechRecognizer`.
 
 ::: zone-end
 
@@ -190,7 +190,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 ```
 
 >[!Note]
-> `speechRecognitionLanguage` and `endpointId` properties are deprecated from the `SPXSpeechConfiguration` class in Objective-C. The use of these properties are discouraged, and shouldn't be used when constructing a `SPXSpeechRecognizer`.
+> `speechRecognitionLanguage` and `endpointId` properties are deprecated from the `SPXSpeechConfiguration` class in Objective-C. The use of these properties is discouraged, and they shouldn't be used when constructing a `SPXSpeechRecognizer`.
 
 ::: zone-end
 
