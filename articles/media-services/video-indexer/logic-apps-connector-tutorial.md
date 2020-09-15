@@ -48,11 +48,11 @@ To set up the first flow, you will need to provide your Video Indexer API Key�
 
 ![Connection name and API key](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Once you can connect to your Azure Storage and Video Indexer accounts, go to the “When a blob is added or modified) trigger and select the container that you will place your video files in. 
+Once you can connect to your Azure Storage and Video Indexer accounts, find and choose the "When a blob is added or modified" trigger in **Logic Apps Designer**. Select the container that you will place your video files in. 
 
 ![Screenshot shows the When a blob is added or modified dialog box where you can select a container.](./media/logic-apps-connector-tutorial/container.png)
 
-Next, go to the “Create SAS URI by path” action, and select List of Files Path from the Dynamic content options.  
+Next, find and select the "Create SAS URI by path” action. In the dialog for the action, select List of Files Path from the Dynamic content options.  
 
 ![SAS uri by path](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
