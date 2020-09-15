@@ -379,7 +379,7 @@ When last access time tracking is enabled, the blob property called `LastAccessT
 
 To minimize the impact on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period do not update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
 
-In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates if a blob should automatically be tiered from cool back to hot if it is accessed again.
+In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates if a blob should automatically be tiered from cool back to hot if it is accessed again after being tiered to cool.
 
 ```json
 {
