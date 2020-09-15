@@ -42,12 +42,12 @@ One of the core features of the Speech service is the ability to recognize and t
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
-[!INCLUDE [CLI include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cli.md)]
-::: zone-end
-
 ::: zone pivot="programming-language-go"
 [!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
+::: zone-end
+
+::: zone pivot="programming-language-spx"
+[!INCLUDE [CLI include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cli.md)]
 ::: zone-end
 
 ## Next steps

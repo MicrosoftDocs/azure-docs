@@ -603,7 +603,8 @@ groups:
     title: Python
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-spx
-    title: CLI
   - id: programming-language-go
     title: Go
+  - id: programming-language-spx
+    title: CLI
+  
