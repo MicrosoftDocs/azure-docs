@@ -21,7 +21,19 @@
   expanded: true
   items:
   - name: Authentication methods
-    href: concept-authentication-methods.md
+    items:
+    - name: Overview
+      href: concept-authentication-methods.md
+    - name: Microsoft Authenticator app
+      href: concept-authentication-authenticator-app.md
+    - name: OATH tokens
+      href: concept-authentication-oath-tokens.md
+    - name: Passwordless
+      href: concept-authentication-passwordless.md
+    - name: Phone options
+      href: concept-authentication-phone-options.md
+    - name: Security questions
+      href: concept-authentication-security-questions.md
   - name: Self-service password reset
     items:
     - name: How password reset works
@@ -46,8 +58,6 @@
       href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: FAQ
       href: multi-factor-authentication-faq.md
-  - name: Passwordless authentication
-    href: concept-authentication-passwordless.md
   - name: Password protection
     items:
     - name: Eliminate weak passwords in the cloud

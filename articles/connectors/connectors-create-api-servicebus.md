@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/14/2020
 tags: connectors
 ---
 
@@ -78,7 +78,7 @@ Confirm that your logic app has permissions for accessing your Service Bus names
    Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
 
     > [!NOTE]
-    > The auto-complete trigger automatically completes a message, but completion happens only at the next trigger run. This behavior can affect your logic app's design. For example, if you set the auto-complete trigger to check for messages every minute, but the lock duration is set to 30 seconds on Service Bus side, the result is a "lock expired" failure that happens when completing the message. You need to set the lock duration to a value that's longer than the polling interval.
+    > The auto-complete trigger automatically completes a message, but completion happens only at the next trigger run. This behavior can affect your logic app's design. For example, avoid changing the concurrency on the auto-complete trigger because this change might result in duplicate messages if your logic app enters a throttled state. Changing the concurrency control creates these conditions: throttled triggers are skipped with the `WorkflowRunInProgress` code, the completion operation won't happen, and next trigger run occurs after the polling interval. You have to set the service bus lock duration to a value that's longer than the polling interval. However, despite this setting, the message still might not complete if your logic app remains in a throttled state at next polling interval.
 
 1. If your trigger is connecting to your Service Bus namespace for the first time, follow these steps when the Logic App Designer prompts you for connection information.
 
