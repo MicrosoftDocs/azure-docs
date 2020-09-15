@@ -38,14 +38,16 @@
       href: tutorial-run-ml-model-on-sql-edge.md
 - name: Concepts
   items:
-  - name: Deploy SQL Edge 
+  - name: Deploy  
     items:
     - name: Deploy Using Azure Portal
       href: deploy-portal.md
     - name: Deploy with Docker
       href: disconnected-deployment.md    
     - name: Deploy in Kubernetes
-      href: deploy-kubernetes.md       
+      href: deploy-kubernetes.md     
+    - name: SQL Tools
+      href: https://docs.microsoft.com/en-us/sql/tools/overview-sql-tools?toc=/azure/azure-sql-edge/toc.json        
   - name: Machine learning 
     items:
     - name: Machine learning and AI with ONNX
