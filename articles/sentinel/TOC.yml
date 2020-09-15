@@ -29,8 +29,6 @@
     href: fusion.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
-  - name: Normalize your data across tables
-    href: normalization.md
 - name: How-to guides
   items:
   - name: Connect data sources
@@ -52,9 +50,7 @@
         href: connect-azure-ad-identity-protection.md
       - name: Azure Information Protection
         href: connect-azure-information-protection.md
-      - name: Microsoft 365 Defender
-        href: connect-microsoft-365-defender.md
-      - name: Microsoft Defender for Endpoint (formerly MDATP)
+      - name: Microsoft Defender for Endpoint
         href: connect-microsoft-defender-advanced-threat-protection.md
       - name: Microsoft Defender for Identity (formerly Azure ATP)
         href: connect-azure-atp.md
@@ -183,8 +179,6 @@
   items:
   - name: REST APIs
     href: https://docs.microsoft.com/rest/api/securityinsights/
-  - name: Network normalization schema
-    href: normalization-schema.md
 - name: Resources
   items:
   - name: Useful resources

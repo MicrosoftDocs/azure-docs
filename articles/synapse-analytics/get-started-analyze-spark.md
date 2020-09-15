@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Get started analyze with Spark' 
-description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
+description: In this tutorial, you'll learn to analyze data with Apache Spark
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -13,7 +13,21 @@ ms.date: 07/20/2020
 
 # Analyze with Apache Spark
 
+## Analyze NYC Taxi data in blob storage  using Spark
+
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
+
+1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT New notebook**
+1. This will create a new Notebook with the following code:
+    ```
+    from azureml.opendatasets import NycTlcYellow
+
+    data = NycTlcYellow()
+    data_df = data.to_spark_dataframe()
+    display(data_df.limit(10))
+    ```
+1. In the notebook choose a spark pool in the **Attach to** menu
+1. Click **Run** on the cell
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
