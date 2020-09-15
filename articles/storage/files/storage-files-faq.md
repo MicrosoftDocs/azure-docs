@@ -58,7 +58,7 @@ This article answers common questions about Azure Files features and functionali
   * [Mount an SMB share in Windows](storage-how-to-use-files-windows.md)
   * [Mount an SMB share in Linux](storage-how-to-use-files-linux.md)
   * [Mount an SMB share in macOS](storage-how-to-use-files-mac.md)
-  * [Mount an NFS fle share](storage-files-how-to-mount-nfs-shares.md)
+  * [Mount an NFS file share](storage-files-how-to-mount-nfs-shares.md)
 
     For a more in-depth guide about deploying an Azure file share to replace production file shares in your organization, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
