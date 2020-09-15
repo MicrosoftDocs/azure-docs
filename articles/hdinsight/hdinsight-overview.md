@@ -125,6 +125,16 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 * [Connect Excel to Apache Hadoop with the Microsoft Hive ODBC Driver](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (requires Windows)
 
+
+## In-region data residency 
+
+Spark, Hadoop, LLAP, Storm, and MLService do not store customer data, so these services automatically satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+
+Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+
+
+Familiar business intelligence (BI) tools retrieve, analyze, and report data that is integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver.
+
 ## Next steps
 
 * [Create Apache Hadoop cluster in HDInsight](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
