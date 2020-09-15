@@ -12,4 +12,4 @@ ms.author: aahi
 
 ## Prerequisites
 
-* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.

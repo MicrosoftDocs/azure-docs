@@ -24,7 +24,7 @@ You can use different types of logs in Azure to manage and troubleshoot Basic Lo
 * **Health probe logs:** You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
 
 > [!IMPORTANT]
-> **Health probe event logs are not currently functional and are listed in the [known issues for the Azure Load Balancer](whats-new.md#known-issues).** Azure Monitor logs currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md).
+> **Health probe event logs are not currently functional and are listed in the [known issues for the Azure Load Balancer](whats-new.md#known-issues).** Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 ## Enable logging
 

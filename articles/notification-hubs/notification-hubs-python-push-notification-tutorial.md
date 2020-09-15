@@ -17,7 +17,7 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # How to use Notification Hubs from Python

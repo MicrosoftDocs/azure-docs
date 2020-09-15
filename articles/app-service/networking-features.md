@@ -219,12 +219,12 @@ A multi-tier application is an application where the API backend apps can only b
 You can have multiple front-end apps use the same API app by using VNet Integration from the other front-end apps and service endpoints from the API app with their subnets.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
-[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
-[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
-[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[appassignedaddress]: ./configure-ssl-certificate.md
+[iprestrictions]: ./app-service-ip-restrictions.md
+[serviceendpoints]: ./app-service-ip-restrictions.md
+[hybridconn]: ./app-service-hybrid-connections.md
+[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
+[vnetintegration]: ./web-sites-integrate-with-vnet.md
+[networkinfo]: ./environment/network-info.md
+[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
+[privateendpoints]: ./networking/private-endpoint.md

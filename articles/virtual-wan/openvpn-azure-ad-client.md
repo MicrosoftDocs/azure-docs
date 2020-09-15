@@ -6,7 +6,7 @@ author: kumudD
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 08/04/2020
 ms.author: alzam
 
 ---
@@ -246,6 +246,15 @@ You can modify the downloaded profile XML file and add the **\<excluderoutes>\<r
 </clientconfig>
 </azvpnprofile>
 ```
+### Can I import the profile from a command line prompt?
+
+You can import the profile from a command line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+to force the import use the **-f** switch as well
+
 
 ## Next steps
 

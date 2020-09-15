@@ -6,7 +6,7 @@ ms.date: 4/07/2020
 ---
 # Upgrade cluster nodes to use Azure managed disks
 
-[Azure managed disks](../virtual-machines/windows/managed-disks-overview.md) are the recommended disk storage offering for use with Azure virtual machines for persistent storage of data. You can improve the resiliency of your Service Fabric workloads by upgrading the virtual machine scale sets that underlie your node types to use managed disks. Here's how to upgrade an existing Service Fabric cluster to use Azure managed disks with little or no downtime of your cluster.
+[Azure managed disks](../virtual-machines/managed-disks-overview.md) are the recommended disk storage offering for use with Azure virtual machines for persistent storage of data. You can improve the resiliency of your Service Fabric workloads by upgrading the virtual machine scale sets that underlie your node types to use managed disks. Here's how to upgrade an existing Service Fabric cluster to use Azure managed disks with little or no downtime of your cluster.
 
 The general strategy for upgrading a Service Fabric cluster node to use managed disks is to:
 
@@ -17,6 +17,9 @@ The general strategy for upgrading a Service Fabric cluster node to use managed 
 3. Verify the cluster and new nodes are healthy, then remove the original scale set and node state for the deleted nodes.
 
 This article will walk you through the steps of upgrading the primary node type of an example cluster to use managed disks, while avoiding any cluster downtime (see note below). The initial state of the example test cluster consists of one node type of [Silver durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), backed by a single scale set with five nodes.
+
+> [!NOTE]
+> The limitations of a Basic SKU load balancer prevent an additional scale set from being added. We recommend using the Standard SKU load balancer instead. For more, see [a comparison of the two SKUs](/azure/load-balancer/skus).
 
 > [!CAUTION]
 > You will experience an outage with this procedure only if you have dependencies on the cluster DNS (such as when accessing [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). Architectural [best practice for front-end services](/azure/architecture/microservices/design/gateway) is to have some kind of [load balancer](/azure/architecture/guide/technology-choices/load-balancing-overview) in front of your node types to make node swapping possible without an outage.
@@ -159,7 +162,7 @@ Here are the section-by-section modifications of the original cluster deployment
 
 #### Parameters
 
-Add a parameter for the instance name of the new scale set. Note that `vmNodeType1Name` is unique to the new scale set, while the count and size values are identical to the original scale set.
+Add parameters for the instance name, count, and size of the new scale set. Note that `vmNodeType1Name` is unique to the new scale set, while the count and size values are identical to the original scale set.
 
 **Template file**
 
@@ -168,7 +171,18 @@ Add a parameter for the instance name of the new scale set. Note that `vmNodeTyp
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-}
+},
+"nt1InstanceCount": {
+    "type": "int",
+    "defaultValue": 5,
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType1Size": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v2"
+},
 ```
 
 **Parameters file**
@@ -176,6 +190,12 @@ Add a parameter for the instance name of the new scale set. Note that `vmNodeTyp
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
+},
+"nt1InstanceCount": {
+    "value": 5
+},
+"vmNodeType1Size": {
+    "value": "Standard_D2_v2"
 }
 ```
 
@@ -193,13 +213,13 @@ In the deployment template `variables` section, add an entry for the inbound NAT
 
 In the deployment template *resources* section, add the new virtual machine scale set, keeping in mind these things:
 
-* The new scale set references the new node type:
+* The new scale set references the same node type as the original:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* The new scale set references the same load balancer backend address and subnet as the original, but uses a different load balancer inbound NAT pool:
+* The new scale set references the same load balancer backend address and subnet (but uses a different load balancer inbound NAT pool):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -230,33 +250,6 @@ In the deployment template *resources* section, add the new virtual machine scal
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
-
-Next, add an entry to the `nodeTypes` list of the *Microsoft.ServiceFabric/clusters* resource. Use the same values as the original node type entry, except for the `name`, which should reference the new node type (*vmNodeType1Name*).
-
-```json
-"nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        ...
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    }
-],
-```
 
 Once you've implemented all the changes in your template and parameters files, proceed to the next section to acquire your Key Vault references and deploy the updates to your cluster.
 
@@ -366,7 +359,7 @@ In this walkthrough, you learned how to upgrade the virtual machine scale sets o
 
 Learn how to:
 
-* [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-node-type.md)
+* [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-primary-node-type.md)
 
 * [Convert a scale set template to use managed disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

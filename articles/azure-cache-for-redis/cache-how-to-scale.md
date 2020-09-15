@@ -5,6 +5,7 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 04/11/2017
 ---
 # How to Scale Azure Cache for Redis
@@ -20,7 +21,7 @@ You can monitor the following metrics to help determine if you need to scale.
 * Network Bandwidth
 * CPU Usage
 
-If you determine that your cache is no longer meeting your application's requirements, you can scale to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Azure Cache for Redis offering and size should I use](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
+If you determine that your cache is no longer meeting your application's requirements, you can scale to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
 
 ## Scale a cache
 To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and click **Scale** from the **Resource menu**.
@@ -64,7 +65,7 @@ You can scale your Azure Cache for Redis instances with PowerShell by using the 
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 ```
 
-For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using Powershell](cache-how-to-manage-redis-cache-powershell.md#scale).
+For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
 ### Scale using Azure CLI
 To scale your Azure Cache for Redis instances using Azure CLI, call the `azure rediscache set` command and pass in the desired configuration changes that include a new size, sku, or cluster size, depending on the desired scaling operation.

@@ -3,7 +3,7 @@ title: Change request and approval settings for an access package in Azure AD en
 description: Learn how to change request and approval settings for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory

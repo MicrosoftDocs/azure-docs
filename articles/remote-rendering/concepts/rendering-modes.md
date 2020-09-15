@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Rendering modes
@@ -46,7 +47,7 @@ The performance characteristics for both modes do vary based on the use case, an
 
 ## Setting the render mode
 
-The render mode used on a Remote Rendering VM is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`.
+The render mode used on a Remote Rendering server is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`.
 
 ```cs
 async void ExampleConnect(AzureSession session)
@@ -66,6 +67,13 @@ async void ExampleConnect(AzureSession session)
     await session.ConnectToRuntime(parameters).AsTask();
 }
 ```
+
+## API documentation
+
+* [C# AzureSession.ConnectToRuntime()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession.connecttoruntime)
+* [C# ConnectToRuntimeParams struct](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.connecttoruntimeparams)
+* [C++ AzureSession::ConnectToRuntime()](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession#connecttoruntime)
+* [C++ ConnectToRuntimeParams struct](https://docs.microsoft.com/cpp/api/remote-rendering/connecttoruntimeparams)
 
 ## Next steps
 

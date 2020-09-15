@@ -47,7 +47,7 @@ Azure Backup does a number of things when you configure backup for a SQL Server 
 * To discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore, and requires SQL sysadmin permissions.
 * Azure Backup leverages the **NT AUTHORITY\SYSTEM** account for database discovery/inquiry, so this account need to be a public login on SQL.
 
-If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md#set-vm-permissions).
+If you didn't create the SQL Server VM from Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md#set-vm-permissions).
 
 ### Verify database naming guidelines for Azure Backup
 
@@ -92,13 +92,13 @@ Discover databases running on the VM.
 
     ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup discovers all SQL Server databases on the VM. During discovery the following occurs in the background:
+8. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following occurs in the background:
 
     * Azure Backup register the VM with the vault for workload backup. All databases on the registered VM can only be backed up to this vault.
     * Azure Backup installs the **AzureBackupWindowsWorkload** extension on the VM. No agent is installed on the SQL database.
     * Azure Backup creates the service account **NT Service\AzureWLBackupPluginSvc** on the VM.
       * All backup and restore operations use the service account.
-      * **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in the Azure Marketplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
+      * **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in Azure Marketplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
     * If you didn't create the VM from the marketplace, then the VM doesn't have the **SqlIaaSExtension** installed, and the discovery operation fails with the error message **UserErrorSQLNoSysAdminMembership**. Follow the [instructions](backup-azure-sql-database.md#set-vm-permissions) to fix this issue.
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
@@ -111,7 +111,7 @@ Configure backup as follows:
 
    ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Click **Configure Backup**, the **Select items to backup** blade appears. This lists all the registered availability groups and standalone SQL Servers. Expand the chevron to the left of the row to see all the unprotected databases in that instance or Always on AG.  
+2. Select **Configure Backup**, the **Select items to backup** pane appears. This lists all the registered availability groups and standalone SQL Servers. Expand the chevron to the left of the row to see all the unprotected databases in that instance or Always on AG.  
 
     ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -123,11 +123,11 @@ Configure backup as follows:
 
      * Alternatively, you can enable auto-protection on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
-4. Click **OK** to open the **Backup policy** blade.
+4. Select **OK** to open the **Backup policy** pane.
 
     ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In **Choose backup policy**, select a policy, then click **OK**.
+5. In **Choose backup policy**, select a policy, then select **OK**.
 
    * Select the default policy: HourlyLogBackup.
    * Choose an existing backup policy previously created for SQL.
@@ -155,8 +155,8 @@ A backup policy defines when backups are taken and how long they're retained.
 
 To create a backup policy:
 
-1. In the vault, click **Backup policies** > **Add**.
-2. In **Add** menu, click **SQL Server in Azure VM** to define the policy type.
+1. In the vault, select **Backup policies** > **Add**.
+2. In **Add** menu, select **SQL Server in Azure VM** to define the policy type.
 
    ![Choose a policy type for the new backup policy](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -165,7 +165,7 @@ To create a backup policy:
 
    * For **Daily**, select the hour and time zone when the backup job begins.
    * You must run a full backup as you can't turn off the **Full Backup** option.
-   * Click **Full Backup** to view the policy.
+   * Select **Full Backup** to view the policy.
    * You can't create differential backups for daily full backups.
    * For **Weekly**, select the day of the week, hour, and time zone when the backup job begins.
 
@@ -208,8 +208,8 @@ To create a backup policy:
 ## Run an on-demand backup
 
 1. In your Recovery Services vault, choose Backup items.
-2. Click on "SQL in Azure VM".
-3. Right click on a database, and choose "Backup now".
+2. Select "SQL in Azure VM".
+3. Right-click on a database, and choose "Backup now".
 4. Choose the Backup Type (Full/Differential/Log/Copy Only Full) and Compression (Enable/Disable)
 5. Select OK to begin the backup.
 6. Monitor the backup job by going to your Recovery Services vault and choosing "Backup Jobs".

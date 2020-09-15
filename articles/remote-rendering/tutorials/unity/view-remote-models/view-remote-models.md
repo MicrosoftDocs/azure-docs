@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ---
        
 # Tutorial: Viewing a remotely rendered model
@@ -215,11 +216,28 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
     // For most people '<region>' is either 'westus2' or 'westeurope'
-    public string AccountDomain = "westus2.mixedreality.azure.com";
+    [SerializeField]
+    private string accountDomain = "westus2.mixedreality.azure.com";
+    public string AccountDomain
+    {
+        get => accountDomain.Trim();
+        set => accountDomain = value;
+    }
 
     [Header("Development Account Credentials")]
-    public string AccountId = "<enter your account id here>";
-    public string AccountKey = "<enter your account key here>";
+    [SerializeField]
+    private string accountId = "<enter your account id here>";
+    public string AccountId {
+        get => accountId.Trim();
+        set => accountId = value;
+    }
+
+    [SerializeField]
+    private string accountKey = "<enter your account key here>";
+    public string AccountKey {
+        get => accountKey.Trim();
+        set => accountKey = value;
+    }
 
     // These settings are important. All three should be set as low as possible, while maintaining a good user experience
     // See the documentation around session management and the technical differences in session VM size
@@ -232,7 +250,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     [Header("Other Configuration")]
 
     [Tooltip("If you have a known active SessionID, you can fill it in here before connecting")]
-    public string sessionIDOverride;
+    [SerializeField]
+    private string sessionIDOverride;
+    public string SessionIDOverride {
+        get => sessionIDOverride.Trim();
+        set => sessionIDOverride = value;
+    }
 
     // When Automatic Mode is true, the coordinator will attempt to automatically proceed through the process of connecting and loading a model
     public bool automaticMode = true;
@@ -308,8 +331,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     {
         get
         {
-            if (!string.IsNullOrEmpty(sessionIDOverride))
-                return sessionIDOverride;
+            if (!string.IsNullOrEmpty(SessionIDOverride))
+                return SessionIDOverride;
 
             if (PlayerPrefs.HasKey("LastUsedSessionID"))
                 return PlayerPrefs.GetString("LastUsedSessionID");
@@ -577,7 +600,7 @@ The second stage is to Create or Join a Remote Rendering Session (see [Remote Re
 
 ![ARR stack 2](./media/remote-render-stack-2.png)
 
-The remote session is where the models will be rendered. The **JoinRemoteSession( )** method will attempt to join an existing session, tracked with the **LastUsedSessionID** property or if there is an assigned active session ID on **sessionIDOverride**. **sessionIDOverride** is intended for your debugging purposes only, it should only be used when you know the session exists and would like to explicitly connect to it.
+The remote session is where the models will be rendered. The **JoinRemoteSession( )** method will attempt to join an existing session, tracked with the **LastUsedSessionID** property or if there is an assigned active session ID on **SessionIDOverride**. **SessionIDOverride** is intended for your debugging purposes only, it should only be used when you know the session exists and would like to explicitly connect to it.
 
 If no sessions are available, a new session will be created. Creating a new session is, however, a time-consuming operation. Therefore, you should try to create sessions only when required and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#fast-startup-time-strategies) for more information on managing sessions).
 
@@ -615,8 +638,8 @@ public async void JoinRemoteSession()
     {
         //The session should be ready or starting, if it's not, something went wrong
         await ARRSessionService.StopSession();
-        if(LastUsedSessionID == sessionIDOverride)
-            sessionIDOverride = "";
+        if(LastUsedSessionID == SessionIDOverride)
+            SessionIDOverride = "";
         CurrentCoordinatorState = RemoteRenderingState.NoSession;
     }
 }

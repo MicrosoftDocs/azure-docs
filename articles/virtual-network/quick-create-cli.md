@@ -19,7 +19,7 @@ ms.custom: devx-track-azurecli
 # Quickstart: Create a virtual network using the Azure CLI
 
 A virtual network enables Azure resources, like virtual machines (VMs), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately over the new virtual network.
-
+## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -122,6 +122,7 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the two VMs. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
-
-Azure lets unrestricted private communication between VMs. By default, Azure only lets inbound remote desktop connections to Windows VMs from the internet. To learn more about configuring different types of VM network communications, go to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
+In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the two VMs.
+Azure lets unrestricted private communication between VMs. By default, Azure only lets inbound remote desktop connections to Windows VMs from the internet. Advance to the next article to learn more about configuring different types of VM network communications:
+> [!div class="nextstepaction"]
+> [Filter network traffic](tutorial-filter-network-traffic.md)

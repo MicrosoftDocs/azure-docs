@@ -72,6 +72,10 @@ For Standard Load Balancer pricing information, see [Load Balancer pricing](http
 Basic Load Balancer is offered at no charge.
 See [SLA for Load Balancer](https://aka.ms/lbsla). Basic Load Balancer has no SLA.
 
+## What's new?
+
+Subscribe to the RSS feed and view the latest Azure Load Balancer feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer) page.
+
 ## Next steps
 See [Upgrade a Basic Load Balancer](upgrade-basic-standard.md) to upgrade Basic Load Balancer to Standard Load Balancer.
 

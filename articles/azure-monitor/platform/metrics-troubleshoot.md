@@ -38,7 +38,7 @@ Exploring metrics requires *Microsoft.Insights* resource provider registered in 
 
 ### You don't have sufficient access rights to your resource
 
-In Azure, access to metrics is controlled by [role-based access control (RBAC)](../../role-based-access-control/overview.md). You must be a member of [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader), [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or [contributor](../../role-based-access-control/built-in-roles.md#contributor) to explore metrics for any resource.
+In Azure, access to metrics is controlled by [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). You must be a member of [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader), [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or [contributor](../../role-based-access-control/built-in-roles.md#contributor) to explore metrics for any resource.
 
 **Solution:** Ensure that you have sufficient permissions for the resource from which you are exploring metrics.
 
@@ -108,7 +108,7 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
 
 1. Verify that storage account isn't protected by the firewall. Azure portal needs access to storage account in order to retrieve metrics data and plot the charts.
 
-1. Use the [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+1. Use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## Next steps
 
@@ -116,4 +116,3 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
 * [Learn about advanced features of Metric Explorer](metrics-charts.md)
 * [See a list of available metrics for Azure services](metrics-supported.md)
 * [See examples of configured charts](metric-chart-samples.md)
-

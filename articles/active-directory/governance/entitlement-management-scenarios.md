@@ -3,7 +3,7 @@ title: Common scenarios in entitlement management - Azure AD
 description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -152,7 +152,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Programmatic administration
 
-You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
 
 ## Next steps
 

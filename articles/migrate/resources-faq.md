@@ -24,7 +24,13 @@ Use Azure Migrate to discover, assess, and migrate on-premises infrastructure, a
 
 [Azure Migrate](migrate-services-overview.md) provides a centralized hub for assessment and migration to Azure. 
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) is a disaster recovery solution. 
+- Using Azure Migrate provides interoperability and future extensibility with Azure Migrate tools, other Azure services, and third-party tools.
+- The Azure Migrate:Server Migration tool is purpose-built for server migration to Azure. It's optimized for migration. You don't need to learn about concepts and scenarios that aren't directly relevant to migration. 
+- There are no tool usage charges for migration for 180 days, from the time replication is started for a VM. This gives you time to complete migration. You only pay for the storage and network resources used in replication, and for compute charges consumed during test migrations.
+- Azure Migrate supports all migration scenarios supported by Site Recovery. In addition, for VMware VMs, Azure Migrate provides an agentless migration option.
+- We're prioritizing new migration features for the Azure Migrate:Server Migration tool only. These features aren't targeted for Site Recovery.
+
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) should be used for disaster recovery only.
 
 The Azure Migrate: Server Migration tool uses some back-end Site Recovery functionality for lift-and-shift migration of some on-premises machines.
 

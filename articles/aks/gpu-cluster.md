@@ -3,7 +3,9 @@ title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/27/2020
+ms.date: 08/21/2020
+ms.author: jpalma
+author: palma21
 
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
@@ -49,7 +51,7 @@ Get the credentials for your AKS cluster using the [az aks get-credentials][az-a
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## Install NVIDIA drivers
+## Install NVIDIA device plugin
 
 Before the GPUs in the nodes can be used, you must deploy a DaemonSet for the NVIDIA device plugin. This DaemonSet runs a pod on each node to provide the required drivers for the GPUs.
 
@@ -114,6 +116,71 @@ $ kubectl apply -f nvidia-device-plugin-ds.yaml
 
 daemonset "nvidia-device-plugin" created
 ```
+
+## Use the AKS specialized GPU image (preview)
+
+As alternative to these steps, AKS is providing a fully configured AKS image that already contains the [NVIDIA device plugin for Kubernetes][nvidia-github].
+
+> [!WARNING]
+> You should not manually install the NVIDIA device plugin daemon set for clusters using the new AKS specialized GPU image.
+
+
+Register the `GPUDedicatedVHDPreview` feature:
+
+```azurecli
+az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
+```
+
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
+```
+
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+To install the aks-preview CLI extension, use the following Azure CLI commands:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+To update the aks-preview CLI extension, use the following Azure CLI commands:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### Use the AKS specialized GPU image on new clusters (preview)    
+
+Configure the cluster to use the AKS specialized GPU image when the cluster is created. Use the `--aks-custom-headers` flag for the GPU agent nodes on your new cluster to use the AKS specialized GPU image.
+
+```azurecli
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+If you want to create a cluster using the regular AKS images, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more specialized GPU node pools as per below.
+
+
+### Use the AKS specialized GPU image on existing clusters (preview)
+
+Configure a new node pool to use the AKS specialized GPU image. Use the `--aks-custom-headers` flag flag for the GPU agent nodes on your new node pool to use the AKS specialized GPU image.
+
+```azurecli
+az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+If you want to create a node pool using the regular AKS images, you can do so by omitting the custom `--aks-custom-headers` tag. 
+
+> [!NOTE]
+> If your GPU sku requires generation 2 virtual machines, you can create doing:
+> ```azurecli
+> az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
+> ```
 
 ## Confirm that GPUs are schedulable
 

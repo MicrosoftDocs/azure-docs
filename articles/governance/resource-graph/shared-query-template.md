@@ -32,7 +32,7 @@ in portal with Resource Graph Explorer, see
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
-:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
+:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json":::
 
 The resource defined in the template is:
 

@@ -98,7 +98,7 @@ landingContent:
           - text: Deploy and monitor at scale using the Azure CLI
             url: how-to-deploy-cli-at-scale.md
           - text: Create a CI/CD pipeline with Azure Pipelines
-            url: how-to-ci-cd.md
+            url: how-to-continuous-integration-continuous-deployment.md
       - linkListType: deploy
         links:
           - text: REST API for IoT Hub

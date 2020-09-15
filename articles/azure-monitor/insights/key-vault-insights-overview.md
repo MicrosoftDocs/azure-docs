@@ -41,7 +41,7 @@ Azure Monitor for Key Vault combines both logs and metrics to provide a global m
 
 From Azure Monitor, you can view request, latency, and failure details from multiple key vaults in your subscription, and help identify performance problems and throttling scenarios.
 
-To view the utilization and operations of your storage accounts across all your subscriptions, perform the following steps:
+To view the utilization and operations of your key vaults across all your subscriptions, perform the following steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com/)
 
@@ -72,16 +72,6 @@ There is conditional color-coding or heatmaps for columns in the workbook that r
 The workbook displays Successes (2xx status codes), Authentication Errors (401/403 status codes), Throttling (429 status codes), and Other Failures (4xx status codes).
 
 To better understand what each of the status codes represent, we recommend reading through the documentation on [Azure Key Vault status and response codes](../../key-vault/general/authentication-requests-and-responses.md).
-
-## Operations & latency workbook
-
-Select **Operations & Latency** at the top of the page and the **Operations & Latency** tab opens. This tab enables you to onboard your key vaults for monitoring. For more detailed steps see the [Configuring your key vaults for Monitoring](#configuring-your-key-vaults-for-monitoring) section.
-
-You can see how many of your key vaults are enabled for the logging. If at least one vault has been configured properly, then you will be able to see tables that display the operations and status codes for each of your key vaults. You can click into the details section for a row to get additional information on the individual operation.
-
-![Screenshot of operations and latency charts](./media/key-vaults-insights-overview/logs.png)
-
-If you are not seeing any data for this section, reference the top section on how to enable logs for Azure Key Vault, or check the troubleshooting section below.
 
 ## View from a Key Vault resource
 
@@ -187,16 +177,6 @@ We utilize the "Auto" time grain, therefore it depends on what time range is sel
 ### What is the time range when any part of the workbook is pinned
 
 The time range will depend on the dashboard settings.
-
-### Why do I not see any data for my Key Vault under the Operations & Latency sections
-
-To view your logs-based data, you will need to enable logs for each of the key vaults you want to monitor. This can be done under the diagnostic settings for each key vault. You will need to send your data to a designated Log Analytics workspace.
-
-### I have already enabled logs for my Key Vault, why am I still unable to see my data under Operations & Latency
-
-Currently, diagnostic logs do not work retroactively, so the data will only start appearing once there have been actions taken to your key vaults. Therefore, it may take some time, ranging from hours to a day, depending on how active your key vault is.
-
-In addition, if you have a high number of key vaults and subscriptions selected, you may not be able to view your data due to query limitations. In order to view your data, you may need to reduce the number of selected subscriptions or key vaults. 
 
 ### What if I want to see other data or make my own visualizations? How can I make changes to the Key Vault Insights
 

@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Direct web traffic using the portal'
 titleSuffix: Azure Application Gateway
-description: Learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
+description: In this quickstart, you learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/21/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -20,8 +20,6 @@ The application gateway directs application web traffic to specific resources in
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
 
 ## Prerequisites
 
@@ -166,7 +164,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 2. Run the following command to install IIS on the virtual machine. Change the *Location* parameter if necessary: 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -191,7 +189,6 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 4. Under **Backend targets**, **Target type**, select **Virtual machine** from the drop-down list.
 
 5. Under **Target**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
-
 
    > [!div class="mx-imgBorder"]
    > ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)

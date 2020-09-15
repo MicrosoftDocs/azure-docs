@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -408,7 +408,7 @@ Planning a cloud-based Azure Multi-Factor Authentication deployment: https://doc
 
 ### 3.7: Log and alert on suspicious activity from administrative accounts
 
-**Guidance**: Use Azure Active Directory (AAD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use AAD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
+**Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
 
 Enable advanced threat protection (ATP) for Azure Key Vault to generate alerts for suspicious activity.
 
@@ -442,7 +442,7 @@ What is the location condition in Azure Active Directory Conditional Access?: ht
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (AAD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Role-based access control (RBAC) to administrate sensitive resources.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Role-based access control (RBAC) to administrate sensitive resources.
 
  
 
@@ -457,7 +457,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Review Azure Active Directory (AAD) logs to help discover stale accounts with Azure Key Vault administrative roles. In addition, use AAD access reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Azure Key Vault, and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right users have continued access.
+**Guidance**: Review Azure Active Directory (Azure AD) logs to help discover stale accounts with Azure Key Vault administrative roles. In addition, use Azure AD access reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Azure Key Vault, and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right users have continued access.
 
 Azure Active Directory reports and monitoring documentation:
 
@@ -1008,11 +1008,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 How to create a Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity: 
+How to authenticate to Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center monitoring**: Yes
 
@@ -1024,16 +1028,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-How to integrate with Azure Managed Identities: 
+* [How to integrate with Azure Managed Identities](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [How to create a Key Vault](quick-create-portal.md)
 
-How to create a Key Vault: 
+* [How to authenticate to Key Vault](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-How to provide Key Vault authentication with a managed identity:  
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [How to assign a Key Vault access policy](assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 

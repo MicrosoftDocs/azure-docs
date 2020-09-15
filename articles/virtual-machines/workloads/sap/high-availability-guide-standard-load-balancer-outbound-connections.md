@@ -97,7 +97,7 @@ The configuration would look like:
 2. Create Backend pool **MyBackendPoolOfPublicILB** and add the VMs.  
    1. Select the Virtual network  
    1. Select the VMs and their IP addresses and add them to the backend pool  
-3. [Create outbound rules](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest).  
+3. [Create outbound rules](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup

@@ -17,7 +17,8 @@ ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable token lifetimes in Microsoft identity platform (Preview)
 
-You can specify the lifetime of a token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
+You can specify the lifetime of a token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. 
+> Note that currently we do not support configuring the token lifetimes for Managed Identity Service Principals.
 
 > [!IMPORTANT]
 > After hearing from customers during the preview, we've implemented [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After May 30, 2020 no new tenant will be able to use Configurable Token Lifetime policy to configure session and refresh tokens. The deprecation will happen within several months after that, which means that we will stop honoring existing session and refresh tokens polices. You can still configure access token lifetimes after the deprecation.
@@ -85,8 +86,8 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |90 days |10 minutes |90 days |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 | Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
+| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |180 days<sup>1</sup> |
+| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |180 days<sup>1</sup> |
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
 * <sup>2</sup>To ensure the Microsoft Teams Web client works, it is recommended to keep AccessTokenLifetime to greater than 15 minutes for Microsoft Teams.
@@ -547,4 +548,4 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Customers with [Microsoft 365 Business licenses](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
+Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.

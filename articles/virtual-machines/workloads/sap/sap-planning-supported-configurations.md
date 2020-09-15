@@ -212,7 +212,7 @@ A multi-SID cluster with Enqueue Replication server schematically looks like
 SAP HANA scale-out scenarios are supported for a subset of the HANA certified Azure VMs as listed in the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). All the VMs marked with 'Yes' in the column 'Clustering' can be used for either OLAP or S/4HANA scale-out. Configurations without standby are supported with the Azure Storage types of: 
 
 - Azure Premium Storage, including Azure Write accelerator for the /hana/log volume
-- [Ultra disk](../../linux/disks-enable-ultra-ssd.md)
+- [Ultra disk](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
 SAP HANA scale-out configurations for OLAP or S/4HANA with standby node(s) are exclusively supported with NFS shared hosted on Azure NetApp Files.
@@ -243,7 +243,7 @@ It is supported to use a smaller VM as target instance in the disaster recovery 
 - Re-sizing across VM families can be a problem when the Different VMs are collected in one Azure Availability Set or when the re-sizing should happen between the M-Series family and Mv2 family of VMs
 - CPU and memory consumption for the database instance being able to receive the stream of changes with minimal delay and enough CPU and memory resources to apply these changes with minimal delay to the data  
 
-More details on limitations of different VM sizes can be found [here](../../linux/sizes.md) 
+More details on limitations of different VM sizes can be found [here](../../sizes.md) 
 
 Another supported method of deploying a DR target is to have a second DBMS instance installed on a VM that runs a non-production DBMS instance of a non-production SAP instance. This can be a bit more challenging since you need to figure out what on memory, CPU resources, network bandwidth, and storage bandwidth is needed for the particular target instances that should function as main instance in the DR scenario. Especially in HANA it is highly recommended that you are configuring the instance that functions as DR target on a shared host so that the data is not pre-loaded into the DR target instance.
 

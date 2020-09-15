@@ -1,5 +1,5 @@
 ---
-title: 'Connect using Node.js - Azure Database for MySQL'
+title: 'Quickstart: Connect using Node.js - Azure Database for MySQL'
 description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -27,7 +27,7 @@ This topic assumes that you're familiar with developing using Node.js, but you'r
 
 Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql](https://www.npmjs.com/package/mysql) package and its dependencies into your project folder.
 
-### **Windows**
+### Windows
 
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your desired Windows installer option.
 2. Make a local project folder such as `nodejsmysql`. 
@@ -42,7 +42,7 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 5. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
 
-### **Linux (Ubuntu)**
+### Linux (Ubuntu)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
@@ -60,7 +60,7 @@ Depending on your platform, follow the instructions in the appropriate section t
    ```
 3. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### **Mac OS**
+### Mac OS
 
 1. Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
 

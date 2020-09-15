@@ -20,7 +20,7 @@ ms.author: amverma
 
 This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled ('r' sizes) [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Linux. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC.
 
-Instructions on manual installation of the OFED drivers are available [here](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband#manually-install-mellanox-ofed).
+Instructions on manual installation of the OFED drivers are available [here](../workloads/hpc/enable-infiniband.md#manual-installation).
 
 An extension is also available to install InfiniBand drivers for [Windows VMs](hpc-compute-infiniband-windows.md).
 

@@ -3,10 +3,10 @@ author: areddish
 ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ---
 
-This article shows you how to get started using the Custom Vision SDK with Java to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application.
+This article shows you how to get started using the Custom Vision client library with Java to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application.
 
 ## Prerequisites
 
@@ -15,11 +15,11 @@ This article shows you how to get started using the Custom Vision SDK with Java 
 - [Maven](https://maven.apache.org/) installed
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## Get the Custom Vision SDK and sample code
+## Get the Custom Vision client library and sample code
 
 To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These packages are included in the sample project you will download, but you can access them individually here.
 
-You can find the Custom Vision SDK in the maven central repository:
+You can find the Custom Vision client library in the maven central repository:
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
@@ -39,21 +39,21 @@ $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
 $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 ```
 
-## Understand the code
+## Examine the code
 
 Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisionSamples.java_ file. Find the **runSample** method and comment out the **ImageClassification_Sample** method call&mdash;this method executes the image classification scenario, which is not covered in this guide. The **ObjectDetection_Sample** method implements the primary functionality of this quickstart; navigate to its definition and inspect the code. 
 
-### Create a new Custom Vision Service project
+## Create a new Custom Vision Service project
 
-Go to the code block that creates a training client and an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method overloads to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
+Go to the code block that creates a training client and an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) method overloads to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create_od)]
 
-### Add tags to your project
+## Add tags to your project
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_tags_od)]
 
-### Upload and tag images
+## Upload and tag images
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. Go to the definition of the `regionMap` Map. This code associates each of the sample images with its tagged region.
 
@@ -70,13 +70,13 @@ The previous code snippet makes use of two helper functions that retrieve the im
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_helpers)]
 
-### Train the project and publish
+## Train the project and publish
 
 This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_train_od)]
 
-### Use the prediction endpoint
+## Use the prediction endpoint
 
 The prediction endpoint, represented by the `predictor` object here, is the reference that you use to submit an image to the current model and get a classification prediction. In this sample, `predictor` is defined elsewhere using the prediction key environment variable.
 

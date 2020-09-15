@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 author: likebupt
 ms.author: keli19
@@ -53,7 +53,7 @@ if spec is None:
 > If your pipeline contains multiple Execute Python Script modules that need packages that aren't in the preinstalled list, install the packages in each module.
 
 ## Upload files
-The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-).
 
 The following example shows how to upload an image file in the Execute Python Script module:
 

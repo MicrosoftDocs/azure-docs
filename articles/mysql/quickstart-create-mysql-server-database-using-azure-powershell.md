@@ -277,4 +277,4 @@ Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Generate a connection string with PowerShell - Azure Database for MySQL](connect-powershell.md)
+> [Design an Azure Database for MySQL using PowerShell](tutorial-design-database-using-powershell.md)
