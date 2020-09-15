@@ -135,7 +135,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Stack Overflow
-            url: overview.md
+            url: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
           - text: GitHub
             url: https://github.com/azure-ad-b2c/samples
           - text: YouTube
@@ -145,11 +145,9 @@ landingContent:
           - text: Service updates
             url: https://azure.microsoft.com/updates/?product=active-directory-b2c
           - text: Frequently asked questions
-            url: overview.md
+            url: faq.md
           - text: Microsoft support
             url: support-options.md
-          - text: Customer stories
-            url: https://customers.microsoft.com/search?sq=azure%20ad%20b2c&ff=&p=2&so=story_publish_date%20desc
 
   # Card
   - title: Common integrations
