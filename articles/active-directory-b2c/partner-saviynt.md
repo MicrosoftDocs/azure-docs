@@ -16,9 +16,9 @@ ms.subservice: B2C
 
 # Tutorial for configuring Saviynt with Azure Active Directory B2C
 
-In this sample tutorial, we provide guidance on how to integrate Azure Active Directory (AD) B2C with [Saviynt](https://saviynt.com/). Saviynt’s Security Manager platform provides the visibility, security, and governance today’s businesses need, in a single unified platform. In this tutorial, we'll set up Saviynt to provide fine grained access control based delegated administration for Azure AD B2C.
+In this sample tutorial, we provide guidance on how to integrate Azure Active Directory (AD) B2C with [Saviynt](https://saviynt.com/). Saviynt’s Security Manager platform provides the visibility, security, and governance today’s businesses need, in a single unified platform. Saviynt incorporates application risk and governance, infrastructure management, privileged account management, and customer risk analysis.
 
-This integration allows businesses to delegate administration of Azure AD B2C users based on their organization units. Saviynt does the following checks to determine if a user is authorized to manage Azure AD B2C users.
+In this sample tutorial, you'll set up Saviynt to provide fine grained access control based delegated administration for Azure AD B2C users. Saviynt does the following checks to determine if a user is authorized to manage Azure AD B2C users.
 
 - Feature level security to determine if a user can perform a specific operation. For example, Create user, Update user, Reset user password, and so on.
 
@@ -106,14 +106,17 @@ The following architecture diagram shows the implementation.
 
 ### Enabling Saviynt to Delete users
 
-The below steps walk you through how to enable Saviynt to perform user delete operations in Azure AD B2C.
+The below steps explain how to enable Saviynt to perform user delete operations in Azure AD B2C.
+
+>[!NOTE]
+>[Evaluate the risk before granting admin roles access to a service principal.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
 1. Install the latest version of [MSOnline PowerShell Module](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) on a Windows workstation/server.
 
 2. [Connect to AzureAD PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0#connect-to-azure-ad) and execute the following commands:
 
 ```powershell
-Connect-msolservice and Enter Admin credentials of the Azure portal.
+Connect-msolservice #Enter Admin credentials of the Azure portal
 $webApp = Get-MsolServicePrincipal –AppPrincipalId “<ClientId of Azure AD Application>”
 Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType ServicePrincipal -RoleMemberObjectId $webApp.ObjectId
 ```
@@ -130,4 +133,4 @@ For additional information, review the following articles:
 
 - [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
 
-- [Create a Web API application](https://docs.microsoft.com/azure/active-directory-b2c/add-web-api-application)
+- [Create a web API application](https://docs.microsoft.com/azure/active-directory-b2c/add-web-api-application)
