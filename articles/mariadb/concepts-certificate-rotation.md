@@ -90,10 +90,12 @@ For Azure app services, connecting to Azure Database for MariaDB, we can have tw
 *   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert.
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for MariaDB?
-If you are trying to connection to the Azure Database for MySQL using Azure Kubernetes Services (AKS), it is similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).
+If you are trying to connection to the Azure Database for MariaDB using Azure Kubernetes Services (AKS), it is similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).
 
 ### 6. What is the impact if using Azure Data Factory to connect to Azure Database for MariaDB?
-Azure Data Factory (ADF) leverages certificates in the Windows Certificate Store. These certificates are already compatible to the newly applied certificates and therefore no action is needed.
+For connector using Azure Integration Runtime, the connector leverage certificates in the Windows Certificate Store in the Azure-hosted environment. These certificates are already compatible to the newly applied certificates and therefore no action is needed.
+
+For connector using Self-hosted Integration Runtime where you explicitly include the path to SSL cert file in your connection string, you will need to download the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and update the connection string to use it.
 
 ### 7. Do I need to plan a maintenance downtime for this change?
 No. Since the change here is only on the client side to connect to the database server, there is no maintenance downtime needed here for this change.
