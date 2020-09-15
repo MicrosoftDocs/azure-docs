@@ -142,7 +142,7 @@ Azure NetApp Files supports Server Message Block (SMB) and Network File System (
 
     :::image type="content" source="media/net-app-files/smb-file-share-details.png" alt-text="SMB file share is ready."::: 
 
-4. Map the SMB share to your Windows Azure VMware Solution VM. Use the SMB mount path as shown in the previous screenshot. For more information, see [Map a network drive in Windows 10](https://support.microsoft.com/en-us/help/4026635/windows-10-map-a-network-drive)
+4. Map the SMB share to your Windows Azure VMware Solution VM. Use the SMB mount path as shown in the previous screenshot. For more information, see [Map a network drive in Windows 10](https://support.microsoft.com/help/4026635/windows-10-map-a-network-drive)
 
 ## Next steps
 - Learn more about the [Storage hierarchy of Azure NetApp Files](../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md).
