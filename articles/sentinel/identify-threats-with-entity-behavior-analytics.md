@@ -98,10 +98,7 @@ The insights are based on the following data types:
 - Audit Logs
 - Sign-in Logs
 - Office Activity
-
-In the near future, we will add insights that are based on anomalies, such as user and entity behavior analytics (UEBA) 
-
-***(WHEN IS THIS HAPPENING? -YL)***
+- BehaviorAnalytics (UEBA) 
  
 ### How to use entity pages
 

@@ -17,7 +17,7 @@ ms.date: 09/15/2020
 ms.author: yelevin
 
 ---
-# Enable Azure Sentinel's entity behavior detection engine 
+# Enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel 
 
 
 
@@ -25,7 +25,7 @@ ms.author: yelevin
 
 - Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD in order to enable or disable UEBA, but not to run it.
 
-## How to enable User and Entity Behavior Analytics (UEBA)
+## How to enable User and Entity Behavior Analytics
 
 1. From the Azure Sentinel navigation menu, select **Entity behavior (preview)**.
 
@@ -47,6 +47,3 @@ ms.author: yelevin
 In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-
-To learn how to use UEBA's entity search and entity pages, see the following articles:
-
