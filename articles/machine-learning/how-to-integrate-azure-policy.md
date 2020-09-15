@@ -52,5 +52,5 @@ To configure this policy, set the effect parameter to __audit__. If you create a
 ## Next steps
 
 * [Azure Policy documentation](/azure/governance/policy/overview)
-* [Built-in policies for Azure Machine Learning](/azure/governance/policy/samples/built-in-policies#machine-learning)
+* [Built-in policies for Azure Machine Learning](policy-reference.md)
 * [Working with security policies with Azure Security Center](/azure/security-center/tutorial-security-policy)
