@@ -37,7 +37,7 @@ In cases where an expression or a literal value are valid inputs, select **Add d
 
 ## Expression elements
 
-In mapping data flows, expressions can be comprised of column values, parameters, functions, local variables, operators, and literals. These expressions must evaluate to a Spark data type such as string, boolean, or integer.
+In mapping data flows, expressions can be composed of column values, parameters, functions, local variables, operators, and literals. These expressions must evaluate to a Spark data type such as string, boolean, or integer.
 
 ![Expression elements](media/data-flow/expression-elements.png "Expression elements")
 

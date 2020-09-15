@@ -33,11 +33,11 @@ In cases where your schema is not explicitly defined or if you want to update a 
 
 ## Building schemas using the expression builder
 
-When using the mapping data flow [expression builder](concepts-data-flow-expression-builder.md), you can create, edit, and manage your derived columns in the **Derived Columns** section. All columns that are created or changed in the transformation are listed. Interactively choose which column or pattern you are editing by clicking on the column name. To add an additional column select **Create new** and select whether you wish to add a single column or a pattern.
+When using the mapping data flow [expression builder](concepts-data-flow-expression-builder.md), you can create, edit, and manage your derived columns in the **Derived Columns** section. All columns that are created or changed in the transformation are listed. Interactively choose which column or pattern you are editing by clicking on the column name. To add an additional column select **Create new** and choose whether you wish to add a single column or a pattern.
 
 ![Create new column](media/data-flow/derive-add-column.png "Create new column")
 
-When working with complex columns, you can create sub-columns. To do this, click on the plus icon next to any column and select **Add subcolumn**. For more information on handling complex types in data flow, see [JSON handling in mapping data flow](format-json.md#mapping-data-flow-properties).
+When working with complex columns, you can create sucolumns. To do this, click on the plus icon next to any column and select **Add subcolumn**. For more information on handling complex types in data flow, see [JSON handling in mapping data flow](format-json.md#mapping-data-flow-properties).
 
 ![Add subcolumn](media/data-flow/derive-add-subcolumn.png "Add Subcolumn")
 
@@ -51,7 +51,7 @@ If you are sharing logic across multiple columns or want to compartmentalize you
 
 ![Create local](media/data-flow/create-local.png "Create local")
 
-Locals can reference any expression element a derived column can including functions, input schema, parameters, and other locals. When referencing other locals, order does matter as the referenced local needs to be "above" the current one.
+Locals can reference any expression element a derived column including functions, input schema, parameters, and other locals. When referencing other locals, order does matter as the referenced local needs to be "above" the current one.
 
 ![Create local 2](media/data-flow/create-local-2.png "Create local 2")
 
