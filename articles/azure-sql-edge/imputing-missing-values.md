@@ -13,9 +13,9 @@ ms.date: 09/22/2020
 
 # Filling time gaps and imputing missing values 
 
-When dealing with time series data, it's often possible that the time series data has missing values for the attributes, or because of the nature of the data, or due to interruptions in data collection, has gaps in the dataset.
+When dealing with time series data, it's often possible that the time series data has missing values for the attributes. It's also possible that, because of the nature of the data, or because of interruptions in data collection, there are time *gaps* in the dataset.
 
-For example, when collecting energy usage statistics for a smart device, whenever the device is not operational there will be gaps in the usage statistics. Similarly, in a machine telemetry data collection scenario, it's possible that the different sensors are configured to emit data at different frequencies, resulting in missing values for the sensors. For example, if there are two sensors, voltage and pressure, configured at 100 Hz and 10 Hz frequency respectively, the voltage sensor will emit data every one-hundredth of a second, while the pressure sensor will only emit data every one-tenth of a second.
+For example, when collecting energy usage statistics for a smart device, whenever the device isn't operational there will be gaps in the usage statistics. Similarly, in a machine telemetry data collection scenario, it's possible that the different sensors are configured to emit data at different frequencies, resulting in missing values for the sensors. For example, if there are two sensors, voltage and pressure, configured at 100 Hz and 10-Hz frequency respectively, the voltage sensor will emit data every one-hundredth of a second, while the pressure sensor will only emit data every one-tenth of a second.
 
 The following table describes a machine telemetry dataset, which was collected at a one-second interval. 
 
@@ -38,12 +38,12 @@ timestamp               VoltageReading  PressureReading
 
 There are two important characteristics of the preceding dataset. 
 
-- The dataset does not contain any data points related to several timestamps `2020-09-07 06:14:47.000`, `2020-09-07 06:14:48.000`, `2020-09-07 06:14:50.000`, `2020-09-07 06:14:53.000` and `2020-09-07 06:14:55.000`. This represents a gap in the dataset.  
+- The dataset doesn't contain any data points related to several timestamps `2020-09-07 06:14:47.000`, `2020-09-07 06:14:48.000`, `2020-09-07 06:14:50.000`, `2020-09-07 06:14:53.000`, and `2020-09-07 06:14:55.000`. These timestamps are *gaps* in the dataset.  
 - There are missing values, represented as `null`, for the Voltage and pressure readings. 
 
 ## Gap filling 
 
-Gap filling is a technique that helps create contiguous, ordered set of timestamps to facilitate the analysis of time series data. In Azure SQL Edge, the easiest way to fill gaps in the time series dataset is to define a temporary table with the desired time distribution and then perform a `LEFT OUTER JOIN` or a `RIGHT OUTER JOIN` operation on the dataset table. 
+Gap filling is a technique that helps create contiguous, ordered set of timestamps to ease the analysis of time series data. In Azure SQL Edge, the easiest way to fill gaps in the time series dataset is to define a temporary table with the desired time distribution and then do a `LEFT OUTER JOIN` or a `RIGHT OUTER JOIN` operation on the dataset table. 
 
 Taking the `MachineTelemetry` data represented above as an example, the following query can be used to generate contiguous, ordered set of timestamps for analysis. 
 
@@ -94,7 +94,7 @@ timestamp               VoltageReading    PressureReading
 
 ## Imputing missing values
 
-The preceding query generated the missing timestamps for data analysis, however it did not replace any of the missing values (represented as null) for `voltage` and `pressure` readings. In Azure SQL Edge, a new syntax was added to the T-SQL `LAST_VALUE()` and `FIRST_VALUE()` functions, which provides mechanisms to impute missing values, based on the preceding or following values in the dataset. 
+The preceding query generated the missing timestamps for data analysis, however it did not replace any of the missing values (represented as null) for `voltage` and `pressure` readings. In Azure SQL Edge, a new syntax was added to the T-SQL `LAST_VALUE()` and `FIRST_VALUE()` functions, which provide mechanisms to impute missing values, based on the preceding or following values in the dataset. 
 
 The new syntax adds `IGNORE NULLS` and `RESPECT NULLS` clause to the `LAST_VALUE()` and `FIRST_VALUE()` functions. A following query on the `MachineTelemetry` dataset computes the missing values using the last_value function, where missing values are replaced with the last observed value in the dataset.
 
@@ -129,7 +129,7 @@ timestamp               OrigVoltageVals  ImputedVoltage OrigPressureVals  Impute
 
 ```
 
-The following query imputes the missing values using both the `LAST_VALUE()` and the `FIRST_VALUE` function. For `LAST_VALUE()` the missing values are replaced by the last observed value, and for `FIRST_VALUE` the missing values are replaced by the next observed value in the dataset. 
+The following query imputes the missing values using both the `LAST_VALUE()` and the `FIRST_VALUE` function. For, the output column `ImputedVoltage` the missing values are replaced by the last observed value, while for the output column `ImputedPressure` the missing values are replaced by the next observed value in the dataset. 
 
 ```sql
 Select 
