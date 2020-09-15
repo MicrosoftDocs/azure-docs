@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Integrate an existing forest and a new forest with a single Azure AD tenant using Azure AD Connect cloud provisioning.
-description: tutorial.
+description: Learn how to add cloud provisioning to an existing hybrid identity environment. .
 services: active-directory
 author: billmath
 manager: daveba
