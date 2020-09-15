@@ -29,6 +29,8 @@
     href: fusion.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
+  - name: Identify advanced threats with UEBA
+    href: identify-threats-with-entity-behavior-analytics.md
   - name: Security
     items:
     - name: Security baseline
@@ -156,6 +158,8 @@
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md  
+  - name: Enable User and Entity Behavior Analytics
+    href: enable-entity-behavior-analytics.md
   - name: Work with multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces

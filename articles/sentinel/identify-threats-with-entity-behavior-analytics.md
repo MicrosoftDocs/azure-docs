@@ -1,6 +1,6 @@
 ---
-title: Identify internal threats with Azure Sentinel's entity behavior analytics | Microsoft Docs
-description:  Create behavioral baselines for entities (users, hostnames, IP addresses) and use them to detect anomalous behavior and identify security threats.
+title: Identify advanced threats with Azure Sentinel's User and Entity Behavior Analytics (UEBA) | Microsoft Docs
+description:  Create behavioral baselines for entities (users, hostnames, IP addresses) and use them to detect anomalous behavior and identify zero-day advanced persistent threats (APT).
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -17,15 +17,15 @@ ms.date: 08/19/2020
 ms.author: yelevin
 
 ---
-# Identify internal threats with Azure Sentinel's entity behavior analytics
+# Identify advanced threats with Azure Sentinel's User and Entity Behavior Analytics (UEBA)
 
-## What is entity behavior analytics?
+## What is User and Entity Behavior Analytics (UEBA)?
 
 ### The concept
 
-Identifying internal threat sources in your organization, and their potential impact, has always been a time-consuming and labor-intensive process. Sifting through alerts, connecting the dots, and active hunting all add up to massive amounts of effort expended with minimal returns, and the possibility of many internal threats simply evading discovery.
+Identifying threats inside your organization and their potential impact - whether a compromised entity or a malicious insider - has always been a time-consuming and labor-intensive process. Sifting through alerts, connecting the dots, and active hunting all add up to massive amounts of time and effort expended with minimal returns, and the possibility of sophisticated threats simply evading discovery. Particularly elusive threats like zero-day, targeted, and advanced persistent threats can be the most dangerous to your organization, making their detection all the more critical.
 
-Azure Sentinel’s entity behavioral analytics capability eliminates the drudgery from your analysts’ workloads and the uncertainty from their efforts, and delivers high-fidelity, actionable intelligence, so they can focus on investigation and remediation.
+Azure Sentinel’s UEBA capability eliminates the drudgery from your analysts’ workloads and the uncertainty from their efforts, and delivers high-fidelity, actionable intelligence, so they can focus on investigation and remediation.
 
 As Azure Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (users, hosts, IP addresses, applications etc.) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Not only that, but it can also figure out the relative sensitivity of particular assets, identify peer groups of assets, and evaluate the potential impact of any given compromised asset (its “blast radius”). Armed with this information, you can effectively prioritize your investigation and incident handling. 
 
@@ -35,7 +35,7 @@ As Azure Sentinel collects logs and alerts from all of its connected data source
 
 ### Security-driven analytics
 
-Inspired by Gartner’s paradigm for User and Entity Behavior Analytics (UEBA) solutions, Azure Sentinel provides an "outside-in" approach, based on three layers of consideration:
+Inspired by Gartner’s paradigm for UEBA solutions, Azure Sentinel provides an "outside-in" approach, based on three frames of reference:
 
 - **Use cases:** By prioritizing for relevant attack vectors and scenarios based on security research aligned with the MITRE ATT&CK framework of tactics, techniques, and sub-techniques that puts various entities as victims, perpetrators, or pivot points in the kill chain; Azure Sentinel focuses specifically on the most valuable logs each data source can provide.
 
@@ -43,17 +43,16 @@ Inspired by Gartner’s paradigm for User and Entity Behavior Analytics (UEBA) s
 
 - **Analytics:** Using various machine learning (ML) algorithms, Azure Sentinel identifies anomalous activities and presents evidence clearly and concisely in the form of contextual enrichments, some examples of which appear below.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Behavior analytics top-down approach":::
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Behavior analytics outside-in approach":::
 
-Azure Sentinel presents artifacts that help your security analysts get a clear understanding of anomalous activities in context, and in comparison with the user's baseline profile. Actions performed by a user (or a host, or an address) are evaluated contextually:
+Azure Sentinel presents artifacts that help your security analysts get a clear understanding of anomalous activities in context, and in comparison with the user's baseline profile. Actions performed by a user (or a host, or an address) are evaluated contextually, where a "true" outcome indicates an identified anomaly:
 - across geographical locations, devices, and environments.
 - across time and frequency horizons (compared to user's own history).
 - as compared to peers' behavior.
 - as compared to organization's behavior.
 
-  ![Entity context](media/identify-threats-with-entity-behavior-analytics/context.png)
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Entity context":::
 
-A "true" outcome indicates an identified anomaly.
 
 ### Scoring
 
@@ -167,9 +166,9 @@ Permission analytics helps determine the potential impact of the compromising of
 
 Azure Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Azure AD security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Jane Smith. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Jane has Contributor access to the Azure subscription *Contoso Azure Production 1*. The access control model of the subscription is RBAC.   
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics-cropped.png" alt-text="Screen shot of user access analytics table" lightbox="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics-cropped.png":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics-cropped.png" alt-text="Screen shot of user access analytics table":::
 
-
+You can use the provided [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) (the same notebook mentioned above) in Azure Sentinel's GitHub to visualize the permission analytics data. For detailed instructions on how to use the notebook, see the [Guided Analysis - User Security Metadata](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) notebook.
 
 ### Hunting queries and exploration queries
 
@@ -177,9 +176,8 @@ Azure Sentinel provides out-of-the-box a set of hunting queries, exploration que
 
 Learn more about [hunting and the investigation graph](./hunting.md) in Azure Sentinel.
 
-
 ## Next steps
-In this document, you learned about Azure Sentinel's entity behavior analytics capabilities. For practical guidance on implementation, see the following articles:
+In this document, you learned about Azure Sentinel's entity behavior analytics capabilities. For practical guidance on implementation, and to use the insights you've gained, see the following articles:
 
-- [Enable entity behavior analytics](./aaa.md) in Azure Sentinel.
-- [Work with entity pages](./bbb.md).
+- [Enable entity behavior analytics](./enable-entity-behavior-analytics.md) in Azure Sentinel.
+- [Hunt for security threats](./hunting.md).
