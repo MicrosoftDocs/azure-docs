@@ -70,7 +70,7 @@ In the following example, you use the `BACKUP DATABASE` Transact-SQL command to 
 
 ### Back up to URL
 
-Azure SQL Edge supports backups to both page blobs and block blobs. For more information, see [Back up to block blob vs page blob](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15#blockbloborpageblob). In the following example, the database *IronOreSilicaPrediction* is being backed up to a block blob. 
+Azure SQL Edge supports backups to both page blobs and block blobs. For more information, see [Back up to block blob vs page blob](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). In the following example, the database *IronOreSilicaPrediction* is being backed up to a block blob. 
 
 1. To configure backups to block blobs, first generate a shared access signature (SAS) token that you can use to create a SQL Server credential on Azure SQL Edge. The script creates a SAS that is associated with a stored access policy. For more information, see [Shared access signatures, part 1: Understanding the SAS model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). The script also writes the T-SQL command required to create the credential on SQL Server. The following script assumes that you already have an Azure subscription with a storage account, and a storage container for the backups.
 
@@ -128,7 +128,7 @@ Azure SQL Edge supports backups to both page blobs and block blobs. For more inf
 
 ## Restore a database in Azure SQL Edge
 
-In Azure SQL Edge, you can restore from a local disk, a network location, or an Azure Blob storage account. For more information about restore and recovery in SQL Server, see [Restore and recovery overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15). For an overview of the simple recovery model in SQL Server, see [Complete database restores (simple recovery model)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model?view=sql-server-ver15).
+In Azure SQL Edge, you can restore from a local disk, a network location, or an Azure Blob storage account. For more information about restore and recovery in SQL Server, see [Restore and recovery overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). For an overview of the simple recovery model in SQL Server, see [Complete database restores (simple recovery model)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
 
 > [!IMPORTANT] 
 > Databases created in Azure SQL Edge cannot be restored on an instance of Microsoft SQL Server or Azure SQL. Additionally, a database created on Microsoft SQL Server or Azure SQL can be restored on Azure SQL Edge, provided the database does not contain any of the features not supported by Azure SQL Edge. 
