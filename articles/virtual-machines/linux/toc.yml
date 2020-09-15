@@ -617,7 +617,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (AAD)
+      - name: Disk encryption - previous version (Azure AD)
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -689,7 +689,7 @@
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
-      displayName: AAD
+      displayName: Azure AD
       items:
       - name: Red Hat Enterprise Linux
         href: ../../active-directory-domain-services/join-rhel-linux-vm.md
@@ -739,7 +739,7 @@
         href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Scheduled events
       href: scheduled-events.md
-    - name: VMSS OS image upgrades
+    - name: Virtual machine scale set OS image upgrades
       items:
       - name: Automatic OS upgrades
         href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
