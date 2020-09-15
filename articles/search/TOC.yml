@@ -3,11 +3,11 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Cognitive Search?
+  - name: What is Cognitive Search?
     href: search-what-is-azure-search.md
-  - name: Feature list
+  - name: Features in Cognitive Search
     href: search-features-list.md
-  - name: What's new
+  - name: What's new in Cognitive Search
     href: whats-new.md
 - name: Quickstarts
   items:
@@ -415,25 +415,27 @@
   - name: .NET
     items:
     - name: Search API
-      href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/search.documents-readme
     - name: Management API
-      href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+      href: /dotnet/api/overview/azure/search/management
   - name: Java
     items:
+    - name: Search API
+      href: /java/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /java/api/overview/azure/search/management?view=azure-java-stable
+      href: /java/api/overview/azure/search/management
   - name: JavaScript
     items:
     - name: Search API
-      href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+      href: /javascript/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+      href: /javascript/api/overview/azure/search/management
   - name: Python
     items:
     - name: Search API
-      href: /python/api/overview/azure/search-documents-readme?view=azure-python
+      href: /python/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /python/api/overview/azure/search/management?view=azure-python
+      href: /python/api/overview/azure/search/management
   - name: OData language reference
     items:
     - name: Overview

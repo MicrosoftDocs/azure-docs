@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure Cognitive Search
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive  Search is a fully-managed cloud search service from Microsoft. Learn about use cases, the development workflow, comparisons to other Microsoft search products, and how to get started.
+description: Azure Cognitive  Search is a fully managed cloud search service from Microsoft. Learn about use cases, the development workflow, comparisons to other Microsoft search products, and how to get started.
 
 manager: nitinme
 author: HeidiSteen
@@ -26,7 +26,7 @@ Functionality is exposed through a simple [REST API](/rest/api/searchservice/) o
 
 ## When to use Cognitive Search
 
-Azure Cognitive Search is well-suited for the following application scenarios:
+Azure Cognitive Search is well suited for the following application scenarios:
 
 + Consolidation of heterogeneous content types into a private, user-defined search index. You can populate a search index with streams of JSON documents from any source. For supported sources on Azure, use an *indexer* to automate indexing. Control over the index schema and refresh schedule is a key reason for using Cognitive Search.
 
@@ -51,7 +51,7 @@ For paid tiers, you can scale a service in two dimensions to calibrate resourcin
 
 ### Step 2: Create an index
 
-Define an index schema to map to reflect the structure of the documents you wish to search, similar to fields in a database.. A search index is a specialized data structure that is optimized for very fast query execution.
+Define an index schema to map to reflect the structure of the documents you wish to search, similar to fields in a database.. A search index is a specialized data structure that is optimized for fast query execution.
 
 It's common to [create the index schema in the Azure portal](search-what-is-an-index.md), or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](/rest/api/searchservice/).
 
