@@ -29,12 +29,16 @@ These types are currently supported:
 * `pyspark`
 * Standard Python object
 
-To use schema generation, include the open-source `inference-schema` package in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
+To use schema generation, include the open-source `inference-schema` package version 1.1.0 or above in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). In order to generate conforming swagger automated web service consumption, scoring script run() function must have API shape of:
+* A first parameter of type "StandardPythonParameterType", named Inputs, nested containing PandasDataframeParameterTypes.
+* An optional second parameter of type "StandardPythonParameterType", named GlobalParameter, which is not nested.
+* Return a dictionary of type "StandardPythonParameterType", which maybe nested containing PandasDataFrameParameterTypes.
+Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
 
 
 ## Power BI compatible endpoint 
 
-The following example demonstrates how to define the input data as a `<key: value>` dictionary by using a DataFrame. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
+The following example demonstrates how to define API shape according to above instruction. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
 import json
@@ -43,9 +47,10 @@ import numpy as np
 import pandas as pd
 import azureml.train.automl
 from sklearn.externals import joblib
-from azureml.core.model import Model
+from sklearn.linear_model import Ridge
 
 from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.standard_py_parameter_type import StandardPythonParameterType
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
 
@@ -53,31 +58,32 @@ from inference_schema.parameter_types.pandas_parameter_type import PandasParamet
 def init():
     global model
     # Replace filename if needed.
-    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model_file.pkl')
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
+# providing 3 sample inputs for schema generation
+numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+standard_sample_input = StandardPythonParameterType(0.0)
 
-input_sample = pd.DataFrame(data=[{
-    # This is a decimal type sample. Use the data type that reflects this column in your data.
-    "input_name_1": 5.1,
-    # This is a string type sample. Use the data type that reflects this column in your data.
-    "input_name_2": "value2",
-    # This is an integer type sample. Use the data type that reflects this column in your data.
-    "input_name_3": 3
-}])
+# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+                                            'input2': pandas_sample_input, 
+                                            'input3': standard_sample_input})
 
-# This is an integer type sample. Use the data type that reflects the expected result.
-output_sample = np.array([0])
+sample_global_parameters = StandardPythonParameterType(1.0) #this is optional
+sample_output = StandardPythonParameterType([1.0, 1.0])
 
-# To indicate that we support a variable length of data input,
-# set enforce_shape=False
-@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
-@output_schema(NumpyParameterType(output_sample))
-def run(data):
+@input_schema('inputs', sample_input)
+@input_schema('global_parameters', sample_global_parameters) #this is optional
+@output_schema(sample_output)
+def run(inputs, global_parameters):
     try:
+        data = inputs['input1']
+        # data will be convert to target format
+        assert isinstance(data, np.ndarray)
         result = model.predict(data)
-        # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
     except Exception as e:
         error = str(e)
