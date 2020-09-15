@@ -60,7 +60,7 @@ When all the conditions are all satisfied, you can detach the payment method fro
 1. In the Delete a payment method area, select the **Detach the current payment method** link.
 1. If all conditions are met, select **Detach**. Otherwise, continue to the next step.
 1. If Detach is unavailable, a list of conditions is shown. Take the actions listed. Select the link shown in the Detach the default payment method area. Here's an example of a corrective action that explains the actions you need to take.  
-    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Example showing a corrective action needed to detach a payment method" :::
+    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Example showing a corrective action needed to detach a payment method for MCA" :::
 1. When you select the corrective action link, you're redirected to the Azure page where you take action. Take whatever correction action is needed.
 1. If necessary, complete all other corrective actions.
 1. Navigate back to **Cost Management + Billing** > **Billing profiles** > **Payment methods**. Select **Detach**. At the bottom of the Detach the default payment method page, select **Detach**.
@@ -81,7 +81,7 @@ If your payment method is in use by an MOSP subscription, do the following steps
 1. In the left menu list under **Billing**, select **Payment methods**.
 1. In the Payment methods area, select the _line_ that your payment method is on. Don't select the payment method link. There might not be a visual indication that you've selected the payment method.
 1. Select **Delete**.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Example showing a corrective action needed to detach a payment method" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Example showing a corrective action needed to detach a payment method for MOSP" :::
 1. In the Delete a payment method area, select **Delete** if all conditions are met. If Delete is unavailable, continue to the next step.
 1. A list of conditions is shown. Take the actions listed. Select the link shown in the Delete a payment method area.  
     :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Example image showing that a payment method is in use by an MOSP subscription" :::
