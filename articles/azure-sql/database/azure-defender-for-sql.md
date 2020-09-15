@@ -1,6 +1,6 @@
 ---
 title: Azure Defender for SQL
-description: Learn about functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database in Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse.
+description: Learn about functionality for managing your database vulnerabilities and detecting anomalous activities that could indicate a threat to your database in Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
@@ -27,7 +27,7 @@ Azure Defender provides a set of advanced SQL security capabilities, including S
 
 Enable Azure Defender for SQL once to enable all these included features. With one click, you can enable Azure Defender for all databases on your [server](logical-servers.md) in Azure or in your SQL Managed Instance. Enabling or managing Azure Defender settings requires belonging to the [SQL security manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) role, or one of the database or server admin roles.
 
-Azure Defender pricing aligns with Azure Security Center standard tier, where each protected server or managed instance is counted as one node. Newly protected resources qualify for a free trial of Security Center standard tier. For more information, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+For more information about Azure Defender for SQL pricing, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Getting started with Azure Defender
 
@@ -35,7 +35,7 @@ The following steps get you started with Azure Defender.
 
 ## 1. Enable Azure Defender
 
-Azure Defender can be accessed through the [Azure portal](https://portal.azure.com). Enable Azure Defender by navigating to **Azure Defender for SQL** under the **Security** heading for your server or managed instance.
+Azure Defender can be accessed through the [Azure portal](https://portal.azure.com). Enable Azure Defender by navigating to **Security center** under the **Security** heading for your server or managed instance.
 
 > [!NOTE]
 > A storage account is automatically created and configured to store your **Vulnerability Assessment** scan results. If you've already enabled Azure Defender for another server in the same resource group and region, then the existing storage account is used.
@@ -48,7 +48,7 @@ Click the **Vulnerability Assessment** card to view and manage vulnerability sca
 
 ## 3. Manage Azure Defender settings
 
-To view and manage Azure Defender settings, navigate to **Azure Defender for SQL** under the **Security** heading for your server or managed instance. On this page, you can enable or disable Azure Defender, and modify vulnerability assessment and Advanced Threat Protection settings for your entire server or managed instance.
+To view and manage Azure Defender settings, navigate to **Security center** under the **Security** heading for your server or managed instance. On this page, you can enable or disable Azure Defender, and modify vulnerability assessment and Advanced Threat Protection settings for your entire server or managed instance.
 
 ## 4. Manage Azure Defender settings for a database
 

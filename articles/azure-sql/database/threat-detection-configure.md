@@ -23,7 +23,7 @@ You can receive notifications about the detected threats via [email notification
 ## Set up Advanced Threat Protection in the Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-2. Navigate to the configuration page of the server you want to protect. In the security settings, select **Azure Defender**.
+2. Navigate to the configuration page of the server you want to protect. In the security settings, select **Security center**.
 3. On the **Azure Defender** configuration page:
 
    - Enable Azure Defender on the server.
