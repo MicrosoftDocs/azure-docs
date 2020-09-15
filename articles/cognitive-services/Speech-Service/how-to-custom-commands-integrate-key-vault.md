@@ -15,7 +15,7 @@ ms.author: sausin
 
 # Reference key vault stored secrets in calling web endpoints
 
-Web endpoint often requires a sensitive data such as api-key passed in to execute. In this article, you will learn how to reference secrets in your key vault in configurating and calling web endpoints in a custom commands application:
+Web endpoints often require sensitive data such as api-key passed in to execute. In this article, you will learn how to include such sensitive data in calling web endpoints in a custom commands application by referencing secrets stored in your key vault. Presuming you have secrets already stored in Azure key vault, this can be achieved in two simple steps.
 
  - Create system-assigned [managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for your speech resource and allow access to your key vault.
  - Configure and reference secrets in the key vault in web endpoints in a custom commands application.
@@ -39,7 +39,7 @@ The following articles provide background on azure key vault and managed identit
   > [!div class="mx-imgBorder"]
   > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-enable-managed-identity.png)
 
-  If the Status is **Off**, switch to **On** and Save. You will be presented with an Object ID for the created identity as below.
+  If the Status is **Off**, switch to **On** and **Save**. You will be presented with an Object ID for the created identity as below.
 
   > [!div class="mx-imgBorder"]
   > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-enabled-managed-identity.png)
@@ -56,7 +56,7 @@ The following articles provide background on azure key vault and managed identit
 
 ## Referencing secrets in the key vault in calling web endpoints.
 
-1. In Speech portal, go to Key vault configuration under **Settings > Key vault**. Enter the name of the key vault where secrets will be referenced. Please also give the key vault a name, an alphanumeric string including dash, to reference in the application.
+1. In Speech portal, go to Key vault configuration under **Settings > Key vault**. Enter the name of the key vault where secrets will be referenced from. Please also give the key vault a name, an alphanumeric string including dash, to reference in the application.
 
   > [!div class="mx-imgBorder"]
   > ![Call web endpoints action On Success](media/custom-commands/how-to-custom-commands-integrate-key-vault-settings.png)
