@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Provision and activate a managed HSM pool'
-description: Quickstart showing how to provision and activate a managed HSM pool using Azure CLI
+title: Quickstart: Provision and activate a managed HSM'
+description: Quickstart showing how to provision and activate a managed HSM using Azure CLI
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -13,25 +13,27 @@ ms.author: ambapat
 #Customer intent:As a security admin who is new to Azure, I want to provision and activate a managed HSM
 ---
 
-# Quickstart: Provision and activate a managed HSM pool using Azure CLI
+# Quickstart: Provision and activate a managed HSM using Azure CLI
 
 Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. For more information on Managed HSM you may review the [Overview](overview.md). 
 
-In this quickstart, you create and activate a managed HSM pool with Azure CLI. Once that you have completed that, you will store a secret.
+In this quickstart, you create and activate a managed HSM with Azure CLI. Once that you have completed that, you will store a secret.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
+
+To complete the steps in this article, you must have the following items:
+
+* A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+* The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-
 To sign in to Azure using the CLI you can type:
 
-```azurecli-interactive
+```azurecli
 az login
 ```
-
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ## Create a resource group
 
@@ -52,9 +54,9 @@ Creating a managed HSM is a two step process:
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
 You need to provide following inputs to create a Managed HSM resource:
-- NResource group where it will be placed in your subscription
-- Azure location
-- A list of initial administrators 
+- A resource group where it will be placed in your subscription.
+- Azure location.
+- A list of initial administrators.
 
 The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
 
@@ -90,6 +92,9 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert
 openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
 openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
 ```
+
+> [!IMPORTANT]
+> Create and store the RSA key pairs and security domain file generated in this step securely.
 
 Use the `az keyvault security-domain download` command to download the security domain and activate your managed HSM. The example below, uses 3 RSA key pairs (only public keys are needed for this command) and sets the quorum to 2.
 

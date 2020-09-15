@@ -32,19 +32,27 @@ Here's an overview of the process. Specific steps to complete are described late
 * In the offline computer, use the BYOK tool provided by your HSM vendor to create a BYOK file. 
 * The target key is encrypted with a KEK, which stays encrypted until it is transferred to the Managed HSM. Only the encrypted version of your key leaves the on-premises HSM.
 * A KEK that's generated inside a Managed HSM is not exportable. HSMs enforce the rule that no clear version of a KEK exists outside a Managed HSM.
-* The KEK must be in the same Managed HSM pool where the target key will be imported.
+* The KEK must be in the same managed HSM where the target key will be imported.
 * When the BYOK file is uploaded to Managed HSM, a Managed HSM uses the KEK private key to decrypt the target key material and import it as an HSM key. This operation happens entirely inside the HSM. The target key always remains in the HSM protection boundary.
+
 
 ## Prerequisites
 
-The following table lists prerequisites for using BYOK in Managed HSM:
+To use the Azure CLI commands in this article, you must have the following items:
 
-| Requirement | More information |
-| --- | --- |
-| An Azure subscription |To create a Managed HSM pool, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/). |
-| A Managed HSM pool to import HSM-protected keys |For more information about the service tiers and capabilities in see [Pricing](https://azure.microsoft.com/pricing/details/key-vault/) |
-| An HSM from the supported HSMs list and a BYOK tool and instructions provided by your HSM vendor | You must have permissions for an HSM and basic knowledge of how to use your HSM. See [Supported HSMs](#supported-hsms). |
-| Azure CLI version 2.12.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).|
+* A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+* The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+* A managed HSM the [supported HSMs list](#supported-hsms) in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+To sign in to Azure using the CLI you can type:
+
+```azurecli
+az login
+```
+
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ## Supported HSMs
 
@@ -78,7 +86,7 @@ A KEK is an RSA key that's generated in a Managed HSM. The KEK is used to encryp
 
 The KEK must be:
 - An RSA-HSM key (2,048-bit; 3,072-bit; or 4,096-bit)
-- Generated in the same Managed HSM pool where you intend to import the target key
+- Generated in the same managed HSM where you intend to import the target key
 - Created with allowed key operations set to `import`
 
 > [!NOTE]

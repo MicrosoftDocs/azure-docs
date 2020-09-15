@@ -25,7 +25,7 @@ When a Managed HSM is provisioned but not activated, downloading the Security Do
 
 ## Upload a security domain
 
-When a Managed HSM is provisioned but not activated, you can initiate a Security Domain recovery process. The Managed HSM pool will generate an RSA key pair and return the public key. Then you can upload the Security Domain to the Managed HSM. Before uploading, the client (Azure CLI or PowerShell) will need to be provided with the minimum quorum number of private keys you used while downloading the security domain. The client will decrypt the Security Domain using this quorum and re-encrypt it using the public key you downloaded when you requested recovery. Once the upload is complete, the Managed HSM will be in activated state. 
+When a Managed HSM is provisioned but not activated, you can initiate a Security Domain recovery process. Managed HSM will generate an RSA key pair and return the public key. Then you can upload the Security Domain to the Managed HSM. Before uploading, the client (Azure CLI or PowerShell) will need to be provided with the minimum quorum number of private keys you used while downloading the security domain. The client will decrypt the Security Domain using this quorum and re-encrypt it using the public key you downloaded when you requested recovery. Once the upload is complete, the Managed HSM will be in activated state. 
 
 ## Backup and restore behavior
 

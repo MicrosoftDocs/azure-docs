@@ -21,15 +21,15 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 ### Fully managed, highly available, single-tenant HSM as a service
 
-- **Fully managed**: You don't need to provision, configure, patch, or maintain HSMs or key management software. If the hardware fails, member partitions for your HSM pool will be automatically migrated to healthy nodes
-- **Highly available and zone resilient** (where Availability zones are supported): Each HSM pool consists of multiple HSM partitions that span across at least two availability zones
-- **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a pool of multiple HSM partitions. Each HSM pool uses a separate customer-specific security domain that cryptographically isolates each customer's HSM pool.
+- **Fully managed**: You don't need to provision, configure, patch, or maintain HSMs or key management software. If the hardware fails, member partitions for your managed HSMs will be automatically migrated to healthy nodes
+- **Highly available and zone resilient** (where Availability zones are supported): Each managed HSMs consists of multiple HSM partitions that span across at least two availability zones
+- **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a pool of multiple HSM partitions. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates each customer's HSM cluster.
 
 ### Access control, enhanced data protection & compliance
 
 - **Centralized key management**: Manage critical, high-value keys across your organization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
-- **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM pool administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
-- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSM pools use Marvell LiquidSecurity family of HSMs.
+- **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM cluster administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
+- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity family of HSMs.
 - **Monitor and audit**: fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
 
 ### Integrated with Azure and Microsoft PaaS/SaaS services 
@@ -38,13 +38,13 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 ### Uses same API and management interfaces as Key Vault
 
-- Easily migrate your existing applications that use a vault (a multi-tenant) to use managed HSM pools
-- Use same application development and deployment patterns for all your applications irrespective of key management solution in use: multi-tenant vaults or single-tenant managed HSM pools
+- Easily migrate your existing applications that use a vault (a multi-tenant) to use managed HSMs.
+- Use same application development and deployment patterns for all your applications irrespective of key management solution in use: multi-tenant vaults or single-tenant managed HSMs
 
 ### Import keys from your on-premise HSMs
 
 - Generate HSM-protected keys in your on-premise HSM and import them securely into Managed HSM
 
 ## Next Steps
-- See [Quickstart: Provision and activate a managed HSM pool using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
+- See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
 - See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)

@@ -26,7 +26,10 @@ landingContent:
         links:
           - text: What is Azure Key Vault Managed HSM?
             url: overview.md
-
+          - text: REST API overview
+            url: ../general/about-key-secrets-certificates.md
+          - text: Supported keys and algorithms
+            url: ../keys/about-keys.md
 
   # Card
   - title: Concept
@@ -73,7 +76,7 @@ landingContent:
             url: disaster-recovery-guide.md
           - text: Import HSM-protected keys (overview)
             url: hsm-protected-keys-byok.md
-          - text: Configure logging for your managed HSM pool
+          - text: Configure logging for your managed HSMs
             url: logging.md
 
   # Card
