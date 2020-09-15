@@ -580,7 +580,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (AAD)
+      - name: Disk encryption - previous version (Azure AD)
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -684,7 +684,7 @@
       href: scheduled-events.md
     - name: Windows scheduled event service
       href: scheduled-event-service.md
-    - name: VMSS OS image upgrades
+    - name: Virtual machine scale set OS image upgrades
       items:
       - name: Automatic OS upgrades
         href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
