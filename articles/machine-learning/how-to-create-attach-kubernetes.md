@@ -66,7 +66,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 ## Azure Kubernetes Service version
 
-Azure Kubernetes Service allows you to create a cluster using a variety of Kubernetes versions. For more information on available versions, see [supported Kubernetes versions in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions).
+Azure Kubernetes Service allows you to create a cluster using a variety of Kubernetes versions. For more information on available versions, see [supported Kubernetes versions in Azure Kubernetes Service](/azure/aks/supported-kubernetes-versions).
 
 When **creating** an Azure Kubernetes Service cluster using one of the following methods, you *do not have a choice in the version* of the cluster that is created:
 
