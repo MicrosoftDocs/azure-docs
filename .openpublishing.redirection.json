@@ -56967,16 +56967,6 @@
       "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
       "redirect_document_id": false
     },
-	{
-	  "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
-	  "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
-	  "redirect_document_id": false 	
-  },
-  {
-    "source_path": "articles/machine-learning/studio/context/ml-context.yml",
-    "redirect_url": "/azure/machine-learning/classic/context/ml-context",
-    "redirect_document_id": true
-  },
   {
       "source_path": "articles/machine-learning/studio/ai-gallery-control-personal-data-dsr.md",
       "redirect_url": "/azure/machine-learning/classic/ai-gallery-control-personal-data-dsr",
