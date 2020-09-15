@@ -22,12 +22,14 @@ This tutorial begins by uploading to Azure the CIFAR10 data followed by using th
 By the end of this tutorial you would have a better understanding of:
 
 > [!div class="checklist"]
+
 > * Best practices for working with cloud data in Azure Machine Learning
 > * Working with command-line arguments
 
 The Azure Machine Learning concepts covered in this Tutorial are:
 
 > [!div class="checklist"]
+
 > * ScriptRunConfig: Passing script arguments.
 > * Datastore
 > * Dataset
@@ -47,8 +49,8 @@ By now you have your training script (tutorial/src/train.py) running in Azure Ma
 
 Presently our training script is set to download the CIFAR10 dataset on each run. The python code below has been adjusted to read the data from a directory.
 
->[!NOTE] The use of `argparse` to parametize the script.
- 
+>[!NOTE] 
+> The use of `argparse` to parametize the script.
 
 ```python
 # tutorial/src/train.py
