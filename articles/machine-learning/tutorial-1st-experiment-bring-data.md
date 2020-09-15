@@ -15,40 +15,7 @@ ms.custom: tracking-python
 
 # Tutorial: Bring your own data (Part 4 of 5)
 
-In the previous [Tutorial: Train a model in the cloud](tutorial-1st-experiment-sdk-train.md) article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning. 
-
-This tutorial begins by uploading to Azure the CIFAR10 data followed by using that data in a remote training run. Along the way, you see how to add command-line arguments to your training script.
-
-By the end of this tutorial you would have a better understanding of:
-
-- Best practices for working with cloud data in Azure Machine Learning
-- Working with command-line arguments
-
-The Azure Machine Learning concepts covered in this Tutorial are:
-
-> [!div class="checklist"]
-> - [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true): Passing script arguments.
-> - [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py&preserve-view=true)
-> - [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true)
-
-## Prerequisites
-
-- You have completed:
-  - Setup on your [local computer](tutorial-1st-experiment-sdk-setup-local.md) or setup to use a [compute instance](tutorial-1st-experiment-sdk-setup-local.md)
-  - [Tutorial: Hello Azure](tutorial-1st-experiment-hello-world.md)
-  - [Tutorial: Train a model in the cloud](tutorial-1st-experiment-sdk-train.md)
-- Familiarity with Python and Machine Learning concepts
-- A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
-
-## Adjust the training script
-
-By now you have your training script (`tutorial/src/train.py`) running in Azure Machine Learning, and can monitor the model performance. Let's _parametrize_ the training script by introducing
-arguments. Using arguments will allow you to easily compare different hyperparmeters.
-
-Presently our training script is set to download the CIFAR10 dataset on each run. The python code below has been adjusted to read the data from a directory.
-
->[!NOTE] 
-> The use of `argparse` to parametize the script.
+ 
 
 ```python
 # tutorial/src/train.py
