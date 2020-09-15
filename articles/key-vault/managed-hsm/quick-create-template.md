@@ -17,11 +17,9 @@ ms.author: mbaldwin
 ---
 # Quickstart: Create an Key Vault Managed HSM using an Azure Resource Manager template
 
-Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs.  
+anaged HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  
 
-[Azure Key Vault](../index.yml) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets; Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  This quickstart focuses on the process of deploying a Resource Manager template to create a Managed HSM.
-
-[Resource Manager template](../../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](../../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
+This quickstart focuses on the process of deploying a Resource Manager template to create a Managed HSM.  [Resource Manager template](../../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](../../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
