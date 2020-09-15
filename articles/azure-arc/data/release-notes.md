@@ -44,7 +44,8 @@ After you deploy the data controller, see [Deploy an Azure SQL managed instance 
 - No in-place upgrade for the Azure Arc data controller or database instances.
 - Arc enabled data services container images are not signed.  You may need to configure your Kubernetes nodes to allow unsigned container images to be pulled.  For example, if you are using Docker as the container runtime, you can set the DOCKER_CONTENT_TRUST=0 environment variable and restart.  Other container runtimes have similar options such as in [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
 - Cannot create Azure Arc enabled SQL Managed instances or PostgreSQL Hyperscale server groups from the Azure portal.
+- For now, if you are using NFS, you need to set allowRunAsRoot to true in your deployment profile file before deploying the Azure Arc data controller.
 - SQL and PostgreSQL login authentication only.  No support for Azure Active Directory or Active Directory.
 - Deploying on OpenShift requires relaxed security constraints.  See documentation for details.
 - Scaling the number of Postgres Hyperscale worker nodes _down_ is not supported.
-- If you are using Azure Kubernetes Service Engine (AKS Engine) on Azure Stack Hub with Azure Arc data controller and database instances, upgrading to a newer Kubernetes version is not supported. Uninstall Azure Arc data controller and all the database instances before upgrading the Kubernetes cluster. 
+- If you are using Azure Kubernetes Service Engine (AKS Engine) on Azure Stack Hub with Azure Arc data controller and database instances, upgrading to a newer Kubernetes version is not supported. Uninstall Azure Arc data controller and all the database instances before upgrading the Kubernetes cluster.
