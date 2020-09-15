@@ -263,7 +263,7 @@ if __name__ == "__main__":
 
 ### Understand the code changes
 
-TThe control script is similar to the one from [Part 3 of this series](tutorial-1st-experiment-sdk-train.md) with the following new lines:
+The control script is similar to the one from [Part 3 of this series](tutorial-1st-experiment-sdk-train.md) with the following new lines:
 
 :::row:::
    :::column span="":::
