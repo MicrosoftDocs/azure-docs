@@ -89,7 +89,7 @@ You can query for available maintenance configurations using [Get-AzMaintenanceC
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-## Associate your VMSS to the Maintenance configuration
+## Associate your virtual machine scale set to the maintenance configuration
 
 A virtual machine scale set can be associated to any Maintenance configuration regardless of the region and subscription of the Maintenance configuration. By opting in to the Maintenance configuration, new OS image updates for the scale set will be automatically scheduled on the next available maintenance window.
 
