@@ -32,10 +32,9 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. Billing for streaming endpoints occurs whenever the endpoint is in a **Running** state.
 
-Media Services supports the following on demand encoders that are described in this article:
+Media Services supports the following on demand encoder that is described in this article:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 This article gives a brief overview of on demand media encoders and provides links to articles that give more detailed information. The topic also provides comparison of the encoders.
 
@@ -68,15 +67,6 @@ For information, see [How to create overlays using Media Encoder Standard](media
 
 ### See also
 [The Media Services blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
-
-## Media Encoder Premium Workflow
-### Overview
-[Introducing Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
-
-### How to use
-Media Encoder Premium Workflow is configured using complex workflows. Workflow files could be created and updated using the [Workflow Designer](media-services-workflow-designer.md) tool.
-
-[How to Use Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### Known issues
 If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file.
