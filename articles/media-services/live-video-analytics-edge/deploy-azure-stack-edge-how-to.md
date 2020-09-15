@@ -17,7 +17,7 @@ For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge r
 ## Prerequisites
 
 * Azure subscription to which you have [owner privileges](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
-* An [Azure Stack Edge](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-deploy-prep) resource
+* An [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) resource
    
 * [An IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
 * A [service principal](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) for the Live Video Analytics module.
