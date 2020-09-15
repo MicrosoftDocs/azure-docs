@@ -44,7 +44,7 @@ The following articles provide background on azure key vault and managed identit
   > [!div class="mx-imgBorder"]
   > ![Enabled managed identity](media/custom-commands/how-to-custom-commands-integrate-key-vault-enabled-managed-identity.png)
 
-1. To give the managed identity an access to your key vault. Locate the key vault in azure portal. Then, go to **Access Policies** tab.
+2. To give the managed identity an access to your key vault. Locate the key vault in azure portal. Then, go to **Access Policies** tab.
 
   > [!div class="mx-imgBorder"]
   > ![Key vault access policies](media/custom-commands/how-to-custom-commands-integrate-key-vault-access-policies.png)
@@ -61,7 +61,7 @@ The following articles provide background on azure key vault and managed identit
   > [!div class="mx-imgBorder"]
   > ![Custom Commands key vault setting](media/custom-commands/how-to-custom-commands-integrate-key-vault-settings.png)
 
-1. Finally, go to settings for the web endpoint. Then, click on **Add a header** or **Add a query parameter** depending on how you want to pass the secret to the endpoint. Reference the key vault secret in this format `{Nickname.SecretName}` as below.
+2. Finally, go to settings for the web endpoint. Then, click on **Add a header** or **Add a query parameter** depending on how you want to pass the secret to the endpoint. Reference the key vault secret in this format `{Nickname.SecretName}` as below.
 
   > [!div class="mx-imgBorder"]
   > ![Custom Commands referencing a key vault secret](media/custom-commands/how-to-custom-commands-integrate-key-vault-reference-secrets.png)
