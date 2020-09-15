@@ -149,7 +149,7 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
      |Executor size| Number of cores and memory to be used for executors given in the specified Apache Spark pool for the job.|
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
 
-     ![Set the value of the Spark job definition for dotnet](./media/apache-spark-job-definitions/create-net-definition.png)
+     ![Set the value of the Spark job definition for dotnet](./media/apache-spark-job-definitions/create-dotnet-definition.png)
 
  7. Click **Publish** to save the Apache Spark job definition.
 
