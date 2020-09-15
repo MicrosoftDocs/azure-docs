@@ -29,7 +29,7 @@ Pick either method and open the **Knowledge Center**.
 The **Knowledge Center** allows you to do three things:
 * **Use samples immediately**. This option is optimized for you seeing analytics in action as fast as possible. If you want a quick example of how Synapse works, choose this option.
 * **Browser available sample**. This option lets you link sample data sets and add sample code in the form of SQL scripts, notebooks, and pipelines.
-* **Tour Synapse studio". This option takes you on a brief tour of the basic parts of Synapse Studio. This is useful if you have never used Synapse Studio before.
+* **Tour Synapse studio**. This option takes you on a brief tour of the basic parts of Synapse Studio. This is useful if you have never used Synapse Studio before.
 
 ## Exploring blob storage with SQL on-demand
 
@@ -38,7 +38,7 @@ The **Knowledge Center** allows you to do three things:
 1. Click **Use samples immediately**
 1. It will create a new SQL script.
 1. Scroll to the first query (lines 28 to 32) and select the query text
-1. CLick Run. It will run the text you selected.
+1. Click Run. It will run the text you selected.
 
 ## Loading the more NYC Taxi Data
 
@@ -48,7 +48,7 @@ The **Knowledge Center** allows you to do three things:
 1. Under **Inputs**, choose **Select an existing pool** and select **SQLDB1**
 1. Click **Open Script**
 1. A new SQL script will appear.
-1. CLick **Run**
+1. Click **Run**
 1. This will create several tables for all of the NYC Taxi data and load them using the T-SQL COPY command.
 
 ## Next steps
