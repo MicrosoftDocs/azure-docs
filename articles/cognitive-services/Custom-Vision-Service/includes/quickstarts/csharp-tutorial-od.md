@@ -116,5 +116,5 @@ Now you've done every step of the object detection process in code. This sample 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md)
 
-* [What is Custom Vision?](./overview.md)
+* [What is Custom Vision?](../../overview.md)
 * [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

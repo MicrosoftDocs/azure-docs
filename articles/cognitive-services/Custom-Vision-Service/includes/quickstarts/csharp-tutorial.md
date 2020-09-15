@@ -101,5 +101,5 @@ Now you've done every step of the image classification process in code. This sam
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md)
 
-* [What is Custom Vision?](./overview.md)
+* [What is Custom Vision?](../../overview.md)
 * [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

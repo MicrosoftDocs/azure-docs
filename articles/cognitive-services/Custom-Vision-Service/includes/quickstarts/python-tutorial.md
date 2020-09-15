@@ -175,5 +175,5 @@ Now you've seen how every step of the object detection process can be done in co
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md)
 
-* [What is Custom Vision?](./overview.md)
+* [What is Custom Vision?](../../overview.md)
 * [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)
