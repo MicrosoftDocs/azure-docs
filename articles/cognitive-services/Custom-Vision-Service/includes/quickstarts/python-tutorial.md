@@ -5,7 +5,10 @@ ms.service: cognitive-services
 ms.date: 09/15/2020
 ---
 
-This guide shows you how to get started using the Custom Vision client library with Python to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
+This guide provides instructions and sample code to help you get started using the Custom Vision client library for Python to build an image classification model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
+
+> [!NOTE]
+> If you want to build and train a classification model _without_ writing code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
 
 ## Prerequisites
 
@@ -15,7 +18,7 @@ This guide shows you how to get started using the Custom Vision client library w
 
 ## Install the Custom Vision client library
 
-To install the Custom Vision service client library for Python, run the following command in PowerShell:
+To write an image analysis app with Custom Vision for Python, you'll need the Custom Vision client library. Run the following command in PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision

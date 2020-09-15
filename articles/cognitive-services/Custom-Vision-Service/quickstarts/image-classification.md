@@ -9,7 +9,7 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
-keywords: custom vision
+keywords: custom vision, image recognition, image recognition app, image analysis
 zone_pivot_groups: programming-languages-set-one
 ---
 
