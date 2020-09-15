@@ -116,6 +116,10 @@ When calling the Translator service via REST, you'll need to make sure the follo
   </tr>
 </table> 
 
+## Keys and endpoints
+
+The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
+
 ## Translate text 
 
 The core operation of the Translator service is to translate text. In this section, you'll build a request that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response. 
