@@ -96,7 +96,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Provisioning tab Automatica](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://<myPoliciesCustomDomain>.mypolicies.com/scim` in **Tenant URL** where `<myPoliciesCustomDomain>` is your myPolicies custom domain. You can retrieve your myPolicies customer domain, from your URL.
 Example: `<demo0-qa>`.mypolicies.com.
