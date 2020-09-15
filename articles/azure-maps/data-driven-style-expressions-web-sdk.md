@@ -220,7 +220,7 @@ When comparing values, the comparison is strictly typed. Values of different typ
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Logical negation. Returns `true` if the input is `false`, and `false` if the input is `true`. |
+| `['!', boolean]` | boolean | Logical negation. Returns `true` if the input is `false`, and `false` if the input is `true`. |
 | `['!= ', value, value]` | boolean | Returns `true` if the input values are not equal, `false` otherwise. |
 | `['<', value, value]` | boolean | Returns `true` if the first input is strictly less than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
 | `['<=', value, value]` | boolean | Returns `true` if the first input is less than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
