@@ -180,7 +180,7 @@ Check that the OVA file is secure, before you deploy it:
 
 
 
-## Create the appliance VM
+### Create the appliance VM
 
 Import the downloaded file, and create a VM.
 
@@ -195,7 +195,7 @@ will be hosted.
 9. Review and confirm the settings, then click **Finish**.
 
 
-## Verify appliance access to Azure
+### Verify appliance access to Azure
 
 Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
