@@ -63,7 +63,7 @@ To see WAF in action, you can change the mode settings from **Detection** to **P
 
 You can create a custom rule by selecting **Add custom rule** under the **Custom rules** section. This launches the custom rule configuration page. Below is an example of configuring a custom rule to block a request if the query string contains **blockme**.
 
-![Change WAF policy mode](../media/waf-front-door-create-portal/customquerystring2.png)
+![Custom rules](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### Default Rule Set (DRS)
 
