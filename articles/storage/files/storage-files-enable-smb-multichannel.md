@@ -63,7 +63,7 @@ Once you have created a FileStorage account, you can follow the instructions to 
 
 :::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Screenshot of storage account, smb multichannel is toggled on.":::
 
-If the SMB Multichannel option not visible under File share settings or you get an failed to update error while updating the configuration, please make sure that your subscription is registered and you in one of the supported regions with supported account type and replication. See details on the  availablity section.
+If the SMB Multichannel option is not visible under File share settings or you get an failed to update error while updating the configuration, please make sure that your subscription is registered and your account is in one of the supported regions with supported account type and replication. See details on the  availablity section.
 
 
 # [PowerShell](#tab/azure-powershell)
