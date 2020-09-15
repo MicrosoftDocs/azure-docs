@@ -6,7 +6,7 @@ author: saveenr
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: overview
-ms.date: 04/15/2020 
+ms.date: 09/12/2020 
 ms.author: saveenr 
 ms.reviewer: jrasnick
 ---
@@ -17,13 +17,7 @@ ms.reviewer: jrasnick
 
 Enterprise analytics must work massive scale on any kind of data, whether raw, refined, or highly curated. This required enterprises to stitch together big data and data warehousing technologies such as Spark and SQL into rich data pipelines that work across data in relational stores and data lakes. Solutions like this are difficult to build, secure, and maintain. The complexity delays deliverying the insight enteprises need.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data analytics systems. At it's core, Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT.
-
-Azure Synapse provides a web-based **Studio** experience that provides a single place for management, monitoring, coding, and security.
-
-Azure Synapse provides the simplest and fastest way for an enterprise to gather insights on any data at any size, using the analytics they're most familiar with. It integrates deeply with **Power BI** allowing data engineers to build analytics solutions that work end-to-end to provide Business Intelligence.
-
-Additionally, Azure Synapse facilitates predictive model building and advanced analytics with machine learning via its built-in support for **AzureML**.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data analytics systems. At its core, Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. Synapse has a web-based **Studio** that provides a single place for management, monitoring, coding, and security. Synapse features deep integration with other Azure services such as **PowerBI**, **CosmosDB**, and **AzureML**.
 
 ## Key features & benefits
 
