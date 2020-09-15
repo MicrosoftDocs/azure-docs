@@ -35,21 +35,18 @@ When you deploy features like Azure Multi-Factor Authentication in your organiza
 
 The following table outlines the security considerations for the available authentication methods. Availability is an indication of the user being able to use the authentication method, not of the service availability in Azure AD:
 
-| Authentication method       | Security | Usability | Phisable? | Channel jackable? | Availability |
-|-----------------------------|:--------:|:---------:|:---------:|:-----------------:|:------------:|
-| FIDO2 security key          | High     | High      | No        | No                | High         |
-| Microsoft Authenticator app | High     | High      | Yes       | No <sup>1</sup>   | High         |
-| Windows Hello for Business  | High     | High      | No        | No                | High         |
-| Hardware OATH tokens        | Medium   | Medium    | Yes       | No                | High         |
-| Software OATH tokens        | Medium   | Medium    | Yes       | No <sup>2</sup>   | High         |
-| SMS                         | Medium   | High      | Yes       | Yes               | Medium       |
-| Voice                       | Medium   | Medium    | Yes       | Yes               | Medium       |
-| Password                    | Low      | High      | Yes       | Yes               | High         |
+| Authentication method       | Security | Usability | Availability |
+|-----------------------------|:--------:|:---------:|:------------:|
+| Windows Hello for Business  | High     | High      | High         |
+| FIDO2 security key          | High     | High      | High         |
+| Microsoft Authenticator app | High     | High      | High         |
+| Hardware OATH tokens        | Medium   | Medium    | High         |
+| Software OATH tokens        | Medium   | Medium    | High         |
+| SMS                         | Medium   | High      | Medium       |
+| Voice                       | Medium   | Medium    | Medium       |
+| Password                    | Low      | High      | High         |
 
-<sup>1</sup> In passwordless mode, when the app is registered to a specific device<br />
-<sup>2</sup> Assuming the app requires a device PIN to unlock
-
-For more information on vulnerabilities and attack vectors, see [channel-jacking and real-time phishing](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
+For more information on security, see [authentication vulnerabilities and attack vectors](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
 
 > [!TIP]
 > For flexibility and usability, we recommend that you use the Microsoft Authenticator app. This authentication method provides the best user experience and multiple modes, such as passwordless, MFA push notifications, and OATH codes.
@@ -62,9 +59,9 @@ The following table outlines when an authentication method can be used during a 
 
 | Method                         | Primary authentication | Secondary authentication  |
 |--------------------------------|:----------------------:|:-------------------------:|
+| Windows Hello for Business     | Yes                    | MFA                       |
 | FIDO2 security keys (preview)  | Yes                    | MFA                       |
 | Microsoft Authenticator app    | Yes (preview)          | MFA and SSPR              |
-| Windows Hello for Business     | Yes                    | MFA                       |
 | OATH hardware tokens (preview) | No                     | MFA                       |
 | OATH software tokens           | No                     | MFA                       |
 | SMS                            | Yes (preview)          | MFA and SSPR              |
