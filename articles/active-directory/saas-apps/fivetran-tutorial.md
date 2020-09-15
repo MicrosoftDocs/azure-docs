@@ -132,7 +132,7 @@ In this section, you'll configure single sign-on on the **Fivetran** side.
 
     ![image](media/fivetran-tutorial/fivetran_2.png)
 
-    1. Toggle the **Enable SAML** authentication selector to **ON**.
+    1. Toggle the **Enable SAML authentication** selector to **ON**.
     1. In the **Sign on URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
     1. In the **Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
     1. Open your downloaded certificate file in a text editor, copy the certificate into your clipboard, and then paste it to the **Public certificate** textbox.
