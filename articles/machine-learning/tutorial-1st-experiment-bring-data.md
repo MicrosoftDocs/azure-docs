@@ -13,7 +13,7 @@ ms.date: 09/09/2020
 ms.custom: tracking-python
 ---
 
-# Tutorial: Bring your own data (Part 4 of 5)
+# Tutorial: Bring your own data (Part 4 of 4)
 
 In the previous Tutorial: Train a model in the cloud article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning.
 
@@ -321,6 +321,11 @@ Notice:
 1. Azure Machine Learning has mounted the blob store to the compute cluster automatically for you.
 2. The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point
 
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+
+You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.date: 09/09/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Submit a "Hello World" script to a compute cluster with Azure Machine Learning  (Part 2 of 5)
+# Tutorial: Submit a "Hello World" script to a compute cluster with Azure Machine Learning  (Part 2 of 4)
 
 In **part 2 of this get started series**, you will submit a trivial "hello world" python script to the cloud by:
 
@@ -187,5 +187,5 @@ In the next tutorial, you build on these learnings by running something more int
 > [!div class="nextstepaction"]
 > [Tutorial: Train a model](tutorial-1st-experiment-sdk-train.md)
 
->[!NOTE] If you want to finish the tutorial series here and not progress to the next step, please remember to [clean up your resources](tutorial-1st-experiment-cleanup.md)
-
+>[!NOTE] 
+> If you want to finish the tutorial series here and not progress to the next step, please remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources)

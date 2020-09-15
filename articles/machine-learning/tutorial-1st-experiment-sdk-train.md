@@ -13,7 +13,7 @@ ms.date: 09/09/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Train your first ML model (Part 3 of 5)
+# Tutorial: Train your first ML model (Part 3 of 4)
 
 In the [previous tutorial](tutorial-1st-experiment-hello-world.md), you ran a trivial "Hello world!" script in the cloud using Azure Machine Learning's Python SDK. This time you take it a step further by submitting a script that will train an ML-model.
 
@@ -400,4 +400,5 @@ dataset to Azure.
 > [!div class="nextstepaction"]
 > [Tutorial: Bring your own data](tutorial-1st-experiment-bring-data.md)
 
->[!NOTE] If you want to finish the tutorial series here and not progress to the next step, please remember to [clean up your resources](tutorial-1st-experiment-cleanup.md)
+>[!NOTE] 
+> If you want to finish the tutorial series here and not progress to the next step, please remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources)

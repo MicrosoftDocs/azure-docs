@@ -26,8 +26,6 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 4. Bring your own data
           href: tutorial-1st-experiment-bring-data.md
-        - name: 5. Clean up resources
-          href: tutorial-1st-experiment-cleanup.md
     - name: Jupyter Notebooks
       expanded: true
       items:
