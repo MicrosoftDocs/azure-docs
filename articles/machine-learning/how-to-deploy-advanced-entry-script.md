@@ -29,12 +29,16 @@ These types are currently supported:
 * `pyspark`
 * Standard Python object
 
-To use schema generation, include the open-source `inference-schema` package in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
+To use schema generation, include the open-source `inference-schema` package version 1.1.0 or above in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). In order to generate conforming swagger automated web service consumption, scoring script run() function must have API shape of:
+* A first parameter of type "StandardPythonParameterType", named Inputs, nested containing PandasDataframeParameterTypes.
+* An optional second parameter of type "StandardPythonParameterType", named GlobalParameter, which is not nested.
+* Return a dictionary of type "StandardPythonParameterType", which maybe nested containing PandasDataFrameParameterTypes.
+Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
 
 
 ## Power BI compatible endpoint 
 
-The following example demonstrates how to define the input data as a `<key: value>` dictionary by using a DataFrame. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
+The following example demonstrates how to define API shape according to above instruction. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
 import json
@@ -67,11 +71,14 @@ standard_sample_input = StandardPythonParameterType(0.0)
 sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
                                             'input2': pandas_sample_input, 
                                             'input3': standard_sample_input})
+
+sample_global_parameters = StandardPythonParameterType(1.0) #this is optional
 sample_output = StandardPythonParameterType([1.0, 1.0])
 
 @input_schema('inputs', sample_input)
+@input_schema('global_parameters', sample_global_parameters) #this is optional
 @output_schema(sample_output)
-def run(inputs):
+def run(inputs, global_parameters):
     try:
         data = inputs['input1']
         # data will be convert to target format
