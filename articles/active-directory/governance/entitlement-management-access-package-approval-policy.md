@@ -162,7 +162,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     ![Access package - Policy- Enable Requestor information setting](./media/entitlement-management-access-package-approval-policy/add-requestor-info-question.png)
 
-1. If you would like to add your own localization options, click **add localization**.
+1. If the community of users who will need access to the access package don't all have a common preferred language, then you can improve the experience for users requesting access on myaccess.microsoft.com. To improve the experience, you can provide alternative display strings for different languages. For example, if a user's web browser is set to Spanish, and you have Spanish display strings configured, then those strings will be displayed to the requesting user. To configure localization for requests, click **add localization**.
     1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
     1. In the language you configured, type the question in the **Localized Text** box.
     1. Once you have added all the localizations needed, click **Save**.
@@ -184,7 +184,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Fill out the remaining tabs (e.g., Lifecycle) based on your needs.
 
-After you have configured requestor information in your access package policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions (Preview)](entitlement-management-request-approve.md#view-requestors-answers-to-questions-preview)
+After you have configured requestor information in your access package policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions (Preview)](entitlement-management-request-approve.md#view-requestors-answers-to-questions-preview).
 
 ## Next steps
 - [Change lifecycle settings for an access package](entitlement-management-access-package-lifecycle-policy.md)
