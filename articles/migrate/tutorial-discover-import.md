@@ -10,7 +10,7 @@ ms.date: 09/14/2020
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads. 
 
-This tutorial shows you how to assess on-premises VMware virtual machines (VMs) with the Azure Migrate: Server Assessment tool, using an imported  comma-separate values (CSV) file. 
+This tutorial shows you how to assess on-premises machines with the Azure Migrate: Server Assessment tool, using an imported  comma-separate values (CSV) file. 
 
 If you use a CSV file, you don't need to set up the Azure Migrate appliance to discover and assess servers. You can control the data you share in the file, and much of the data is optional. This method is useful if:
 
