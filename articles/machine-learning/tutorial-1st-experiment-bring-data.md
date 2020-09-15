@@ -15,10 +15,44 @@ ms.custom: tracking-python
 
 # Tutorial: Bring your own data (Part 4 of 5)
 
+In the previous Tutorial: Train a model in the cloud article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning.
+
+This tutorial begins by uploading to Azure the CIFAR10 data followed by using that data in a remote training run. Along the way, you see how to add command-line arguments to your training script.
+
+By the end of this tutorial you would have a better understanding of:
+
+> [!div class="checklist"]
+> * Best practices for working with cloud data in Azure Machine Learning
+> * Working with command-line arguments
+
+The Azure Machine Learning concepts covered in this Tutorial are:
+
+> [!div class="checklist"]
+> * ScriptRunConfig: Passing script arguments.
+> * Datastore
+> * Dataset
+
+## Prerequisites
+
+You have completed:
+
+* Setup on your local computer or setup to use a compute instance
+    * Tutorial: Hello Azure
+    * Tutorial: Train a model in the cloud
+* Familiarity with Python and Machine Learning concepts
+* A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
+
+## Adjust the training script
+By now you have your training script (tutorial/src/train.py) running in Azure Machine Learning, and can monitor the model performance. Let's parametrize the training script by introducing arguments. Using arguments will allow you to easily compare different hyperparmeters.
+
+Presently our training script is set to download the CIFAR10 dataset on each run. The python code below has been adjusted to read the data from a directory.
+
+>[!NOTE] The use of `argparse` to parametize the script.
  
 
 ```python
 # tutorial/src/train.py
+import os
 import argparse
 import torch
 import torch.optim as optim
@@ -36,6 +70,12 @@ if __name__ == "__main__":
     parser.add_argument('--learning_rate', type=float, default=0.001, help='Learning rate for SGD')
     parser.add_argument('--momentum', type=float, default=0.9, help='Momentum for SGD')
     args = parser.parse_args()
+    
+    print("===== DATA =====")
+    print("DATA PATH: " + args.data_path)
+    print("LIST FILES IN DATA PATH...")
+    print(os.listdir(args.data_path))
+    print("================")
     
     # prepare DataLoader for CIFAR10 data
     transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
@@ -238,6 +278,48 @@ python 06-run-pytorch-data.py
 ```
 
 This will print a URL to the Experiment in Azure Machine Learning Studio. If you navigate to that link you will be able to see your code running.
+
+### Inspect the 70_driver_log log file
+
+
+In the Azure Machine Learning studio navigate to the experiment run (by clicking the URL output from the above cell) followed by **Outputs + logs**. Click on the 70_driver_log.txt file - you should see the following output:
+
+```txt
+Processing 'input'.
+Processing dataset FileDataset
+{
+  "source": [
+    "('workspaceblobstore', 'datasets/cifar10')"
+  ],
+  "definition": [
+    "GetDatastoreFiles"
+  ],
+  "registration": {
+    "id": "XXXXX",
+    "name": null,
+    "version": null,
+    "workspace": "Workspace.create(name='XXXX', subscription_id='XXXX', resource_group='X')"
+  }
+}
+Mounting input to /tmp/tmp9kituvp3.
+Mounted input to /tmp/tmp9kituvp3 as folder.
+Exit __enter__ of DatasetContextManager
+Entering Run History Context Manager.
+Current directory:  /mnt/batch/tasks/shared/LS_root/jobs/dsvm-aml/azureml/tutorial-session-3_1600171983_763c5381/mounts/workspaceblobstore/azureml/tutorial-session-3_1600171983_763c5381
+Preparing to call script [ train.py ] with arguments: ['--data_path', '$input', '--learning_rate', '0.003', '--momentum', '0.92']
+After variable expansion, calling script [ train.py ] with arguments: ['--data_path', '/tmp/tmp9kituvp3', '--learning_rate', '0.003', '--momentum', '0.92']
+
+Script type = None
+===== DATA =====
+DATA PATH: /tmp/tmp9kituvp3
+LIST FILES IN DATA PATH...
+['cifar-10-batches-py', 'cifar-10-python.tar.gz']
+```
+
+Notice:
+
+1. Azure Machine Learning has mounted the blob store to the compute cluster automatically for you.
+2. The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point
 
 
 ## Next steps
