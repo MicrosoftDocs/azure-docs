@@ -172,3 +172,5 @@ Now you've seen how every step of the object detection process can be done in co
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](./overview.md)
+* [SDK reference documentation (training)](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [SDK reference documentation (prediction)](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

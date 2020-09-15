@@ -114,3 +114,4 @@ Now you've seen how to do every step of the object detection process in code. Th
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](./overview.md)
+* [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

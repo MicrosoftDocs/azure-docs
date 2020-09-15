@@ -191,3 +191,5 @@ Now you've seen how every step of the object detection process can be done in co
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](./overview.md)
+* [SDK reference documentation (training)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training)
+* [SDK reference documentation (prediction)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)

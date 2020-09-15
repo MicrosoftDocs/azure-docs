@@ -2,7 +2,7 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ---
 
 This article shows you how to get started using the Custom Vision client library with Python to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
@@ -173,3 +173,4 @@ Now you've seen how every step of the object detection process can be done in co
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](./overview.md)
+* [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

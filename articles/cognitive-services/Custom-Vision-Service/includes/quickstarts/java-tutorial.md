@@ -130,3 +130,4 @@ Now you've seen how every step of the object detection process can be done in co
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](./overview.md)
+* * [SDK reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable)
