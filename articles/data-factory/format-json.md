@@ -307,11 +307,11 @@ You can add a complex column to your data flow via the derived column expression
 
 In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
 
-![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+![Add subcolumn](media/data-flow/derive-add-subcolumn.png "Add Subcolumn")
 
 You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
 
-![Complex column](media/data-flow/complexcolumn.png "Complex column")
+![Add complex column](media/data-flow/derive-complex-column.png "Add columns")
 
 #### Entering the JSON structure manually
 
