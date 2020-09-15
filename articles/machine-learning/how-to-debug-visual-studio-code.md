@@ -5,7 +5,7 @@ description: Interactively debug Azure Machine Learning code, pipelines and depl
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
