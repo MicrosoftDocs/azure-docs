@@ -2,7 +2,7 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-javascript
 ---
 
@@ -32,7 +32,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 Create a new file called *sample.js* in your preferred project directory.
 
-### Create the Custom Vision service project
+## Create the Custom Vision project
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **createProject** call.
 
@@ -73,7 +73,7 @@ async function asyncForEach (array, callback) {
     const sampleProject = await trainer.createProject("Sample Obj Detection Project", { domainId: objDetectDomain.id });
 ```
 
-### Create tags in the project
+## Create tags in the project
 
 To create classification tags to your project, add the following code to the end of *sample.js*:
 
@@ -82,7 +82,7 @@ To create classification tags to your project, add the following code to the end
     const scissorsTag = await trainer.createTag(sampleProject.id, "Scissors");
 ```
 
-### Upload and tag images
+## Upload and tag images
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. 
 
@@ -168,7 +168,7 @@ await asyncForEach(scissorsFiles, async (file) => {
 await Promise.all(fileUploadPromises);
 ```
 
-### Train the project and publish
+## Train and publish the project
 
 This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 

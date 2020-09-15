@@ -29,7 +29,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 Create a new file called *sample.py* in your preferred project directory.
 
-### Create the Custom Vision service project
+## Create the Custom Vision project
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
@@ -57,7 +57,7 @@ print ("Creating project...")
 project = trainer.create_project("My New Project")
 ```
 
-### Create tags in the project
+## Create tags in the project
 
 To create classification tags to your project, add the following code to the end of *sample.py*:
 
@@ -67,7 +67,7 @@ hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-### Upload and tag images
+## Upload and tag images
 
 To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You can upload up to 64 images in a single batch.
 
@@ -99,7 +99,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### Train the classifier and publish
+## Train and publish the project
 
 This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
@@ -118,7 +118,7 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### Get and use the published iteration on the prediction endpoint
+## Use the prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 

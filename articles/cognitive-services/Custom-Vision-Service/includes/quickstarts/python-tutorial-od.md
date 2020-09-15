@@ -2,7 +2,7 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ---
 
 This article shows you how to get started using the Custom Vision client library with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
@@ -31,7 +31,7 @@ You can download the images with the [Python Samples](https://github.com/Azure-S
 
 Create a new file called *sample.py* in your preferred project directory.
 
-### Create the Custom Vision service project
+## Create the Custom Vision project
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
@@ -62,7 +62,7 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-### Create tags in the project
+## Create tags in the project
 
 To create object tags in your project, add the following code to the end of *sample.py*:
 
@@ -72,7 +72,7 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-### Upload and tag images
+## Upload and tag images
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
 
@@ -165,7 +165,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### Train the project and publish
+## Train and publish the project
 
 This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
@@ -189,7 +189,7 @@ print ("Done!")
 >
 > You can optionally train on only a subset of your applied tags. You may want to do this if you haven't applied enough of certain tags yet, but you do have enough of others. In the **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** call, set the optional parameter *selected_tags* to a list of the ID strings of the tags you want to use. The model will train to only recognize the tags on that list.
 
-### Get and use the published iteration on the prediction endpoint
+## Use the prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 

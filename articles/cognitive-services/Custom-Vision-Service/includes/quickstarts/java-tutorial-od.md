@@ -3,7 +3,7 @@ author: areddish
 ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ---
 
 This article shows you how to get started using the Custom Vision client library with Java to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application.
@@ -15,7 +15,7 @@ This article shows you how to get started using the Custom Vision client library
 - [Maven](https://maven.apache.org/) installed
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## Get the Custom Vision client library and sample code
+## Get the Custom Vision client library
 
 To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These packages are included in the sample project you will download, but you can access them individually here.
 
@@ -43,7 +43,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisionSamples.java_ file. Find the **runSample** method and comment out the **ImageClassification_Sample** method call&mdash;this method executes the image classification scenario, which is not covered in this guide. The **ObjectDetection_Sample** method implements the primary functionality of this quickstart; navigate to its definition and inspect the code. 
 
-## Create a new Custom Vision Service project
+## Create a new Custom Vision project
 
 Go to the code block that creates a training client and an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) method overloads to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
 

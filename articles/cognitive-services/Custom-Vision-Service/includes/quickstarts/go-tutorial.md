@@ -2,7 +2,7 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ---
 
 This article provides information and sample code to help you get started using the Custom Vision client library with Go to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
@@ -33,7 +33,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Create a new file called *sample.go* in your preferred project directory.
 
-### Create the Custom Vision service project
+## Create the Custom Vision project
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
@@ -75,7 +75,7 @@ func main() {
     }
 ```
 
-### Create tags in the project
+## Create tags in the project
 
 To create classification tags to your project, add the following code to the end of *sample.go*:
 
@@ -85,7 +85,7 @@ hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree ta
 cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
 
-### Upload and tag images
+## Upload and tag images
 
 To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You can upload up to 64 images in a single batch.
 
@@ -118,7 +118,7 @@ for _, file := range japaneseCherryImages {
 }
 ```
 
-### Train the classifier and publish
+## Train and publish the project
 
 This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
@@ -138,7 +138,7 @@ fmt.Println("Training status: " + *iteration.Status)
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### Get and use the published iteration on the prediction endpoint
+## Use the prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
