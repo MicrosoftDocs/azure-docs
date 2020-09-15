@@ -17,7 +17,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Call an ASP.NET web API that's protected by Microsoft identity platform
 
-In this quickstart, you expose a web API and protect it so that only authenticated users can access it. The article shows how to expose an ASP.NET web API so it can accept tokens that are issued by personal accounts, such as outlook.com or live.com, and work and school accounts from any company or organization that has integrated with Microsoft identity platform.
+In this quickstart, you expose a web API and protect it so that only authenticated users can access it. The article shows how to expose an ASP.NET web API so it can accept tokens that are issued by personal accounts, such as outlook.com or live.com, and work or school accounts from any company or organization that has integrated with Microsoft identity platform.
 
 The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how you can request an access token to access a web API.
 
@@ -69,7 +69,7 @@ To register your apps manually, choose the Azure Active Directory (Azure AD) ten
    c. In the **Admin consent display name** box, enter **Access TodoListService as a user**.  
    d. In the **Admin consent description** box, enter **Accesses the TodoListService web API as a user**.  
    e. In the **User consent display name** box, enter **Access TodoListService as a user**.  
-   f. In the **User consent description**, box, enter **Accesses the TodoListService web API as a user**.  
+   f. In the **User consent description** box, enter **Accesses the TodoListService web API as a user**.  
    g. For **State**, keep **Enabled**.  
    h. Select **Add scope**.
 
