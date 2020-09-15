@@ -27,7 +27,7 @@ landingContent:
           - text: What is Azure Key Vault Managed HSM?
             url: overview.md
           - text: REST API overview
-            url: ../general/about-key-secrets-certificates.md
+            url: ../general/about-keys-secrets-certificates.md
           - text: Supported keys and algorithms
             url: ../keys/about-keys.md
 
