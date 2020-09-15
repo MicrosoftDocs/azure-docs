@@ -18,7 +18,7 @@ Key Vault allows you to securely access sensitive information from within your a
 - Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
 - Manage Key Vault certificates. For more information, see [Certificates](../certificates/about-certificates.md)
 
-For more general information on Azure Key Vault, see [What is Key Vault](overview.md)).
+For more general information on Azure Key Vault, see [What is Key Vault](overview.md).
 
 ## Public Previews
 
@@ -134,7 +134,7 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overviews and concepts
 
-- [Key Vault soft-delete behavior](soft-delete-overview.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+- [Key Vault soft-delete behavior](soft-delete-overview.md) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
 - [Key Vault client throttling](overview-throttling.md) orients you to the basic concepts of throttling and offers an approach for your app.
 - [Key Vault security worlds](overview-security-worlds.md) describes the relationships between regions and security areas.
 
