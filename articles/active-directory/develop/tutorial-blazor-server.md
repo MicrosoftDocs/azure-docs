@@ -7,7 +7,7 @@ ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 #Customer intent: As a developer, I want to add authentication to a Blazor app.
 ---
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Option 1: Create the app using the .NET CLI and register it in the Azure portal
 
-Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. You can create a new registration and then use the [.NET CLI](/dotnet/core/tools/) to create a new Blazor app using the following instructions. If you're using Visual Studio 2019, you can skip this step and complete step 2.
+Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. You can create a new registration and then use the [.NET CLI](/dotnet/core/tools/) to create a new Blazor app using the following instructions. If you're using Visual Studio 2019, you can skip this option and instead use [Option 2](#option-2-register-and-create-the-app-using-visual-studio-2019).
 
 First, follow the instructions in [Register an application](quickstart-register-app.md) with the following settings:
 
@@ -42,15 +42,12 @@ Once the app is registered, record the following GUID values for use in a later 
 * **Application (client) ID**
 * **Directory (tenant) ID**
 
-In **Authentication** > **Platform configurations** > **Web**:
-
-1. Confirm the **Redirect URI** of `https://localhost:{PORT}/signin-oidc` is present.
-1. For **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens** and then select the **Save** button.
+In **Authentication** > **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**, and then select the **Save** button.
 
 Create the app in an empty folder. Replace the placeholders in the following command with the information recorded earlier and execute the command in a command shell:
 
 ```dotnetcli
-dotnet new blazorserver -au SingleOrg --client-id "{CLIENT ID}" -o {APP NAME} --tenant-id "{TENANT ID}"
+dotnet new blazorserver -au SingleOrg -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}"
 ```
 
 | Placeholder   | Azure portal name       | Example                                |
@@ -61,10 +58,9 @@ dotnet new blazorserver -au SingleOrg --client-id "{CLIENT ID}" -o {APP NAME} --
 
 The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
 
-> [!NOTE]
-> If the port wasn't configured earlier with the app's known port, return to the app's registration in the Azure portal and update the redirect URI with the correct port.
+You should now be able to build and run the app, navigate to `https://localhost:5001` in your browser, and log in using an Azure AD user account.
 
-You can now run the app and log in using an Azure AD user account. You can skip option two and move on to simplifying the code with Microsoft.Identity.Web.
+Skip the next section (option 2) and move on to [simplifying the code with Microsoft.Identity.Web](#simplify-the-code-by-using-microsoftidentityweb).
 
 ## Option 2: Register and create the app using Visual Studio 2019
 
@@ -87,14 +83,14 @@ The Visual Studio creation tool automatically registered this application in you
 
 ## Simplify the code by using Microsoft.Identity.Web
 
-The apps created in the steps above use [ASP.NET Identity](/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity) for authentication. You will need to add more code that uses the [Microsoft Authentication Library (MSAL)](./msal-overview.md) to get authorization for your users to access protected APIs. In other words, **authentication** and **authorization** are done separately, and require more code.
+The app you created by using one of the previous options uses [ASP.NET Identity](/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity) for authentication. To get *authorization* for your users to access protected web APIs, you need to add code that uses the [Microsoft Authentication Library (MSAL)](./msal-overview.md). In other words, **authentication** and **authorization** are done separately, and require more code.
 
-However, you can instead use the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) authentication and token management library to handle both. **Microsoft.Identity.Web** is meant to abstract away the complexities and allow you to quickly implement authentication and authorization, as shown here. You can use the following instructions to update your code and make use of Microsoft.Identity.Web.
+However, you can instead use the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) authentication and token management library to handle both. **Microsoft.Identity.Web** is meant to abstract away the complexities and allow you to quickly implement authentication and authorization. You can use the following instructions to update your code and make use of Microsoft.Identity.Web.
 
 > [!NOTE]
 > Microsoft.Identity.Web is currently in preview.
 
-First, download the following NuGet packages to have access to the libraries:
+First, add the following NuGet packages to your project to gain access to the libraries:
 
 -	Microsoft.Identity.Web
 -	Microsoft.Identity.Web.UI
@@ -112,9 +108,16 @@ If you're using Visual Studio:
 
 ![Screenshot of Visual Studio's package browser, with the Microsoft.Identity.Web.UI package highlighted.](./media/tutorial-blazor-server/nuget-package-2.png)
 
-Next, perform a couple small code changes to swap out the old authentication code and plug in the new code.
+Next, perform a few small code changes to swap out the old authentication code and plug in the new code.
 
-Open *Startup.cs* and replace this code:
+Open *Startup.cs* and add the following `using` directives to the top of the file:
+
+```cscharp
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
+```
+
+Next, also in *Startup.cs*, replace this code:
 
 ```csharp
 services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
@@ -142,7 +145,7 @@ services.AddControllersWithViews(options =>
         }).AddMicrosoftIdentityUI();
 ```
 
-Then, configure your app to use the Microsoft identity platform endpoints for sign-in and sign-out. Open the *LoginDisplay.razor* file and update as follows:
+Then, configure your app to use the Microsoft identity platform endpoints for sign-in and sign-out. Open the *LoginDisplay.razor* file in the *Shared* directory and update as follows:
 
 ```html
 <AuthorizeView>
@@ -156,29 +159,27 @@ Then, configure your app to use the Microsoft identity platform endpoints for si
 </AuthorizeView>
 ```
 
-You might notice no dedicated pages for sign-in and sign-out. Instead, they're built into the Microsoft.Identity.Web library. So as long as you update the Area to be "MicrosoftIdentity", no other change is needed.
-
-As you can see, with a couple of lines of code, you're able to leverage the Microsoft.Identity.Web library to authenticate against Azure AD and take advantage of easy authentication and authorization with MSAL.
+You might notice no dedicated pages for sign-in and sign-out. Instead, they're built into the Microsoft.Identity.Web library. As long as you update the [Area](/aspnet/core/mvc/controllers/areas) to be "MicrosoftIdentity," no other change is needed. With a few lines of code, you're able to leverage the Microsoft.Identity.Web library to authenticate against Azure AD and take advantage of authentication and authorization enabled by MSAL.
 
 ## Retrieving data from Microsoft Graph
 
-[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issues by the Microsoft identity platform. In this section, you add code can display the signed in user's emails on the application's "fetch data" page.
+[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issued by the Microsoft identity platform. In this section, you add code can display the signed in user's emails on the application's "fetch data" page.
 
-Before you start, log out of your app since be making changes to the required permissions, and your current token won't work.
+Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work.
 
-In the following steps, you pull a user's emails and display them within the app. To achieve this, first extend the app registration permissions in Azure AD to enable access to the email data. Then, add code to the Blazor app to retrieve and display this data in one of the pages:
+In the following steps, you update your app's registration and its code to be able to pull a user's email and display the messages within the app. To achieve this, first extend the app registration permissions in Azure AD to enable access to the email data. Then, add code to the Blazor app to retrieve and display this data in one of the pages.
 
-1. In the Azure portal search for and select **Azure Active Directory**.
-2. Under **Manage**, select **App registrations** and select your new app.
-3. Go to **API Permissions**.
-4. Select Add New Permission and then select **Microsoft Graph**.
-5. Select **Delegated Permissions** and select the "Mail.Read" permission.
+1. In the Azure portal, select your app in **App registrations**.
+1. Under **Manage**, select **API permissions**.
+1. Select **Add a permission** > **Microsoft Graph**.
+1. Select **Delegated Permissions**, then search for and select the **Mail.Read** permission.
+1. Select **Add permissions**.
 
-Now create client secret since the app needs a way to validate the token and retrieve the data without any user interaction:
+Now create a client secret since the app needs a way to validate the token and retrieve the data without any user interaction:
 
-1. Within the same app registration, open the **Certificates & secrets** tab.
-2. Create a new secret that never expires
-3. Copy the **Value** to your clipboard. You can’t access it again once you navigate away from this pane. However, you can recreate it as needed.
+1. Within the same app registration, under **Manage**, select **Certificates & secrets**.
+2. Create a **New client secret** that never expires.
+3. Copy the secret's **Value** to your clipboard. You can’t access it again once you navigate away from this pane. However, you can recreate it as needed.
 
 Navigate back to your Blazor app in your editor and add the client secret to the *appsettings.json* file. Inside the `AzureAD` config section, add the following line:
 
@@ -193,7 +194,7 @@ Remove the following from the top of the **ConfigureServices** method:
 services.AddMicrosoftWebAppAuthentication(Configuration);
 ```
 
-And add the following to the end of the **ConfigureServices** method:
+Add the following to the end of the **ConfigureServices** method:
 
  ```csharp
 services.AddMicrosoftWebAppAuthentication(Configuration)
