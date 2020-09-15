@@ -37,6 +37,9 @@ Azure NetApp Files volume replication is currently available in the following fi
 * UK South and UK West
 * Australia East and Australia Southeast
 * Canada Central and Canada East
+* Japan East and Japan West
+* UK South and Germany West Central
+* Southeast Asia and Australia East
 
 ## Service-level objectives
 
