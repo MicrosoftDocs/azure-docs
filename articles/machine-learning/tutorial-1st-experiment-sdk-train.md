@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Train your first Azure ML model in Python"
 titleSuffix: Azure Machine Learning
-description: Part 2 of the Azure ML Get Started series shows how to to train a PyTorch model on the CIFAR 10 dataset.
+description: Part 3 of the Azure ML Get Started series shows how to to train a PyTorch model on the CIFAR 10 dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 
 In the [previous tutorial](tutorial-1st-experiment-hello-world.md), you ran a trivial "Hello world!" script in the cloud using Azure Machine Learning's Python SDK. This time you take it a step further by submitting a script that will train an ML-model.
 
-This tutorial shows you how to train a PyTorch model on the [CIFAR 10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset. Using this example we will show you how to ensure a consistent behavior between local testing and remote runs.
+This tutorial shows you how to train a PyTorch model on the [CIFAR 10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset. This example shows you how to ensure a consistent behavior between local testing and remote runs.
 
 This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 
@@ -187,11 +187,11 @@ python src/train.py                    # train model
 >[!NOTE] 
 > You should notice that the script has downloaded the data into a directory called `tutorial/data`.
 
-## Create the control-plane script
+## Create the control script
 
-The difference to the control-plane the script below and the one used to submit "hello world" is that you add a couple of extra lines to set the environment.
+The difference to the control script below and the one used to submit "hello world" is that you add a couple of extra lines to set the environment.
 
-Create a new python file in the `tutorial` directory called `04-run-pytorch.py`:
+Create a new Python file in the `tutorial` directory called `04-run-pytorch.py`:
 
 ```python
 # tutorial/04-run-pytorch.py
@@ -351,7 +351,7 @@ Metrics in Azure Machine Learning are:
 
 - Organized by experiment and run so it's easy to keep track of and
 compare metrics.
-- Equipped with a UI so we can visualize training performance in the studio.
+- Equipped with a UI so you can visualize training performance in the studio.
 - Designed to scale, so you keep these benefits even as you run hundreds of
 experiments.
 

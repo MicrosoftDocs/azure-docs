@@ -50,9 +50,9 @@ landingContent:
           url: concept-designer.md   
       - linkListType: tutorial
         links:
-          - text: 'Get started with AutoML'
+          - text: 'Get started (AutoML)'
             url: tutorial-first-experiment-automated-ml.md                  
-          - text: 'Get started in designer'
+          - text: 'Get started (designer)'
             url: tutorial-designer-automobile-price-train-score.md
       - linkListType: reference
         links:
@@ -70,7 +70,7 @@ landingContent:
           url: how-to-use-mlflow.md
  
   # MLOps
-  - title: 'MLOps: Deploy & manage models'
+  - title: 'Deploy & manage models (MLOps)'
     linkLists:
       - linkListType: how-to-guide
         links:
