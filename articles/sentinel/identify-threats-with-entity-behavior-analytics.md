@@ -167,7 +167,7 @@ Permission analytics helps determine the potential impact of the compromising of
 
 Azure Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Azure AD security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Jane Smith. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Jane has Contributor access to the Azure subscription *Contoso Azure Production 1*. The access control model of the subscription is RBAC.   
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Screen shot of user access analytics table" lightbox="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics-cropped.png":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics-cropped.png" alt-text="Screen shot of user access analytics table" lightbox="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png":::
 
 
 
