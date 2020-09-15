@@ -60,7 +60,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 The commands for management group deployments are different than the commands for resource group deployments.
 
-For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
 ```azurecli-interactive
 az deployment mg create \

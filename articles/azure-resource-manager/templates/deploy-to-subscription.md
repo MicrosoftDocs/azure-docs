@@ -77,7 +77,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 The commands for subscription-level deployments are different than the commands for resource group deployments.
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \
