@@ -55,7 +55,7 @@ $config = New-AzMaintenanceConfiguration `
 
 Using `-MaintenanceScope host` ensures that the maintenance configuration is used for controlling updates to the host.
 
-If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
+If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your resource group.
 
 You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 

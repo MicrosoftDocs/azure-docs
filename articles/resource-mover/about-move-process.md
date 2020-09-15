@@ -62,7 +62,7 @@ As you progress through the move process, you might be asked to validate depende
 
 ### Remove resources
 
-If you don’t want to move a resource, you can remove it from the move collection. In general, the resource is then deleted from the collection, along with any associated actions or objects, such as replication, or stored templates. Exactly what happens when you remove a resource depends on the type of resource, and the state of the resource when you delete it.  
+If you don’t want to move a resource, you can remove it from the move collection. In general, the resource is then deleted from the collection, along with any associated actions or objects, such as replication, or stored templates. Exactly what happens when you remove a resource depends on the type of resource, and the state of the resource when you delete it. [Learn more](remove-move-resources.md).
 
 ## Move impact
 
