@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 09/11/2020 
+ms.date: 09/15/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -167,7 +167,7 @@ When you view the resource group, the move option is disabled.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="move option disabled":::
 
-To enable the move option, select the resources you want to move. To select all of the resources, select the checkbox at the top of list. Or, select resources individually.
+To enable the move option, select the resources you want to move. To select all of the resources, select the checkbox at the top of list. Or, select resources individually. After selecting resources, the move option is enabled.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="select resources":::
 
