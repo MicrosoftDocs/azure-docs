@@ -129,6 +129,8 @@ These factors can affect scale limit for host pools:
 
 Azure Lighthouse doesn't fully support managing Windows Virtual Desktop environments. Since Lighthouse doesn't currently support cross-Azure AD tenant user management, Lighthouse customers still need to sign in to the Azure AD that customers use to manage users.
 
+Administrators using Lighthouse to create resources in the customers environment, will find they do not work as expected for the customers end users. After publishing the Applications or Desktop to a user, the user will see "No resources are available" error. Using an account in the same tenant as the resources will be created and managed is recommended.
+
 You also can't use CSP sandbox subscriptions with the Windows Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Finally, if you enabled the resource provider from the CSP owner account, the CSP customer accounts won't be able to modify the resource provider.
