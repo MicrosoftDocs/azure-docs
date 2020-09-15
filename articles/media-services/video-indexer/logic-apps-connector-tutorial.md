@@ -38,7 +38,7 @@ In this tutorial, you learn how to use Logic App to:
 
 ## Set up the first flow - file upload   
 
-The first flow is triggered whenever a blob is added in your Azure Storage container. Once triggered, it will create a SAS URI that you can use to upload and index the video in Video Indexer. Start by creating the following flow. 
+The first flow is triggered whenever a blob is added in your Azure Storage container. Once triggered, it will create a SAS URI that you can use to upload and index the video in Video Indexer. In this section you will create the following flow. 
 
 ![File upload flow](./media/logic-apps-connector-tutorial/file-upload-flow.png)
 
