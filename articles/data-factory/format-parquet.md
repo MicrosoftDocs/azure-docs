@@ -9,7 +9,6 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-
 ---
 
 # Parquet format in Azure Data Factory
