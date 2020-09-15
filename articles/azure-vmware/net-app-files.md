@@ -37,7 +37,7 @@ First, verify the configuration of Azure NetApp Files, created in Azure on a pre
 
 3. Select **Capacity pools** to verify the configured pool. 
 
-    :::image type="content" source="media/net-app-files/capacity-pools.png" alt-text="View settings of a NetApp account.":::
+    :::image type="content" source="media/net-app-files/capacity-pools.png" alt-text="Verify configured pool.":::
 
     You can see that the storage pool is configured as 4 TiB with premium disk.
 
@@ -79,7 +79,7 @@ Azure NetApp Files supports Server Message Block (SMB) and Network File System (
  
 4. Fill in the required fields as shown in the following screenshot.
 
-    :::image type="content" source="media/net-app-files/create-a-volume.png" alt-text="Add a capacity pool to NetApp Files.":::
+    :::image type="content" source="media/net-app-files/create-a-volume.png" alt-text="Add volumes under the capacity pool.":::
 
 5. On the next page, select the protocol type share. Select the versions if it's an NFS share, and select the Active Directory domain if it's an SMB share.  
 
@@ -89,7 +89,7 @@ Azure NetApp Files supports Server Message Block (SMB) and Network File System (
  
     Under Azure NetApp Files in the Azure portal, your NFS share is ready to use.
 
-    :::image type="content" source="media/net-app-files/share-ready.png" alt-text="Select volume details.":::
+    :::image type="content" source="media/net-app-files/share-ready.png" alt-text="NFS share is ready.":::
 
 ## Mount an NFS file share on your Azure VMware Solution VMs
 
@@ -110,7 +110,7 @@ Azure NetApp Files supports Server Message Block (SMB) and Network File System (
     > [!NOTE]
     > The subnet needs a network security group rule that allows traffic on the NFS ports (2049, 111), UDP and TCP.
 
-2. Open an SSH client and connect to your Azure instance. For more information, see [How to use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows).
+2. Open an SSH client and connect to your Azure instance. For more information, see [How to use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md).
 
 3. Install the NFS client on your Azure instance:
    - On Red Hat Enterprise Linux or SUSE Linux instance: `sudo yum install -y nfs-utils`
@@ -136,11 +136,11 @@ Azure NetApp Files supports Server Message Block (SMB) and Network File System (
 
 3. Select **Join** to join the SMB share to Active Directory. The following screenshot shows the domain details of the SMB share.
 
-    :::image type="content" source="media/net-app-files/active-directory-connect-details.png" alt-text="Active Directory connection details."::: 
+    :::image type="content" source="media/net-app-files/active-directory-connect-details.png" alt-text="Domain details of SMB share."::: 
 
     Your Azure SMB file share is ready to use.  
 
-    :::image type="content" source="media/net-app-files/smb-file-share-details.png" alt-text="Active Directory connection details."::: 
+    :::image type="content" source="media/net-app-files/smb-file-share-details.png" alt-text="SMB file share is ready."::: 
 
 4. Map the SMB share to your Windows Azure VMware Solution VM. Use the SMB mount path as shown in the previous screenshot. For more information, see [Map a network drive in Windows 10](https://support.microsoft.com/en-us/help/4026635/windows-10-map-a-network-drive)
 
