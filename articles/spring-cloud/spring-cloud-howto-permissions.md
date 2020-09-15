@@ -32,20 +32,20 @@ Follow these steps to start defining a role.
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. In the **Create custom role** dialog add role name and description.
-1. Click **Next**.
+2. Click **Next**.
 
    ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
 
-1. Click **Add permissions**.
+3. Click **Add permissions**.
 
    ![Add permissions start](media/spring-cloud-permissions/add-permissions.png)
 
-1. In the search box, search for *Microsoft.app*.
-1. Select *Microsoft Azure Spring Cloud*.
+4. In the search box, search for *Microsoft.app*.
+5. Select *Microsoft Azure Spring Cloud*.
 
    ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
-1. Select the permissions:
+6. Select the permissions:
 
 From Microsoft.AppPlatform/Spring
 
@@ -65,16 +65,16 @@ select:
 
    [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/app-platform-permissions.png#lightbox)
 
-1. Click **Add**.
+7. Click **Add**.
 
 ## Define DevOps role
 
 1. Repeat the previous procedures to create a role.
 
    ![Create DevOps role](media/spring-cloud-permissions/create-dev-opps-role.png)
-1. Open the **Permissions** options.
+2. Open the **Permissions** options.
 
-Select the permissions:
+3. Select the permissions:
   
 From: Microsoft.AppPlatform/Spring
 
@@ -90,13 +90,13 @@ From: Microsoft.AppPlatform/Spring/apps
 
 select:
 
-    Write : Write Microsoft Azure Spring Cloud application
+   Write : Write Microsoft Azure Spring Cloud application
 
-    Delete : Delete Microsoft Azure Spring Cloud application
+   Delete : Delete Microsoft Azure Spring Cloud application
 
-    Read : Read Microsoft Azure Spring Cloud application
+   Read : Read Microsoft Azure Spring Cloud application
 
-    Other : Get Microsoft Azure Spring Cloud application resource upload URL
+   Other : Get Microsoft Azure Spring Cloud application resource upload URL
 
 From Microsoft.AppPlatform/Spring/apps/deployments
 
@@ -119,16 +119,16 @@ select:
    Read: List application deployment available skus    
 
    [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-box.png#lightbox)
-1. Click **Add**.
-1. Review the permissions.
+4. Click **Add**.
+5. Review the permissions.
    ![Review permissions](media/spring-cloud-permissions/dev-ops-review-permissions.png)
 
-1. Click **Review and create**.
+6. Click **Review and create**.
 
 ## Define Developer role
 
 1. Repeat the previous procedures to create a new role.
-1. Select the permissions:
+2. Select the permissions:
 
 From: Microsoft.AppPlatform/Spring
 
@@ -156,7 +156,7 @@ select:
 
   [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
-1. Click **Add**.
+3. Click **Add**.
 
 For more information about three methods that define a custom permissions see:
 * [Clone a role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
