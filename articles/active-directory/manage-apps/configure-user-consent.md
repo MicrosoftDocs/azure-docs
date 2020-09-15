@@ -69,7 +69,7 @@ You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](http
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
   ```
 
-   Don't forget to [classify permissions](#configure-permission-classifications-preview&preserve-view=true) to select which permissions users are allowed to consent to.
+   Don't forget to [classify permissions](#configure-permission-classifications-preview) to select which permissions users are allowed to consent to.
 
 * **Allow user consent for all apps** - To allow user consent for all apps:
 
@@ -193,7 +193,7 @@ In this example, all group owners are allowed to consent to apps accessing their
 
 You can use the Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own.
 
-1. Make sure you're using the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module. This step is important if you have installed both the [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) module and the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module).
+1. Make sure you're using the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module. This step is important if you have installed both the [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module and the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module).
 
     ```powershell
     Remove-Module AzureAD
