@@ -107,7 +107,7 @@ You can also query using the [REST API and the Unified Pricing API – Retail Ra
 **A:** You can post and tag your question with `azure-spot` at [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## Next steps
-Use the [CLI](./linux/spot-cli.md), [portal](./windows/spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Spot VMs.
+Use the [CLI](./linux/spot-cli.md), [portal](spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Spot VMs.
 
 You can also deploy a [scale set with Spot VM instances](../virtual-machine-scale-sets/use-spot.md).
 

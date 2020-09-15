@@ -28,11 +28,11 @@ The process to create a VM that uses Spot VMs is the same as detailed in the [qu
 
 On the **Basics** tab, in the **Instance details** section, **No** is the default for using an Azure spot instance.
 
-![Screen capture for choosing no, don't use an Azure spot instance](media/spot-portal/no.png)
+![Screen capture for choosing no, don't use an Azure spot instance](./media/spot-portal/no.png)
 
 It you select **Yes**, the section expands and you can choose your [eviction type and eviction policy](../spot-vms.md#eviction-policy). 
 
-![Screen capture for choosing yes, use an Azure spot instance](media/spot-portal/yes.png)
+![Screen capture for choosing yes, use an Azure spot instance](./media/spot-portal/yes.png)
 
 You can also compare the pricing and eviction rates with other similar regions by selecting **View pricing history and compare prices in nearby regions**.
 
