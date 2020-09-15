@@ -110,6 +110,8 @@ Open the *pnpTemperatureController.js* file in a code editor of your choice. The
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
+
 Now that you've seen the code, use the following command to run the sample:
 
 ```cmd\sh

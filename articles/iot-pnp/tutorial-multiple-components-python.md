@@ -100,6 +100,8 @@ Open the *temp_controller_with_thermostats.py* file in an editor of your choice.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md).
+
 Use the following command to run the sample:
 
 ```cmd/sh

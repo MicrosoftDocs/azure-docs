@@ -93,6 +93,8 @@ You use the device SDK to build the included sample code:
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/pnp/readme.md).
+
 To run the sample application in the SDK that simulates an IoT Plug and Play device sending telemetry to your IoT hub:
 
 From the _cmake_ folder, navigate to the folder that contains the executable file and run it:

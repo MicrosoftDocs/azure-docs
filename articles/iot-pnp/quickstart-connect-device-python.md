@@ -46,8 +46,6 @@ git clone https://github.com/Azure/azure-iot-sdk-python
 
 The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. This quickstart uses the *simple_thermostat.py* file. This sample code implements an IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
 
-Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
-
 Open the **simple_thermostat.py** file in a text editor. Notice how it:
 
 1. Defines a single device twin model identifier (DTMI) that uniquely represents the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json). A DTMI must be known to the user and varies dependent on the scenario of device implementation. For the current sample, the model represents a thermostat that has telemetry, properties, and commands associated with monitoring temperature.
@@ -73,6 +71,8 @@ Open the **simple_thermostat.py** file in a text editor. Notice how it:
     1. Disables all the listeners and tasks, and exist the loop when you press **Q** or **q**.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md).
 
 Now that you've seen the code, use the following command to run the sample:
 
