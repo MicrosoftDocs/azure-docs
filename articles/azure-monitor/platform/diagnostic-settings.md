@@ -95,7 +95,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
      - **AllMetrics** routes a resource's platform metrics into the Azure Logs store, but in log form. These metrics are usually sent only to the Azure Monitor metrics time-series database. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) you to integrate them into queries which search across other logs. This option may not be available for all resource types. When it is supported, [Azure Monitor supported metrics](metrics-supported.md) lists what metrics are collected for what resource types.
 
        > [!NOTE]
-       > See limitatation for routing metrics to Azure Monitor Logs earlier in this article.  
+       > See limitation for routing metrics to Azure Monitor Logs earlier in this article.  
 
 
      - **Logs** lists the different categories available depending on the resource type. Check any categories that you would like to route to a destination.

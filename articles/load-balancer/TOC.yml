@@ -20,6 +20,8 @@
     href: quickstart-load-balancer-standard-internal-powershell.md
   - name: Create internal load balancer - Azure CLI
     href: quickstart-load-balancer-standard-internal-cli.md
+  - name: Create internal load balancer - ARM template
+    href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutorials
   items:
@@ -81,6 +83,8 @@
     href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: How to
   items:
+  - name: Portal settings
+    href: manage.md
   - name: Virtual machine scale sets
     items:
     - name: Use with an existing Azure Load Balancer - Portal

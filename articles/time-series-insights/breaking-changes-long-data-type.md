@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: dpalled
 ---
 
@@ -28,7 +28,7 @@ If you're affected by any of the following cases, make the recommended changes:
 
 If any of the cases apply to you, make changes to your model. Update the Time Series Expression (TSX) in your variable definition with the recommended changes. Update both:
 
-- Azure Time Series Insights TSI Explorer
+- Azure Time Series Insights Explorer
 - Any custom client that uses our APIs
 
 Depending on your IoT solution and constraints, you might not have visibility into the data that's sent to your Azure Time Series Insights Gen2 environment. If you're unsure if your data is integral only or both integral and nonintegral, you have a few options:

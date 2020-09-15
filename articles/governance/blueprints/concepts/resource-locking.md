@@ -128,7 +128,7 @@ blueprint assignment and can only be removed from the artifact resources by the 
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
 lock outside Azure Blueprints.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Blueprint deny assignment on resource group" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Screenshot of the Access control (I A M) page and the Deny assignments tab for a resource group." border="false":::
 
 The
 [deny assignment properties](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)
