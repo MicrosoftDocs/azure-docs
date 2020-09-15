@@ -129,6 +129,7 @@ The steps in this section walk-through creating a custom Docker image in your Az
 
     RUN apt-get update --fix-missing && \
         apt-get install -y wget bzip2 && \
+        apt-get install -y fuse \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 

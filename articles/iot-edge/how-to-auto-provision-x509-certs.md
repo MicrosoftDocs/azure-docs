@@ -47,7 +47,7 @@ You need the following files to set up automatic provisioning with X.509:
 * An intermediate or root CA certificate from the certificate chain of trust. This certificate is uploaded to DPS if you create a group enrollment.
 
 > [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050.
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 ### Use test certificates
 

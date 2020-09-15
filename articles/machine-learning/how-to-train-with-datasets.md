@@ -111,6 +111,9 @@ If you have unstructured data, create a [FileDataset](https://docs.microsoft.com
 
 The following example creates a FileDataset and mounts the dataset to the compute target by passing it as an argument in the estimator for training. 
 
+> [!Note]
+> If you are using a custom Docker base image, you will need to install fuse via `apt-get install -y fuse` as a dependency for dataset mount to work. Learn how to [build a custom build image](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
+
 ### Create a FileDataset
 
 The following example creates an unregistered FileDataset from web urls. Learn more about [how to create datasets](how-to-create-register-datasets.md) from other sources.
