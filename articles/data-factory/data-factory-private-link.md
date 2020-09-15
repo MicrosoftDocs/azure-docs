@@ -23,7 +23,8 @@ By using Azure Private Link, you can connect to various platform as a service (P
 ## Secure communication between customer networks and Azure Data Factory 
 You can set up an Azure virtual network as a logical representation of your network in the cloud. Doing so provides the following benefits:
 * You help protect your Azure resources from attacks in public networks.
-* You let the networks and Data Factory securely communicate with each other, 
+* You let the networks and Data Factory securely communicate with each other. 
+
 You can also connect an on-premises network to your virtual network by setting up an Internet Protocol security (IPsec) VPN (site-to-site) connection or an Azure ExpressRoute (private peering) connection. 
 
 You can also install a self-hosted integration runtime on an on-premises machine or a virtual machine in the virtual network. Doing so lets you:
