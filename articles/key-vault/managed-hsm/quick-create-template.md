@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 
-#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
+#Customer intent: As a security admin who is new to Azure, I want to create a managed HSM using an Azure Resource Manager template.
 
 ---
 # Quickstart: Create an Key Vault Managed HSM using an Azure Resource Manager template
 
-anaged HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  
+Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  
 
 This quickstart focuses on the process of deploying a Resource Manager template to create a Managed HSM.  [Resource Manager template](../../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](../../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
 
@@ -72,7 +72,7 @@ More Azure Key Vault template samples can be found [here](https://azure.microsof
     - **Location**: Select a location. For example, **South Central US**.
     - **managedHSMName**: Enter a name for your managed HSM.
     - **SKU**: Enter the Name and Family of the managed HSM you wish to create.  For this quickstart, enter "Standard_B1" for the Name and "B" for the Family.
-    - **Tenant Id**: The template function automatically retrieves your tenant id; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved in [Prerequisites](#prerequisites).
+    - **Tenant ID**: The template function automatically retrieves your tenant id; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved in [Prerequisites](#prerequisites).
     * **initialAdminObjectIds**: Enter the Object ID that you retrieved in [Prerequisites](#prerequisites).
 
 3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification:
