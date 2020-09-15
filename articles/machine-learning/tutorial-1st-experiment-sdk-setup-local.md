@@ -1,7 +1,7 @@
 ---
-title: "Tutorial:  Set up your local computer for Azure Machine Learning (Python)"
-titleSuffix: Machine Learning - Azure 
-description: In this tutorial, you'll to get started with the Azure Machine Learning Python SDK running on your local computer.
+title: "Tutorial:  Get started machine learning - Python"
+titleSuffix: Azure Machine Learning 
+description: In this tutorial, you'll to get started with the Azure Machine Learning Python SDK running on your personal development environment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Get started with Azure Machine Learning on your local computer (Part 1 of 4)
+# Tutorial: Get started with Azure Machine Learning on your development environment (Part 1 of 4)
 
 In this **four-part tutorial series**, you will learn the fundamentals of Azure Machine Learning and complete jobs-based Python ML tasks in the Azure cloud, including:
 
