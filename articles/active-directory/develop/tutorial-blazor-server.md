@@ -45,8 +45,7 @@ Once the app is registered, record the following GUID values for use in a later 
 In **Authentication** > **Platform configurations** > **Web**:
 
 1. Confirm the **Redirect URI** of `https://localhost:{PORT}/signin-oidc` is present.
-1. For **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**.
-1. Leave the other settings at their default values and select the **Save** button.
+1. For **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens** and then select the **Save** button.
 
 Create the app in an empty folder. Replace the placeholders in the following command with the information recorded earlier and execute the command in a command shell:
 
