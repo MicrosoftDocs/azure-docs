@@ -81,5 +81,5 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 
 ## Next steps
 
-* [Secure your key vault](secure-your-key-vault.md))
+* [Secure your key vault](secure-your-key-vault.md)
 * [Configure Azure Key Vault firewalls and virtual networks](network-security.md)
