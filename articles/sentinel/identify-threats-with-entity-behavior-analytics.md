@@ -23,7 +23,7 @@ ms.author: yelevin
 
 ### The concept
 
-Identifying internal threat sources in your organization, and their potential impact, has always been a labor-intensive process. Sifting through alerts, connecting the dots, and active hunting all add up to massive amounts of effort expended with minimal returns, and the possibility of many internal threats simply evading discovery.
+Identifying internal threat sources in your organization, and their potential impact, has always been a time-consuming and labor-intensive process. Sifting through alerts, connecting the dots, and active hunting all add up to massive amounts of effort expended with minimal returns, and the possibility of many internal threats simply evading discovery.
 
 Azure Sentinel’s entity behavioral analytics capability eliminates the drudgery from your analysts’ workloads and the uncertainty from their efforts, and delivers high-fidelity, actionable intelligence, so they can focus on investigation and remediation.
 
@@ -46,13 +46,12 @@ Inspired by Gartner’s paradigm for User and Entity Behavior Analytics (UEBA) s
     :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Behavior analytics top-down approach":::
 
 Azure Sentinel presents artifacts that help your security analysts get a clear understanding of anomalous activities in context, and in comparison with the user's baseline profile. Actions performed by a user (or a host, or an address) are evaluated contextually:
-
 - across geographical locations, devices, and environments.
 - across time and frequency horizons (compared to user's own history).
-- compared to peers' behavior.
-- compared to organization's behavior.
+- as compared to peers' behavior.
+- as compared to organization's behavior.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Entity context":::
+  ![Entity context](media/identify-threats-with-entity-behavior-analytics/context.png)
 
 A "true" outcome indicates an identified anomaly.
 
@@ -143,7 +142,7 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 
 Using [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
 
-For example – in case we’d like to find all the users that failed to login to an Azure, while it was the first attempt to connect from a certain country and is even uncommon for their peers, we can use the following query:
+For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country, and connections from that country are uncommon even for the user's peers, we can use the following query:
 
 ```Kusto
 BehaviorAnalytics
@@ -154,13 +153,23 @@ BehaviorAnalytics
 
 ### User peers metadata - table and notebook
 
-User peers' metadata provides important context in threat detections, in investigating an incident, and in hunting for a potential threat. Security analysts can observe the normal activities of a user's peers to determine if the user's activities are unusual as compared to those of his/her peers.
+User peers' metadata provides important context in threat detections, in investigating an incident, and in hunting for a potential threat. Security analysts can observe the normal activities of a user's peers to determine if the user's activities are unusual as compared to those of his or her peers.
 
-The **UserPeerAnalytics** table provides a ranked list of a user's peers, based on the user’s group membership in Azure Active Directory. For example, if the user is Guy Malul, Peer Analytics calculates all of Guy’s peers based on his mailing list, security groups, et cetera, and provides all his peers in the top 20 ranking in the table. The screenshot below shows the schema of UserPeerAnalytics table and an example of a row in the table. One of the peers of Guy is Pini. His peer rank is 18. The TF-IDF algorithm is used to normalize the weighing for calculating the rank: the smaller the group, the higher the weight. 
+Azure Sentinel calculates and ranks a user's peers, based on the user’s Azure AD security group membership, mailing list, et cetera, and stores the peers ranked 1-20 in the **UserPeerAnalytics** table. The screenshot below shows the schema of the UserPeerAnalytics table, and an example of a row in the table for the user Guy Malul. One of Guy's peers is Pini. His peer rank is 18. Sentinel uses the term frequency-inverse document frequency (TF-IDF) algorithm to normalize the weighing for calculating the rank: the smaller the group, the higher the weight. 
+
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Screen shot of user peers metadata table":::
+
+You can use the provided [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) in Azure Sentinel's GitHub to visualize the user peers metadata. For detailed instructions on how to use the notebook, see the [Guided Analysis - User Security Metadata](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) notebook.
 
 ### Permission analytics - table and notebook
 
-The **UserAccessAnalytics** table provides the list of direct and transitive access rights to Azure resources for a given user. For example, if the user under investigation is Jane Smith, Access Analytics calculates all the Azure subscriptions that she can access either directly or transitively via groups or service principals. It also lists all the Azure Active Directory security groups of which Jane is a member. The screenshot below shows a sample row in the UserAccessAnalytics table. **Source entity** is the user or service principal account and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see Jane has Contributor access to Azure subscription *Contoso Azure Production 1*. The access control model of the subscription is RBAC.   
+Permission analytics helps determine the potential impact of the compromising of an organizational asset by an attacker. This impact is also known as the asset's "blast radius." Security analysts can use this information to prioritize investigations and incident handling.
+
+Azure Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Azure AD security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Jane Smith. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Jane has Contributor access to the Azure subscription *Contoso Azure Production 1*. The access control model of the subscription is RBAC.   
+
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Screen shot of user access analytics table" lightbox="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics-cropped.png":::
+
+
 
 ### Hunting queries and exploration queries
 
