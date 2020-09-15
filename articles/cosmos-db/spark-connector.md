@@ -243,7 +243,7 @@ spark-shell --master yarn --packages "com.microsoft.azure:azure-cosmosdb-spark_2
 
 ### Using Jupyter Notebooks
 
-If you're using Jupyter Notebooks within HDInsight, you can use spark-magic `%%configure` cell to specify the connector's maven coordinates.
+If you're using Jupyter Notebook within HDInsight, you can use spark-magic `%%configure` cell to specify the connector's maven coordinates.
 
 ```python
 { "name":"Spark-to-Cosmos_DB_Connector",
