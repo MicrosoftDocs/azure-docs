@@ -1,12 +1,12 @@
 ---
 title: Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
 description: Learn how to control when automatic OS image upgrades are rolled out to your Azure virtual machine scale sets using Maintenance control and PowerShell.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
-ms.author: cynthn
+ms.author: jushiman
 #pmcontact: shants
 ---
 
@@ -15,7 +15,7 @@ ms.author: cynthn
 Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
 
 > [!IMPORTANT]
-> Maintenance control for OS image upgrades on Azure virtual machine scale sets is currently in Public Preview. An opt-in procedure is needed to use the public preview functionality described below.
+> Maintenance control for OS image upgrades on Azure virtual machine scale sets is currently in Public Preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -58,8 +58,8 @@ Create a resource group as a container for your configuration. In this example, 
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
-   -Location eastus2 `
-   -Name myMaintenanceRG
+   -Location $location `
+   -Name $RGName
 ```
 
 Use [New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the OS image. 
@@ -76,9 +76,8 @@ $config = New-AzMaintenanceConfiguration `
    -RecurEvery "Day"
 ```
 
-```azurepowershell-interactive
-$config
-```
+> [!IMPORTANT]
+> Maintenance **duration** must be *5 hours* or longer. Maintenance **recurrence** must be set to *Day*.
 
 Using `-MaintenanceScope OSImage` ensures that the maintenance configuration is used for controlling updates to the guest OS.
 
