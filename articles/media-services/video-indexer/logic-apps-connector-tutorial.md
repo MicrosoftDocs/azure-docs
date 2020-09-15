@@ -54,6 +54,8 @@ Once you can connect to your Azure Storage and Video Indexer accounts, find and 
 
 Next, find and select the "Create SAS URI by path” action. In the dialog for the action, select List of Files Path from the Dynamic content options.  
 
+Also, add a new "Shared Access Protocol" parameter. Choose HttpsOnly for the value of the paramter.
+
 ![SAS uri by path](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
 Fill out [your account location](regions.md) and [account ID](./video-indexer-use-apis.md#account-id) to get the Video Indexer account token.
@@ -96,7 +98,7 @@ Go to the “Create blob” action and select the path to the folder in which yo
 
 This expression takes the output of the “Get Video Index” action from this flow. 
 
-Click “Save flow.” 
+Click **Save flow**. 
 
 Once the flow is saved, an HTTP POST URL is created in the trigger. Copy the URL from the trigger. 
 
