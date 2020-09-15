@@ -4,7 +4,7 @@ description: Troubleshooting Azure Files problems in Windows. See common issues 
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/31/2019
+ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -360,6 +360,18 @@ This error may occur if a domain controller that holds the RID Master FSMO role 
 ### Error: "Cannot bind positional parameters because no names were given"
 
 This error is most likely triggered by a syntax error in the Join-AzStorageAccountforAuth command.  Check the command for misspellings or syntax errors and verify that the latest version of the AzFilesHybrid module (https://github.com/Azure-Samples/azure-files-samples/releases) is installed.  
+
+## Azure Files on-premises AD DS Authentication support for AES 256 Kerberos encryption
+
+We introduced AES 256 Kerberos encryption support for Azure Files on-prem AD DS authentication with [AzFilesHybrid module v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). If you have enabled AD DS authentication with a module version lower than v0.2.2, you will need to download the latest AzFilesHybrid module (v0.2.2+) and run the PowerShell below. If you have not enabled AD DS authentication on your storage account yet, you can follow this [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
+```
+
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
