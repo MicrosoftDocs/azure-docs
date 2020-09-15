@@ -49,7 +49,7 @@ See [Azure Policy imitations][policy-limitations].
 
 ## Recommendations
 
-The Azure Policy add-on requires CPU and memory resources to operate. These requirements increase as the size of a cluster increases. See [Azure Policy recommendations][policy-recommendations] for general recommendations for using the Azure Policy add-on.
+The Azure Policy add-on requires CPU and memory resources to operate. These requirements increase as the size of a cluster increases. See [Azure Policy recommendations][policy-recommendations] for general guidance for using the Azure Policy add-on.
 
 ## Azure policies to secure Kubernetes pods
 
