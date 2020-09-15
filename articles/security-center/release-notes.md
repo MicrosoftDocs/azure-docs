@@ -32,7 +32,7 @@ Updates in September include:
 - [Security Center gets a new look!](#security-center-gets-a-new-look)
 - [Azure Defender released](#azure-defender-released)
 - [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
-- [Azure Defender for Storage protection for Azure Files and Azure Data Lake Storage Gen2 is generally available](#azure-defender-for-storage-protection-for-azure-files-and-azure-data-lake-storage-gen2-is-generally-available)
+- [Azure Defender for Storage protection for Files and ADLS Gen2 is generally available](#azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available)
 - [Asset inventory tools are now generally available](#asset-inventory-tools-are-now-generally-available)
 - [Disable a specific vulnerability finding for scans of container registries and virtual machines](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
 - [Exempt a resource from a recommendation](#exempt-a-resource-from-a-recommendation)
@@ -91,7 +91,7 @@ Also, the Key Vault pages in the Azure portal now include a dedicated **Security
 Learn more in [Azure Defender for Key Vault](defender-for-key-vault-introduction.md).
 
 
-### Azure Defender for Storage protection for Azure Files and Azure Data Lake Storage Gen2 is generally available 
+### Azure Defender for Storage protection for Files and ADLS Gen2 is generally available 
 
 **Azure Defender for Storage** detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
 
@@ -675,7 +675,7 @@ The security controls - and this toggle - are part of the new secure score exper
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
-![“Group by controls” toggle for recommendations](/media/secure-score-security-controls/recommendations-group-by-toggle.gif)
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Group by controls toggle for recommendations":::
 
 ### Expanded security control "Implement security best practices" 
 

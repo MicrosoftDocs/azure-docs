@@ -60,6 +60,6 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 
 ## Next steps
 
-Docker hardening is just one aspect of Azure Security Center's container security features. 
+Docker hardening is just one aspect of Security Center's container security features. 
 
 Learn more [Container security in Security Center](container-security.md).

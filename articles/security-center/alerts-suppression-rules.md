@@ -40,7 +40,7 @@ Your suppression rules define the criteria for which alerts should be automatica
 > [!CAUTION]
 > Suppressing security alerts reduces the threat protection effectiveness of Azure Defender. You should carefully check the potential impact of any suppression rule, and monitor it over time.
 
-![Create alert suppression rule](media/alerts-suppression-rules/create-suppression-rule.gif)
+:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Create alert suppression rule":::
 
 ## Create a suppression rule
 
