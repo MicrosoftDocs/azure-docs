@@ -1,27 +1,27 @@
 ---
-title: Azure Stack Edge limits | Microsoft Docs
-description: Describes system limits and recommended sizes for the Azure Stack Edge.
+title: Azure Stack Edge Pro R limits | Microsoft Docs
+description: Describes system limits and recommended sizes for the Azure Stack Edge Pro R.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 11/21/2019
+ms.topic: conceptual
+ms.date: 09/15/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge limits
+# Azure Stack Edge Pro R limits
 
-Consider these limits as you deploy and operate your Microsoft Azure Stack Edge solution.
+Consider these limits as you deploy and operate your Azure Stack Edge Pro R solution.
 
-## Azure Stack Edge service limits
+## Azure Stack Edge Pro R service limits
 
 [!INCLUDE [azure-stack-edge-gateway-service-limits](../../includes/azure-stack-edge-gateway-service-limits.md)]
 
-## Azure Stack Edge device limits
+## Azure Stack Edge Pro R device limits
 
-The following table describes the limits for the Azure Stack Edge device.
+The following table describes the limits for the Azure Stack Edge Pro R device.
 
 | Description | Value |
 |---|---|
@@ -51,4 +51,4 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge](azure-stack-edge-j-series-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge Pro R](azure-stack-edge-placeholder.md)

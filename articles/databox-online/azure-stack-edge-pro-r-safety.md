@@ -1,23 +1,23 @@
 ---
-title: Azure Stack Edge Rugged Safety guide | Microsoft Docs
-description: Describes safety conventions, guidelines, considerations, and explains how to safely install and operate your Azure Stack Edge Rugged device.
+title: Azure Stack Edge Pro R Safety guide | Microsoft Docs
+description: Describes safety conventions, guidelines, considerations, and explains how to safely install and operate your Azure Stack Edge Pro R device.
 services: databox
 author:   alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 01/19/2020
+ms.topic: conceptual
+ms.date: 09/15/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Rugged Safety instructions
+# Azure Stack Edge Pro R safety instructions
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)
-![Read Safety Notice Icon](./media/azure-stack-edge-j-series-safety/icon-safety-read-all-instructions.png)
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+![Read Safety Notice Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png)
 **READ SAFETY AND HEALTH INFORMATION**
 
-Read all the safety information in this article before you use your Azure Stack Edge Rugged device. Failure to follow instructions could result in fire, electric shock, injuries, or damage to your properties. Read all safety information below before using Azure Stack Edge.
+Read all the safety information in this article before you use your Azure Stack Edge Pro R device. Failure to follow instructions could result in fire, electric shock, injuries, or damage to your properties. Read all safety information below before using Azure Stack Edge Pro R.
 
 ## Safety icon conventions
 
@@ -25,29 +25,29 @@ The following signal words for hazard alerting signs are:
 
 | Icon | Description |
 |:--- |:--- |
-| ![Hazard Symbol](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. <br> **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury. <br> **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
+| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. <br> **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury. <br> **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
 |
 
-The following hazard icons are to be observed when setting up and running your Azure Stack Edge device:
+The following hazard icons are to be observed when setting up and running your Azure Stack Edge Pro R Edge device:
 
 | Icon | Description |
 |:--- |:--- |
-| ![Read All Instructions First](./media/azure-stack-edge-j-series-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
-| ![Hazard Symbol](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png) | Hazard Symbol |
-| ![Tip Hazard Icon](./media/azure-stack-edge-j-series-safety/icon-safety-tip-hazard.png)  | Tip Hazard|
-| ![Heavy Weight Icon](./media/azure-stack-edge-j-series-safety/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
-| ![Electrical Shock Icon](./media/azure-stack-edge-j-series-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
-| ![No User Serviceable Parts Icon](./media/azure-stack-edge-j-series-safety/icon-safety-do-not-access.png) | No User Serviceable Parts. Do not access unless properly trained. |
-| ![Multiple Power Sources](./media/azure-stack-edge-j-series-safety/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
+| ![Read All Instructions First](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
+| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
+| ![Tip Hazard Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Tip Hazard|
+| ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
+| ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
+| ![No User Serviceable Parts Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-do-not-access.png) | No User Serviceable Parts. Do not access unless properly trained. |
+| ![Multiple Power Sources](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
 |
 
 ## Handling precautions and site selection
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png) **WARNING:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) **WARNING:**
 
 * Proper equipment (for instance, pallet jack) and personal protective equipment (PPE), for instance, gloves must be used when moving and handling the as-shipped device.
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)![Tip Hazard Icon](./media/azure-stack-edge-j-series-safety/icon-safety-tip-hazard.png) **WARNING:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)![Tip Hazard Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png) **WARNING:**
 
 * Place the equipment on a flat, hard, and stable surface to avoid a potential tip or crushing hazard.
 * Do not stack more than 2 devices on each other.
@@ -57,20 +57,20 @@ The following hazard icons are to be observed when setting up and running your A
 * Ensure power cords are not crushed or damaged during stacking operations.
 * Devices are not to be used as tables or workspaces.
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)
-![Electrical Shock Icon](./media/azure-stack-edge-j-series-safety/icon-safety-electric-shock.png)
-![No User Serviceable Parts Icon](./media/azure-stack-edge-j-series-safety/icon-safety-do-not-access.png) **CAUTION:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png)
+![No User Serviceable Parts Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
-* Inspect the *as-received* device for damages. If the device enclosure is damaged, [contact Microsoft Support](azure-stack-edge-j-series-contact-microsoft-support.md) to obtain a replacement. Do not attempt to operate the device.
-* If you suspect the device is malfunctioning, [contact Microsoft Support](azure-stack-edge-j-series-contact-microsoft-support.md) to obtain a replacement. Do not attempt to service the device.
+* Inspect the *as-received* device for damages. If the device enclosure is damaged, [contact Microsoft Support](azure-stack-edge-pro-r-contact-microsoft-support.md) to obtain a replacement. Do not attempt to operate the device.
+* If you suspect the device is malfunctioning, [contact Microsoft Support](azure-stack-edge-pro-r-contact-microsoft-support.md) to obtain a replacement. Do not attempt to service the device.
 * The device contains no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Do not open. Return the device to Microsoft for servicing.
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png) ![Heavy Weight Icon](./media/azure-stack-edge-j-series-safety/icon-safety-heavy-weight.png) **WARNING:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png) **WARNING:**
 
-* Do not try to lift an Azure Stack Edge device by yourself. An enclosure can weigh up between 35 kg and 88 kg (78 lbs and 193 lbs); use mechanical assistance or other suitable assistance when moving and lifting equipment. Conform to local occupational health and safety requirements when moving and lifting equipment.
+* Do not try to lift an Azure Stack Edge Pro R Edge device by yourself. An enclosure can weigh up between 35 kg and 88 kg (78 lbs and 193 lbs); use mechanical assistance or other suitable assistance when moving and lifting equipment. Conform to local occupational health and safety requirements when moving and lifting equipment.
 * Do not attempt lifting the equipment without proper mechanical aid. Be aware that attempting to lift this weight can cause severe injuries.
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)  **WARNING:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)  **WARNING:**
 
 * The system is designed to operate in a controlled environment. Choose a site that is:
   * Well-ventilated and away from sources of heat including direct sunlight and radiators.
@@ -87,7 +87,7 @@ The following hazard icons are to be observed when setting up and running your A
 
 ## Electrical precautions
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png) ![Electrical Shock Icon](./media/azure-stack-edge-j-series-safety/icon-safety-electric-shock.png) **WARNING:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:**
 
 * Provide a safe electrical earth connection to the power supply cord. The alternating current (AC) cord has a three-wire grounding plug (a plug that has a grounding pin). This plug fits only a grounded AC outlet. Do not defeat the purpose of the grounding pin.
 * Given that the plug on the power supply cord is the main disconnect device, ensure that the socket outlets are located near the device and are easily accessible.
@@ -105,34 +105,34 @@ The following hazard icons are to be observed when setting up and running your A
   * Current: 20 A, maximum per power cord. Power cord(s) are provided.
   * Frequency: 50 to 60 Hz
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)
-![Electrical Shock Icon](./media/azure-stack-edge-j-series-safety/icon-safety-electric-shock.png)
-![Multiple Power Sources](./media/azure-stack-edge-j-series-safety/icon-safety-disconnect-all-power.png) **WARNING:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png)
+![Multiple Power Sources](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png) **WARNING:**
 
 * For systems without an uninterrupted power supply (UPS), unplug all AC power cord(s) to completely remove AC power from the equipment.
 * For systems with UPS, unplug all AC power cord(s) and use the UPS power switch to de-energize the System. UPS contains hazardous AC and DC voltages.
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)
-![Electrical Shock Icon](./media/azure-stack-edge-j-series-safety/icon-safety-electric-shock.png) **WARNING:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:**
 
 * For systems equipped with UPS, AC and/or DC voltage will always involve a potential risk of AC voltage at UPS output generated from either batteries or utility. To avoid equipment damage or personal injury, always assume that there may be voltage at the UPS output, even when disconnected from the primary power source.
 * For systems equipped with UPS, all UPS energized external connections are female. Do not remove the case or insert anything into these or any connectors on the UPS.
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)
-![Electrical Shock Icon](./media/azure-stack-edge-j-series-safety/icon-safety-electric-shock.png) **WARNING:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:**
 
 * Do not attempt to modify or use AC power cord(s) other than the ones provided with the equipment.
 
-![Warning Icon](./media/azure-stack-edge-j-series-safety/icon-safety-warning.png)
-![No User Serviceable Parts Icon](./media/azure-stack-edge-j-series-safety/icon-safety-do-not-access.png) **CAUTION:**
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+![No User Serviceable Parts Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
 * This equipment contains lithium coin cell and/or lithium iron phosphate batteries. Do not attempt servicing the equipment. Batteries in this equipment are not user serviceable. Risk of explosion if battery is replaced by an incorrect type.
 
 ## Regulatory information
 
-This section contains regulatory information for Azure Stack Edge Rugged device, regulatory model number: Azure Stack Edge Rugged Series.
+This section contains regulatory information for Azure Stack Edge Pro R device, regulatory model number: Azure Stack Edge Pro R .
 
-The Azure Stack Edge device is designed for use with NRTL Listed (UL, CSA, ETL, etc.), and IEC/EN 60950-1 or IEC/EN 62368-1 compliant (CE marked) Information Technology equipment.
+The Azure Stack Edge Pro R Edge device is designed for use with NRTL Listed (UL, CSA, ETL, etc.), and IEC/EN 60950-1 or IEC/EN 62368-1 compliant (CE marked) Information Technology equipment.
 
 A device that does not have UPS installed is designed to operate in the following environments:
 
@@ -182,8 +182,8 @@ A device that has a UPS installed is designed to operate in the following enviro
 > Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. 
 
 
-> ![Notice Icon](./media/azure-stack-edge-j-series-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
+> ![Notice Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
 
 ## Next steps
 
-[Prepare to deploy Azure Stack Edge](azure-stack-edge-j-series-deploy-prep.md)
+[Prepare to deploy Azure Stack Edge Pro R Edge](azure-stack-edge-gpu-deploy-prep.md)

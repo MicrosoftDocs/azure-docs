@@ -1,23 +1,23 @@
 ---
-title: Microsoft Azure Stack Edge technical specifications and compliance| Microsoft Docs
+title: Microsoft Azure Stack Edge Pro R technical specifications and compliance| Microsoft Docs
 description: Learn about the technical specifications and compliance for your Azure Stack Edge
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 02/21/2020
+ms.topic: conceptual
+ms.date: 09/15/2020
 ms.author: alkohli
 ---
-# Azure Stack Edge J-series technical specifications
+# Azure Stack Edge Pro R technical specifications
 
-The hardware components of your Azure Stack Edge J-series device adhere to the technical specifications outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
+The hardware components of your Azure Stack Edge Pro R device adhere to the technical specifications outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
 
 
 ## Compute, memory specifications
 
-The Azure Stack Edge J-series device have the following specifications for compute and memory:
+The Azure Stack Edge Pro R device have the following specifications for compute and memory:
 
 | Specification       | Value                  |
 |---------------------|------------------------|
@@ -25,18 +25,17 @@ The Azure Stack Edge J-series device have the following specifications for compu
 | Memory              | 256 GB RAM (2666 MT/s)     |
 
 
-## FPGA specifications
+## Compute acceleration specifications
 
-A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge device that enables Machine Learning (ML) scenarios. 
+A Graphics Processing Unit (GPU) is included on every device that enables Kubernetes, deep learning, and machine learning scenarios.
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).|
-
+| GPU   | One nVidia T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
 
 ## Power supply unit specifications
 
-The Azure Stack Edge device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
+The Azure Stack Edge Pro R device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
 
 | Specification           | 550 W PSU                  |
 |-------------------------|----------------------------|
@@ -49,7 +48,7 @@ The Azure Stack Edge device has two 100-240 V Power supply units (PSUs) with hig
 
 ## Storage specifications
 
-The Azure Stack Edge devices have 8 data disks and 2 M.2 SATA disks that serve as operating system disks. For more information, go to [M.2 SATA disks](https://en.wikipedia.org/wiki/M.2).
+The Azure Stack Edge Pro R devices have 8 data disks and 2 M.2 SATA disks that serve as operating system disks. For more information, go to [M.2 SATA disks](https://en.wikipedia.org/wiki/M.2).
 
 #### Storage for 1-node device
 
@@ -64,7 +63,7 @@ The following table has the details for the storage capacity of the 1-node devic
 
 **Some space is reserved for internal use.*
 
-#### Storage for 4-node device
+<!--#### Storage for 4-node device
 
 The following table has the details for the storage capacity of the 4-node device.
 
@@ -75,7 +74,7 @@ The following table has the details for the storage capacity of the 4-node devic
 |    Total capacity                          |    256 TB              |
 |    Total usable capacity*                  |    ~ 163 TB          |
 
-**After mirroring and parity, and reserving some space for internal use.*
+**After mirroring and parity, and reserving some space for internal use.* -->
 
 
 ## Enclosure dimensions and weight specifications
@@ -94,7 +93,7 @@ The following table lists the dimensions of the device and the UPS with the rugg
 |    Width          |    604.5            |    23.80       |
 |    Length         |    740.4            |    35.50       |
 
-#### For the 4-node system
+<!--#### For the 4-node system
 
 For the 4-node system, the servers and the heater are shipped in a 5U case and the UPS are shipped in a 4U case.
 
@@ -113,6 +112,7 @@ The following table lists the dimensions of the 4U UPS case:
 |    Height         |    342.9          |    13.5       |
 |    Width          |    604.5          |   23.80       |
 |    Length         |    901.7          |   35.50       |
+-->
 
 
 
@@ -127,13 +127,13 @@ The weight of the device depends on the configuration of the enclosure.
 |-----------------------------------------------|---------------------|
 |    Total weight of 1-node device + UPS + rugged case with end caps     |    ~105 lbs.          |
 
-#### For the 4-node system
+<!--#### For the 4-node system
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
 |   Approximate weight of fully populated 4 devices + heater in 5U case     |    ~200 lbs.          |
 |   Approximate weight of fully populated 4 UPS in 4U case    |    ~145 lbs.          |
-
+-->
 
 <!--## Enclosure environment specifications
 
@@ -177,4 +177,4 @@ End of this section-->
 
 ## Next steps
 
-- [Deploy your Azure Stack Edge](azure-stack-edge-j-series-deploy-prep.md)
+- [Deploy your Azure Stack Edge](azure-stack-edge-gpu-prep.md)
