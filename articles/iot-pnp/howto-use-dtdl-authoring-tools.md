@@ -35,9 +35,7 @@ When you've installed the extension, use it to help you author DTDL model files 
 
     :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense.png" alt-text="Use intellisense for DTDL models in VS Code":::
 
-- Create a new DTDL interface. The following command creates a JSON file with a new interface. The interface includes example telemetry, property, and command definitions:
-
-    :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-add-interface.png" alt-text="Create a new DTDL interface in VS Code":::
+- Create a new DTDL interface. The following command creates a JSON file with a new interface. The interface includes example telemetry, property, and command definitions.
 
 ## Install and use the Visual Studio extension
 
