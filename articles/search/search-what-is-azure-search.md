@@ -16,13 +16,13 @@ Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-serv
 
 When you create a Cognitive Search service, you get an indexing and query engine, persistent storage of search indexes that you create and manage, and a query language for composing simple to complex queries. A search service integrates with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that add AI processing from Cognitive Services, such as image and text analysis.
 
-Architecturally, a search service fits in between the external data stores that contain your data, and a client app that sends query requests and handles responses. The two primary workloads of a search service include *indexing* that brings data into the service, and *querying* for matching documents and handling results.
-
 ![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search architecture")
+
+Architecturally, a search service fits in between the external data stores that contain your data, and a client app that sends query requests and handles responses. The two primary workloads of a search service include *indexing* and *querying*.
 
 Indexing adds content to your search service and makes it searchable. Internally, text is processed into tokens and stored in inverted indexes for fast matching. An index schema determines the structure of searchable content. During indexing, you have the option of adding *cognitive skills*, either predefined ones from Microsoft or custom skills that you create. The resulting analysis and transformations can create new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
 
-Once an index is populated with searchable data, your client app sends requests to a search service and handles responses. The search experience is defined in your client using APIs from Azure Cognitive Search, with query execution over a search index that you create, own, and store in your service.
+Once an index is populated with searchable data, your client app sends query requests to a search service and handles responses. The search experience is defined in your client using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. You can also use the Azure portal for service administration and content management, with tools for prototyping and querying your indexes and skillsets. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
@@ -34,7 +34,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 + Easy implementation of search-related features. Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, autocomplete, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
 
-+ Raw content is large undifferentiated text or image files or application files stored in Azure Blob storage or Cosmos DB. You can apply [cognitive skills](cognitive-search-concept-intro.md) during indexing to extract text, create structure, or create new information such as translated text or entities.
++ Raw content is large undifferentiated text or image files or application files stored in Azure Blob storage or Cosmos DB. You can apply [cognitive skills](cognitive-search-concept-intro.md) during indexing to identify and extract text, create structure, or create new information such as translated text or entities.
 
 + Content needs linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
 
