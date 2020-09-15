@@ -109,7 +109,7 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
     - **Off** - Resources that aren't protected by an Azure Defender plan. You can right click on any of these and upgrade them:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Subscription partially on Azure Defender" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Azure Defender from right click" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **On** - Resources that are protected by an Azure Defender plan
     - **Partial** - This applies to **subscriptions** that have some but not all of the Azure Defender plans disabled. For example, the following subscription has five Azure Defender plans disabled. 

@@ -99,7 +99,7 @@ Support for [Azure Files](https://docs.microsoft.com/azure/storage/files/storage
 
 From 1st October 2020, we'll begin charging for protecting resources on these services.
 
-Learn more in [Azure Defender for Storage](defender-for-key-storage-introduction.md).
+Learn more in [Azure Defender for Storage](defender-for-storage-introduction.md).
 
 
 
