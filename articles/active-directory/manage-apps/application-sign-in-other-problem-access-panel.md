@@ -28,7 +28,7 @@ The type of apps a user may be seeing fall in the following categories:
 -   Applications with existing SSO solutions
 
 Here are some things to check if an app is appearing or not appearing.
-- Make sure the app is added to Azure AD and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](view-applications-portal.md).
+- Make sure the app is added to Azure AD and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](add-application-portal.md).
 - If an app was recently added, have the user sign out and back in again. 
 - If the app requires a license, such as Office, then make sure the user is assigned the appropriate license.
 - The time it takes for licensing changes can vary depending on the size and complexity of the group.
