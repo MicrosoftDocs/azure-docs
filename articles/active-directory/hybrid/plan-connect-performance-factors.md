@@ -35,7 +35,7 @@ The purpose of this document is to describe the factors influencing the performa
 
 The following diagram shows a high-level architecture of provisioning engine connecting to a single forest, although multiple forests are supported. This architecture shows how the various components interact with each other.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![Diagram shows how the Connected Directories and Azure AD Connect provisioning engine interact, including Connector Space and Metaverse components in an SQL Database. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 The provisioning engine connects to each Active Directory forest and to Azure AD. The process of reading information from each directory is called Import. Export refers to updating the directories from the provisioning engine. Sync evaluates the rules of how the objects will flow inside the provisioning engine. For a deeper dive you can refer to [Azure AD Connect sync: Understanding the architecture](./concept-azure-ad-connect-sync-architecture.md).
 
