@@ -1,4 +1,4 @@
-- name: ExpressRoute Documentation
+- name: ExpressRoute documentation
   href: index.yml
 - name: Overview
   items:
@@ -8,6 +8,7 @@
   items:
   - name: Create an ExpressRoute circuit - ARM Template
     href: quickstart-create-expressroute-vnet-template.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Create and modify a circuit

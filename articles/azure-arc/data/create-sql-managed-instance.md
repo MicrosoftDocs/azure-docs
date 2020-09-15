@@ -7,11 +7,11 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Scenario: Create an Azure SQL managed instance on Azure Arc
+# Create an Azure SQL managed instance on Azure Arc
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 

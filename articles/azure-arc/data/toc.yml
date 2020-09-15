@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What are Azure Arc enabled data services
-      href: Overview.md
+      href: overview.md
     - name: Release notes
       href: release-notes.md
 - name: Quickstarts
@@ -84,16 +84,12 @@
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
     - name: Quickstarts
       items:
-        - name: Install
-          items:
-            - name: Supported versions
-              href: supported-versions-postgres-hyperscale.md
-            - name: Deploy PostgreSQL Hyperscale
-              items:
-                - name: Create Postgres Hyperscale server group (CLI)
-                  href: create-postgresql-hyperscale-server-group.md
-                - name: Create Postgres Hyperscale server group (Azure Data Studio)
-                  href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: Supported versions
+          href: supported-versions-postgres-hyperscale.md
+        - name: Create Postgres Hyperscale server group (CLI)
+          href: create-postgresql-hyperscale-server-group.md
+        - name: Create Postgres Hyperscale server group (Azure Data Studio)
+          href: create-postgresql-hyperscale-server-group-azure-data-studio.md
         - name: Connect
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
     - name: Concepts
@@ -144,18 +140,20 @@
           href: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md
+    - name: Quickstarts
+      items:
+        - name: Configure
+          href: configure-managed-instance.md
+        - name: Create SQL Managed Instance
+          href: create-sql-managed-instance.md
+        - name: Create SQL Managed Instance (Azure Data Studio)
+          href: create-sql-managed-instance-azure-data-studio.md
+        - name: Connect
+          href: connect-managed-instance.md
     - name: How-to
       items:
         - name: Manage
           items:
-            - name: Configure
-              href: configure-managed-instance.md
-            - name: Create SQL Managed Instance
-              href: create-sql-managed-instance.md
-            - name: Create SQL Managed Instance (Azure Data Studio)
-              href: create-sql-managed-instance-azure-data-studio.md
-            - name: Connect
-              href: connect-managed-instance.md
             - name: Monitoring, log analytics, billing information, Azure portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: Delete

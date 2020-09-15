@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
@@ -70,8 +70,8 @@ There are multiple options for deploying the Azure Arc data controller:
 > **Just want to try things out?**  
 > Get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
 > 
-- [Use the Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
-- [Use Azure Data Studio](create-data-controller-azure-data-studio.md)
-- [Use the Azure portal to create a notebook which can be run in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
-- [Use Kubernetes native tools such as kubectl or oc](create-data-controller-using-k8s-native-tools.md)
-- [Use Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)
+- [Deploy a data controller with Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
+- [Deploy a data controller with Azure Data Studio](create-data-controller-azure-data-studio.md)
+- [Deploy a data controller from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
+- [Deploy a data controller with Kubernetes tools such as kubectl or oc](create-data-controller-using-k8s-native-tools.md)
+- [Deploy a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)

@@ -8,7 +8,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
@@ -99,7 +99,7 @@ Connect to your server group with the client tool of your choice and run the sta
 drop extension <extension name>;
 ```
 
-## Scenario: use the PostGIS and the Pg_cron extensions
+## Use the PostGIS and the Pg_cron extensions
 
 ### The PostGIS extension
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
 # Upload billing data to Azure and view it in the Azure portal
 
 > [!IMPORTANT] 
->  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named 'hybrid data services' and for resources of a type called 'microsoft.AzureData/sqlmanagedinstances'. You will be able to see a record for each SQL Managed Instance - Azure Arc that you deploy, but each record will be billed for $0.
+>  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **microsoft.AzureData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you deploy, but each record will be billed for $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -33,9 +33,11 @@ In the indirectly connected mode, billing data is periodically exported out of t
 
 To upload billing data to Azure, the following should happen first:
 
-1. [Create a SQL Managed Instance](/scenarios/003-create-sqlmiaa-instance.md) - Azure Arc if you haven't already.
+1. Create an Azure Arc enabled data service data service if you don't have one already. For example create one of the following:
+   - [Create a SQL Managed Instance](/scenarios/003-create-sqlmiaa-instance.md)
+   - [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md) 
 1. [Upload metrics and logs to Azure Monitor](/scenarios/007-upload-metrics-and-logs-to-Azure-Monitor.md) if you haven't already.
-1. Wait for at least 2 hours since the creation of a SQL Managed Instance so that the billing telemetry collection process can collect some billing data.
+1. Wait for at least 2 hours since the creation of the data service so that the billing telemetry collection process can collect some billing data.
 
 Run the following command to export out the billing data:
 
@@ -51,11 +53,11 @@ Example of a `resource` entry:
 
 ```console
     {
-        "customObjectName": "sqlmanagedinstances-instance-2020-29-5-23-13-17-164711",
+        "customObjectName": "<resource type>-2020-29-5-23-13-17-164711",
         "uid": "4bc3dc6b-9148-4c7a-b7dc-01afc1ef5373",
         "instanceName": "sqlInstance001",
         "instanceNamespace": "arc",
-        "instanceType": "sqlManagedInstances",
+        "instanceType": "<resource>",
         "location": "eastus",
         "resourceGroupName": "production-resources",
         "subscriptionId": "482c901a-129a-4f5d-86e3-cc6b294590b2",
@@ -82,7 +84,7 @@ Example of a `data` entry:
             "dataTimestamp": "2020-06-17T22:32:24Z",
             "data": "[{\"name\":\"sqlInstance001\",
                        \"namespace\":\"arc\",
-                       \"type\":\"sqlManagedInstances\",
+                       \"type\":\"<resource type>\",
                        \"eventSequence\":1, 
                        \"eventId\":\"50DF90E8-FC2C-4BBF-B245-CB20DC97FF24\",
                        \"startTime\":\"2020-06-17T19:11:47.7533333\",
@@ -105,21 +107,21 @@ azdata arc dc upload -p usage.json
 Follow these steps to view billing data in the Azure portal:
 
 1. Open the Azure portal using the special URL:  [https://aka.ms/arcdata](https://aka.ms/arcdata).
-1. In the search box at the top of the screen type in 'Cost Management' and click on the Cost Management service.
-1. Click on the 'Cost analysis' tab on the left.
-1. Click the 'Cost by resource' button on the top of the view.
-1. Make sure that your Scope is set to the subscription in which your SQL Managed Instance resources were created.
-1. Select 'Cost by resource' in the View drop down next to the Scope selector near the top of the view.
-1. Make sure the date filter is set to 'This month' or some other time range that makes sense given the timing of when your created your SQL Managed Instance resources.
-1. Click 'Add filter' to add a filter by 'Resource type' = 'microsoft.azuredata/sqlmanagedinstances' if you want to filter down to just SQL Managed Instance - Azure Arc resources.
-1. You will now see a list of all the SQL Managed Instances - Azure Arc that were created and uploaded to Azure.  Since the billing meter is $0, you will see that the cost is always $0.
+1. In the search box at the top of the screen type in **Cost Management** and click on the Cost Management service.
+1. Click on the **Cost analysis** tab on the left.
+1. Click the **Cost by resource** button on the top of the view.
+1. Make sure that your Scope is set to the subscription in which your data service resources were created.
+1. Select **Cost by resource** in the View drop down next to the Scope selector near the top of the view.
+1. Make sure the date filter is set to **This month** or some other time range that makes sense given the timing of when your created your data service resources.
+1. Click **Add filter** to add a filter by **Resource type** = `microsoft.azuredata/<data service type>` if you want to filter down to just one type of Azure Arc enabled data service.
+1. You will now see a list of all the resources that were created and uploaded to Azure. Since the billing meter is $0, you will see that the cost is always $0.
 
 ## Download billing data
 
 You can download billing summary data directly from the Azure portal.
 
-1. In the same 'Cost analysis -> view by resource type' view that you reached by following the instructions above, click the Download button near the top.
-1. Choose your download file type - Excel or CSV - and click the 'Download data' button.
+1. In the same **Cost analysis -> view by resource type** view that you reached by following the instructions above, click the Download button near the top.
+1. Choose your download file type - Excel or CSV - and click the **Download data** button.
 1. Open the file in an appropriate editor given the file type selected.
 
 ## Export billing data
@@ -143,7 +145,7 @@ You can validate the billing data files in the Azure portal.
 > [!IMPORTANT]
 > After you create the billing export job, wait 4 hours before you proceed with the following steps.
 
-1. In the search box at the top of the portal, type in 'Storage accounts' and click on 'Storage Accounts'.
+1. In the search box at the top of the portal, type in **Storage accounts** and click on **Storage Accounts**.
 3. Click on the storage account which you specified when creating the billing export job above.
 4. Click on Containers on the left.
 5. Click on the container you specified when creating the billing export job above.
@@ -151,5 +153,5 @@ You can validate the billing data files in the Azure portal.
 7. Drill down into the generated folders and files and click on one of the generated .csv files.
 8. Click the Download button which will save the file to your local Downloads folder.
 9. Open the file using a .csv file viewer such as Excel.
-10. Filter the results to show only the rows with the Resource Type = 'Microsoft.AzureData/sqlManagedInstances'.
+10. Filter the results to show only the rows with the **Resource Type** = `Microsoft.AzureData/<data service resource type`.
 11. You will see the number of hours the instance was used in the current 24 hour period in the UsageQuantity column.
