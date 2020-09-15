@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Bring your own data"
+title: "Tutorial: Use your own data"
 titleSuffix: Azure Machine Learning
 description: Part 4 of the Azure ML Get Started series shows how to use your own data in a remote training run.
 services: machine-learning
@@ -9,38 +9,35 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.custom: tracking-python
 ---
 
-# Tutorial: Bring your own data (Part 4 of 4)
+# Tutorial: Use your own data (Part 4 of 4)
 
-In the previous Tutorial: Train a model in the cloud article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning.
+This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning.
+<!-- 
+This tutorial begins by uploading to Azure the CIFAR10 data followed by using that data in a remote training run. Along the way, you see how to add command-line arguments to your training script. -->
 
-This tutorial begins by uploading to Azure the CIFAR10 data followed by using that data in a remote training run. Along the way, you see how to add command-line arguments to your training script.
+<!-- In the previous Tutorial: Train a model in the cloud article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning. -->
 
-By the end of this tutorial you would have a better understanding of:
-
-> [!div class="checklist"]
-> * Best practices for working with cloud data in Azure Machine Learning
-> * Working with command-line arguments
-
-The Azure Machine Learning concepts covered in this Tutorial are:
+In this tutorial, you:
 
 > [!div class="checklist"]
-> * ScriptRunConfig: Passing script arguments.
-> * Datastore
-> * Dataset
+> * Configure training script to use data in a local directory
+> * Test the training script locally
+> * Upload data to Azure
+> * Create control script
+> * Understand the new Azure Machine Learning concepts (passing parameters, Datasets, Datastores)
+> * Submit and run your training script
+> * View your code output in the cloud
 
 ## Prerequisites
 
-You have completed:
-
-* Setup on your local computer or setup to use a compute instance
-    * Tutorial: Hello Azure
-    * Tutorial: Train a model in the cloud
-* Familiarity with Python and Machine Learning concepts
-* A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
+* Complete [Part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace or [notebook virtual machine](tutorial-1st-experiment-sdk-setup.md) and [Part 3](tutorial-1st-experiment-sdk-train.md).
+* Introductory knowledge of the Python language and machine learning workflows.
+* Local development environment. This includes but is not limited to Visual Studio Code, Jupyter or PyCharm.
+* Python (version 3.5-3.7).
 
 ## Adjust the training script
 By now you have your training script (tutorial/src/train.py) running in Azure Machine Learning, and can monitor the model performance. Let's parametrize the training script by introducing arguments. Using arguments will allow you to easily compare different hyperparmeters.
