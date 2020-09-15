@@ -239,7 +239,7 @@ Keep in mind that you must be assigned the Azure Resource Manager **Contributor*
 The following table summarizes which values to use for the policy ID and rule IDs in the JSON file in each scenario.
 
 | When you are creating the JSON file for this account... | Set the policy ID and rule IDs to this value... |
-|-|-|-|
+|-|-|
 | Destination account | The string value *default*. Azure Storage will create the policy ID and rule IDs for you. |
 | Source account | The values of the policy ID and rule IDs returned when you download a JSON file containing the rules defined on the destination account. |
 
