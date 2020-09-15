@@ -121,10 +121,7 @@ An AVS assessment describes:
 To view an assessment:
 
 1. In **Servers** > **Azure Migrate: Server Assessment**, click the number next to **Assessments**.
-2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
-
-    ![Assessment summary](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
-
+2. In **Assessments**, select an assessment to open it. 
 3. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
  
 
@@ -136,7 +133,7 @@ To view an assessment:
     - **Ready for AVS**: The machine can be migrated as-is to Azure AVS, without any changes. The machine will start in AVS, with full AVS support.
     - **Ready with conditions**: The machine might have compatibility issues with the current vSphere version. It might need VMware tools installed, or other settings, before it has full functionality in AVS.
     - **Not ready for AVS**: The VM won't start in AVS. For example, if an on-premises VMware VM has an external device (like a CD-ROM) attached to it and you're using VMware VMotion, the VMotion operation fails.
-- **Readiness unknown**: Azure Migrate couldn't determine machine readiness, due to insufficient metadata collected from the on-premises environment.
+ - **Readiness unknown**: Azure Migrate couldn't determine machine readiness, due to insufficient metadata collected from the on-premises environment.
 
 3. Review the suggested tool.
 
