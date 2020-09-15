@@ -61,7 +61,7 @@ The following articles provide background on azure key vault and managed identit
   > [!div class="mx-imgBorder"]
   > ![Custom Commands key vault setting](media/custom-commands/how-to-custom-commands-integrate-key-vault-settings.png)
 
-2. Finally, go to settings for the web endpoint. Then, click on **Add a header** or **Add a query parameter** depending on how you want to pass the secret to the endpoint. Reference the key vault secret in this format `{Nickname.SecretName}` as below.
+2. Finally, go to settings for the web endpoint. Click on **Add a header** or **Add a query parameter** depending on how you want to pass the secret to the endpoint. You can reference the key vault secret in this format `{Nickname.SecretName}`. In the example below, we are referencing a secret **PrimaryApiKey** stored in the key vault **Secrets** configured above. The secret is resolved at runtime and its value is set for the query parameter **ApiKey** for the endpoint. 
 
   > [!div class="mx-imgBorder"]
   > ![Custom Commands referencing a key vault secret](media/custom-commands/how-to-custom-commands-integrate-key-vault-reference-secrets.png)
