@@ -4,15 +4,12 @@ description: Troubleshoot known performance issues with Azure file shares. Disco
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
-# Troubleshoot Azure Files performance issues (SMB)
-
-> [!IMPORTANT]
-> The content of this article only applies to SMB shares.
+# Troubleshoot Azure Files performance issues
 
 This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
 
