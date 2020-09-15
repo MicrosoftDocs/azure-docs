@@ -8,7 +8,7 @@ author: vladvino
 ms.service: api-management
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: apimpm
 ---
 
@@ -45,7 +45,7 @@ In the following example, *myapim* is used for the service name. Update the name
 By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
 
 > [!NOTE]
-> This is a long-running operation. It usually takes between 20 and 30 minutes to create and activate an API Management service in this tier.
+> This is a long-running operation. It can take between 30 and 40 minutes to create and activate an API Management service in this tier.
 
 ```azurepowershell-interactive
 New-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" `
