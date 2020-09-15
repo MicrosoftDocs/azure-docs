@@ -13,37 +13,37 @@ ms.date: 09/09/2020
 ms.custom: tracking-python
 ---
 
-# Tutorial: Bring your own data
+# Tutorial: Bring your own data (Part 4 of 4)
 
-In the previous [Tutorial: Train a model in the cloud](tutorial-1st-experiment-sdk-train.md) article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning. 
+In the previous Tutorial: Train a model in the cloud article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning.
 
 This tutorial begins by uploading to Azure the CIFAR10 data followed by using that data in a remote training run. Along the way, you see how to add command-line arguments to your training script.
 
 By the end of this tutorial you would have a better understanding of:
 
-- Best practices for working with cloud data in Azure Machine Learning
-- Working with command-line arguments
+> [!div class="checklist"]
+> * Best practices for working with cloud data in Azure Machine Learning
+> * Working with command-line arguments
 
 The Azure Machine Learning concepts covered in this Tutorial are:
 
 > [!div class="checklist"]
-> - [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true): Passing script arguments.
-> - [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py&preserve-view=true)
-> - [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true)
+> * ScriptRunConfig: Passing script arguments.
+> * Datastore
+> * Dataset
 
 ## Prerequisites
 
-- You have completed:
-  - Setup on your [local computer](tutorial-1st-experiment-sdk-setup-local.md) or setup to use a [compute instance](tutorial-1st-experiment-sdk-setup-local.md)
-  - [Tutorial: Hello Azure](tutorial-1st-experiment-hello-world.md)
-  - [Tutorial: Train a model in the cloud](tutorial-1st-experiment-sdk-train.md)
-- Familiarity with Python and Machine Learning concepts
-- A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
+You have completed:
+
+* Setup on your local computer or setup to use a compute instance
+    * Tutorial: Hello Azure
+    * Tutorial: Train a model in the cloud
+* Familiarity with Python and Machine Learning concepts
+* A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
 
 ## Adjust the training script
-
-By now you have your training script (`tutorial/src/train.py`) running in Azure Machine Learning, and can monitor the model performance. Let's _parametrize_ the training script by introducing
-arguments. Using arguments will allow you to easily compare different hyperparmeters.
+By now you have your training script (tutorial/src/train.py) running in Azure Machine Learning, and can monitor the model performance. Let's parametrize the training script by introducing arguments. Using arguments will allow you to easily compare different hyperparmeters.
 
 Presently our training script is set to download the CIFAR10 dataset on each run. The python code below has been adjusted to read the data from a directory.
 
@@ -52,6 +52,7 @@ Presently our training script is set to download the CIFAR10 dataset on each run
 
 ```python
 # tutorial/src/train.py
+import os
 import argparse
 import torch
 import torch.optim as optim
@@ -69,6 +70,12 @@ if __name__ == "__main__":
     parser.add_argument('--learning_rate', type=float, default=0.001, help='Learning rate for SGD')
     parser.add_argument('--momentum', type=float, default=0.9, help='Momentum for SGD')
     args = parser.parse_args()
+    
+    print("===== DATA =====")
+    print("DATA PATH: " + args.data_path)
+    print("LIST FILES IN DATA PATH...")
+    print(os.listdir(args.data_path))
+    print("================")
     
     # prepare DataLoader for CIFAR10 data
     transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
@@ -197,20 +204,24 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 The `target_path` specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
 >[!TIP] 
-> Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) to ingest your data into Azure.
+> Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) can be used to ingest your data into Azure.
 
-Run the Python file to upload the data (Note: The run should be quick, less than 15 seconds.)
+Run the Python file to upload the data (Note: The upload should be quick, less than 60 seconds.)
 
 ```bash
 python 05-upload-data.py
 ```
+You should see the following standard output:
+```txt
+Uploading ./data\cifar-10-batches-py\data_batch_2
+Uploaded ./data\cifar-10-batches-py\data_batch_2, 4 files out of an estimated total of 9
+.
+.
+Uploading ./data\cifar-10-batches-py\data_batch_5
+Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
+Uploaded 9 files
+```
 
-To check the upload was successful:
-
-1. Visit the [Azure portal](https://ms.portal.azure.com/)
-1. Select your resource group.
-1. Select your storage account. In your storage account, there is a container called "azureml-blobstore-GUID". You should find the CIFAR10 data uploaded to
-the target path.
 
 ## Create a control script
 
@@ -258,7 +269,7 @@ if __name__ == "__main__":
 - **`dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))`**: A Dataset is used to reference the data you uploaded to the Azure Blob Store. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
 - **`config = ScriptRunConfig(...)`**: We modified the `ScriptRunConfig` to include a list of arguments that will be passed into `train.py`. We also specified `dataset.as_named_input('input').as_mount()`, which means the directory specified will be _mounted_ to the compute target.
 
-## Submit run to Azure Machine Learning compute cluster
+## Submit run to Azure Machine Learning
 
 Now resubmit the run to use the new configuration:
 
@@ -266,9 +277,51 @@ Now resubmit the run to use the new configuration:
 python 06-run-pytorch-data.py
 ```
 
-## Clean up resources
+This will print a URL to the Experiment in Azure Machine Learning Studio. If you navigate to that link you will be able to see your code running.
 
-Do not complete this section if you plan on running other Azure Machine Learning tutorials.
+### Inspect the 70_driver_log log file
+
+
+In the Azure Machine Learning studio navigate to the experiment run (by clicking the URL output from the above cell) followed by **Outputs + logs**. Click on the 70_driver_log.txt file - you should see the following output:
+
+```txt
+Processing 'input'.
+Processing dataset FileDataset
+{
+  "source": [
+    "('workspaceblobstore', 'datasets/cifar10')"
+  ],
+  "definition": [
+    "GetDatastoreFiles"
+  ],
+  "registration": {
+    "id": "XXXXX",
+    "name": null,
+    "version": null,
+    "workspace": "Workspace.create(name='XXXX', subscription_id='XXXX', resource_group='X')"
+  }
+}
+Mounting input to /tmp/tmp9kituvp3.
+Mounted input to /tmp/tmp9kituvp3 as folder.
+Exit __enter__ of DatasetContextManager
+Entering Run History Context Manager.
+Current directory:  /mnt/batch/tasks/shared/LS_root/jobs/dsvm-aml/azureml/tutorial-session-3_1600171983_763c5381/mounts/workspaceblobstore/azureml/tutorial-session-3_1600171983_763c5381
+Preparing to call script [ train.py ] with arguments: ['--data_path', '$input', '--learning_rate', '0.003', '--momentum', '0.92']
+After variable expansion, calling script [ train.py ] with arguments: ['--data_path', '/tmp/tmp9kituvp3', '--learning_rate', '0.003', '--momentum', '0.92']
+
+Script type = None
+===== DATA =====
+DATA PATH: /tmp/tmp9kituvp3
+LIST FILES IN DATA PATH...
+['cifar-10-batches-py', 'cifar-10-python.tar.gz']
+```
+
+Notice:
+
+1. Azure Machine Learning has mounted the blob store to the compute cluster automatically for you.
+2. The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point
+
+## Clean up resources
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
@@ -276,10 +329,8 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
+In this tutorial, we saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
+
+You saw how to modify your training script to accept a data path via the command line. By using a `Dataset` you were able to mount a directory to the remote run. 
+
 In this session, you saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
-
-You saw how to modify your training script to accept a data path via the command line. By using a `Dataset` you were able to mount a directory to the remote run. Using a `Dataset` also made it possible to alternate between local and cloud data.
-
-Continue to other tutorials to learn how to:
-- [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
-- Develop [automated machine learning](tutorial-auto-train-models.md) experiments.

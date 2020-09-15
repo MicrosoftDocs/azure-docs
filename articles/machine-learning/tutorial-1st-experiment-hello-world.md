@@ -83,17 +83,16 @@ In your tutorial directory, create a new python file called `03-run-hello.py` an
 
 ```python
 # tutorial/03-run-hello.py
-from azureml.core import Workspace
-from azureml.core import Experiment
-from azureml.core import ScriptRunConfig
+from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 
-if __name__ == "__main__":
-    ws = Workspace.from_config()
-    experiment = Experiment(workspace=ws, name='hello-world')
-    config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')
-    run = experiment.submit(config)
-    aml_url = run.get_portal_url()
-    print(aml_url)
+ws = Workspace.from_config()
+experiment = Experiment(workspace=ws, name='hello-world')
+
+config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')
+
+run = experiment.submit(config)
+aml_url = run.get_portal_url()
+print(aml_url)
 ```
 
 ### Understanding the code
@@ -181,18 +180,9 @@ Follow the link and navigate to the **Outputs + logs** tab. There you can see a 
 
 On line 8, you see the "Hello world!" output.
 
-> [!NOTE]
+> [!TIP]
 > The 70_driver_log.txt file contains the standard output from run and can be useful
 > when debugging remote runs in the cloud.
-
-
-## Clean up resources
-
-Do not complete this section if you plan on running other Azure Machine Learning tutorials.
-
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## Next steps
 
@@ -202,3 +192,6 @@ In the next tutorial, you build on these learnings by running something more int
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train a model](tutorial-1st-experiment-sdk-train.md)
+
+>[!NOTE] 
+> If you want to finish the tutorial series here and not progress to the next step, please remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources)

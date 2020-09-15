@@ -13,7 +13,7 @@ ms.date: 09/09/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Train your first ML model
+# Tutorial: Train your first ML model (Part 3 of 4)
 
 In the [previous tutorial](tutorial-1st-experiment-hello-world.md), you ran a trivial "Hello world!" script in the cloud using Azure Machine Learning's Python SDK. This time you take it a step further by submitting a script that will train an ML-model.
 
@@ -46,9 +46,9 @@ Learning these concepts means that by the end of this session, you can:
 
 ## Create training scripts
 
-First you define the CNN architecture in a `model.py` file. All your training code will go into the `src` subdirectory - including `model.py`.
+First you define the neural network architecture in a `model.py` file. All your training code will go into the `src` subdirectory - including `model.py`.
 
-The code below is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch.
+The code below is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. 
 
 ```python
 # tutorial/src/model.py
@@ -215,7 +215,7 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
-### Understand these two additional lines
+### Understand the code changes
 
 - **`env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')`** Azure Machine Learning provides the concept of an `Environment` to represent a reproducible, versioned
 Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
@@ -225,7 +225,7 @@ Python environment for running experiments. It's easy to create an environment f
 > There are many ways to create AML environments, including [from a pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-),
 > or even [from an existing local Conda environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
 
-## Submit to compute cluster
+## Submit run to Azure Machine Learning
 
 In case you switched local environments, make sure you switch back to an environment with the Azure Machine Learning Python SDK installed and run:
 
@@ -336,7 +336,7 @@ if __name__ == "__main__":
     print('Finished Training')
 ```
 
-### Understanding the additional two lines of code
+#### Understanding the additional two lines of code
 
 In `train.py`, you access the run object from _within_ the training script itself using the `Run.get_context()` method and use it to log metrics:
 
@@ -375,7 +375,7 @@ dependencies:
         - azureml-sdk
 ```
 
-### Submit script to Azure Machine Learning
+### Submit run to Azure Machine Learning
 Submit this script once more:
 
 ```bash
@@ -386,14 +386,6 @@ This time when you visit the studio, go to the "Metrics" tab where you can now s
 live updates on the model training loss!
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph in the Metrics tab":::
-
-## Clean up resources
-
-Do not complete this section if you plan on running other Azure Machine Learning tutorials.
-
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## Next steps
 
@@ -407,3 +399,6 @@ dataset to Azure.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Bring your own data](tutorial-1st-experiment-bring-data.md)
+
+>[!NOTE] 
+> If you want to finish the tutorial series here and not progress to the next step, please remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources)
