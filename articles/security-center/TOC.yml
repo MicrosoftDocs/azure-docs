@@ -133,8 +133,6 @@
       href: recommendations-reference.md
     - name: Protect network resources
       href: security-center-network-recommendations.md
-    - name: Protect data and storage services
-      href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md
     - name: Manage security recommendations

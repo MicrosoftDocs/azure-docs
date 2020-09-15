@@ -32,6 +32,7 @@ Updates in September include:
 - [Security Center gets a new look!](#security-center-gets-a-new-look)
 - [Azure Defender released](#azure-defender-released)
 - [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
+- [Azure Defender for Storage protection for Azure Files and Azure Data Lake Storage Gen2 is generally available](#azure-defender-for-storage-protection-for-azure-files-and-azure-data-lake-storage-gen2-is-generally-available)
 - [Asset inventory tools are now generally available](#asset-inventory-tools-are-now-generally-available)
 - [Disable a specific vulnerability finding for scans of container registries and virtual machines](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
 - [Exempt a resource from a recommendation](#exempt-a-resource-from-a-recommendation)
@@ -45,6 +46,7 @@ Updates in September include:
 - [Email notifications from Azure Security Center improved](#email-notifications-from-azure-security-center-improved)
 - [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
 - [Recommendations now include a severity indicator and the freshness interval](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
+
 
 ### Security Center gets a new look!
 
@@ -87,6 +89,18 @@ The optional plan is now GA. This feature was in preview as "advanced threat pro
 Also, the Key Vault pages in the Azure portal now include a dedicated **Security** page for **Security Center** recommendations and alerts.
 
 Learn more in [Azure Defender for Key Vault](defender-for-key-vault-introduction.md).
+
+
+### Azure Defender for Storage protection for Azure Files and Azure Data Lake Storage Gen2 is generally available 
+
+**Azure Defender for Storage** detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
+
+Support for [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) is now generally available.
+
+From 1st October 2020, we'll begin charging for protecting resources on these services.
+
+Learn more in [Azure Defender for Storage](defender-for-key-storage-introduction.md).
+
 
 
 ### Asset inventory tools are now generally available

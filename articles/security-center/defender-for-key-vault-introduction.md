@@ -12,12 +12,20 @@ manager: rkarlin
 
 # Introduction to Azure Defender for Key Vault
 
-> [!NOTE]
-> This service is not currently available in Azure government and sovereign cloud regions.
-
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
 
 Enable **Azure Defender for Key Vault** for Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence. 
+
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally available (GA)|
+|Pricing:|**Azure Defender for Key Vault** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
+
+## What are the benefits of Azure Defender for Key Vault?
 
 Azure Defender detects unusual and potentially harmful attempts to access or exploit Key Vault accounts. This layer of protection allows you to address threats without being a security expert, and without the need to manage third-party security monitoring systems.  
 

@@ -62,4 +62,3 @@ Enabling MFA requires [Azure Active Directory (AD) tenant permissions](https://d
 To learn more about recommendations that apply to other Azure resource types, see the following articles:
 
 - [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
-- [Protecting your Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md)
