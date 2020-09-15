@@ -95,6 +95,8 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 > [!NOTE]
 > The number of models to be deployed is limited to 1,000 models per deployment (per container).
 
+<a id="using-the-cli"></a>
+
 # [Python](#tab/python)
 
 ```python
