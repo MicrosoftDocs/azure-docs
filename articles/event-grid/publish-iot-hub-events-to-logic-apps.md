@@ -84,7 +84,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 1. Select **Use sample payload to generate schema**. 
 
-   ![Select HTTP request trigger](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
+   ![Use sample payload](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
 1. Paste the *Device connected event schema* JSON into the text box, then select **Done**:
 
