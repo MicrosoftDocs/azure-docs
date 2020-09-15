@@ -10,10 +10,11 @@ zone_pivot_groups: programming-languages-set-eleven
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.custom: "devx-track-python, devx-track-csharp"
+ms.custom: "devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020"
 ---
+
 # Quickstart: Use the Content Moderator client library
 
 ::: zone pivot="programming-language-csharp"
