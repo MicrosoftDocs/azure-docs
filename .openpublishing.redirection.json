@@ -57003,19 +57003,39 @@
       "redirect_document_id": false 	
     },
     {
-      "source_path": "articles/iot-dps/concepts-security.md",
-      "redirect_url": "/azure/iot-dps/concepts-service#attestation-mechanism",
-      "redirect_document_id": false
+    "source_path": "articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-portal",
+    "redirect_document_id": false 	
     },
     {
-      "source_path": "articles/iot-dps/concepts-device.md",
-      "redirect_url": "/azure/iot-dps/concepts-service",
-      "redirect_document_id": false
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-cli",
+    "redirect_document_id": false 	
     },
     {
-      "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
-      "redirect_url": "/azure/iot-dps/concepts-roles-operations",
-      "redirect_document_id": false
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-powershell",
+    "redirect_document_id": false 	
+   },
+   {
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-template",
+    "redirect_document_id": false 	
+   },
+   {
+    "source_path": "articles/iot-dps/concepts-security.md",
+    "redirect_url": "/azure/iot-dps/concepts-service#attestation-mechanism",
+    "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/iot-dps/concepts-device.md",
+    "redirect_url": "/azure/iot-dps/concepts-service",
+    "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
+    "redirect_url": "/azure/iot-dps/concepts-roles-operations",
+    "redirect_document_id": false
     }
   ]
 }
