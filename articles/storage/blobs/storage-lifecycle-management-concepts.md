@@ -379,34 +379,31 @@ When last access time tracking is enabled, the blob property called `LastAccessT
 
 To minimize the impact on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period do not update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
 
-In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days.
+In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates if a blob should automatically be tiered from cool back to hot if it is accessed again.
 
 ```json
 {
-  "rules": [
-    {
-      "enabled": true,
-      "name": "last-accessed-thirty-days-ago",
-      "type": "Lifecycle",
-      "definition": {
-        "actions": {
-          "baseBlob": {
-            "tierToCool": {
-              "daysAfterLastAccessTimeGreaterThan": 30
-            }
-          }
-        },
-        "filters": {
-          "blobTypes": [
-            "blockBlob"
-          ],
-          "prefixMatch": [
-            "mylifecyclecontainer/log"
-          ]
+  "enabled": true,
+  "name": "last-accessed-thirty-days-ago",
+  "type": "Lifecycle",
+  "definition": {
+    "actions": {
+      "baseBlob": {
+        "enableAutoTierToHotFromCool": true,
+        "tierToCool": {
+          "daysAfterLastAccessTimeGreaterThan": 30
         }
       }
+    },
+    "filters": {
+      "blobTypes": [
+        "blockBlob"
+      ],
+      "prefixMatch": [
+        "mylifecyclecontainer/log"
+      ]
     }
-  ]
+  }
 }
 ```
 
@@ -420,7 +417,7 @@ Last access time tracking is available for the following types of storage accoun
 
 If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account.
 
-Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not supported.
+Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not yet supported.
 
 #### Pricing and billing
 
