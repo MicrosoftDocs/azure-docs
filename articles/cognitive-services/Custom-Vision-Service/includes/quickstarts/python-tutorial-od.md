@@ -5,7 +5,10 @@ ms.service: cognitive-services
 ms.date: 09/15/2020
 ---
 
-This guide shows you how to get started using the Custom Vision client library with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
+This guide provides instructions and sample code to help you get started using the Custom Vision client library for Python to build an object detection model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
+
+> [!NOTE]
+> If you want to build and train an object detection model _without_ writing code, see the [browser-based guidance](../../get-started-build-detector.md) instead.
 
 ## Prerequisites
 
@@ -15,7 +18,7 @@ This guide shows you how to get started using the Custom Vision client library w
 
 ## Install the Custom Vision client library
 
-To install the Custom Vision service client library for Python, run the following command in PowerShell:
+To write an image analysis app with Custom Vision for Python, you'll need the Custom Vision client library. Run the following command in PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -224,7 +227,7 @@ The output of the application should appear in the console. You can then verify 
 
 ## Next steps
 
-Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following training guide deals with image classification, but its principles are similar to object detection.
+Now you've done every step of the object detection process in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md)
