@@ -16,9 +16,24 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## September 2020
+
+### Read API v3.1 Public Preview adds OCR for Japanese
+Computer Vision's Read API v3.1 public preview adds these capabilities:
+* OCR for Japanese language
+* For each text line, indicate whether the appearance is Handwriting or Print style, along with a confidence score (Latin languages only).
+* For a multi-page document extract text only for selected pages or page range.
+
+* This preview version of the Read API supports English, Dutch, French, German, Italian, Japanese, Portuguese, Simplified Chinese, and Spanish languages.
+
+See the [Read API overview](concept-recognizing-text.md) to learn more.
+
+> [!div class="nextstepaction"]
+> [Learn more about Read API v3.1 Public Preview 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
+
 ## July 2020
 
-### Read API v3.1 Public Preview adds Simplified Chinese support
+### Read API v3.1 Public Preview with OCR for Simplified Chinese
 Computer Vision's Read API v3.1 public preview adds support for Simplified Chinese.
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish languages.
@@ -26,7 +41,7 @@ Computer Vision's Read API v3.1 public preview adds support for Simplified Chine
 See the [Read API overview](concept-recognizing-text.md) to learn more.
 
 > [!div class="nextstepaction"]
-> [Learn more about Read API v3.1 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Learn more about Read API v3.1 Public Preview 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## May 2020
 Computer Vision API v3.0 entered General Availability, with updates to [Read API](concept-recognizing-text.md):
