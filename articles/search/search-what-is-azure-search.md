@@ -18,9 +18,9 @@ When you create a Cognitive Search service, you get an indexing and query engine
 
 ![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search architecture")
 
-Architecturally, a search service fits in between the external data stores that contain your data, and a client app that sends query requests and handles responses. The two primary workloads of a search service include *indexing* and *querying*.
+Architecturally, a search service sits in between the external data stores that contain your data, and a client app that sends query requests and handles responses. The two primary workloads of a search service are *indexing* and *querying*.
 
-Indexing adds content to your search service and makes it searchable. Internally, text is processed into tokens and stored in inverted indexes for fast matching. An index schema determines the structure of searchable content. During indexing, you have the option of adding *cognitive skills*, either predefined ones from Microsoft or custom skills that you create. The resulting analysis and transformations can create new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
+Indexing adds content to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast matching. An index schema determines the structure of searchable content. During indexing, you have the option of adding *cognitive skills*, either predefined ones from Microsoft or custom skills that you create. The resulting analysis and transformations can create new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
 
 Once an index is populated with searchable data, your client app sends query requests to a search service and handles responses. The search experience is defined in your client using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 
