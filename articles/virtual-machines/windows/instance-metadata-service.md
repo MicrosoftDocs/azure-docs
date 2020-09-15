@@ -515,10 +515,11 @@ caching | Caching requirements
 createOption | Information about how the VM was created
 diffDiskSettings | Ephemeral disk settings
 diskSizeGB | Size of the disk in GB
+encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
-lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
+osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
@@ -530,11 +531,10 @@ caching | Caching requirements
 createOption | Information about how the VM was created
 diffDiskSettings | Ephemeral disk settings
 diskSizeGB | Size of the disk in GB
-encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
+lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
-osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
