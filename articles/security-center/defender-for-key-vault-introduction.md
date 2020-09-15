@@ -1,5 +1,5 @@
 ---
-title: Azure Defender for Key Vault- the benefits and features
+title: Azure Defender for Key Vault - the benefits and features
 description: Learn about the benefits and features of Azure Defender for Key Vault.
 author: memildin
 ms.author: memildin

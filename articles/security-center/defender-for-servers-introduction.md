@@ -54,15 +54,17 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
 - **Fileless attack detection (Windows only)** - Fileless attacks inject malicious payloads into memory to avoid detection by disk-based scanning techniques. The attacker’s payload then persists within the memory of compromised processes and performs a wide range of malicious activities.
 
-    With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of processes. Specific insights for Linux include the identification of: 
+  With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of processes. Specific insights for Linux include the identification of: 
 
-    - Well-known toolkits and crypto mining software 
-    - Shellcode, which is a small piece of code typically used as the payload in the exploitation of a software vulnerability.
-    - Injected malicious executable in process memory
+  - Well-known toolkits and crypto mining software 
 
-    Fileless attack detection generates detailed security alerts containing the descriptions with additional process metadata, such as network activity. This accelerates alert triage, correlation, and downstream response time. This approach complements event based EDR solutions, and provides increased detection coverage.
+  - Shellcode, which is a small piece of code typically used as the payload in the exploitation of a software vulnerability.
 
-    For details of the fileless attack detection alerts, see the [Reference table of alerts](alerts-reference.md#alerts-windows).
+  - Injected malicious executable in process memory
+
+  Fileless attack detection generates detailed security alerts containing the descriptions with additional process metadata, such as network activity. This accelerates alert triage, correlation, and downstream response time. This approach complements event based EDR solutions, and provides increased detection coverage.
+
+  For details of the fileless attack detection alerts, see the [Reference table of alerts](alerts-reference.md#alerts-windows).
 
 - **Linux auditd alerts and Log Analytics agent integration (Linux only)** - The auditd system consists of a kernel-level subsystem, which is responsible for monitoring system calls. It filters them by a specified rule set, and writes messages for them to a socket. Security Center integrates functionalities from the auditd package within the Log Analytics agent. This integration enables collection of auditd events in all supported Linux distributions, without any prerequisites.
 

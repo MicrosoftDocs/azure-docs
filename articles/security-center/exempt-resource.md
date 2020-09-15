@@ -36,8 +36,11 @@ The resource will be listed as not applicable and the reason will be shown as "e
 ## Create an exemption rule
 
 1. On the list of unhealthy resources, select the ellipsis menu ("...") for the resource you want to exempt.
+
     :::image type="content" source="./media/exempt-resource/create-exemption.png" alt-text="Create exemption option from context menu":::
+
     The create exemption pane opens.
+
     :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Create exemption pane":::
 
 1. Enter your criteria and select a criteria for why this resource should be exempted:

@@ -22,7 +22,7 @@ Azure Security Center integrates with [Microsoft Defender Advanced Threat Protec
 
 |Aspect|Details|
 |----|:----|
-|Release state:|**General availability**|
+|Release state:|Generally available (GA)|
 |Pricing:|Requires [Azure Defender](security-center-pricing.md)|
 |Supported machines:|![Yes](./media/icons/yes-icon.png) Azure machines running Windows<br>![Yes](./media/icons/yes-icon.png) Azure Arc machines running Windows|
 |Required roles and permissions:|To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|

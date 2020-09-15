@@ -25,7 +25,7 @@ Full details are available in [the dedicated documentation](https://docs.microso
 ## Availability
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability|
+|Release state:|Generally available (GA)|
 |Pricing:|Requires [Azure Defender](security-center-pricing.md)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|

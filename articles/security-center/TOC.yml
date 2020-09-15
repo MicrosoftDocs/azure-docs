@@ -7,7 +7,7 @@
   - name: About Security Center
     items:
     - name: What is Azure Security Center?
-      href: security-center-intro.md
+      href: security-center-introduction.md
     - name: Supported platforms
       displayName: coverage
       href: security-center-os-coverage.md
@@ -35,24 +35,24 @@
     - name: Overview of Azure Defender
       href: azure-defender.md
     - name: Azure Defender for servers
-      href: defender-for-servers-intro.md
+      href: defender-for-servers-introduction.md
     - name: Azure Defender for App Service
-      href: defender-for-app-service-intro.md
+      href: defender-for-app-service-introduction.md
     - name: Azure Defender for Storage
-      href: defender-for-storage-intro.md
+      href: defender-for-storage-introduction.md
     - name: Azure Defender for SQL
-      href: defender-for-sql-intro.md
+      href: defender-for-sql-introduction.md
     - name: Azure Defender for IoT
-      href: defender-for-iot-intro.md
+      href: defender-for-iot-introduction.md
     - name: Azure Defender for Key Vault
       displayName: KV
-      href: defender-for-key-vault-intro.md
+      href: defender-for-key-vault-introduction.md
     - name: Azure Defender for Kubernetes
       displayName: clusters, k8s
-      href: defender-for-kubernetes-intro.md
+      href: defender-for-kubernetes-introduction.md
     - name: Azure Defender for container registries
       displayName: ACR, registry, images
-      href: defender-for-container-registries-intro.md
+      href: defender-for-container-registries-introduction.md
     - name: Additional threat protections
       href: other-threat-protections.md
   - name: Container security features of Security Center

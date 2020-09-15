@@ -28,7 +28,7 @@ Using these tools you can:
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally Available|
+|Release state:|Generally available (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub), Other Gov|

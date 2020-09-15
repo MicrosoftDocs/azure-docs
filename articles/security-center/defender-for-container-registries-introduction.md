@@ -20,7 +20,7 @@ To protect all the Azure Resource Manager based registries in your subscription,
 
 Security Center identifies Azure Resource Manager based ACR registries in your subscription and seamlessly provides Azure-native vulnerability assessment and management for your registry's images.
 
-**Azure Defender for container registries** includes a vulnerability scanner to scan the images in your ARM-based Azure Container Registry registries and provide deeper visibility into your images'  vulnerabilities. The integrated scanner is powered by Qualys, the industry-leading vulnerability scanning vendor.
+**Azure Defender for container registries** includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images'  vulnerabilities. The integrated scanner is powered by Qualys, the industry-leading vulnerability scanning vendor.
 
 When issues are found – by Qualys or Security Center – you'll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-containers).
 
@@ -44,7 +44,7 @@ The scan completes typically within 2 minutes, but it might take up to 15 minute
 [![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 
-## How does Azure Security Center work with Azure Container Registry
+## How does Security Center work with Azure Container Registry
 
 Below is a high-level diagram of the components and benefits of protecting your registries with Security Center.
 
@@ -78,6 +78,6 @@ To learn more about Security Center's container security features, see:
 
 - [Azure Security Center and container security](container-security.md)
 
-- [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
+- [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 

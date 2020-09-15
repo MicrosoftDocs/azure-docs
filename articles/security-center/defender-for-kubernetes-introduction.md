@@ -18,13 +18,13 @@ Azure Security Center and AKS form the best cloud-native Kubernetes security off
 
 For threat detection for your Kubernetes clusters, enable **Azure Defender for Kubernetes**.
 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-intro.md).
+Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md).
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally Available|
+|Release state:|Generally available (GA)|
 |Pricing:|**Azure Defender for Kubernetes** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
@@ -70,7 +70,7 @@ You can see that the items received and analyzed by Security Center include:
 - cluster configuration information from the AKS cluster
 - workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**). [Learn more about workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-:::image type="content" source="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro\aks-asc-integration-detailed.png":::
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
 
 

@@ -46,8 +46,8 @@ By defining lists of known-safe applications, and generating alerts when anythin
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability|
-|Pricing:|Requires [Azure Defender for servers](defender-for-servers-intro.md)|
+|Release state:|Generally available (GA)|
+|Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|

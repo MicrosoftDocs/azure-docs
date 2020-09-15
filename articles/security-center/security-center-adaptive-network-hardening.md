@@ -22,8 +22,8 @@ Learn how to configure Adaptive Network Hardening in Azure Security Center.
 ## Availability
 |Aspect|Details|
 |----|:----|
-|Release state:|**Generally Available**|
-|Pricing:|Requires [Azure Defender for servers](defender-for-servers-intro.md)|
+|Release state:|Generally available (GA)|
+|Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
@@ -52,7 +52,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
    * **Unscanned resources**: VMs that the Adaptive Network Hardening algorithm cannot be run on because of one of the following reasons:
       * **VMs are Classic VMs**: Only Azure Resource Manager VMs are supported.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
-      * **VM is not protected by Azure Defender**: Only VMs protected with [Azure Defender for servers](defender-for-servers-intro.md) are eligible for this feature.
+      * **VM is not protected by Azure Defender**: Only VMs protected with [Azure Defender for servers](defender-for-servers-introduction.md) are eligible for this feature.
 
      ![unhealthy resources](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 

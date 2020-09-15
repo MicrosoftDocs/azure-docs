@@ -31,14 +31,14 @@ Azure Defender provides security alerts and advanced threat protection for virtu
 
 When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
 
-- [Azure Defender for servers](defender-for-servers-intro.md)
-- [Azure Defender for App Service](defender-for-app-service-intro.md)
-- [Azure Defender for Storage](defender-for-storage-intro.md)
-- [Azure Defender for SQL](defender-for-sql-intro.md)
-- [Azure Defender for IoT](defender-for-iot-intro.md)
-- [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
-- [Azure Defender for container registries](defender-for-container-registries-intro.md)
-- [Azure Defender for Key Vault](defender-for-key-vault-intro.md)
+- [Azure Defender for servers](defender-for-servers-introduction.md)
+- [Azure Defender for App Service](defender-for-app-service-introduction.md)
+- [Azure Defender for Storage](defender-for-storage-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [Azure Defender for IoT](defender-for-iot-introduction.md)
+- [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- [Azure Defender for container registries](defender-for-container-registries-introduction.md)
+- [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
 
 Each of these plans is explained separately in the Security Center documentation.
 
@@ -55,7 +55,7 @@ You'll get customized threat intelligence and prioritized alerts according to yo
 
 Deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender to extend protection to on-premises and multi-cloud virtual machines and SQL databases. Azure Arc for servers is a free service, but services that are used on Arc enabled servers, for example Azure Defender, will be charged as per the pricing for that service.
 
-[Learn more about Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview),
+[Learn more about Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview).
 
 
 ## Azure Defender alerts 
@@ -94,4 +94,4 @@ Learn more on the following pages:
 In this article, you learned about the benefits of Azure Defender. 
 
 > [!div class="nextstepaction"]
-    > [Enable Azure Defender](security-center-pricing.md)
+> [Enable Azure Defender](security-center-pricing.md)

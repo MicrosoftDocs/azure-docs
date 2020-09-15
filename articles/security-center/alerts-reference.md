@@ -30,7 +30,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
-[Further details and notes](defender-for-servers-intro.md)
+[Further details and notes](defender-for-servers-introduction.md)
 
 |Alert|Description|Intent ([Learn more](#intentions))|Severity|
 |----|----|:----:|--|
@@ -69,7 +69,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 |**Detected suspicious use of FTP -s Switch**|Analysis of process creation data from the %{Compromised Host} detected the use of the FTP "-s:filename" switch. This switch is used to specify an FTP script file for the client to run. Malware or malicious processes are known to use this FTP switch (-s:filename) to point to a script file which is configured to connect to a remote FTP server and download additional malicious binaries.|-|Medium|
 |**Detected suspicious use of Pcalua.exe to launch executable code**|Analysis of host data on %{Compromised Host} detected the use of pcalua.exe to launch executable code. Pcalua.exe is component of the Microsoft Windows "Program Compatibility Assistant" which detects compatibility issues during the installation or execution of a program. Attackers are known to abuse functionality of legitimate Windows system tools to perform malicious actions, for example using pcalua.exe with the -a switch to launch malicious executables either locally or from remote shares.|-|Medium|
 |**Detected the disabling of critical services**|The analysis of host data on %{Compromised Host} detected execution of "net.exe stop" command being used to stop critical services like SharedAccess or Windows Security Center. The stopping of either of these services can be indication of a malicious behavior.|-|Medium|
-|**Digital currency mining related behavior detected**|Analysis of host data on %{Compromised Host} detected the execution of a process or command normally associated with digital currency mining.|-|High|
+|**Digital currency mining related behavior detected**|Analysis of host data on %{Compromised Host} detected the execution of a process or command normally associated with digital currency mining.<br>[Also relevant to [App Service](#alerts-azureappserv)]|-|High|
 |**Dynamic PS script construction**|Analysis of host data on %{Compromised Host} detected a PowerShell script being constructed dynamically. Attackers sometimes use this approach of progressively building up a script in order to evade IDS systems. This could be legitimate activity, or an indication that one of your machines has been compromised.|-|Medium|
 |**Executable found running from a suspicious location**|Analysis of host data detected an executable file on %{Compromised Host} that is running from a location in common with known suspicious files. This executable could either be legitimate activity, or an indication of a compromised host.|-|High|
 |**Fileless attack technique detected**|The memory of the process specified below contains evidence of a fileless attack technique. Fileless attacks are used by attackers to execute code while evading detection by security software. Specific behaviors include:<br>1) Shellcode, which is a small piece of code typically used as the payload in the exploitation of a software vulnerability.<br>2) Executable image injected into the process, such as in a code injection attack.<br>3) Active network connections. See NetworkConnections below for details.<br>4) Function calls to security sensitive operating system interfaces. See Capabilities below for referenced OS capabilities.<br>5) Process hollowing, which is a technique used by malware in which a legitimate process is loaded on the system to act as a container for hostile code.<br>6) Contains a thread that was started in a dynamically allocated code segment. This is a common pattern for process injection attacks.|DefenseEvasion / Execution|High|
@@ -107,7 +107,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 |**Suspicious download using Certutil detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected the use of certutil.exe, a built-in administrator utility, for the download of a binary instead of its mainstream purpose that relates to manipulating certificates and certificate data. Attackers are known to abuse functionality of legitimate administrator tools to perform malicious actions, for example using certutil.exe to download and decode a malicious executable that will then be subsequently executed. This behavior was seen [x] times today on the following machines: [Machine names]|-|Medium|
 |**Suspicious download using Certutil detected**|Analysis of host data on %{Compromised Host} detected the use of certutil.exe, a built-in administrator utility, for the download of a binary instead of its mainstream purpose that relates to manipulating certificates and certificate data. Attackers are known to abuse functionality of legitimate administrator tools to perform malicious actions, for example using certutil.exe to download and decode a malicious executable that will then be subsequently executed.|-|Medium|
 |**Suspicious process executed [seen multiple times]**|Machine logs indicate that the suspicious process: '%{Suspicious Process}' was running on the machine, often associated with attacker attempts to access credentials. This behavior was seen [x] times today on the following machines: [Machine names]|-|High|
-|**Suspicious process executed**|Machine logs indicate that the suspicious process: '%{Suspicious Process}' was running on the machine, often associated with attacker attempts to access credentials.'|-|High|
+|**Suspicious process executed**|Machine logs indicate that the suspicious process: '%{Suspicious Process}' was running on the machine, often associated with attacker attempts to access credentials.<br>[Also relevant to [App Service](#alerts-azureappserv)]|-|High|
 |**Suspicious process name detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected a process whose name is suspicious, for example corresponding to a known attacker tool or named in a way that is suggestive of attacker tools that try to hide in plain sight. This process could be legitimate activity, or an indication that one of your machines has been compromised. This behavior was seen [x] times today on the following machines: [Machine names]|-|Medium|
 |**Suspicious process name detected**|Analysis of host data on %{Compromised Host} detected a process whose name is suspicious, for example corresponding to a known attacker tool or named in a way that is suggestive of attacker tools that try to hide in plain sight. This process could be legitimate activity, or an indication that one of your machines has been compromised.|-|Medium|
 |**Suspicious process termination burst**|Analysis of host data indicates a suspicious process termination burst in %{Machine Name}. Specifically, %{NumberOfCommands} processes were killed between %{Begin} and %{Ending}.|-|Low|
@@ -122,7 +122,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-linux"></a>Alerts for Linux machines
 
-[Further details and notes](defender-for-servers-intro.md)
+[Further details and notes](defender-for-servers-introduction.md)
 
 |Alert|Description|Intent ([Learn more](#intentions))|Severity|
 |----|----|:----:|--|
@@ -214,7 +214,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
 
-[Further details and notes](defender-for-app-service-intro.md)
+[Further details and notes](defender-for-app-service-introduction.md)
 
 | Alert                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                           | Intent ([Learn more](#intentions)) | Severity |
 |---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -239,7 +239,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-akscluster"></a>Alerts for containers - Azure Kubernetes Service clusters
 
-[Further details and notes](defender-for-kubernetes-intro.md)
+[Further details and notes](defender-for-kubernetes-introduction.md)
 
 | Alert                                                   | Description                                                                                                                                                                                                                                                                                                 | Intent ([Learn more](#intentions)) | Severity |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -257,7 +257,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
-[Further details and notes](defender-for-kubernetes-intro.md)
+[Further details and notes](defender-for-kubernetes-introduction.md)
 
 | Alert                                              | Description                                                                                                                                                                                                                                                                                                | Intent ([Learn more](#intentions)) | Severity |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -273,7 +273,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and Azure Synapse Analytics
 
-[Further details and notes](defender-for-sql-intro.md)
+[Further details and notes](defender-for-sql-introduction.md)
 
 | Alert                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                 | Intent ([Learn more](#intentions)) | Severity |
 |-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -289,7 +289,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azurestorage"></a>Alerts for Azure Storage
 
-[Further details and notes](defender-for-storage-intro.md)
+[Further details and notes](defender-for-storage-introduction.md)
 
 | Alert                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Intent ([Learn more](#intentions)) | Severity |
 |---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -367,7 +367,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault
 
-[Further details and notes](defender-for-key-vault-intro.md)
+[Further details and notes](defender-for-key-vault-introduction.md)
 
 | Alert                                                        | Description                                                                                                                                                                                                                                                                                                                            | Intent ([Learn more](#intentions)) | Severity |
 |--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|

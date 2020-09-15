@@ -61,14 +61,14 @@ Learn more about the [overview page](overview-page.md).
 
 When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
 
-- [Azure Defender for servers](defender-for-servers-intro.md)
-- [Azure Defender for App Service](defender-for-app-service-intro.md)
-- [Azure Defender for Storage](defender-for-storage-intro.md)
-- [Azure Defender for SQL](defender-for-sql-intro.md)
-- [Azure Defender for IoT](defender-for-iot-intro.md)
-- [Azure Defender for Key Vault](defender-for-key-vault-intro.md)
-- [Azure Defender for Kubernetes](defender-for-kubernetes-intro.md)
-- [Azure Defender for container registries](defender-for-container-registries-intro.md)
+- [Azure Defender for servers](defender-for-servers-introduction.md)
+- [Azure Defender for App Service](defender-for-app-service-introduction.md)
+- [Azure Defender for Storage](defender-for-storage-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [Azure Defender for IoT](defender-for-iot-introduction.md)
+- [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
+- [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- [Azure Defender for container registries](defender-for-container-registries-introduction.md)
 
 Each of these plans is explained separately in the Security Center documentation.
 
@@ -86,7 +86,7 @@ The optional plan is now GA. This feature was in preview as "advanced threat pro
 
 Also, the Key Vault pages in the Azure portal now include a dedicated **Security** page for **Security Center** recommendations and alerts.
 
-Learn more in [Azure Defender for Key Vault](defender-for-key-vault-intro.md).
+Learn more in [Azure Defender for Key Vault](defender-for-key-vault-introduction.md).
 
 
 ### Asset inventory tools are now generally available
@@ -152,7 +152,7 @@ Learn more in [Workload protection best-practices using Kubernetes admission con
 
 Azure Defender for IoT brings more threat protection capabilities thanks to the inclusion of CyberX Agentless Technology. This brings security protections for unmanaged brownfield devices used in Operational Technology (OT) environments such as manufacturing, building management systems (BMS), life sciences, energy and water utilities, oil & gas, and logistics.
 
-Learn more in [Introduction to Azure Defender for IoT](defender-for-iot-intro.md).
+Learn more in [Introduction to Azure Defender for IoT](defender-for-iot-introduction.md).
 
 
 ### Vulnerability assessment findings are now available in continuous export

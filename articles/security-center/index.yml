@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What are the key capabilities of Security Center?
-            url: security-center-intro.md
+            url: security-center-introduction.md
           - text: Which versions of Windows server and Linux are supported?
             url: security-center-os-coverage.md
           - text: What's Azure Defender?

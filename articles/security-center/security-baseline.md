@@ -635,7 +635,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 - [Azure Resource Manager templates for security resource](/azure/templates/microsoft.security/allversions)
 
-- [About Azure Automation](../automation/automation-intro.md)
+- [About Azure Automation](../automation/automation-introduction.md)
 
 **Azure Security Center monitoring**: Not applicable
 

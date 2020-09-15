@@ -12,7 +12,7 @@ manager: rkarlin
 
 # Use Azure Defender for container registries to scan your images for vulnerabilities
 
-This page explains how to use the built-in vulnerability scanner to scan the container images stored in your ARM-based Azure Container Registry.
+This page explains how to use the built-in vulnerability scanner to scan the container images stored in your Azure Resource Manager-based Azure Container Registry.
 
 When **Azure Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned. 
 
@@ -22,7 +22,7 @@ When the scanner reports vulnerabilities to Security Center, Security Center pre
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability|
+|Release state:|Generally available (GA)|
 |Pricing:|**Azure Defender for container registries** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Supported registries and images:|![Yes](./media/icons/yes-icon.png) Linux-hosted ACR registries that are accessible from the public internet and provide shell access.<br>![No](./media/icons/no-icon.png) Windows-hosted ACR registries.<br>![No](./media/icons/no-icon.png) 'Private' registries - Security Center requires your registries to be accessible from the public internet. Security Center can't currently connect to, or scan, registries with access limited with a firewall, a service endpoint, or private endpoints such as Azure Private Link.<br>![No](./media/icons/no-icon.png) Super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS.|
 |Required roles and permissions:|**Security reader** and [Azure Container Registry reader role](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
@@ -32,7 +32,7 @@ When the scanner reports vulnerabilities to Security Center, Security Center pre
 
 ## Identify vulnerabilities in images in Azure container registries 
 
-1. To enable vulnerability scans of images stored in your ARM-based Azure Container Registry:
+1. To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
 
     1. Enable **Azure Defender for container registries** for your subscription.
 

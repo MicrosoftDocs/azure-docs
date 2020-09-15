@@ -16,18 +16,25 @@ ms.date: 09/12/2020
 ms.author: memildin
 ---
 
-# Azure Defender for SQL Server (Preview)
+# Azure Defender for SQL servers on machines 
 
-Azure Defender for SQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+This Azure Defender plan detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
-> [!TIP]
-> To enable Security Center's threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads. You can enable **Azure Defender for SQL** at either the subscription level or resource level.
+## Availability
 
-## Set up Azure Defender for SQL
+|Aspect|Details|
+|----|:----|
+|Release state:|Preview|
+|Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Protected SQL versions:|Azure SQL Server (all versions covered by Microsoft support)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
 
-To enable Azure Defender for SQL:
+## Set up Azure Defender for SQL servers on machines
+
+To enable this plan:
 
 * Provision the Log Analytics agent on your SQL server's host. This provides the connection to Azure.
 
