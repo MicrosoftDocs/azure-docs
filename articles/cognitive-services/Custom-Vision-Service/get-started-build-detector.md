@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
 ---
 
 # Quickstart: How to build an object detector with Custom Vision
 
-In this quickstart, you'll learn how to build an object detector through the Custom Vision website. Once you build a detector model, you can use the Custom Vision service for object detection.
+In this quickstart, you'll learn how to build an object detector through the Custom Vision website. Once you build a model, you can test in with new images and eventually integrate it into your own image recognition software.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - A set of images with which to train your detector model. You can use the set of [sample images](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) on GitHub. Or, you can choose your own images using the tips below.
 
-## Create Custom Vision resources in the Azure portal
+## Create Custom Vision resources
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
