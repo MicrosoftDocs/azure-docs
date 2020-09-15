@@ -32,13 +32,15 @@ Most of the management operations are [long running operations](management-opera
 
 Comparison of monitoring options is represented in the following table
 
-| Option | Duration | Supports cancel | Create | Update | Delete | Cancel | Steps |
+| Option | Retention | Supports cancel | Create | Update | Delete | Cancel | Steps |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Resource group deployments | Infinite | No* | Visible | Visible | Not visible | Visible | Not visible |
+| Resource group deployments | Infinite* | No** | Visible | Visible | Not visible | Visible | Not visible |
 | Activity log | 90 days | No | Visible | Visible | Visible | Visible |  Not visible |
 | Managed instance operations API | 24 hours | [Yes](canceling-management-operations.md) | Visible | Visible | Visible | Visible | Visible |
 
-/* Resource group deployments are supporting cancel operation. However, cancel logic is implemented in a way that only operation scheduled for deployment after the cancel action is performed will be canceled. Ongoing deployment is not canceled. As managed instance deployment consists of one long running step (from ARM perspective), using resource group deployment cancel functionality will not cancel managed instance deployment and operation will be completed.
+\* The deployment history for a resource group is limited to 800 deployments.
+
+\** Resource group deployments support cancel operation. However, cancel logic is implemented in a way that only operation scheduled for deployment after the cancel action is performed will be canceled. Ongoing deployment is not canceled. As managed instance deployment consists of one long running step (from ARM perspective), using resource group deployment cancel functionality will not cancel managed instance deployment and operation will be completed.
 
 ## Managed instance operations API
 Operations API represents API specially designed for managed instance management operations monitoring that provides insights on operation parameters and operation steps, additionally providing capability for canceling specific operation. Besides operation details and cancel command, this API can be used in automation scripts with multi-resource deployments - based on progress step, you can kick-off some dependent resource deployment.
@@ -67,7 +69,7 @@ In Azure portal operations API is leveraged on the managed instance overview bla
 ![Managed instance operation details](./media/monitoring-management-operations/monitoring-operation-details.png)
 
 > [!NOTE]
-> Create operations submitted through Azure portal and PowerShell, Azure CLI or other tooling using REST API version 2020-02-02 [can be canceled](canceling-management-operations.md). REST API versions older than 2020-02-02 used for submitting create operation will start instance deployment, however that deployment won't be listed in Operations API or can be canceled.
+> Create operations submitted through Azure portal and PowerShell, Azure CLI or other tooling using REST API version 2020-02-02 [can be canceled](canceling-management-operations.md). REST API versions older than 2020-02-02 used for submitting create operation will start instance deployment, however that deployment won't be listed in Operations API nor can be canceled.
 
 # [PowerShell](#tab/azure-powershell)
 
