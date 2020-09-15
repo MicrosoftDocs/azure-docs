@@ -38,10 +38,10 @@ Configuration settings you can modify are summarized in the table.
 **Networking resources** | Options for virtual networks (VNets)/network security groups/network interfaces:<br/><br/> - Create a new resource with the same name in the target region.<br/><br/> - Create a new resource with a different name in the target region.<br/><br/> - Use an existing networking resource in the target region.<br/><br/> If you create a new target resource, with the exception of the settings you modify, it's assigned the same settings as the source resource.
 **Public IP address name** | Specify the name.
 **Public IP address SKU** | Specify the [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Public IP address zone** | Specify the [zone](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) for standard public IP addresses.<br/><br/> If you want it to be zone redundant, enter as **Regional**.
+**Public IP address zone** | Specify the [zone](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) for standard public IP addresses.<br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
 **Load balancer name** | Specify the name.
 **Load balancer SKU** | Basic or Standard. We recommend using Standard.
-**Load balancer zone** | Specify a zone for the load balancer. <br/><br/> If you want it to be zone redundant, enter as **Regional**.
+**Load balancer zone** | Specify a zone for the load balancer. <br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
 **Resource dependencies** | Options for each dependency:<br/><br/>- The resource uses source dependent resources that will move to the target region.<br/><br/> - The resource uses different dependent resources located in the target region. In this case, you can choose from any similar resources in the target region.
 
 ### Edit VM target settings

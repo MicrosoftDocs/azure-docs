@@ -46,7 +46,7 @@ Using Resource Mover, you can currently move the following resources across regi
 
 You can change the subscription after moving resources to the destination region. [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md) about moving resources to a different subscription. 
 
-### Where is the metadata about a region move stored?
+### Where is the metadata for moving across regions stored?
 
 It's stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently metadata is stored in East US 2 and North Europe. We will expand this coverage to other regions. This doesn't restrict you from moving resources across any public regions.
 
