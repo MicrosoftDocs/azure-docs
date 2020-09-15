@@ -35,7 +35,7 @@ Read these articles before you begin:
 The following are prerequisites for connecting the spatial-analysis module to Live Video Analytics module.
 
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
+	* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 * [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration.  
     We recommend that you use Azure Stack Edge with GPU acceleration, however the container runs on any other device with an [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). 
 * [Azure Cognitive Service Computer Vision container](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for spatial analysis.  
@@ -77,7 +77,7 @@ This key is used to start the spatial-analysis container, and is available on th
 
 ## Set up Azure Stack Edge
 
-Follow these steps to set up the Azure Stack Edge and deploy the Live Video Analytics module.
+Follow [these steps](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) to set up the Azure Stack Edge and continue to follow the steps below to deploy the Live Video Analytics and the spatial analysis modules.
 
 ## Set up your development environment
 
