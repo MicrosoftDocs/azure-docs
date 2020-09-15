@@ -22,7 +22,7 @@ The "upload and index your video automatically" scenario covered in this tutoria
 * The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Video Indexer with a callback URL to send a notification once the indexing operation completes. 
 * The second flow is triggered based on the callback URL and saves the extracted insights back to a JSON file in Azure Storage. This two flow approach is used to support async upload and indexing of larger files effectively. 
 
-In this tutorial, you learn how to use Logic App to:
+This tutorial is using Logic App to show how to:
 
 > [!div class="checklist"]
 > * Set up the file upload flow
