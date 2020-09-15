@@ -84,23 +84,34 @@ No, you do not need to restart the database server to start using the new certif
 ### 3. What will happen if I do not update the root certificate before October 26, 2020 (10/26/2020)?
 If you do not update the root certificate before October 26, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the MariaDB database server and application will experience connectivity issues to your MariaDB database server.
 
-### 4. Do I need to plan a maintenance downtime for this change?<BR>
+### 4. What is the impact if using App Service with Azure Database for MariaDB ?
+For Azure app services, connecting to Azure Database for MariaDB, we can have two possible scenarios and it depends on how on you are using SSL with your application.
+*   If you are relying on App Service platform for managing the SSL cert, you should not see any impact with the certificate change . This certificates is included in App Service at platform level and there is no action needed.
+*   If you are explicitly including the path to SSL cert file in your code , then you would need to download the new cert and update the code to use the new cert.
+
+### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for MariaDB?
+If you are trying to connection to the Azure Database for MySQL using Azure Kubernetes Services (AKS), it is similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).
+
+### 6. What is the impact if using Azure Data Factory to connect to Azure Database for MariaDB?
+Azure Data Factory (ADF) leverages certificates in the Windows Certificate Store. These certificates are already compatible to the newly applied certificates and therefore no action is needed.
+
+### 7. Do I need to plan a maintenance downtime for this change?
 No. Since the change here is only on the client side to connect to the database server, there is no maintenance downtime needed here for this change.
 
-### 5.  What if I cannot get a scheduled downtime for this change before October 26, 2020 (10/26/2020)?
+### 8.  What if I cannot get a scheduled downtime for this change before October 26, 2020 (10/26/2020)?
 Since the clients used for connecting to the server needs to be updating the certificate information as described in the fix section [here](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), we do not need to a downtime for the server in this case.
 
-###  6. If I create a new server after October 26, 2020, will I be impacted?
+### 9. If I create a new server after October 26, 2020, will I be impacted?
 For servers created after October 26, 2020 (10/26/2020), you can use the newly issued certificate for your applications to connect using SSL.
 
-###	7. How often does Microsoft update their certificates or what is the expiry policy?
+###	10. How often does Microsoft update their certificates or what is the expiry policy?
 These certificates used by Azure Database for MariaDB are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for MariaDB is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates, which need to be fixed at the earliest.
 
-###	8. If I am using read replicas, do I need to perform this update only on master server or all the read replicas?
-Since this update is a client-side change, if the client used to read data from the replica server, we will need to apply the changes for those clients as well. 
+###	11. If I am using read replicas, do I need to perform this update only on master server or all the read replicas?
+Since this update is a client-side change, if the client used to read data from the replica server, we will need to apply the changes for those clients as well.
 
-### 9. Do we have server-side query to verify if SSL is being used?
+### 12. Do we have server-side query to verify if SSL is being used?
 To verify if you are using SSL connection to connect to the server refer [SSL verification](howto-configure-ssl.md#verify-the-ssl-connection).
 
-###	10. What if I have further questions?
+###	13. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). If you have a support plan and you need technical help, [contact us](mailto:AzureDatabaseformariadb@service.microsoft.com)
