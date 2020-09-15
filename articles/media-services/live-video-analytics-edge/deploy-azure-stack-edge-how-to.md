@@ -26,7 +26,7 @@ For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge r
 * Storage account
 
     It is recommended that you use General-purpose v2 (GPv2) Storage accounts.  
-    Learn more about a [general-purpose v2 storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-upgrade?tabs=azure-portal).
+    Learn more about a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal).
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
