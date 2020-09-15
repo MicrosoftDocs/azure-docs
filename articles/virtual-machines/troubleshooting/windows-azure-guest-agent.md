@@ -9,7 +9,7 @@ editor:
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/07/2020
+ms.date: 09/15/2020
 ms.author: genli
 ---
 # Troubleshooting Windows Azure Guest Agent
@@ -47,7 +47,7 @@ Go to to the VM properties page in Azure portal, and check the **Agent status**.
     
     You can run the following PowerShell command to check whether VM Agent has been deployed to the VM:
     
-    `Get-Az VM -ResourceGroup “RGNAME” – Name “VMNAME” -displayhint expand`
+    `Get-AzVM -ResourceGroupName "RGNAME" -Name "VMNAME" -DisplayHint expand`
     
     In the output, locate the **ProvisionVMAgent** property, and check whether the value is set to **True**. If it is, this means that the agent is installed on the VM.
     
