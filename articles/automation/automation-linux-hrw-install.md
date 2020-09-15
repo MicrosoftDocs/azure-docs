@@ -72,15 +72,9 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 
 ## Supported Linux hardening
 
-The following are currently supported:
-
-* FIPS
-
 The following are not yet supported:
 
 * CIS
-
-Other hardening and customization methods are not supported nor planned for the Linux Hybrid Runbook Worker.
 
 ## Supported runbook types
 
