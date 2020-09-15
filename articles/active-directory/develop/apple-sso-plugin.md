@@ -121,7 +121,7 @@ If you're building an application for Frontline Worker scenarios, see [Shared de
 
 ## How the SSO plug-in works
 
-The Microsoft Enterprise SSO plug-in relies on the [Apple's Enterprise Single Sign-On framework](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Identity providers that onboard to the framework can intercept network traffic for their domains and enhance or change how those requests are handled. For example, the SSO plug-in can show additional UI to collect end user credentials securely, require MFA, or silently provide tokens to the application.
+The Microsoft Enterprise SSO plug-in relies on the [Apple's Enterprise Single Sign-On framework](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Identity providers that onboard to the framework can intercept network traffic for their domains and enhance or change how those requests are handled. For example, the SSO plug-in can show additional UI to collect end-user credentials securely, require MFA, or silently provide tokens to the application.
 
 Native applications can also implement custom operations and talk directly to the SSO plug-in.
 You can learn about Single Sign-in framework in this [2019 WWDC video from Apple](https://developer.apple.com/videos/play/tech-talks/301/)
