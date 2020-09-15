@@ -81,6 +81,14 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
+The `json` argument to the POST request must contain, for the `ParameterAssignments` key, a dictionary containing the pipeline parameters and their values. In addition, the `json` argument may contain the following keys:
+
+| Key | Description |
+| --- | --- | 
+| `ExperimentName` | The name of the experiment associated with this endpoint |
+| `Description` | Freeform text describing the endpoint | 
+| `RunSource` | tk tk tk | 
+
 ## Create a versioned pipeline endpoint
 
 You can create a Pipeline Endpoint with multiple published pipelines behind it. This gives you a fixed REST endpoint as you iterate on and update your ML pipelines.
