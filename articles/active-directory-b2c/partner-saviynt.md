@@ -111,9 +111,9 @@ The below steps explain how to enable Saviynt to perform user delete operations 
 >[!NOTE]
 >[Evaluate the risk before granting admin roles access to a service principal.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
-1. Install the latest version of [MSOnline PowerShell Module](&preserve-view=truehttps://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) on a Windows workstation/server.
+1. Install the latest version of MSOnline PowerShell Module on a Windows workstation/server.
 
-2. [Connect to AzureAD PowerShell module](&preserve-view=truehttps://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0#connect-to-azure-ad) and execute the following commands:
+2. Connect to AzureAD PowerShell module and execute the following commands:
 
 ```powershell
 Connect-msolservice #Enter Admin credentials of the Azure portal
