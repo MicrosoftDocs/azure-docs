@@ -20,7 +20,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 |Aspect|Details|
 |----|:----|
 |Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Preview|
-|Pricing:|The two plans that form **Azure Defender for SQL** are billed billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
 |Protected SQL versions:|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics (formerly SQL DW)<br>SQL Server (all supported versions)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
@@ -51,7 +51,7 @@ These two plans include functionality for identifying and mitigating potential d
 Security alerts are triggered when there's:
 
 - **Potential SQL injection attacks** - including vulnerabilities detected when applications generate a faulty SQL statement in the database
-- **Anomalous database access and query patterns** - for example, an abnormally high number of failed sign in attempts with different credentials (a brute force attempt)
+- **Anomalous database access and query patterns** - for example, an abnormally high number of failed sign-in attempts with different credentials (a brute force attempt)
 - **Suspicious database activity** - for example, a change in the export storage destination for a SQL import and export operation
 
 Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
