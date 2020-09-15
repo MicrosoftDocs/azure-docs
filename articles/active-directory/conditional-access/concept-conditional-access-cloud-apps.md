@@ -52,9 +52,9 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
-- Office 365 Exchange Online
-- Office 365 SharePoint Online
-- Office 365 Yammer
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Office Sway
 - Outlook Groups
@@ -66,7 +66,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 
 ### Office 365 (preview)
 
-Office 365 provides cloud-based productivity and collaboration services like Exchange, SharePoint, and Microsoft Teams. Office 365 cloud services are deeply integrated to ensure smooth and collaborative experiences. This integration can cause confusion when creating policies as some apps such as Microsoft Teams have dependencies on others such as SharePoint or Exchange.
+Microsoft 365 provides cloud-based productivity and collaboration services like Exchange, SharePoint, and Microsoft Teams. Microsoft 365 cloud services are deeply integrated to ensure smooth and collaborative experiences. This integration can cause confusion when creating policies as some apps such as Microsoft Teams have dependencies on others such as SharePoint or Exchange.
 
 The Office 365 (preview) app makes it possible to target these services all at once. We recommend using the new Office 365 (preview) app, instead of targeting individual cloud apps to avoid issues with [service dependencies](service-dependencies.md). Targeting this group of applications helps to avoid issues that may arise due to inconsistent policies and dependencies.
 
@@ -79,10 +79,10 @@ Key applications that are included in the Office 365 (preview) client app:
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
-   - Office 365 Exchange Online
-   - Office 365 SharePoint Online
-   - Office 365 Search Service
-   - Office 365 Yammer
+   - Exchange Online
+   - SharePoint Online
+   - Microsoft 365 Search Service
+   - Yammer
    - Office Delve
    - Office Online
    - Office.com
