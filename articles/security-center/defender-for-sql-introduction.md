@@ -6,6 +6,7 @@ ms.author: memildin
 ms.date: 9/12/2020
 ms.topic: conceptual
 ms.service: security-center
+ms.custom: references_regions
 manager: rkarlin
 
 ---
