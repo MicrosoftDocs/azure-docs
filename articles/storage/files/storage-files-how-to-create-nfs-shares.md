@@ -1,5 +1,5 @@
 ---
-title: Azure Files - Create an NFS Azure file share
+title: Create an NFS share in Azure Files
 description: Learn how to create an Azure file share that can be mounted using the Network File System protocol.
 author: roygara
 ms.service: storage
@@ -34,7 +34,6 @@ Azure file shares are fully managed file shares that live in the cloud. They can
     - [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
     - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
 - If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- If you intend to use the Azure PowerShell module, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## Register the NFS 4.1 protocol
 
@@ -57,6 +56,7 @@ az login
 az feature register --name AllowNfsFileShares
                     --namespace Microsoft.Storage
                     --subscription <yourSubscriptionIDHere>
+az provider register --namespace Microsoft.Storage
 ```
 
 ## Verify that the feature is registered
@@ -97,28 +97,56 @@ Now that you have created a FileStorage account and configured the networking, y
 
 # [PowerShell](#tab/azure-powershell)
 
-To create a premium file share with the Azure PowerShell module, use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet.
+1. Ensure that the .NET framework is installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+ 
+1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
+
+   ```powershell
+   echo $PSVersionTable.PSVersion.ToString() 
+   ```
+    
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+    
+1. Install the latest version of the PowershellGet module.
+
+   ```powershell
+   install-Module PowerShellGet –Repository PSGallery –Force  
+   ```
+
+1. Close, and then reopen the PowerShell console.
+
+1. Install the **Az.Storage** preview module version **2.5.2-preview**.
+
+   ```powershell
+   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
+   ```
+
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   
+1. To create a premium file share with the Azure PowerShell module, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet.
 
 > [!NOTE]
 > Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
-```powershell
-New-AzStorageShare `
+  ```powershell
+  New-AzRmStorageShare `
+   -ResourceGroupName $resourceGroupName `
+   -StorageAccountName $storageAccountName `
    -Name myshare `
    -EnabledProtocol NFS `
    -RootSquash RootSquash `
    -Context $storageAcct.Context
-```
+  ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a premium file share with the Azure CLI, use the [az storage share create](/cli/azure/storage/share) command.
+To create a premium file share with the Azure CLI, use the [az storage share create](/cli/azure/storage/share-rm) command.
 
 > [!NOTE]
 > Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ```azurecli-interactive
-az storage share create \
+az storage share-rm create \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
     --enabled-protocol NFS \
