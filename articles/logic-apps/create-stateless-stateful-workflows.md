@@ -82,15 +82,19 @@ For information about how nested workflows behave differently between stateful a
 
 * [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/), which is free, along with these tools for Visual Studio Code:
 
-  * [C# for Visual Studio Code extension 1.23.2 or higher](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your workflow
-
   * [Azure Functions Core Tools 3.0.2569 or higher](../azure-functions/functions-run-local.md). If you have an earlier installation, uninstall that version first, or make sure that the PATH environment variable points at the appropriate version specified here after you download and install the core tools:
 
     * [Win x64 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x64.msi)
 
     * [Win x86 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x86.msi)
 
-  * [Azure Logic Apps (Preview) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). This public preview extension provides the capability for you to create stateless and stateful workflow apps by using Visual Studio Code.
+  * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your workflow
+
+  * [Azure Logic Apps (Preview) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). This public preview extension provides the capability for you to create stateless and stateful workflows by using Visual Studio Code.
+
+    > [!IMPORTANT]
+    > If you previously installed or have the private preview extension, make sure that you uninstall this version first. 
+    > Also, delete the previously installed extension bundles
 
     You can install the extension either directly from the [Visual Studio Code Marketplace](https://go.microsoft.com/fwlink/p/?linkid=2143167), or you can follow these steps to install from within Visual Studio Code:
 
@@ -133,8 +137,8 @@ For information about how nested workflows behave differently between stateful a
   Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). To run the emulator, you also need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
   > [!IMPORTANT]
-  > Before you create your workflow app, make sure that you first start the emulator. 
-  > Otherwise, when you try to open your workflow app in the Logic App Designer, 
+  > Before you create your workflow, make sure that you started and are running the emulator. 
+  > Otherwise, when you try to open your workflow in the Logic App Designer, 
   > you get a message that the `Workflow design time could not be started`. For more 
   > information, see [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
   >
@@ -342,15 +346,19 @@ Now, continue creating your workflow app.
 
 1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
 
-1. In the Azure pane, next to **Azure: Functions**, select **Create workflow**.
+1. In the Azure pane, next to **Azure: Logic Apps**, select **Create workflow**.
 
-   ![Screenshot that shows Azure pane toolbar with "Create workflow" selected.](./media/create-stateless-stateful-workflows/create-function-app-project.png)
+   ![Screenshot that shows Azure pane toolbar with "Create workflow" selected.](./media/create-stateless-stateful-workflows/create-workflow.png)
 
 --->
 
 1. From the resource groups list, select **Create new resource group**.
 
    ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected](./media/create-stateless-stateful-workflows/create-select-resource-group.png)
+
+1. Provide a name for the resource group, and press Enter. This example uses `example-workflow-rg`.
+
+   ![Screenshot that shows Explorer pane and resource group name box.](./media/create-stateless-stateful-workflows/enter-name-for-resource-group.png)
 
 1. From the locations list, select the Azure region to use for your resource group and resources. This example uses **West Central US**.
 
