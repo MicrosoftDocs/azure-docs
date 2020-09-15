@@ -22,14 +22,12 @@ This tutorial begins by uploading to Azure the CIFAR10 data followed by using th
 By the end of this tutorial you would have a better understanding of:
 
 > [!div class="checklist"]
-
 > * Best practices for working with cloud data in Azure Machine Learning
 > * Working with command-line arguments
 
 The Azure Machine Learning concepts covered in this Tutorial are:
 
 > [!div class="checklist"]
-
 > * ScriptRunConfig: Passing script arguments.
 > * Datastore
 > * Dataset
