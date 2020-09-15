@@ -52,17 +52,17 @@
 - name: Concepts
   items:
   - name: Compare solutions for External Identities
-    href: /azure/active-directory/b2b/compare-with-b2c?context=azure/active-directory-b2c/context/active-directory-b2c-context
+    href: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
   - name: Learn the basics
     items:
     - name: Authentication and authorization
-      href: /azure/active-directory/develop/authentication-vs-authorization?context=azure/active-directory-b2c/context/active-directory-b2c-context
+      href: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
     - name: Tokens
-      href: /azure/active-directory/develop/security-tokens?context=azure/active-directory-b2c/context/active-directory-b2c-context
+      href: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
     - name: Protocols
-      href: /azure/active-directory/develop/v2-app-types?context=azure/active-directory-b2c/context/active-directory-b2c-context
+      href: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
     - name: Authentication library
-      href: /azure/active-directory/develop/msal-overview?context=azure/active-directory-b2c/context/active-directory-b2c-context
+      href: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
   - name: Azure AD B2C best practices
     href: best-practices.md
   - name: Application types
