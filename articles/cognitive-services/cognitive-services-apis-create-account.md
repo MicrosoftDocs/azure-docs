@@ -72,7 +72,7 @@ Azure Cognitive Services are cloud-base services with REST APIs, and client libr
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
 
-    ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+    ![Multi-service resource resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
     Click **Create**.
 
@@ -86,7 +86,7 @@ Azure Cognitive Services are cloud-base services with REST APIs, and client libr
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
 
-    ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
+    ![[Single-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
     Click **Create**.
 
