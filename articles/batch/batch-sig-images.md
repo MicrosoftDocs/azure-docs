@@ -39,6 +39,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 > [!NOTE]
 > If the Shared Image is not in the same subscription as the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for that subscription. The two subscriptions must be in the same Azure AD tenant.
+>
 > The image can be in different regions as long as it has replicas in the same region as your Batch account.
 
 If you use an Azure AD application to create a custom image pool with a Shared Image Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
