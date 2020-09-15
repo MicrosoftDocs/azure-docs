@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.date: 09/15/2020
 ---
 
-This article provides information and sample code to help you get started using the Custom Vision client library with Go to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
+This guide provides information and sample code to help you get started using the Custom Vision client library with Go to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
 
 ## Prerequisites
 

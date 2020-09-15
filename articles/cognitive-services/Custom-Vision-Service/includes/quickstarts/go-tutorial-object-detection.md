@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.date: 09/15/2020
 ---
 
-This article provides information and sample code to help you get started using the Custom Vision client library with Go to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application.
+This guide provides information and sample code to help you get started using the Custom Vision client library with Go to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application.
 
 ## Prerequisites
 

@@ -1,5 +1,6 @@
 ---
 title: "Quickstart: Object detection with Custom Vision client library"
+titleSuffix: Azure Cognitive Services
 description: "Quickstart: Create an object detection project, add tags, upload images, train your project, and detect objects using the Custom Vision client library."
 author: PatrickFarley
 ms.author: pafarley

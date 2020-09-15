@@ -6,7 +6,7 @@ ms.service: cognitive-services
 ms.date: 09/15/2020
 ---
 
-This article shows you how to get started using the Custom Vision client library with Java to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application.
+This guide shows you how to get started using the Custom Vision client library with Java to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application.
 
 ## Prerequisites
 
