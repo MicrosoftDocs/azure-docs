@@ -9,8 +9,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: tamram
-ms.reviewer: ozgun
-ms.subservice: common
+ms.reviewer: ozguns
+ms.subservice: queues
 ms.custom: contperfq1
 ---
 
