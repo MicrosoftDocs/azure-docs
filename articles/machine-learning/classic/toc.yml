@@ -7,7 +7,7 @@
     displayName: overview
     href: studio-classic-overview.md
   - name: Compare our ML products
-    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/classic/context/ml-context
 - name: Quickstarts
   items:
   - name: Create your first experiment
@@ -143,7 +143,7 @@
 - name: Reference
   items:
   - name: Algorithm & module reference
-    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
+    href: ../studio-module-reference/
   - name: Azure PowerShell modules
     href: powershell-module.md
   - name: Web service error codes
