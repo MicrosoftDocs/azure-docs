@@ -60,6 +60,9 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **\*.notebooks.azure.net** | Needed by the notebooks in Azure Machine Learning studio. |
 | **graph.windows.net** | Needed for notebooks |
 
+> [!TIP]
+> If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
+
 ## Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
