@@ -72,11 +72,11 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **Graph**:
 
-:::image type="content" source="./media/pricing-graph.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a graph.":::
+:::image type="content" source="./media/spot-graph.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a graph.":::
 
 **Table**:
 
-:::image type="content" source="./media/pricing-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+:::image type="content" source="./media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 You can also query using the [REST API and the Unified Pricing API – Retail Rates endpoint](/rest/api/cost-management/retail-prices/azure-retail-prices) to query for information about Spot pricing.
 
