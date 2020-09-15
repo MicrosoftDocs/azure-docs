@@ -1412,7 +1412,7 @@
         href: salesforce-tutorial.md
       - name: Salesforce Sandbox
         href: salesforce-sandbox-tutorial.md
-      - name: Samanage
+      - name: SolarWinds Service Desk (previously Samanage)
         href: samanage-tutorial.md
       - name: SAML 1.1 Token enabled LOB App
         href: saml-tutorial.md
@@ -2071,7 +2071,7 @@
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
         href: salesforce-sandbox-provisioning-tutorial.md
-      - name: Samanage
+      - name: SolarWinds Service Desk (previously Samanage)
         href: samanage-provisioning-tutorial.md
       - name: SAP Analytics Cloud
         href: sap-analytics-cloud-provisioning-tutorial.md
