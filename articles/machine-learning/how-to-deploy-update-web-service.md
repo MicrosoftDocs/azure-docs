@@ -1,16 +1,21 @@
 ---
-title: Update a deployed webservice
 
-author: gvashishtha
+title: Update web services
+titleSuffix: Azure Machine Learning
+description: Learn how to refresh a web service that is already deployed in Azure Machine Learning
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/31/2020
+
 ms.author: gopalv
+author: gvashishtha
+ms.date: 07/31/2020
+
 ---
 
 # Update a deployed web service
 
-This article shows to to deploy a web service that was deployed with Azure Machine Learning.
+In this article, you learn how to update a web service that was deployed with Azure Machine Learning.
 
 ## Prerequisites
 
