@@ -49,4 +49,4 @@ You can create and manage maintenance configurations using any of the following 
 Learn how to control when maintenance is applied to your Azure virtual machine scale sets using Maintenance control and PowerShell.
 
 > [!div class="nextstepaction"]
-> [VMSS Maintenance control using PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)
+> [Virtual machine scale set maintenance control by using PowerShell](virtual-machine-scale-sets-maintenance-control-powershell.md)
