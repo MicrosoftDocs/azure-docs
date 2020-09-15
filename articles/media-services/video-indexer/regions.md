@@ -23,6 +23,7 @@ The `location` parameter must be given the Azure region code name as its value. 
 ### Azure portal
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
+1. Select **User acccounts** from the top-right corner of the page.
 1. Find the location of your account in the top-right corner.  
 
     > [!div class="mx-imgBorder"]
