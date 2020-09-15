@@ -26,7 +26,7 @@ The resource health and alerts view can be customized using filters like **Subsc
 
 The search box can be used to search for resources and associated resources. For example, a Public IP is associated to an Application Gateway. Searching for the Public IPs DNS name will identify both Public IP and the associated Application Gateway.
 
-![Search](media/network-insights-overview/search.png)
+![Screenshot shows results of a search for a DNS name.](media/network-insights-overview/search.png)
 
 
 ## Resource Health and Metric
