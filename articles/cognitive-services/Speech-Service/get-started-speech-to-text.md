@@ -47,7 +47,7 @@ One of the core features of the Speech service is the ability to recognize and t
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-[!INCLUDE [CLI include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
+[!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
 ::: zone-end
 
 ## Next steps
