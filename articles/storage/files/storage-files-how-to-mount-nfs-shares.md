@@ -1,5 +1,5 @@
 ---
-title: Azure Files - Mount an Azure NFS file share
+title: Mount an Azure NFS file share - Azure Files
 description: Learn how to mount a Network File System share.
 author: roygara
 ms.service: storage
