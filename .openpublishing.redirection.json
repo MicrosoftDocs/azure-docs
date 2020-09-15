@@ -57001,6 +57001,21 @@
       "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
       "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
       "redirect_document_id": false 	
+    },
+    {
+      "source_path": "articles/iot-dps/concepts-security.md",
+      "redirect_url": "/azure/iot-dps/concepts-service#attestation-mechanism",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-dps/concepts-device.md",
+      "redirect_url": "/azure/iot-dps/concepts-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
+      "redirect_url": "/azure/iot-dps/concepts-roles-operations",
+      "redirect_document_id": false
     }
   ]
 }
