@@ -11,6 +11,7 @@ ms.subservice: files
 
 # Troubleshoot Azure NFS file shares
 
+This article lists some common problems related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
 
 ## Unable to create an NFS share
 
