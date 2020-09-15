@@ -21963,6 +21963,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/tutorial-assess-import.md",
+      "redirect_url": "tutorial-discover-import",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-prepare-vmware.md",
+      "redirect_url": "tutorial-discover-vmware",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/migrate/tutorial-prepare-hyper-v.md",
+      "redirect_url": "tutorial-discover-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-prepare-physical.md",
+      "redirect_url": "tutorial-discover-physical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-assess-vmware.md",
+      "redirect_url": "tutorial-assess-vmware-azure-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/deploy-appliance.md",
       "redirect_url": "migrate-appliance-architecture",
       "redirect_document_id": false
@@ -26015,6 +26040,11 @@
     {
       "source_path": "articles/storage/common/storage-auth-aad-script.md",
       "redirect_url": "/azure/storage/common/authorize-active-directory-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/authorize-active-directory-powershell.md",
+      "redirect_url": "/azure/storage/blobs/authorize-active-directory-powershell",
       "redirect_document_id": true
     },
     {
@@ -56937,11 +56967,40 @@
       "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
       "redirect_document_id": false
     },
-
-	{
-	  "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
-	  "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
-	  "redirect_document_id": false 	
-	}
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-transliterate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-dictionary",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-languages",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-sentence",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
+      "redirect_document_id": false 	
+    }
   ]
 }
