@@ -247,7 +247,6 @@ name: Node.js
 
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
@@ -286,6 +285,43 @@ jobs:
         az logout
 ```
 
+Below is the sample workflow to build and deploy a Java Spring app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+
+```yaml
+name: Java CI with Maven
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      working-directory: complete
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        package: my/target/*.jar
+
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
+```
+
+
 # [App-level credentials](#tab/applevel)
 
 Below is the sample workflow to build and deploy a Node.js app to Azure using the app's publish profile. Note how the `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
@@ -295,13 +331,10 @@ Below is the sample workflow to build and deploy a Node.js app to Azure using th
 ```yaml
 # File: .github/workflows/workflow.yml
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 env:
-  AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  AZURE_WEBAPP_NAME: my-app-name   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                # set this to the node version to use
 
@@ -331,6 +364,34 @@ jobs:
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 ```
 
+Below is the sample workflow to build and deploy a Java Spring app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+
+```yaml
+name: Java CI with Maven
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      working-directory: my-app-path
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: my/target/*.jar
+```
 ---
 
 ## Next steps
