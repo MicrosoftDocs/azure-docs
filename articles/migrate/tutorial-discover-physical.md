@@ -145,7 +145,7 @@ Check that the zipped file is secure, before you deploy it.
         Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
  
 
-## Run the Azure Migrate installer script
+### Run the Azure Migrate installer script
 The installer script does the following:
 
 - Installs agents and a web application for physical server discovery and assessment.
