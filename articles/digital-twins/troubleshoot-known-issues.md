@@ -25,7 +25,7 @@ For Azure Digital Twins specifically, this affects the following command groups:
 
 This can be resolved by rerunning the `az login` command in Cloud Shell and completing subsequent login steps. After this, you should be able to rerun the command.
 
-An alternative solution is to [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
+An alternative solution is to [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
 
 ### Possible causes
 
