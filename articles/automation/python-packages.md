@@ -15,11 +15,11 @@ Azure Automation allows you to run Python 2 runbooks on Azure and on Linux Hybri
 
 In your Automation account, select **Python 2 packages** under **Shared Resources**. Click **+ Add a Python 2 package**.
 
-![Add Python package](media/python-packages/add-python-package.png)
+:::image type="content" source="media/python-packages/add-python-package.png" alt-text="Screenshot of the Python 2 packages page showing Python 2 packages in the left menu and Add a Python 2 package highlighted.":::
 
 On the Add Python 2 Package page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file. When the package is selected, click **OK** to upload it.
 
-![Add Python package](media/python-packages/upload-package.png)
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="Screenshot of the Add Python 2 Package page with ":::
 
 Once a package has been imported, it's listed on the Python 2 packages page in your Automation account. If you need to remove a package, select the package and click **Delete**.
 
