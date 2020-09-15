@@ -45,7 +45,7 @@ This document details how to use Azure Policy to secure pods in an AKS cluster a
 
 ## Limitations
 
-See [Azure Policy imitations][policy-limitations].
+See [Azure Policy imitations][policy-limitations] for guidance on the various limitations for using the Azure Policy add-on.
 
 ## Recommendations
 
