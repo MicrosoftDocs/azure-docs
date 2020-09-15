@@ -41,12 +41,15 @@ By using the Azure Policy Add-on, an AKS cluster can use built-in Azure policies
 
 This document details how to use Azure Policy to secure pods in an AKS cluster and instruct how to migrate from pod security policies (preview).
 
+The Azure Policy add-on requires CPU and memory resources to operate. These requirements increase as the size of a cluster increases. Read [here] for details on the required resources to allocate for the add-on.
+
 ## Limitations
 
-* An upper limit of 500 pods can be audited for compliance reporting. However, the limit for policy enforcement to deny requests supports up to 10,000 pods. In the coming weeks, the upper limit for audit will be raised to 10,000 pods.
-* [Some system namespaces](#namespace-exclusion) containing AKS managed pods are excluded from policy evaluation.
-* Windows pods [do not support for security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods), thus many Azure policies only apply to Linux pods, such as disallowing root privileges, which cannot be escalated in Windows pods.
-* Pod security policy and the Azure Policy Add-on for AKS cannot both be enabled. If installing the Azure Policy Add-on into a cluster with pod security policy enabled, disable the pod security policy with the [following instructions](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
+See [Azure Policy imitations][policy-limitations].
+
+## Recommendations
+
+See [Azure Policy recommendations][policy-recommendations] for using the Azure Policy add-on.
 
 ## Azure policies to secure Kubernetes pods
 
@@ -298,6 +301,8 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - internal -->
+[policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes?#recommendations
+[policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-samples]: policy-samples.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md
