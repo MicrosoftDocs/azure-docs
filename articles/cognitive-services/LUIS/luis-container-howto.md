@@ -15,6 +15,9 @@ ms.author: aahi
 
 # Install and run LUIS docker containers
 
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
+
+
 The Language Understanding (LUIS) container loads your trained or published Language Understanding model. As a [LUIS app](https://www.luis.ai), the docker container provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload them back to the Language Understanding app to improve the app's prediction accuracy.
 
 The following video demonstrates using this container.
