@@ -62,7 +62,7 @@ The following gated preview containers are hosted on the Container Preview regis
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
 | [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
-| [Spatial analytics](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container)
+| [Spatial analysis](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Spatial analysis | mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis |
 | [Face](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Form recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=stt) | Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
