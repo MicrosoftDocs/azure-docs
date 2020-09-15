@@ -1,6 +1,6 @@
 ---
 title: Configure SaaS apps for B2B collaboration - Azure AD
-description: Code and PowerShell samples for Azure Active Directory B2B collaboration
+description: Learn how to configure SaaS apps for Azure Active Directory B2B collaboration and view additional available resources.
 
 services: active-directory
 ms.service: active-directory
@@ -102,5 +102,5 @@ See the following articles on Azure AD B2B collaboration:
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [Dynamic groups and B2B collaboration](use-dynamic-groups.md)
 - [B2B collaboration user claims mapping](claims-mapping.md)
-- [Office 365 external sharing](o365-external-user.md)
+- [Microsoft 365 external sharing](o365-external-user.md)
 
