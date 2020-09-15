@@ -86,6 +86,8 @@ func main() {
 }
 ```
 
+See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.13.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.13.0/speech#SpeechRecognizer) classes.
+
 ## Speech-to-text from audio file
 
 Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your subscription and region keys. Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file, and output the text result.
@@ -147,3 +149,5 @@ func main() {
 	fmt.Println(outcome.Result.Text)
 }
 ```
+
+See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.13.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.13.0/speech#SpeechRecognizer) classes.
