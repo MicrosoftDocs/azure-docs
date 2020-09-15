@@ -479,7 +479,7 @@
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
-          - name: From a VHD or snapshot
+          - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-cli.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-cli.md
@@ -501,7 +501,7 @@
           items:
           - name: From a VM
             href: ../image-version-vm-powershell.md
-          - name: From a VHD or snapshot
+          - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-powershell.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md
@@ -542,14 +542,16 @@
         href: image-builder-overview.md
       - name: Use Azure CLI
         href: image-builder.md
-      - name: Create VM using VNET - CLI
+      - name: Use a VNET - CLI
         href: image-builder-vnet.md
-      - name: Configure permissions - CLI
-        href: image-builder-permissions-cli.md
-      - name: Configure permissions - PowerShell
-        href: image-builder-permissions-powershell.md
       - name: Networking options
         href: image-builder-networking.md
+      - name: Configure permissions
+        items:
+        - name: CLI
+          href: image-builder-permissions-cli.md
+        - name: PowerShell
+          href: image-builder-permissions-powershell.md
       - name: DevOps task
         href: image-builder-devops-task.md
       - name: ARM template reference
@@ -617,7 +619,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (AAD)
+      - name: Disk encryption - previous version (Azure AD)
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -689,7 +691,7 @@
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
-      displayName: AAD
+      displayName: Azure AD
       items:
       - name: Red Hat Enterprise Linux
         href: ../../active-directory-domain-services/join-rhel-linux-vm.md
@@ -715,7 +717,7 @@
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
-  - name: Platform maintenance
+  - name: Maintenance control
     items:
     - name: Maintenance notifications
       items:
@@ -727,7 +729,7 @@
         href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: PowerShell
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Maintenance control
+    - name: Platform maintenance
       items:
       - name: Overview
         href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -739,6 +741,16 @@
         href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Scheduled events
       href: scheduled-events.md
+    - name: Virtual machine scale set OS image upgrades
+      items:
+      - name: Automatic OS upgrades
+        href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Maintenance control
+        items:
+        - name: Overview (Preview)
+          href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: PowerShell (Preview)
+          href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Monitor VMs
     items:
     - name: Agents
