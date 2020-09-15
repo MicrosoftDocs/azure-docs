@@ -232,7 +232,7 @@ az storage account or-policy show \
 
 ### Configure object replication when you have access only to the destination account
 
-If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then use this approach to configure object replication. 
+If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
 
 Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure Role-Based Access Control (RBAC) documentation.
 
@@ -241,7 +241,7 @@ The following table summarizes which values to use for the policy ID and rule ID
 | When you are creating the JSON file for this account... | Set the policy ID and rule IDs to this value... |
 |-|-|
 | Destination account | The string value *default*. Azure Storage will create the policy ID and rule IDs for you. |
-| Source account | The values of the policy ID and rule IDs returned when you download a JSON file containing the rules defined on the destination account. |
+| Source account | The values of the policy ID and rule IDs returned when you download the policy defined on the destination account as a JSON file. |
 
 The following example defines a replication policy on the destination account with a single rule that matches the prefix *b* and sets the minimum creation time for blobs that are to be replicated. Remember to replace values in angle brackets with your own values:
 
