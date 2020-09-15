@@ -16,10 +16,10 @@ ms.custom: tracking-python
 # Tutorial: Use your own data (Part 4 of 4)
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning.
-<!-- 
-This tutorial begins by uploading to Azure the CIFAR10 data followed by using that data in a remote training run. Along the way, you see how to add command-line arguments to your training script. -->
 
-<!-- In the previous Tutorial: Train a model in the cloud article, the CIFAR10 data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article focuses on the workflow you can leverage such that you can work with your own data in Azure Machine Learning. -->
+This tutorial is **part four of a four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Part 1: Set up](tutorial-1st-experiment-sdk-setup-local.md), [Part 2: Run "Hello World"](tutorial-1st-experiment-hello-world.md), and [Part 3: Train a model](tutorial-1st-experiment-sdk-train.md).
+
+In [Part 3: Train a model](tutorial-1st-experiment-sdk-train.md), data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article shows the workflow you can use to work with your own data in Azure Machine Learning.
 
 In this tutorial, you:
 

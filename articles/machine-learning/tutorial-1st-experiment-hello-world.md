@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 
 In this tutorial you learn how to use the Azure Machine Learning Python SDK to submit and run a Python "Hello World" script.
 
-This tutorial is part two of a four-part tutorial series in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Tutorial part 1: set up your local machine for Azure Machine Learning](
+This tutorial is **part two of a four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Tutorial part 1: set up your local machine for Azure Machine Learning](
 tutorial-1st-experiment-sdk-setup-local.md).
 
 In this tutorial you will:

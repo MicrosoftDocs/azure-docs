@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning.
 
-This tutorial is part three of a four-part tutorial series in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Part 1: Set up](tutorial-1st-experiment-sdk-setup-local.md) and [Part 2: Run "Hello World"](tutorial-1st-experiment-hello-world.md) of the series.
+This tutorial is **part three of a four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Part 1: Set up](tutorial-1st-experiment-sdk-setup-local.md) and [Part 2: Run "Hello World"](tutorial-1st-experiment-hello-world.md) of the series.
 
 In this tutorial, you take the next step by submitting a script that trains a machine learning model. This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 
