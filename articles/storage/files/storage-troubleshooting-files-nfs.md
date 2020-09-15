@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure NFS file share problems
+title: Troubleshoot Azure NFS file share problems - Azure Files
 description: Troubleshoot Azure NFS file share problems.
 author: jeffpatt24
 ms.service: storage
@@ -7,6 +7,7 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # Troubleshoot Azure NFS file shares
@@ -17,7 +18,7 @@ This article lists some common problems related to Azure NFS file shares. It pro
 
 ### Cause 1: Subscription is not enabled
 
-Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few additional commandlets from either cloudshell or a local terminal to enable the feature.
+Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few additional commandlets from either Cloud Shell or a local terminal to enable the feature.
 
 > [!NOTE]
 > You may have to wait up to 30 minutes for the registration to complete.
@@ -76,7 +77,7 @@ Unlike SMB, NFS does not have user-based authentication. The authentication for 
 
 The following diagram depicts connectivity using public endpoints.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg" alt-text="Diagram of public endpoint connectivity.":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg" alt-text="Diagram of public endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg":::
 
 - [Private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint)
     - Access is more secure than the service endpoint.
@@ -84,7 +85,7 @@ The following diagram depicts connectivity using public endpoints.
     - Virtual network peering with virtual networks hosted in the private endpoint give NFS share access to the clients in peered virtual networks.
     - Private endpoints can be used with ExpressRoute, point-to-site and site-to-site VPNs.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity.":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### Cause 2: Secure transfer required is enabled
 
@@ -128,3 +129,6 @@ The NFS protocol communicates to its server over port 2049, make sure that this 
 #### Solution
 
 Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port is not open, open it.
+
+## Need help? Contact support.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
