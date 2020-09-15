@@ -1,6 +1,6 @@
 ---
 title: Extend Azure Sentinel across workspaces and tenants | Microsoft Docs
-description:  How to use Azure Sentinel to query and analyze data across workspaces and tenants.
+description:  How to extend Azure Sentinel's analytics capabilities across workspaces and tenants.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
 
 ---
@@ -33,7 +33,7 @@ You can get the full benefit of the Azure Sentinel experience when using a singl
 | Granular data access control | An organization may need to allow different groups, within or outside the organization, to access some of the data collected by Azure Sentinel. For example:<br><ul><li>Resource owners' access to data pertaining to their resources</li><li>Regional or subsidiary SOCs' access to data relevant to their parts of the organization</li></ul> | Use [resource RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [table level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Granular retention settings | Historically, multiple workspaces were the only way to set different retention periods for different data types. This is no longer needed in many cases, thanks to the introduction of table level retention settings. | Use [table level retention settings](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) or automate [data deletion](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Split billing | By placing workspaces in separate subscriptions, they can be billed to different parties. | Usage reporting and cross-charging |
-| Legacy architecture | The use of multiple workspaces may stem from a historical design that took into consideration limitations or best practices which do not hold true anymore. It might also be an arbitrary design choice that can be modified to better accommodate Azure Sentinel.<br><br>Examples include:<br><ul><li>Using a per-subscription default workspace when deploying Azure Defender (formerly Azure Security Center)</li><li>The need for granular access control or retention settings, the solutions for which are relatively new</li></ul> | Re-architect workspaces |
+| Legacy architecture | The use of multiple workspaces may stem from a historical design that took into consideration limitations or best practices which do not hold true anymore. It might also be an arbitrary design choice that can be modified to better accommodate Azure Sentinel.<br><br>Examples include:<br><ul><li>Using a per-subscription default workspace when deploying Azure Security Center</li><li>The need for granular access control or retention settings, the solutions for which are relatively new</li></ul> | Re-architect workspaces |
 
 ### Managed Security Service Provider (MSSP)
 
@@ -90,6 +90,13 @@ A function can also simplify a commonly used union. For example, you can save th
 
 You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 
+#### Scheduled alerts
+
+Cross-workspace queries can now be included in scheduled alerts in analytics rules, subject to the following limitations:
+
+- Up to 10 workspaces can be included in a single query.
+- Azure Sentinel must be deployed on every workspace referenced in the query.
+
 > [!NOTE] 
 > Querying multiple workspaces in the same query might affect performance, and therefore is recommended only when the logic requires this functionality.
 
@@ -117,13 +124,6 @@ Cross-workspace hunting capabilities enable your threat hunters to create new hu
 To configure and manage multiple Azure Sentinel workspaces, you will need to automate the use of the Azure Sentinel management API. For more information on how to automate the deployment of Azure Sentinel resources, including alert rules, hunting queries, workbooks and playbooks, see [Extending Azure Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
 See also [Deploying and Managing Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) and [Combining Azure Lighthouse with Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) for a consolidated, community-contributed methodology for managing Azure Sentinel as code and for deploying and configuring resources from a private GitHub repository. 
-
-
-## What's not supported across workspaces?
-
-The following features are not supported across workspaces:
-
-- A scheduled alert rule cannot run across workspaces using a cross-workspace query.
 
 ## Managing workspaces across tenants using Azure Lighthouse
 

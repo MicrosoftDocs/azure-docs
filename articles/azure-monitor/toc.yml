@@ -224,12 +224,10 @@
         href: log-query/get-started-queries.md
     - name: Log data
       items:
-      - name: Log data structure
-        href: log-query/logs-structure.md
       - name: Query scope
         href: log-query/scope.md
-      - name: Standard properties
-        href: platform/log-standard-properties.md
+      - name: Standard columns
+        href: platform/log-standard-columns.md
       - name: Computer groups
         href: platform/computer-groups.md
     - name: Query language
@@ -566,7 +564,7 @@
         href: platform/itsmc-overview.md
       - name: IT Service Management connections
         href: platform/itsmc-connections.md
-      - name: Secure Export Integration
+      - name: Integrate with Secure Export
         href: platform/it-service-management-connector-secure-webhook-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
@@ -1136,7 +1134,21 @@
       displayname: Workbooks
       href: platform/workbooks-overview.md
     - name: Visualizations
-      href: platform/workbooks-visualizations.md
+      items:
+      - name: Text
+        href: platform/workbooks-text-visualizations.md
+      - name: Chart 
+        href: platform/workbooks-chart-visualizations.md
+      - name: Grid
+        href: platform/workbooks-grid-visualizations.md
+      - name: Tile
+        href: platform/workbooks-tile-visualizations.md
+      - name: Tree
+        href: platform/workbooks-tree-visualizations.md
+      - name: Graph
+        href: platform/workbooks-graph-visualizations.md
+      - name: Composite bar
+        href: platform/workbooks-composite-bar.md
     - name: Data sources
       href: platform/workbooks-data-sources.md
     - name: Parameters
