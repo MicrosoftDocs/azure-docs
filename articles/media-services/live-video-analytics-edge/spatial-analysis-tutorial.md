@@ -38,7 +38,7 @@ The following are prerequisites for connecting the spatial-analysis module to Li
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 * [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration.  
     We recommend that you use Azure Stack Edge with GPU acceleration, however the container runs on any other device with an [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). 
-* Azure Cognitive Service Computer Vision container for spatial analysis.  
+* [Azure Cognitive Service Computer Vision container](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for spatial analysis.  
     In order to use this container, you must have a Computer Vision resource to get the associated **API key** and an **endpoint URI**. The API key is available on the Azure portal's Computer Vision Overview and Keys pages. The key and endpoint are required to start the container.
 
 ## Overview
