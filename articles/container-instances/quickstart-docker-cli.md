@@ -16,7 +16,7 @@ In this quickstart, you use native Docker CLI commands to deploy a Docker contai
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
-For this quickstart, you need to install the latest Docker Desktop version that supports ACI Integration, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux). 
+For this quickstart, you need Docker Desktop version 2.3.0.5 or later, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux). 
 
 > [!IMPORTANT]
 > Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
@@ -99,7 +99,7 @@ docker rm hungry-kirch
 
 In this quickstart, you created an Azure container instance from a public image by using integration between Docker and Azure. Learn more about integration scenarios in the [Docker documentation](https://docs.docker.com/engine/context/aci-integration/). 
 
-You can also use the [Docker extension](https://aka.ms/VSCodeDocker) for Visual Studio Code for an integrated experience to develop, run, and manage containers, images, and contexts.
+You can also use the [Docker extension for Visual Studio Code](https://aka.ms/VSCodeDocker) for an integrated experience to develop, run, and manage containers, images, and contexts.
 
 To use Azure tools to create and manage container instances, see other quickstarts using the [Azure CLI](container-instances-quickstart.md), [Azure PowerShell](container-instances-quickstart-powershell.md), [Azure portal](container-instances-quickstart-portal.md), and [Azure Resource Manager template](container-instances-quickstart-template.md).
 

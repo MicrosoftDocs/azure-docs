@@ -16,7 +16,7 @@ Run containers in Azure Container Instances on-demand when you develop cloud-nat
 > Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [Docker ACI Integration](https://github.com/docker/aci-integration-beta) GitHub repository.
 
 > [!TIP]
-> You can use the [Docker extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) instead of Docker commands to perform many of the steps in this article.
+> You can use the [Docker extension for Visual Studio Code](https://aka.ms/VSCodeDocker) for an integrated experience to develop, run, and manage containers, images, and contexts.
 
 In this article, you:
 
@@ -32,7 +32,7 @@ In this article, you:
 
 * **Azure CLI** - You must have the Azure CLI installed on your local computer. Version 2.10.1 or later is recommended. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-* **Docker Desktop** - The latest installation packages that support ACI Integration are available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux). 
+* **Docker Desktop** - You must use Docker Desktop version 2.3.0.5 or later, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
 
 [!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
@@ -237,6 +237,6 @@ In this tutorial, you used Docker Compose to switch from running a multi-contain
 > * Create an Azure context for Docker
 > * Bring up the application in Azure Container Instances
 
-You can also use the [Docker extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) instead of Docker commands to perform many of the steps in this article to integrate with Azure Container Instances.
+You can also use the [Docker extension for Visual Studio Code](https://aka.ms/VSCodeDocker) for an integrated experience to develop, run, and manage containers, images, and contexts.
 
 If you want to take advantage of more features in Azure Container Instances, use Azure tools to specify a multi-container group. For example, see the tutorials to deploy a container group using the Azure CLI with a [YAML file](container-instances-multi-container-yaml.md), or deploy using an [Azure Resource Manager template](container-instances-multi-container-group.md). 
