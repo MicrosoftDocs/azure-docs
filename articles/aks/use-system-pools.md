@@ -42,6 +42,7 @@ System node pools have the following restrictions:
 * System node pools require a VM SKU of at least 2 vCPUs and 4GB memory.
 * System node pools must support at least 30 pods as described by the [minimum and maximum value formula for pods][maximum-pods].
 * Spot node pools require user node pools.
+* Adding an additional system node pool or changing which node pool is a system node pool will *NOT* automatically move system pods. System pods can continue to run on the same node pool even if you change it to a user node pool. If you delete or scale down a node pool running system pods that was previously a system node pool, those system pods are redeployed with preferred scheduling to the new system node pool.
 
 You can do the following operations with node pools:
 

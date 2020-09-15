@@ -80,7 +80,7 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
 
    > [!Note]
    > For more information about using serial console for Linux, see:
-   > * [Use serial console to access GRUB and single user mode](../linux/serial-console-grub-single-user-mode.md)
+   > * [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md)
    > * [Use serial console for SysRq and NMI calls](./serial-console-nmi-sysrq.md)
 
 2. Select the Power icon button, and then select Restart VM. (If the serial console is not enabled or not connected successfully, you won't see the button.)

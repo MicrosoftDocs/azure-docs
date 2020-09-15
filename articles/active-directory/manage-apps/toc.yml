@@ -206,6 +206,10 @@
       items:
       - name: Troubleshoot adding apps
         href: troubleshoot-adding-apps.md
+      - name: Troubleshoot password-based single sign-on
+        href: troubleshoot-password-based-sso.md
+      - name: Troubleshoot SAML-based single sign-on
+        href: troubleshoot-saml-based-sso.md
       - name: Troubleshoot user sign-in
         items:
         - name: Unexpected consent prompt
@@ -224,14 +228,6 @@
           href: application-sign-in-problem-federated-sso-gallery.md
         - name: Problem with custom-developed app
           href: application-sign-in-problem-custom-dev.md
-      - name: Troubleshoot single sign-on
-        items:
-        - name: Troubleshoot password-based single sign-on
-          href: troubleshoot-password-based-sso.md
-        - name: Configuring federated common problems - gallery apps
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: Configure federated common problems - non-gallery apps
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting

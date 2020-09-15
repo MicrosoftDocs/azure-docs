@@ -74,7 +74,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
-1. Choose **File** as the **Dataset type**.  
+1. Choose **File** as the **Dataset type**.  Only file dataset types are supported.
 1. Select the datastore.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.

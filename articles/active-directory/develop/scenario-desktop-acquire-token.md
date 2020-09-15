@@ -180,7 +180,7 @@ On Android, you also need to specify the parent activity by using `.WithParentAc
 
 #### WithParentActivityOrWindow
 
-The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform.
+The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform. Alternatively you can omit the optional parent window parameter to create a window, if you do not want to control where the sign-in dialog appear on the screen. This would be applicable for applications which are command line based , used to pass calls to any other backend service and do not need any windows for user interaction. 
 
 ```csharp
 // net45
@@ -922,7 +922,7 @@ This flow isn't supported on MSAL for macOS.
 
 If you're writing a command-line tool that doesn't have web controls, and you can't or don't want to use the previous flows, you need to use the device code flow.
 
-Interactive authentication with Azure AD requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or OSes. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
+Interactive authentication with Azure AD requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or operating systems. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
 
 1. Whenever user authentication is required, the app provides a code for the user. The user is asked to use another device, such as an internet-connected smartphone, to go to a URL, for instance, `https://microsoft.com/devicelogin`. Then the user is prompted to enter the code. That done, the web page leads the user through a normal authentication experience, which includes consent prompts and multi-factor authentication, if necessary.
 

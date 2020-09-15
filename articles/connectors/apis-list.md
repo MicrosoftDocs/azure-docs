@@ -307,7 +307,7 @@ For logic apps that you create and run in a dedicated [integration service envir
         [![Azure Service Bus ISE connector][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Azure SQL Data Warehouse ISE connector][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
+        [![Azure Synapse Analytics ISE connector][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
         [![Azure Table Storage ISE connector][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc]

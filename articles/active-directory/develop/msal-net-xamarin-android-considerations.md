@@ -78,7 +78,7 @@ The *AndroidManifest.xml* file should contain the following values:
 ```XML
   <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
   <activity
-        android:name="com.microsoft.identity.client.BrowserTabActivity">
+        android:name="microsoft.identity.client.BrowserTabActivity">
      <intent-filter>
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />

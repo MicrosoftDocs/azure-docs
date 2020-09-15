@@ -52,7 +52,7 @@ If you have already added a contoso.com domain to an Azure AD tenant, you can al
 
 ## What to do if you change the DNS registrar for your custom domain name
 
-If you change the DNS registrars, there are no additional configuration tasks in Azure AD. You can continue using the domain name with Azure AD without interruption. If you use your custom domain name with Office 365, Intune, or other services that rely on custom domain names in Azure AD, see the documentation for those services.
+If you change the DNS registrars, there are no additional configuration tasks in Azure AD. You can continue using the domain name with Azure AD without interruption. If you use your custom domain name with Microsoft 365, Intune, or other services that rely on custom domain names in Azure AD, see the documentation for those services.
 
 ## Delete a custom domain name
 
@@ -72,7 +72,7 @@ You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad
 
 To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists; for more information, see [Removing mail-enabled security groups](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). Also, the **ForceDelete** operation won't succeed if either of the following is true:
 
-* You purchased a domain via Office 365 domain subscription services
+* You purchased a domain via Microsoft 365 domain subscription services
 * You are a partner administering on behalf of another customer organization
 
 The following actions are performed as part of the **ForceDelete** operation:

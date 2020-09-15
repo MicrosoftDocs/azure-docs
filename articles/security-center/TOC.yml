@@ -134,12 +134,17 @@
     - name: Automate responses to alerts
       href: workflow-automation.md
     - name: Export alerts
+      displayName: continuous    
       href: continuous-export.md
   - name: Use security recommendations to improve security
     items:
     - name: Remediate recommendations
       href: security-center-remediate-recommendations.md
+    - name: Prevent misconfigurations with Enforce/Deny
+      displayName: recommendations
+      href: prevent-misconfigurations.md
     - name: Strengthen security posture
+      displayName: recommendations
       href: security-center-monitoring.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
@@ -154,6 +159,7 @@
     - name: Automate responses to recommendations
       href: workflow-automation.md
     - name: Export recommendations
+      displayName: continuous    
       href: continuous-export.md
   - name: Manage your resources with asset inventory
     href: asset-inventory.md
@@ -233,7 +239,7 @@
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
   - name: Azure Security, Privacy, & Compliance blog
-    href: https://blogs.msdn.com/b/azuresecurity/
+    href: https://docs.microsoft.com/archive/blogs/azuresecurity/
   - name: Azure Security Center on Stack Overflow
     href: https://stackoverflow.com/search?q=azure-security-center
   - name: Videos

@@ -966,8 +966,6 @@
         href: virtual-machines/windows/doc-changes-updates-release-notes.md
     - name: Quickstarts
       items:
-      - name: Create SQL VM 
-        items: 
       - name: Portal
         href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
       - name: PowerShell

@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 08/28/2020
 ---
 
-# Copy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory
+# Copy and transform data in Azure Synapse Analytics (formerly SQL Data Warehouse) by using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 >
@@ -279,7 +279,7 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Azure SQL DW input dataset name>",
+                "referenceName": "<Azure Synapse Analytics input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -311,7 +311,7 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Azure SQL DW input dataset name>",
+                "referenceName": "<Azure Synapse Analytics input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -361,7 +361,7 @@ GO
 
 Azure Data Factory supports three ways to load data into Azure Synapse Analytics.
 
-![SQL DW sink copy options](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
+![Azure Synapse Analytics sink copy options](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
 - [Use PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)
 - [Use COPY statement (preview)](#use-copy-statement)
@@ -685,8 +685,8 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
 
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | Specifies the default values for each target column in SQL DW.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
-| additionalOptions | Additional options that will be passed to SQL DW COPY statement directly in "With" clause in [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Quote the value as needed to align with the COPY statement requirements. | No |
+| defaultValues | Specifies the default values for each target column in Azure Synapse Analytics.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
+| additionalOptions | Additional options that will be passed to an Azure Synapse Analytics COPY statement directly in "With" clause in [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Quote the value as needed to align with the COPY statement requirements. | No |
 
 ```json
 "activities":[
@@ -796,7 +796,7 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. See [schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
 
 >[!TIP]
->Refer to [Table data types in Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) article on SQL DW supported data types and the workarounds for unsupported ones.
+>Refer to [Table data types in Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) article on Azure Synapse Analytics supported data types and the workarounds for unsupported ones.
 
 | Azure Synapse Analytics data type    | Data Factory interim data type |
 | :------------------------------------ | :----------------------------- |

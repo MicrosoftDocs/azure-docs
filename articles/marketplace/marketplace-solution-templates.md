@@ -18,7 +18,7 @@ Use the Azure application *solution template* offer type under the following con
 - Your solution requires additional deployment and configuration automation beyond a single virtual machine (VM), such as a combination of VMs, networking, and storage resources.
 - Your customers are going to manage the solution themselves.
 
-The call to action that a customer sees for this offer type is *Get It Now*.
+The listing option that a customer sees for this offer type is *Get It Now*.
 
 ## Requirements for solution template offers
 

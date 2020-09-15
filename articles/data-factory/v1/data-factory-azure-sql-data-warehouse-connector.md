@@ -298,7 +298,7 @@ If you are using Copy Wizard to copy data from SQL Server or Azure SQL Database 
 
 Data Factory creates the table in the destination store with the same table name in the source data store. The data types for columns are chosen based on the following type mapping. If needed, it performs type conversions to fix any incompatibilities between source and destination stores. It also uses Round Robin table distribution.
 
-| Source SQL Database column type | Destination SQL DW column type (size limitation) |
+| Source SQL Database column type | Destination Azure Synapse Analytics column type (size limitation) |
 | --- | --- |
 | Int | Int |
 | BigInt | BigInt |
