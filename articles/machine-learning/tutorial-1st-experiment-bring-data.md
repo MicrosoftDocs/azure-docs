@@ -241,7 +241,7 @@ if __name__ == "__main__":
     datastore = ws.get_default_datastore()
     dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))
 
-    experiment = Experiment(workspace=ws, name='tutorial-session-3')
+    experiment = Experiment(workspace=ws, name='day1-experiment-data')
 
     config = ScriptRunConfig(
         source_directory='./src',
@@ -266,8 +266,24 @@ if __name__ == "__main__":
 
 ### Understand the code changes
 
-- **`dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))`**: A Dataset is used to reference the data you uploaded to the Azure Blob Store. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
-- **`config = ScriptRunConfig(...)`**: We modified the `ScriptRunConfig` to include a list of arguments that will be passed into `train.py`. We also specified `dataset.as_named_input('input').as_mount()`, which means the directory specified will be _mounted_ to the compute target.
+TThe control script is similar to the one from [Part 3 of this series](tutorial-1st-experiment-sdk-train.md) with the following new lines:
+
+:::row:::
+   :::column span="":::
+      `dataset = Dataset.File.from_files( ... )`
+   :::column-end:::
+   :::column span="2":::
+      A [Dataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) is used to reference the data you uploaded to the Azure Blob Store. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      `config = ScriptRunConfig(...)`
+   :::column-end:::
+   :::column span="2":::
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the directory specified will be _mounted_ to the compute target.
+   :::column-end:::
+:::row-end:::
 
 ## Submit run to Azure Machine Learning
 
@@ -280,7 +296,6 @@ python 06-run-pytorch-data.py
 This will print a URL to the Experiment in Azure Machine Learning Studio. If you navigate to that link you will be able to see your code running.
 
 ### Inspect the 70_driver_log log file
-
 
 In the Azure Machine Learning studio navigate to the experiment run (by clicking the URL output from the above cell) followed by **Outputs + logs**. Click on the 70_driver_log.txt file - you should see the following output:
 

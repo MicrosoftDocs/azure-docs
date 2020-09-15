@@ -184,12 +184,11 @@ conda activate pytorch-env             # activate conda environment
 python src/train.py                    # train model
 ```
 
->[!NOTE] 
-> You should notice that the script has downloaded the data into a directory called `tutorial/data`.
+After you run this script, you will see the data downloaded into a directory called `tutorial/data`.
 
 ## Create the control script
 
-The difference to the control script below and the one used to submit "hello world" is that you add a couple of extra lines to set the environment.
+The difference to the control script below and the one used to submit "Hello World" is that you add a couple of extra lines to set the environment.
 
 Create a new Python file in the `tutorial` directory called `04-run-pytorch.py`:
 
@@ -202,7 +201,7 @@ from azureml.core import ScriptRunConfig
 
 if __name__ == "__main__":
     ws = Workspace.from_config()
-    experiment = Experiment(workspace=ws, name='tutorial-session-3')
+    experiment = Experiment(workspace=ws, name='day1-experiment-train')
     config = ScriptRunConfig(source_directory='src', script='train.py', compute_target='cpu-cluster')
 
     # set up pytorch environment
@@ -217,13 +216,22 @@ if __name__ == "__main__":
 
 ### Understand the code changes
 
-- **`env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')`** Azure Machine Learning provides the concept of an `Environment` to represent a reproducible, versioned
-Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
-- **`config.run_config.environment = env`** adds the environment to the ScriptRunConfig.
-
-> [!TIP]
-> There are many ways to create AML environments, including [from a pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-),
-> or even [from an existing local Conda environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
+:::row:::
+   :::column span="":::
+      `env = Environment.from_conda_specification( ... )`
+   :::column-end:::
+   :::column span="2":::
+      Azure Machine Learning provides the concept of an [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) to represent a reproducible, versioned Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      `config.run_config.environment = env`
+   :::column-end:::
+   :::column span="2":::
+      Adds the environment to the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+   :::column-end:::
+:::row-end:::
 
 ## Submit run to Azure Machine Learning
 
@@ -292,7 +300,7 @@ from model import Net
 from azureml.core import Run
 
 
-# ADDITIONAL CODE: get AML run from the current context
+# ADDITIONAL CODE: get Azure Machine Learning run from the current context
 run = Run.get_context()
 
 # download CIFAR 10 data
@@ -329,21 +337,23 @@ if __name__ == "__main__":
             running_loss += loss.item()
             if i % 2000 == 1999:
                 loss = running_loss / 2000
-                run.log('loss', loss) # ADDITIONAL CODE: log loss metric to AML
+                run.log('loss', loss) # ADDITIONAL CODE: log loss metric to Azure Machine Learning
                 print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
                 running_loss = 0.0
 
     print('Finished Training')
 ```
 
-#### Understanding the additional two lines of code
+#### Understand the additional two lines of code
 
 In `train.py`, you access the run object from _within_ the training script itself using the `Run.get_context()` method and use it to log metrics:
 
 ```python
 # in train.py
 run = Run.get_context()
+
 ...
+
 run.log('loss', loss)
 ```
 
@@ -393,6 +403,8 @@ In this session, you upgraded from a basic "Hello world!" script to a more reali
 training script that required a specific Python environment to run. You saw how
 to take a local Conda environment to the cloud with Azure Machine Learning Environments. Finally, you
 saw how in a few lines of code you can log metrics to Azure Machine Learning.
+
+There are other ways to create Azure Machine Learning environments, including [from a pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-), or even [from an existing local Conda environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
 
 In the next session, you'll see how to work with data in Azure Machine Learning by uploading the CIFAR10
 dataset to Azure.

@@ -82,7 +82,7 @@ In your tutorial directory, create a new python file called `03-run-hello.py` an
 from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 
 ws = Workspace.from_config()
-experiment = Experiment(workspace=ws, name='hello-world')
+experiment = Experiment(workspace=ws, name='day1-experiment-hello')
 
 config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')
 
@@ -91,7 +91,7 @@ aml_url = run.get_portal_url()
 print(aml_url)
 ```
 
-### Understanding the code
+### Understand the code
 
 Here's a description of how the control script works:
 
@@ -174,9 +174,7 @@ Follow the link and navigate to the **Outputs + logs** tab. There you can see a 
 
 On line 8, you see the "Hello world!" output.
 
-> [!TIP]
-> The 70_driver_log.txt file contains the standard output from run and can be useful
-> when debugging remote runs in the cloud.
+The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when debugging remote runs in the cloud.
 
 ## Next steps
 
