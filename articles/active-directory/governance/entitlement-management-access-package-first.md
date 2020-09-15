@@ -104,7 +104,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 9. In the Select groups pane, find and select the **Marketing resources** group you created earlier.
 
-    By default, you see groups inside and outside the **General** catalog. When you select a group outside of the **General** catalog, it will be added to the **General** catalog.
+     By default, you see groups inside the General catalog. When you select a group outside of the General catalog, which you can see if you check the **See all** check box, it will be added to the General catalog.
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
