@@ -57014,7 +57014,7 @@
     },
     {
       "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
-      "redirect_url": "/azure/iot-dps/concepts-roles-operations.md",
+      "redirect_url": "/azure/iot-dps/concepts-roles-operations",
       "redirect_document_id": false
     }
   ]

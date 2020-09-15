@@ -91,12 +91,12 @@
     href: concepts-service.md
   - name: Symmetric key attestation
     href: concepts-symmetric-key-attestation.md
-  - name: X.509 attestation
+  - name: X.509 certificate attestation
     href: concepts-x509-attestation.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
   - name: Roles and operations
-    href: concepts-auto-provisioning.md  
+    href: concepts-roles-operations.md  
   - name: Virtual networks support
     href: virtual-network-support.md
   - name: Reprovisioning
