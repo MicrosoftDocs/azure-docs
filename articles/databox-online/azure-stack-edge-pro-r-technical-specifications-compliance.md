@@ -177,4 +177,4 @@ End of this section-->
 
 ## Next steps
 
-- [Deploy your Azure Stack Edge](azure-stack-edge-gpu-prep.md)
+<!--- [Deploy your Azure Stack Edge](azure-stack-edge-gpu-prep.md)-->

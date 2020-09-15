@@ -51,4 +51,4 @@ The following table describes the limits for the Azure Stack Edge Pro R device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge Pro R](azure-stack-edge-placeholder.md)
+<!--- [Prepare to deploy Azure Stack Edge Pro R](azure-stack-edge-gpu-deploy-prep.md)-->
