@@ -29523,6 +29523,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-intro.md",
+      "redirect_url": "/azure/security-center/security-center-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-onboarding.md",
       "redirect_url": "/azure/security-center/security-center-get-started",
       "redirect_document_id": false
