@@ -58,7 +58,7 @@ On each Linux machine that you want to protect, do the following:
 11. On the **Manage Accounts** tab, select **Add Account**.
 12. Add the account you created.
 13. Enter the credentials you use when you enable replication for a computer.
-1. Additional step for updating or protecting SUSE Linux Enterprise Server 11 SP3 machines. [Ensure the latest version is available in the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+1. Additional step for updating or protecting SUSE Linux Enterprise Server 11 SP3 OR RHEL 5 or CentOS 5 or Debian 7 machines. [Ensure the latest version is available in the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 
 ## Anti-virus on replicated machines
 
