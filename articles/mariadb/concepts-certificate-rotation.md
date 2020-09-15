@@ -23,9 +23,9 @@ The new certificate will be used starting October 26, 2020 (10/26/2020).If you u
 
 ## How do I know if my database is going to be affected?
 
-All applications that use SSL/TLS and verify the root certificate need to update the root certificate. You can identify whether your connections verify the root certificate by reviewing your connection string.
+All applications that use SSL/TLS and verify the root certificate needs to update the root certificate. You can identify whether your connections verify the root certificate by reviewing your connection string.
 -	If your connection string includes `sslmode=verify-ca` or ``
--	If your connection string includes `sslmode=disable`, you do not need to update certficates.
+-	If your connection string includes `sslmode=disable`, you do not need to update certificates.
 -	If your connection string includes `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates. 
 -	If your connection string does not specific sslmode, you do not need to update certificates.
 
@@ -36,7 +36,7 @@ To avoid your application’s availability being interrupted due to certificat
 
 ## What do I need to do to maintain connectivity
 
-To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate, which has been revoked, follow the steps below. The idea is to create a new *.pem* file which combines the current cert and the new one and during the SSL cert validation once of the allowed values will be used. Refer to the steps below:
+To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate, which has been revoked, follow the steps below. The idea is to create a new *.pem* file, which combines the current cert and the new one and during the SSL cert validation once of the allowed values will be used. Refer to the steps below:
 
 *   Download **BaltimoreCyberTrustRoot** & **DigiCertGlobalRootG2** CA from links below:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
@@ -85,7 +85,7 @@ If you are using the Azure Database for MariaDB issued certificate as documented
 No actions required if you are not using SSL/TLS. 
 
 ### 2. If I am using SSL/TLS, do I need to restart my database server to update the root CA?
-No, you do not need to restart the database server to start using the new certificate. This is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
+No, you do not need to restart the database server to start using the new certificate. Certificate update is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
 
 ### 3. What will happen if I do not update the root certificate before October 26, 2020 (10/26/2020)?
 If you do not update the root certificate before October 26, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the MariaDB database server and application will experience connectivity issues to your MariaDB database server.

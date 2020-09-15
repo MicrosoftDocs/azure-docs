@@ -22,9 +22,9 @@ The new certificate will be used starting October 26, 2020 (10/26/2020).If you u
 
 ## How do I know if my database is going to be affected?
 
-All applications that use SSL/TLS and verify the root certificate need to update the root certificate. You can identify whether your connections verify the root certificate by reviewing your connection string.
+All applications that use SSL/TLS and verify the root certificate needs to update the root certificate. You can identify whether your connections verify the root certificate by reviewing your connection string.
 -	If your connection string includes `sslmode=verify-ca` or ``
--	If your connection string includes `sslmode=disable`, you do not need to update certficates.
+-	If your connection string includes `sslmode=disable`, you do not need to update certificates.
 -	If your connection string includes `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates. 
 -	If your connection string does not specific sslmode, you do not need to update certificates.
 
@@ -35,7 +35,7 @@ To avoid your application’s availability being interrupted due to certificat
 
 ## What do I need to do to maintain connectivity
 
-To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate, which has been revoked, follow the steps below. The idea is to create a new *.pem* file which combines the current cert and the new one and during the SSL cert validation once of the allowed values will be used. Refer to the steps below:
+To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate, which has been revoked, follow the steps below. The idea is to create a new *.pem* file, which combines the current cert and the new one and during the SSL cert validation once of the allowed values will be used. Refer to the steps below:
 
 *   Download BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 Root CA from links below:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
