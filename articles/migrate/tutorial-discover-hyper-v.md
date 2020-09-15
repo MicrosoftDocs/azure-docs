@@ -128,10 +128,24 @@ In **2: Download Azure Migrate appliance**, select the .VHD file and click on **
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the VHD
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
 
+2. Run the following PowerShell command to generate the hash for the ZIP file
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+
+3.  Verify the latest appliance versions and hash values:
+
+    - For the Azure public cloud:
+
+        **Scenario** | **Download** | **SHA256**
+        --- | --- | ---
+        Hyper-V (10.4 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+
+    - For Azure Government:
+
+        **Scenario*** | **Download** | **SHA256**
+        --- | --- | ---
+        Hyper-V (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
 
 ## Create the appliance VM
 
