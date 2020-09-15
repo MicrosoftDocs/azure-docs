@@ -77,6 +77,7 @@ Most tasks and services can be performed on delegated resources across managed t
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote workspaces in multiple tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks
+- Create diagnostic settings in customer tenants to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/networking-overview.md):

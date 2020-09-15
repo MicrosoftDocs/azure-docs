@@ -164,13 +164,13 @@ To enable the function app to access Azure Digital Twins, the next step is to co
 
 In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 
-```azurecli-interactive
+```azurecli
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
@@ -205,7 +205,7 @@ Azure Digital Twins is designed to work alongside [IoT Hub](../iot-hub/about-iot
 
 In Azure Cloud Shell, use this command to create a new IoT hub:
 
-```azurecli-interactive
+```azurecli
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -245,7 +245,7 @@ This section creates a device representation in IoT Hub with the ID *thermostat6
 
 In Azure Cloud Shell, create a device in IoT Hub with the following command:
 
-```azurecli-interactive
+```azurecli
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -333,7 +333,7 @@ In this section, you create an event grid topic, and then create an endpoint wit
 
 In Azure Cloud Shell, run the following command to create an event grid topic:
 
-```azurecli-interactive
+```azurecli
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
@@ -444,7 +444,7 @@ Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 

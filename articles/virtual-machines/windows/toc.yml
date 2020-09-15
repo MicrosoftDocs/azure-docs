@@ -592,7 +592,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (AAD)
+      - name: Disk encryption - previous version (Azure AD)
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -670,7 +670,7 @@
       href: nested-virtualization.md
     - name: Automatic VM guest patching (preview)
       href: automatic-vm-guest-patching.md
-  - name: Platform maintenance
+  - name: Maintenance control
     items:
     - name: Maintenance notifications
       items:
@@ -682,7 +682,7 @@
         href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: PowerShell
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Maintenance control
+    - name: Platform maintenance
       items:
       - name: Overview
         href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -696,6 +696,16 @@
       href: scheduled-events.md
     - name: Windows scheduled event service
       href: scheduled-event-service.md
+    - name: Virtual machine scale set OS image upgrades
+      items:
+      - name: Automatic OS upgrades
+        href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Maintenance control
+        items:
+        - name: Overview (Preview)
+          href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: PowerShell (Preview)
+          href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Monitor VMs
     items:
     - name: Agents
