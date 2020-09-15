@@ -1,6 +1,6 @@
 ---
-title: Secure access to a Managed HSM - Azure Key Vault Managed HSM| Microsoft Docs
-description: Learn how to secure access to Managed HSM using Azure RBAC and local Managed HSM RBAC
+title: Secure access to a managed HSM - Azure Key Vault Managed HSM
+description: Learn how to secure access to Managed HSM using Azure RBAC and local managed HSM RBAC
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -13,19 +13,25 @@ ms.author: ambapat
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
 
-# Secure access to your Managed HSM
+# Secure access to your managed HSMs
 
-Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
+Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your managed HSMs by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs.
 
 This tutorial will walk you through a simple example that shows how to achieve separation of duties and access control using Azure RBAC and local Managed HSM RBAC. See [Managed HSM access control](access-control.md) to learn about Managed HSM access control model.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## Prerequisites
 
-If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+To complete the steps in this article, you must have the following items:
+
+* A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+* The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 To sign in to Azure using the CLI you can type:
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -84,7 +90,7 @@ The Azure CLI snippets in this section are built with the following assumptions:
 - The HSM pool logs are stored in the **contosologstorage** storage account.
 - The **ContosoMHSM** HSM pool and the **contosologstorage** storage account are in the same Azure location.
 
-The subscription admin assigns the `Managed HSM Contributor`role to the security team. This role allows the security team to manage existing HSM pools and create new ones. If there are existing Managed HSM pools, they will need to be assigned the "Managed HSM Administrator" role to be able to mange them.
+The subscription admin assigns the `Managed HSM Contributor`role to the security team. This role allows the security team to manage existing managed HSMs and create new ones. If there are existing managed HSMs, they will need to be assigned the "Managed HSM Administrator" role to be able to mange them.
 
 ```azurecli-interactive
 # This role assignment allows Contoso Security Team to create new Managed HSMs

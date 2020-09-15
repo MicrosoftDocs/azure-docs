@@ -28,8 +28,8 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 ### Access control, enhanced data protection & compliance
 
 - **Centralized key management**: Manage critical, high-value keys across your organization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
-- **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM pool administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
-- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSM pools use Marvell LiquidSecurity family of HSMs.
+- **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM cluster administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
+- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity family of HSMs.
 - **Monitor and audit**: fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
 
 ### Integrated with Azure and Microsoft PaaS/SaaS services 
@@ -38,13 +38,13 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 ### Uses same API and management interfaces as Key Vault
 
-- Easily migrate your existing applications that use a vault (a multi-tenant) to use managed HSM pools
-- Use same application development and deployment patterns for all your applications irrespective of key management solution in use: multi-tenant vaults or single-tenant managed HSM pools
+- Easily migrate your existing applications that use a vault (a multi-tenant) to use managed HSMs.
+- Use same application development and deployment patterns for all your applications irrespective of key management solution in use: multi-tenant vaults or single-tenant managed HSMs
 
 ### Import keys from your on-premise HSMs
 
 - Generate HSM-protected keys in your on-premise HSM and import them securely into Managed HSM
 
 ## Next Steps
-- See [Quickstart: Provision and activate a managed HSM pool using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
+- See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
 - See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)

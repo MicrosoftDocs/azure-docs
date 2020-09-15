@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 09/14/2020
 ---
 
 # Using column patterns in mapping data flow
@@ -22,17 +22,17 @@ Column patterns are currently available in the derived column, aggregate, select
 
 ## Column patterns in derived column and aggregate
 
-To add a column pattern in a derived column or the Aggregates tab of an aggregate transformation, click the plus icon to the right of an existing column. Select **Add column pattern**. 
+To add a column pattern in a derived column, aggregate, or window transformation, click on **Add** above the column list or the plus icon next to an existing derived column. Choose **Add column pattern**.
 
-![column patterns](media/data-flow/columnpattern.png "Column Patterns")
+![column patterns](media/data-flow/add-column-pattern.png "Column Patterns")
 
 Use the [expression builder](concepts-data-flow-expression-builder.md) to enter the match condition. Create a boolean expression that matches columns based on the `name`, `type`, `stream`, and `position` of the column. The pattern will affect any column, drifted or defined, where the condition returns true.
 
 The two expression boxes below the match condition specify the new names and values of the affected columns. Use `$$` to reference the existing value of the matched field. The left expression box defines the name and the right expression box defines the value.
 
-![column patterns](media/data-flow/columnpattern2.png "Column Patterns")
+![column patterns](media/data-flow/edit-column-pattern.png "Column Patterns")
 
-The above column pattern matches every column of type double and creates one aggregate column per match. The name of the new column is the matched column's name concatenated with '_total'. The value of the new column is the rounded, aggregated sum of the existing double value.
+The above column pattern matches every column of type double and creates one derived column per match. By stating `$$` as the column name field, each matched column is updated with the same name. The value of the each column is the existing value rounded to two decimal points.
 
 To verify your matching condition is correct, you can validate the output schema of defined columns in the **Inspect** tab or get a snapshot of the data in the **Data preview** tab. 
 
