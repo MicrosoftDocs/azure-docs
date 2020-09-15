@@ -40,7 +40,7 @@ The following table lists common errors your admins might run into.
 |Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the app group is published to. |
 |There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |
 
-### External connection error codes
+### Connection error codes
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
