@@ -135,7 +135,7 @@ namespace SampleFunctionsApp
 
 You'll need to set two environment variables in your function app. One is your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), and one is your [Azure Maps stateset ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```

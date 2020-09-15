@@ -39,7 +39,7 @@ In the downloaded sample folder, the deployment script is located at _Azure_Digi
 
 Here are the steps to run the deployment script in Cloud Shell.
 1. Go to an [Azure Cloud Shell](https://shell.azure.com/) window in your browser. Sign in using this command:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     If the CLI can open your default browser, it will do so and load an Azure sign-in page. Otherwise, open a browser page at *https://aka.ms/devicelogin* and enter the authorization code displayed in your terminal.
