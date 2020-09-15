@@ -297,7 +297,7 @@ Filters include:
 
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
-| blobTypes   | An array of predefined enum values. | The current release supports `blockBlob`. | Yes |
+| blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier is not supported. | Yes |
 | prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/container1/foo/...` for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
 | blobIndexMatch | An array of dictionary values consisting of Blob Index tag key and value conditions to be matched. Each rule can define up to 10 Blob Index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
@@ -310,21 +310,23 @@ Actions are applied to the filtered blobs when the run condition is met.
 
 Lifecycle management supports tiering and deletion of blobs and deletion of blob snapshots. Define at least one action for each rule on blobs or blob snapshots.
 
-| Action        | Base Blob                                   | Snapshot      |
-|---------------|---------------------------------------------|---------------|
-| tierToCool    | Support blobs currently at hot tier         | Not supported |
-| tierToArchive | Support blobs currently at hot or cool tier | Not supported |
-| delete        | Supported                                   | Supported     |
+| Action                      | Base Blob                                   | Snapshot      |
+|-----------------------------|---------------------------------------------|---------------|
+| tierToCool                  | Support blobs currently at hot tier         | Not supported |
+| enableAutoTierToHotFromCool | Support blobs currently at cool tier        | Not supported |
+| tierToArchive               | Support blobs currently at hot or cool tier | Not supported |
+| delete                      | Supported for `blockBlob` and `appendBlob`  | Supported     |
 
 >[!NOTE]
 >If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
 The run conditions are based on age. Base blobs use the last modified time to track age, and blob snapshots use the snapshot creation time to track age.
 
-| Action run condition             | Condition value                          | Description                             |
-|----------------------------------|------------------------------------------|-----------------------------------------|
-| daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for base blob actions     |
-| daysAfterCreationGreaterThan     | Integer value indicating the age in days | The condition for blob snapshot actions |
+| Action run condition               | Condition value                          | Description                                                                      |
+|------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
+| daysAfterModificationGreaterThan   | Integer value indicating the age in days | The condition for base blob actions                                              |
+| daysAfterCreationGreaterThan       | Integer value indicating the age in days | The condition for blob snapshot actions                                          |
+| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | (preview) The condition for base blob actions when last accessed time is enabled |
 
 ## Examples
 
