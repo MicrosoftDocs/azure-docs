@@ -30,7 +30,7 @@ If you're using Azure ExpressRoute or a VPN connection from your on-premises net
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Typically, networks are protected using firewalls and network security groups (NSGs). Firewalls use URL or IP-based whitelisting to control network connectivity. NSGs provide rules that use IP address ranges to control network connectivity.
+Typically, networks are protected using firewalls and network security groups (NSGs). Service tags should be used to control network connectivity. NSGs should allow several service tags to control outbound connectivity.
 
 >[!IMPORTANT]
 > Using an authenticated proxy to control network connectivity isn't supported by Site Recovery, and replication can't be enabled.
