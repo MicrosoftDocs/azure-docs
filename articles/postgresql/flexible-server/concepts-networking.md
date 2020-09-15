@@ -66,6 +66,7 @@ Learn how to create a flexible server with private access (VNet integration) in 
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint
 * After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. You cannot move the virtual network into another resource group or subscription.
 * Subnet size (address spaces) cannot be increased once resources exist in the subnet
+* Peering VNets across regions is not supported
 
 
 ## Public access (allowed IP addresses)
