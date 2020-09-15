@@ -37,7 +37,7 @@ For more information, see [License requirements to use Privileged Identity Manag
 > - We automatically enable PIM for the organization
 > - Their experience is now that they can either assign a "regular" role assignment or an eligible role assignment
 >
-> When PIM is enabled it doesn't have any other effect on your organization that you need to worry about. It gives you additional assignment options such as active vs eligible with start and end time. It will also bring in scoping mechanism into the assignment experience like Administrative Units and custom roles. PIM also enables you to define scope for role assignments using Administrative Units and custom roles. If you are a Global Administrator or Privileged Role Administrator, you might start getting a few additional emails like the PIM weekly digest. You might also see MS-PIM service principal in the audit log related to role assignment. This is an expected change that should have no effect on your workflow.
+> When PIM is enabled it doesn't have any other effect on your organization that you need to worry about. It gives you additional assignment options such as active vs eligible with start and end time. PIM also enables you to define scope for role assignments using Administrative Units and custom roles. If you are a Global Administrator or Privileged Role Administrator, you might start getting a few additional emails like the PIM weekly digest. You might also see MS-PIM service principal in the audit log related to role assignment. This is an expected change that should have no effect on your workflow.
 
 ## Prepare PIM for Azure AD roles
 
