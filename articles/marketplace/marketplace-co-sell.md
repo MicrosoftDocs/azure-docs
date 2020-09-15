@@ -13,13 +13,13 @@ ms.date: 09/11/2020
 
 You can use the Co-sell program to work directly with Microsoft sellers on joint selling opportunities and to unlock significant additional commercial and merchandising benefits selling through Commercial Marketplace.
 
-The Co-sell program is available for **software built with your intellectual property (IP) as repeatable, packaged offers** and for **services with Microsoft technology embedded**. Enrolling in the Co-sell program is available for most offer types in commercial marketplace. Offers accepted into the Co-sell program become either **co-sell ready** or **co-sell incentivized** depending on the requirements they meet.
+The Co-sell program is available for **software built with your intellectual property (IP) as repeatable, packaged offers** and for **services with Microsoft technology embedded**. Most offer types in the Co-sell program are also available in the commercial marketplace. Offers that meet additional requirements become **Co-sell ready** or **Co-sell incentivized**.
 
 - **Co-sell ready** offers are exposed to Microsoft field sellers. When working with Microsoft sellers, the Co-sell program helps you reach a vast community of Microsoft managed customers to collaborate on sales opportunities that accelerate your business growth.
 
 <ul>
 
-![Diagram showing how co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
+![Diagram showing how co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 </ul>
 
 - **Co-sell incentivized** IP solutions can earn incentives for Microsoft field sellers when they are sold in collaboration with Microsoft sales teams, in addition to the marketplace benefits listed below.</li></ul>
@@ -75,5 +75,5 @@ Start your co-sell journey directly in Partner Center following the steps below.
 ## Next steps
 
 * Learn more about [selling with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-* Learn more about the [co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
-* Read the [Co-sell Partner Engagement Guide](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).
+* Learn more about the [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+* Read the [Co-sell Playbook](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).
