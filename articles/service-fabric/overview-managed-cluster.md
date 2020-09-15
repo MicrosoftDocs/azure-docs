@@ -38,6 +38,19 @@ Service Fabric Managed clusters provide a number of advantages over traditional 
 
 There is no additional cost for Service Fabric Managed clusters beyond the cost of underlying resources required for the cluster.
 
+## Service Fabric Managed cluster SKUs
+
+Service Fabric Managed clusters are available in both Basic and Standard SKUs.
+
+| Feature | Basic | Standard |
+| ------- | ----- | -------- |
+| Network resource (SKU for [Load Balancer](../load-balancer/skus.md), [Public IP](../virtual-network/public-ip-addresses.md)) | Basic | Standard |
+| Min node (VM instance) count | 3 | 5 |
+| Max node count per node type | 100 | 100 |
+| Max node type count | 1 | 20 |
+| Add/remove node types | No | Yes |
+| Zone redundancy | No | Yes |
+
 ## Next steps
 
 To get started with Service Fabric managed clusters, try out the quickstart:
