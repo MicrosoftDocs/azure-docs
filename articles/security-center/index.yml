@@ -59,6 +59,10 @@ landingContent:
             url: tutorial-security-policy.md
           - text: Evaluate your security posture
             url: secure-score-security-controls.md
+          - text: Connect your AWS account
+            url: quickstart-onboard-aws.md
+          - text: Connect your GCP account
+            url: quickstart-onboard-gcp.md
 
 
   # Card
