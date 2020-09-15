@@ -12,7 +12,7 @@
 1. On the portal page for your virtual wan, in the **Connectivity** section, select **VPN sites** to open the VPN sites page.
 2. On the **VPN sites** page, click **+Create site**.
 
-   ![Basics](./media/virtual-wan-tutorial-site-include/basics.png "Basics")
+   ![Screenshot shows the V P N site to site window with the Create VPN Site pane open.](./media/virtual-wan-tutorial-site-include/basics.png "Basics")
 3. On the **Create VPN Site** page,  on the **Basics** tab, complete the following fields:
 
     * **Region** - Previously referred to as location. This is the location you want to create this site resource in.
@@ -23,7 +23,7 @@
     * **Hubs** - The hub that you want your Site to connect to. A site can only be connected to the hubs that have a VPN Gateway. If you do not see a hub, create a VPN gateway in that hub first.
 4. Select **Links** to add information about the physical links at the branch. If you have a virtual wan partner CPE device, check with them to see if this information is exchanged with Azure as a part of the branch information upload set up from their systems.
 
-   ![links](./media/virtual-wan-tutorial-site-include/links.png "Links")
+   ![Screenshot shows the Create V P N Site pane with the Links tab selected.](./media/virtual-wan-tutorial-site-include/links.png "Links")
 
     * **Link Name** - A name you want to provide for the physical link at the VPN Site. Example: mylink1.
     * **Provider Name** - The name of the physical link at the VPN Site. Example: ATT, Verizon.
