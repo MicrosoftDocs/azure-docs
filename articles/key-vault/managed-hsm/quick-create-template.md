@@ -37,13 +37,13 @@ To complete the steps in this article, you must have the following items:
     ```azurecli
     az login
     ```
-- The object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user?view=azure-cli-latest#az_ad_user_show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
+- The object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
 
     ```azurecli-interactive
     az ad user show --id <your-email-address> --query "objectId"
     ```
 
-You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account?view=azure-cli-latest#az_account_show) command. You can limit the output to the tenant ID only with the `--query` parameter.
+You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) command. You can limit the output to the tenant ID only with the `--query` parameter.
 
     ```azurecli-interactive
     az account show --query "tenantId"
