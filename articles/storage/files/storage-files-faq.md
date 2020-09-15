@@ -281,15 +281,18 @@ This article answers common questions about Azure Files features and functionali
 
 ## Network File System
 
-### When should I use Azure Files NFS
+* <a id="when-to-use-nfs"></a>
+**When should I use Azure Files NFS?**
 
-See [NFS shares (preview)](storage-files-compare-protocols.md#nfs-shares-preview) for details.
+See [NFS shares (preview)](storage-files-compare-protocols.md#nfs-shares-preview).
 
-### How do I backup data stored in NFS shares?
+* <a id="backup-nfs-data"></a>
+**How do I backup data stored in NFS shares?**
 
 Backing up your data on NFS shares can either be orchestrated using familiar tooling like rsync or products from one of our third-party backup partners. Multiple backup partners including [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438), and [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) were part of our initial preview and have extended their solutions to work with both SMB 3.0 and NFS 4.1 for Azure Files.
 
-### Can I migrate existing data to an NFS share?
+* <a id="migrate-nfs-data"></a>
+**Can I migrate existing data to an NFS share?**
 
 Within a region, you can use standard tools like scp, rsync, or SSHFS to move data. Because Azure Files NFS can be accessed from multiple compute instances concurrently, you can improve copying speeds with parallel uploads. If you want to bring data from outside of a region, use a VPN or a Expressroute to mount to your file system from your on-premises data center.
 

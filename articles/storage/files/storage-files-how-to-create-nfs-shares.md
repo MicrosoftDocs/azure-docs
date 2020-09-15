@@ -107,7 +107,7 @@ To create a premium file share with the Azure PowerShell module, use the [New-Az
 New-AzStorageShare `
    -Name myshare `
    -EnabledProtocol NFS `
-   -RootSquash AllAccess `
+   -RootSquash RootSquash `
    -Context $storageAcct.Context
 ```
 
@@ -123,7 +123,7 @@ az storage share create \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
     --enabled-protocol NFS \
-    --root-access AllAccess \
+    --root-access RootSquash \
     --name "myshare" 
 ```
 ---
