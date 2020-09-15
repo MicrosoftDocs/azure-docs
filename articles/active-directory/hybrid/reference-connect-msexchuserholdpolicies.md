@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/23/2019
+ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ There are two types of [holds](/Exchange/policy-and-compliance/holds/holds?view=
 The MsExchUserHoldPolcies and cloudMsExchUserHoldPolicies attributes allow on-premises AD and Azure AD to determine which users are under a hold depending on whether they are using on-premises Exchange or Exchange on-line.
 
 ## msExchUserHoldPolicies synchronization flow
-By default MsExchUserHoldPolcies is synchronized by Azure AD Connect directly to the msExchUserHoldPolicies attribute in the metaverse and then to the msExchUserHoldPolices attribute in Azure AD
+By default MsExchUserHoldPolcies is synchronized by Azure AD Connect directly to the msExchUserHoldPolicies attribute in the metaverse and then to the msExchUserHoldPolicies attribute in Azure AD
 
 The following tables describe the flow:
 
@@ -33,7 +33,7 @@ Inbound from on-premises Active Directory:
 
 |Active Directory attribute|Attribute name|Flow type|Metaverse attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
-|On-premises Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolices|In from AD - User Exchange|
+|On-premises Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|In from AD - User Exchange|
 
 Outbound to Azure AD:
 
@@ -42,7 +42,7 @@ Outbound to Azure AD:
 |Azure Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|Out to AAD – UserExchangeOnline|
 
 ## cloudMsExchUserHoldPolicies synchronization flow
-By default cloudMsExchUserHoldPolicies is synchronized by Azure AD Connect directly to the cloudMsExchUserHoldPolicies attribute in the metaverse. Then, if msExchUserHoldPolices is not null in the metaverse, the attribute in flowed out to Active Directory.
+By default cloudMsExchUserHoldPolicies is synchronized by Azure AD Connect directly to the cloudMsExchUserHoldPolicies attribute in the metaverse. Then, if msExchUserHoldPolicies is not null in the metaverse, the attribute in flowed out to Active Directory.
 
 The following tables describe the flow:
 
