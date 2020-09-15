@@ -4,7 +4,7 @@ description: This article teaches you to create, test, and publish a simple grap
 keywords: runbook, runbook template, runbook automation, azure runbook
 services: automation
 ms.subservice: process-automation
-ms.date: 04/19/2020
+ms.date: 09/15/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create a graphical runbook
@@ -297,16 +297,17 @@ You can now modify the runbook so that it only attempts to start the VM if it is
 
 15. Paste the following code snippet into the editor page.
 
-    ```powershell-interactive
-     $StatusesJson = $ActivityOutput['Get-AzVM'].StatusesText
-     $Statuses = ConvertFrom-Json $StatusesJson
-     $StatusOut =""
-     foreach ($Status in $Statuses){
-     if($Status.Code -eq "Powerstate/running"){$StatusOut = "running"}
-     elseif ($Status.Code -eq "Powerstate/deallocated") {$StatusOut = "stopped"}
-     }
-     $StatusOut
-     ```
+    ```powershell
+    $Statuses = $ActivityOutput['Get-AzVM'].Statuses
+    $StatusOut = ""
+    foreach ($Status in $Statuses) {
+      if($Status.Code -eq "Powerstate/running")
+        {$StatusOut = "running"}
+      elseif ($Status.Code -eq "Powerstate/deallocated")
+        {$StatusOut = "stopped"}
+    }
+    $StatusOut
+    ```
 
 16. Create a link from `Get Status` to `Start-AzVM`.
 
