@@ -81,7 +81,7 @@ The Azure portal is used to deploy the template. In addition to the Azure portal
 
 ## Next steps
 
-In this quickstart, you created a key vault and a secret using an Azure Resource Manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created a managed HSM. This managed HSM will not be fully functional until it is activated. See [Activate your managed HSM](quick-create-cli.md#activate-your-managed-hsm) to learn how to activate your HSM.
 
 - Read an [Overview of Managed HSM](overview.md)
 - Learn about [Managing keys in a managed HSM](key-management.md)

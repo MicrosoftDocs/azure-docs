@@ -15,7 +15,7 @@ ms.author: ambapat
 # Manage a Managed HSM using the Azure CLI
 
 > [!NOTE]
-> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI](../general/manage-with-cli2.md).
+> Key Vault supports two types of resources: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI](../general/manage-with-cli2.md).
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 

@@ -15,13 +15,13 @@ author: msmbaldwin
 ---
 # What is Azure Key Vault Managed HSM (preview)?
 
-Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs.  
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs.  
 
 ## Why use Managed HSM?
 
 ### Fully managed, highly available, single-tenant HSM as a service
 
-- **Fully managed**: You don't need to provision, configure, patch, or maintain HSMs or key management software. 
+- **Fully managed**: HSM provisioning, configuration, patching, and maintenance is handled by the service. 
 - **Highly available and zone resilient** (where Availability zones are supported): Each HSM cluster consists of multiple HSM partitions that span across at least two availability zones. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes.
 - **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a cluster of multiple HSM partitions. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates each customer's HSM cluster.
 
@@ -35,7 +35,7 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 ### Integrated with Azure and Microsoft PaaS/SaaS services 
 
-- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to [encrypt your data at rest in Azure services](../../security/fundamentals/encryption-atrest.md), [Service encryption with customer key for Office 365](/microsoft-365/compliance/customer-key-overview), [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection), and other Microsoft cloud services.
+- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys), [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-byok-overview), and [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/byok-price-restrictions).
 
 ### Uses same API and management interfaces as Key Vault
 
