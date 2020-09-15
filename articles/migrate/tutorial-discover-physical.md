@@ -121,10 +121,6 @@ To set up the appliance you:
 
 In **2: Download Azure Migrate appliance**, click on **Download**.
 
-   ![Selections for Discover machines](./media/tutorial-assess-physical/servers-discover.png)
-
-
-   ![Selections for Generate Key](./media/tutorial-assess-physical/generate-key-physical.png)
 
 ### Verify security
 
@@ -211,7 +207,6 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 1. In **Step 2:Provide physical or virtual server details​**, click on **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide server details through **Import CSV**.
 
-    ![Selections for adding discovery source](./media/tutorial-assess-physical/add-discovery-source-physical.png)
 
     - If you choose **Add single item**, you can choose the OS type,specify friendly name for credentials, add server **IP address/FQDN** and click on **Save**.
     - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box.**Verify** the added records and click on **Save**.
