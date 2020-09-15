@@ -49,7 +49,7 @@ Each of these options is explained in a separate tab below.
 
 ### Enable JIT on your VMs from Azure Security Center <a name="jit-asc"></a>
 
-![Configuring JIT VM access in Azure Security Center](./media/security-center-just-in-time/jit-config-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Configuring JIT VM access in Azure Security Center":::
 
 From Security Center, you can enable and configure the JIT VM access.
 
@@ -237,7 +237,7 @@ Each of these options is explained in a separate tab below.
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-![Requesting JIT access from Security Center](./media/security-center-just-in-time/jit-request-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Requesting JIT access from Security Center":::
 
 1. From the **Just-in-time VM access** page, select the **Configured** tab.
 

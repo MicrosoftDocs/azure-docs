@@ -16,7 +16,7 @@ The Azure Defender dashboard provides:
 
 - Visibility into your Azure Defender coverage across your different resource types
 - Links to configure advanced threat protection capabilities
-- The onboarding state & agent installation
+- The onboarding state and agent installation
 - Azure Defender threat detection alerts 
 
 To access the Azure Defender dashboard, select **Azure Defender** from the Cloud Security section of Security Center's menu.

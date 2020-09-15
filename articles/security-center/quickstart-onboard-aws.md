@@ -190,6 +190,6 @@ Supported OS for automatic onboarding to Azure Arc for AWS Machines
 
 ## Next steps
 
-Connecting your GCP account is part of the multi-cloud experience available in Azure Security Center. For related information, see the following page:
+Connecting your AWS account is part of the multi-cloud experience available in Azure Security Center. For related information, see the following page:
 
 - [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
