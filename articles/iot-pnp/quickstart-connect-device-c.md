@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play Preview sample C device code to IoT Hub | Microsoft Docs
-description: Build and run IoT Plug and Play Preview sample device code on Linux or Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Connect IoT Plug and Play sample C device code to IoT Hub | Microsoft Docs
+description: Build and run IoT Plug and Play sample device code on Linux or Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
@@ -11,7 +11,7 @@ services: iot-pnp
 # As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# Quickstart: Connect a sample IoT Plug and Play Preview device application running on Linux or Windows to IoT Hub (C)
+# Quickstart: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub (C)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 

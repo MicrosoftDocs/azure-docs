@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play Preview sample C# component device code to IoT Hub  | Microsoft Docs
-description: Build and run IoT Plug and Play Preview sample C# device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Connect IoT Plug and Play sample C# component device code to IoT Hub  | Microsoft Docs
+description: Build and run IoT Plug and Play sample C# device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
@@ -125,4 +125,4 @@ You can also use the Azure IoT explorer tool to call commands in either of the t
 In this tutorial, you've learned how to connect an IoT Plug and Play device with components to an IoT hub. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play Preview modeling developer guide](concepts-developer-guide.md)
+> [IoT Plug and Play modeling developer guide](concepts-developer-guide.md)

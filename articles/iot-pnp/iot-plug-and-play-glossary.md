@@ -1,6 +1,6 @@
 ---
-title: Glossary of terms - IoT Plug and Play Preview | Microsoft Docs
-description: Concepts - a glossary of common terms relating to IoT Plug and Play Preview.
+title: Glossary of terms - IoT Plug and Play | Microsoft Docs
+description: Concepts - a glossary of common terms relating to IoT Plug and Play.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/22/2020
@@ -9,7 +9,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# Glossary of terms for IoT Plug and Play Preview
+# Glossary of terms for IoT Plug and Play
 
 Definitions of common terms as used in the IoT Plug and Play articles.
 

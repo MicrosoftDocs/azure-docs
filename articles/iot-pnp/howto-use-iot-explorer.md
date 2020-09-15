@@ -1,6 +1,6 @@
 ---
 title: Install and use Azure IoT explorer | Microsoft Docs
-description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play Preview devices connected to IoT hub.
+description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play devices connected to IoT hub.
 author: rido-min
 ms.author: rmpablos
 ms.date: 05/06/2020
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Install and use Azure IoT explorer
 
-The Azure IoT explorer is a graphical tool for interacting with and testing your IoT Plug and Play Preview devices. After installing the tool on your local machine, you can use it to connect to a hub. You can use the tool to view the telemetry the devices are sending, work with device properties, and invoke commands.
+The Azure IoT explorer is a graphical tool for interacting with and testing your IoT Plug and Play devices. After installing the tool on your local machine, you can use it to connect to a hub. You can use the tool to view the telemetry the devices are sending, work with device properties, and invoke commands.
 
 This article shows you how to:
 

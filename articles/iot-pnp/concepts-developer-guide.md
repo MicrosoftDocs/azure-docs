@@ -1,5 +1,5 @@
 ---
-title: Developer guide - IoT Plug and Play Preview | Microsoft Docs
+title: Developer guide - IoT Plug and Play | Microsoft Docs
 description: Description of IoT Plug and Play for developers
 author: rido-min
 ms.author: rmpablos
@@ -9,9 +9,9 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# IoT Plug and Play Preview developer guide
+# IoT Plug and Play developer guide
 
-IoT Plug and Play Preview lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
+IoT Plug and Play lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
 This guide describes the basic steps required to create a device that follows the [IoT Plug and Play conventions](concepts-convention.md), and the available REST APIs you can use to interact with the device.
 

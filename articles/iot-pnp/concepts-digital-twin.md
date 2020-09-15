@@ -1,6 +1,6 @@
 ---
 title: Understand IoT Plug and Play digital twins
-description: Understand how IoT Plug and Play Preview uses digital twins
+description: Understand how IoT Plug and Play uses digital twins
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020

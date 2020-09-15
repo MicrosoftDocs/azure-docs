@@ -1,6 +1,6 @@
 ---
-title: Interact with an IoT Plug and Play Preview device connected to your Azure IoT solution (Node.js) | Microsoft Docs
-description: Use Node.js to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
+title: Interact with an IoT Plug and Play device connected to your Azure IoT solution (Node.js) | Microsoft Docs
+description: Use Node.js to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: elhorton
 ms.author: elhorton
 ms.date: 08/11/2020
@@ -12,11 +12,11 @@ ms.custom: mvc, devx-track-javascript
 # As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
 
-# Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Node.js)
+# Quickstart: Interact with an IoT Plug and Play device that's connected to your solution (Node.js)
 
 [!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
-IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
+IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
 
 ## Prerequisites
 
@@ -210,4 +210,4 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
 In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play Preview modeling developer guide](concepts-developer-guide.md)
+> [IoT Plug and Play modeling developer guide](concepts-developer-guide.md)
