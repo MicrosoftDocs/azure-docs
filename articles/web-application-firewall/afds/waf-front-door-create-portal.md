@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
 ---
 
@@ -71,8 +71,11 @@ Azure-managed Default Rule Set is enabled by default. To disable an individual r
 
  ![Change WAF Rule Set](../media/waf-front-door-create-portal/managed2.png)
 
+## Clean up resources
+
+When no longer needed, remove the resource group and all related resources.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Web Application Firewall](../overview.md)
 > [Learn more about Azure Front Door](../../frontdoor/front-door-overview.md)
