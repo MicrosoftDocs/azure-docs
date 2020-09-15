@@ -21,9 +21,10 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 ### Fully managed, highly available, single-tenant HSM as a service
 
-- **Fully managed**: You don't need to provision, configure, patch, or maintain HSMs or key management software. 
+- **Fully managed**: HSM provisioning, configuration, patching, and maintenance is handled by the service. 
 - **Highly available and zone resilient** (where Availability zones are supported): Each HSM cluster consists of multiple HSM partitions that span across at least two availability zones. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes.
-- **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a pool of multiple HSM partitions. Each HSM pool uses a separate customer-specific security domain that cryptographically isolates each customer's HSM pool.
+- **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a cluster of multiple HSM partitions. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates each customer's HSM cluster.
+
 
 ### Access control, enhanced data protection & compliance
 
