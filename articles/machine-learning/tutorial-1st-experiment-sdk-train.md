@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Train your first Azure ML model in Python"
+title: "Tutorial: Train your first machine learning model - Python"
 titleSuffix: Azure Machine Learning
-description: Part 3 of the Azure ML Get Started series shows how to to train a PyTorch model on the CIFAR 10 dataset.
+description: Part 3 of the Azure Machine Learning get started series shows how to train a machine learning model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,46 +9,42 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Train your first ML model (Part 3 of 4)
+# Tutorial: Train your first machine learning model (Part 3 of 4)
 
-In the [previous tutorial](tutorial-1st-experiment-hello-world.md), you ran a trivial "Hello world!" script in the cloud using Azure Machine Learning's Python SDK. This time you take it a step further by submitting a script that will train an ML-model.
+This tutorial shows you how to train a machine learning model in Azure Machine Learning.
 
-This tutorial shows you how to train a PyTorch model on the [CIFAR 10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset. This example shows you how to ensure a consistent behavior between local testing and remote runs.
+This tutorial is part three of a four-part tutorial series in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Part 1: Set up](tutorial-1st-experiment-sdk-setup-local.md) and [Part 2: Run "Hello World"](tutorial-1st-experiment-hello-world.md) of the series.
 
-This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
+In this tutorial, you take the next step by submitting a script that trains a machine learning model. This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 
->[!NOTE] 
-> The concepts in this article apply to *any* ML Code and not just PyTorch.
-
-This article will demonstrate to you these Azure Machine Learning concepts:
-- [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)
-- [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) 
-- [Azure Machine Learning Metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-
-Learning these concepts means that by the end of this session, you can:
+In this tutorial you:
 
 > [!div class="checklist"]
+> * Create training script.
 > * Use Conda to define an Azure Machine Learning environment.
-> * Train a model in the cloud.
+> * Create control script.
+> * Understand Azure Machine Learning classes (Environment, Run, Metrics).
+> * Submit and run your training script.
+> * View your code output in the cloud.
 > * Log metrics to Azure Machine Learning.
+> * View your metrics in the cloud.
 
 ## Prerequisites
 
-- You have completed the following:
-  - Setup on your [local computer](tutorial-1st-experiment-sdk-setup-local.md) or setup to use a [compute instance](tutorial-1st-experiment-sdk-setup-local.md).
-  - [Tutorial: Hello Azure](tutorial-1st-experiment-hello-world.md)
-- Familiarity with Python and Machine Learning concepts.
-- A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
+* Complete [Part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace or [notebook virtual machine](tutorial-1st-experiment-sdk-setup.md).
+* Introductory knowledge of the Python language and machine learning workflows.
+* Local development environment. This includes but is not limited to Visual Studio Code, Jupyter or PyCharm.
+* Python (version 3.5-3.7).
 
 ## Create training scripts
 
 First you define the neural network architecture in a `model.py` file. All your training code will go into the `src` subdirectory - including `model.py`.
 
-The code below is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. 
+The code below is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. Note that the Azure Machine Learning concepts apply to any machine learning code, not just PyTorch.
 
 ```python
 # tutorial/src/model.py
@@ -236,7 +232,7 @@ python 04-run-pytorch.py
 >[!NOTE] 
 > The first time you run this script, Azure Machine Learning will build a new docker image from your PyTorch
 environment. The whole run could take 5-10 minutes to complete. You can see the docker build
-logs in the Azure Machine Learning Studio: Follow the link to the ML Studio > Select "Outputs + logs" tab > Select `20_image_build_log.txt`.
+logs in the Azure Machine Learning Studio: Follow the link to the machine learning Studio > Select "Outputs + logs" tab > Select `20_image_build_log.txt`.
 This image will be reused in future runs making them run much quicker.
 
 Once your image is built, select `70_driver_log.txt` to see the output of your training script.
@@ -267,7 +263,7 @@ Finished Training
 
 Environments can be registered to a workspace with `env.register(ws)`, allowing them to be easily shared, reused, and versioned. Environments make it easy to reproduce previous results and to collaborate with your team.
 
-Azure Machine Learning also maintains a collection of curated environments. These environments cover common ML scenarios and are backed by cached Docker images. Cached Docker images make the first remote run faster.
+Azure Machine Learning also maintains a collection of curated environments. These environments cover common machine learning scenarios and are backed by cached Docker images. Cached Docker images make the first remote run faster.
 
 In short, using registered environments can save you time! More details can be found on the [environments documentation](./how-to-use-environments.md)
 

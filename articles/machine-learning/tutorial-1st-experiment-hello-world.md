@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Hello world"
+title: 'Tutorial: Run "Hello World" Python script'
 titleSuffix: Azure Machine Learning
 description: Part 2 of the Azure ML Get Started series shows how to  submit a trivial "hello world" python script to the cloud.
 services: machine-learning
@@ -9,41 +9,36 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Submit a "Hello World" script to a compute cluster with Azure Machine Learning  (Part 2 of 4)
+# Tutorial: Run "Hello World" Python script (Part 2 of 4)
 
-In **part 2 of this get started series**, you will submit a trivial "hello world" python script to the cloud by:
+In this tutorial you learn how to use the Azure Machine Learning Python SDK to submit and run a Python "Hello World" script.
 
-> [!div class="checklist"]
-> * Running Python code in the cloud with Azure Machine Learning SDK
-> * Switching between debugging locally on (say) your laptop
-> * Submitting remote runs in the cloud
-> * Monitoring and recording runs in the Azure Machine Learning studio
-
-This tutorial is part of a **four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete simple jobs-based machine learning tasks in the Azure cloud. It builds off the work you completed in [Tutorial part 1: set up your local machine for Azure Machine Learning](
+This tutorial is part two of a four-part tutorial series in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Tutorial part 1: set up your local machine for Azure Machine Learning](
 tutorial-1st-experiment-sdk-setup-local.md).
 
-This tutorial introduces you to the core Azure Machine Learning concepts needed to run your code in the cloud:
+In this tutorial you will:
 
 > [!div class="checklist"]
-> - [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
-> - [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)
-> - [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)
-> - [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)
-> - [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true)
+> * Create and run a "Hello World" Python script locally
+> * Create a Python control script to submit "Hello world" to Azure Machine Learning
+> * Understand the Azure Machine Learning concepts in the control script
+> * Submit and run "Hello World"
+> * View your code output in the cloud
 
 ## Prerequisites
 
 - Complete [Part 1 of the tutorial on local machine setup](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace or [notebook virtual machine](tutorial-1st-experiment-sdk-setup.md).
-- Familiarity with Python and Machine Learning concepts.
-- A local development environment - a laptop with Python installed and your favorite IDE (for example: VSCode, Pycharm, Jupyter, and so on).
+- Introductory knowledge of the Python language and machine learning workflows.
+- Local development environment. This includes but is not limited to Visual Studio Code, Jupyter or PyCharm.
+- Python (version 3.5-3.7).
 
-## Create `hello.py`
+## Create and run a Python script locally
 
-Create a new subdirectory called `src` under the `tutorial` directory to store code that you want to process on an Azure Machine Learning compute cluster. In the `src` subdirectory create your hello world script `hello.py`:
+Create a new subdirectory called `src` under the `tutorial` directory to store code that you want to run on an Azure Machine Learning compute cluster. In the `src` subdirectory create the `hello.py` Python script:
 
 ```python
 # src/hello.py
@@ -62,7 +57,7 @@ tutorial
 └──02-create-compute.py
 ```
 
-## Test your script locally
+### Test your script locally
 
 You can run your code locally, which has the benefit of interactive debugging of code, by using your favorite IDE or via a terminal:
 
@@ -136,7 +131,7 @@ Here's a description of how the control script works:
    :::column-end:::
 :::row-end:::
 
-## Submit a run to Azure Machine Learning
+## Submit and run your code in the cloud
 
 Run your control script, which in turn runs `hello.py` on the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
@@ -144,7 +139,9 @@ Run your control script, which in turn runs `hello.py` on the compute cluster yo
 python 03-run-hello.py
 ```
 
-The output will contain a link to the Azure ML Studio that looks something like this:
+## Monitor your code in the cloud using studio
+
+The output will contain a link to the Azure Machine Learning studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
 Follow the link and navigate to the **Outputs + logs** tab. There you can see a file
