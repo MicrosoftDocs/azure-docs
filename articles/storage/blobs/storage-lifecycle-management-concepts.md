@@ -9,8 +9,7 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng 
-ms.custom: devx-track-azurepowershell
-ms.custom: references_regions
+ms.custom: "devx-track-azurepowershell, references_regions"
 ---
 
 # Manage the Azure Blob storage lifecycle
