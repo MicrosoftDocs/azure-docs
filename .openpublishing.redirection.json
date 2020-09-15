@@ -57001,6 +57001,27 @@
       "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
       "redirect_url": "/azure/azure-monitor/platform/workbooks-overview#visualizations",
       "redirect_document_id": false 	
-    }
+    },
+    {
+    "source_path": "articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-portal",
+    "redirect_document_id": false 	
+    },
+    {
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-cli",
+    "redirect_document_id": false 	
+    },
+    {
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-powershell",
+    "redirect_document_id": false 	
+   },
+   {
+    "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template",
+    "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-template",
+    "redirect_document_id": false 	
+  }
+
   ]
 }
