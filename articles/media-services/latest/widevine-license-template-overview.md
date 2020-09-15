@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 with Widevine license template overview
-description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
+description: Learn about Azure Media Services with the Widevine license template and how it is used to configure Widevine licenses.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp

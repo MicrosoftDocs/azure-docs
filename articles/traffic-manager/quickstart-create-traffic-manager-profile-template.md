@@ -1,13 +1,14 @@
 ---
-title: Create a Traffic Manager by using Azure Resource Manager template (ARM template)
-description: Learn how to create an Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create a Traffic Manager by using Azure Resource Manager template (ARM template)'
+description: This quickstart article describes how to create an Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
-ms.date: 08/24/2020
+ms.date: 09/01/2020
+
 ---
 
 # Quickstart: Create a Traffic Manager profile using an ARM template
@@ -100,12 +101,12 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 ## Clean up resources
 
-When you're done, delete the resource groups, web applications, and all related resources using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+When you no longer need the Traffic Manager profile, delete the resource group. This removes the Traffic Manager profile and all the related resources.
+
+To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+Remove-AzResourceGroup -Name <your resource group name>
 ```
 
 ## Next steps

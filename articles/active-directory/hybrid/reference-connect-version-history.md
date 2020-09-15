@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
-description: This article lists all releases of Azure AD Connect and Azure AD Sync
+description: This article lists all releases of Azure AD Connect and Azure AD Sync.
 services: active-directory
 author: billmath
 manager: daveba
@@ -43,7 +43,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >If you have enabled Azure AD Connect for sync you will soon automatically begin receiving Health notifications that warn you about upcoming deprecations when you are running one of the older versions.
 >
->Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
+>Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
 >
 >For version history information on deprecated versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
 
@@ -69,7 +69,7 @@ This is a bug fix release. There are no functional changes in this release.
 ### Functional changes
 This release includes a public preview of the functionality to export the configuration of an existing Azure AD Connect server into a .JSON file which can then be used when installing a new Azure AD Connect server to create a copy of the original server.
 
-A detailed description of this new feature can be found in [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+A detailed description of this new feature can be found in [this article](./how-to-connect-import-export-config.md)
 
 ### Fixed issues
 - Fixed a bug where there would be a false warning about the local DB size on the localized builds during upgrade.
@@ -154,7 +154,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 ### Release status
 12/9/2019: Release for download. Not available through auto-upgrade.
 ### New features and improvements
-- We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from Azue AD to Azure AD Domain Services.
+- We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from Azure AD to Azure AD Domain Services.
 - We added support for reliable sessions between the authentication agent and service bus.
 - This release enforces TLS 1.2 for communication between authentication agent and cloud services.
 - We added a DNS cache for websocket connections between authentication agent and cloud services.
@@ -203,13 +203,13 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 
 ### New features and improvements
 - New troubleshooting tooling helps troubleshoot "user not syncing", "group not syncing" or "group member not syncing" scenarios.
-- Add support for national clouds in Azure AD Connect troubleshooting script 
+- Add support for national clouds in Azure AD Connect troubleshooting script.
 - Customers should be informed that the deprecated WMI endpoints for MIIS_Service have now been removed. Any WMI operations should now be done via PS cmdlets.
-- Security improvement by resetting constrained delegation on AZUREADSSOACC object
+- Security improvement by resetting constrained delegation on AZUREADSSOACC object.
 - When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
 - Using an Enterprise or Domain admin as the connector account is no longer supported in new Azure AD Connect Deployments. Current Azure AD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
 - In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
-- Added mitigation steps for password errors to 'connectors > properties > connectivity' page
+- Added mitigation steps for password errors to 'connectors > properties > connectivity' page.
 - Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the Azure AD Connect wizard.
 - Added new error for issues with a user's password policy.
 - Prevent misconfiguration of  group filtering by domain and OU filters. Group filtering will show an error when the domain/OU of the entered group is already filtered out and keep the user from moving forward until the issue is resolved.
@@ -228,7 +228,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 - Help popups now show on keyboard focus.
 - For Auto upgrade, if any conflicting app is running from 6 hours, kill it and continue with upgrade.
 - Limit the number of attributes a customer can select to 100 per object when selecting directory extensions. This will prevent the error from occurring during export as Azure has a maximum of 100 extension attributes per object.
-- Fixed a bug to make the AD Connectivity script more robust
+- Fixed a bug to make the AD Connectivity script more robust.
 - Fixed a bug to make Azure AD Connect install on a machine using an existing Named Pipes WCF service more robust.
 - Improved diagnostics and troubleshooting around group policies that do not allow the ADSync service to start when initially installed.
 - Fixed a bug where display name for a Windows computer was written incorrectly.
@@ -239,11 +239,11 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 
 ## 1.3.21.0
 >[!IMPORTANT]
->There is a known issue with upgrading Azure AD Connect from an earlier version to 1.3.21.0 where the O365 portal does not reflect the updated version even though Azure AD Connect upgraded successfully.
+>There is a known issue with upgrading Azure AD Connect from an earlier version to 1.3.21.0 where the Microsoft 365 portal does not reflect the updated version even though Azure AD Connect upgraded successfully.
 >
-> To resolve this you need to import the **AdSync** module and then run the`Set-ADSyncDirSyncConfiguration` PowerShell cmdlet on the Azure AD Connect server.  You can use the following steps:
+> To resolve this, you need to import the **AdSync** module and then run the `Set-ADSyncDirSyncConfiguration` PowerShell cmdlet on the Azure AD Connect server.  You can use the following steps:
 >
->1.	Open PowerShell in administator mode.
+>1.	Open PowerShell in administrator mode.
 >2.	Run `Import-Module "ADSync"`.
 >3.	Run `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  

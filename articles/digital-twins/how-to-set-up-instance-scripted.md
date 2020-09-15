@@ -39,7 +39,7 @@ In the downloaded sample folder, the deployment script is located at _Azure_Digi
 
 Here are the steps to run the deployment script in Cloud Shell.
 1. Go to an [Azure Cloud Shell](https://shell.azure.com/) window in your browser. Sign in using this command:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     If the CLI can open your default browser, it will do so and load an Azure sign-in page. Otherwise, open a browser page at *https://aka.ms/devicelogin* and enter the authorization code displayed in your terminal.
@@ -59,6 +59,13 @@ Here are the steps to run the deployment script in Cloud Shell.
     * For the app registration: an *Azure AD application reply URL* for the Azure AD application. Use `http://localhost`. The script will set up a *Public client/native (mobile & desktop)* URI for it.
 
 The script will create an Azure Digital Twins instance, assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance, and set up an Azure AD app registration for your client app to use.
+
+>[!NOTE]
+>There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Owner (Preview)_ was not created**.
+>
+>You can verify the role assignment with the [*Verify user role assignment*](#verify-user-role-assignment) section later in this article, and—if needed—set up the role assignment manually using the [Azure portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>
+>For more detail on this issue, see [*Troubleshooting: Known issues in Azure Digital Twins*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 Here is an excerpt of the output log from the script:
 

@@ -42,6 +42,9 @@ Enable replication. You can reprotect specific VMs, or a recovery plan:
 - If you reprotect a recovery plan, you must provide the values for every protected machine.
 - If VMs belong to a replication group for multi-VM consistency, they can only be reprotected using a recovery plan. VMs in a replication group must use the same master target server
 
+>[!NOTE]
+>The amount of data sent from Azure to erstwhile source during reprotect, can be anything between 0 bytes and sum of disk size for all protected machines, and can't be calculated.
+
 ### Before you start
 
 - After a VM boots in Azure after failover, it takes some time for the agent to register back to the configuration server (up to 15 minutes). During this time, you won't be able to reprotect and an error message indicates that the agent isn't installed. If this happens, wait for a few minutes, and then reprotect.

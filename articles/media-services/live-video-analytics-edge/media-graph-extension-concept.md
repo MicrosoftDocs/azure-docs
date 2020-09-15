@@ -44,13 +44,14 @@ So, use a gRPC extension processor node when you:
 Media Graph Extensions allow you to run inference models of your choice on any available inference runtime, such as ONNX, TensorFlow, PyTorch, or others in your own docker container. The inferencing custom extension should be deployed alongside Live Video Analytics edge module for best performance and will then be invoked via the HTTP extension processor or the gRPC extension processor included in your graph topology. Additionally, the frequency of the calls into your custom extension can be throttled by optionally adding a [motion detector processor](media-graph-concept.md#motion-detection-processor) and a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) upstream to the media extension processor.
 
 The diagram below depicts the high-level data flow:
- 
-![Data flow](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="AI inference service":::
 
 ## Samples
 
-Checkout some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Live Video Analytics. These notebooks will provide you with step-by-step instructions on:
+Checkout some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Live Video Analytics. These notebooks will provide you with step-by-step instructions for **the media graph extensions** on:
 
 * How to create a Docker container image of an extension service
 * How to deploy the extension service as a container along with the Live Video Analytics container
-* How to use a Live Video Analytics media graph with an extension client and point it to the extension gRPC endpoint
+* How to use a Live Video Analytics media graph with an extension client and point it to the extension endpoint (HTTP/gRPC)

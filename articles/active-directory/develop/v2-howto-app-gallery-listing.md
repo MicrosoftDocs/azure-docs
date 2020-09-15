@@ -273,5 +273,5 @@ The Microsoft Partner Network provides instant access to exclusive resources, pr
 
 
 ## Next steps
-
-For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md).
+* [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md)

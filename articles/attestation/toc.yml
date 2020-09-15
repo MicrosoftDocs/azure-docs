@@ -15,7 +15,7 @@
   - name: Authoring and signing an attestation policy
     href: author-sign-policy.md
   - name: SGX attestation code samples
-    href: https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation
+    href: /samples/browse/?expanded=azure&terms=attestation
 - name: Examples
   items:
     - name: Attestation policy

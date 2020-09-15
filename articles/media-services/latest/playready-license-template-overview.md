@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 with Microsoft PlayReady license template
-description: This topic gives an overview of a PlayReady license template that is used to configure PlayReady licenses.
+description: Learn about Azure Media Services v3 with the PlayReady license template and how to configure PlayReady licenses.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp

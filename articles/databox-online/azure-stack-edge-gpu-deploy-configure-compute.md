@@ -101,7 +101,7 @@ To configure a client to access Kubernetes cluster, you will need the Kubernetes
     
         ![Device page in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
 
-        The `aseuser` config file allows you to debug any issues related to `iotedge` namespace in your Kubernetes cluster. For more information, see [Debug Kubernetes issues](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge). 
+        You can use this config file to sign into the Kubernetes dashboard or debug any issues in your Kubernetes cluster. For more information, see [Access Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#access-dashboard). 
 
 
 ## Next steps

@@ -18,7 +18,7 @@ Key Vault allows you to securely access sensitive information from within your a
 - Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
 - Manage Key Vault certificates. For more information, see [Certificates](../certificates/about-certificates.md)
 
-For more general information on Azure Key Vault, see [What is Key Vault](overview.md)).
+For more general information on Azure Key Vault, see [What is Key Vault](overview.md).
 
 ## Public Previews
 
@@ -61,7 +61,7 @@ Before working with keys, secrets or certificates in your key vault, you'll crea
 - [Set and retrieve a certificate with CLI](../certificates/quick-create-cli.md)
 - [Set and retrieve a certificate with PowerShell](../certificates/quick-create-powershell.md)
 - [Set and retrieve a certificate with the Azure portal](../certificates/quick-create-portal.md)
-- [Keys operations with REST](/rest/api/keyvault/#certificate-operations)
+- [Certificate operations with REST](/rest/api/keyvault/#certificate-operations)
 - [Set and retrieve a certificate with Python](../certificates/quick-create-python.md)
 
 ## Coding with Key Vault
@@ -119,7 +119,7 @@ The following articles and scenarios provide task-specific guidance for working 
 - [How to use Key Vault for extensible key management with SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) - The SQL Server Connector for Azure Key Vault enables SQL Server and SQL-in-a-VM to leverage the Azure Key Vault service as an Extensible Key Management (EKM) provider to protect its encryption keys for applications link; Transparent Data Encryption, Backup Encryption, and Column Level Encryption.
 - [How to deploy Certificates to VMs from Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - A cloud application running in a VM on Azure needs a certificate. How do you get this certificate into this VM today?
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) provides step-by-step instructions for deploying certificates stored in Key Vault as part of [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) offering.
-- [Grant permission to many applications to access a key vault](group-permissions-for-apps.md) Key Vault access control policy  supports up to 1024 entries. However you can create an Azure Active Directory security group. Add all the associated service principals to this security group and then grant access to this security group to Key Vault.
+- Assign an access policy ([CLI](assign-access-policy-cli.md) | [PowerShell](assign-access-policy-powershell.md) | [Portal](assign-access-policy-portal.md)). Key Vault supports up to 1024 access policy entries. To remain within this limit with users, create Azure Active Directory security groups, add all the associated service principals to that group, and then grant the group access to Key Vault.
 - For more task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones' Azure Resource Manager template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [How to use Key Vault soft-delete with CLI](soft-delete-cli.md) guides you through the use and lifecycle of a key vault and various key vault objects with soft-delete enabled.
 - [How to use Key Vault soft-delete with PowerShell](soft-delete-powershell.md) guides you through the use and lifecycle of a key vault and various key vault objects with soft-delete enabled.
@@ -134,7 +134,7 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overviews and concepts
 
-- [Key Vault soft-delete behavior](soft-delete-overview.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+- [Key Vault soft-delete behavior](soft-delete-overview.md) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
 - [Key Vault client throttling](overview-throttling.md) orients you to the basic concepts of throttling and offers an approach for your app.
 - [Key Vault security worlds](overview-security-worlds.md) describes the relationships between regions and security areas.
 

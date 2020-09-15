@@ -11,13 +11,13 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
 
 ---
 
-# Streaming Endpoint (Origin) errors 
+# Streaming Endpoint (Origin) errors
 
 This topic describes errors that you may receive from the Azure Media Services [Streaming Endpoint service](streaming-endpoint-concept.md).
 

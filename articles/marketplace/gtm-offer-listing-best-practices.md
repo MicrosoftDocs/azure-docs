@@ -43,11 +43,11 @@ Categories and industries for a different online store will be applicable to dif
 
 ### Categories
 
-Microsoft AppSource and Azure Marketplace are two different online stores that serve unique customer requirements. Azure Marketplace targets IT professionals and developers building solutions on Azure.  Microsoft AppSource targets business users looking for business and/or industry SaaS applications, Dynamics 365 add-ins, Microsoft 365 add-ins and Power Platform apps.
+Microsoft AppSource and Azure Marketplace are online stores that offer different solution types. Azure Marketplace offers IT solutions built on or for Azure.  Microsoft AppSource offer business solutions, such as industry SaaS applications, Dynamics 365 add-ins, Microsoft 365 add-ins, and Power Platform apps.
 
-Categories and subcategories are mapped to each online store based on the target audience. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the offer type, transaction capabilities of the offer and category/subcategory selection. 
+Categories and subcategories are mapped to each online store based on the solution type. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the offer type, transaction capabilities of the offer and category/subcategory selection. 
 
-Select categories and subcategories that best align with your offer and your intended audience. You can select:
+Select categories and subcategories that best align with your solution type. You can select:
 
 * Up to two categories, including a primary and a secondary category (optional).
 * Up to two subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only.

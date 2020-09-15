@@ -278,10 +278,12 @@ The following languages are available for customization to or from English using
 
 | Language    | Language code |
 |:----------- |:-------------:|
+|Afrikaans|	`af`|
 | Arabic       | `ar`          |
 | Bangla      | `bn`          |
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
+|Catalan|	`ca`	|
 | Chinese Simplified      | `zh-Hans`          |
 |Chinese Traditional|	`zh-Hant`	|
 | Croatian      | `hr`          |
@@ -290,6 +292,8 @@ The following languages are available for customization to or from English using
 | Dutch      | `nl`          |
 | English    | `en`     |
 | Estonian      | `et`          |
+|Fijian|	`fj`	|
+|Filipino|	`fil`	|
 | Finnish      | `fi`          |
 | French      | `fr`          |
 | German      | `de`          |
@@ -303,12 +307,14 @@ The following languages are available for customization to or from English using
 | Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
+|Kannada|`kn`|
 | Kiswahili|	`sw`	|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 | Malagasy|	`mg`	|
 | Malay|	`ms`		|
+|Maltese|	`mt`	|
 | Maori| `mi`  |
 | Marathi| `mr`  |
 | Norwegian      | `nb`          |
@@ -324,7 +330,9 @@ The following languages are available for customization to or from English using
 | Slovenian      | `sl`          |
 | Spanish      | `es`          |
 | Swedish      | `sv`          |
+|Tahitian|	`ty`	|
 | Thai      | `th`          |
+|Tongan|	`to`	|
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Urdu|	`ur`	|

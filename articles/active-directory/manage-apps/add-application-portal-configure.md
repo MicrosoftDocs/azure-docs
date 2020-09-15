@@ -26,7 +26,7 @@ To configure the properties of an application in your Azure AD tenant, you need:
 - Optional: Completion of [Add an app](add-application-portal.md).
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 ## Configure app properties
 
@@ -88,6 +88,6 @@ If you're not going to continue with the quickstart series, then consider deleti
 
 ## Next steps
 
-Advance to the next article to learn how to set up single sign-on for an app.
+Advance to the next article to learn how to assign users to the app.
 > [!div class="nextstepaction"]
-> [Set up single sign-on](add-application-portal-setup-sso.md)
+> [Assign users to an app](add-application-portal-assign-users.md)

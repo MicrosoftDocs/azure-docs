@@ -10,7 +10,7 @@ editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ---

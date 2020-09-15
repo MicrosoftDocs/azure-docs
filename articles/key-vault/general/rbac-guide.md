@@ -209,8 +209,6 @@ For more Information about how to create custom roles, see:
 
 [Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-For available actions check Appendix: **Available Actions**
-
 ## Known limits and performance
 
 -   2000 Azure role assignments per subscription

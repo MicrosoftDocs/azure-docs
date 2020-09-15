@@ -196,7 +196,7 @@ The Backup operation failed due to inconsistent state of Backup Extension. To re
 
 * Ensure Guest Agent is installed and responsive
 * From the Azure portal, go to **Virtual Machine** > **All Settings** > **Extensions**
-* Select the backup extension VmSnapshot or VmSnapshotLinux and click **Uninstall**
+* Select the backup extension VmSnapshot or VmSnapshotLinux and select **Uninstall**.
 * After deleting backup extension, retry the backup operation
 * The subsequent backup operation will install the new extension in the desired state
 

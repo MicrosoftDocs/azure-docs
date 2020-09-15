@@ -3,7 +3,7 @@ title: Azure virtual machine image validation - Azure Marketplace
 description: Learn how to test and submit a virtual machine offer in the commercial marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah 
 ms.date: 08/14/2020
