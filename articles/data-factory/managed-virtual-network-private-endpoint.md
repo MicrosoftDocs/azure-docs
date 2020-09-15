@@ -12,6 +12,7 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
+ms.custom: references_regions
 ---
 
 # Azure Data Factory Managed Virtual Network (preview)
@@ -84,7 +85,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 
-### Supported Regions
+### Azure Data Factory Managed Virtual Network is available in the following Azure regions:
 - East US
 - East US 2
 - West Central US
