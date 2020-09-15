@@ -42,6 +42,8 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
+
 In this quickstart, you can use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. To run the sample device:
 
 1. Open a terminal window and navigate to the local folder that contains the Microsoft Azure IoT SDK for Node.js repository you cloned from GitHub.

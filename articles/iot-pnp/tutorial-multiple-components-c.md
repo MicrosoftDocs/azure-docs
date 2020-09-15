@@ -126,6 +126,8 @@ To build the sample:
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/pnp/readme.md).
+
 To run the sample:
 
 1. From the _cmake_ folder, navigate to the folder that contains the executable file and run it:

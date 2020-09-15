@@ -78,6 +78,8 @@ In the main function, you can see how it all comes together:
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
+
 Run the sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 
 ```cmd\sh
