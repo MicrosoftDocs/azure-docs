@@ -51,17 +51,17 @@ From Microsoft.AppPlatform/Spring
 
 select:
 
-    Read : Get Azure Spring Cloud service instance
+   Read : Get Azure Spring Cloud service instance
 
-    Other : List Azure Spring Cloud service instance test keys
+   Other : List Azure Spring Cloud service instance test keys
 
 From Microsoft.AppPlatform/Spring/apps/deployments
 
 select: 
 
-    Other : Start Microsoft Azure Spring Cloud application deployment
+   Other : Start Microsoft Azure Spring Cloud application deployment
 
-    Other : Stop Microsoft Azure Spring Cloud application deployment
+   Other : Stop Microsoft Azure Spring Cloud application deployment
 
    [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/app-platform-permissions.png#lightbox)
 
@@ -119,7 +119,9 @@ select:
    Read: List application deployment available skus    
 
    [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-box.png#lightbox)
+
 4. Click **Add**.
+
 5. Review the permissions.
    ![Review permissions](media/spring-cloud-permissions/dev-ops-review-permissions.png)
 
