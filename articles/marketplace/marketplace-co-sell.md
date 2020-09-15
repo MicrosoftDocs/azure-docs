@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan-MSFT
 ms.author: vamahtan
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ---
 
 # Co-sell partner engagement
