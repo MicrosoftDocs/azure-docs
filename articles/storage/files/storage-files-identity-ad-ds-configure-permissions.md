@@ -20,11 +20,20 @@ After you assign share-level permissions with RBAC, you must configure proper Wi
 The following table contains the RBAC permissions related to this configuration:
 
 
-|Built-in roles  |Permissions  |Column3  |Column4  |
-|---------|---------|---------|---------|
-|Storage File Data SMB Share Reader     |Read         |         |         |
-|Storage File Data SMB Share Contributor     |Modify, Read, Write, Execute         |         |         |
-|Storage File Data SMB Share Elevated Contributor     |Modify, Read, Write, Edit permissions, Execute         |         |         |
+| Built-in role  | NTFS permission  | Resulting access  |
+|---------|---------|---------|
+|Storage File Data SMB Share Reader | Full control, Modify, Read, or Write | Read  |
+|     |   Read & execute |     Read & execute  |
+|Storage File Data SMB Share Contributor  |  Full control    |  Modify, Read, Write, Execute |
+|     |  Modify         |  Modify    |
+|     |  Read & execute |  Read & execute |
+|     |  Read           |  Read    |
+|     |  Write          |  Write   |
+|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit, Execute |
+|     |  Modify          |  Modify |
+|     |  Read & execute  |  Read & execute |
+|     |  Read            |  Read   |
+|     |  Write           |  Write  |
 
 
 
