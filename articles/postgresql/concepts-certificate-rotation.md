@@ -86,7 +86,7 @@ If you do not update the root certificate before October 26, 2020, your applicat
 
 ### 4. What is the impact if using App Service with Azure Database for PostgreSQL?
 For Azure app services, connecting to Azure Database for PostgreSQL, we can have two possible scenarios and it depends on how on you are using SSL with your application.
-*   If you are relying on App Service platform for managing the SSL cert, you should not see any impact with the certificate change. This certificate is included in App Service at platform level and there is no action needed.
+*   This new certificate has been added to App Service at platform level. If you are using the SSL certificates included on App Service platform in your application, then no action is needed.
 *   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert.
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for PostgreSQL?
