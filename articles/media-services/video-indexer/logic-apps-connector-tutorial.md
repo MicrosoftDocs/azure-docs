@@ -19,7 +19,7 @@ To make the integration even easier, we support [Logic Apps](https://azure.mic
 To help you get started quickly with the Video Indexer connectors, we will do a walkthrough of an example Logic App and Power Automate solution you can set up. This tutorial shows how to set up flows using Logic Apps.
 
 The "upload and index your video automatically" scenario covered in this tutorial is comprised of two different flows that work together. 
-* The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploapards the new file to Video Indexer with a callback URL to send a notification once the indexing operation completes. 
+* The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Video Indexer with a callback URL to send a notification once the indexing operation completes. 
 * The second flow is triggered based on the callback URL and saves the extracted insights back to a JSON file in Azure Storage. This two flow approach is used to support async upload and indexing of larger files effectively. 
 
 This tutorial is using Logic App to show how to:
