@@ -67,7 +67,7 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 ```
 
 ::: zone pivot="platform-windows"
