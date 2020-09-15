@@ -102,6 +102,7 @@ From 1st October 2020, we'll begin charging for protecting resources on these se
 Learn more in [Azure Defender for Storage](defender-for-storage-introduction.md).
 
 
+
 ### Asset inventory tools are now generally available
 
 The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center.
