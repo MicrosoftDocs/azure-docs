@@ -649,8 +649,46 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
 ### JBoss EAP
 
-TODO
+There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): uploading the JDBC driver, adding the JDBC driver as a module, and registering the module. App Service is a stateless hosting service, so the configuration commands for adding and registering the data source module must be scripted and applied as the container starts.
 
+1. Obtain your database's JDBC driver. 
+2. Create an XML module definition file for the JDBC driver. The example shown below is a module definition for PostgreSQL.
+
+    ```xml
+    <?xml version="1.0" ?>
+    <module xmlns="urn:jboss:module:1.1" name="org.postgres">
+        <resources>
+        <!-- ***** IMPORTANT : REPLACE THIS PLACEHOLDER *******-->
+        <resource-root path="/home/site/deployments/tools/postgresql-42.2.12.jar" />
+        </resources>
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="javax.transaction.api"/>
+        </dependencies>
+    </module>
+    ```
+
+1. Put your JBoss CLI commands into a file named `jboss-cli-commands.cli`. The JBoss commands must add the module and register it as a data source. The example below shows the JBoss CLI commands for PostgreSQL.
+
+    ```bash
+    #!/usr/bin/env bash
+    module add --name=org.postgres --resources=/home/site/deployments/tools/postgresql-42.2.12.jar --module-xml=/home/site/deployments/tools/postgres-module.xml
+
+    /subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+
+    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${POSTGRES_CONNECTION_URL,env.POSTGRES_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${POSTGRES_SERVER_ADMIN_FULL_NAME,env.POSTGRES_SERVER_ADMIN_FULL_NAME:postgres} --password=${POSTGRES_SERVER_ADMIN_PASSWORD,env.POSTGRES_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
+    ```
+
+1. Create a startup script, `startup_script.sh` that calls the JBoss CLI commands. The example below shows how to call your `jboss-cli-commands.cli`. Later you will configre App Service to run this script when the container starts. 
+
+    ```bash
+    $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/deployments/tools/jboss-cli-commands.cli
+    ```
+
+1. Using an FTP client of your choice, upload your JDBC driver, `jboss-cli-commands.cli`, `startup_script.sh`, and the module definition to `/site/deployments/tools/`.
+2. Configure your site to run `startup_script.sh` when the container starts. In the Azure Portal, navigate to **Configuration** > **General Settings** > **Startup Command**. Set the startup command field to `/home/site/deployments/tools/startup_script.sh`. **Save** your changes.
+
+To confirm that the datasource was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you are connected to JBoss run the `/subsystem=datasources:read-resource` to print a list of the data sources.
 
 ::: zone-end
 
