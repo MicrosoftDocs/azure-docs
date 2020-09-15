@@ -8,7 +8,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 09/14/2020
 ms.author: juliako
 ---
 
@@ -18,12 +18,12 @@ Video Indexer APIs contain a **location** parameter that you should set to the A
 
 ## Locations
 
-The `location` parameter must be given the Azure region code name as its value. If you are using Video Indexer in preview mode, you should put `"trial"` as the value. `trial` is the default value for the `location` parameter. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can use the Azure portal or run a [Azure CLI](/cli/azure) command.
+The `location` parameter must be given the Azure region code name as its value. If you are using Video Indexer in preview mode, you should put `"trial"` as the value. `trial` is the default value for the `location` parameter. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can use the Azure portal, API, or run a [Azure CLI](/cli/azure) command.
 
 ### Azure portal
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
-1. Select **User acccounts** from the top-right corner of the page.
+1. Select **User accounts** from the top-right corner of the page.
 1. Find the location of your account in the top-right corner.  
 
     > [!div class="mx-imgBorder"]
@@ -49,6 +49,10 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
       "subscriptionId": null
     }
 ```
+
+### Use API
+
+See [this code example](video-indexer-use-apis.md#code-sample) for how to use API.
 
 ## Next steps
 
