@@ -41,11 +41,7 @@ The [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/w
 If Microsoft Defender Advanced Threat Protection is deployed and ingesting your data, the alerts can easily be streamed into Azure Sentinel.
 
 
-<<<<<<< HEAD
 1. In Azure Sentinel, select **Data connectors**, select **Microsoft Defender for Endpoint** (may still be called **Microsoft Defender Advanced Threat Protection**) from the gallery and select **Open connector page**.
-=======
-1. In Azure Sentinel, select **Data connectors**, click the **Microsoft Defender Advanced Threat Protection** tile and select **Open connector page**.
->>>>>>> 524ec4c9deb23232dde6740ca5327a3fe9a9d1d3
 1. Click **Connect**. 
 1. To use the relevant schema in Log Analytics for the Defender ATP alerts, search for **SecurityAlert** and the **Provider name** is **MDATP**.
 
