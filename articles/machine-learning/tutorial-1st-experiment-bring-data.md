@@ -34,7 +34,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Complete [Part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace or [notebook virtual machine](tutorial-1st-experiment-sdk-setup.md) and [Part 3](tutorial-1st-experiment-sdk-train.md).
+* Complete [Part 3](tutorial-1st-experiment-sdk-train.md) of the series.
 * Introductory knowledge of the Python language and machine learning workflows.
 * Local development environment. This includes but is not limited to Visual Studio Code, Jupyter or PyCharm.
 * Python (version 3.5-3.7).

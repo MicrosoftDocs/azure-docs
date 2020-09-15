@@ -32,7 +32,7 @@ In **part 1 of this tutorial series**, you will:
 > * Set up a compute cluster
 
 >[!NOTE]
-> This tutorial series focuses the Azure Machine Learning concepts suited to Python __jobs-based__ machine learning tasks that are compute-intensive and/or require  reproducibility. If your ML tasks do not fit this profile, use the [Jupyter or RStudio functionality on a Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md) to onboard to Azure Machine Learning.
+> This tutorial series focuses the Azure Machine Learning concepts suited to Python __jobs-based__ machine learning tasks that are compute-intensive and/or require  reproducibility. If your machine learning tasks do not fit this profile, use the [Jupyter or RStudio functionality on a Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md) to onboard to Azure Machine Learning.
 
 ## Prerequisites
 
