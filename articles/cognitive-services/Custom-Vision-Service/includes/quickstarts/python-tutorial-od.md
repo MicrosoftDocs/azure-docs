@@ -233,4 +233,4 @@ Now you've done every step of the object detection process in code. This sample 
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](../../overview.md)
-* [SDK reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)
+* [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)
