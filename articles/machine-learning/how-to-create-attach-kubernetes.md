@@ -66,14 +66,15 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 ## Azure Kubernetes Service version
 
-When **creating** an Azure Kubernetes Service cluster using one of the following methods, you do not have a choice in the version of the cluster that is created:
+Azure Kubernetes Service allows you to create a cluster using a variety of Kubernetes versions. For more information on available versions, see [supported Kubernetes versions in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions).
+
+When **creating** an Azure Kubernetes Service cluster using one of the following methods, you *do not have a choice in the version* of the cluster that is created:
 
 * Azure Machine Learning studio, or the Azure Machine Learning section of the Azure portal.
 * Machine Learning extension for Azure CLI.
 * Azure Machine Learning SDK.
-* Azure Resource Manager templates that use Azure Machine Learning to create the resource. For example, [https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute).
 
-These methods of creating an AKS cluster use the __default__ version of the cluster. *The default version changes over time*.
+These methods of creating an AKS cluster use the __default__ version of the cluster. *The default version changes over time* as new Kubernetes versions become available.
 
 When **attaching** an existing AKS cluster, we support all currently supported AKS versions.
 
@@ -84,7 +85,42 @@ When **attaching** an existing AKS cluster, we support all currently supported A
 
 ### Available and default versions
 
-To find the available and default AKS versions, use the [Container Service Client - List Orchestrators](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. To find the available versions, look at the entries where `orchestratorType` is `Kubernetes`. The associated `orchestrationVersion` entries contain the available versions that can be **attached** to your workspace.
+To find the available and default AKS versions, use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) command [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az_aks_get_versions). For example, the following command returns the versions available in the West US region:
+
+```azurecli-interactive
+az aks get-versions -l westus -o table
+```
+
+The output of this command is similar to the following text:
+
+```text
+KubernetesVersion    Upgrades
+-------------------  ----------------------------------------
+1.18.6(preview)      None available
+1.18.4(preview)      1.18.6(preview)
+1.17.9               1.18.4(preview), 1.18.6(preview)
+1.17.7               1.17.9, 1.18.4(preview), 1.18.6(preview)
+1.16.13              1.17.7, 1.17.9
+1.16.10              1.16.13, 1.17.7, 1.17.9
+1.15.12              1.16.10, 1.16.13
+1.15.11              1.15.12, 1.16.10, 1.16.13
+```
+
+To find the default version that is used when **creating** a cluster through Azure Machine Learning, you can use the `--query` parameter to select the default version:
+
+```azurecli-interactive
+az aks get-versions -l westus --query "orchestrators[?default == `true`].orchestratorVersion" -o table
+```
+
+The output of this command is similar to the following text:
+
+```text
+Result
+--------
+1.16.13
+```
+
+If you'd like to **programmatically check the available versions**, use the [Container Service Client - List Orchestrators](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. To find the available versions, look at the entries where `orchestratorType` is `Kubernetes`. The associated `orchestrationVersion` entries contain the available versions that can be **attached** to your workspace.
 
 To find the default version that is used when **creating** a cluster through Azure Machine Learning, find the entry where `orchestratorType` is `Kubernetes` and `default` is `true`. The associated `orchestratorVersion` value is the default version. The following JSON snippet shows an example entry:
 
@@ -92,12 +128,12 @@ To find the default version that is used when **creating** a cluster through Azu
 ...
  {
         "orchestratorType": "Kubernetes",
-        "orchestratorVersion": "1.12.7",
+        "orchestratorVersion": "1.16.13",
         "default": true,
         "upgrades": [
           {
             "orchestratorType": "",
-            "orchestratorVersion": "1.13.5",
+            "orchestratorVersion": "1.17.7",
             "isPreview": false
           }
         ]
