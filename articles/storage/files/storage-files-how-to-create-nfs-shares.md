@@ -60,6 +60,22 @@ az feature register --name AllowNfsFileShares
                     --subscription <yourSubscriptionIDHere>
 ```
 
+## Verify that the feature is registered
+
+Registration approval can take up to an hour. To verify that the registration is complete, use the following commands:
+
+### PowerShell
+
+```azurepowershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfsFileShares
+```
+
+### Azure CLI
+
+```azurecli
+az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
+```
+
 ## Create an NFS share
 
 # [Portal](#tab/azure-portal)
@@ -71,6 +87,11 @@ Now that you have created a FileStorage account and configured the networking, y
 1. Name your file share, select a provisioned capacity.
 1. For **Protocol** select **NFS (preview)**.
 1. For **Root Squash** make a selection.
+
+    - Root squash (default) - Access for the remote superuser (root) is mapped to UID (65534) and GID (65534).
+    - No root squash - Remote superuser (root) receives access as root.
+    - All squash - All user access is mapped to UID (65534) and GID (65534).
+    
 1. Select **Create**.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot of file share creation blade":::
