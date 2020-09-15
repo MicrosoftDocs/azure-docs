@@ -53,13 +53,13 @@ To set up the first flow, you will need to provide your Video Indexer API Key�
 
 Once you can connect to your Azure Storage and Video Indexer accounts, go to the “When a blob is added or modified) trigger and select the container that you will place your video files in. 
 
-![Container](./media/logic-apps-connector-tutorial/container.png)
+![Storage container](./media/logic-apps-connector-tutorial/container.png)
 
 Next, go to the “Create SAS URI by path” action, and select List of Files Path from the Dynamic content options.  
 
 ![SAS uri by path](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Fill out [your account Location and ID](./video-indexer-use-apis.md#account-id) to get the Video Indexer account token.
+Fill out [your account location](regions.md) and [account ID](./video-indexer-use-apis.md#account-id) to get the Video Indexer account token.
 
 ![Get account access token](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -85,7 +85,7 @@ To set up this flow, you will need to provide your Video Indexer API Key and Azu
 
 For your trigger, you will see a HTTP POST URL field. The URL won’t be generated until after you save your flow; however, you will need the URL eventually. We will come back to this. 
 
-Fill out [your account Location and ID](./video-indexer-use-apis.md#account-id) to get the Video Indexer account token.  
+Fill out [your account location](regions.md) and [account ID](./video-indexer-use-apis.md#account-id) to get the Video Indexer account token.  
 
 Go to the “Get Video Index” action and fill out the required parameters. For Video ID, put in the following expression: triggerOutputs()['queries']['id'] 
 
@@ -105,7 +105,7 @@ Once the flow is saved, an HTTP POST URL is created in the trigger. Copy the URL
 
 ![Save URL trigger](./media/logic-apps-connector-tutorial/save-url-trigger.png)
 
-Now, go back to the first flow and paste the URL in the “Upload video and index” action for the Callback URL parameter. 
+Now, go back to the first flow and paste the URL in the "Upload video and index" action for the Callback URL parameter. 
 
 Make sure both flows are saved, and you’re good to go! 
 
