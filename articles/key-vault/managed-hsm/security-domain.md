@@ -29,7 +29,7 @@ When a Managed HSM is provisioned but not activated, you can initiate a Security
 
 ## Backup and restore behavior
 
-Backups (either full backup or a single key backup) can only be successfully restored if the source Managed HSM where the backup was created and the destination Managed HSM where the backup will be restored share the same Security Domain. In this way, a Security Domain also defines a cryptographic boundary for each Managed HSM. 
+Backups (either full backup or a single key backup) can only be successfully restored if the source Managed HSM (where the backup was created) and the destination Managed HSM (where the backup will be restored) share the same Security Domain. In this way, a Security Domain also defines a cryptographic boundary for each Managed HSM. 
 
 ## Next Steps
 
