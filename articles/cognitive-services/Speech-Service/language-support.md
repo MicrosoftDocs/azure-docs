@@ -33,18 +33,18 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Locale  | Language                          | Customizations                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Arabic (UAE)                      | No                                                |
+| `ar-AE` | Arabic (United Arab Emirates)     | Language model                                    |
 | `ar-BH` | Arabic (Bahrain), modern standard | Language model                                    |
 | `ar-EG` | Arabic (Egypt)                    | Language model                                    |
 | `ar-IL` | Arabic (Israel)                   | No                                                |
-| `ar-IQ` | Arabic (Iraq)                     | No                                                |
-| `ar-JO` | Arabic (Jordan)                   | No                                                |
-| `ar-KW` | Arabic (Kuwait)                   | No                                                |
-| `ar-LB` | Arabic (Lebanon)                  | No                                                |
-| `ar-OM` | Arabic (Oman)                     | No                                                |
-| `ar-PS` | Arabic (Palestine)                | No                                                |
-| `ar-QA` | Arabic (Qatar)                    | No                                                |
-| `ar-SA` | Arabic (Saudi Arabia)             | No                                                |
+| `ar-IQ` | Arabic (Iraq)                     | Language model                                    |
+| `ar-JO` | Arabic (Jordan)                   | Language model                                    |
+| `ar-KW` | Arabic (Kuwait)                   | Language model                                    |
+| `ar-LB` | Arabic (Lebanon)                  | Language model                                    |
+| `ar-OM` | Arabic (Oman)                     | Language model                                    |
+| `ar-PS` | Arabic (State of Palestine)       | No                                                |
+| `ar-QA` | Arabic (Qatar)                    | Language model                                    |
+| `ar-SA` | Arabic (Saudi Arabia)             | Language model                                    |
 | `ar-SY` | Arabic (Syria)                    | Language model                                    |
 | `bg-BG` | Bulgarian (Bulgaria)              | Language model                                    |
 | `ca-ES` | Catalan (Spain)                   | Language model                                    |
@@ -112,7 +112,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `sv-SE` | Swedish (Sweden)                  | Language model                                    |
 | `ta-IN` | Tamil (India)                     | Language model                                    |
 | `te-IN` | Telugu (India)                    | Language model                                    |
-| `th-TH` | Thai (Thailand)                   | No                                                |
+| `th-TH` | Thai (Thailand)                   | Language model                                    |
 | `tr-TR` | Turkish (Turkey)                  | Language model                                    |
 | `zh-CN` | Chinese (Mandarin, Simplified)    | Acoustic model<br>Language model                  |
 | `zh-HK` | Chinese (Cantonese, Traditional)  | Language model                                    |
