@@ -1,9 +1,11 @@
 ---
 title: Frequently asked questions for Confidential Nodes Support on Azure Kubernetes Service(AKS)
 description: Find answers to some of the common questions about AKS & Azure Confidential Computing (ACC) Nodes Support.
+author: agowdamsft
+ms.service: container-compute
 ms.topic: conceptual
 ms.date: 09/05/2020
-ms.author: agowdamsft
+ms.author: amgowda
 ---
 
 # Frequently asked questions about Confidential Computing Nodes on Azure Kubernetes Service (AKS)
@@ -12,7 +14,7 @@ This article addresses frequent questions about Intel SGX based confidential com
 
 ## What Service Level Agreement (SLA) and Azure Support is provided during the preview? 
 
-SLA is not provided during the product preview as defined [here](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/). However, Product support is provided through Azure Support.
+SLA is not provided during the product preview as defined [here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). However, Product support is provided through Azure Support.
 
 ## What is attestation and how can we do attestation of apps running in enclaves? 
 
@@ -20,7 +22,7 @@ Attestation is the process of demonstrating and validating that a piece of softw
 
 ## Can I bring my existing containerized applications and run it on AKS with Azure Confidential Computing? 
 
-Yes review the [confidential containers page](#/confidential-containers.md) for more details on platform enablers.
+Yes review the [confidential containers page](confidential-containers.md) for more details on platform enablers.
 
 ## What Intel SGX Driver version is installed in the AKS Image? 
 
@@ -36,11 +38,11 @@ No. If you have custom needs please choose [AKS-Engine based confidential comput
 
 ## Is there is a Docker base image I should be using to get started on enclave applications? 
 
-Various enablers both ISV's and OSS projects have different ways to enable confidential containers. Review the [confidential containers page](#confidential-containers.ms) for more details and individual references to implementations.
+Various enablers both ISV's and OSS projects have different ways to enable confidential containers. Review the [confidential containers page](confidential-containers.md) for more details and individual references to implementations.
 
 ## Can I run ACC Nodes with other standard AKS SKUs (build a heterogenous node pool cluster)? 
 
-Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool consider adding node selectors or by applying EPC limits. Refer to more details on the quick start on confidential nodes [here](#confidential-nodes-aks-getstarted.md) 
+Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool consider adding node selectors or by applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-nodes-aks-getstarted.md) 
 
 ## Can I run Windows Nodes with ACC? 
 
@@ -89,7 +91,7 @@ Currently Intel SGX powering the Azure Confidential Computing (ACC) DC SKU VMs s
 
 ## Do you automatically install any additional daemon sets to expose the SGX drivers? 
 
-Yes. The name of the daemon set is sgx-device-plugin and sgx-quote-helper. Read more on their respective purposes [here](#confidential-nodes-ask-overview.md#features).  
+Yes. The name of the daemon set is sgx-device-plugin and sgx-quote-helper. Read more on their respective purposes [here](confidential-nodes-aks-overview.md#features).  
 
 ## What is the VM SKU I should be choosing for confidential computing nodes? 
 
@@ -101,7 +103,7 @@ Yes. The VMs also have a regular memory that can run standard container workload
 
 ## Can I provision AKS with DCSv2 Node Pools through Azure portal? 
 
-Yes. Azure CLI could also be used as an alternative as documented [here](#confidential-nodes-aks-getstarted.md).
+Yes. Azure CLI could also be used as an alternative as documented [here](confidential-nodes-aks-getstarted.md).
 
 ## What Ubuntu version and VM generation is supported? 
 

@@ -10,12 +10,12 @@
  ms.author: JenCook
 ---
 
+# Application development on Intel SGX 
+
 // merge this page to also talk about enclave aware containers
 
 // amar add his image and merge his conent 
 
-
-# Application development on Intel SGX 
 
 Confidential computing infrastructure requires specific tools and software. This page specifically discusses concepts related to application development for Azure confidential computing virtual machines running on Intel SGX. Before reading this page, [read the introduction of Intel SGX virtual machines and enclaves](confidential-computing-enclaves.md). 
 
@@ -57,6 +57,6 @@ The [CCF](https://github.com/Microsoft/CCF) is a distributed network of nodes, e
 This open-source framework enables high throughout (~ 150 tkps), fine-grained confidentiality, and consortium governance for blockchain. With each node using TEEs, you can ensure secure consensus and transaction processing.
 
 
-# Next Steps 
+## Next Steps 
 - [Deploy a confidential computing DCsv2-Series virtual machine](quick-create-portal.md)
 - [Download and install the OE SDK and start developing applications](https://github.com/openenclave/openenclave)

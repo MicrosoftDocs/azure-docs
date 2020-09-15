@@ -1,13 +1,11 @@
 ---
  title: Confidential Containers on AKS
  description: Unmodified containers support on confidential containers
- services: virtual-machines
+ services: container-service
  author: agowdamsft
- ms.service: virtual-machines
- ms.subservice: container-service
- ms.topic: overview
- ms.date: 9/14/2020
- ms.author: agowdamsft
+ ms.topic: article
+ ms.date: 9/22/2020
+ ms.author: amgowda
 ---
 
 # Confidential Containers
@@ -54,7 +52,7 @@ Scone deployments on confidential computing nodes with AKS are fully supported a
 
 With Fortanix users can easily change your existing containerized applications to Confidential Containers with a click of a button without any application modifications or recompilation.  You can use Enclave Manager SaaS portal or our REST APIs to create Confidential Containers. Following user guide has detail instructions on creating a Confidential Container image for a containerized application using Fortanix Enclave Manager portal. [Get started](https://support.fortanix.com/hc/en-us/sections/360008910732-Quickstart) with quick deployment guide and standard docker container to [confidential container conversion](https://support.fortanix.com/hc/en-us/articles/360043529411-User-s-Guide-Create-an-Image).
 
-![Fortanix Deployment Process](./media/aks/fortanixconfidentialcontainersflow.png)
+![Fortanix Deployment Process](./media/confidential-containers/fortanixconfidentialcontainersflow.png)
 
 #### Anjuna
 ![Anjuna Logo](./media/confidential-containers/anjunalogo.png)

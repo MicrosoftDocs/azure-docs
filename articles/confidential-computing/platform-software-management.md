@@ -1,13 +1,11 @@
 ---
  title: Platform Software Management with SGX quote helper daemon set
  description: Daemon set for better managing the Intel PSW. This article explains how the out-of-proc attestation facility is provided for confidential workloads running inside a container.
- services: virtual-machines
+ services: container-service
  author: agowdamsft
- ms.service: virtual-machines
- ms.subservice: container-service
  ms.topic: overview
  ms.date: 9/14/2020
- ms.author: agowdamsft
+ ms.author: amgowda
 ---
 
 # Platform Software Management with SGX quote helper daemon set
@@ -123,7 +121,7 @@ spec:
 
 [Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU List](https://docs.microsoft.com/en-us/azure/virtual-machines/dcv2-series)
+[DCsv2 SKU List](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
 
 <!-- LINKS - external -->
 [Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/

@@ -1,8 +1,21 @@
+---
+ title: Common confidential computing scenarios and use cases
+ description: Understand how to use confidential computing in your scenario.
+ services: virtual-machines
+ author: JBCook
+ ms.service: virtual-machines
+ ms.topic: overview
+ ms.date: 9/22/2020
+ ms.author: jencook
+---
+
+# Common Use Cases
+
 // for high level use cases and scenarios and diagrams
 
 ## WIP TO DO NOT EDIT
 
-# Common Use Cases
+
 
 # Multiparty Computing
 Multi

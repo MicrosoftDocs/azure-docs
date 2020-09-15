@@ -1,18 +1,17 @@
 ---
  title: Enclave aware containers
  description: enclave ready application containers support on Azure Kubernetes Service (AKS)
- services: virtual-machines
+ services: container-service
  author: agowdamsft
- ms.service: virtual-machines
- ms.subservice: container-service
+ ms.service: container-service
  ms.topic: overview
  ms.date: 9/14/2020
- ms.author: agowdamsft
+ ms.author: amgowda
 ---
 
 # Enclave Aware Containers
 
-An enclave is a protected memory region that provides confidentiality for data and code execution. It is an instance of a Trusted Execution Environment (TEE) which is secured by hardware. Confidential computing nodes on AKS uses [Intel Software Guard Extensions (SGX)](https://software.intel.com/en-us/sgx) to create isolated enclave environments in the nodes between each container application.
+An enclave is a protected memory region that provides confidentiality for data and code execution. It is an instance of a Trusted Execution Environment (TEE) which is secured by hardware. Confidential computing nodes on AKS uses [Intel Software Guard Extensions (SGX)](https://software.intel.com/sgx) to create isolated enclave environments in the nodes between each container application.
 
 Just like Intel SGX virtual machines, container applications developed specifically to run in enclaves have two components:
 

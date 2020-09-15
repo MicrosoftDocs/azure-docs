@@ -7,8 +7,8 @@
  ms.subservice: workloads
  ms.topic: overview
  ms.date: 9/14/2020
- ms.author: agowdamsft
- ms.author: agowdamsft
+ ms.author: amgowda
+
 ---
 
 # Confidential Computing nodes on Azure Kubernetes Service (public preview)
@@ -38,7 +38,7 @@ SGX Device Plugin daemon set mounts the SGX drivers on-behalf to make Kubernetes
 
 #### SGX Quote Helper Service
 
-Enclave application that performs remote attestation requires to generate quote which provides a cryptographically proof of the identity and the state of the application as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components from Intel, which are part of the Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node and can be leveraged when requesting attestation quote from enclave apps. Using the AKS provided service will help better manage the attestation failures due to driver, microcode and PSW incompatibility. Read more on its usage and feature details [here](/.platform-software-management)
+Enclave application that performs remote attestation requires to generate quote which provides a cryptographically proof of the identity and the state of the application as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components from Intel, which are part of the Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node and can be leveraged when requesting attestation quote from enclave apps. Using the AKS provided service will help better manage the attestation failures due to driver, microcode and PSW incompatibility. [Read more](platform-software-management.md) on its usage and feature details.
 
 
 ### Confidential Computing Node Configuration
@@ -50,7 +50,7 @@ Azure Ubuntu Gen2 18.04
 
 ### Enclave aware containers
 
-AKS supports applications that are programmed to run on confidential nodes and utilize special instruction set made available through the SDKs and frameworks. This application model provides most control to your applications with a lowest Trusted Computing Base (TCB). Read more on enclave aware containers and samples [here](./enclave-aware-containers)
+AKS supports applications that are programmed to run on confidential nodes and utilize special instruction set made available through the SDKs and frameworks. This application model provides most control to your applications with a lowest Trusted Computing Base (TCB). Read more on enclave aware containers and samples [here](enclave-aware-containers.md)
 
 
 ### Confidential Containers
@@ -63,7 +63,7 @@ Confidential containers run existing programs and most programming language runt
 
 [Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU List](https://docs.microsoft.com/en-us/azure/virtual-machines/dcv2-series)
+[DCsv2 SKU List](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
 
 <!-- LINKS - external -->
 [Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/

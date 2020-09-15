@@ -1,5 +1,5 @@
 - name: Azure confidential computing
-  href: ./index.yaml
+  href: ./index.yml
 - name: Overview 
   expanded: true
   items:
@@ -59,8 +59,6 @@
 - name: Resources
   expanded: true
   items:
-  - name: FAQ
-    href: faq.md
   - name: Confidential computing feedback
     href: https://feedback.azure.com/forums/919792-azure-confidential-compute
   - name: StackOverflow
