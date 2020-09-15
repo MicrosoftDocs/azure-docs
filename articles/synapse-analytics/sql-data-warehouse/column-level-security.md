@@ -24,7 +24,7 @@ Column-level security simplifies the design and coding of security in your appli
 
 You could implement column-level security with the [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL statement. With this mechanism, both SQL and Azure Active Directory (AAD) authentication are supported.
 
-![cls](./media/column-level-security/cls.png)
+![Diagram shows a schematic table with the first column headed by a closed padlock and its cells an orange color while the other columns are white cells.](./media/column-level-security/cls.png)
 
 ## Syntax
 

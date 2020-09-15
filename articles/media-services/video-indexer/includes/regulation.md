@@ -6,4 +6,4 @@ ms.date: 09/01/2020
 ms.author: juliako
 ---
 
-![banner](../media/banner/banner.svg)
+:::image type="icon" source="../media/banner/banner.svg" border="false":::
