@@ -122,7 +122,7 @@ There are several ways that you can configure entitlement management for your or
 ### Access package manager: Update how access is approved for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Open an existing policy of request settings](entitlement-management-access-package-request-policy.md#change-approval-settings-of-an-existing-access-packages)
+1. [Open an existing policy of request settings](entitlement-management-access-package-request-policy.md#change-approval-settings-of-an-existing-access-package)
 1. [Update the approval settings](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### Access package manager: Update the people for a project
