@@ -28,7 +28,7 @@ If that doesn't solve the problem, then refer to the following manual troublesho
 
 Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
-## Check SSL client settings (ASP.NET)
+## <a id="SSL"></a>Check SSL client settings (ASP.NET)
 
 If you have an ASP.NET application hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
 [The Snapshot Debugger endpoint requires TLS version 1.2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). The set of SSL security protocols is one of the quirks enabled by the httpRuntime targetFramework value in the system.web section of web.config.
