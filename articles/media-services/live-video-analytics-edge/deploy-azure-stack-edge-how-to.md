@@ -9,18 +9,15 @@ ms.date: 09/09/2020
 
 This article lists the steps that will help you deploy Live Video Analytics on your Azure Stack Edge. After the device has been setup and activated, it is then ready for Live Video Analytics deployment. 
 
-For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge devices expose a Kubernetes API, which allows the customer to deploy additional non-IoT Hub aware solutions that can interface with Live Video Analytics. 
+For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge resources expose a Kubernetes API, which allows the customer to deploy additional non-IoT Hub aware solutions that can interface with Live Video Analytics. 
 
 > [!TIP]
-> Using the Kubernetes(K8s) API for custom deployment is an advanced case. It is recommended that the customer create edge modules and deploy via IoT Hub to each Azure Stack Edge device instead of using the Kubernetes API. In this article, we will show you the steps of deploying the Live Video Analytics module using IoT Hub.
+> Using the Kubernetes(K8s) API for custom deployment is an advanced case. It is recommended that the customer create edge modules and deploy via IoT Hub to each Azure Stack Edge resource instead of using the Kubernetes API. In this article, we will show you the steps of deploying the Live Video Analytics module using IoT Hub.
 
 ## Prerequisites
 
 * Azure subscription to which you have [owner privileges](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
-* An [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep) device:
-
-   * We currently have [Azure Stack Edge with FPGA](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-overview#features-and-specifications) that you can use. 
-   * *Azure Stack Edge with GPU* is currently in preview. This preview version is provided without a service level agreement, and it is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Azure Stack Edge with GPU](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-overview).
+* An [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) resource
    
 * [An IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
 * A [service principal](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) for the Live Video Analytics module.
@@ -28,7 +25,8 @@ For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge d
    Use one of these regions where IoT Hub is available: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
 * Storage account
 
-    It is recommended that you use [General-purpose v2 (GPv2) Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal). 
+    It is recommended that you use General-purpose v2 (GPv2) Storage accounts.  
+    Learn more about a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal).
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
@@ -62,7 +60,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="IoT Hub resource creation":::
 
     > [!NOTE]
-    > If the Configure Compute dialog is closed before the IoT Hub is associated with the Azure Stack Edge device, the IoT Hub gets created but is not shown in the compute configuration. Reload the page after a few minutes and see it appear.
+    > If the Configure Compute dialog is closed before the IoT Hub is associated with the Azure Stack Edge resource, the IoT Hub gets created but is not shown in the compute configuration. Reload the page after a few minutes and see it appear.
     
     When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on the IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
     
@@ -75,9 +73,9 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 
 Before you continue, make sure that:
 
-* You've activated your Azure Stack Edge device.
-* You have access to a Windows client system running PowerShell 5.0 or later to access the Azure Stack Edge device.
-* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge device via its [local web UI](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup). 
+* You've activated your Azure Stack Edge resource.
+* You have access to a Windows client system running PowerShell 5.0 or later to access the Azure Stack Edge resource.
+* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource via its [local web UI](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup). 
     
     * To enable the compute, in the local web UI of your device, go to the Compute page.
     
@@ -88,7 +86,7 @@ Before you continue, make sure that:
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Compute Prerequisites on the Azure Stack Edge Local UI":::
 
-        * If DNS is not configured for the Kubernetes API and Azure Stack Edge device, you can update your Window's host file.
+        * If DNS is not configured for the Kubernetes API and Azure Stack Edge resource, you can update your Window's host file.
         
             * Open a text editor as Administrator
             * Open file 'to C:\Windows\System32\drivers\etc\hosts'
@@ -207,7 +205,7 @@ These steps cover creating a Gateway user and setting up file shares to view the
     
 1. Update the Live Video Analytics Edge module's Container Create Options (see point 4 in [add modules document](deploy-iot-edge-device.md#add-modules)) to use Volume Mounts.
 
-   ```
+   ```json
     // Original (Bind Mounts)
     "createOptions": {
         "HostConfig": {
@@ -279,7 +277,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 * Module Networking
 For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
     
-    ```
+    ```json
     "createOptions": {
         "HostConfig": {
             "PortBindings": {
@@ -294,7 +292,7 @@ For Module discovery on Azure Stack Edge it is required that the module have the
     A module will fail to start if the container is trying mount a volume to an existing and non-empty directory.
 * Shared Memory
 
-    Shared memory on Azure Stack Edge devices is supported across pods in any namespace by using Host IPC.
+    Shared memory on Azure Stack Edge resources is supported across pods in any namespace by using Host IPC.
     Configuring shared memory on an edge module for deployment via IoT Hub.
     
     ```
@@ -320,12 +318,11 @@ For Module discovery on Azure Stack Edge it is required that the module have the
 
     * Option 1 - Use Node Affinity and built in Node labels for co-location.
 
-    Currently NodeSelector custom configuration does not appear to be an option as the users do not have access to set labels on the Nodes. However depending on the customer's topology and naming conventions they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). A nodeAffinity section referencing Azure Stack Edge devices with Live Video Analytics can be added to the inference pod manifest to achieve co-location.
+    Currently NodeSelector custom configuration does not appear to be an option as the users do not have access to set labels on the Nodes. However depending on the customer's topology and naming conventions they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). A nodeAffinity section referencing Azure Stack Edge resources with Live Video Analytics can be added to the inference pod manifest to achieve co-location.
     * Option 2 - Use Pod Affinity for co-location (recommended).
 Kubernetes has support for [Pod Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity)  which can schedule pods on the same node. A podAffinity section referencing the Live Video Analytics module can be added to the inference pod manifest to achieve co-location.
 
-    ```
-    
+    ```json   
     // Example Live Video Analytics module deployment match labels
     selector:
       matchLabels:
