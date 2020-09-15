@@ -28,8 +28,13 @@ landingContent:
             url: overview.md
       - linkListType: deploy
         links:
-          - text: Deploy SQL Edge
+          - text: Deploy SQL Edge using Portal
             url: deploy-portal.md
+          - text: Deploy SQL Edge with Docker
+            url: disconnected-deployment.md
+      - linkListType: tutorial           
+          - text: Deploy SQL Edge on Kubernetes
+            url: deploy-kubernetes.md               
 
   # Card 
   - title: Sync data
@@ -40,7 +45,7 @@ landingContent:
             url: tutorial-sync-data-factory.md
           - text: Sync SQL Edge data with SQL Database
             url: tutorial-sync-data-sync.md
-
+        
   # Card 
   - title: Data streaming
     linkLists:
@@ -50,6 +55,8 @@ landingContent:
             url: stream-data.md
           - text: Streaming catalog views
             url: streaming-catalog-views.md
+          - text: Create and Manage streaming jobs
+            url: create-stream-analytics-job.md
 
   # Card 
   - title: Machine learning
@@ -63,4 +70,25 @@ landingContent:
           - text: Deploy ONNX on SQL Edge
             url: deploy-onnx.md
 
-
+  # Card 
+  - title: Timeseries Data Processing
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Imputing missing values
+            url: imputing-missing-values.md
+          - text: Data retention policy 
+            url: data-retention-overview.md
+          - text: Date_Bucket (Transact-SQL)
+            url: date-bucket-tsql.md
+  
+   # Card 
+  - title: Configure SQL Edge
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Configure SQL Edge
+            url: configure.md
+          - text: Configure Replication 
+            url: configure-replication.md
+    
