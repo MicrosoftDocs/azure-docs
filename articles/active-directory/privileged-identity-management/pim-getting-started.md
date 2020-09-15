@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim  
 ms.collection: M365-identity-device-management
@@ -30,6 +30,12 @@ To use Privileged Identity Management, you must have one of the following licens
 - Enterprise Mobility + Security (EMS) E5
 
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+> When a user who is active in a privileged role in an Azure AD organization with a Premium P2 license goes to **Roles and administrators** in Azure AD and selects a role:
+>
+> - We automatically enable PIM for the organization
+> - Their experience is now that they can either assign a "regular" role assignment or an eligible role assignment
 
 ## Prepare PIM for Azure AD roles
 
