@@ -6,7 +6,7 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice:
+ms.subservice: spark
 ms.date: 04/15/2020
 ---
 

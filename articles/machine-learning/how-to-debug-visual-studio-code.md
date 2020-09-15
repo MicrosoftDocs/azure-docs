@@ -5,7 +5,7 @@ description: Interactively debug Azure Machine Learning code, pipelines and depl
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
@@ -32,7 +32,7 @@ In some cases, you may need to interactively debug the Python code used in your 
   * A Compute instance of Notebook VM in the virtual network
   * A client machine that has private network connectivity to the virtual network, either by VPN or via ExpressRoute.
 
-For more information on using an Azure Virtual Network with Azure Machine Learning, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
+For more information on using an Azure Virtual Network with Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
 > [!TIP]
 > Although you can work with Azure Machine Learning resources that are not behind a virtual network, using a virtual network is recommended.
