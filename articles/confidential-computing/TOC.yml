@@ -1,17 +1,56 @@
 - name: Azure confidential computing
-  href: overview.md
+  href: ./index.yaml
+- name: Overview 
+  expanded: true
+  items:
+  - name: Welcome to Azure confidential computing 
+    href: overview.md
+  - name: Use cases and scenarios
+    href: use-cases-scenarios.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create in the Azure portal
-    href: quick-create-portal.md
-  - name: Create with Marketplace
-    href: quick-create-marketplace.md
+  - name: Virtual machines
+    expanded: true
+    items:
+    - name: Create in the Azure portal
+      href: quick-create-portal.md
+    - name: Create with Marketplace
+      href: quick-create-marketplace.md
+  - name: Azure Kubernetes Services (AKS)
+    expanded: true
+    items: 
+    - name: Deploy an AKS cluster with confidential nodes with Azure CLI
+      href: confidential-nodes-aks-getstarted.md
 - name: Concepts
   expanded: true
   items:
-  - name: Solutions on Virtual Machines
-    href: virtual-machine-solutions.md
+  - name: Virtual machines (VMs)
+    items:
+    - name: Enclave-aware virtual machines
+      href: confidential-computing-enclaves.md
+    - name: Solutions on virtual machines
+      href: virtual-machine-solutions.md
+    - name: Confidential computing VM FAQ 
+      href: faq.md
+  - name: Confidential containers
+    items: 
+    - name: Confidental containers overview
+      href: confidential-containers.md
+    - name: Enclave-aware containers
+      href: enclave-aware-containers.md
+    - name: Platform Software Management
+      href: platform-software-management.md
+    - name: Azure Kubernetes Service (AKS)
+      items:
+      - name: Confidential nodes on AKS 
+        href: confidential-nodes-aks-overview.md
+      - name: Confidential nodes on AKS FAQ 
+        href: confidential-nodes-aks-faq.md
+  - name: Attestation
+    href: attestation.md
+  - name: Application development
+    href: application-development.md
 - name: How To
   expanded: true
   items:
