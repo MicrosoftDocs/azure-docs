@@ -85,7 +85,7 @@ If the audio file is long, it is automatically segmented into smaller pieces. Yo
 
 To export datasets back to the **Data** tab, navigate to the data detail page and click the **Export** button to export all the files as a new dataset. You can also filter the files by last edited time, audio durations, etc. to partially select the desired files. 
 
-![Editor page](media/custom-speech/custom-speech-editor-export.png)
+![Export data](media/custom-speech/custom-speech-editor-export.png)
 
 The files exported to Data will be used as a brand-new dataset and will not affect any of the existing data/training/testing entities.
 
