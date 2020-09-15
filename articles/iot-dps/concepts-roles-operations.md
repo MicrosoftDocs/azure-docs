@@ -1,44 +1,20 @@
 ---
-title: IoT Hub Device Provisioning Service - Auto-provisioning concepts
-description: This article provides a conceptual overview of the phases of device auto-provisioning, using IoT Device Provisioning Service (DPS), IoT Hub, and client SDKs.
+title: IoT Hub Device Provisioning Service - Roles and operations
+description: This article provides a conceptual overview of the roles and operations involved when developing and IoT solution using the IoT Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
+manager: eliotga
 ---
 
-# Auto-provisioning concepts
+# Roles and operations
 
-As described in the [Overview](about-iot-dps.md), the Device Provisioning Service is a helper service that enables just-in-time provisioning of devices to an IoT hub, without requiring human intervention. After successful provisioning, devices connect directly with their designated IoT Hub. This process is referred to as auto-provisioning, and provides an out-of-the-box registration and initial configuration experience for devices.
+The phases of developing an IoT solution can span weeks or months, due to production realities like manufacturing time, shipping, customs process, etc. In addition, they can span activities across multiple roles given the various entities involved. This topic takes a deeper look at the various roles and operations related to each phase, then illustrates the flow in a sequence diagram. 
 
-## Overview
-
-Azure IoT auto-provisioning can be broken into three phases:
-
-1. **Service configuration** - a one-time configuration of the Azure IoT Hub and IoT Hub Device Provisioning Service instances, establishing them and creating linkage between them.
-
-   > [!NOTE]
-   > Regardless of the size of your IoT solution, even if you plan to support millions of devices, this is a **one-time configuration**.
-
-2. **Device enrollment** - the process of making the Device Provisioning Service instance aware of the devices that will attempt to register in the future. [Enrollment](concepts-service.md#enrollment) is accomplished by configuring device identity information in the provisioning service, as either an "individual enrollment" for a single device, or a "group enrollment" for multiple devices. Identity is based on the [attestation mechanism](concepts-security.md#attestation-mechanism) the device is designed to use, which allows the provisioning service to attest to the device's authenticity during registration:
-
-   - **TPM**: configured as an "individual enrollment", the device identity is based on the TPM registration ID and the public endorsement key. Given that TPM is a [specification](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), the service only expects to attest per the specification, regardless of TPM implementation (hardware or software). See [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) for details on TPM-based attestation. 
-
-   - **X509**: configured as either an "individual enrollment" or "group enrollment", the device identity is based on an X.509 digital certificate, which is uploaded to the enrollment as a .pem or .cer file.
-
-   > [!IMPORTANT]  
-   > Although not a prerequisite for using Device Provisioning Services, we strongly recommend that your device use a Hardware Security Module (HSM) to store sensitive device identity information, such as keys and X.509 certificates.
-
-3. **Device registration and configuration** - initiated upon boot up by registration software, which is built using a Device Provisioning Service client SDK appropriate for the device and attestation mechanism. The software establishes a connection to the provisioning service for authentication of the device, and subsequent registration in the IoT Hub. Upon successful registration, the device is provided with its IoT Hub unique device ID and connection information, allowing it to pull its initial configuration and begin the telemetry process. In production environments, this phase can occur weeks or months after the previous two phases.
-
-## Roles and operations
-
-The phases discussed in the previous section can span weeks or months, due to production realities like manufacturing time, shipping, customs process, etc. In addition, they can span activities across multiple roles given the various entities involved. This section takes a deeper look at the various roles and operations related to each phase, then illustrates the flow in a sequence diagram. 
-
-Auto-provisioning also places requirements on the device manufacturer, specific to enabling the attestation mechanism. Manufacturing operations can also occur independent of the timing of auto-provisioning phases, especially in cases where new devices are procured after auto-provisioning has already been established.
+Provisioning also places requirements on the device manufacturer, specific to enabling the [attestation mechanism](concepts-service.md#attestation-mechanism). Manufacturing operations can also occur independent of the timing of auto-provisioning phases, especially in cases where new devices are procured after auto-provisioning has already been established.
 
 A series of Quickstarts are provided in the table of contents to the left, to help explain auto-provisioning through hands-on experience. In order to facilitate/simplify the learning process, software is used to simulate a physical device for enrollment and registration. Some Quickstarts require you to fulfill operations for multiple roles, including operations for non-existent roles, due to the simulated nature of the Quickstarts.
 
@@ -96,12 +72,13 @@ Begin by completing a "Set up auto-provisioning" Quickstart that best suits your
 - [Set up auto-provisioning using the Azure portal](quick-setup-auto-provision.md)
 - [Set up auto-provisioning using a Resource Manager template](quick-setup-auto-provision-rm.md)
 
-Then continue with an "Auto-provision a simulated device" Quickstart that suits your device attestation mechanism and Device Provisioning Service SDK/language preference. In this Quickstart, you walk through the "Device enrollment" and "Device registration and configuration" phases: 
+Then continue with a "Provision a device" Quickstart that suits your device attestation mechanism and Device Provisioning Service SDK/language preference. In this Quickstart, you walk through the "Device enrollment" and "Device registration and configuration" phases: 
 
-| Simulated device attestation mechanism | Quickstart SDK/Language |
-| -------------------------------------- | ----------------------- |
-| Trusted Platform Module (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |
+| Device attestation mechanism | Quickstart SDK/Language | 
+| ------------------------------- | -------------------- |
+| Symmetric key | [C](quick-create-simulated-device-symm-key.md)<br>[Java](quick-create-simulated-device-symmetric-key-java.md)<br>[Python](quick-create-device-symmetric-key-python.md) |
 | X.509 certificate | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |
+| Simulated Trusted Platform Module (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |
 
 
 
