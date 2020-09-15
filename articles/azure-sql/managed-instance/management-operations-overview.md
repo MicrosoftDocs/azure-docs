@@ -66,11 +66,13 @@ The following table summarizes operations and typical overall durations:
 
 SQL Managed Instance **is available during update operations**, except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [accelerated database recovery](../accelerated-database-recovery.md).
 
+SQL Managed Instance is not available to client applications during deployment and deletion operations.
+
 > [!IMPORTANT]
 > It's not recommended to scale compute or storage of Azure SQL Managed Instance or to change the service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel all ongoing transactions.
 
 ## Management operations steps
-Management operations consist of multiple steps. With [Operations API introduced](monitoring-management-operations.md) these steps are exposed for subset of operations (deployment and update). Deployment operation consists of 3 steps while update operation is performed in 6 steps. For details on operations duration check [management operations duration](#management-operations-duration) section.
+Management operations consist of multiple steps. With [Operations API introduced](monitoring-management-operations.md) these steps are exposed for subset of operations (deployment and update). Deployment operation consists of 3 steps while update operation is performed in 6 steps. For details on operations duration check [management operations duration](#management-operations-duration) section. Steps are listed by order of execution.
 
 ### Managed instance deployment steps
 
@@ -93,8 +95,6 @@ Management operations consist of multiple steps. With [Operations API introduced
 
 > [!NOTE]
 > In case of multiple instances placed inside the same virtual cluster, as a result of create or update operation performed and **virtual cluster shrinking**, there is a scheduled job triggered every 60 minutes for removing unused virtual machines from the virtual cluster that can cause additional failover.
-
-SQL Managed Instance is not available to client applications during deployment and deletion operations.
 
 ## Management operations cross-impact
 
