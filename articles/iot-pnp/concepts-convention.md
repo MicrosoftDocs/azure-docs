@@ -11,7 +11,7 @@ services: iot-pnp
 
 # IoT Plug and Play conventions
 
-IoT Plug and Play Preview devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play Preview devices use the MQTT protocol to communicate with IoT Hub.
+IoT Plug and Play devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play devices use the MQTT protocol to communicate with IoT Hub.
 
 You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) _model_. There are two types of model referred to in this article:
 

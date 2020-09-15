@@ -1,6 +1,6 @@
 ---
-title: Introduction to IoT Plug and Play Preview | Microsoft Docs
-description: Learn about IoT Plug and Play Preview. IoT Plug and Play is based on an open modeling language that enables smart IoT devices to declare their capabilities. IoT devices present that declaration, called a device  model, when they connect to cloud solutions. The cloud solution can then automatically understand the device and start interacting with it, all without writing any code.
+title: Introduction to IoT Plug and Play | Microsoft Docs
+description: Learn about IoT Plug and Play. IoT Plug and Play is based on an open modeling language that enables smart IoT devices to declare their capabilities. IoT devices present that declaration, called a device  model, when they connect to cloud solutions. The cloud solution can then automatically understand the device and start interacting with it, all without writing any code.
 author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
@@ -13,9 +13,9 @@ ms.custom: references_regions
 # As a device builder, I need to know what is IoT Plug and Play, so I can understand how it can help me build and market my IoT devices.
 ---
 
-# What is IoT Plug and Play Preview?
+# What is IoT Plug and Play?
 
-IoT Plug and Play Preview enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of elements that define:
+IoT Plug and Play enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of elements that define:
 
 - _Properties_ that represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.
 - _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
@@ -65,7 +65,7 @@ The [IoT Plug and Play device certification program](howto-certify-device.md) ve
 
 ## Regional availability
 
-This IoT Plug and Play preview refresh is available on IoT hubs created in the Central US, North Europe, and East Japan regions.
+This IoT Plug and Play refresh is available on IoT hubs created in the Central US, North Europe, and East Japan regions.
 
 ## Next steps
 
