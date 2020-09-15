@@ -78,7 +78,7 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 | writetime | Yes |
 | cast | No |
 
-\* Cassandra API supports token as a projection/selector, and only allows token(pk) on the right-hand side of a where clause. For example, `WHERE token(pk) > token(100)` is not supported.
+\* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > token(100)` is not supported.
 
 Aggregate functions:
 
