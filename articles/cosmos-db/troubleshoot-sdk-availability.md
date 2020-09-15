@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot Azure Cosmos SDK availability behavior
 description: Learn all about the Azure Cosmos SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/04/2020
+ms.date: 09/16/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -20,7 +20,7 @@ All the Azure Cosmos SDKs give you an option to customize the regional preferenc
 * The [CosmosClientBuilder.preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) method in Java V4 SDK.
 * The [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK.
 
-For single-master accounts, all the write operations will always go to the write region, so the preferred regions list is applicable to read operations only. For multi-master accounts, the preference list affects the read and write operations.
+For single write region accounts, all the write operations will always go to the write region, so the preferred regions list is applicable to read operations only. For multiple write regions accounts, the preference list affects the read and write operations.
 
 If you don't set a preferred region, the regional preference order is defined by the [Azure Cosmos DB region list order](distribute-data-globally.md).
 
@@ -38,23 +38,23 @@ If you remove a region and later add it back to the account, if the added region
 
 If you configure the client to preferably connect to a region that the Azure Cosmos account does not have, the preferred region is ignored. If you add that region later, the client detects it and will switch permanently to that region.
 
-## <a id="manual-failover-single-region"></a>Failover the write region in a single-master account
+## <a id="manual-failover-single-region"></a>Failover the write region in a single write region account
 
 If you initiate a failover of the current write region, the next write request will fail with a known backend response. When this response is detected, the client will query the account to learn the new write region and proceeds to retry the current operation and permanently route all future write operations to the new region.
 
 ## Regional outage
 
-If the account is single-master and the regional outage occurs during a write operation, the behavior is similar to a [manual failover](#manual-failover-single-region). For read requests or multi-master accounts, the behavior is similar to [removing a region](#remove region).
+If the account is single write region and the regional outage occurs during a write operation, the behavior is similar to a [manual failover](#manual-failover-single-region). For read requests or multiple write regions accounts, the behavior is similar to [removing a region](#remove region).
 
 ## Session consistency guarantees
 
-When using [session consistency](consistency-levels.md#guarantees-associated-with-consistency-levels), the client needs to guarantee that it can read its own writes. In single-master accounts where the read region preference is different from the write region, there could be cases where the user issues a write and when doing a read from a local region, the local region has not yet received the data replication (speed of light constraint). In such cases, the SDK detects the specific failure on the read operation and retries the read on the hub region to ensure session consistency. This does not affect any other future operations.
+When using [session consistency](consistency-levels.md#guarantees-associated-with-consistency-levels), the client needs to guarantee that it can read its own writes. In single write region accounts where the read region preference is different from the write region, there could be cases where the user issues a write and when doing a read from a local region, the local region has not yet received the data replication (speed of light constraint). In such cases, the SDK detects the specific failure on the read operation and retries the read on the hub region to ensure session consistency. This does not affect any other future operations.
 
 ## Transient connectivity issues on TCP protocol
 
 In scenarios where the Azure Cosmos SDK client is configured to use the TCP protocol, for a given request, there might be situations where the network conditions are temporarily affecting the communication with a particular endpoint. These temporary network conditions can surface as TCP timeouts. The client will retry the request locally on the same endpoint for some seconds.
 
-If the user has configured a preferred region list with more than one region and the Azure Cosmos account is multi-master or single-master and the operation is a read request, the client will retry that single operation in the next region from the preference list. This does not affect any other future operations.
+If the user has configured a preferred region list with more than one region and the Azure Cosmos account is multiple write regions or single write region and the operation is a read request, the client will retry that single operation in the next region from the preference list. This does not affect any other future operations.
 
 ## Next steps
 
