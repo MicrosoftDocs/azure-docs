@@ -270,7 +270,7 @@ The image below is an example of rendering alternative routes with specified dev
 
 ## Use the Routing service in a web app
 
-The Azure Maps Web SDK provides a [Service module](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). This module is a helper library that makes it easy to use the Azure Maps REST APIs in web or Node.js applications, using JavaScript or TypeScript. The Service module can be used to render the returned routes on the map. The module automatically determines which API to use with GET and POST requests.
+The Azure Maps Web SDK provides a [Service module](https://docs.microsoft.com/javascript/api/azure-maps-rest/). This module is a helper library that makes it easy to use the Azure Maps REST APIs in web or Node.js applications, using JavaScript or TypeScript. The Service module can be used to render the returned routes on the map. The module automatically determines which API to use with GET and POST requests.
 
 ## Next steps
 
