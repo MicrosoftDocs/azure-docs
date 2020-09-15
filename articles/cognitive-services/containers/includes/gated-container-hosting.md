@@ -12,4 +12,4 @@ ms.author: aahi
 ---
 
 > [!NOTE]
-> Starting September 22nd 2020, gated preview containers are hosted on the Microsoft Container Registry, and downloading them doesn't require you to use the docker login command.
+> Starting September 22nd 2020, most gated preview containers are hosted on the Microsoft Container Registry, and downloading them doesn't require you to use the docker login command. You will still need to complete an online request to run the container. See the **Request approval to run the container** section later in the article for more information.

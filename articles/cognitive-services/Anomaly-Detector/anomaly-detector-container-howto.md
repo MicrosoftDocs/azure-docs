@@ -12,7 +12,9 @@ ms.date: 09/10/2020
 ms.author: aahi
 ---
 
-# Install and run Anomaly Detector containers (Preview)
+# Install and run Anomaly Detector containers 
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 The Anomaly Detector has the following container feature functionality:
 
