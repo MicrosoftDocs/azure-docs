@@ -195,7 +195,7 @@ query.awaitTermination()
 
 In this example, you'll learn how to reference external libraries from JAR files when using Spark notebooks in Synpase Apache Spark workspaces. You can place the JAR files in a container in the primary data lake account that you connected to the workspace and then add the following `%configure` statement in your Spark notebook:
 
-```sql
+```cmd
 %%configure -f
 {
     "jars": [
