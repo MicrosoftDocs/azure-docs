@@ -28,7 +28,7 @@ landingContent:
             url: overview.md
       - linkListType: deploy
         links:
-          - text: Deploy SQL Edge using Portal
+          - text: Deploy SQL Edge using the portal
             url: deploy-portal.md
           - text: Deploy SQL Edge with Docker
             url: disconnected-deployment.md
@@ -72,7 +72,7 @@ landingContent:
             url: deploy-onnx.md
 
   # Card 
-  - title: Time series Data Processing
+  - title: Time series data processing
     linkLists:
       - linkListType: concept
         links:
@@ -90,6 +90,6 @@ landingContent:
         links:
           - text: Configure SQL Edge
             url: configure.md
-          - text: Configure Replication 
+          - text: Configure replication 
             url: configure-replication.md
     

@@ -176,7 +176,7 @@ timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  Imput
 
 ## Next steps 
 
-- [LAST_VALUE (Transact-SQL)](last-value-transact-sql.md)
-- [FIRST_VALUE (Transact-SQL)](first-value-transact-sql.md)
+- [FIRST_VALUE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json)
+- [LAST_VALUE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json)
 - [DATE_BUCKET (Transact-SQL)](date-bucket-tsql.md)
 - [Aggregate Functions (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/aggregate-functions-transact-sql)
