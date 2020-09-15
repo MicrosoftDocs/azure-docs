@@ -29553,6 +29553,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-intro.md",
+      "redirect_url": "/azure/security-center/security-center-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-sql-service-recommendations.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-onboarding.md",
+      "redirect_url": "/azure/security-center/security-center-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/quick-onboard-azure-stack.md",
+      "redirect_url": "/azure/security-center/quickstart-onboard-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/quick-onboard-linux-computer.md",
+      "redirect_url": "/azure/security-center/quickstart-onboard-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/quick-onboard-windows-computer.md",
+      "redirect_url": "/azure/security-center/quickstart-onboard-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/threat-protection.md",
+      "redirect_url": "/azure/security-center/azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-app-services.md",
+      "redirect_url": "/azure/security-center/defender-for-app-service-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-iaas-advanced-data.md",
+      "redirect_url": "/azure/security-center/defender-for-sql-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/advanced-threat-protection-key-vault.md",
+      "redirect_url": "/azure/security-center/defender-for-key-vault-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/monitor-container-security.md",
+      "redirect_url": "/azure/security-center/container-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-virtual-machine-protection.md",
+      "redirect_url": "/azure/security-center/asset-inventory",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-apply-system-updates.md",
       "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
       "redirect_document_id": false

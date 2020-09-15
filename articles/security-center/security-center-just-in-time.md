@@ -29,8 +29,8 @@ This page teaches you how to include JIT in your security program. You'll learn 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability|
-|Pricing:|Standard tier|
+|Release state:|Generally available (GA)|
+|Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Supported VMs:|![Yes](./media/icons/yes-icon.png) VMs deployed through Azure Resource Manager.<br>![No](./media/icons/no-icon.png) VMs deployed with classic deployment models. [Learn more about these deployment models](../azure-resource-manager/management/deployment-models.md).<br>![No](./media/icons/no-icon.png) VMs protected by Azure Firewalls controlled by [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
 |Required roles and permissions:|**Reader** and **SecurityReader** roles can both view the JIT status and parameters.<br>To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) from the Security Center GitHub community pages.|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
@@ -53,7 +53,7 @@ Each of these options is explained in a separate tab below.
 
 From Security Center, you can enable and configure the JIT VM access.
 
-1. From Security Center's menu, select **Just-in-time VM access**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Just-in-time VM access**.
 
     The **Just-in-time VM access** page opens with your VMs grouped into the following tabs:
 
@@ -103,7 +103,7 @@ You can modify a VM's just-in-time configuration by adding and configuring a new
 
 To edit the existing JIT rules for a VM:
 
-1. From Security Center's menu, select **Just-in-time VM access**.
+1. Open the Azure Defender dashboard and from the advanced protection area, select **Adaptive application controls**.
 
 1. From the **Configured** tab, right-click on the VM to which you want to add a port, and select edit. 
 
@@ -361,7 +361,7 @@ You can gain insights into VM activities using log search. To view the logs:
 
 ## Next steps
 
-In this article, you learned how to setup and use just-in-time VM access. To learn why JIT should be used, read the concept article explaining the threats it's defending against:
+In this article, you learned how to set up and use just-in-time VM access. To learn why JIT should be used, read the concept article explaining the threats it's defending against:
 
 > [!div class="nextstepaction"]
 > [JIT explained](just-in-time-explained.md)
