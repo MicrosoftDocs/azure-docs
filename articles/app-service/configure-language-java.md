@@ -41,7 +41,7 @@ To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your 
 
 To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
 
-To deploy .ear files, use FTP.
+To deploy .ear files, [use FTP](deploy-ftp.md).
 
 ::: zone-end
 
