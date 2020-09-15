@@ -29,7 +29,6 @@ Azure file shares are fully managed file shares that live in the cloud. They can
     > [!IMPORTANT]
     > NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
 
-- Use one of the following networking solutions:
     - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
     - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md).
     - [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
