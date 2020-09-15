@@ -65,7 +65,7 @@ The model looks like this:
 
 To **upload this model to your twins instance**, open the Azure CLI and run the following command:
 
-```azurecli-interactive
+```azurecli
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
@@ -73,7 +73,7 @@ az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;
 
 You'll then need to **create one twin using this model**. Use the following command to create a twin and set 0.0 as an initial temperature value.
 
-```azurecli-interactive
+```azurecli
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
@@ -222,7 +222,7 @@ While running the device simulator above, the temperature value of your digital 
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
-```azurecli-interactive
+```azurecli
 az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
 ```
 
