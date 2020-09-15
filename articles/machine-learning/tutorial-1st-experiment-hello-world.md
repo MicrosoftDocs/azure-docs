@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 
 In this tutorial you learn how to use the Azure Machine Learning Python SDK to submit and run a Python "Hello World" script.
 
-This tutorial is part two of a four-part tutorial series in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Tutorial part 1: set up your local machine for Azure Machine Learning](
+This tutorial is **part two of a four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Tutorial part 1: set up your local machine for Azure Machine Learning](
 tutorial-1st-experiment-sdk-setup-local.md).
 
 In this tutorial you will:
@@ -31,7 +31,7 @@ In this tutorial you will:
 
 ## Prerequisites
 
-- Complete [Part 1 of the tutorial on local machine setup](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace or [notebook virtual machine](tutorial-1st-experiment-sdk-setup.md).
+- Complete [Part 1 of the tutorial on local machine setup](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace.
 - Introductory knowledge of the Python language and machine learning workflows.
 - Local development environment. This includes but is not limited to Visual Studio Code, Jupyter or PyCharm.
 - Python (version 3.5-3.7).
@@ -77,7 +77,7 @@ In your tutorial directory, create a new python file called `03-run-hello.py` an
 from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 
 ws = Workspace.from_config()
-experiment = Experiment(workspace=ws, name='hello-world')
+experiment = Experiment(workspace=ws, name='day1-experiment-hello')
 
 config = ScriptRunConfig(source_directory='./src', script='hello.py', compute_target='cpu-cluster')
 
@@ -86,7 +86,7 @@ aml_url = run.get_portal_url()
 print(aml_url)
 ```
 
-### Understanding the code
+### Understand the code
 
 Here's a description of how the control script works:
 
@@ -171,9 +171,7 @@ Follow the link and navigate to the **Outputs + logs** tab. There you can see a 
 
 On line 8, you see the "Hello world!" output.
 
-> [!TIP]
-> The 70_driver_log.txt file contains the standard output from run and can be useful
-> when debugging remote runs in the cloud.
+The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when debugging remote runs in the cloud.
 
 ## Next steps
 

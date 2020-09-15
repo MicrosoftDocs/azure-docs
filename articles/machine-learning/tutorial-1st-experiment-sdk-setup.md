@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Experiment in Jupyter notebooks (Python)"
+title: "Tutorial: Get started in Jupyter Notebooks (Python)"
 titleSuffix: Azure Machine Learning
 description: Setup for Jupyter Notebook tutorials.  Create an Azure Machine Learning workspace, clone Jupyter Notebooks into the workspace, and create a compute instance where you run the notebooks.
 services: machine-learning
@@ -12,15 +12,14 @@ ms.date: 02/10/2020
 ms.custom: devx-track-python
 ---
 
-# Tutorial: Use a compute instance to run Azure Machine Learning
+# Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks
 
-In this tutorial, you complete the steps to get started with the Azure Machine Learning Python SDK on a [compute instance](concept-compute-instance.md). This tutorial is a precursor to all other Jupyter Notebook tutorials running on a compute instance.
-
+In this tutorial, you complete the steps to get started with the Azure Machine Learning using Jupyter Notebooks on a [managed cloud-based workstation (compute instance)](concept-compute-instance.md). This tutorial is a precursor to all other Jupyter Notebook tutorials.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
+> * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in other Jupyter Notebook tutorials.
 > * Clone the tutorials notebook to your folder in the workspace.
 > * Create a cloud-based compute instance with Azure Machine Learning Python SDK installed and pre-configured.
 
