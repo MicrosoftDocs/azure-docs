@@ -75,7 +75,7 @@ Encryption does not solve access control problems. However, it enhances security
 
 
 > [!NOTE]
-> Azure SQL Edge does not include the mssql-conf utility. All configurations including encryption related configuration needs to be performed through the [mssql-conf file](configure.md#configure-by-using-an-mssqlconf-file) or [environment variables](configure.md#configure-by-using-environment-variables). 
+> Azure SQL Edge does not include the mssql-conf utility. All configurations including encryption related configuration needs to be performed through the [mssql.conf file](configure.md#configure-by-using-an-mssqlconf-file) or [environment variables](configure.md#configure-by-using-environment-variables). 
 
 
 Similar to Azure SQL and Microsoft SQL Server, Azure SQL Edge provides the same mechanism to create and use certificates to enhance object and connection security. For more information, see, [CREATE CERTIFICATE (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql).
