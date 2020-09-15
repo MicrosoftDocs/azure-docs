@@ -35,7 +35,7 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 First, follow the instructions in [Register an application](quickstart-register-app.md) with the following settings:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
-- Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/signin-oidc`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
+- Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/signin-oidc`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`. For IIS Express, the randomly generated port for the app can be found in the app's properties in the Debug panel.
 - Disable the **Permissions** > **Grant admin consent to openid and offline_access permissions** check box.
 
 Once the app is registered, record the following GUID values for use in a later step:
