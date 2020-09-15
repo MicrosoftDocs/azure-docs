@@ -45,16 +45,18 @@ A device or module can send any valid JSON that follows the DTDL v2 rules.
 DTDL:
 
 ```json
-"@context": "dtmi:dtdl:context;2",
-"@id": "dtmi:example: Thermostat;1",
-"@type": "Interface",
-"contents": [
-  {
-    "@type": "Property",
-    "name": "temperature",
-    "schema": "double"
-  }
-]
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:example: Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "temperature",
+      "schema": "double"
+    }
+  ]
+}
 ```
 
 Sample reported property payload:
@@ -73,28 +75,32 @@ The device or module must add the `{"__t": "c"}` marker to indicate that the ele
 DTDL:
 
 ```json
-"@context": "dtmi:dtdl:context;2",
-"@id": "dtmi:com:example:TemperatureController;1",
-"@type": "Interface",
-"displayName": "Temperature Controller",
-"contents": [
-  {
-    "@type" : "Component",
-    "schema": "dtmi:com:example:Thermostat;1",
-    "name": "thermostat1"
-  }
-]
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "contents": [
+    {
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat1"
+    }
+  ]
+}
 
-"@context": "dtmi:dtdl:context;2",
-"@id": "dtmi:com:example:Thermostat;1",
-"@type": "Interface",
-"contents": [
-  {
-    "@type": "Property",
-    "name": "temperature",
-    "schema": "double"
-  }
-]
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "temperature",
+      "schema": "double"
+    }
+  ]
+}
 ```
 
 Sample reported property payload:
@@ -132,6 +138,45 @@ When a device starts up for the first time, it can send an initial value for a r
 }
 ```
 
+A device can use the reported property to provide other information to the hub. For example, the device could respond with a series of in-progress messages such as:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 35.0,
+    "ac": 202,
+    "av": 3,
+    "ad": "In-progress - reporting current temperature"
+  }
+}
+```
+
+When the device reaches the target temperature it sends the following message:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 20.0,
+    "ac": 200,
+    "av": 3,
+    "ad": "Reached target temperature"
+  }
+}
+```
+
+A device could report an error such as:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 120.0,
+    "ac": 500,
+    "av": 3,
+    "ad": "Target temperature out of range. Valid range is 10 to 99."
+  }
+}
+```
+
 ### Sample no component writable property
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
@@ -139,17 +184,19 @@ A device or module can send any valid JSON that follows the DTDL v2 rules:
 DTDL:
 
 ```json
-"@context": "dtmi:dtdl:context;2",
-"@id": "dtmi:example: Thermostat;1",
-"@type": "Interface",
-"contents": [
-  {
-    "@type": "Property",
-    "name": "targetTemperature",
-    "schema": "double",
-    "writable": true
-  }
-]
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:example: Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    }
+  ]
+}
 ```
 
 Sample desired property payload:
@@ -179,36 +226,40 @@ Sample reported property payload:
 
 The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
-The marker is sent only for component level updates, so devices mustn't check for this flag.
+The marker is sent only for updates to properties defined in a component. Updates to properties defined in the main interface don't include the marker, see [Sample no component writable property](#sample-no-component-writable-property)
 
 The device or module should confirm that it received the property by sending a reported property:
 
 DTDL:
 
 ```json
-"@context": "dtmi:dtdl:context;2",
-"@id": "dtmi:com:example:TemperatureController;1",
-"@type": "Interface",
-"displayName": "Temperature Controller",
-"contents": [
-  {
-    "@type" : "Component",
-    "schema": "dtmi:com:example:Thermostat;1",
-    "name": "thermostat1"
-  }
-]
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "contents": [
+    {
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat1"
+    }
+  ]
+}
 
-"@context": "dtmi:dtdl:context;2",
-"@id": "dtmi:com:example:Thermostat;1",
-"@type": "Interface",
-"contents": [
-  {
-    "@type": "Property",
-    "name": "targetTemperature",
-    "schema": "double",
-    "writable": true
-  }
-]
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    }
+  ]
+}
 ```
 
 Sample desired property payload:
