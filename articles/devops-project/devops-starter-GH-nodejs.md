@@ -3,7 +3,6 @@ title: 'Quickstart: Create a CI/CD workflow for Node.js - DevOps Starter for Git
 description: DevOps Starter makes it easy to get started on Azure using GitHub Actions.
 author: ninallam
 editor: ninallam
-ms.prod: devops
 ms.assetid: 
 ms.devlang: na
 ms.service: az-devops-project
