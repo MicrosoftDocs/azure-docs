@@ -45,15 +45,13 @@ To complete the steps in this article, you must have the following items:
 
 You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) command. You can limit the output to the tenant ID only with the `--query` parameter.
 
-    ```azurecli-interactive
-    az account show --query "tenantId"
-    ```
+ ```azurecli-interactive
+ az account show --query "tenantId"
+ ```
 
 ## Create a manage HSM
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-managed-hsm-create/).
-
-[!code-json[<Azure Resource Manager template create managed HSM>](~/quickstart-templates/101-managed-hsm-create/azuredeploy.json)]
 
 The Azure resource defined in the template:
 
@@ -63,7 +61,7 @@ More Azure Key Vault template samples can be found [here](https://azure.microsof
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-managed-hsm-create%2Fazuredeploy.json"><img src="../media/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-managed-hsm-create%2Fazuredeploy.json"><img src="../media/deploy-to-azure.svg" alt="deploy to azure"/></a>
 
 2. Select or enter the following values.
 
