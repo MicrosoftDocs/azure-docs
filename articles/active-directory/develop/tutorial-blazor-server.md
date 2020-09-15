@@ -188,7 +188,12 @@ Navigate back to your Blazor app in your editor and add the client secret to the
 
 In the *Startup.cs* file, update your code so it fetches the appropriate token with the right permissions, storing it in a cache for later use when you make the call to Microsoft Graph. You add an **HttpClient** to the services pipeline to efficiently make HTTP calls to Microsoft Graph in a later step.
 
-Add the following to the end of the **ConfigureServices** method:
+Remove the following from the top of the **ConfigureServices** method:
+ ```csharp
+services.AddMicrosoftWebAppAuthentication(Configuration);
+```
+
+And add the following to the end of the **ConfigureServices** method:
 
  ```csharp
 services.AddMicrosoftWebAppAuthentication(Configuration)
