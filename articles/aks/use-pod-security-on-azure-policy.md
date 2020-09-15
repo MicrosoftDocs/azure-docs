@@ -3,7 +3,7 @@ title: Secure pods with Azure Policy in Azure Kubernetes Service (AKS)
 description: Learn how to secure pods with Azure Policy on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 author: jluk
 ---
 
@@ -29,20 +29,21 @@ This document assumes you have the following which are deployed in the walk-thro
 
 >[!NOTE]
 > This document details how to use Azure Policy to secure pods, which is the successor to the [Kubernetes pod security policy feature in preview](use-pod-security-policies.md).
-> **Both pod security policy  and the Azure Policy Add-on for AKS cannot be enabled simultaneously.**
+> **Both pod security policy (preview) and the Azure Policy Add-on for AKS cannot be enabled simultaneously.**
 > 
 > If installing the Azure Policy Add-on into a cluster with pod security policy enabled, [follow these steps to disable pod security policy](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
 
 In an AKS cluster, an admission controller is used to intercept requests to the API server when a resource is to be created and updated. The admission controller can then *validate* the resource request against a set of rules on whether it should be created.
 
-Previously, the feature [pod security policy ](use-pod-security-policies.md) was enabled through the Kubernetes project to limit what pods can be deployed.
+Previously, the feature [pod security policy (preview)](use-pod-security-policies.md) was enabled through the Kubernetes project to limit what pods can be deployed.
 
 By using the Azure Policy Add-on, an AKS cluster can use built-in Azure policies which secure pods and other Kubernetes resources similar to pod security policy previously. The Azure Policy Add-on for AKS installs a managed instance of [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), a validating admission controller. Azure Policy for Kubernetes is built on the open-source Open Policy Agent which relies on the [Rego policy language](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 
-This document details how to use Azure Policy to secure pods in an AKS cluster and instruct how to migrate from pod security policies .
+This document details how to use Azure Policy to secure pods in an AKS cluster and instruct how to migrate from pod security policies (preview).
 
 ## Limitations
 
+* An upper limit of 500 pods can be audited for compliance reporting. However, the limit for policy enforcement to deny requests supports up to 10,000 pods. In the coming weeks, the upper limit for audit will be raised to 10,000 pods.
 * [Some system namespaces](#namespace-exclusion) containing AKS managed pods are excluded from policy evaluation.
 * Windows pods [do not support for security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods), thus many Azure policies only apply to Linux pods, such as disallowing root privileges, which cannot be escalated in Windows pods.
 * Pod security policy and the Azure Policy Add-on for AKS cannot both be enabled. If installing the Azure Policy Add-on into a cluster with pod security policy enabled, disable the pod security policy with the [following instructions](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
@@ -56,7 +57,7 @@ Each policy can be customized with an effect. A full list of [AKS policies and t
 
 Azure policies can be applied at the management group, subscription or resource group level. When assigning a policy at the resource group level, ensure the target AKS cluster's resource group is selected within scope of the policy. Every cluster in the assigned scope with the Azure Policy Add-on installed is in scope for the policy.
 
-If using [pod security policy ](use-pod-security-policies.md), learn how to [migrate to Azure Policy and about other behavioral differences](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+If using [pod security policy (preview) ](use-pod-security-policies.md), learn how to [migrate to Azure Policy and about other behavioral differences](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 ### Built-in policy initiatives
 
