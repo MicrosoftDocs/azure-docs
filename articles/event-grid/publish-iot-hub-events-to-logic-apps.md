@@ -215,9 +215,9 @@ Test your logic app by quickly simulating a device connection using the Azure CL
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. When the simulated device connects to IoT Hub, you will recieve an email notifying you of a "DeviceConnected" event.
+1. When the simulated device connects to IoT Hub, you will receive an email notifying you of a "DeviceConnected" event.
 
-1. When the simulation completes, you will recieve an email notifying you of a "DeviceDisconnected" event. 
+1. When the simulation completes, you will receive an email notifying you of a "DeviceDisconnected" event. 
 
     ![Example alert mail](./media/publish-iot-hub-events-to-logic-apps/alert-mail.png)
 
