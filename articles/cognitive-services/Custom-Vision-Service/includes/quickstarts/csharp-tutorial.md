@@ -29,7 +29,7 @@ This Visual Studio project creates a new Custom Vision project named __My New Pr
 
 [!INCLUDE [get-keys](../../includes/get-keys.md)]
 
-## Understand the code
+## Examine the code
 
 Open the _Program.cs_ file and inspect the code. [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your training and prediction keys named `CUSTOM_VISION_TRAINING_KEY` and `CUSTOM_VISION_PREDICTION_KEY`, respectively. The script will look for these variables.
 

@@ -48,7 +48,7 @@ The IoT Visual Alerts app runs in a continuous loop, switching between four diff
 * **Waiting For Trained Model**: In this state, the app calls the Custom Vision API every second to check whether the target project contains a trained iteration. When it finds one, it downloads the corresponding ONNX model to a local file and switches to the **Scoring** state.
 * **Scoring**: In this state, the app uses Windows ML to evaluate a single frame from the camera against the local ONNX model. The resulting image classification is displayed on the screen and sent as a message to the IoT Hub. The app then sleeps for one second before scoring a new image.
 
-## Understand the code structure
+## Examine the code structure
 
 The following files handle the main functionality of the app.
 
