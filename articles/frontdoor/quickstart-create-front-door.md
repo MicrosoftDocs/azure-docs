@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Set up high availability with Azure Front Door Service - Azure Portal'
+title: 'Quickstart: Set up high availability with Azure Front Door Service - Azure portal'
 description: This quickstart shows how to use Azure Front Door Service for your highly available and high-performance global web application by using the Azure portal.
 services: front-door
 documentationcenter: na
