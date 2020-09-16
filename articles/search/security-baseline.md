@@ -14,7 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Cognitive Search
 
-This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Azure Cognitive Search. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Cognitive Search. **Controls** not applicable to Azure Cognitive Search have been excluded. To see how Azure Cognitive Search completely maps to the Azure Security Benchmark, see the [full Azure Cognitive Search security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md) to Azure Cognitive Search. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Cognitive Search. **Controls** not applicable to Azure Cognitive Search, or the customer have been excluded.
+
+To see how Azure Cognitive Search completely maps to the Azure Security Benchmark, see the [full Azure Cognitive Search security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -798,7 +800,7 @@ Use tagging, management groups, and separate subscriptions where appropriate, to
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33380.).
 
-**Guidance**: It is recommended that you define an have an inventory of Azure resources which have been approved for usage as per your organizational policies and standards prior, then monitor for unapproved Azure resources with Azure Policy, or Azure Resource Graph.
+**Guidance**: It is recommended that you define an inventory of Azure resources which have been approved for usage as per your organizational policies and standards prior, then monitor for unapproved Azure resources with Azure Policy, or Azure Resource Graph.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
