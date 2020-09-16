@@ -22,9 +22,10 @@ When you use Visual Studio Code and the public preview Azure Logic Apps for Visu
 This article provides a high-level overview about stateful and stateless workflows, how to create workflows by using this public preview extension, and how to publish or deploy these workflows directly from Visual Studio Code.
 
 > [!NOTE]
-> If you created workflows using the earlier preview for the Azure Logic Apps extension, these workflows 
-> no longer work with the public preview version. However, you can create a new project by using the 
-> public preview extension and copy the workflow definitions into your new project.
+> If you created workflows using the early preview Azure Logic Apps extension, these workflows 
+> no longer work with the public preview extension. However, if you uninstall the early preview 
+> extension, and install the public preview extension, you can create a new project in Visual 
+> Studio Code, and copy you previously created workflow's definition into your new project.
 
 <a name="whats-new"></a>
 
@@ -584,7 +585,10 @@ After you make updates to your workflow, you can run another test by rerunning t
 
 ## Publish workflow to Azure
 
-From Visual Studio Code, you can deploy your project directly to Azure, which publishes your workflow using the new **Logic App (Preview)** resource type. Similar to the function app resource in Azure Functions, this new resource type requires selecting an [Azure App Service hosting plan and pricing tier](../app-service/overview-hosting-plans.md), which you can set up during the deployment process. For more information, see [Scale up an in Azure App Service](../app-service/manage-scale-up.md).
+From Visual Studio Code, you can deploy your project directly to Azure, which publishes your workflow using the new **Logic App (Preview)** resource type. Similar to the function app resource in Azure Functions, deployment for this new resource type requires that you select an [Azure App Service hosting plan and pricing tier](../app-service/overview-hosting-plans.md), which you can set up during deployment. For more information about hosting plans and pricing, review these topics:
+
+* [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
+* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
 
  You can publish your workflow as a new resource, which automatically creates any additional necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your workflow to a previously deployed **Logic App (Preview)** resource, which the deployment process overwrites in Azure.
 
@@ -598,33 +602,48 @@ From Visual Studio Code, you can deploy your project directly to Azure, which pu
 
    * **Create new Logic App (Preview) in Azure** (quick create)
    * **Create new Logic App (Preview) in Azure - Advanced**
-   * An existing logic app, if any
+   * An existing **Logic App (Preview)** resource
 
    ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with a list that has quick and advanced creation options and also any existing logic apps to select instead.](./media/create-stateless-stateful-workflows/select-create-logic-app-options.png)
 
-1. If you select creating a new logic app, provide a globally unique name for your logic app.
+1. If you choose to create a **Logic App (Preview)** resource, follow these steps:
 
-   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateless-stateful-workflows/enter-logic-app-name.png)
+   1. Provide a globally unique name for your new logic app.
+
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateless-stateful-workflows/enter-logic-app-name.png)
+
+   1. Select a hosting plan for your new logic app.
+
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateless-stateful-workflows/select-hosting-plan.png)
 
 <a name="deploy-to-docker"></a>
 
 ## Deploy to Docker container
 
-By using the .NET Core command-line interface (CLI), you can build a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) for deploying your workflow.
+By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/), you can build your project, and then publish your build. You can then build and use a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) as the destination for deploying your workflow. For more information, review these topics:
+
+* [Introduction to Containers and Docker](/dotnet/architecture/microservices/container-docker-introduction/)
+* [Introduction to .NET and Docker](/dotnet/core/docker/introduction)
+* [Docker terminology](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology)
+* [Tutorial: Get started with Docker](/visualstudio/docker/tutorials/docker-tutorial)
 
 1. To build your project, open a command-line prompt, and run this command:
 
    `dotnet build -c release`
 
+   For more information, see the [dotnet build](/dotnet/core/tools/dotnet-build/) reference page.
+
 1. Publish your build by running this command:
 
    `dotnet publish`
 
-1. Build a Docker container with a workflow by running this command:
+   For more information, see the [dotnet publish](/dotnet/core/tools/dotnet-publish/) reference page.
+
+1. Build a Docker container by using a Docker file for a .NET workflow and running this command:
 
    `docker build --tag local/workflowcontainer .`
 
-   For example, here's a sample Docker file for a .NET workflow, but replace the <*storage-account-connection-string*> value with your Azure storage account's connection string:
+   For example, here's a sample Docker file for a .NET workflow, but replace the <*storage-account-connection-string*> value with your Azure Storage account's connection string:
 
    ```text
    FROM mcr.microsoft.com/azure-functions/dotnet:3.0.13614-appservice
@@ -633,9 +652,13 @@ By using the .NET Core command-line interface (CLI), you can build a [Docker con
    COPY ./bin/Release/netcoreapp3.1/publish/ /home/site/wwwroot
    ```
 
-1. Start the container by locally running this command:
+   For more information, see [docker build](https://docs.docker.com/engine/reference/commandline/build/).
+
+1. Run the container locally by using this command:
 
    `docker run -p 8080:80 local/workflowcontainer`
+
+   For more information, see [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
 1. To get the callback URL for the Request trigger, send this request:
 
@@ -657,8 +680,6 @@ By using the .NET Core command-line interface (CLI), you can build a [Docker con
 
    For more information about the master key value, see [Using Docker Compose - GitHub Issue #84](https://github.com/Azure/azure-functions-docker/issues/84).
 
-For more information about creating and deploying Docker apps, see [Tutorial: Get started with Docker](/visualstudio/docker/tutorials/docker-tutorial).
-
 <a name="run-history"></a>
 
 ## Run history for stateless workflows
@@ -669,9 +690,7 @@ To more easily debug a stateless workflow, you can enable the run history for th
 
 If you are working on and running the stateless workflow locally in Visual Studio Code, follow these steps:
 
-1. In your project, find and open the `workflow-designtime` folder.
-
-1. In the `workflow-designtime` folder, open the `local.settings.json` file.
+1. In your project, find and expand the `workflow-designtime` folder. Find and open the `local.settings.json` file.
 
 1. Add the `Workflow.<yourWorkflowName>.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
 
@@ -709,15 +728,25 @@ If you are working on and running the stateless workflow locally in Visual Studi
 
 If you already deployed your project to the Azure portal, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), find and open your function app.
+1. In the [Azure portal](https://portal.azure.com), find and open your **Logic App (Preview)** resource.
 
-1. On the function app menu, under **Settings**, select **Configuration**.
+1. On the logic app's menu, under **Settings**, select **Configuration**.
 
-1. Under **Application Settings**, select **New application setting**.
+1. On the **Application Settings** tab, select **New application setting**.
 
-1. On the **Add/Edit application setting** pane, in the **Name** box, enter this string, `Workflow.<yourWorkflowName>.OperationOptions`.
+1. On the **Add/Edit application setting** pane, in the **Name** box, enter this operation option name:
 
-1. In the **Value** box, enter `WithStatelessRunHistory`. When you're done, select **OK**.
+   `Workflow.<yourWorkflowName>.OperationOptions`
+
+1. In the **Value** box, enter the following value:
+
+   `WithStatelessRunHistory`
+
+   For example:
+
+   ![Screenshot that shows the Azure portal and Logic App (Preview) resource with the "Configuration" > "New application setting" < "Add/Edit application setting" pane open and the "Workflow.<yourWorkflowName>OperationOptions" option set to "WithStatelessRunHistory".](./media/create-stateless-stateful-workflows/stateless-operation-options-run-history.png)
+
+1. When you're done, select **OK**. On the **Configuration** pane, select **Save**.
 
 <a name="nested-workflow-behavior"></a>
 
