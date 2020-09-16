@@ -145,7 +145,7 @@ Once you have run the command, continue on to [Monitoring the deployment status]
 
 To deploy on Red Hat OpenShift Container Platform (OCP) or Azure Red Hat OpenShift (ARO), you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
 
-First, download the custom security context constraint (scc) from [here](https://raw.githubusercontent.com/microsoft/azure_arc/master/deploy/arc-data-scc.yaml) and apply it to your cluster.
+First, download the custom security context constraint (scc) from [here](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) and apply it to your cluster.
 
 Next, you will assign the custom security context constraint to the service account used for the data controller deployment.
 > [!NOTE]
