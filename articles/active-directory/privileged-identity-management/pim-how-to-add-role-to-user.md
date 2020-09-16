@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
@@ -69,6 +69,24 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 1. After the role is assigned, a assignment status notification is displayed.
 
     ![New assignment - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
+
+## Assigning roles with restricted scopes
+
+You can assigning roles for which the scope of the granted permissions is restricted to a single admin unit, service principal, or application. This procedure is an example using administrative units. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md)
+
+1. Go to the [Azure Active Directory admin center](https://aad.portal.azure.com)
+1. Select **Azure Active Directory**.
+1. Select **Roles and administrators**.
+1. Select a role that supports scope via administrative unit; for example, User Administrator.
+    ![The Add assignment command is available when you open a role in the portal](./media/pim-how-to-add-role-to-user/add-assignment.png)
+1. ​Select **Add assignment**.
+    ![When a role supports scope, you can select a scope](./media/pim-how-to-add-role-to-user/add-scope.png)
+1. On the **Add assignment** page, you can:
+   - Select a user or group to be assigned to the role
+   - Select the role scope (in this case, administrative units)
+   - Select an administrative unit for the scope
+
+For more information about creating administrative units, see [Add and remove administrative units](../users-groups-roles/roles-admin-units-manage.md).
 
 ## Update or remove an existing role assignment
 
