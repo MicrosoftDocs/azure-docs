@@ -65,9 +65,7 @@ Follow the appropriate section below depending on your target platform to config
 
 [Install on AKS on Azure Stack HCI](#install-on-aks-on-azure-stack-hci)
 
-[Install on Azure Red Hat OpenShift (ARO)](#install-on-azure-red-hat-openshift-aro)
-
-[Install on Red Hat OpenShift Container Platform (OCP)](#install-on-red-hat-openshift-container-platform-ocp)
+[Install on Red Hat OpenShift Container Platform (OCP/ARO)](#install-on-red-hat-openshift-container-platform-ocparo)
 
 [Install on open source, upstream Kubernetes (kubeadm)](#install-on-open-source-upstream-kubernetes-kubeadm)
 
@@ -143,39 +141,18 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 Once you have run the command, continue on to [Monitoring the deployment status](#monitoring-the-deployment-status).
 
 
-### Install on Azure Red Hat OpenShift (ARO)
+### Install on Red Hat OpenShift Container Platform (OCP/ARO)
 
-To deploy on Azure Red Hat OpenShift, you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
+To deploy on Red Hat OpenShift Container Platform (OCP) or Azure Red Hat OpenShift (ARO), you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
+
+First, download the custom security context constraint (scc) from [here](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) and apply it to your cluster.
+
+Next, you will assign the custom security context constraint to the service account used for the data controller deployment.
 > [!NOTE]
 >   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.
 
 ```console
-oc adm policy add-scc-to-user privileged -z default -n arc
-oc adm policy add-scc-to-user anyuid     -z default -n arc
-```
-
-You can run the following command to deploy the data controller:
-> [!NOTE]
->   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above.  Example is 'arc'.
-
-```console
-azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
-
-#Example
-#azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
-```
-
-Once you have run the command, continue on to [Monitoring the deployment status](#monitoring-the-deployment-status).
-
-### Install on Red Hat OpenShift Container Platform (OCP)
-
-To deploy on Red Hat OpenShift Container Platform, you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
-> [!NOTE]
->   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.
-
-```console
-oc adm policy add-scc-to-user privileged --serviceaccount default --namespace arc
-oc adm policy add-scc-to-user anyuid     --serviceaccount default --namespace arc
+oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
 ```
 
 You will also need to determine which storage class to use by running the following command.
@@ -186,8 +163,15 @@ kubectl get storageclass
 
 First, start by creating a new custom deployment profile file based on the azure-arc-openshift deployment profile by running the following command.  This command will create a directory 'custom' in your current working directory and a custom deployment profile file 'control.json' in that directory.
 
+Use the profile 'azure-arc-openshift' for OpenShift Container Platform.
+
 ```console
 azdata arc dc config init --source azure-arc-openshift --path ./custom
+```
+Use the profile 'azure-arc-azure-openshift' for Azure RedHat Open Shift.
+
+```console
+azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
 ```
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
@@ -212,18 +196,18 @@ Oftentimes, when using OpenShift you might want to run with the default security
 This command disables metrics collections about pods.  You will not be able to see metrics about pods in the Grafana dashboards if you disable this feature.  Default is true.
 
 ```console
-azdata arc dc config replace -p ./custom2/control.json --json-values spec.security.allowPodMetricsCollection=false
+azdata arc dc config replace -p ./custom/control.json --json-values spec.security.allowPodMetricsCollection=false
 ```
 
 This command disables metrics collections about nodes.  You will not be able to see metrics about nodes in the Grafana dashboards if you disable this feature.  Default is true.
 
 ```console
-azdata arc dc config replace --path ./custom2/control.json --json-values spec.security.allowNodeMetricsCollection=false
+azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowNodeMetricsCollection=false
 ```
 
 This command disables the ability to take memory dumps for troubleshooting purposes.
 ```console
-azdata arc dc config replace --path ./custom2/control.json --json-values spec.security.allowDumps=false
+azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowDumps=false
 ```
 
 Now you are ready to install the data controller using the following command.
