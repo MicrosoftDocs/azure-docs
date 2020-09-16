@@ -112,20 +112,6 @@ Using Kubernetes privileged `daemon sets` and init containers enables you to tun
 
 While this path is recommended if the above requirements apply, AKS engineering and support cannot assist in troubleshooting or diagnosing modifications that render the node unavailable due to a custom deployed `daemon set`.
 
-# Stopped or de-allocated clusters
-
-As per above manually de-allocating all cluster nodes via the IaaS APIs/CLI/Portal renders the cluster out of support.
-The only supported way to stop/de-allocate all node is to [stop the aks cluster, which will preserve the cluster state for up to 12 months.
-
-Clusters that are stopped for more than 12 months will no longer preserve state. 
-
-Clusters that are de-allocated outside of the AKS APIs have no state preservation guarantees. The control planes for clusters in this state will be archived after 30 days, and deleted after 12 months.
-
-AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
-
-If your subscription is suspended or deleted, your cluster's control plane and state will be deleted after 90 days.
-
-
 ### Security issues and patching
 
 If a security flaw is found in one or more of the managed components of AKS, the AKS team will patch all affected clusters to mitigate the issue. Alternatively, the team will give users upgrade guidance.
@@ -139,6 +125,19 @@ Although you can sign in to and change agent nodes, doing this operation is disc
 ## Network ports, access, and NSGs
 
 You may only customize the NSGs on custom subnets. You may not customize NSGs on managed subnets or at the NIC level of the agent nodes. AKS has egress requirements to specific endpoints, to control egress and ensure the necessary connectivity, see [limit egress traffic](limit-egress-traffic.md).
+
+## Stopped or de-allocated clusters
+
+As per above manually de-allocating all cluster nodes via the IaaS APIs/CLI/Portal renders the cluster out of support.
+The only supported way to stop/de-allocate all node is to [stop the aks cluster, which will preserve the cluster state for up to 12 months.
+
+Clusters that are stopped for more than 12 months will no longer preserve state. 
+
+Clusters that are de-allocated outside of the AKS APIs have no state preservation guarantees. The control planes for clusters in this state will be archived after 30 days, and deleted after 12 months.
+
+AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
+
+If your subscription is suspended or deleted, your cluster's control plane and state will be deleted after 90 days.
 
 ## Unsupported alpha and beta Kubernetes features
 
