@@ -135,7 +135,7 @@ requests
 
 The query returns two columns: *Requests* metric and *Result* category. Each value of the *Result* column will get its own slice in the pie with size proportional to the *Requests* metric.
 
-[![Screenshot of a pie chart with slices representing result code](./media/workbooks-chart-visualizations/log-chart-pie-chart.png)](./media/workbooks-chart-visualizations/log-chart-pie-chart.png)#lightbox)
+[![Screenshot of a pie chart with slices representing result code](./media/workbooks-chart-visualizations/log-chart-pie-chart.png)](./media/workbooks-chart-visualizations/log-chart-pie-chart.png#lightbox)
 
 ## Metric charts
 

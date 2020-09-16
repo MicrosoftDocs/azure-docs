@@ -345,7 +345,7 @@ containing data (for example, prediction results) for visualization.
      the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 3. (Optional) Publish the cold path dashboard to [Power BI
    online](https://www.powerbi.com/). This step needs a Power
-   BI account (or Office 365 account).
+   BI account (or a work or school account).
    
    * Click **'Publish'** and few seconds later a window appears
      displaying "Publishing to Power BI Success!" with a green
