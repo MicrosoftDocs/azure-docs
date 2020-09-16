@@ -23,4 +23,4 @@ ms.author: rogarana
 | Hard link limit (NFS only) | N/A | 178 |
 | Maximum number of *SMB Multichannel* channels | N/A | 4 |
 
-\* Default on standard file shares is 5 TiB, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.
+\* <sup> Default on standard file shares is 5 TiB, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB. <sup> 
