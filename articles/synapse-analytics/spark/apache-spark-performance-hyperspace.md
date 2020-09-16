@@ -862,7 +862,7 @@ This only shows the top 5 rows
 Currently, Hyperspace has rules to exploit indexes for two groups of queries:
 
 * Selection queries with lookup or range selection filtering predicates.
-* Join queries with an equality join predicate (that is, equi-joins).
+* Join queries with an equality join predicate (that is, equijoins).
 
 ## Indexes for accelerating filters
 
