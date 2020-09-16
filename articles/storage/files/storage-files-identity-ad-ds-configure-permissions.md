@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/16/2020
 ms.author: rogarana
 ---
 
@@ -22,8 +22,8 @@ The following table contains the RBAC permissions related to this configuration:
 
 | Built-in role  | NTFS permission  | Resulting access  |
 |---------|---------|---------|
-|Storage File Data SMB Share Reader | Full control, Modify, Read, or Write | Read  |
-|     |   Read & execute |     Read & execute  |
+|Storage File Data SMB Share Reader | Full control, Modify, Read, Write, Execute | Read & execute  |
+|     |   Read |     Read  |
 |Storage File Data SMB Share Contributor  |  Full control    |  Modify, Read, Write, Execute |
 |     |  Modify         |  Modify    |
 |     |  Read & execute |  Read & execute |
