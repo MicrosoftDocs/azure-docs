@@ -8,19 +8,11 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
+ms.date: 09/16/2020
 
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
-> [!div class="op_single_selector"]
-> * [Portal](search-get-started-portal.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Java](search-get-started-java.md)
-> * [Node.js](search-get-started-nodejs.md)
-> * [PowerShell](search-get-started-powershell.md)
-> * [Postman](search-get-started-postman.md)
-> * [Python](search-get-started-python.md)
 
 **Import data** wizard is an Azure portal tool that guides you through the creation of a search index so that you can write interesting queries within minutes. 
 
@@ -274,8 +266,3 @@ Use a portal wizard to generate a ready-to-use web app that runs in a browser. Y
 
 > [!div class="nextstepaction"]
 > [Create a demo app in the portal](search-create-app-portal.md)
-
-Want to optimize and save on your cloud spending?
-
-> [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
