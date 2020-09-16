@@ -194,8 +194,8 @@ namespace IotHubtoTwins
     }
 }
 ```
-Save your function code and _Publish the Function App_ to Azure. 
-You can do this by referring to [Publish the Function App](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) section of [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
+Save your function code and publish the function App to Azure. 
+You can do this by referring to [*Publish the Function App*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) section of [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
 
 After a successful publish, you will see the output in the Visual Studio command window as shown below:
 
