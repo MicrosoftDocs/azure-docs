@@ -2,7 +2,7 @@
 title: Dynamic packaging in Azure Media Services v3
 titleSuffix: Azure Media Services
 description: This article gives an overview of dynamic packaging in Azure Media Services.
-author: IngridAtMicrosoft
+author: myoungerman
 manager: femila
 editor: ''
 services: media-services
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2020 
-ms.author: inhenkel
+ms.author: v-myoung
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
 
@@ -24,7 +24,7 @@ ms.author: inhenkel
 
 Microsoft Azure Media Services can be used to encode many media source file formats. It delivers them via different streaming protocols, with or without content protection, to reach all major devices (like iOS and Android devices). These clients understand different protocols. For example, iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH.
 
-In Media Services, a [streaming endpoint](streaming-endpoint-concept.md) (origin) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. *Dynamic packaging* is a feature that comes standard on all streaming endpoints (Standard or Premium).
+In Media Services, a [streaming endpoint](streaming-endpoint-concept.md) (origin) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. *Dynamic packaging* is a feature that comes standard on all streaming endpoints.
 
 > [!NOTE]
 > You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, transforms and jobs), use the [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
@@ -129,7 +129,7 @@ For information about live streaming in Media Services v3, see [Live streaming o
 Dynamic packaging supports video files that are in the MP4 container file format and contain video that is encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1) or [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1, or hvc1).
 
 > [!NOTE]
-> Resolutions of up to 4K and frame rates of up to 60 frames/second have been tested with *dynamic packaging*. The [Premium Encoder](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) supports encoding to H.265 via the legacy v2 APIs.
+> Resolutions of up to 4K and frame rates of up to 60 frames/second have been tested with *dynamic packaging*.
 
 ## Audio codecs supported by dynamic packaging
 

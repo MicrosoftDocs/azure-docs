@@ -99,10 +99,9 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files and have at least one standard or premium streaming endpoint in started state.
 
-Media Services supports the following on-demand encoders that are described in this article:
+Media Services supports the following on-demand encoder that is described in this article:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 For information about supported encoders, see [Encoders](media-services-encode-asset.md).
 
