@@ -25,7 +25,7 @@ Azure Hybrid Benefit allows you to more easily migrate your on-premise Red Hat E
 
 Through Azure Hybrid Benefit, you can more easily migrate your on-premise RHEL and SLES servers to Azure by converting existing RHEL and SLES PAYG VMs on Azure to bring-your-own-subscription (BYOS) billing. Typically, VMs deployed from PAYG images on Azure will charge both an infrastructure fee as well as a software fee. With the Azure Hybrid Benefit, PAYG VMs can be converted to a BYOS billing model without a redeployment, avoiding any downtime risk.
 
-![Azure Hybrid Benefit cost visualization on Linux VMs](./media/ahb-linux/ahb-cost.png)
+![Azure Hybrid Benefit cost visualization on Linux VMs](./media/ahb-linux/azure-hybrid-benefit-cost.png)
 
 Upon enabling the benefit on a RHEL or SLES VM, you will no longer be charged for the additional software fee typically incurred on a PAYG VM. Instead, your VM will begin emitting a BYOS charge, which includes only the compute hardware fee and no software fee.
 
@@ -60,11 +60,11 @@ In this phase, you may gain access to the benefit by filling out the form [here]
 1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
 1.    Register your VMs receiving the benefit with a separate source of updates
 
-### Enabling the benefit in the Azure portal
+### Enable and disable the benefit in the Azure portal
 
 You may enable the benefit on existing VMs by visiting the **Configuration** blade and following the steps there. You may enable the benefit on new VMs during the VM create experience.
 
-### Enabling the benefit in the Azure CLI
+### Enable and disable the benefit in the Azure CLI
 
 You may use the 'az vm update' command to update existing VMs. For RHEL VMs, run the command with a --license-type parameter of "RHEL_BYOS". For SLES VMs, run the command with a --license-type parameter of "SLES_BYOS".
 
