@@ -31,7 +31,7 @@ In this guide, you will learn how to:
 2. From the [Azure portal](https://www.portal.azure.com/), in the left pane open the **All resources** menu and find  the Azure Cosmos DB account to which you have migrated your data.
 3. Open the **Connection String** blade. The right pane contains all the information that you need to successfully connect to your account.
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.
-:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Connection-String":::
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
 
 For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) page.
 
