@@ -1,11 +1,11 @@
 ---
 title: SMB Multichannel performance - Azure Files
 description: Learn about SMB Multichannel performance.
-author: roygara
+author: gunjanj
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.author: rogarana
+ms.author: gunjanj
 ms.subservice: files
 ---
 
@@ -71,6 +71,8 @@ In most scenarios, particularly multi-threaded workloads, clients should see imp
 1. Open PowerShell as an admin and use the following command: `Get-SmbMultichannelConnection |fl`
 1. Look for **MaxChannels** and **CurrentChannels** properties
 
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Screenshot of get-smbmultichannelconnection results." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
+
 ## Performance comparison
 
 There are two categories of read/write workload patterns - single-threaded and multi-threaded. Most workloads use multiple files, but there could be specific use cases where the workload works with a single file in its share. This section covers different use cases and the performance impact for each of them. In general, most workloads are multi-threaded and distribute workload over multiple files.
@@ -95,6 +97,10 @@ For the charts in this article, the following configuration was used: A single S
 - Max uncached disk throughput IOPS/MBps - 51200/768
 - Max NICs - 8
 - Expected network bandwidth (Mbps) - 16000
+
+
+
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Screenshot of get-smbmultichannelconnection results." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
 
 ### Mutli-threaded/multiple files with SMB Multichannel
 
