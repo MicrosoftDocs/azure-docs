@@ -13,12 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 09/22/2020
 ms.author: b-juche
 ---
 # Cost model for Azure NetApp Files 
 
-Understanding the cost model for Azure NetApp Files helps you manage your expenses from the service.
+Understanding the cost model for Azure NetApp Files helps you manage your expenses from the service. 
+
+For cost model specific to cross-region replication, see [Cost model for cross-region replication](cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
 
 ## Calculation of capacity consumption
 
@@ -90,3 +92,4 @@ The capacity consumption of snapshots in Azure NetApp Files is charged against t
 * [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Cost model for cross-region replication](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

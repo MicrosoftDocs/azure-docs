@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/22/2020
 ms.author: b-juche
 ---
 # Performance considerations for Azure NetApp Files

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 09/22/2019
 ms.author: b-juche
 ---
 # Service levels for Azure NetApp Files
@@ -74,3 +74,4 @@ The diagram below illustrates the scenarios for the SAP HANA volumes:
 - [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 - [Service Level Agreement (SLA) for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) 
+- [Service-level objectives for cross-region replication](cross-region-replication-introduction.md#service-level-objectives)
