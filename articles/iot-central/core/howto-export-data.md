@@ -240,7 +240,6 @@ Each message or record represents one change to a device or cloud property. For 
 
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 
-
 For Blob storage, messages are batched and exported once per minute.
 
 The following example shows an exported property change message received in Azure Blob Storage.
