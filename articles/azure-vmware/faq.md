@@ -64,7 +64,9 @@ There is no change to the existing Azure VMware Solution by CloudSimple. We cont
 
 Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, work with your Microsoft account team to explore options and available support.
 
+**Are Red Hat solutions supported on Azure VMware Solution?**
 
+Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
 
 ## Compute, network, and storage
 
