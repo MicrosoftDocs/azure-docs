@@ -18,6 +18,9 @@ To take a backup and restore it, you need to make sure that a backup storage cla
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+> [!CAUTION]
+> Preview does not support backup/restore for the version 11 of the Postgres engine. It only supports backup/restore for Postgres version 12.
+
 ## Verify configuration
 
 First, verify if your existing server group has been configured to use backup storage class.
