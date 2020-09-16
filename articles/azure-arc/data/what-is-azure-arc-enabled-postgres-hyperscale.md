@@ -45,7 +45,7 @@ This is the hyperscale form factor of the Postgres database engine that is avail
 ## Next steps
 - **Deploy**
    > **Just want to try things out?**  
-   > Quick starter and packaged deployment option: Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+   > Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
    - **Deploy on your terms:**
       - [Install the client tools](install-client-tools.md)
