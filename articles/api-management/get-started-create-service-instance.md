@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 3. Select **Create**.
 
     > [!TIP]
-    > It usually takes between 20 and 30 minutes to create and activate an API Management service. Selecting **Pin to dashboard** makes finding a newly created service easier.
+    > It can take between 30 and 40 minutes to create and activate an API Management service in this tier. Selecting **Pin to dashboard** makes finding a newly created service easier.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 

@@ -24,7 +24,7 @@ The ability to securely access internal apps from outside your network becomes e
 
 Many organizations believe they are in control and protected when resources exist within the boundaries of their corporate networks. But in today's digital workplace, that boundary has expanded with managed mobile devices and resources and services in the cloud. Now you need to manage the complexity of protecting your users' identities and data stored on their devices and apps.
 
-Perhaps you're already using Azure AD to manage users in the cloud who need to access Office 365 and other SaaS applications, as well as web apps hosted on-premises. If you already have Azure AD, you can leverage it as one control plane to allow seamless and secure access to your on-premises applications. Or, maybe you're still contemplating a move to the cloud. If so, you can begin your journey to the cloud by implementing Application Proxy and taking the first step towards building a strong identity foundation.
+Perhaps you're already using Azure AD to manage users in the cloud who need to access Microsoft 365 and other SaaS applications, as well as web apps hosted on-premises. If you already have Azure AD, you can leverage it as one control plane to allow seamless and secure access to your on-premises applications. Or, maybe you're still contemplating a move to the cloud. If so, you can begin your journey to the cloud by implementing Application Proxy and taking the first step towards building a strong identity foundation.
 
 While not comprehensive, the list below illustrates some of the things you can enable by implementing App Proxy in a hybrid coexistence scenario:
 
@@ -48,7 +48,7 @@ Previously, your control plane for protecting internal resources from attackers 
 * Authenticating users to web servers in the perimeter network
 * Maintaining VPN access for remote users with the distribution and configuration of VPN client software. Also, maintaining domain-joined servers in the DMZ, which can be vulnerable to outside attacks.
 
-In today's cloud-first world, Azure AD is best suited to control who and what gets into your network. Azure AD Application Proxy integrates with modern authentication and cloud-based technologies, like SaaS applications and identity providers. This integration enables users to access apps from anywhere. Not only is App Proxy more suited for today's digital workplace, it's more secure than VPN and reverse proxy solutions and easier to implement. Remote users can access your on-premises applications the same way they access O365 and other SaaS apps integrated with Azure AD. You don't need to change or update your applications to work with Application Proxy. Furthermore, App Proxy doesn't require you to open inbound connections through your firewall. With App Proxy, you simply set it and forget it.
+In today's cloud-first world, Azure AD is best suited to control who and what gets into your network. Azure AD Application Proxy integrates with modern authentication and cloud-based technologies, like SaaS applications and identity providers. This integration enables users to access apps from anywhere. Not only is App Proxy more suited for today's digital workplace, it's more secure than VPN and reverse proxy solutions and easier to implement. Remote users can access your on-premises applications the same way they access Microsoft and other SaaS apps integrated with Azure AD. You don't need to change or update your applications to work with Application Proxy. Furthermore, App Proxy doesn't require you to open inbound connections through your firewall. With App Proxy, you simply set it and forget it.
 
 ## The future of remote access
 
@@ -67,7 +67,7 @@ With Application Proxy, Azure AD keeps track of users who need to access web app
 
 ### An overview of how App Proxy works
 
-Application Proxy is an Azure AD service you configure in the Azure portal. It enables you to publish an external public HTTP/HTTPS URL endpoint in the Azure Cloud, which connects to an internal application server URL in your organization. These on-premises web apps can be integrated with Azure AD to support single sign-on. End users can then access on-premises web apps in the same way they access Office 365 and other SaaS apps.
+Application Proxy is an Azure AD service you configure in the Azure portal. It enables you to publish an external public HTTP/HTTPS URL endpoint in the Azure Cloud, which connects to an internal application server URL in your organization. These on-premises web apps can be integrated with Azure AD to support single sign-on. End users can then access on-premises web apps in the same way they access Microsoft 365 and other SaaS apps.
 
 Components of this feature include the Application Proxy service, which runs in the cloud, the Application Proxy connector, which is a lightweight agent that runs on an on-premises server, and Azure AD, which is the identity provider. All three components work together to provide the user with a single sign-on experience to access on-premises web applications.
 
@@ -190,8 +190,8 @@ Whether you're currently using Azure AD to manage users in a hybrid coexistence 
 Organizations should begin taking advantage of App Proxy today to take advantage of the following benefits:
 
 * Publish on-premises apps externally without the overhead associated with maintaining traditional VPN or other on-premises web publishing solutions and DMZ approach
-* Single sign-on to all applications, be they Office 365 or other SaaS apps and including on-premises applications
-* Cloud scale security where Azure AD leverages Office 365 telemetry to prevent unauthorized access
+* Single sign-on to all applications, be they Microsoft 365 or other SaaS apps and including on-premises applications
+* Cloud scale security where Azure AD leverages Microsoft 365 telemetry to prevent unauthorized access
 * Intune integration to ensure corporate traffic is authenticated
 * Centralization of user account management
 * Automatic updates to ensure you have the latest security patches
