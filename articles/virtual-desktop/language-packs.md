@@ -24,7 +24,7 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
 
 - An Azure virtual machine (VM) with Windows 10 Enterprise multi-session, version 1903 or later
 
-- The Language ISO and Feature on Demand (FOD) Disk 1 of the OS version the image uses. You can download them here:
+- The Language ISO, Feature on Demand (FOD) Disk 1, and Inbox Apps ISO of the OS version the image uses. You can download them here:
      
      - Language ISO:
         - [Windows 10, version 1903 or 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
@@ -33,6 +33,10 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
      - FOD Disk 1 ISO:
         - [Windows 10, version 1903 or 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         - [Windows 10, version 2004 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        
+     - Inbox Apps ISO:
+        - [Windows 10, version 1903 or 1909 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
+        - [Windows 10, version 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
@@ -41,15 +45,16 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
 
 ## Create a content repository for language packages and features on demand
 
-To create the content repository for language packages and FODs:
+To create the content repository for language packages and FODs and a repository for the Inbox Apps packages:
 
-1. On an Azure VM, download the Windows 10 Multi-Language ISO and FODs for Windows 10 Enterprise multi-session, version 1903, 1909, and 2004 images from the links in [Prerequisites](#prerequisites).
+1. On an Azure VM, download the Windows 10 Multi-Language ISO, FODs, and Inbox Apps for Windows 10 Enterprise multi-session, version 1903/1909, and 2004 images from the links in [Prerequisites](#prerequisites).
 
 2. Open and mount the ISO files on the VM.
 
 3. Go to the language pack ISO and copy the content from the **LocalExperiencePacks** and **x64\\langpacks** folders, then paste the content into the file share.
 
 4. Go to the **FOD ISO file**, copy all of its content, then paste it into the file share.
+5. Go to the **amd64fre** folder on the Inbox Apps ISO and copy the content in the repository for the inbox apps that you've prepared.
 
      >[!NOTE]
      > If you're working with limited storage, only copy the files for the languages you know your users need. You can tell the files apart by looking at the language codes in their file names. For example, the French file has the code "fr-FR" in its name. For a complete list of language codes for all available languages, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
@@ -60,7 +65,7 @@ To create the content repository for language packages and FODs:
      > [!div class="mx-imgBorder"]
      > ![An example of the Japanese language packs with the "Jpan" language tag in their file names.](media/language-pack-example.png)
 
-5. Set the permissions on the language content repository share so that you have read access from the VM you'll use to build the custom image.
+6. Set the permissions on the language content repository share so that you have read access from the VM you'll use to build the custom image.
 
 ## Create a custom Windows 10 Enterprise multi-session image manually
 
@@ -69,7 +74,7 @@ To create a custom Windows 10 Enterprise multi-session image manually:
 1. Deploy an Azure VM, then go to the Azure Gallery and select the current version of Windows 10 Enterprise multi-session you're using.
 2. After you've deployed the VM, connect to it using RDP as a local admin.
 3. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
-4. Connect to the language package and FOD file share repository and mount it to a letter drive (for example, drive E).
+4. Connect to the language package, FOD, and Inbox Apps file share repository and mount it to a letter drive (for example, drive E).
 
 ## Create a custom Windows 10 Enterprise multi-session image automatically
 
@@ -155,6 +160,56 @@ The script might take a while depending on the number of languages you need to i
 
 Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
 
+After adding additional languages to the Windows image, the inbox apps are also required to be updated to support the added languages. This can be done by refreshing the pre-installed apps with the content from the inbox apps ISO. To perform this refresh in a disconnected environment (no Internet Access from the VM possible), you can use the following PowerShell script sample to automate the process.
+
+```powershell
+#########################################
+## Update Inbox Apps for Multi Language##
+#########################################
+##Set Inbox App Package Content Stores##
+[string]$InboxApps = "F:\"
+##Update Inbox Store Apps##
+$AllAppx = Get-Item $inboxapps\*.appx | Select-Object name
+$AllAppxBundles = Get-Item $inboxapps\*.appxbundle | Select-Object name
+$allAppxXML = Get-Item $inboxapps\*.xml | Select-Object name
+foreach ($Appx in $AllAppx) {
+    $appname = $appx.name.substring(0,$Appx.name.length-5)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    
+    Write-Host "Handeling with xml $appname"  
+  
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+      
+      Write-Host "Handeling without xml $appname"
+      
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+foreach ($Appx in $AllAppxBundles) {
+    $appname = $appx.name.substring(0,$Appx.name.length-11)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    Write-Host "Handeling with xml $appname"
+    
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+       Write-Host "Handeling without xml $appname"
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+```
+
+>[!IMPORTANT]
+>The inbox apps included in the ISO aren't the latest versions of the pre-installed Windows apps. To get the latest version of all apps, you need to update the apps using the Windows Store App and perform an manual search for updates after you've installed the additional languages.
+
 When you're done, make sure to disconnect the share.
 
 ## Finish customizing your image
@@ -171,15 +226,15 @@ To run sysprep:
      C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
-2. Shut down the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
+2. Stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
 3. You can now use the customized image to deploy a Windows Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
 ## Enable languages in Windows settings app
 
-Finally, you'll need to add the language to each user's language list so they can select their preferred language in the Settings menu.
+Finally, after you deploy the host pool, you'll need to add the language to each user's language list so they can select their preferred language in the Settings menu.
 
-To ensure your users can select the languages you installed, sign in as the user, then run the following PowerShell cmdlet to add the installed language packs to the Languages menu. You can also set up this script as an automated task that activates when the user signs in to their session.
+To ensure your users can select the languages you installed, sign in as the user, then run the following PowerShell cmdlet to add the installed language packs to the Languages menu. You can also set up this script as an automated task or logon script that activates when the user signs in to their session.
 
 ```powershell
 $LanguageList = Get-WinUserLanguageList
