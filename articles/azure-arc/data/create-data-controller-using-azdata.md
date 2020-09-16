@@ -169,6 +169,10 @@ Once you have run the command, continue on to [Monitoring the deployment status]
 
 ### Install on Red Hat OpenShift Container Platform (OCP)
 
+
+> [!NOTE]
+> If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
+
 To deploy on Red Hat OpenShift Container Platform, you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
 > [!NOTE]
 >   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.

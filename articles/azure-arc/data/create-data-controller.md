@@ -38,6 +38,9 @@ Currently, the supported list of Kubernetes services and distributions are the f
 
 > **Important:** If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.**   If you are using another Kubernetes distribution or service, you should ensure that you have a minimum node size of 8 GB RAM and 4 cores and a sum total capacity of 16 GB RAM available across all of your Kubernetes nodes.  For example, you could have 1 node at 16 GB RAM and 4 cores or you could have 2 nodes with 8GB RAM and 4 cores each.
 
+> [!NOTE]
+> If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
+
 Depending on the deployment option you choose, certain tools will be _required_, but it is recommended to [install all the client tools](install-client-tools.md) before you begin your Azure Arc data controller deployment.
 
 Regardless of the deployment option you choose, during the deployment you will need to provide the following information:
