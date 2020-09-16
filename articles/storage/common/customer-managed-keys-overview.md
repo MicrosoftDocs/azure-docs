@@ -1,5 +1,5 @@
 ---
-title: Use customer-managed keys for account encryption
+title: Customer-managed keys for account encryption
 titleSuffix: Azure Storage
 description: You can use your own encryption key to protect the data in your storage account. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Customer-managed keys offer greater flexibility to manage access controls.
 services: storage
@@ -13,7 +13,7 @@ ms.reviewer: ozgun
 ms.subservice: common
 ---
 
-# Use customer-managed keys for Azure Storage encryption
+# Customer-managed keys for Azure Storage encryption
 
 You can use your own encryption key to protect the data in your storage account. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Customer-managed keys offer greater flexibility to manage access controls.
 
