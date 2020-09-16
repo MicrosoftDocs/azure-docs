@@ -82,32 +82,14 @@ The following table details all available methods to migrate your SQL Server dat
 | **[Distributed availability group](/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions)** | SQL Server 2016| SQL Server 2016 | [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  A [distributed availability group](/sql/database-engine/availability-groups/windows/distributed-availability-groups) is a special type of availability group that spans two separate availability groups. The availability groups that participate in a distributed availability group do not need to be in the same location and include cross-domain support. <br /><br /> This method minimizes downtime, use when you have an availability group configured on-premises. <br /><br /> **Automation & scripting**: [T-SQL](/sql/t-sql/statements/alter-availability-group-transact-sql)  |
 | | | | | |
 
-
 &nbsp;
-
-> [!TIP]
-> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md). 
-
+&nbsp;
 &nbsp;
  
 > [!TIP]
 > For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md).
 > 
  
-### Test after heading
- 
-> [!TIP]
-> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md).
- 
-Test between normal text
- 
-> [!TIP]
-> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md).
- 
-Why is this happening?
-
-> [!TIP]
-> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](https://docs.microsoft.com/azure/storage/common/storage-solution-large-dataset-low-network).
 
 ### Considerations
 
