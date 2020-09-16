@@ -34,11 +34,11 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
-    - Run scripts locally by installing and configuring the latest version of the Azure PowerShell [Azure CLI](/cli/azure/install-azure-cli) as described in teh following section.
+    - Run scripts locally with Azure PowerShell, as described in the next section.
 
 ### Configure Azure PowerShell locally
 
-To use Azure PowerShell locally for this article, complete the following steps:
+To use Azure PowerShell locally for this article (rather than using Cloud Shell), complete the following steps:
 
 1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
 
