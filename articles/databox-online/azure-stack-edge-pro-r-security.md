@@ -68,7 +68,7 @@ You can:
 - The local Edge user on the device has limited access to the device for initial configuration, and troubleshooting. The compute workloads running on the device, data transfer, and the storage can all be accessed from the Azure public or government portal for the resource in the cloud.
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-password-best-practices.md)]
-- Use the local web UI to [change the password](azure-stack-edge-j-series-manage-access-power-connectivity-mode.md). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
+- Use the local web UI to change the password <!--insert link-->. If you change the password, be sure to notify all remote access users so they don't have problems signing in.
 
 ### Establish trust with the device via certificates
 
