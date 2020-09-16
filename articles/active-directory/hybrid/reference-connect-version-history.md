@@ -117,12 +117,18 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
      - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
-> If you have cloned the **In from AD - Group Join** sync rule and have not cloned the **In from AD - Group Common** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
-> 1. During Upgrade, uncheck the option **Start the synchronization process when configuration completes**.
-> 2. Edit the cloned join sync rule and add the following two transformations:
->     - Set direct flow `objectGUID` to `sourceAnchorBinary`.
->     - Set expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`.     
+> If you have cloned the **In from AD - Group Join** sync rule, let's say to **Cloned - In from AD - Group Join**, and have not cloned the **In from AD - Group Common** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
+> 1. During upgrade, uncheck the option **Start the synchronization process when configuration completes**.
+> 2. Edit the **Cloned - In from AD - Group Join** sync rule and add the following two transformation rules:
+
+> | FlowType   | Target Attribute   | Source                        | Apply Once | Merge Type |
+> | ---------- | ------------------ | ----------------------------- | ---------- | ---------- |
+> | Direct     | sourceAnchorBinary | objectGUID                    | False      | Update     |
+> | Expression | sourceAnchor       | ConvertToBase64([objectGUID]) | False      | Update     |
+
 > 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+
+> Please note that you don't need to make this change if you keep the default **In from AD - Group Common** because this sync rule also contains the two transformation rules above.
 
 
 
