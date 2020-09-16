@@ -1179,7 +1179,7 @@
         href: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
       - name: From SQL Server
         items: 
-        - name: Individual database 
+        - name: Individual databases 
           href: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
 
         
