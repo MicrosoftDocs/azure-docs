@@ -1,5 +1,5 @@
 ---
-title: Use customer-managed keys with Azure Key Vault to manage account encryption
+title: Use customer-managed keys for account encryption
 titleSuffix: Azure Storage
 description: You can use your own encryption key to protect the data in your storage account. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Customer-managed keys offer greater flexibility to manage access controls.
 services: storage
@@ -13,7 +13,7 @@ ms.reviewer: ozgun
 ms.subservice: common
 ---
 
-# Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption
+# Use customer-managed keys for Azure Storage encryption
 
 You can use your own encryption key to protect the data in your storage account. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Customer-managed keys offer greater flexibility to manage access controls.
 
@@ -73,16 +73,19 @@ Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4
 
 Using a key vault or managed HSM has associated costs. For more information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## Rotate customer-managed keys
+## Update the key version
 
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. You have two options for rotating a customer-managed key:
+When you configure encryption with customer-managed keys, you have two options for updating the key version:
 
-- **Automatic rotation:** To configure automatic rotation of customer-managed keys, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, then Azure Storage checks Azure Key Vault daily for a new version of a customer-managed key. If a new key version is available, then Azure Storage automatically uses the latest version of the key.
-- **Manual rotation:** To use a particular key version for Azure Storage encryption, specify that key version when you enable encryption with customer-managed keys for the storage account. If you specify the key version, then Azure Storage uses that version for encryption until you manually update the key version.
+- **Automatically update the key version:** To automatically update a customer-managed key when a new version is available, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, then Azure Storage checks the key vault or managed HSM daily for a new version of a customer-managed key. Azure Storage automatically uses the latest version of the key.
+- **Manually update the key version:** To use a particular version of a key for Azure Storage encryption, specify that key version when you enable encryption with customer-managed keys for the storage account. If you specify the key version, then Azure Storage uses that version for encryption until you manually update the key version.
 
-    When the key is manually rotated, you must update the storage account to use the new key version URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see [Manually update the key version](storage-encryption-keys-portal.md#manually-update-the-key-version).
+    When the key version is manually updated, you must update the storage account to use the new key version URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see [Manually update the key version](storage-encryption-keys-portal.md#manually-update-the-key-version).
 
-Rotating a customer-managed key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
+Updating the key version for a customer-managed key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
+
+> [!NOTE]
+> To rotate a key, create a new version of the key in the key vault or managed HSM, according to your compliance policies. You can rotate your key manually or create a function to rotate it on a schedule.
 
 ## Revoke access to customer-managed keys
 
