@@ -30,8 +30,6 @@ Stream Analytics clusters are powered by the same engine that powers Stream Anal
 
 * Zero maintenance cost allowing you to focus your effort on building real-time analytics solutions.
 
-* Commitment pricing [discounts](https://aka.ms/asaclusterpricing).
-
 ## How to get started
 
 You can [create a Stream Analytics cluster](create-cluster.md) through the [Azure portal](https://aka.ms/asaclustercreateportal). If you have any questions or need help with onboarding, you can contact the [Stream Analytics team](mailto:askasa@microsoft.com).
