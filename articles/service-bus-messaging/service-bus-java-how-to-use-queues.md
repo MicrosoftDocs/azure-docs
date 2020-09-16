@@ -49,6 +49,7 @@ Add the following `import` statements at the topic of the Java file.
 import com.azure.messaging.servicebus.*;
 import com.azure.messaging.servicebus.models.*;
 import reactor.core.Disposable;
+import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 ```
 
@@ -103,22 +104,22 @@ Add the following code after the `senderClient.close()` method to receive messag
         
         Disposable subscription = receiver.receiveMessages()
                 .flatMap(context -> {
-                    ServiceBusReceivedMessage messageReceived = context.getMessage();
+                    ServiceBusReceivedMessage message = context.getMessage();
 
-                    // print the message
-                    System.out.println("Received Message: " + new String(messageReceived.getBody()));
+                    // print ID and body of the received message
+                    System.out.println("Received message with ID: " + message.getMessageId() + " and body: " + new String(message.getBody()));
 
-                    // process the messages. just returns true in this example
-                    boolean isSuccessfullyProcessed = processMessage(messageReceived);
+                    // process the received message
+                    boolean isSuccessfullyProcessed = processMessage(message);
 
                     // When we are finished processing the message, then complete or abandon it.
                     if (isSuccessfullyProcessed) {
-                        return receiver.complete(messageReceived.getLockToken());
+                        return receiver.complete(message).thenReturn("Completed: " + message.getMessageId());
                     } else {
-                        return receiver.abandon(messageReceived.getLockToken());
+                        return receiver.abandon(message).thenReturn("Abandoned: " + message.getMessageId());
                     }
                 })
-                .subscribe(messageReturned -> System.out.println(messageReturned),
+                .subscribe(message -> System.out.printf("Processed at %s. %s%n", Instant.now(), message),
                     error -> System.err.println("Error occurred while receiving message: " + error),
                     () -> System.out.println("Receiving complete."));
 
@@ -133,7 +134,7 @@ Add the following code after the `senderClient.close()` method to receive messag
             receiver.close();
 ```
 
-Add the method for processing messages. This method just returns true, but you can add your own code for processing the message. 
+Add the method for processing messages after the `main` method. This method just returns true, but you can add your own code for processing the message. 
 
 ```java
 	// Processes the message. Returns true in this example.
@@ -147,9 +148,12 @@ When you run the application, you see the following messages in the console wind
 
 ```console
 Send complete.
-Received Message: First message
-Received Message: Second message
-Received Message: Third message
+Received message with ID: 000000000000000000000000000000000 and body: First message
+Received message with ID: 111111111111111111111111111111111 and body: Second message
+Processed at 2020-09-15T20:05:56.171576300Z. Completed: 000000000000000000000000000000000
+Processed at 2020-09-15T20:05:56.175578900Z. Completed: 111111111111111111111111111111111
+Received message with ID: 22222222222222222222222222222 and body: Thrid message
+Processed at 2020-09-15T20:05:56.248572400Z. Completed: 22222222222222222222222222222
 ```
 
 On the **Overview** page for the Service Bus namespace in the Azure portal, you see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
