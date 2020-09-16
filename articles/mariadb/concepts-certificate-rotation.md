@@ -24,10 +24,9 @@ The new certificate will be used starting October 26, 2020 (10/26/2020).If you u
 ## How do I know if my database is going to be affected?
 
 All applications that use SSL/TLS and verify the root certificate needs to update the root certificate. You can identify whether your connections verify the root certificate by reviewing your connection string.
--	If your connection string includes `sslmode=verify-ca` or ``
--	If your connection string includes `sslmode=disable`, you do not need to update certificates.
--	If your connection string includes `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates. 
--	If your connection string does not specific sslmode, you do not need to update certificates.
+-	If your connection string includes `sslmode=verify-ca` or `sslmode=verify-full`, you need to update the certificate.
+-	If your connection string includes `sslmode=disable`, `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates. 
+-	If your connection string does not specify sslmode, you do not need to update certificates.
 
 If you are using a client that abstracts the connection string away, review the client’s documentation to understand whether it verifies certificates.
 To understand Azure Database for MariaDB sslmode review the [SSL mode descriptions](concepts-ssl-connection-security.md#default-settings).
