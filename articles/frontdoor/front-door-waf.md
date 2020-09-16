@@ -17,7 +17,7 @@ ms.author: duau
 
 Many web applications have experienced a rapid increase of traffic in recent weeks because of COVID-19. These web applications are also experiencing a surge in malicious traffic, including denial-of-service attacks. There's an effective way to both scale out for traffic surges and protect yourself from attacks: set up Azure Front Door with Azure WAF as an acceleration, caching, and security layer in front of your web app. This article provides guidance on how to quickly get Azure Front Door with Azure WAF set up for any web app that runs inside or outside of Azure. 
 
-We'll be using Azure CLI to set up the WAF in this tutorial. These steps are also fully supported in the Azure portal, Azure PowerShell, Azure Resource Manager, and the Azure REST APIs. 
+We'll be using Azure CLI to set up the WAF in this tutorial. You can accomplish the same thing by using the Azure portal, Azure PowerShell, Azure Resource Manager, or the Azure REST APIs. 
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -43,7 +43,7 @@ In this tutorial, you'll learn how to:
    ```
 
 > [!NOTE] 
-> For more details about the commands used in this tutorial, see [Azure CLI reference for Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
+> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
 
 ## Create an Azure Front Door resource
 
@@ -121,37 +121,40 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
  > [!NOTE] 
 > The preceding example is applicable when you're not using a custom domain. If you are
 
-If you are not using any custom domains to access your web applications, you can skip step #5. In that case, you will be providing to your end users the hostname you obtained in step #1 to navigate to your web application
+If you're not using any custom domains to access your web applications, you can skip the next section. In that case, you'll give your customers the `hostName` you obtained when you created the Azure Front Door resource. They'll use this `hostName` to go to your web application.
 
-## Configure custom domain for your web application
+## Configure the custom domain for your web application
 
-Initially the custom domain name of your web application (the one that customers use to refer to your application, for example, www.contoso.com) was pointing towards the place where you had it running before Azure Front Door was introduced. After this change of architecture adding AFD+WAF to front the application, the DNS entry corresponding to that custom domain should now point to this Azure Front Door resource. This can be done by remapping this entry in your DNS server to the Azure Front Door hostname you had noted in step #1.
+The custom domain name of your web application is the one that customers use to refer to your application, for example, www.contoso.com. Initially, this custom domain name was pointing to the location where it was running before you introduced Azure Front Door. After you add Azure Front Door and WAF to front the application, the DNS entry that corresponds to that custom domain should point to the Azure Front Door resource. You can make this change by remapping the entry in your DNS server to the Azure Front Door `hostName` you noted when you created the Azure Front Door resource.
 
-Specific steps to update your DNS records will depend on your DNS service provider, but if you are using Azure DNS to host your DNS name, you can refer to the documentation for [steps do update a DNS record](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) and point to the Azure Front Door hostName. 
+Specific steps to update your DNS records will depend on your DNS service provider. If you use Azure DNS to host your DNS name, you can refer to the documentation for [steps to update a DNS record](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) and point to the Azure Front Door `hostName`. 
 
-One key thing to note here is that, if you need your users to navigate to your website using the zone apex, for example, contoso.com, you have to use Azure DNS and it's [ALIAS record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
+There's one important thing to note if you need your customers to navigate to your website by using the zone apex, for example, contoso.com. In this case, you have to use Azure DNS and its [ALIAS record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
 
-In addition, you also need to update your Azure Front Door configuration to [add this custom domain](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) to it so that Azure Front Door understands this mapping.
+You also need to update your Azure Front Door configuration to [add the custom domain](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) to it so that it's aware of this mapping.
 
-Finally, if you are using a custom domain to reach your web application and want to enable the HTTPS protocol, you need to have the [certificates for your custom domain setup in Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Finally, if you're using a custom domain to reach your web application and want to enable the HTTPS protocol, you need to [set up the certificates for your custom domain in Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
 
 ## Lock down your web application
 
-One optional best practice to follow is to ensure that only Azure Front Door edges can communicate with your web application. This action will ensure that no one can bypass the Azure Front Door protections and access your applications directly. You can accomplish this lock down by visiting the [FAQ section of Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-faq) and referring to the question regarding locking down backends for access only by Azure Front Door.
+We recommend that you ensure that only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## Clean up resources
 
-When you no longer need the resources in this tutorial, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, Front Door, and WAF policy.
+When you no longer need the resources used in this tutorial, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, Front Door, and WAF policy:
 
 ```azurecli-interactive
   az group delete \
     --name <>
 ```
---name The resource group name for all resources deployed in this tutorial.
+`--name`: The name of the resource group for all resources used in this tutorial.
 
-## Next Steps
+## Next steps
 
-To learn how to troubleshoot your Front Door, continue to the How-to guides.
+To learn how to troubleshoot your Front Door, see the troubleshooting guides:
 
 > [!div class="nextstepaction"]
 > [Troubleshooting common routing issues](front-door-troubleshoot-routing.md)
+
+> [!div class="nextstepaction"]
+> [Allowed certificate authorities](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-troubleshoot-allowed-ca)
