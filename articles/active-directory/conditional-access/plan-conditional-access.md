@@ -445,7 +445,7 @@ In case you need to roll back your newly implemented policies, use one or more o
 
 Use the following Manage options to control and manage your CA policies:
 
-![manage-access](media/plan-conditional-access/manage-access.png)
+![Screenshot shows the MANAGE options for C A policies, including Named locations, Custom controls, Terms of use, V P N connectivity, and the selected Classic policies.](media/plan-conditional-access/manage-access.png)
 
 
 ### Named locations
