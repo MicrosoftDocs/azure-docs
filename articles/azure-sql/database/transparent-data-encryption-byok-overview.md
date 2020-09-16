@@ -88,6 +88,11 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - If you are importing existing key into the key vault, make sure to provide it in the supported file formats (.pfx, .byok, or .backup).
 
+> [!NOTE]
+> Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in **public preview**. 
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](https://aka.ms/mhsm).
+
+
 ## Recommendations when configuring customer-managed TDE
 
 ### Recommendations when configuring AKV
