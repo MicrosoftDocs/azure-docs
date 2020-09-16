@@ -85,7 +85,7 @@ spx config @my.defaults
 spx recognize --nodefaults @my.defaults --file hello.wav
 ```
 
-You can also write dynamic content to a configuration file. For example, the following commands create a custom speech model and store the URL
+You can also write dynamic content to a configuration file. For example, the following command creates a custom speech model and stores the URL
 of the new model in a configuration file. The next command waits until the model at that URL is ready for use before returning.
 
 ```shell
@@ -93,7 +93,7 @@ spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url
 spx csr model status --model @my.model.txt --wait
 ```
 
-When --output includes an optional **add** keyword, the Speech CLI creates a configuration file or appends to an existing one.
+When `--output` includes an optional **add** keyword, the Speech CLI creates a configuration file or appends to an existing one.
 The following example writes two URLs to the `my.datasets.txt` configuration file:
 
 ```shell
