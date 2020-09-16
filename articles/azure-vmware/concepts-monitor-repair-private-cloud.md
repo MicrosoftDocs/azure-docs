@@ -37,4 +37,4 @@ The host remediation process starts by adding a new healthy node in the cluster.
 
 ## Next steps
 
-[Learn about Azure VMware Solution private cloud upgrades](concepts-upgrades.md).  
+Learn about [Azure VMware Solution private cloud upgrades](concepts-upgrades.md).  
