@@ -47,6 +47,15 @@ You can trigger and include memory dumps by omitting the `--exclude-dumps`, but 
 
 You can optionally choose to filter to collect logs for just a specific pod (`--pod`) or container (`--container`) by name.
 
+You can also choose to filter to collect logs for a specific custom resource by passing the `--resource-kind` and `--resource-name` paramater.  The `resource-kind` parameter value should be one of the custom resource definition names which can be retrieved by the command `kubectl get customresourcedefinition`.
+
+```console
+azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+
+#Example
+#azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
+```
+
 Example of folder hierarchy.  Note that folder hierarchy is organized by pod name name and then by container and then by directory hierarchy within the container.
 
 ```console

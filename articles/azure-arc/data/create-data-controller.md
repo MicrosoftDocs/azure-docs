@@ -36,7 +36,7 @@ Currently, the supported list of Kubernetes services and distributions are the f
 
 > **Important:** See the [storage configuration guidance](/storage-configuration.md) to understand the details of how to configure your persistent storage.
 
-> **Important:** If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.**   If you are using another Kubernetes distribution or service, you should ensure that you have a minimum node size of 8 GB RAM and 4 cores and a sum total capacity of 32 GB RAM available across all of your Kubernetes nodes.  For example, you could have 1 node at 32 GB RAM and 4 cores or you could have 2 nodes with 16GB RAM and 4 cores each.
+> **Important:** If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.**   If you are using another Kubernetes distribution or service, you should ensure that you have a minimum node size of 8 GB RAM and 4 cores and a sum total capacity of 16 GB RAM available across all of your Kubernetes nodes.  For example, you could have 1 node at 16 GB RAM and 4 cores or you could have 2 nodes with 8GB RAM and 4 cores each.
 
 Depending on the deployment option you choose, certain tools will be _required_, but it is recommended to [install all the client tools](install-client-tools.md) before you begin your Azure Arc data controller deployment.
 
@@ -47,9 +47,9 @@ Regardless of the deployment option you choose, during the deployment you will n
 - **Data controller password** - A password for the data controller administrator user.
 - **Name of your Kubernetes namespace** - the name of the Kubernetes namespace that you want to deploy the data controller into.
 - **Connectivity mode** - The [connectivity mode](connectivity.md) of your cluster. Currently only "indirect" is supported.
-- **Azure subscription ID** - the Azure subscription GUID for where you want the data controller resource in Azure to be created.
-- **Azure resource group name** - the name of the resource group where you want the data controller resource in Azure to be created
-- **Azure location** - the Azure location where the data controller resource will be created in Azure - enter one of the following: 
+- **Azure subscription ID** - The Azure subscription GUID for where you want the data controller resource in Azure to be created.
+- **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
+- **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. Choose one of the following: 
   - eastus
   - eastus2
   - australiaeast
