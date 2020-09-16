@@ -48,7 +48,7 @@ To send messages to the Relay, write a Node.js console application.
 2. Run the client application: from a Node.js command prompt type `node sender.js`, and enter some text.
 3. Ensure that the server application console outputs the text that was entered in the client application.
 
-    ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![Console windows testing both the server and client applications.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Congratulations, you have created an end-to-end Hybrid Connections application using Node.js!
 

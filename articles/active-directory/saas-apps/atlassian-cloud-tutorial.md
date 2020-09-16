@@ -157,7 +157,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![image](./media/atlassian-cloud-tutorial/default-attributes.png)
    
-   1. Attribute mapping for an Azure AD tenant with an Office 365 license
+   1. Attribute mapping for an Azure AD tenant with a Microsoft 365 license
       
       a. Click on the **Unique User Identifier (Name ID)** claim
 
@@ -171,13 +171,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
       ![image](common/default-attributes.png)
       
-   1. Attribute mapping for an Azure AD tenant without an Office 365 license 
+   1. Attribute mapping for an Azure AD tenant without a Microsoft 365 license 
 
       a. Click on the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` claim.
 
       ![image](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. While Azure does not populate the **user.mail** attribute for users created in Azure AD tenants without Office 365 licenses and stores the email for such users in **userprincipalname** attribute. Atlassian Cloud expects the **nameidentifier** (**Unique User Identifier**) to be mapped to the user's email (**user.userprincipalname**).  Edit the **Source attribute**  and change it to **user.userprincipalname**. Save the changes to the claim.
+      b. While Azure does not populate the **user.mail** attribute for users created in Azure AD tenants without Microsoft 365 licenses and stores the email for such users in **userprincipalname** attribute. Atlassian Cloud expects the **nameidentifier** (**Unique User Identifier**) to be mapped to the user's email (**user.userprincipalname**).  Edit the **Source attribute**  and change it to **user.userprincipalname**. Save the changes to the claim.
 
       ![image](./media/atlassian-cloud-tutorial/set-email.png)
          
