@@ -24,15 +24,18 @@ When regional preference is set, the client will connect based on the following 
 
 |Account type |Reads |Writes |
 |------------------------|--|--|
-| Single write region | Preferred region | Hub region  |
+| Single write region | Preferred region | Primary region  |
 | Multiple write regions | Preferred region | Preferred region  |
 
-If you don't set a preferred region, the regional preference order is defined by the [Azure Cosmos DB region list order](distribute-data-globally.md):
+If you don't set a preferred region:
 
 |Account type |Reads |Writes |
 |------------------------|--|--|
-| Single write region | Hub region | Hub region |
-| Multiple write regions | Hub region  | Hub region  |
+| Single write region | Primary region | Primary region |
+| Multiple write regions | Primary region  | Primary region  |
+
+> [!NOTE]
+> Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md)
 
 When any of the following scenarios occur, the client using the Azure Cosmos SDK exposes logs and includes the retry information as part of the **operation diagnostic information**.
 
