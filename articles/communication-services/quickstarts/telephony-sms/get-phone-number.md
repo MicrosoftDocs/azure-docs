@@ -27,11 +27,11 @@ Get started with Azure Communication Services by using the Azure portal to purch
 
 First, go to your Communication Services resource on the [Azure portal](https://portal.azure.com)
 
-![Azure Communication Resource Main](../media/manage-phone-azure-portal-start.png)
+:::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
 
 Navigate to the Phone Numbers blade in the resource menu:
 
-![Azure Communication Resource Main](../media/manage-phone-azure-portal-phone-page.png)
+:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Screenshot showing a Communication Services resource's phone page.":::
 
 Press the **Get** button to launch the wizard. The wizard on the "Phone numbers" blade will walk you through a series of questions that allows you to get the phone number that best fits your scenario. 
 
@@ -45,16 +45,15 @@ Note that you cannot select a phone number with both inbound and outbound callin
 
 Next, the wizard will ask you for the purpose of using the number. We collect this information to apply the correct tax and emergency calling regulations.
 
-![Search experience](../media/quickstart-search-and-acquire-bot-or-human.png)
+:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Screenshot showing selecting a bot or human within the phone number acquisition process.":::
 
 Next, you'll provide the address where the number will be used. We collect this information for regulatory requirements.
 
-![Search experience](../media/quickstart-search-and-acquire-calling-address.png)
+:::image type="content" source="../media/quickstart-search-and-acquire-calling-address.png" alt-text="Screenshot showing the calling address form field.":::
 
 Next, select the phone number that you want from the list:
 
-![Search experience](../media/quickstart-search-and-acquire-buy-a-number.png)
-
+:::image type="content" source="../media/quickstart-search-and-acquire-buy-a-number.png" alt-text="Screenshot showing a a purchaseable list of phone numbers.":::
 
 Note that in order to make or receive calls or send/receive SMS messages, you need to consider two prices:
 
@@ -69,19 +68,19 @@ Finally, accept the price and tax details for the phone number.
 
 Navigate to your Azure Communication Resource on the [Azure portal](https://portal.azure.com):
 
-![Azure Communication Resource Main](../media/manage-phone-azure-portal-start.png)
+:::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services Resource's main page.":::
 
 Select the Phone Numbers tab in the menu to manage your phone numbers.
 
-![Azure Communication Resource Main](../media/manage-phone-azure-portal-phones.png)
+:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot showing a Communication Services Resource's phone number page.":::
 
 To purchase a new number, follow the [instructions](#get-phone-number).
 
 ## Configure your phone numbers
 
-When you select a phone number, configuration settings will be displayed for the number. These settings include routing configuration.
+When you select a phone number, the configuration settings will be displayed for the number. These settings include routing configuration.
 
-![Azure Communication Resource Main](../media/manage-phone-azure-portal-config.png)
+:::image type="content" source="../media/manage-phone-azure-portal-config.png" alt-text="Screenshot showing the configuration properties for a telephone number.":::
 
 Here, you can add a callback address to your phone number. This allows you to direct any incoming calls to an external service or API endpoint.
 

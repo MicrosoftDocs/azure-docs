@@ -80,7 +80,7 @@ Now that you're authenticated, you can use your management client to make API ca
 
 For each of the following examples, we'll be assigning our Communication Services resources to an existing resource group.
 
-If you need to create a resource group, you can do so by using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or the [Azure Resource Management client library](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+If you need to create a resource group, you can do so by using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or the [Azure Resource Manager client library](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### Create and manage a Communication Services resource
 

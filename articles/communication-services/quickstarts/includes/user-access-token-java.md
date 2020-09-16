@@ -75,22 +75,34 @@ public class App
 
 ## Authenticate the client
 
-Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../create-communication-resource.md#store-your-connection-string).
+Instantiate a `CommunicationIdentityClient` with your resource's access key and endpoint. Learn how to [manage you resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `main` method:
 
 ```java
-// This code demonstrates how to fetch your connection string
-// from an environment variable.
-String connectionString = System.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING");
+CommunicationClientCredential credential = null;
+try {
+    credential = new CommunicationClientCredential(accessKey);
+} catch (NoSuchAlgorithmException e) {
+    System.out.println(e.getMessage());
+} catch (InvalidKeyException e) {
+    System.out.println(e.getMessage());
+}
 
 // Create an HttpClient builder of your choice and customize it
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
-CommunicationIdentityClient client = new CommunicationIdentityClientBuilder()
-    .connectionString(connectionString)
+// Create a new CommunicationIdentityClientBuilder to instantiate a CommunicationIdentityClient
+CommunicationIdentityClientBuilder builder = new CommunicationIdentityClientBuilder();
+
+// Set the endpoint, access key, and the HttpClient
+builder.endpoint(endpoint)
+    .credential(credential)
     .httpClient(httpClient);
-    .buildClient();
+
+// Build a new CommunicationIdentityClient
+CommunicationIdentityClient client = CommunicationIdentityClient.buildClient();
+
 ```
 
 You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable) that is provided by `azure-core`.
@@ -113,7 +125,7 @@ Use the `issueToken` method to issue an access token for a Communication Service
 ```java
 // Issue an access token with the "voip" scope for a new user
 List<String> scopes = new ArrayList<String>(Arrays.asList("voip"))
-CommunicationIdentityToken response = client.issueToken(user, scopes);
+CommunicationUserToken response = client.issueToken(user, scopes);
 Date expiresOn = response.getExpiresOn();
 String token = response.getToken();
 System.out.println("\nIssued a token with 'voip' scope that expires at " + expiresOn + ":");

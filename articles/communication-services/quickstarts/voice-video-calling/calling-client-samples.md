@@ -17,10 +17,6 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
-> - There are several outstanding inline TODOs
-
 Get started with Azure Communication Services by using the Communication Services calling client library to add voice and video calling to your app. 
 
 ::: zone pivot="platform-web"

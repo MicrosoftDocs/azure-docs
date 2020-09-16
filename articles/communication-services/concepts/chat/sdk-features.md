@@ -19,7 +19,7 @@ Azure Communication Services Chat client libraries can be used to add rich, real
 
 ## Chat client library capabilities
 
-The following list presents the set of features which are currently available in the Communication Services chat client libraries. To take a look at upcoming features, check out the [product roadmap](../../roadmap.md). 
+The following list presents the set of features which are currently available in the Communication Services chat client libraries. To take a look at upcoming features, check out the [product roadmap](../../roadmap.md).
 
 | Group of features | Capability                                                                                                          | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ----- | ---- | -----  |

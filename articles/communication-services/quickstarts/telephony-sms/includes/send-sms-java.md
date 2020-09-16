@@ -113,7 +113,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an `SmsClient` with your connection string. The code below retrieves the endoint and credential strings for the resource from environment variables named `COMMUNICATION_SERVICES_ENDPOINT_STRING` and `COMMUNICATION_SERVICES_CREDENTIAL_STRING` (Credential is the `Key` from the Azure portal. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an `SmsClient` with your connection string. The code below retrieves the endpoint and credential strings for the resource from environment variables named `COMMUNICATION_SERVICES_ENDPOINT_STRING` and `COMMUNICATION_SERVICES_CREDENTIAL_STRING` (Credential is the `Key` from the Azure portal. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `main` method:
 

@@ -1,7 +1,7 @@
 ---
 title: Voice and video concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: TODO
+description: Learn about Communication Services call types.
 author: mikben
 manager: jken
 services: azure-communication-services

@@ -70,13 +70,13 @@ To create a chat client in your web app, you'll use the Communications Service e
 ```JavaScript
 
 import { ChatClient } from '@azure/communication-chat';
-import { CommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationUserCredential } from '@azure/communication-common';
 
 // Your unique Azure Communication service endpoint
 let endpointUrl = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
 let userAccessToken = //Retrieve value from your trusted service
 
-let chatClient = new ChatClient(endpointUrl, new CommunicationUserCredential(userAccessToken));
+let chatClient = new ChatClient(endpointUrl, new AzureCommunicationUserCredential(userAccessToken));
 
 ```
 

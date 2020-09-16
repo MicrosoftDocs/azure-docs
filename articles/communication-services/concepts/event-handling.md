@@ -1,5 +1,5 @@
 ---
-title: Event Handling 
+title: Event handling
 titleSuffix: An Azure Communication Services concept document
 description: Use Azure Event Grid to trigger processes based on actions that happen in a Communication Service.
 author: mikben
@@ -11,16 +11,11 @@ ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
+
 # Event Handling in Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
-> - Reference content needs to be isolated and moved into Event Grid docs like this -> https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage
-> - Needs to be staged into the public preview branch
-> - Needs updates screenshots with diagram including ACS
-> - Remove regional availability section, feels weird right now
 
 Azure Communication Services allows applications to react to events such `SMSReceived` and `ChatMessageReceived` by sending notifications and triggering workflows when events using [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview). For example, you may want your application to update a database, create a work item, and deliver an email notification every time an SMS message is sent to a phone number that you've provisioned using Communication Services. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering.
 
@@ -33,15 +28,6 @@ Event Grid uses event subscriptions to route event messages to subscribers. This
 <!-- NEEDS TO BE UPDATED TO IMAGE SHOWING ACS ![Diagram showing Azure Event Grid's event model.](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png) -->
 
 Event handlers subscribe to events and the, when an event is triggered, the Event Grid service will send data about that event to the handler endpoint.
-
-## Regional availability
-
-Communication Services Event Grid integration is available globally.
-
-> [!WARNING]
-> Is this impacted by the fact that Communication Services is being offered as a global service?
->
-> Removing this: The Event Grid integration is available for Azure Communication services located in the regions where Event Grid is supported. For the latest list of regions, see [An introduction to Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 ## Events types
 

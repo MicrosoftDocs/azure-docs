@@ -24,8 +24,6 @@
         href: quickstarts/telephony-sms/get-phone-number.md
       - name: Send an SMS message
         href: quickstarts/telephony-sms/send.md
-      - name: Send an SMS message with an Azure Logic App
-        href: quickstarts/telephony-sms/logic-app.md
       - name: Handle SMS events
         href: quickstarts/telephony-sms/handle-sms-events.md
   - name: Voice and video calling
@@ -64,10 +62,6 @@
         href: concepts/voice-video-calling/about-call-types.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
-  - name: Metric definitions
-    href: concepts/azure-communication-metric-definitions.md
-  - name: Logging and diagnostics
-    href: concepts/logging-diagnostics.md
   - name: Call flows
     href: concepts/call-flows.md
   - name: Client libraries and REST APIs

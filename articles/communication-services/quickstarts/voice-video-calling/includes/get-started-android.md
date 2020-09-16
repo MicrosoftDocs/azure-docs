@@ -18,21 +18,21 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - **Azure Communication Services (ACS) client libraries** For this quickstart, you'll need to install the Azure Communication Services Common and Calling client libraries.
 
-## Create an Android app with an Empty Activity
+## Create an Android app with an empty activity
 
 From Android Studio, select Start a new Android Studio project.
 
-![Screenshot showing the "Start a new Android Studio Project" button selected in Android Studio.](../media/android/studio-new-project.png)
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Screenshot showing the 'Start a new Android Studio Project' button selected in Android Studio.":::
 
 Select "Empty Activity" project template under "Phone and Tablet".
 
-![Screenshot showing the "Empty Activity" option selected in the Project Template Screen.](../media/android/studio-blank-activity.png)
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
 Select Minimum client library of "API 26: Android 8.0 (Oreo)" or greater.
 
-![Screenshot showing the minimum client library being selected.](../media/android/studio-calling-min-api.png)
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
-## Add the Azure Communication Services Calling client library to Your App
+## Add the Azure Communication Services Calling client library to your app
 
 <!-- TODO: update with instructions [here](TODO-MISSING-LINK.md) -->
 
@@ -136,10 +136,10 @@ import android.widget.Toast;
 
 import com.azure.communication.calling.CallAgent;
 import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.CommunicationUser;
+import com.azure.android.communication.calling.CommunicationUser;
 import com.azure.communication.calling.StartCallOptions;
 import com.azure.communication.calling.VideoOptions;
-import com.azure.communication.common.client.CommunicationUserCredential;
+import com.azure.android.communication.common.CommunicationUserCredential;
 
 import java.util.ArrayList;
 
@@ -218,10 +218,10 @@ With the user token an authenticated call agent can be instantiated. Generally t
  * Create the call agent for placing calls
  */
 private void createAgent() {
-    String UserToken = "<User_Access_Token>";
+    String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(UserToken);
+        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
         agent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
@@ -255,4 +255,4 @@ private void startCall() {
 
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you are able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
 
-![Screenshot showing the completed application.](../media/android/quickstart-android-call-echobot.png)
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot showing the completed application.":::

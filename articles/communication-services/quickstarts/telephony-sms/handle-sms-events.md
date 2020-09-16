@@ -15,12 +15,6 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
-> - Screenshots should be updated (Richard will handle this)
-> - Update endpoint URL to match tutorial https://{{site-name}}.azurewebsites.net/api/updates
-> - Explain how to delete the event subscription from the portal
-
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services SMS events. 
 
 ## About Azure Event Grid
@@ -56,7 +50,7 @@ For this quickstart, we will use the [Azure Event Grid Viewer Sample](https://do
 
 In the portal, navigate to your Azure Communication Services Resource that you created. Inside the Communication Service resource, select **Events** from the left menu of the **Communication Services** page.
 
-![Select web hook](./media/handle-sms-events/select-events.png)
+:::image type="content" source="./media/handle-sms-events/select-events.png" alt-text="Screenshot showing selecting the event subscription button within a resource's events page.":::
 
 Press **Add Event Subscription** to enter the creation wizard.
 
@@ -66,11 +60,11 @@ You can subscribe to specific events to tell Event Grid which of the SMS events 
 
 Check out the full list of [events supported by Azure Communication Services](../../concepts/event-handling.md).
 
-![Screenshot showing the SMS Received and SMS Delivery Report Received event types being selected](./media/handle-sms-events/select-events-create-eventsub.png)
+:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot showing the SMS Received and SMS Delivery Report Received event types being selected.":::
 
 Select **Web Hook** for **Endpoint type**. 
 
-![Screenshot showing the Endpoint Type field being set to Web Hook.](./media/handle-sms-events/select-events-create-linkwebhook.png)
+:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Screenshot showing the Endpoint Type field being set to Web Hook.":::
 
 For **Endpoint**, click **Select an endpoint**, and enter the URL of your web app.
 
@@ -78,7 +72,7 @@ In this case, we will use the URL from the [Azure Event Grid Viewer Sample](http
 
 Then select **Confirm Selection**.
 
-![Screenshot showing confirming a Web Hook Endpoint.](./media/handle-sms-events/select-events-create-selectwebhook-epadd.png)
+:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot showing confirming a Web Hook Endpoint.":::
 
 ## Viewing SMS events
 
@@ -95,9 +89,9 @@ Check out the full list of [events supported by Azure Communication Services](..
 
 Once you complete either action above you will notice that  `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events will show up in the [Azure Event Grid Viewer Sample](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) we set up at the beginning. You can press the eye icon next to the event to see the entire payload. The events will looks like this:
 
-![Screenshot showing the Event Grid Schema for an SMS Received Event.](./media/handle-sms-events/sms-received.png)
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Received Event.":::
 
-![Screenshot showing the Event Grid Schema for an SMS Delivery Report Event.](./media/handle-sms-events/SMS-Delivery-Report-Received.png)
+:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Delivery Report Event.":::
 
 Learn more about the [event schemas and other eventing concepts](../../concepts/event-handling.md)
 

@@ -88,8 +88,8 @@ Here is the code:
 Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic.
 
 ```javascript
-import { CallClient, CallAgent, CommunicationUser } from "@azure/communication-calling";
-import { CommunicationUserCredential } from '@azure/communication-common';
+import { CallClient, CallAgent } from "@azure/communication-calling";
+import { AzureCommunicationUserCredential } from '@azure/communication-common';
 
 let call;
 const calleeInput = document.getElementById("callee-id-input");
@@ -110,19 +110,16 @@ The following classes and interfaces handle some of the major features of the Az
 | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | [CallClient](../../../references/overview.md)                  | The CallClient is the main entry point to the Calling client library.                         |
 | [CallAgent](../../../references/overview.md)                   | The CallAgent is used to start and manage calls.                                              |
-| [CommunicationUserCredential](../../../references/overview.md) | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent. |
+| [AzureCommunicationUserCredential](../../../references/overview.md) | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent.
 
 ## Authenticate the client
 
 Initialize a `CallAgent` instance with a `User Access Token` which will enable us to make and receive calls. Add the following code to **client.js**:
 
 ```javascript
-callClient = new CallClient();
-tokenCredential = new CommunicationUserCredential("<USER ACCESS TOKEN>");
-callClient.createCallAgent(tokenCredential).then(agent => {
-  console.log("CallAgent initialized");
-  callAgent = agent;
-});
+const callClient = new CallClient();
+const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+const callAgent = await callClient.createCallAgent(tokenCredential);
 ```
 
 You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../user-access-tokens.md) documentation if you don't already have a token available.
@@ -134,11 +131,8 @@ Add an event handler to initiate a call to our echo bot when the `callButton` is
 ```javascript
 callButton.addEventListener("click", () => {
   // start a call
-  const userToCall = new CommunicationUser(calleeInput.value);
-  call = callAgent.call(
-    [userToCall],
-    {}
-  );
+  const acsUser = { communicationUserId: <ACS_USER_ID>};
+  call = callAgent.call([acsUser], {});
 
   // toggle button states
   hangUpButton.disabled = false;
@@ -153,9 +147,7 @@ Add an event listener to end the current call when the `hangUpButton` is clicked
 ```javascript
 hangUpButton.addEventListener("click", () => {
   // end the current call
-  call.hangUp({
-    forEveryone: true
-  });
+  call.hangUp({ forEveryone: true });
 
   // toggle button states
   hangUpButton.disabled = true;
@@ -175,6 +167,6 @@ npx webpack-dev-server --entry ./client.js --output bundle.js
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-![Screenshot of the completed JavaScript Application.](../media/javascript/calling-javascript-app.png)
+:::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 You can make an outbound VOIP call by providing a user ID in the text field and clicking the **Start Call** button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.

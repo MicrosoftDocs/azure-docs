@@ -31,11 +31,11 @@ Get started with Azure Communication Services by provisioning your first Communi
 
 ## Access your connection strings and service endpoints
 
-Connection strings allow the Communication Services client libraries to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Management APIs. 
+Connection strings allow the Communication Services client libraries to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Manager APIs. 
 
 After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services client libraries. Note that you have access to primary and secondary keys. This can be useful in scenarios where you would like to provide temporary access to your Communication Services resources to a third party or staging environment.
 
-![Screenshot of Communication Services Key page.](./media/key.png)
+:::image type="content" source="./media/key.png" alt-text="Screenshot of Communication Services Key page.":::
 
 ## Store your connection string
 
@@ -52,6 +52,8 @@ To configure an environment variable, open a console window and select your oper
 
 #### [Windows](#tab/windows)
 
+Open a console window and enter the following command:
+
 ```console
 setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourconnectionstring>"
 ```
@@ -66,7 +68,7 @@ Edit your **.zshrc**, and add the environment variable:
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
-After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective.
+After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 #### [Linux](#tab/linux)
 
@@ -76,15 +78,13 @@ Edit your **.bash_profile**, and add the environment variable:
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
-After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective.
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 ---
 
-If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
-
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time. 
 

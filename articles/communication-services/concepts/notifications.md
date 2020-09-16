@@ -27,7 +27,7 @@ A **notification** is a form of app-to-user communication that notifies users of
 
 All Communication Services events are fired into Azure Event Grid, where they can be ingested into Azure Data Explorer, fire Webhooks, and otherwise be connected to your own systems. You can build your own service or use server-less computing (such as Azure Functions) to process events and trigger push notifications. 
 
-![Diagram showing how Communication Services integrates with Event Grid.](./media/notifications/acs-events-int.png)
+:::image type="content" source="./media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::
 
 Event Grid notifications can be configured through your Event Grid resource. For more information see the topic on [Event Handling in Azure Communication Services](./event-handling.md).
 
@@ -35,7 +35,7 @@ Event Grid notifications can be configured through your Event Grid resource. For
 
 When an application is **in the background and non-active**, you may still want to pop a push notification on the end-user device. An example of this is call initiation. When User A wants to start a voice or video call with User B, User B is not likely going to have the application idly open before the call starts. These push notifications need to use platform systems such as Apple Push Notification Service or Google Firebase to initiate the notification on the client device.
 
-![Diagram showing how communication services integrates with Azure Notifications Hub.](./media/notifications/acs-anh-int.png)
+:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notifications Hub.":::
 
 When an application is **active and using the Calling or Chat client libraries**, those client libraries provide events for actions such as `SMS Received` and `Chat Message Received`. These client library events allow for a real-time foreground application experience with limited polling. These events are powered by non-public client-to-service connections managed internally by these client libraries.
 
@@ -63,7 +63,7 @@ To log into Azure Resource Manager, execute the following:
 armclient login
 ```
 
-Sign in using your credentials by running `armclient login`. To log into arm execute the following:
+Sign in using your credentials by running `armclient login`. Once successfully logged in execute the following to provision the notification hub:
 
 ```console
 armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers/Microsoft.Communication/CommunicationServices/<resource_id>/linkNotificationHub?api-version=2020-08-20-preview "{'connectionString': '<connection_string>','resourceId': '<resource_id>'}"
@@ -73,7 +73,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. You'll need to provide your connection string and resource ID here:
 
-![Screenshot showing the Push Notifications settings within the Azure Portal.](./media/notifications/acs-anh-portal-int.png)
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure Portal.":::
 
 <!-- potentially de-scoped until post-ignite ### Device registration 
 

@@ -588,6 +588,19 @@ groups:
     title: Java
   - id: programming-language-csharp
     title: C#
+- id: speech-full-stack-go
+  # Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-spx
+    title: CLI
+  - id: programming-language-cpp
+    title: C++
 - id: acs-js-csharp
   # Owner: mikben (Azure Communication Services)
   title: JS and C# pivots
@@ -694,7 +707,7 @@ groups:
   - id: platform-azp
     title: Azure portal
   - id: platform-arm
-    title: AAzure resource manager
+    title: Azure resource manager
   - id: platform-net
     title: .NET
   - id: platform-python

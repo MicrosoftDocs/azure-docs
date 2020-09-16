@@ -19,7 +19,7 @@ ms.service: azure-communication-services
 
 <!----
 > [!WARNING]
-> The two links to our Hero Sample repo need to be updated when the sample is publicly available.
+> Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web client library can be used to build a group calling experience.
@@ -32,15 +32,15 @@ The sample has both a client-side application and a server-side application. The
 
 Here's what the sample looks like:
 
-![Screenshot showing the landing page of the sample application.](./media/calling/landing-page.png)
+:::image type="content" source="./media/calling/landing-page.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
 When you press the "Start a call" button, the web application fetches a user access token from the server-side application. This token is then used to connect the client app to Azure Communication Services. Once the token is retrieved, you'll be prompted to specify the camera and microphone that you want to use. You'll be able to disable/enable your devices with toggle controls:
 
-![Screenshot showing the pre-call screen of the sample application.](./media/calling/pre-call.png)
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
 Once your configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
 
-![Screenshot showing the main screen of the sample application.](./media/calling/main-app.png)
+:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
 Components of the main calling screen:
 
@@ -88,7 +88,7 @@ The browser will open at `localhost:5000`. You should now be able to proceed wit
 
 - The solution doesn't build; it throws errors during NPM installation/build.
 
-Try to clean/rebuild the projects.
+   Try to clean/rebuild the projects.
 
 ## Publish the sample to Azure
 

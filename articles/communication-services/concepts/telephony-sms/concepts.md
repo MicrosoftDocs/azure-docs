@@ -31,7 +31,6 @@ Key features of Azure Communication Services SMS client libraries include:
   - STOP - *"You have successfully been unsubscribed to messages from this number. Reply START to resubscribe."*
   - START- *“You have successfully been re-subscribed to messages from this number. Reply STOP to unsubscribe.”*
   - The STOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further messages are sent to recipients who have opted out of your communications.
-- **Verified Toll-Free numbers** Communication Services can get your SMS content verified by carriers to avoid clean traffic from getting blocked. *Please email us your Communication Services configured toll-free number along with sample SMS use cases at SMSRequest@microsoft.com to get your content verified.*
 
 
 ## Next steps

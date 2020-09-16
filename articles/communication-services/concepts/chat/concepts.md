@@ -31,7 +31,7 @@ For chat threads with more than 20 members, read receipts and typing indicator f
 
 There are two core parts to chat architecture: 1) Trusted Service and 2) Client Application.
 
-![Architecture Diagram](../../media/chat-architecture.png)
+:::image type="content" source="../../media/chat-architecture.png" alt-text="Diagram showing Communication Services' chat architecture.":::
 
  - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services using your resource connection string. This service is responsible for creating chat threads, managing thread memberships, and providing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/user-access-tokens.md) quickstart.
 
@@ -125,7 +125,7 @@ One way to achieve this is by having your trusted service act as a member of a c
 
 This way, the message history will contain both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) to understand how to use Cognitive APIs to translate text to different languages. 
 
-![Diagram showing Cognitive Services interacting with Communication Services](../media/chat/cognitive-services.png)
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Cognitive Services interacting with Communication Services.":::
 
 ## Next steps
 

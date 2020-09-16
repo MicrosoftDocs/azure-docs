@@ -27,7 +27,7 @@ If you have an existing telephone number that you want to continue using in your
 
 The following diagram helps you to navigate through the available options:
 
-![Diagram showing how to make a decision regarding your phone numbers.](../media/plan-solution/decision-tree-basic.png)
+:::image type="content" source="../media/plan-solution/decision-tree-basic.png" alt-text="Diagram showing how to make a decision regarding your phone numbers.":::
 
 Now, let's review the phone number types and capabilities available through Communication Services. 
 
@@ -62,19 +62,19 @@ Here are some examples that will help you better understand the numbering plan:
 
 A regional phone number in the US:
 
-![Example of a regional phone number in the US](../media/plan-solution/regional-us.png)
+:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Example of a regional phone number in the US":::
 
 A regional phone number in Canada:
 
-![Example of a regional phone number in Canada](../media/plan-solution/regional-canada.png)
+:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Example of a regional phone number in Canada":::
 
 A toll-free number in North America region:
 
-![Example of a toll free number in North America](../media/plan-solution/tollfree-us.png)
+:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Example of a toll free number in North America":::
 
 A mobile phone number in the UK:
 
-![Example of a mobile number in the UK](../media/plan-solution/mobile-uk.png)
+:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Example of a mobile number in the UK":::
 
 Next, let's review specific phone number types available in Azure Communication Services.
 

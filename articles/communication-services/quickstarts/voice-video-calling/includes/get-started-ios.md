@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quick start, you'll learn how start a call using the Azure Communication Services Calling client library for iOS.
+In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for iOS.
 
 ## Prerequisites
 
@@ -25,13 +25,13 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 In Xcode, create a new iOS project and select the **Single View App** template. This tutorial uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**. You're not going to create unit tests or UI tests during this quick start. Feel free to un-check **Include Unit Tests** and also un-check **Include UI Tests**.
 
-![Screenshot showing the create new New Project window within Xcode.](../media/ios/xcode-new-ios-project.png)
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the create new New Project window within Xcode.":::
 
 ### Install the package
 
 Add the Azure Communication Services Calling client library and its dependencies (AzureCore.framework and AzureCommunication.framework) to your project.
 
-1. Download the (Azure Communication Services Calling client library for iOS)[#todo-update-when-released] and download it's contents.
+1. Download the Azure Communication Services Calling client library for iOS.
 2. In Xcode, click on your project file to and select the build target to open the project settings editor.
 3. Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
 4. In the bottom left of the dialog, chose **Add Files**, navigate to the **SpoolCallingSDK.framework** directory of the un-zipped client library package.
@@ -42,7 +42,7 @@ Add the Azure Communication Services Calling client library and its dependencies
 > [!NOTE]
 > Currently the client library includes multiple binaries, each targeting different architectures. To build an app that runs on the simulator you should select the **SpoolCallingSDK.framework**  included under the **x86_64** directory.
 
-![Screenshot showing updating the framework search paths within XCode.](../media/ios/xcode-framework-search-paths.png)
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot showing updating the framework search paths within XCode.":::
 
 ### Request access to the microphone
 
@@ -172,7 +172,7 @@ func endCall()
 
 You can build an run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
 
-![Final look and feel of the quick start app](../media/ios/quick-start-make-call.png)
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Final look and feel of the quick start app":::
 
 You can make an outbound VOIP call by providing a user ID in the text field and tapping the **Start Call** button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working. 
 
