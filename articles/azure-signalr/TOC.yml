@@ -28,6 +28,8 @@
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
+  - name: Build a Blazor Server chat app
+    href: signalr-tutorial-build-blazor-server-chat-app.md
 
 - name: Samples
   items:

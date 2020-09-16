@@ -4,7 +4,7 @@ description: Collation types supported in Azure Synapse SQL
 author: filippopovic
 ms.service: synapse-analytics 
 ms.topic: reference
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
