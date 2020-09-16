@@ -58,7 +58,7 @@ Security Center can monitor the security posture of your non-Azure computers but
 1. Return to **Getting started**.
 2. Select the **Get started** tab.
 
-   ![Non-Azure](./media/security-center-onboarding/non-azure.png)
+   ![Screenshot shows the Security Center Getting started tab.](./media/security-center-onboarding/non-azure.png)
 
 3. Click **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
@@ -87,7 +87,7 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
 
 1. Return to Security Center’s main menu and **Overview** dashboard.
 
-   ![Overview][5]
+   ![Screenshot shows the Security Center overview dashboard.][5]
 
 2. Select **Compute & apps**.
 3. Under **Compute & apps**, select **Add computers**.

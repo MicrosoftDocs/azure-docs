@@ -76,7 +76,7 @@ Follow these steps to create a blank database.
 
 9. On the toolbar, click **Notifications** to monitor the deployment process.
 
-   ![notification](./media/design-first-database-csharp-tutorial/notification.png)
+   ![Screenshot shows Notifications in the Azure portal with Deployment in progress.](./media/design-first-database-csharp-tutorial/notification.png)
 
 ## Create a server-level IP firewall rule
 

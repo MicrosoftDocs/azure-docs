@@ -81,7 +81,7 @@ To enable automatic provisioning of the Log Analytics agent:
 
 With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
 
-  ![Recommendations][8]
+  ![Screenshot shows recommendations from Security Center.][8]
 
 ## Clean up resources
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:

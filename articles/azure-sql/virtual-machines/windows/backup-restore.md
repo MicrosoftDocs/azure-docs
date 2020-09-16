@@ -124,23 +124,23 @@ The following table summarizes the capabilities of each backup and restore optio
 
 | Option | Automated Backup | Azure Backup for SQL | Manual backup |
 |---|---|---|---|
-| Requires additional Azure service |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Configure backup policy in Azure portal | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |   |
-| Restore databases in Azure portal |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Manage multiple servers in one dashboard |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Point-in-time restore | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
-| 15-minute Recovery Point Objective (RPO) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
-| Short-term backup retention policy (days) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |   |
-| Long-term backup retention policy (months, years) |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Built-in support for SQL Server Always On |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Backup to Azure Storage account(s) | ![Yes](./media/backup-restore/yes.png)(automatic) | ![Yes](./media/backup-restore/yes.png)(automatic) | ![Yes](./media/backup-restore/yes.png)(customer managed) |
-| Management of storage and backup files | | ![Yes](./media/backup-restore/yes.png) |  |
-| Backup to attached disks on the VM |   |   | ![Yes](./media/backup-restore/yes.png) |
-| Central customizable backup reports |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Consolidated email alerts for failures |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Customize monitoring based on Azure Monitor logs |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Monitor backup jobs with SSMS or Transact-SQL scripts | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
-| Restore databases with SSMS or Transact-SQL scripts | ![Yes](./media/backup-restore/yes.png) |   | ![Yes](./media/backup-restore/yes.png) |
+| Requires additional Azure service |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Configure backup policy in Azure portal | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Restore databases in Azure portal |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Manage multiple servers in one dashboard |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Point-in-time restore | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |
+| 15-minute Recovery Point Objective (RPO) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |
+| Short-term backup retention policy (days) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Long-term backup retention policy (months, years) |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Built-in support for SQL Server Always On |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Backup to Azure Storage account(s) | ![Green checkmark.](./media/backup-restore/yes.png)(automatic) | ![Green checkmark.](./media/backup-restore/yes.png)(automatic) | ![Green checkmark.](./media/backup-restore/yes.png)(customer managed) |
+| Management of storage and backup files | | ![Green checkmark.](./media/backup-restore/yes.png) |  |
+| Backup to attached disks on the VM |   |   | ![Green checkmark.](./media/backup-restore/yes.png) |
+| Central customizable backup reports |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Consolidated email alerts for failures |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Customize monitoring based on Azure Monitor logs |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Monitor backup jobs with SSMS or Transact-SQL scripts | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |
+| Restore databases with SSMS or Transact-SQL scripts | ![Green checkmark.](./media/backup-restore/yes.png) |   | ![Green checkmark.](./media/backup-restore/yes.png) |
 
 ## Next steps
 

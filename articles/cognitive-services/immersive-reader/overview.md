@@ -44,11 +44,11 @@ The Immersive Reader is designed to make reading more accessible for everyone.
 
 * Translates your content into another language
 
-  ![Translation](./media/translation.png)
+  ![Screenshot shows Immersive Reader translating test to Spanish.](./media/translation.png)
 
 * Breaks down words into syllables
 
-  ![Syllabification](./media/syllabification.png)
+  ![Screenshot shows Immersive Reader breaking words into syllables.](./media/syllabification.png)
 
 ## How does Immersive Reader work?
 
