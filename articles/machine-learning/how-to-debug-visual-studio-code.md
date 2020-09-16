@@ -30,7 +30,7 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 * [Python 3](https://www.python.org/downloads/)
 
 > [!NOTE]
-> On Windows, make sure to [configure Docker to use Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+> On Windows, make sure to [configure Docker to use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 > [!TIP]
 > For Windows, although not required, it's highly recommended to [use Docker with Windows Subsystem for Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
