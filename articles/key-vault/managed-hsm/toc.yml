@@ -21,7 +21,7 @@
   - name: Managed HSM role management
     href: role-management.md
   - name: Secure access to your Managed HSM
-    href: secure-your-mhsm.md
+    href: secure-your-managed-hsm.md
   - name: Set up logging for managed HSM
     href: logging.md
   - name: Disaster recovery
@@ -38,6 +38,8 @@
     href: best-practices.md
   - name: Access Control
     href: access-control.md
+  - name: Local RBAC built-in roles
+    href: built-in-roles.md
 - name: How-to guides 
   items:
 

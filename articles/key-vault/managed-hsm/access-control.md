@@ -1,6 +1,6 @@
 ---
-title: Managed HSM access control
-description: Manage access permissions for Managed HSM and keys. Covers the authentication and authorization model for Managed HSM, and how to secure your HSMs.
+title: Azure Managed HSM access control
+description: Manage access permissions for Azure Managed HSM and keys. Covers the authentication and authorization model for Managed HSM, and how to secure your HSMs.
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -32,7 +32,7 @@ Both planes use Azure Active Directory for authentication. For authorization the
 
 When a managed HSM is created, the requestor also provides a list of data plane administrators (all [security principals](../../role-based-access-control/overview.md#security-principal) are supported). Only these administrators are able to access the managed HSM data plane to perform key operations and manage data plane role assignments (Managed HSM local RBAC).
 
-Permission model for both planes uses the same syntax (RBAC), but they are enforced at different levels and role assignments use different scopes. Management plane RBAC is enforced by ARM while data plane RBAC is enforced by managed HSM itself.
+Permission model for both planes uses the same syntax (RBAC), but they are enforced at different levels and role assignments use different scopes. Management plane RBAC is enforced by Azure Resource Manager while data plane RBAC is enforced by managed HSM itself.
 
 > [!IMPORTANT]
 > Granting a security principal management plane access to an managed HSM does not grant them any access to data plane to access keys or data plane role assignments Managed HSM local RBAC). This isolation is by design to prevent inadvertent expansion of privileges affecting access to keys stored in Managed HSM.

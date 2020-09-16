@@ -31,37 +31,18 @@ To complete the steps in this article, you must have the following items:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+## Sign in to Azure
+
 To sign in to Azure using the CLI you can type:
 
 ```azurecli
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
-
-
-### Getting help with Azure Cross-Platform Command-Line Interface
-
-This article assumes that you're familiar with the command-line interface (Bash, Terminal, Command prompt).
-
-The --help or -h parameter can be used to view help for specific commands. Alternately, The Azure help [command] [options] format can also be used too. When in doubt about the parameters needed by a command, refer to help. For example, the following commands all return the same information:
-
-```azurecli-interactive
-az account set --help
-az account set -h
-```
-
-Use `az keyvault key
-You can also read the following articles to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
-
-* [Install Azure CLI](/cli/azure/install-azure-cli)
-* [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli)
-
+For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 > [!NOTE]
 > All the commands below show two usage methods. One using **--hsm-name** and **--name** (for key name) parameters and another using **--id** parameter where you can specify entire url including including key name where appropriate. The latter method is useful when the caller (a user or an application) has no read access on the control plane and only restricted access on the data plane.
-
----
 
 ## Create an HSM key
 

@@ -31,7 +31,7 @@ Managed HSM local RBAC has several built-in roles that you can assign to users, 
 > [!NOTE]  
 > - An 'X' indicates that a role is allowed to perform the data action. Empty cell indicates the role does not have pemission to perform that data action.
 > - All the data action names have a 'Microsoft.KeyVault/managedHsm' prefix, which is omitted in the tables below for brevity.
-> - All role names have a prefix "Managed HSM" which is ommitted in the below table for brevity.
+> - All role names have a prefix "Managed HSM" which is omitted in the below table for brevity.
 
 |Data Action | Administrator | Crypto Officer | Crypto User | Policy Administrator | Crypto Service Encryption | Backup | Crypto Auditor|
 |---|---|---|---|---|---|---|---|

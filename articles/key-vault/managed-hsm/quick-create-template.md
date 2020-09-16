@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create an Managed HSM using an Azure Resource Manager template
+title: Azure Quickstart - Create a Managed HSM using an Azure Resource Manager template
 description: Quickstart showing how to create Azure an Azure Key Vault Managed HSM using Resource Manager template
 services: key-vault
 author: msmbaldwin
@@ -28,26 +28,20 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete the steps in this article, you must have the following items:
 
 - A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-- The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-    
-    [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-    
-    To sign in to Azure using the CLI you can type:
-    
-    ```azurecli
-    az login
-    ```
-- The object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
+- The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli)
 
-    ```azurecli-interactive
-    az ad user show --id <your-email-address> --query "objectId"
-    ```
 
-You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) command. You can limit the output to the tenant ID only with the `--query` parameter.
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
- ```azurecli-interactive
- az account show --query "tenantId"
- ```
+## Sign in to Azure
+
+To sign in to Azure using the CLI you can type:
+
+```azurecli
+az login
+```
+
+For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ## Create a manage HSM
 
@@ -58,6 +52,18 @@ The Azure resource defined in the template:
 * **Microsoft.KeyVault/managedHSMs**: create an Azure Key Vault managed HSM.
 
 More Azure Key Vault template samples can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
+
+The template requires the object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
+
+```azurecli-interactive
+az ad user show --id <your-email-address> --query "objectId"
+```
+
+You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) command. You can limit the output to the tenant ID only with the `--query` parameter.
+
+ ```azurecli-interactive
+ az account show --query "tenantId"
+ ```
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
@@ -72,7 +78,7 @@ More Azure Key Vault template samples can be found [here](https://azure.microsof
     - **Location**: Select a location. For example, **South Central US**.
     - **managedHSMName**: Enter a name for your managed HSM.
     - **SKU**: Enter the Name and Family of the managed HSM you wish to create.  For this quickstart, enter "Standard_B1" for the Name and "B" for the Family.
-    - **Tenant ID**: The template function automatically retrieves your tenant id; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved in [Prerequisites](#prerequisites).
+    - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved in [Prerequisites](#prerequisites).
     * **initialAdminObjectIds**: Enter the Object ID that you retrieved in [Prerequisites](#prerequisites).
 
 3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification:

@@ -42,6 +42,8 @@ landingContent:
             url: access-control.md
           - text: Security domain
             url: security-domain.md
+          - text: Local RBAC built-in roles
+            url: built-in-roles.md
 
   # Card
   - title: Get started
@@ -63,7 +65,7 @@ landingContent:
           - text: Managed HSM role management
             url: role-management.md
           - text: Secure access to your Managed HSM
-            url: secure-your-mhsm.md
+            url: secure-your-managed-hsm.md
 
   # Card
   - title: Tutorials
@@ -86,7 +88,7 @@ landingContent:
         links:
           - text: Key Vault overview
             url: ../general/overview.md
-          - text: Key vault Basic concepts
+          - text: Key vault basic concepts
             url: ../general/basic-concepts.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md

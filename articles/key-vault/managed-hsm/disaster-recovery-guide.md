@@ -1,5 +1,5 @@
 ---
-title: What to do if there is an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
+title: What to do if there if an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
 description: Learn what to do f there is an Azure service disruption that affects Managed HSM.
 services: key-vault
 author: amitbapat
@@ -33,7 +33,7 @@ Here are the steps of the disaster recovery procedure:
 
 The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This feature maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 
-## Create a new HSM
+## Create a new managed HSM
 
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
@@ -125,7 +125,7 @@ az keyvault restore start --hsm-name ContosoMHSM2 --storage-account-name Contoso
 
 Now you have completed a full disaster recovery process. The contents of the source HSM when the backup was taken are copied to the destination HSM, including all the keys, versions, attributes, tags, and role assignments.
 
-## Next Steps
+## Next steps
 
 - Learn more about Security Domain see [About Managed HSM Security Domain](security-domain.md)
 - Follow [Managed HSM best practices](best-practices.md)

@@ -1,5 +1,5 @@
 ---
-title: Full backup/restore and selective restore
+title: Full backup/restore and selective restore for Azure Managed HSM
 description: This document explains full backup/restore and selective restore
 services: key-vault
 author: amitbapat
@@ -74,8 +74,6 @@ You need to provide following information to execute a full restore:
 - Storage container folder name where the source backup is store
 
 Restore is a long running operation. After issuing the restore command it immediately returns with a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
-
-# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 #### time for 30 minutes later for SAS token expiry

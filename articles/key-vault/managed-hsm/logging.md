@@ -1,5 +1,5 @@
 ---
-title: Managed HSM logging | Microsoft Docs
+title: Azure Managed HSM logging
 description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
 author: msmbaldwin
@@ -36,20 +36,6 @@ To complete the steps in this article, you must have the following items:
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-To sign in to Azure using the CLI you can type:
-
-```azurecli
-az login
-```
-
-## Sign in to Azure
-
-To sign in to Azure using the CLI you can type:
-
-```azurecli-interactive
-az login
-```
 
 ## Connect to your Azure subscription
 

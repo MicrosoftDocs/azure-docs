@@ -34,33 +34,19 @@ To use the Azure CLI commands in this article, you must have the following items
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+## Sign in to Azure
+
 To sign in to Azure using the CLI you can type:
 
 ```azurecli
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
-
-### Getting help with Azure Cross-Platform Command-Line Interface
-
-This article assumes that you're familiar with the command-line interface (Bash, Terminal, Command prompt).
-
-The --help or -h parameter can be used to view help for specific commands. Alternately, The Azure help [command] [options] format can also be used too. When in doubt about the parameters needed by a command, refer to help. For example, the following commands all return the same information:
-
-```azurecli-interactive
-az account set --help
-az account set -h
-```
-
-You can also read the following articles to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
-
-* [Install Azure CLI](/cli/azure/install-azure-cli)
-* [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli)
+For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ## Create a new role assignment
 
-### Assign roles for all keys 
+### Assign roles for all keys
 
 Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2@contoso.com** for all  **keys** (scope `/keys`) in the ContosoHSM.
 
@@ -124,6 +110,6 @@ az keyvault role definition list --hsm-name ContosoMHSM
 ## Next steps
 
 - See an overview of [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
-- See a turorial on [Managed HSM role management](role-management.md)
+- See a tutorial on [Managed HSM role management](role-management.md)
 - Learn more about [Managed HSM access control model](access-control.md)
 - See all the [built-in roles for Managed HSM local RBAC](built-in-roles.md)

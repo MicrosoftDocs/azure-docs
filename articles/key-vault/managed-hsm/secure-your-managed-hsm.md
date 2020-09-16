@@ -29,13 +29,15 @@ To complete the steps in this article, you must have the following items:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+## Sign in to Azure
+
 To sign in to Azure using the CLI you can type:
 
 ```azurecli
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ## Example
 
@@ -90,7 +92,7 @@ The Azure CLI snippets in this section are built with the following assumptions:
 - The managed HSM logs are stored in the **contosologstorage** storage account.
 - The **ContosoMHSM** managed HSM and the **contosologstorage** storage account are in the same Azure location.
 
-The subscription admin assigns the `Managed HSM Contributor`role to the security team. This role allows the security team to manage existing managed HSMs and create new ones. If there are existing managed HSMs, they will need to be assigned the "Managed HSM Administrator" role to be able to mange them.
+The subscription admin assigns the `Managed HSM Contributor`role to the security team. This role allows the security team to manage existing managed HSMs and create new ones. If there are existing managed HSMs, they will need to be assigned the "Managed HSM Administrator" role to be able to manage them.
 
 ```azurecli-interactive
 # This role assignment allows Contoso Security Team to create new Managed HSMs
