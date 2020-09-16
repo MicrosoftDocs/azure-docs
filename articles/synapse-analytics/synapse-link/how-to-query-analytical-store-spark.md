@@ -7,7 +7,7 @@ author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 05/06/2020
+ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ---
@@ -23,11 +23,11 @@ The following capabilities are supported while interacting with Azure Cosmos DB:
 * Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It is important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
 * Synapse Apache Spark also supports Spark structured streaming with Azure Cosmos DB as a source as well as a sink. 
 
-The following sections walk you through the syntax of above capabilities. Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. They are also perfect for discovering data with a single click.
+The following sections walk you through the syntax of above capabilities. Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
 
 ## Query Azure Cosmos DB analytical store
 
-Before you learn about the two possible options to query Azure Cosmos DB analytical store, that is, loading to Spark DataFrame and creating Spark table, it is worth exploring the differences in experience so you can choose the option that works for your needs.
+Before you learn about the two possible options to query Azure Cosmos DB analytical store, loading to Spark DataFrame and creating Spark table, it is worth exploring the differences in experience so you can choose the option that works for your needs.
 
 The difference in experience is around whether underlying data changes in the Azure Cosmos DB container should be automatically reflected in the analysis performed in Spark. When either a Spark DataFrame is registered or a Spark table is created against a container's analytical store, metadata around the current snapshot of data in the analytical store is fetched to Spark for efficient pushdown of subsequent analysis. It is important to note that since Spark follows a lazy evaluation policy, unless an action is invoked on the Spark DataFrame or a SparkSQL query is executed against the Spark table, actual data is not fetched from the underlying container's analytical store.
 
@@ -195,7 +195,7 @@ query.awaitTermination()
 
 In this example, you'll learn how to reference external libraries from JAR files when using Spark notebooks in Synpase Apache Spark workspaces. You can place the JAR files in a container in the primary data lake account that you connected to the workspace and then add the following `%configure` statement in your Spark notebook:
 
-```sql
+```cmd
 %%configure -f
 {
     "jars": [
