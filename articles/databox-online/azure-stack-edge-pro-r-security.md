@@ -41,12 +41,12 @@ The Azure Stack Edge Pro R device is an on-premises device that helps transform 
 - Has secure boot enabled that ensures the device boots up only using the trusted software provided by Microsoft.
 - Runs Windows Defender Application Control (WDAC). WDAC lets you run only trusted applications that you define in your code-integrity policies.
 - Has a Trusted Platform Module (TPM) that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
-- Only the required ports are opened on the device and all the other ports are blocked. For more information, see the list of [Port requirements for Azure Stack Edge Pro R device](azure-stack-edge-j-series-system-requirements.md) .
+- Only the required ports are opened on the device and all the other ports are blocked. For more information, see the list of [Port requirements for Azure Stack Edge Pro R device](azure-stack-edge-pro-r-system-requirements.md) .
 - All the access to the device hardware as well as software is logged. 
     - For the device software, default firewall logs are collected for inbound and outbound traffic from the device. These logs are bundled in the support package.
     - For the device hardware, all the device chassis events such as opening and closing of the device chassis, are logged in the device.
 
-    For more information on the specific logs that contain the hardware and software intrusion events and how to get the logs, go to [Gather advanced security logs](azure-stack-edge-j-series-troubleshoot.md).
+    For more information on the specific logs that contain the hardware and software intrusion events and how to get the logs, go to [Gather advanced security logs](azure-stack-edge-gpu-troubleshoot.md).
 
 
 ### Protect the device via activation key
@@ -55,7 +55,7 @@ Only an authorized Azure Stack Edge Pro R device is allowed to join the Azure St
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-activation-key.md)]
 
-For more information, see [Get an activation key](azure-stack-edge-j-series-deploy-prep.md).
+For more information, see [Get an activation key](azure-stack-edge-gpu-deploy-prep.md).
 
 ### Protect the device via password
 
@@ -64,7 +64,7 @@ Passwords ensure that only authorized users can access your data. Azure Stack Ed
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign in to the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. Remote management is also configured to use Just Enough Administration (JEA) to limit what the users can do. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge Pro R device](azure-stack-edge-j-series-connect-powershell-interface.md).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. Remote management is also configured to use Just Enough Administration (JEA) to limit what the users can do. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge Pro R device](azure-stack-edge-gpu-connect-powershell-interface.md).
 - The local Edge user on the device has limited access to the device for initial configuration, and troubleshooting. The compute workloads running on the device, data transfer, and the storage can all be accessed from the Azure public or government portal for the resource in the cloud.
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-password-best-practices.md)]
