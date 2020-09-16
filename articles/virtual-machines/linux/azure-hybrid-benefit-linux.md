@@ -84,21 +84,21 @@ az vm update -g myResourceGroup -n myVmName --license-type None
 ```
 
 #### CLI example to enable the benefit on a large number of VMs
-To enable the benefit on a large number of VMs, you may use the --ids parameter in the Azure CLI.
+To enable the benefit on a large number of VMs, you may use the `--ids` parameter in the Azure CLI.
 
 ```azurecli
 # This will enable the benefit on a RHEL VM. In this example, ids.txt is an
-# existing text file containing a delimited list of resource ids corresponding
+# existing text file containing a delimited list of resource IDs corresponding
 # to the VMs using the benefit
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS --ids $(cat ids.txt)
 ```
 
-The following examples show two methods of getting a list of resource ids – one at the resource group level, one at the subscription level.
+The following examples show two methods of getting a list of resource IDs – one at the resource group level, one at the subscription level.
 ```azurecli
-# To get a list of all the resource ids in a resource group:
+# To get a list of all the resource IDs in a resource group:
 $(az vm list -g MyResourceGroup --query "[].id" -o tsv)
 
-# To get a list of all the resource ids of VMs in a subscription:
+# To get a list of all the resource IDs of VMs in a subscription:
 az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
@@ -146,7 +146,7 @@ This section contains a list of common errors and steps for mitigation.
 
 | Error | Mitigation |
 | ----- | ---------- |
-| "The subscription is not registered for the Linux private preview of Azure Hybrid Benefit. For step-by-step instructions, refer to https://aka.ms/ahb-linux" | Fill out the form at https://aka.ms/ahb-linux-form to register for the Linux preview of the Azure Hybrid Benefit.
+| "The subscription is not registered for the Linux preview of Azure Hybrid Benefit. For step-by-step instructions, refer to https://aka.ms/ahb-linux" | Fill out the form at https://aka.ms/ahb-linux-form to register for the Linux preview of the Azure Hybrid Benefit.
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | In order to use the benefit with RHEL VMs, you must first register your Azure subscription(s) with Red Hat Cloud Access. Visit this link to learn more about how to register your Azure subscriptions for Red Hat Cloud Access
 
 ## Next steps
