@@ -22,14 +22,14 @@ All the Azure Cosmos SDKs give you an option to customize the regional preferenc
 
 When regional preference is set, the client will connect based on the following table:
 
-| |Reads |Writes |
+|Account type |Reads |Writes |
 |------------------------|--|--|
 | Single write region | Preferred region | Hub region  |
 | Multiple write regions | Preferred region | Preferred region  |
 
 If you don't set a preferred region, the regional preference order is defined by the [Azure Cosmos DB region list order](distribute-data-globally.md):
 
-| |Reads |Writes |
+|Account type |Reads |Writes |
 |------------------------|--|--|
 | Single write region | Hub region | Hub region |
 | Multiple write regions | Hub region  | Hub region  |
