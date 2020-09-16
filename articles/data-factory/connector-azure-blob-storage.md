@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
+ms.date: 09/10/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -62,7 +62,7 @@ This Blob storage connector supports the following authentication types. See the
 - [Managed identities for Azure resource authentication](#managed-identity)
 
 >[!NOTE]
->When you're using PolyBase to load data into Azure SQL Data Warehouse, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. You must also use the self-hosted integration runtime with version 3.18 or later. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
+>When you're using PolyBase to load data into Azure Synapse Analytics (formerly SQL Data Warehouse), if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. You must also use the self-hosted integration runtime with version 3.18 or later. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
 >Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob storage account keys.
@@ -229,6 +229,7 @@ These properties are supported for an Azure Blob storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. |Yes |
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. |Yes |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/> When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage”. Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. |No |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
@@ -247,6 +248,7 @@ These properties are supported for an Azure Blob storage linked service:
         "type": "AzureBlobStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -276,7 +278,7 @@ For general information about Azure Storage authentication, see [Authenticate ac
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
 
 >[!IMPORTANT]
->If you use PolyBase to load data from Blob storage (as a source or as staging) into SQL Data Warehouse, when you're using managed identity authentication for Blob storage, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configured Blob storage with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
+>If you use PolyBase to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics (formerly SQL Data Warehouse), when you're using managed identity authentication for Blob storage, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configured Blob storage with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
 
 These properties are supported for an Azure Blob storage linked service:
 
@@ -284,6 +286,7 @@ These properties are supported for an Azure Blob storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. |Yes |
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. |Yes |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/> When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage”. Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. |No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 > [!NOTE]
@@ -297,7 +300,8 @@ These properties are supported for an Azure Blob storage linked service:
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2" 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

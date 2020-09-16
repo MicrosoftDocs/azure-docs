@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: [seo-lt-2019, references_regions]
 ms.date: 07/15/2020
 ---
 
@@ -55,7 +55,7 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
  
 > [!WARNING]
-> If a PaaS data store (Blob, ADLS Gen2, SQL DW) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
+> If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
 
 A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 
@@ -79,10 +79,31 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure Private Link Service
+- Azure Search
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure Database for MariaDB
+
+### Azure Data Factory Managed Virtual Network is available in the following Azure regions:
+- East US
+- East US 2
+- West Central US
+- West US 2
+- South Central US
+- Central US
+- North Europe
+- West Europe
+- UK South
+- Southeast Asia
+- Australia East
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.
 - Azure Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network.
+
+### Linked Service creation of Azure Key Vault 
+- When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 
+- **Test connection** operation for Linked Service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
 
 ## Next steps
 

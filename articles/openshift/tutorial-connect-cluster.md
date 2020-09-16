@@ -19,9 +19,9 @@ In this tutorial, part two of three, you will connect to an Azure Red Hat OpenSh
 
 ## Before you begin
 
-In previous tutorials, an Azure Red Hat OpenShift cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
+In previous tutorials, an Azure Red Hat OpenShift cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat OpenShift 4 Cluster.](tutorial-create-cluster.md)
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Connect to the cluster
 
@@ -33,7 +33,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-The following example output shows the password will be in `kubeadminPassword`.
+The following example output shows what the password will be in `kubeadminPassword`.
 
 ```json
 {
@@ -42,7 +42,7 @@ The following example output shows the password will be in `kubeadminPassword`.
 }
 ```
 
-You can find the cluster console URL by running the following command, which will look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+You can find the cluster console URL by running the following command, which will look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
 
 ```azurecli-interactive
  az aro show \

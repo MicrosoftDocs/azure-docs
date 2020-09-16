@@ -974,7 +974,9 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 

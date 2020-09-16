@@ -40,14 +40,14 @@ At times, either random failures may happen in backup and restore operations or 
 1. Exclude the following folders from antivirus scanning:
 
     `C:\Program Files\Azure Workload Backup`
-    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.AzureBackupWindowsWorkload`
 
     Replace `C:\` with the letter of your *SystemDrive*.
 
 1. Exclude the following three processes running within a VM from antivirus scanning:
 
     - IaasWLPluginSvc.exe
-    - IaasWorkloadCoordinaorService.exe
+    - IaaSWorkloadCoordinatorService.exe
     - TriggerExtensionJob.exe
 
 1. SQL also offers some guidelines about to work with antivirus programs. See [this article](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) for details.

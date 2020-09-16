@@ -1,23 +1,24 @@
 ---
-title: Speech translation with Speech service
+title: Speech translation overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: Speech service lets you add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
+description: Speech translation allows you to add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation. This article is an overview of the benefits and capabilities of the speech translation service.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/01/2020
 ms.author: erhopf
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: speech translation
 ---
 
 # What is speech translation?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Speech translation from the Speech service enables real-time, multi-language speech-to-speech and speech-to-text translation of audio streams. With the Speech SDK, your applications, tools, and devices have access to source transcriptions and translation outputs for provided audio. Interim transcription and translation results are returned as speech is detected, and finals results can be converted into synthesized speech.
+In this overview, you learn about the benefits and capabilities of the speech translation service, which enables real-time, multi-language speech-to-speech and speech-to-text translation of audio streams. With the Speech SDK, your applications, tools, and devices have access to source transcriptions and translation outputs for provided audio. Interim transcription and translation results are returned as speech is detected, and final results can be converted into synthesized speech.
 
 Microsoft's translation engine is powered by two different approaches: statistical machine translation (SMT) and neural machine translation (NMT). SMT uses advanced statistical analysis to estimate the best possible translations given the context of a few words. With NMT, neural networks are used to provide more accurate, natural-sounding translations by using the full context of sentences to translate words.
 

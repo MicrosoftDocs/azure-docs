@@ -111,7 +111,7 @@ This script attach the disk `myNewOSDisk` to the VM `MyTroubleshootVM`:
 
 ```azurecli
 # Get ID of the OS disk that you just created.
-$myNewOSDiskid=(az vm show -g $resourceGroup -n $osDisk --query id -o tsv)
+$myNewOSDiskid=(az disk show -g $resourceGroup -n $osDisk --query id -o tsv)
 
 # Attach the disk to the troubleshooting VM
 az vm disk attach --disk $myNewOSDiskid --resource-group $resourceGroup --size-gb $diskSize --sku $storageType --vm-name MyTroubleshootVM

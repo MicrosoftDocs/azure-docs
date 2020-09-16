@@ -18,13 +18,12 @@ You can use the Azure CLI to [configure the hosting of multiple web sites](multi
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create backend listeners
-> * Create routing rules
-> * Create virtual machine scale sets with the backend pools
-> * Create a CNAME record in your domain
+* Set up the network
+* Create an application gateway
+* Create backend listeners
+* Create routing rules
+* Create virtual machine scale sets with the backend pools
+* Create a CNAME record in your domain
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Multi-site Application Gateway":::
 

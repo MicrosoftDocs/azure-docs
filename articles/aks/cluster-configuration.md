@@ -213,7 +213,7 @@ az extension update --name aks-preview
 ### Use Gen2 VMs on new clusters (Preview)
 Configure the cluster to use Gen2 VMs for the selected SKU when the cluster is created. Use the `--aks-custom-headers` flag to set Gen2 as the VM generation on a new cluster.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -222,7 +222,7 @@ If you want to create a regular cluster using Generation 1 (Gen1) VMs, you can d
 ### Use Gen2 VMs on existing clusters (Preview)
 Configure a new node pool to use Gen2 VMs. Use the `--aks-custom-headers` flag to set Gen2 as the VM generation for that node pool.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -271,7 +271,7 @@ az extension update --name aks-preview
 
 Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--aks-custom-headers` flag to set Ephemeral OS as the OS disk type for the new cluster.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 
@@ -280,7 +280,7 @@ If you want to create a regular cluster using network-attached OS disks, you can
 ### Use Ephemeral OS on existing clusters (Preview)
 Configure a new node pool to use Ephemeral OS disks. Use the `--aks-custom-headers` flag to set as the OS disk type as the OS disk type for that node pool.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 

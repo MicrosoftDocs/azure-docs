@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/08/2020
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -815,7 +815,7 @@ This table identifies the authentication types that are available on the trigger
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP |
+| [Managed identity](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook |
 |||
 
 <a name="basic-authentication"></a>

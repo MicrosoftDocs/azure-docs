@@ -100,7 +100,7 @@ You can add or modify a CRM connection at any time during or after offer creatio
 
 ## Selecting an online store
 
-When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure Marketplace, or both. Each online store serves unique customer requirements. AppSource is for business solutions and Azure Marketplace is for IT solutions. Your offer type, transact capabilities, and categories will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the target audience. For detailed information about selecting an online store, see [Selecting an online store](determine-your-listing-type.md#selecting-an-online-store).
+When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure Marketplace, or both. Each online store serves unique customer requirements. AppSource is for business solutions and Azure Marketplace is for IT solutions. Your offer type, transact capabilities, and categories will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the solution type. For detailed information about selecting an online store, see [Selecting an online store](determine-your-listing-type.md#selecting-an-online-store).
 
 ## Legal contracts
 

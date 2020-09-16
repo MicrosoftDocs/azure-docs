@@ -22,9 +22,9 @@ When you create an Azure Time Series Insights Gen2 environment, you have the fol
 
 * Cold data storage:
    * Create a new Azure Storage resource in the subscription and region you’ve chosen for your environment.
-   * Attach a pre-existing Azure Storage account. This option is only available via an ARM template deployment, and is not visible in the Azure portal. TODO link.
+   * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resrouce Manager [template](https://docs.microsoft.com/en-us/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
 * Warm data storage:
-   * A warm store is optional, and can be enabled or disabled after deployment. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](./concepts-storage#Warm-store-behavior) section below to understand the expected behavior. The data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
+   * A warm store is optional, and can be enabled or disabled during or after time of provisioning. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](./concepts-storage#Warm-store-behavior) section below to understand the expected behavior. The warm store data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
 
 When an event is ingested, it is indexed in both warm store (if enabled) and cold store.
 
@@ -72,7 +72,7 @@ To ensure query performance and data availability, don't edit or delete any blob
 
 #### Accessing cold store data
 
-In addition to accessing your data from the [Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md) and [Time Series Query APIs](./time-series-insights-update-tsq.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
+In addition to accessing your data from the [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) and [Time Series Query APIs](./time-series-insights-update-tsq.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
 
 To access data directly from your Azure Storage account, you need read access to the account used to store your Azure Time Series Insights Gen2 data. You can then read selected data based on the creation time of the Parquet file located in the `PT=Time` folder described below in the [Parquet file format](#parquet-file-format-and-folder-structure) section.  For more information on enabling read access to your storage account, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
 

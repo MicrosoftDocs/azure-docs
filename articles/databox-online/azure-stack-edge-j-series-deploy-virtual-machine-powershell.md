@@ -217,8 +217,8 @@ Create a managed disk from the uploaded VHD.
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
 A sample output is shown below: 
-
-$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd 
+<code>
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
 ```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
@@ -405,7 +405,22 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## Connect to a VM
 
-Connect to the VM using the private IP that you passed during the VM creation.
+Depending on whether you created a Windows or a Linux VM, the steps to connect can be different.
+
+### Connect to Linux VM
+
+Follow these steps to connect to a Linux VM.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### Connect to Windows VM
+
+Follow these steps to connect to a Windows VM.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+
+<!--Connect to the VM using the private IP that you passed during the VM creation.
 
 Open an SSH session to connect with the IP address.
 
@@ -422,7 +437,7 @@ If you used a public IP address during VM creation, you can use that IP to conne
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
 
 
 ## Manage VM
