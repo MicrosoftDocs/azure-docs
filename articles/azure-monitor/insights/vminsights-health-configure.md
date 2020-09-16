@@ -10,7 +10,12 @@ ms.date: 09/08/2020
 ---
 
 # Configure monitoring in Azure Monitor for VMs guest health (preview)
-Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring.
+Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring using the Azure portal. It also describes fundamental concepts of monitors required for [configuring monitoring using resource manager templates](vminsights-health-configure-template.md).
+
+## Open monitor configuration
+Open monitor configuration bin the Azure portal by selecting the monitor and then the **Configuration** tab.
+
+[![Monitor details configuration](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
 ## Enable or disable monitors
 Both unit monitors and aggregate monitors have a **Health monitor status** setting that allows you to enable or disable the monitor. When a monitor is enabled, then its health is displayed and used to set the health of the VM. When a monitor is disabled, its health is not calculated and is not used to set the health of the VM.
@@ -21,7 +26,7 @@ Both unit monitors and aggregate monitors have a **Health monitor status** setti
 | Disabled | The monitor is disabled regardless of the setting of its parent. |
 | Same as parent | The monitor will be enabled or disabled depending on the setting of its parent. |
 
-When a monitor is disable, any criteria are shown as not available as shown in the following example:
+When a monitor is disable, any criteria are shown as not available as shown in the following example.
 
 ![Disabled monitor](media/vminsights-health-configure/disabled-monitor.png)
 
@@ -33,9 +38,10 @@ You can disable monitoring for a VM to temporarily stop all monitors. You may di
 | Enabled and alerting | The health state of the computer is displayed, and alerts are created when the state groups below Healthy. |
 | Disabled and not alerting | The health state of the computer is shwon as **disabled**. Alerts are not created. |
 
-
-**Health state logic**
+## Health state logic
 The health state logic for a unit monitor defines the criteria for setting its health state. You can specify how many health states a monitor has and the threshold for how each health state is calculated.
+
+![Sample health criteria](media/vminsights-health-configure/sample-health-criteria.png)
 
 Aggregate monitors don't specify any health state logic. Their health state is set by the unit monitors under them according to their health rollup.
 
@@ -47,10 +53,3 @@ In the following example, CPU utilization is set to following health states:
 - Warning if its greater than or equal to 80%.
 - Healthy if its under 80%. This is implied since it's the condition where neither of the other conditions apply.
 
-![Sample health criteria](media/vminsights-health-configure/sample-health-criteria.png)
-
-
-
-
-
-## Next steps

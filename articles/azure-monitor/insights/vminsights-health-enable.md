@@ -10,7 +10,7 @@ ms.date: 09/08/2020
 ---
 
 # Enable Azure Monitor for VMs guest health (preview)
-Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how to enable this feature in your subscription and how to onboard VMs.
+Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how to enable this feature in your subscription and how to enable guest monitoring for each virtual machine.
 
 ## Current limitations
 Azure Monitor for VMs guest health has the following limitations in public preview:
@@ -35,16 +35,14 @@ Azure Monitor for VMs guest health has the following limitations in public previ
 
 ## Overview
 
-You must perform the following steps in your subscription to enabled Azure Monitor for VMs guest health:
+You must perform the following steps in each subscription to enabled Azure Monitor for VMs guest health:
 
-- Register required ARM Resource Providers for your subscription.
+- Register required Azure resource providers.
 - Create Azure Monitor Agent Data Collection Rule (DCR).
 
 The following steps must be performed on each VM to enable it for guest health monitoring:
 
 - Onboard the VM to Azure Monitor for VMs.
-- Enable managed identity on target virtual machine.
-- Deploy Azure Monitor Agent on target virtual machine.
 - Deploy Azure Monitor Guest VM Health Agent on target virtual machine.
 - Create association for the DCR to the VM.
 

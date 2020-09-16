@@ -10,16 +10,22 @@ ms.date: 09/08/2020
 ---
 
 # Configure monitoring in Azure Monitor for VMs guest health using resource manager template (preview)
-Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring at scale using resource manager templates. 
+Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring across multiple virtual machines using resource manager templates.
 
-See [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md) for an explanation of health states and criteria and configuring them in the Azure portal. This article will focus on implementing this same monitoring logic using resource manager templates.
+See [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md) for an explanation of health states and criteria and configuring them in the Azure portal. That article will assist you in determining the detailed monitoring that you want to configure. This article focuses on implementing that monitoring logic using resource manager templates.
 
 
 ## Overview
-Guest health configuration is kept in a [Data Collection Rule (DCR)](../platform/data-collection-rule-overview.md). The default configuration for each monitor can't be changed, but you can create one or more overrides that change different properties of the monitor. The override can defined any details of the monitor including the health states that should be enabled and the criteria for each state.
+The default configuration for each monitor can't be changed, and you can't currently create new monitors. You can create one or more overrides that change different properties of the monitor. The override can defined any details of the monitor including the health states that should be enabled and the criteria for each state.
+
+Overrides are defined in a [Data Collection Rule (DCR)](../platform/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations).
+
 
 ## Scope
-Overrides have one or more scopes the define which VMs the override should be applied to. The scope can be a subscription, resource group, or a single VM. Even if the override is in a DCR associated to a particular VM, it's only applied to that VM if the VM is within one of the scopes of the override. This allows you to broadly associate a smaller number of DCRs to a set of VMs but provide granluar control of overrides within the DCR itself.
+Each overrides has one or more scopes the define which VMs the override should be applied to. The scope can be a subscription, resource group, or a single VM. Even if the override is in a DCR associated to a particular VM, it's only applied to that VM if the VM is within one of the scopes of the override. This allows you to broadly associate a smaller number of DCRs to a set of VMs but provide granular control over the assignment over the assignment of each override within the DCR itself.
+
+## How overrides are applied
+A single monitor on a single virtual machine might have multiple overrides. Overrides will be applied from the most general to the most specific. This means that subscription level overrides are applied first, then resource group, then virtual machine. This means that the most specific overrides will have the greatest chance of being applied. If multiple overrides are applied at the same level, then they are applied in alphabetical order of their resource ID.
 
 
 ## Sample DCR
@@ -110,7 +116,3 @@ The following sample data collection rule shows an example of an override to con
     }
 }
 ```
-
-
-
-## Next steps
