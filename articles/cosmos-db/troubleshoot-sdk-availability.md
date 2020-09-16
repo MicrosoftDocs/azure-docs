@@ -70,7 +70,7 @@ If the user has configured a preferred region list with more than one region and
 
 ## Next steps
 
-* View the [Availability SLAs](high-availability.md#slas-for-availability).
+* Review the [Availability SLAs](high-availability.md#slas-for-availability).
 * Use the latest [.NET SDK](sql-api-sdk-dotnet-standard.md)
 * Use the latest [Java SDK](sql-api-sdk-java-v4.md)
 * Use the latest [Python SDK](sql-api-sdk-python.md)
