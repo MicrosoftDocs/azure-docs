@@ -58,6 +58,8 @@ This full utilization means you can estimate the overall throughput by measuring
 
 The table below calculates the copy duration. The duration is based on data size and the bandwidth limit for your environment.
 
+&nbsp;
+
 | Data size / <br/> bandwidth | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | 2.7 min    | 1.4 min   | 0.3 min   | 0.1 min  | 0.03 min | 0.01 min | 0.0 min   |
@@ -68,7 +70,7 @@ The table below calculates the copy duration. The duration is based on data size
 | **100 TB**                  | 194.2 days | 97.1 days | 19.4 days | 9.7 days | 1.9 days | 1 day    | 0.2 days  |
 | **1 PB**                    | 64.7 mo    | 32.4 mo   | 6.5 mo    | 3.2 mo   | 0.6 mo   | 0.3 mo   | 0.06 mo   |
 | **10 PB**                   | 647.3 mo   | 323.6 mo  | 64.7 mo   | 31.6 mo  | 6.5 mo   | 3.2 mo   | 0.6 mo    |
-| | | | | | | | |
+| | |  | | |  | | |
 
 ADF copy is scalable at different levels:
 
@@ -102,17 +104,17 @@ Take the following steps to tune the performance of your Azure Data Factory serv
 
     We recommend you to first maximize performance using a single copy activity.
 
-    * **If the copy activity is being executed on an Azure integration runtime:**
+    * **If the copy activity is being executed on an _Azure_ integration runtime:**
 
         Start with default values for [Data Integration Units (DIU)](#data-integration-units) and [parallel copy](#parallel-copy) settings.
 
-    * **If the copy activity is being executed on a self-hosted integration runtime:**
+    * **If the copy activity is being executed on a _self-hosted_ integration runtime:**
 
         We recommend that you use a dedicated machine to host IR. The machine should be separate from the server hosting the data store. Start with default values for [parallel copy](#parallel-copy) setting and using a single node for the self-hosted IR.
 
-        Conduct a performance test run. Take a note of the performance achieved. Include the actual values used, such as DIUs and parallel copies. Refer to [copy activity monitoring](copy-activity-monitoring.md) on how to collect run results and performance settings used. Learn how to [troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) to identify and resolve the bottleneck.
+    Conduct a performance test run. Take a note of the performance achieved. Include the actual values used, such as DIUs and parallel copies. Refer to [copy activity monitoring](copy-activity-monitoring.md) on how to collect run results and performance settings used. Learn how to [troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) to identify and resolve the bottleneck.
 
-        Iterate to conduct additional performance test runs following the troubleshooting and tuning guidance. Once single copy activity runs cannot achieve better throughput, consider whether to maximize aggregate throughput by running multiple copies concurrently. This option is discussed in the next numbered bullet.
+    Iterate to conduct additional performance test runs following the troubleshooting and tuning guidance. Once single copy activity runs cannot achieve better throughput, consider whether to maximize aggregate throughput by running multiple copies concurrently. This option is discussed in the next numbered bullet.
 
 3. **How to maximize aggregate throughput by running multiple copies concurrently:**
 
