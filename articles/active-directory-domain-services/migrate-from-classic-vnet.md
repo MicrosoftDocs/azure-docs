@@ -142,7 +142,7 @@ For more information on what rules are required, see [Azure AD DS network securi
 
 ### LDAPS and TLS/SSL certificate expiration
 
-If your managed domain is configured for LDAPS enabled, confirm that your current TLS / SSL certificate is valid for more than 30 days. A certificate that expires within the next 30 days causes the migration processes to fail. If needed, renew the certificate and apply it to your managed domain, then begin the migration process.
+If your managed domain is configured for LDAPS, confirm that your current TLS/SSL certificate is valid for more than 30 days. A certificate that expires within the next 30 days causes the migration processes to fail. If needed, renew the certificate and apply it to your managed domain, then begin the migration process.
 
 ## Migration steps
 
