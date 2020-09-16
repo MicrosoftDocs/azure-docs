@@ -7,10 +7,10 @@ author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
+ms.date: 9/14/2020
 ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what the Rules Engine feature does. 
 ---

@@ -1,16 +1,19 @@
 ---
-title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
-description: Troubleshooting Azure Files problems in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions.
+title: Troubleshoot Azure Files problems in Windows
+description: Troubleshooting Azure Files problems in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions. Only for SMB shares
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/31/2019
+ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
-# Troubleshoot Azure Files problems in Windows
+# Troubleshoot Azure Files problems in Windows (SMB)
 
 This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
+
+> [!IMPORTANT]
+> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
 
 <a id="error5"></a>
 ## Error 5 when you mount an Azure file share
@@ -48,7 +51,7 @@ Validate that permissions are configured correctly:
 
 - **Active Directory (AD)** see [Assign share-level permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
 
-    Share-level permission assignments are supported for groups and users that have been synced from the Active Directory (AD) to Azure Active Directory (AAD) using Azure AD Connect.  Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
+    Share-level permission assignments are supported for groups and users that have been synced from the Active Directory (AD) to Azure Active Directory (Azure AD) using Azure AD Connect.  Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
 - **Azure Active Directory Domain Services (Azure AD DS)** see [Assign access permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
@@ -360,6 +363,18 @@ This error may occur if a domain controller that holds the RID Master FSMO role 
 ### Error: "Cannot bind positional parameters because no names were given"
 
 This error is most likely triggered by a syntax error in the Join-AzStorageAccountforAuth command.  Check the command for misspellings or syntax errors and verify that the latest version of the AzFilesHybrid module (https://github.com/Azure-Samples/azure-files-samples/releases) is installed.  
+
+## Azure Files on-premises AD DS Authentication support for AES 256 Kerberos encryption
+
+We introduced AES 256 Kerberos encryption support for Azure Files on-prem AD DS authentication with [AzFilesHybrid module v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). If you have enabled AD DS authentication with a module version lower than v0.2.2, you will need to download the latest AzFilesHybrid module (v0.2.2+) and run the PowerShell below. If you have not enabled AD DS authentication on your storage account yet, you can follow this [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
+```
+
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

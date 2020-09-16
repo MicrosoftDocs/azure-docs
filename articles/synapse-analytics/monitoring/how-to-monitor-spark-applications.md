@@ -1,6 +1,6 @@
 ---
 title: How to monitor Apache Spark applications in Synapse Studio
-description: Use Synapse Studio to monitor your Apache Spark applications.
+description: Learn how to monitor your Apache Spark applications by using Synapse Studio.
 services: synapse-analytics 
 author: matt1883
 ms.service: synapse-analytics
