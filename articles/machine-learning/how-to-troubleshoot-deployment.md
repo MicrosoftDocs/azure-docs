@@ -19,7 +19,7 @@ Learn how to troubleshoot and solve, or work around, common Docker deployment er
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -36,7 +36,7 @@ The recommended approach for model deployment is via the [Model.deploy()](https:
 1. Register the model in the workspace model registry.
 
 2. Define Inference Configuration:
-    1. Create an [Environment](how-to-use-environments.md) object based on the dependencies you specify in the environment yaml file or use one of our procured environments.
+    1. Create an [Environment](how-to-use-environments.md) object. This object can use the dependencies in an environment yaml file, one of our curated environments.
     2. Create an inference configuration (InferenceConfig object) based on the environment and the scoring script.
 
 3. Deploy the model to Azure Container Instance (ACI) service or to Azure Kubernetes Service (AKS).
@@ -47,7 +47,7 @@ Learn more about this process in the [Model Management](concept-model-management
 
 If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem.
 
-Assuming you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](how-to-use-environments.md) object as an input parameter, your code can be broken down into three major steps:
+When using [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) with an [Environment](how-to-use-environments.md) object as an input parameter, your code can be broken down into three major steps:
 
 1. Register the model. Here is some sample code:
 
@@ -90,11 +90,11 @@ Assuming you are using the new/recommended deployment method via [Model.deploy()
     aci_service.wait_for_deployment(show_output=True)
     ```
 
-Once you have broken down the deployment process into individual tasks, we can look at some of the most common errors.
+Breaking thee deployment process into individual tasks makes it easier to identify some of the more common errors.
 
 ## Debug locally
 
-If you encounter problems deploying a model to ACI or AKS, try deploying it as a local web service. Using a local web service makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
+If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems.
 
 You can find a sample [local deployment notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) in the  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) repo to explore a runnable example.
 
@@ -123,9 +123,9 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-If you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
+If you are defining your own conda specification YAML, list azureml-defaults version >= 1.0.45 as a pip dependency. This package is needed to host the model as a web service.
 
-At this point, you can work with the service as normal. For example, the following code demonstrates sending data to the service:
+At this point, you can work with the service as normal. The following code demonstrates sending data to the service:
 
 ```python
 import json
@@ -184,7 +184,7 @@ You can address the error by increasing the value of `memory_gb` in `deployment_
  
 ## Container cannot be scheduled
 
-When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If after 5 minutes, there are no nodes available in the cluster with the appropriate amount of resources available, the deployment will fail with the message `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes or changing the resource requirements of your service. 
+When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
 
 The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are three nodes in the cluster that do not have available GPUs. This could be addressed by adding more nodes if you are using a GPU SKU, switching to a GPU enabled SKU if you are not or changing your environment to not require GPUs.  
 
@@ -234,13 +234,16 @@ A 502 status code indicates that the service has thrown an exception or crashed 
 
 ## HTTP status code 503
 
-Azure Kubernetes Service deployments support autoscaling, which allows replicas to be added to support additional load. However, the autoscaler is designed to handle **gradual** changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503.
+Azure Kubernetes Service deployments support autoscaling, which allows replicas to be added to support additional load. The autoscaler is designed to handle **gradual** changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create additional containers.
+
+Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds `autoscale_target_utilization`, then more replicas are created. If it is lower, then replicas are reduced. Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute). By default, autoscaling target utilization is set to **70%**, which means that the service can handle spikes in requests per second (RPS) of **up to 30%**.
 
 There are two things that can help prevent 503 status codes:
 
-* Change the utilization level at which autoscaling creates new replicas.
-    
-    By default, autoscaling target utilization is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust the utilization target by setting the `autoscale_target_utilization` to a lower value.
+> [!TIP]
+> These two approaches can be used individually or in combination.
+
+* Change the utilization level at which autoscaling creates new replicas. You can adjust the utilization target by setting the `autoscale_target_utilization` to a lower value.
 
     > [!IMPORTANT]
     > This change does not cause replicas to be created *faster*. Instead, they are created at a lower utilization threshold. Instead of waiting until the service is 70% utilized, changing the value to 30% causes replicas to be created when 30% utilization occurs.
@@ -281,7 +284,9 @@ You can increase the timeout or try to speed up the service by modifying the sco
 
 ## Advanced debugging
 
-In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the debugpy, you can attach to the code running inside the Docker container. For more information, visit the [interactive debugging in VS Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
+You may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the debugpy, you can attach to the code running inside the Docker container.
+
+For more information, visit the [interactive debugging in VS Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
 ## [Model deployment user forum](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
 
