@@ -82,7 +82,7 @@ First create an operation for the AzureML RRS service:
 2. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
 3. Enter a **Display name** (this example uses "RRS Execute").
 
-   ![Screenshot shows the A P I Management service dialog box with the required options to create a service.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+   ![Screenshot shows the Signature page where you can enter a display name.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
 4. Click **Responses** > **ADD** on the left and select **200 OK**.
 5. Click **Save** to save this operation.
