@@ -80,11 +80,13 @@ The following table details all available methods to migrate your SQL Server dat
 | **[Detach and attach](/windows/migrate-to-vm-from-sql-server.md#detach-and-attach-from-a-url)** | SQL Server 2008 SP4 | SQL Server 2014 | [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Use this method when you plan to [store these files using the Azure Blob storage service](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) and attach them to an instance of SQL Server on an Azure VM, particularly useful with very large databases or when the time to backup and restore is too long. <br /><br /> Can be used for Filestream-enabled user databases. <br /><br /> **Automation & scripting**:  [T-SQL](/sql/relational-databases/databases/detach-a-database#TsqlProcedure) and [AzCopy to Blob storage](../../../../storage/common/storage-use-azcopy-v10.md)|
 |**[Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server)** | SQL Server 2008 SP4 (Windows Only) | SQL Server 2008 SP4 (Windows Only) | [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Log shipping replicates transactional log files from on-premises on to an instance of SQL Server on an Azure VM. <br /><br /> Can be used for Filestream-enabled user databases. <br /><br /> This provides minimal downtime during failover and has less configuration overhead than setting up an Always On availability group. <br /><br /> **Automation & scripting**: [T-SQL](/sql/database-engine/log-shipping/log-shipping-tables-and-stored-procedures)  |
 | **[Distributed availability group](/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions)** | SQL Server 2016| SQL Server 2016 | [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  A [distributed availability group](/sql/database-engine/availability-groups/windows/distributed-availability-groups) is a special type of availability group that spans two separate availability groups. The availability groups that participate in a distributed availability group do not need to be in the same location and include cross-domain support. <br /><br /> This method minimizes downtime, use when you have an availability group configured on-premises. <br /><br /> **Automation & scripting**: [T-SQL](/sql/t-sql/statements/alter-availability-group-transact-sql)  |
+| | | | | | |
 
-&nbsp;
 
 > [!TIP]
-> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md). 
+> See [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md) to learn more. 
+
+
 
 ### Considerations
 
