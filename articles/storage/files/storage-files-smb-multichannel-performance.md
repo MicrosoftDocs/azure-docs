@@ -103,6 +103,9 @@ For the charts in this article, the following configuration was used: A single S
 
 Load was generated against 10 files, with SMB Mutlichannel enabled. The scale up test results showed significant improvements in both IOPS and throughput test results with SMB Multichannel than without it. The follow graphs depict the results:
 
+:::image type="content" source="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-iops-performance.png" alt-text="Diagram of performance" lightbox="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-iops-performance.png":::
+
+:::image type="content" source="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-throughput-performance.png" alt-text="Diagram of throughput performance." lightbox="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-throughput-performance.png":::
 
 - On a single NIC, for reads, performance increase of 2x-3x was observed, and writes gains of 3x-4x, in both IOPS and throughput.
 - SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC, 4 channels limit.
@@ -114,6 +117,10 @@ An example command that was used in this testing is: `diskspd.exe -W300 -C5 -r -
 ### Multi-threaded/single file workloads with SMB Multichannel
 
 The load was generated against a single 128 GiB file. With SMB Multichannel enabled, the scale up test with multi-threaded/single files showed improvements in most cases. The following graphs show the results of this test:
+
+:::image type="content" source="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-iops-performance.png" alt-text="Diagram of IOPS performance." lightbox="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-iops-performance.png":::
+
+:::image type="content" source="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-throughput-performance.png" alt-text="Diagram of single file throughput performance." lightbox="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-throughput-performance.png":::
 
 - On a single NIC with larger average IO size (> ~16k) there was significant improvements in btoh reads and writes.
 - For smaller IO sizes, there was a slight impact of ~10% on performance when SMB Multichannel was enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
