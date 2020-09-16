@@ -55,7 +55,7 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 You can use app-level credentials by using publish profile for your app. 
 
-1. Go to your app service in the Azure Portal. 
+1. Go to your app service in the Azure portal. 
 
 1. On the **Overview** page, select **Get Publish profile**.
 
@@ -128,10 +128,10 @@ jobs:
 **Python**
 
 ```yaml
-    - name: Setup Python 3.6
+    - name: Setup Python 3.x 
       uses: actions/setup-python@v1
       with:
-        python-version: 3.6
+        python-version: 3.x
 ```
 
 **.NET**
@@ -188,15 +188,10 @@ jobs:
 **Python**
 
 ```yaml
-    - name: 'Run pip'
-      shell: bash
+    - name: Install dependencies
       run: |
-        # If your web app project is not located in your repository's root
-        # Please change your directory for pip in pushd
-        pushd .
         python -m pip install --upgrade pip
-        pip install -r requirements.txt --target=".python_packages/lib/python3.6/site-packages"
-        popd
+        pip install -r requirements.txt
 ```
 
 **.NET**
@@ -241,6 +236,8 @@ Below is the sample workflow to build and deploy a Node.js app to Azure using an
 ### JavaScript 
 
 ```yaml
+name: JavaScript CI
+
 on: [push]
 
 name: Node.js
@@ -280,6 +277,46 @@ jobs:
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
     # Azure logout 
+    - name: logout
+      run: |
+        az logout
+```
+
+Below is the sample workflow to build and deploy a Python app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+
+```yaml
+name: Python application
+
+on:
+  [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Deploy web App using GH Action azure/webapps-deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: logout
       run: |
         az logout
@@ -330,6 +367,7 @@ Below is the sample workflow to build and deploy a Node.js app to Azure using th
 
 ```yaml
 # File: .github/workflows/workflow.yml
+name: JavaScript CI
 
 on: [push]
 
@@ -359,6 +397,40 @@ jobs:
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+```
+Below is the sample workflow to build and deploy a Python app to Azure using the app's publish profile. Note how the `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+
+```yaml
+name: Python CI
+
+on:
+  [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-web-app # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'# set this to the path to your web app project, defaults to the repository root
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Building web app
+      uses: azure/appservice-build@v2-beta
+    - name: Deploy web App using GH Action azure/webapps-deploy
+      uses: azure/webapps-deploy@v2
+      with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
