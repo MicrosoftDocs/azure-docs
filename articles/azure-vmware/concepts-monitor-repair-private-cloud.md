@@ -44,7 +44,7 @@ Azure VMware Solution monitors the following for failure conditions on the host:
 
 When Azure VMware Solution monitoring detects a degradation or failure on an Azure VMware Solution node that is allocated to a tenant’s private cloud, Azure VMware Solution triggers the host remediation process. Host remediation involves replacing the faulty node with a new healthy node.  
 
-The host remediation process starts by adding a new healthy node in the cluster. Then, when possible, the faulty host is placed in VMware vSphere maintenance mode. VMware vMotion is used to move the VMs off the faulty host to other available servers in the cluster, allowing for zero downtime live migration of workloads. In scenarios where the faulty host cannot be placed in maintenance mode, the host is removed from the cluster.
+The host remediation process starts by adding a new healthy node in the cluster. Then, when possible, the faulty host is placed in VMware vSphere maintenance mode. VMware vMotion is used to move the VMs off the faulty host to other available servers in the cluster, potentially allowing for zero downtime live migration of workloads. In scenarios where the faulty host cannot be placed in maintenance mode, the host is removed from the cluster.
 
 ## Next steps
 
