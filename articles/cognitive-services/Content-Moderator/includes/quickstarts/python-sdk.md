@@ -1,7 +1,7 @@
 ---
 title: "Content Moderator Python client library quickstart"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, learn how to get started with the Azure Cognitive Services Content Moderator client library for Python.
+description: In this quickstart, learn how to get started with the Azure Content Moderator client library for Python. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,7 +13,9 @@ ms.custom: "cog-serv-seo-aug-2020"
 ms.author: pafarley
 ---
 
-Get started with the Content Moderator client library for Python. Follow these steps to install the package and try out the example code for basic tasks. Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
+Get started with the Azure Content Moderator client library for Python. Follow these steps to install the PiPy package and try out the example code for basic tasks. 
+
+Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Then integrate your app with the Review tool, an online moderator environment for a team of human reviewers. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
 Use the Content Moderator client library for Python to:
 

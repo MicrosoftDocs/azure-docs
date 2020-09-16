@@ -21,9 +21,9 @@ keywords: content moderator, azure content moderator, online moderator, content 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and video content and applies flags automatically, as well as the Review tool, an online moderator environment for a team of human reviewers.
+Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically, as well as the Review tool, an online moderator environment for a team of human reviewers.
 
-You may want to integrate content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
 ## Where it's used
 
