@@ -1,5 +1,5 @@
 ---
-title: Connect Microsoft Defender for Endpoint data to Azure Sentinel| Microsoft Docs
+title: Connect Microsoft Defender for Endpoint data to Azure Sentinel | Microsoft Docs
 description: Learn how to connect Microsoft Defender for Endpoint (formerly Microsoft Defender ATP) data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,15 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 09/16/2020
 ms.author: yelevin
 
 ---
-# Connect alerts from Microsoft Defender for Endpoint (formerly Microsoft Defender ATP) 
+# Connect alerts from Microsoft Defender for Endpoint (formerly Microsoft Defender ATP)
 
 
 > [!IMPORTANT]
-> Ingestion of Microsoft Defender for Endpoint alerts is currently in public preview.
+>
+> - **Microsoft Defender for Endpoint** was formerly known as **Microsoft Defender Advanced Threat Protection** or **MDATP**.
+>
+>     You may see the old name still in use in the product (including its data connector in Azure Sentinel) for a period of time.
+>
+> - Ingestion of Microsoft Defender for Endpoint alerts is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
@@ -31,7 +36,7 @@ The [Microsoft Defender for Endpoint](https://docs.microsoft.com/windows/securit
 ## Prerequisites
 
 - You must have a valid license for Microsoft Defender for Endpoint, as described in [Set up Microsoft Defender for Endpoint deployment](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
-- You must be an administrator or a security administrator on the Azure Sentinel tenant.
+- You must be a Global Administrator or a Security Administrator on the Azure Sentinel tenant.
 
 
 ## Connect to Microsoft Defender for Endpoint
@@ -39,7 +44,7 @@ The [Microsoft Defender for Endpoint](https://docs.microsoft.com/windows/securit
 If Microsoft Defender for Endpoint is deployed and ingesting your data, the alerts can easily be streamed into Azure Sentinel.
 
 
-1. In Azure Sentinel, select **Data connectors**, select **Microsoft Defender for Endpoint** (may still be called Microsoft Defender Advanced Threat Protection) from the gallery and select **Open connector page**.
+1. In Azure Sentinel, select **Data connectors**, select **Microsoft Defender for Endpoint** (may still be called *Microsoft Defender Advanced Threat Protection*) from the gallery and select **Open connector page**.
 1. Click **Connect**. 
 1. To use the relevant schema in Log Analytics for the Defender ATP alerts, search for **SecurityAlert** and the **Provider name** is **MDATP**.
 
