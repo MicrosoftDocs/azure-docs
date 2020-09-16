@@ -83,7 +83,7 @@ There are two ways to add a policy through the Azure portal.
    > [!IMPORTANT]
    > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
    
-   In order to use the **Last accessed** option, select **Access tracking enabled** on the Lifecycle Management page. For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-preview).
+   In order to use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal. For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-preview).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs in the *mylifecyclecontainer* container that begin with "log".
 
@@ -373,7 +373,7 @@ The **Last accessed** option is available in preview in the following regions:
 > [!IMPORTANT]
 > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
-In order to use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page.
+In order to use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal.
 
 #### How last access time tracking works
 
