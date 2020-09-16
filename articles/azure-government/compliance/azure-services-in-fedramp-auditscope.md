@@ -194,7 +194,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Advisor](https://azure.microsoft.com/services/advisor/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: 
+| [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) | :heavy_check_mark: |  |  | :heavy_check_mark: 
 | [Azure Blueprints](https://azure.microsoft.com/services/blueprints/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
