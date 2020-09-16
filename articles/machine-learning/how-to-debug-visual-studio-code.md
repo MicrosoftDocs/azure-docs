@@ -60,11 +60,16 @@ Use the Azure Machine Learning extension to validate, run and debug your machine
 1. Once your image is built, a prompt appears to start the debugger. Set your breakpoints in your script and select **Start debugger** when you're ready to start debugging. Doing so attaches the VS Code debugger to the container running your experiment. Alternatively, in the Azure Machine Learning extension, hover over the node for your current run and select the play icon to start the debugger.
 
     > [!IMPORTANT]
-    > You cannot have multiple debug sessions for a single experiment. You can however debug two or more projects using multiple VS Code instances.
+    > You cannot have multiple debug sessions for a single experiment. You can however debug two or more experiments using multiple VS Code instances.
 
 If at any point you want to cancel your run, right-click your run node and select **Cancel run**.
 
 At this point, you should be able to step-through and debug your code using VS Code.
+
+Similar to remote experiment runs, you can expand your run node to inspect the logs and outputs.
+
+> [!TIP]
+> Docker images that use the same dependencies defined in your environment are reused between runs. However, if you run an experiment using a new environment, a new image is created. Since these images are saved to your local storage, it's recommended to remove old or unused Docker images. To do remove images from your system, use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/rmi/) or the [Visual Studio Code Docker extension](https://code.visualstudio.com/docs/containers/overview).
 
 ## Debug and troubleshoot machine learning pipelines
 
