@@ -60,7 +60,7 @@ Yes. You can link your existing jobs to your newly created Stream Analytics clus
 
 ### How much will these clusters cost me?
 
-Your Stream Analytics clusters are charged based on the chosen SU capacity. Clusters are billing hourly and there are no additional charges per job running in these clusters. See the [Private Link Service pricing page](https://azure.microsoft.com/pricing/details/private-link/) for private endpoint billing updates.
+Your Stream Analytics clusters are charged based on the chosen SU capacity. Clusters are billed hourly and there are no additional charges per job running in these clusters. See the [Private Link Service pricing page](https://azure.microsoft.com/pricing/details/private-link/) for private endpoint billing updates.
 
 ### Which inputs and outputs can I privately connect to from my Stream Analytics cluster?
 
