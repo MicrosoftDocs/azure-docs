@@ -7,7 +7,8 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom:  [amqp, mqtt]
+manager: philmea
+ms.custom:  [amqp, mqtt, device-developer]
 
 ---
 

@@ -19,7 +19,7 @@ To create an Event Grid subscription for any of the supported [event sources](ov
 
 1. Search for **Event Grid Subscriptions** and select it from the available options.
 
-   ![Search](./media/subscribe-through-portal/search.png)
+   ![Screen capture shows Search in the Azure portal with Event Grid Subscriptions selected.](./media/subscribe-through-portal/search.png)
 
 1. Select **+ Event Subscription**.
 

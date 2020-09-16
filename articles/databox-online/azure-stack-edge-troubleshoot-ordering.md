@@ -2,13 +2,13 @@
 title: Use the Azure portal to troubleshoot Azure Stack Edge ordering issues | Microsoft Docs 
 description: Describes how to troubleshoot Azure Stack Edge ordering issues.
 services: databox
-author: twooley
+author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
-ms.author: twooley
+ms.author: alkohli
 ---
 # Troubleshoot your Azure Stack Edge ordering issues
 

@@ -30,11 +30,28 @@ You can run performance diagnostics directly from the Azure portal, where you ca
 
 ### Windows
 
-Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ### Linux
 
-Oracle Linux Server 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketplace image), CentOS 6.5 [`*`], 7.6, RHEL 7.2, 7.5, 8.0 [`*`], Ubuntu 14.04, 16.04, 18.04, Debian 8, 9, 10 [`*`], SLES 12 SP4 [`*`]
+- The following distributions are currently supported:
+
+    | Distribution               | Version                                         |
+    |----------------------------|-------------------------------------------------|
+    | Oracle Linux Server        | 6.10 [`*`], 7.3, 7.6, 7.5 |
+    | CentOS                     | 6.5 [`*`], 7.6                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
+    | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
+    | Debian                     | 8, 9, 10 [`*`]                                    |
+    | SLES                       | 12 SP4 [`*`]                                      |
+    |                            |                                                   |
 
 >[!Note]
 >[`*`] Please refer to [Known issues](how-to-use-perfinsights-linux.md#known-issues)

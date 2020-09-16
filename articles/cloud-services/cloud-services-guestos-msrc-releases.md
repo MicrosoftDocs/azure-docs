@@ -17,9 +17,64 @@ ms.author: yohaddad
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-## August 2020 Guest OS
+## September 2020 Guest OS
 >[!NOTE]
->The August Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the August Guest OS. This list is subject to change.
+>The September Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the September Guest OS. This list is subject to change.
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2.102, 3.89, 4.82 | Sep 8, 2020 |
+|  Rel 20-09 |  [4561600]  |  Flash update | 3.89, 4.82, 5.47, 6.23 | Sep 8, 2020 |
+|  Rel 20-09 |  [4577015]  |  Latest Cumulative Update(LCU) | 5.47 | Sep 8, 2020 |
+|  Rel 20-09 |  [4570333]  |  Latest Cumulative Update(LCU) | 6.23 | Sep 8, 2020 |
+|  Rel 20-09 |  [4570673]  |  Servicing Stack update | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4577051]  |  Monthly Rollup | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework 3.5 Security and Quality Rollup | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4566426]  |  Servicing Stack update | 3.89 | Sep 8, 2020 |
+|  Rel 20-09 |  [4577038]  |  Monthly Rollup | 3.89 | Sep 8, 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework 3.5 Security and Quality Rollup | 3.89 | Sep 8, 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 Security and Quality Rollup | 3.89 | Sep 8, 2020 |
+|  Rel 20-09 |  [4566425]  |  Servicing Stack update | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4577066]  |  Monthly Rollup | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework 3.5 Security and Quality Rollup | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4569778]  |  NET Framework 4.5.2 Security and Quality Rollup | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4578013]  |  Security Update | 2.102 | Sep 8, 2020 |
+|  Rel 20-09 |  [4576750]  |  Servicing Stack update | 5.47 | Sep 8, 2020 |
+|  Rel 20-09 |  [4576479]  |  NET Framework 4.8 Security and Quality Rollup | 5.47 | Sep 8, 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcode | 5.47 | Sep 8, 2020 |
+|  Rel 20-09 |  [4570332]  |  Servicing Stack update | 6.23 | Sep 8, 2020 |
+|  Rel 20-09 |  [4570720]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | 6.23 | Sep 8, 2020 |
+|  Rel 20-09 |  [4576483]  |  .NET Framework 4.8 Security and Quality Rollup | 6.23 | Sep 8, 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcode | 6.23 | Sep 8, 2020 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4576479]: https://support.microsoft.com/kb/4576479
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4576483]: https://support.microsoft.com/kb/4576483
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## August 2020 Guest OS
 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |

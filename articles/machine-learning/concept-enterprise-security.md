@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/19/2020
+ms.date: 09/09/2020
 ---
 
 # Enterprise security for Azure Machine Learning
@@ -70,7 +70,7 @@ The following table lists some of the major Azure Machine Learning operations an
 | View models/images | ✓ | ✓ | ✓ |
 | Call web service | ✓ | ✓ | ✓ |
 
-If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported to control all operations inside a workspace, such as creating a compute, submitting a run, registering a datastore, or deploying a model. Custom roles can have read, write, or delete permissions on the various resources of a workspace, such as clusters, datastores, models and endpoints. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
+If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported to control all operations inside a workspace, such as creating a compute, submitting a run, registering a datastore, or deploying a model. Custom roles can have read, write, or delete permissions on the various resources of a workspace, such as clusters, datastores, models, and endpoints. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 > [!WARNING]
 > Azure Machine Learning is supported with Azure Active Directory business-to-business collaboration, but is not currently supported with Azure Active Directory business-to-consumer collaboration.
@@ -100,7 +100,7 @@ Azure Machine Learning creates an additional application (the name starts with `
 
 Azure Machine Learning relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. You can create these compute targets in a virtual network. For example, you can use Azure Data Science Virtual Machine to train a model and then deploy the model to AKS.  
 
-For more information, see [How to securely run experiments and inference in an isolated virtual network](how-to-enable-virtual-network.md).
+For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
 You can also enable Azure Private Link for your workspace. Private Link allows you to restrict communications to your workspace from an Azure Virtual Network. For more information, see [How to configure Private Link](how-to-configure-private-link.md).
 
@@ -154,11 +154,12 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
         > [!NOTE]
         > This key vault instance can be different than the key vault that is created by Azure Machine Learning when you provision the workspace. If you want to use the same key vault instance for the workspace, pass the same key vault while provisioning the workspace by using the [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription. The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`.
+This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription, along with any resources it needs. The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`. If your Azure Machine Learning workspace uses a private endpoint, a virtual network is also created for the Cosmos DB instance. This VNet is used to secure communication between Cosmos DB and Azure Machine Learning.
 
 > [!IMPORTANT]
-> * If you need to delete this Cosmos DB instance, you must delete the Azure Machine Learning workspace that uses it. 
-> * The default [__Request Units__](../cosmos-db/request-units.md) for this Cosmos DB account is set at __8000__. Changing this value is unsupported. 
+> * Do not delete the resource group that contains this Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group, Cosmos DB instance, etc., you must delete the Azure Machine Learning workspace that uses it. The resource group, Cosmos DB instance, and other automatically created resources are deleted when the associated workspace is deleted.
+> * The default [__Request Units__](../cosmos-db/request-units.md) for this Cosmos DB account is set at __8000__. Changing this value is unsupported.
+> * You cannot provide your own VNet for use with the Cosmos DB instance that is created. You also cannot modify the virtual network. For example, you cannot change the IP address range that it uses.
 
 If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
 
@@ -240,8 +241,8 @@ Each workspace has an associated system-assigned managed identity that has the s
 ### Microsoft collected data
 
 Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft's standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
-?view=azure-ml-py&preserve-view=true)
-Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
+
+Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
 
 You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, CLI, REST APIs, or Azure Resource Manager templates.
 
@@ -362,6 +363,6 @@ Here are the details:
 * [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)
-* [Use Azure Machine Learning with Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Use Azure Machine Learning with Azure Virtual Network](how-to-network-security-overview.md)
 * [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders)
 * [Build a real-time recommendation API on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)
