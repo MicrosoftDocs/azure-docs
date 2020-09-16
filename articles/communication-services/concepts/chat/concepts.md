@@ -41,63 +41,63 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 Communication Services Chat shares user-generated messages as well as system-generated messages called **Thread activities**. Thread activities are generated when a chat thread is updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain the text messages as well as the system messages in chronological order. This helps you identify when a member was added or removed or when the chat thread topic was updated. Supported message types are:  
 
-    - `Text`: Actual message composed and sent by user as part of chat conversation. 
-  - `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread. For example:
+ - `Text`: Actual message composed and sent by user as part of chat conversation. 
+ - `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread. For example:
 
-    ```xml
+```xml
 
-    <addmember>
-        <eventtime>1598478187549</eventtime>
-        <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-        <detailedinitiatorinfo>
-            <friendlyName>User 1</friendlyName>
-        </detailedinitiatorinfo>
-        <rosterVersion>1598478184564</rosterVersion>
-        <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</target>
-        <detailedtargetinfo>
-            <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</id>
-            <friendlyName>User 1</friendlyName>
-        </detailedtargetinfo>
-        <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-        <detailedtargetinfo>
-            <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-            <friendlyName>User 2</friendlyName>
-        </detailedtargetinfo>
-    </addmember>
+<addmember>
+    <eventtime>1598478187549</eventtime>
+    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
+    <detailedinitiatorinfo>
+        <friendlyName>User 1</friendlyName>
+    </detailedinitiatorinfo>
+    <rosterVersion>1598478184564</rosterVersion>
+    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</target>
+    <detailedtargetinfo>
+        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</id>
+        <friendlyName>User 1</friendlyName>
+    </detailedtargetinfo>
+    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
+    <detailedtargetinfo>
+        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
+        <friendlyName>User 2</friendlyName>
+    </detailedtargetinfo>
+</addmember>
 
-    ```  
+```  
 
-  - `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread. For example:
+- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread. For example:
 
-    ```xml
+```xml
 
-    <deletemember>
-        <eventtime>1598478187642</eventtime>
-        <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-        <detailedinitiatorinfo>
-            <friendlyName>User 1</friendlyName>
-        </detailedinitiatorinfo>
-        <rosterVersion>1598478184564</rosterVersion>
-        <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-        <detailedtargetinfo>
-            <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-            <friendlyName>User 2</friendlyName>
-        </detailedtargetinfo>
-    </deletemember>
+<deletemember>
+    <eventtime>1598478187642</eventtime>
+    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
+    <detailedinitiatorinfo>
+        <friendlyName>User 1</friendlyName>
+    </detailedinitiatorinfo>
+    <rosterVersion>1598478184564</rosterVersion>
+    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
+    <detailedtargetinfo>
+        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
+        <friendlyName>User 2</friendlyName>
+    </detailedtargetinfo>
+</deletemember>
 
-    ```
+```
 
-  - `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated. For example:
+- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated. For example:
 
-    ```xml
+```xml
 
-    <topicupdate>
-        <eventtime>1598477591811</eventtime>
-        <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-        <value>New topic</value>
-    </topicupdate>
+<topicupdate>
+    <eventtime>1598477591811</eventtime>
+    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
+    <value>New topic</value>
+</topicupdate>
 
-    ```
+```
 
 ## Real-time signaling 
 

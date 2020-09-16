@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # SMS client library Overview
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 
 ## SMS client library Capabilities

@@ -15,10 +15,10 @@ ms.author: mikben
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client.
+- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client. Be sure to set the scope to "chat", and print out the token string as well as the userId string.
 
 
 ## Setting up
@@ -78,7 +78,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [ChatThreadAsyncClient](../../../references/overview.md) | This class is needed for the asynchronous Chat Thread functionality. You obtain an instance via the ChatAsyncClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 ## Create a chat client
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client.
+To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client. When adding the import statements, be sure to only add imports from the com.azure.communication.chat namespace and not the com.azure.communication.chat.implementation namespace. 
 
 ```Java
 // Your unique Azure Communication service endpoint
@@ -98,7 +98,7 @@ CommunicationUserCredential userCredential = new CommunicationUserCredential(use
 // Initialize the chat client
 final ChatClientBuilder builder = new ChatClientBuilder();
 builder.endpoint(endpoint)
-    .credential(credential)
+    .credential(userCredential)
     .httpClient(httpClient);
 ChatClient chatClient = builder.buildClient();
 ```
@@ -117,17 +117,14 @@ It contains a `chatThreadId` property which is the unique ID of the chat thread.
 
 ```Java
 List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+String userId = "<UserId from Token creation>";
 
+CommunicationUser user1 = new CommunicationUser(userId);
 ChatThreadMember firstThreadMember = new ChatThreadMember()
     .setUser(user1)
     .setDisplayName("Member Display Name 1");
 
-ChatThreadMember secondThreadMember = new ChatThreadMember()
-    .setUser(user2)
-    .setDisplayName("Member Display Name 2");
-
 members.add(firstThreadMember);
-members.add(secondThreadMember);
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
     .setTopic("Topic")
@@ -173,8 +170,7 @@ ChatThread chatThread = chatClient.getChatThread(chatThreadId);
 You can retrieve chat messages by polling the `listMessages` method on the chat thread client at specified intervals.
 
 ```Java
-PagedIterable<ChatMessage> chatMessagesResponse = chatThreadClient.listMessages();
-chatMessagesResponse.iterableByPage().forEach(resp -> {
+chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
     System.out.printf("Response headers are %s. Url %s  and status code %d %n", resp.getHeaders(),
         resp.getRequest().getUrl(), resp.getStatusCode());
     resp.getItems().forEach(message -> {

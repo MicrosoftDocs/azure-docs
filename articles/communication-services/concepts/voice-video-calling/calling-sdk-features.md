@@ -15,13 +15,13 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-There are two separate families of Calling SDKs, for *clients* and *services.* Currently available client SDKs are intended for end-user experiences: websites and native apps.
+There are two separate families of Calling client libraries, for *clients* and *services.* Currently available client libraries are intended for end-user experiences: websites and native apps.
 
-The Service SDKs are yet available, and provide "raw" access to the voice and video data planes, suitable for integration with bots and other services. To learn more about this and other upcoming features, check out the [product roadmap](../../roadmap.md). 
+The Service client libraries are yet available, and provide "raw" access to the voice and video data planes, suitable for integration with bots and other services.
 
-## Calling client SDK capabilities
+## Calling client library capabilities
 
-The following list presents the set of features which are currently available in the Azure Communication Services Calling Client SDKs.
+The following list presents the set of features which are currently available in the Azure Communication Services Calling client libraries.
 
 | Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS) |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | -------------- | ----------------- |

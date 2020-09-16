@@ -15,7 +15,7 @@ ms.author: marobert
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -101,11 +101,11 @@ builder.endpoint(endpoint)
     .httpClient(httpClient);
 
 // Build a new CommunicationIdentityClient
-CommunicationIdentityClient client = CommunicationIdentityClient.buildClient();
+CommunicationIdentityClient client = builder.buildClient();
 
 ```
 
-You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable) that is provided by `azure-core`.
+You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) that is provided by `azure-core`.
 
 ## Create a user
 
@@ -124,9 +124,9 @@ Use the `issueToken` method to issue an access token for a Communication Service
 
 ```java
 // Issue an access token with the "voip" scope for a new user
-List<String> scopes = new ArrayList<String>(Arrays.asList("voip"))
+List<String> scopes = new ArrayList<String>(Arrays.asList("voip"));
 CommunicationUserToken response = client.issueToken(user, scopes);
-Date expiresOn = response.getExpiresOn();
+OffsetDateTime expiresOn = response.getExpiresOn();
 String token = response.getToken();
 System.out.println("\nIssued a token with 'voip' scope that expires at " + expiresOn + ":");
 System.out.println(token);

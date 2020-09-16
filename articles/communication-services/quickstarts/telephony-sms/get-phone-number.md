@@ -14,7 +14,7 @@ ms.custom: references_regions
 ---
 # Quickstart: Get a phone number using the Azure portal
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 Get started with Azure Communication Services by using the Azure portal to purchase a telephone number.
 
@@ -35,7 +35,7 @@ Navigate to the Phone Numbers blade in the resource menu:
 
 Press the **Get** button to launch the wizard. The wizard on the "Phone numbers" blade will walk you through a series of questions that allows you to get the phone number that best fits your scenario. 
 
-When you start selecting the number, you'll select the [Number Type](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-microsoft-direct-offer) and [Plans](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-microsoft-direct-offer) according to your needs.
+When you start selecting the number, you'll select the [Number Type](../../concepts/telephony-sms/plan-solution.md) and [Plans](../../concepts/telephony-sms/plan-solution.md) according to your needs.
 
 <!-- TODO: high res version of this: ![Search experience](../media/quickstart-search-and-acquire-main-page.png) -->
 
@@ -74,7 +74,6 @@ Select the Phone Numbers tab in the menu to manage your phone numbers.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot showing a Communication Services Resource's phone number page.":::
 
-To purchase a new number, follow the [instructions](#get-phone-number).
 
 ## Configure your phone numbers
 

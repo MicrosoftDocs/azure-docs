@@ -117,9 +117,9 @@ The following classes and interfaces handle some of the major features of the Az
 Initialize a `CallAgent` instance with a `User Access Token` which will enable us to make and receive calls. Add the following code to **client.js**:
 
 ```javascript
-const callClient = new CallClient();
-const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
-const callAgent = await callClient.createCallAgent(tokenCredential);
+callClient = new CallClient();
+tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+callClient.createCallAgent(tokenCredential).then(agent => callAgent = agent);
 ```
 
 You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../user-access-tokens.md) documentation if you don't already have a token available.

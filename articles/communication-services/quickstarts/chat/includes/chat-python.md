@@ -64,10 +64,19 @@ The following classes and interfaces handle some of the major features of the Az
 
 To create a chat client, you'll use Communications Service endpoint and the access token that was generated as part of pre-requisite steps. You need to use the `CommunicationIdentityClient` class from the `Administration client library` to create user and issue a token to pass to your chat client. Learn more about [User Access Tokens](../../user-access-tokens.md).
 
+```console
+pip install azure-communication-administration
+```
+
 ```python
+from azure.communication.administration import CommunicationIdentityClient
+identity_client = CommunicationIdentityClient.from_connection_string("<connection string of your Communication service>")
+user = identity_client.create_user()
+tokenresponse = identity_client.issue_token(user, scopes=["chat"])
+token = tokenresponse.token
+
 from azure.communication.chat import ChatClient, CommunicationUserCredential
 endpoint = "https://<RESOURCE_NAME>.communcationservices.azure.com"
-token = "<User Access Token>"
 chat_client = ChatClient(endpoint, CommunicationUserCredential(token))
 ```
 
@@ -82,10 +91,11 @@ created by [Create a user](../../user-access-tokens.md#create-a-user)
 The response `chat_thread_client` is used to perform operations on the newly created chat thread like adding members to the chat thread, send message, delete message, etc. It contains a `thread_id` property which is the unique ID of the chat thread.
 
 ```python
+from datetime import datetime
 from azure.communication.chat import ChatThreadMember
 topic="test topic"
 thread_members=[ChatThreadMember(
-    user='<user>',
+    user=user,
     display_name='name',
     share_history_time=datetime.utcnow()
 )]
@@ -153,10 +163,12 @@ Use `add_members` method to add thread members to the thread identified by threa
 - `share_history_time`, optional, is the time from which the chat history is shared with the member. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the member was added, set it to the current date. To share partial history, set it to an intermediary date.
 
 ```python
+new_user = identity_client.create_user()
+
 from azure.communication.chat import ChatThreadMember
 from datetime import datetime
 member = ChatThreadMember(
-    user='<user>',
+    user=new_user,
     display_name='name',
     share_history_time=datetime.utcnow())
 thread_members = [member]

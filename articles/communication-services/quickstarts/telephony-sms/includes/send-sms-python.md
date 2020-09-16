@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: dadoolab
 ---
 
-Get started with Azure Communication Services by using the Communication Services C# SMS client library to send SMS messages.
+Get started with Azure Communication Services by using the Communication Services Python SMS client library to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -37,7 +37,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ### Create a new Python application
 
-Open your terminal or command window create a new directory for your app, and navigate to it.
+Open your terminal or command window, create a new directory for your app, and navigate to it.
 
 ```console
 mkdir sms-quickstart && cd sms-quickstart
@@ -82,7 +82,7 @@ Instantiate an **SmsClient** with your connection string. The code below retriev
 ```python
 # This code demonstrates how to fetch your connection string
 # from an environment variable.
-connect_str = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
+connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
 
 # Create the SmsClient object which will be used to send SMS messages
 sms_client = SmsClient.from_connection_string(connection_string)
@@ -95,9 +95,9 @@ Send an SMS message by calling the [Send](../../../references/overview.md) metho
 ```python
 
 # calling send() with sms values
-smsresponse = sms_client.send(
+sms_response = sms_client.send(
         from_phone_number=PhoneNumber("<leased-phone-number>"),
-        to_phone_number=[PhoneNumber("<to-phone-number>")],
+        to_phone_numbers=[PhoneNumber("<to-phone-number>")],
         message="Hello World via SMS",
         send_sms_options=SendSmsOptions(enable_delivery_report=True)) # optional property
 

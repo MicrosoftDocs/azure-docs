@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Quickstart: Handle SMS events
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services SMS events. 
 
@@ -97,7 +97,7 @@ Learn more about the [event schemas and other eventing concepts](../../concepts/
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 

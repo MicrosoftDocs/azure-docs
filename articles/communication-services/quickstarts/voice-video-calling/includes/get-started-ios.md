@@ -31,16 +31,17 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 Add the Azure Communication Services Calling client library and its dependencies (AzureCore.framework and AzureCommunication.framework) to your project.
 
+> [!NOTE]
+> With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
+The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step.
+
 1. Download the Azure Communication Services Calling client library for iOS.
 2. In Xcode, click on your project file to and select the build target to open the project settings editor.
 3. Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
-4. In the bottom left of the dialog, chose **Add Files**, navigate to the **SpoolCallingSDK.framework** directory of the un-zipped client library package.
+4. In the bottom left of the dialog, chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the un-zipped client library package.
     1. Repeat the last step for adding **AzureCore.framework** and **AzureCommunication.framework**.
-5. Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **SpoolCallingSDK.framework**.
+5. Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **AzureCommunicationCalling.framework**.
     1. Add another Framework Search Paths entry pointing to the folder containing the dependencies.
-
-> [!NOTE]
-> Currently the client library includes multiple binaries, each targeting different architectures. To build an app that runs on the simulator you should select the **SpoolCallingSDK.framework**  included under the **x86_64** directory.
 
 :::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot showing updating the framework search paths within XCode.":::
 
@@ -57,7 +58,7 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 ### Set up the app framework
 
-Open your project's **ContentView.swift** file and add an `import` declaration to the top of the file to import the `ACSCallingClient library`.
+Open your project's **ContentView.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunicationCalling library`.
 
 ```swift
 import AzureCommunicationCalling
@@ -91,9 +92,18 @@ struct ContentView: View {
         }
     }
 
-    func startCall() {}
+    func startCall() {
+        // Ask permissions
+        AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
+            if granted {
+                // Add start call logic
+            }
+        }
+    }
 
-    func endCall() {}
+    func endCall() {
+        // Add end call logic
+    }
 }
 ```
 
@@ -105,7 +115,8 @@ The following classes and interfaces handle some of the major features of the Az
 | ------------------------------------- | ------------------------------------------------------------ |
 | [CallClient](../../../references/overview.md)| The CallClient is the main entry point to the Calling client library.|
 | [CallAgent](../../../references/overview.md) | The CallAgent is used to start and manage calls. |
-| [CommunicationUserCredential](../../../references/overview.md) | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.|
+| [CommunicationUserCredential](../../../references/overview.md) | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.| 
+| [CommunicationIndentifier](../../../references/overview.md) | The CommunicationIndentifier is used to represent the identity of the user which can be one of the following: CommunicationUser/PhoneNumber/CallingApplication. |
 
 ## Authenticate the client
 
@@ -157,13 +168,11 @@ Implement the `endCall` method to end the current call when the *End Call* butto
 
 ```swift
 func endCall()
-{
-    if let call = call {
-        call.hangup(ACSHangupOptions(), withCompletionHandler: { (error) in
-            if error != nil {
-                print("ERROR: It was not possible to hangup the call.")
-            }
-        })
+{    
+    self.call!.hangup(ACSHangupOptions()) { (error) in
+        if (error != nil) {
+            print("ERROR: It was not possible to hangup the call.")
+        }
     }
 }
 ```
@@ -178,3 +187,4 @@ You can make an outbound VOIP call by providing a user ID in the text field and 
 
 > [!NOTE]
 > The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
+

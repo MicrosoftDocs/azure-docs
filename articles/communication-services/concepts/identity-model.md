@@ -24,7 +24,7 @@ Azure Communication Services models identity around conversation identifiers. Id
 | --------------------- | -------------------------------------------------------------- |
 | `Communication User`  | Azure Communication Services User                              |
 | `Phone Number`        | Phone number of a call participant, sender or recipient of SMS |
-| `Calling Application` | Azure Communication Services Application                       |
+| `Calling Application` (private preview) | Azure Communication Services Application                       |
 
 ## Users
 
@@ -126,25 +126,18 @@ await threadClient.sendMessage({
 
 It's possible to enumerate the full list of a thread's participants using the `members` API. The `userId` field corresponds to the unique identity of the Azure Communication Services user.
 
+::: zone pivot="programming-language-javascript" 
 ### Calling
 
 Azure Communication Services users can call one another by passing the ID of the user they wish to call to the calling client library.
 
-::: zone pivot="programming-language-csharp" 
-```csharp
-// This functionality is not yet available.
-```
-::: zone-end
-
-::: zone pivot="programming-language-javascript" 
 ```javascript
 const callClient = await CallClientFactory.create(userToken);
 const call = await callClient.call([user]);
 ```
-::: zone-end
 
 The `Call` interface exposes a `remoteParticipants` property that enables you to enumerate all participants in a call and exposes their identifiers.
-
+::: zone-end
 
 ## Communication Services identity to real identity resolution
 

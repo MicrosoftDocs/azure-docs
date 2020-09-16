@@ -32,7 +32,7 @@ The Calling client library uses proprietary network interfaces and is currently 
 
 ### Client library language support
 
-Availability guidance and timelines for individual client library packages are detailed below. The [Communication Services roadmap](../roadmap.md) provides additional information on upcoming features.
+Availability guidance and timelines for individual client library packages are detailed below.
 
 | Area           | JavaScript | .NET | Python | Java | Swift or Obj-C | Java (Android) | Other                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |

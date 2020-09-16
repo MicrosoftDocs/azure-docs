@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Plan your telephony and SMS solution
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 This document describes the various telephony plans and number types that Azure Communication Services has to offer. We'll walk through the decision flows to help you select a voice service provider, phone number types, plans, and capabilities made available through Communication Services.
 
@@ -23,7 +23,7 @@ Azure Communication Services allows you to use phone numbers to place and receiv
   
 If you don't have an existing phone number to import into your Communication Services solution, the simplest way to begin is to get a new phone number from Azure Communication Services in a matter of minutes.
 
-If you have an existing telephone number that you want to continue using in your solution (for example, 1-800–COMPANY), you can port the phone number from the existing provider to Communication Services. See our [roadmap](../../roadmap.md) for details.
+If you have an existing telephone number that you want to continue using in your solution (for example, 1-800–COMPANY), you can port the phone number from the existing provider to Communication Services.
 
 The following diagram helps you to navigate through the available options:
 
