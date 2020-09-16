@@ -1,18 +1,18 @@
 ---
-title: Develop locally with the Azure Cosmos DB emulator
-description: Use the Azure Cosmos DB emulator, you can develop and test your application locally for free, without creating an Azure subscription.
+title: Command-line tool reference for Azure Cosmos DB emulator 
+description: Learn the command line parameters for Azure Cosmos DB emulator, how to control the emulator with PowerShell, and how to change the number of containers that you can create within emulator.   
 ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 09/04/2020
-ms.custom: devx-track-csharp 
+ms.date: 09/15/2020
 ---
 
-## <a id="command-line"></a>Command-line tool reference
+# Command-line tool reference for Azure Cosmos DB emulator
+
 From the installation location, you can use the command-line to start and stop the emulator, configure options, and perform other operations.
 
-### Command-line syntax
+##  <a id="command-line"></a>Command-line syntax
 
 ```cmd
 Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
@@ -60,24 +60,7 @@ To view the list of options, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at th
 | Consistency | Set the default consistency level for the account. | Microsoft.Azure.Cosmos.Emulator.exe /Consistency=\<consistency\> | \<consistency\>: Value must be one of the following [consistency levels](consistency-levels.md): Session, Strong, Eventual, or BoundedStaleness. The default value is Session. |
 | ? | Show the help message.| | |
 
-## <a id="set-partitioncount"></a>Change the number of containers
-
-By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that does not exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However it's not recommended to set up the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
-
-If you attempt to create a container after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
-
-"Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again.
-ActivityId: 12345678-1234-1234-1234-123456789abc"
-
-To change the number of containers available in the Azure Cosmos Emulator, run the following steps:
-
-1. Delete all local Azure Cosmos emulator data by right-clicking the **Azure Cosmos DB Emulator** icon on the system tray, and then clicking **Reset Data…**.
-2. Delete all emulator data in this folder `%LOCALAPPDATA%\CosmosDBEmulator`.
-3. Exit all open instances by right-clicking the **Azure Cosmos DB Emulator** icon on the system tray, and then clicking **Exit**. It may take a minute for all instances to exit.
-4. Install the latest version of the [Azure Cosmos Emulator](https://aka.ms/cosmosdb-emulator).
-5. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
-
-## Controlling the emulator
+## Manage the emulator with PowerShell
 
 The emulator comes with a PowerShell module to start, stop, uninstall, and retrieve the status of the service. Run the following cmdlet to use the PowerShell module:
 
@@ -134,3 +117,26 @@ Stops the emulator. By default, this command waits until the emulator is fully s
 
 Uninstalls the emulator and optionally removes the full contents of $env:LOCALAPPDATA\CosmosDbEmulator.
 The cmdlet ensures the emulator is stopped before uninstalling it.
+
+## <a id="set-partitioncount"></a>Change the number of default containers
+
+By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that does not exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However it's not recommended to set up the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
+
+If you attempt to create a container after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
+
+"Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again.
+ActivityId: 12345678-1234-1234-1234-123456789abc"
+
+To change the number of containers available in the Azure Cosmos Emulator, run the following steps:
+
+1. Delete all local Azure Cosmos emulator data by right-clicking the **Azure Cosmos DB Emulator** icon on the system tray, and then clicking **Reset Data…**.
+
+1. Delete all emulator data in this folder `%LOCALAPPDATA%\CosmosDBEmulator`.
+
+1. Exit all open instances by right-clicking the **Azure Cosmos DB Emulator** icon on the system tray, and then clicking **Exit**. It may take a minute for all instances to exit.
+
+1. Install the latest version of the [Azure Cosmos Emulator](https://aka.ms/cosmosdb-emulator).
+
+1. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
+ 
+## Next steps

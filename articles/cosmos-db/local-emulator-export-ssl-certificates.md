@@ -15,12 +15,9 @@ ms.custom: devx-track-python, devx-track-java
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes including its use of TLS connections. This post demonstrates how to export the TLS/SSL certificates for use in languages and runtimes that do not integrate with the Windows Certificate Store such as Java which uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) and Python which uses [socket wrappers](https://docs.python.org/2/library/ssl.html) and Node.js which uses [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). You can read more about the emulator in [Use the Azure Cosmos DB Emulator for development and testing](./local-emulator.md).
 
-This tutorial covers the following tasks:
+The X.509 certificate can be imported into the Java certificate store by following the instructions in [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Once the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos Emulator.
 
-> [!div class="checklist"]
-> * Rotating certificates
-> * Exporting TLS/SSL certificate
-> * Learning how to use the certificate in Java, Python, and Node.js
+When connecting to the emulator from Python and Node.js SDKs, TLS verification is disabled.
 
 ## Certification rotation
 
