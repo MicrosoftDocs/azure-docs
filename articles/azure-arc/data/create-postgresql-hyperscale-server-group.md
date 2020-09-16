@@ -116,7 +116,7 @@ postgres01  Ready     2
 To view the endpoints for a PostgreSQL instance, run the following command:
 
 ```console
-azdata arc postgres server endpoint list -n <server group name>
+azdata arc postgres endpoint list -n <server group name>
 
 #Example
 #azdata arc postgres endpoint list -n postgres01

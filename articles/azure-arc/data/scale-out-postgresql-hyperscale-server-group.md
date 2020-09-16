@@ -40,11 +40,11 @@ The scenario uses a sample of publicly available GitHub data, available from the
 Connect to your Azure Arc enabled PostgreSQL Hyperscale server group by first getting the connection information:
 The general format of this command is
 ```console
-azdata arc postgres server endpoint list -n <server name>
+azdata arc postgres endpoint list -n <server name>
 ```
 For example:
 ```console
-azdata arc postgres server endpoint list -n postgres01
+azdata arc postgres endpoint list -n postgres01
 ```
 
 Example output:
