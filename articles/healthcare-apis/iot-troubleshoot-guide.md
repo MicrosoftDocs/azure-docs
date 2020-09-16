@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/15/2020
+ms.date: 09/16/2020
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
@@ -21,19 +21,12 @@ You can use the conversion mapping JSON copies for editing and archiving outside
 > If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the Azure IoT Connector for FHIR, make sure to include copies of your conversion mapping JSON to help with the troubleshooting process.
 
 ## Device and FHIR Conversion Mapping JSON Template Validations for Azure IoT Connector for FHIR (preview)
-In this section, you'll learn about the validation process that the Azure portal and Azure IoT Connector for FHIR perform to validate the Device and FHIR conversion mapping JSON templates before allowing them to be saved for use. 
-
-**Azure portal**
-
-|Action|Required|
-|------|--------|
-|Simple JSON format validation|True|
-|Schema validation|True|
+In this section, you'll learn about the validation process that Azure IoT Connector for FHIR performs to validate the Device and FHIR conversion mapping JSON templates before allowing them to be saved for use.  These elements are required in the Device and FHIR Conversion Mapping JSON.
 
 **Device Mapping**
 
 |Element|Required|
-|------|--------|
+|:-------|:------|
 |TypeName|True|
 |TypeMatchExpression|True|
 |DeviceIdExpression|True|
@@ -44,12 +37,12 @@ In this section, you'll learn about the validation process that the Azure portal
 > [!NOTE]
 > Values[].ValueName and Values[].ValueExpression
 >
-> These elements are only required if you have a value entry in the array - it is valid to have no values mapped.  This is used when the telemetry being sent is an event.  For example: When a wearable IoMT device is put on or removed.  The element(s) do not have any values except for a name that Azure IoT Connector for FHIR  matches and emits.  On the FHIR conversion, Azure IoT Connector for FHIR maps it to a code-able concept based on the semantic type - no actual values are populated.
+> These elements are only required if you have a value entry in the array - it is valid to have no values mapped. This is used when the telemetry being sent is an event. For example: When a wearable IoMT device is put on or removed. The element(s) do not have any values except for a name that Azure IoT Connector for FHIR  matches and emits. On the FHIR conversion, Azure IoT Connector for FHIR maps it to a code-able concept based on the semantic type - no actual values are populated.
 
 **FHIR Mapping**
 
-|Element |Required|
-|------|--------|
+|Element|Required|
+|:------|:-------|
 |TypeName|True|
 
 > [!NOTE]
@@ -71,8 +64,8 @@ In this section, you'll learn about the validation process that the Azure portal
 
 ##  Why is my Azure IoT Connector for FHIR (preview) data not showing up in Azure API for FHIR?
 
-|Potential issues  |Fixes            |
-|------------------|-----------------|
+|Potential issues|Fixes|
+|----------------|-----|
 |Data is still being processed.|Data is egressed to the Azure API for FHIR in batches (every ~15 minutes).  It’s possible the data is still being processed and additional time is needed for the data to be persisted in the Azure API for FHIR.|
 |Device conversion mapping JSON hasn't been configured.|Configure and save conforming device conversion mapping JSON.|
 |FHIR conversion mapping JSON has not been configured.|Configure and save conforming FHIR conversion mapping JSON.|
