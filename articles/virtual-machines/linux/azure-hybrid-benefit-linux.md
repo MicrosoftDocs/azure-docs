@@ -150,4 +150,4 @@ This section contains a list of common errors and steps for mitigation.
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | In order to use the benefit with RHEL VMs, you must first register your Azure subscription(s) with Red Hat Cloud Access. Visit this link to learn more about how to register your Azure subscriptions for Red Hat Cloud Access
 
 ## Next steps
-* Get started with the with the preview by filling out the form [here](https://aka.ms/ahb-linux-form)
+* Get started with the with the preview by filling out the form [here](https://aka.ms/ahb-linux-form).
