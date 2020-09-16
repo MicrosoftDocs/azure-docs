@@ -94,5 +94,5 @@ You can configure *one* public Standard Load Balancer resource for the backend r
 
 ## Next steps
 
-- [Learn how to configure HA ports for your ILB via Portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule), or [Templates](load-balancer-get-started-ilb-arm-template.md).
+- [Learn how to configure HA ports for your ILB via Portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule), or [Templates](quickstart-load-balancer-standard-internal-template.md).
 - [Learn about Standard Load Balancer](load-balancer-standard-overview.md)

@@ -145,7 +145,7 @@ Learn more
 
 ## Moogsoft
 
-![Moogsoft](./media/partners/moogsoft.png)
+![Moogsoft Logo](./media/partners/moogsoft.png)
 
 Moogsoft AIOps accelerates the agile business transformation.
 
