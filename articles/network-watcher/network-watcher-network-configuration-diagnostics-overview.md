@@ -15,10 +15,10 @@ ms.author: damendo
 
 # Introduction to Network Configuration Diagnostics in Azure Network Watcher
 
-The Network Configuration Diagnostic tool help customers understand which traffic flows will be allowed or denied in your Azure Virtual Network. It can help your in understanding if your NSG rules are correctly. 
+The Network Configuration Diagnostic tool helps customers understand which traffic flows will be allowed or denied in your Azure Virtual Network along with detailed information for debugging. It can help your in understanding if your NSG rules are configured correctly. 
 
 ## Pre-requisites
-•	For Network Configuration Diagnostics, Network Watcher must be enabled in your subscription. See Create an Azure Network Watcher instance to enable.
+For using Network Configuration Diagnostics, Network Watcher must be enabled in your subscription. See [Create an Azure Network Watcher instance](https://docs.microsoft.com/azure/network-watcher/network-watcher-create) to enable.
 
 ## Background
 
@@ -27,10 +27,14 @@ The Network Configuration Diagnostic tool help customers understand which traffi
 - All traffic flows in your network are evaluated using the rules in the applicable NSG.
 - Rules are evaluated based on priority number from lowest to highest 
 
+## How does Network Configuration Diagnostic work? 
+
+For a given flow, the NCD tool runs a simulation of the flow and returns whether the flow would be allowed (or denied) and detailed information about rules allowing/denying the flow.  Customers must provide details of a flow like source, destination, protocol, etc. The tool returns whether traffic was allowed or denied, the NSG rules that were evaluated for the specified flow and the evaluation results for every rule.
 
 ## Next steps
 
-Visit the following article to learn if a packet is allowed or denied for a specific virtual machine through the portal. [Check if traffic is allowed on a VM with IP Flow Verify using the portal](diagnose-vm-network-traffic-filtering-problem.md)
-
-[1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
+Use Network Configuration Diagnostic through other interfaces
+ - [REST API](https://docs.microsoft.com/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
+ - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
+ - [Azure CLI](https://docs.microsoft.com/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)
 
