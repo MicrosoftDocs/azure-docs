@@ -213,6 +213,10 @@ The following sample payload is for a standard webhook when it's used for log al
 ```
 
 ### Log alert for other resources logs (from API version `2020-05-01-preview`)
+
+> [!NOTE]
+> There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
+
 The following sample payload is for a standard webhook when it's used for log alerts based on other resources logs (excluding workspaces and Application Insights):
 
 ```json

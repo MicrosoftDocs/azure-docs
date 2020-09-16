@@ -137,6 +137,9 @@ Here the steps to get started writing queries for alerts:
 
 ### Log alert for all other resource types
 
+> [!NOTE]
+> There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
+
 1. Start from the **Condition** tab:
 
     1. Check that the [**Measure**](alerts-unified-log.md#measure), [**Aggregation type**](alerts-unified-log.md#aggregation-type), and [**Aggregation granularity**](alerts-unified-log.md#aggregation-granularity) are correct. 
@@ -149,39 +152,39 @@ Here the steps to get started writing queries for alerts:
        - Up to six additional splittings can be also selected for any number or text columns types using the dimensions table.
        - Alerts are fired separately according to splitting based on unique combinations and alert payload includes this information.
     
-        ![Select aggregation parameters and splitting](media/alerts-log/SelectAggregationParametersAndSplitting.png)
+        ![Select aggregation parameters and splitting](media/alerts-log/select-aggregation-parameters-and-splitting.png)
 
     1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-        ![Preview chart](media/alerts-log/PreviewChart.png)
+        ![Preview chart](media/alerts-log/preview-chart.png)
 
     1. Next, based on the preview data, set the **Alert logic**; [**Operator**, **Threshold Value**](alerts-unified-log.md#threshold-and-operator), and [**Frequency**](alerts-unified-log.md#frequency).
 
-        ![Preview chart with threshold and alert logic](media/alerts-log/ChartAndAlertLogic.png)
+        ![Preview chart with threshold and alert logic](media/alerts-log/chart-and-alert-logic.png)
 
     1. You can optionally set [**Number of violations to trigger the alert**](alerts-unified-log.md#number-of-violations-to-trigger-alert) in the **Advanced options** section.
     
-        ![Advanced options](media/alerts-log/AdvancedOptions.png)
+        ![Advanced options](media/alerts-log/advanced-options.png)
 
 1. In the **Actions** tab, select or create the required [action groups](action-groups.md).
 
-    ![Actions tab](media/alerts-log/ActionsTab.png)
+    ![Actions tab](media/alerts-log/actions-tab.png)
 
 1. In the **Details** tab, define the **Alert rule details**, and **Project details**. You can optionally set whether to not **Start running now**, or [**Mute Actions**](alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
 
     > [!NOTE]
     > Log alert rules are currently stateless and fires an action every time an alert is created unless muting is defined.
 
-    ![Details tab](media/alerts-log/DetailsTab.png)
+    ![Details tab](media/alerts-log/details-tab.png)
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 
-    ![Tags tab](media/alerts-log/TagsTab.png)
+    ![Tags tab](media/alerts-log/tags-tab.png)
 
 1. In the **Review + create** tab, a validation will run and inform of any issues. Review and approve the rule definition.
 1. If all fields are correct, select the **Create** button and complete the alert rule creation. All alerts can be viewed from the alerts management.
  
-    ![Review and create tab](media/alerts-log/ReviewAndCreateTab.png)
+    ![Review and create tab](media/alerts-log/review-and-create-tab.png)
 
 ## View & manage log alerts in Azure portal
 

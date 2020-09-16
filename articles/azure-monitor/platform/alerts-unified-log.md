@@ -17,6 +17,9 @@ Log alerts are one of the alert types that are supported in [Azure Alerts](./ale
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
+> [!NOTE]
+> There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
+
 ## Prerequisites
 
 Log alerts run queries on Log Analytics data. First you should start [collecting log data](resource-logs.md) and query the log data for issues. You can use examples provided in Log Analytics to understand what you can discover or [get started on writing your own query](../log-query/get-started-portal.md).
@@ -35,7 +38,7 @@ Log search rules condition definition starts from:
 
 The following sections describe the different parameters you can use to set the above logic.
 
-### Log Query
+### Log query
 The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
 
 - A specific resource, such as a virtual machine.
@@ -181,7 +184,7 @@ See this alert evaluation example:
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-## Pricing and Billing of Log Alerts
+## Pricing and billing of log alerts
 
 Pricing information is located in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Log Alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
 

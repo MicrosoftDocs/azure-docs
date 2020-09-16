@@ -14,7 +14,7 @@ This article includes samples of [Azure Resource Manager templates](../../azure-
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-## Example of number of results template (up to version 2018-04-16)
+## Number of results template (up to version 2018-04-16)
 The following sample creates a [number of results alert rule](../platform/alerts-unified-log.md#count-of-the-results-table-rows).
 
 ### Notes
@@ -107,7 +107,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
 }
 ```
 
-## Example of metric measurement template (up to version 2018-04-16)
+## Metric measurement template (up to version 2018-04-16)
 The following sample creates a [metric measurement alert rule](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value).
 
 ### Template file
@@ -201,7 +201,7 @@ The following sample creates a [metric measurement alert rule](../platform/alert
 }
 ```
 
-## Example of template for all resource types (from version 2020-05-01-preview)
+## Template for all resource types (from version 2020-05-01-preview)
 The following sample creates a rule that can target any resource.
 
 ```json
