@@ -138,5 +138,8 @@ If you are using [Data-in replication](concepts-data-in-replication.md) to conne
 ### 13. Do we have server-side query to verify if SSL is being used?
 To verify if you are using SSL connection to connect to the server refer [SSL verification](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
 
-###	14. What if I have further questions?
+### 14. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
+No. There is no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
+
+###	15. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). If you have a support plan and you need technical help, [contact us](mailto:AzureDatabaseforMySQL@service.microsoft.com).
