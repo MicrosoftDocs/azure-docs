@@ -80,7 +80,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 ## <a name="replication"></a>Volume replication metrics
 
 - *Is volume replication status healthy*   
-    The condition of the replication relationship. 
+    The condition of the replication relationship. A healthy state is denoted by `1`. An unhealthy state is denoted by `0`.
 
 - *Is volume replication transferring*    
     Whether the status of the volume replication is ‘transferring’. 
