@@ -1,8 +1,8 @@
 ---
 title: Azure Service Bus - Automatically update messaging units 
-description: This article shows you how you can use an Azure Monitor to automatically update messaging units of a Service Bus namespace.
+description: This article shows you how you can use automatically update messaging units of a Service Bus namespace.
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 09/15/2020
 ---
 
 # Automatically update messaging units of an Azure Service Bus namespace 
@@ -23,21 +23,15 @@ This article shows you how you can automatically scale a Service Bus namespace (
 > [!IMPORTANT]
 > This article applies to only the **premium** tier of Azure Service Bus. 
 
-## Azure Monitor - Autoscale setting page
+## Autoscale setting page
 First, follow these steps to navigate to the **Autoscale settings** page for your Service Bus namespace.
 
 1. Sign into [Azure portal](https://portal.azure.com). 
-2. In the search bar, type **Monitor**, select **Monitor** from the drop-down list, and press **ENTER**. 
+2. In the search bar, type **Service Bus**, select **Service Bus** from the drop-down list, and press **ENTER**. 
+1. Select your **premium namespace** from the list of namespaces. 
+1. Switch to the **Scale** page. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/select-monitor.png" alt-text="Search for and select Monitor service":::
-3. On the **Azure Monitor** page, select **Autoscale** under **Settings** on the left menu, and follow these steps:
-    1. Select an **Azure subscription**. 
-    1. Select the **resource group** that has the Service Bus premium namespace. 
-    1. Select **Service Bus Namespaces** for **Resource type**. 
-    1. Select your premium namespace for **Resource**.
-    1. Then, from the list, select your **premium namespace**. You see the **Autoscale setting** page for the namespace. 
-    
-        :::image type="content" source="./media/automate-update-messaging-units/select-premium-namespace.png" alt-text="Select your premium namespace":::       
+    :::image type="content" source="./media/automate-update-messaging-units/scale-page.png" alt-text="Service Bus Namespace - Scale page":::
 
 ## Manual scale 
 This setting allows you to set a fixed number of messaging units for the namespace. 
@@ -61,7 +55,7 @@ You can't set a schedule to autoscale on a specific days or date range for a def
 The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, and 4 to 8. Similarly, decrements are done from 8 to 4, 4 to 2, and 2 to 1. 
 
 1. On the **Autoscale setting** page, select **Custom auto scale** for the **Choose how to scale your resource** option. 
-1. In the **Default** section of the page, specify a **name** for the default condition. 
+1. In the **Default** section of the page, specify a **name** for the default condition. Select the **pencil** icon to edit the text. 
 1. Select **Scale based on a metric** for **Scale mode**. 
 1. Select **+ Add a rule**. 
 
