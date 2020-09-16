@@ -25,9 +25,9 @@ In this article, you will use the [Azure portal](https://portal.azure.com) to **
 
 ## Prerequisites
 
-Azure subscription. If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
+If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
 Sign in to the [Azure portal](https://portal.azure.com) with this account. \
-You will also need to
+The rest of this section will walk you through these steps
 - Set up an Azure Digital Twins instance
 - Get app registration client secret
 - Add a digital twin
@@ -53,16 +53,10 @@ Hit *Certificates and secrets* from the registration's menu, and select *+ New c
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal view of an Azure AD app registration. There's a highlight around 'Certificates and secrets' in the resource menu, and a highlight on the page around 'New client secret'":::
 
 Enter whatever values you would like for Description and Expires, and hit *Add*.
-The secret will be added to the list of client secrets on the *Certificates and secrets* page. Take note of its _Value_ to use later (you can also copy it to the clipboard with the Copy icon).
-Enter _Description_ for your client secret, select timeline for _Expires_ and hit _Add_. 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Add client secret":::
 
-Look for the status of your client secret in notifications by selecting the notification icon.
-
-:::image type="content" source="media/how-to-integrate-logic-apps/notifications.png" alt-text="check notifications":::
-
-Now, verify that the client secret is visible on the Certificates & secrets page with _Expires_ and _Value_ fields. Take note of its _Value_ to use later (you can also copy it to the clipboard with the Copy icon)
+Now, verify that the client secret is visible on the _Certificates & secrets_ page with _Expires_ and _Value_ fields. Take note of its _Value_ to use later (you can also copy it to the clipboard with the Copy icon)
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Copy client secret value":::
 
@@ -82,9 +76,11 @@ Navigate to the [Logic Apps Custom Connector](https://portal.azure.com/#blade/Hu
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="The 'Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Add' button":::
 
-In the *Create Logic Apps Custom Connector* page that follows, select your subscription and resource group, and a name and deployment location for your new connector. Hit *Review + create*. This will take you to the *Review + create* tab, where you can hit *Create* at the bottom to create your resource.
+In the *Create Logic Apps Custom Connector* page that follows, select your subscription and resource group, and a name and deployment location for your new connector. Hit *Review + create*. 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="The 'Create Logic Apps Custom Connector' page in the Azure portal.":::
+
+This will take you to the *Review + create* tab, where you can hit *Create* at the bottom to create your resource.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="The 'Review + create' tab of the 'Review Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Create' button":::
 
@@ -207,10 +203,12 @@ You may be asked to sign in with your Azure credentials to connect to the connec
 
 In the new *DigitalTwinsAdd* box, fill the fields as follows:
 * _id_: Fill the *Twin ID* of the digital twin in your instance that you'd like the Logic App to update.
-* _Item - 1_: This field is where you'll enter the body that the chosen API request requires. For *DigitalTwinsUpdate*, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
+* _twin_: This field is where you'll enter the body that the chosen API request requires. For *DigitalTwinsUpdate*, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
 * _api-version_: In the current public preview, this value is *2020-05-31-preview*
 
 Hit *Save* in the Logic Apps Designer.
+
+You can choose other operations by selecting _+ New step_ on the same window.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Finished view of the app in the Logic App Connector. The DigitalTwinsAdd box is filled with the values described above, including a sample JSON Patch body. The 'Save' button for the window is highlighted.":::
 
