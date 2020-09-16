@@ -86,7 +86,7 @@ EOF
 
 ## Install Velero on Azure Red Hat OpenShift 4 cluster
 
-This step will install velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you are successfully logged in to a Azure Red Hat OpenShift v4 cluster.
+This step will install velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you are successfully logged in to an Azure Red Hat OpenShift v4 cluster.
 
 
 ```bash
@@ -116,12 +116,13 @@ oc get backups -n velero <name of backup> -o yaml
 
 A successful backup will output `phase:Completed` and the objects will live in the container in the storage account.
 
-## Create a backup with Velero (including snapshots)
+## Create a backup with Velero to include snapshots
 >[!NOTE]
 >This feature in Azure Red Hat OpenShift is currently in preview.
 >
 
-To create an application backup with Velero to include the persistent volumes, you'll need to include the namespace that the application is in as well as include the `snapshot-volumes=true` flag when creating the backup
+To create an application backup with Velero to include the persistent volumes of your application, you'll need to include the namespace that the application is in as well as to include the `snapshot-volumes=true` flag when creating the backup
+
 ```bash
 velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
 ```
@@ -139,6 +140,7 @@ In this article, an Azure Red Hat OpenShift 4 cluster application was backed up.
 
 > [!div class="checklist"]
 > * Create a OpenShift v4 cluster application backup using Velero
+> * Create a OpenShift v4 cluster application backup with snapshots using Velero
 
 
 Advance to the next article to learn how to create an Azure Red Hat OpenShift 4 cluster application restore.

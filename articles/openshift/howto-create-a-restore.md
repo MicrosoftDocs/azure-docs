@@ -41,7 +41,7 @@ oc get backups -n velero
 Once you have the backup that you would like to restore, you'll need to perform the restore with the following command:
 
 ```bash
-velero restore create --from-backup <name of backup from above output list>
+velero restore create <name of restore> --from-backup <name of backup from above output list>
 ```
 
 This step will create the Kubernetes objects that were backed up from the previous step when creating a backup.
@@ -53,12 +53,31 @@ oc get restore -n velero <name of restore created previously> -o yaml
 ```
 When the phase says `Completed`, your Azure Red Hat 4 application should be restored.
 
+## Restore an Azure Red Hat OpenShift 4 Application with included snapshots
+
+>[!NOTE]
+>This feature in Azure Red Hat OpenShift is currently in preview.
+>
+To create a restore of an Azure Red Hat OpenShift 4 application with persistent volumes using Velero you'll need to perform the restore with the following command:
+
+```bash
+velero restore create <name of the restore> --from-backup <name of backup from above output list> --exclude-resources="nodes,events,events.events.k8s.io,backups.ark.heptio.com,backups.velero.io,restores.ark.heptio.com,restores.velero.io"
+```
+This step will create the Kubernetes objects that were backed up from the previous step when creating a backup.
+
+To see the status of the restore, execute the following step:
+
+```bash
+oc get restore -n velero <name of restore created previously> -o yaml
+```
+When the phase says `Completed`, your Azure Red Hat 4 application should be restored.
 ## Next steps
 
 In this article, an Azure Red Hat OpenShift 4 cluster application was restored. You learned how to:
 
 > [!div class="checklist"]
 > * Create a OpenShift v4 cluster application restore using Velero
+> * Create a OpenShift v4 cluster application restore with snapshots using Velero
 
 
 Advance to the next article to learn about Azure Red Hat OpenShift 4 supported resources.
