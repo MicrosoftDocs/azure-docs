@@ -22,7 +22,7 @@ When filtered to **All Applications**, the **All Applications** **List** shows e
    - **Azure AD - App registrations** – Apps added to your tenant using the **App registrations** option on the Azure AD portal. Usually custom developed apps using the Open ID Connect and OAuth standards.
    - **Application Proxy Applications** – An application running in your on-premises environment that you want to provide secure single-sign on to externally
 - When signing up for, or signing in to, a third-party application integrated with Azure Active Directory. One example is [Smartsheet](https://app.smartsheet.com/b/home) or [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
-- Microsoft apps such as Microsoft 365 or Office 365.
+- Microsoft apps such as Microsoft 365.
 - When you add a new application registration by creating a custom-developed application using the [Application Registry](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 - When you add a new application registration by creating a custom-developed application using the [V2.0 Application Registration portal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 - When you add an application, you’re developing using Visual Studio’s [ASP.NET Authentication Methods](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) or [Connected Services](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)

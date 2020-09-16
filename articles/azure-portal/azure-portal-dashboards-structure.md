@@ -326,7 +326,7 @@ The __position__ property contains the size and location information for the par
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![grid-units](./media/azure-portal-dashboards-structure/grid-units.png)
+![Screenshot shows a close up of the grid, with one square grid unit highlighted.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### The metadata object
 Each part has a metadata property, an object has only one required property called __type__. This string tells the portal which tile to show. Our example dashboard uses these types of tiles:

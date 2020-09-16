@@ -108,6 +108,8 @@
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
   - name: Azure CLI
     href: /cli/azure/ext/mixed-reality/spatial-anchors-account
+  - name: Azure PowerShell
+    href: /powershell/module/az.mixedreality
 - name: Resources
   items:
   - name: Release Notes
