@@ -19,7 +19,7 @@ In this article, you learn how to enable MLflow's tracking URI and logging API, 
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [Azure Databricks and MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/). 
 
-See [Track experiment runs and create endpoints with MLflow and Azure Machine Learning](how-to0use-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
+See [Track experiment runs and create endpoints with MLflow and Azure Machine Learning](how-to-use-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
 >[!NOTE]
 > As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
@@ -136,7 +136,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 When you are ready to create an endpoint for your ML models, you can deploy your MLflow experiments as an Azure Machine Learning web service. Deployment allows you to leverage and apply the Azure Machine Learning model management and data drift detection capabilities to your production models.
 
-To learn more, see [Deploy and register MLflow models](how-to-use-mlflow.md#deploy-and-register-mlflow-models).
+To learn more, see [Deploy and register MLflow models](how-to-use-mlflow.md).
 
 ## Clean up resources
 
