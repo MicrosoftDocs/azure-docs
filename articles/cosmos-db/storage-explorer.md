@@ -22,7 +22,7 @@ A Cosmos account with a SQL API or an Azure Cosmos DB API for MongoDB. If you do
 
 ## Installation
 
-Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). We support Windows, Linux, and macOS versions.
+To install the newest Azure Storage Explorer bits, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). We support Windows, Linux, and macOS versions.
 
 ## Connect to an Azure subscription
 
@@ -64,7 +64,7 @@ You can use a connection string to connect to an Azure Cosmos DB. This method on
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Enter your connection string":::
 
-## Use a local emulator to connect to an Azure Cosmos DB
+## Use a local emulator to connect to Azure Cosmos DB
 
 Use the following steps to connect to an Azure Cosmos DB with an emulator. This method only supports SQL accounts.
 
@@ -134,11 +134,11 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Create first collection in the database":::
 
-1. In the Create Collection window, enter the requested information, like **Collection ID** and **Storage capacity**, etc. Select **OK** to finish.
+1. In the Create Collection window, enter the requested information, like **Collection ID** and **Storage capacity**, and so on. Select **OK** to finish.
 
    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Create second collection in the database":::
 
-1. Select **Unlimited** to be able to specify a partition key, then select **OK** to finish.
+1. Select **Unlimited** so you can specify a partition key, then select **OK** to finish.
 
    > [!NOTE]
    > If a partition key is used when you create a collection, once creation is completed, you can't change the partition key value on the collection.
@@ -176,8 +176,8 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 #### Create and modify a vertex
 
-* To create a new vertex, open **Graph** from the left side pane, select **New Vertex**, edit the contents, then select **OK**.
-* To modify an existing vertex, select the pen icon in the right pane.
+* To create a new vertex, open **Graph** from the left side pane, select **New Vertex**, edit the contents, and then select **OK**.
+* To modify an existing vertex, select the pen icon in the right side pane.
 
    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modify a graph's vertex":::
 
@@ -203,7 +203,7 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
       :::image type="content" source="./media/storage-explorer/table.png" alt-text="Create and modify a table":::
 
-* To modify a table, select **Edit**, modify the content, then select **Update**.
+* To modify a table, select **Edit**, modify the content, and then select **Update**.
 
    
 
@@ -222,7 +222,7 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 #### Query a table
 
-- Select the **Query** button, input a query condition, and then select the **Execute Query** button. To close the query pane select the **Close Query** button.
+- Select the **Query** button, input a query condition, and then select the **Execute Query** button. To close the query pane, select the **Close Query** button.
 
   :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Query data from the table":::
 
@@ -235,13 +235,13 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
   
   1. Enter a name in the left, enter the stored procedure scripts in the right side pane, and then select **Create**.
   
-* To edit an existing stored procedure, double-click the procedure, make the update, and then select **Update** to save, or select **Discard** to cancel the change.
+* To edit an existing stored procedure, double-click the procedure, make the update, and then select **Update** to save. You can also select **Discard** to cancel the change.
 
 * The operations for **Triggers** and **UDF** are similar to **Stored Procedures**.
 
 ## Troubleshooting
 
-These are solutions to common issues that arise when you use Azure Cosmos DB in Storage Explorer.
+The following are solutions to common issues that arise when you use Azure Cosmos DB in Storage Explorer.
 
 ### Sign in issues
 
@@ -249,24 +249,24 @@ First, restart your application to see if that fixes the problem. If the problem
 
 #### Self-signed certificate in certificate chain
 
-There are a few reasons you may be seeing this error, the two most common ones are:
+There are a few reasons you might be seeing this error, the two most common ones are:
 
-* You're behind a *transparent proxy*. This means that someone (such as your IT department) intercepts HTTPS traffic, decrypts it, and then encrypts it by using a self-signed certificate.
+* You're behind a *transparent proxy*. Someone, like your IT department, intercepts HTTPS traffic, decrypts it, and then encrypts it by using a self-signed certificate.
 
 * You're running software, such as anti-virus software. The software injects a self-signed TLS/SSL certificate into the HTTPS messages you receive.
 
-When Storage Explorer encounters a self-signed certificate, it doesn't know if the HTTPS message it receives is tampered with. If you have a copy of the self-signed certificate, you can tell Storage Explorer to trust it. If you're unsure of who injected the certificate, then you can follow these steps to try to find out:
+When Storage Explorer finds a self-signed certificate, it doesn't know if the HTTPS message it receives is tampered with. If you have a copy of the self-signed certificate, you can tell Storage Explorer to trust it. If you're unsure of who injected the certificate, then you can follow these steps to try to find out:
 
 1. Install OpenSSL:
 
-     - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions is ok)
-     - macOS and Linux: Should be included with your operating system
+     - [Windows](https://slproweb.com/products/Win32OpenSSL.html): Any of the light versions are OK.
+     - macOS and Linux: Should be included with your operating system.
 
 1. Run OpenSSL:
-    * Windows: Go to the install directory, then **/bin/**, then double-click on **openssl.exe**.
-    * Mac and Linux: execute **openssl** from a terminal
+    * Windows: Go to the install directory, then **/bin/**, then double-click **openssl.exe**.
+    * Mac and Linux: Execute **openssl** from a terminal.
 1. Execute `s_client -showcerts -connect microsoft.com:443`.
-1. Look for self-signed certificates. If you're unsure, which are self-signed, then look for anywhere the subject ("s:") and issuer ("i:") are the same.
+1. Look for self-signed certificates. If you're unsure, which are self-signed, then look for anywhere that the subject ("s:") and issuer ("i:") are the same.
 1. If you find any self-signed certificates, copy and paste everything from and including **-----BEGIN CERTIFICATE-----** to **-----END CERTIFICATE-----** to a new .CER file for each one.
 1. Open Storage Explorer, and then go to **Edit** > **SSL Certificates** > **Import Certificates**. Use the file picker to find, select, and then open the .CER files you created.
 
@@ -276,8 +276,13 @@ If you don't find any self-signed certificates, you can send feedback for more h
 
 If you're unable to retrieve your subscriptions after you sign in, try these suggestions:
 
-* Verify that your account has access to the subscriptions. To do this, sign in to the [Azure portal](https://portal.azure.com/)
-* Make sure you signed in to the correct environment ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/), or Custom Environment/Azure Stack)
+* Verify that your account has access to the subscriptions. To do this, sign in to the [Azure portal](https://portal.azure.com/).
+* Make sure you signed in to the correct environment:
+  * [Azure](https://portal.azure.com/)
+  * [Azure China](https://portal.azure.cn/)
+  * [Azure Germany](https://portal.microsoftazure.de/)
+  * [Azure US Government](https://portal.azure.us/)
+  * Custom Environment/Azure Stack
 * If you're behind a proxy, make sure that the Storage Explorer proxy is properly configured.
 * Remove the account, and then add it again.
 * Delete the following files from your home directory (such as: C:\Users\ContosoUser), and then add the account again:
@@ -296,7 +301,7 @@ If you're unable to see the authentication page:
 * If you're behind a proxy, make sure that the Storage Explorer proxy is properly configured.
 * On the developer tools console (F12), watch the responses to see if you can find any clue for why authentication isn't working.
 
-#### Cannot remove account
+#### Can't remove an account
 
 If you're unable to remove an account, or if the reauthenticate link doesn't do anything:
 
@@ -315,11 +320,11 @@ If you're unable to remove an account, or if the reauthenticate link doesn't do 
 
 ### HTTP/HTTPS proxy issue
 
-You can't list Azure Cosmos DB nodes in left tree when you configure an HTTP/HTTPS proxy in ASE. You can use Azure Cosmos DB data explorer in the Azure portal as a work-around.
+You can't list Azure Cosmos DB nodes in the left tree when you configure an HTTP/HTTPS proxy in ASE. You can use Azure Cosmos DB data explorer in the Azure portal as a work-around.
 
 ### "Development" node under "Local and Attached" node issue
 
-There is no response after you select the **Development** node under the **Local and Attached** node in the left tree. The behavior is expected.
+There's no response after you select the **Development** node under the **Local and Attached** node in the left tree. The behavior is expected.
 
 :::image type="content" source="./media/storage-explorer/development.png" alt-text="Development node":::
 
