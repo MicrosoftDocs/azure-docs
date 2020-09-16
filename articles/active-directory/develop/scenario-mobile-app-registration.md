@@ -1,7 +1,7 @@
 ---
 title: Register mobile apps that call web APIs | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to build a mobile app that calls web APIs (app's code configuration)
+description: Learn how to build a mobile app that calls web APIs (app's registration)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -27,7 +27,7 @@ The account types that your mobile applications support depend on the experience
 
 ### Audience for interactive token acquisition
 
-Most mobile applications use interactive authentication. If your app uses this form of authentication, you can sign in users from any [account type](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+Most mobile applications use interactive authentication. If your app uses this form of authentication, you can sign in users from any [account type](quickstart-register-app.md).
 
 ### Audience for Integrated Windows authentication, username-password, and B2C
 
@@ -37,7 +37,7 @@ You can also sign in users by using social identities that pass a B2C authority 
 
 For more information, see [Scenarios and supported authentication flows](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) and [Scenarios and supported platforms and languages](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## Platform configuration and redirect URIs  
+## Platform configuration and redirect URIs
 
 ### Interactive authentication
 
@@ -69,20 +69,20 @@ When you complete the steps, the redirect URI is computed for you, as in the fol
 
 If you prefer to manually configure the redirect URI, you can do so through the application manifest. Here's the recommended format for the manifest:
 
-- **iOS**: `msauth.<BUNDLE_ID>://auth` 
+- **iOS**: `msauth.<BUNDLE_ID>://auth`
   - For example, enter `msauth.com.yourcompany.appName://auth`
 - **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - You can generate the Android signature hash by using the release key or debug key through the KeyTool command.
 
 ### Username-password authentication
 
-If your app uses only username-password authentication, you don't need to register a redirect URI for your application. This flow does a round trip to the Microsoft identity platform version 2.0 endpoint. Your application won't be called back on any specific URI. 
+If your app uses only username-password authentication, you don't need to register a redirect URI for your application. This flow does a round trip to the Microsoft identity platform version 2.0 endpoint. Your application won't be called back on any specific URI.
 
 However, you need to identify your application as a public client application. To do so, start in the **Authentication** section of your application. In the **Advanced settings** subsection, in the **Default client type** paragraph, for the question **Treat application as a public client**, select **Yes**.
 
 ## API permissions
 
-Mobile applications call APIs on behalf of the signed-in user. Your app needs to request delegated permissions. These permissions are also called scopes. Depending on the experience that you want, you can request delegated permissions statically through the Azure portal. Or you can request them dynamically at runtime. 
+Mobile applications call APIs on behalf of the signed-in user. Your app needs to request delegated permissions. These permissions are also called scopes. Depending on the experience that you want, you can request delegated permissions statically through the Azure portal. Or you can request them dynamically at runtime.
 
 By statically registering permissions, you allow administrators to easily approve your app. Static registration is recommended.
 

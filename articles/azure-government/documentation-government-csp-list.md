@@ -247,7 +247,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Om Group, Inc.](http://www.omgroupinc.us/)|
 |[OneNeck IT Solutions](https://www.oneneck.com)|
 |[Onyx Point, Inc.](https://www.onyxpoint.com)|
-|[Open Analyze Technologies, Inc.](https://www.openanalyze.com/)|
+|Open Analyze Technologies, Inc.|
 |[Opsgility](https://www.opsgility.com)|
 |[OpsPro](https://opspro.com/)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
@@ -317,7 +317,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Sumo Logic](https://www.sumologic.com/)|
-|[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](http://www.sybatech.com)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|

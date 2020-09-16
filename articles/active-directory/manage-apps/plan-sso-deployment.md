@@ -24,7 +24,7 @@ Single sign-on (SSO) means accessing all applications and resources a user needs
 
 Single sign-on (SSO) adds security and convenience when users sign on to applications in Azure Active Directory (Azure AD). 
 
-Many organizations rely on software as a service (SaaS) applications, such as Office 365, Box, and Salesforce, for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each.
+Many organizations rely on software as a service (SaaS) applications, such as Microsoft 365, Box, and Salesforce, for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each.
 
 The Azure Marketplace has over 3000 applications with pre-integrated SSO connections, making it easy to integrate them in your tenant.
 
@@ -281,7 +281,7 @@ The following links present troubleshooting scenarios. You may want to create a 
 
 - [Problems signing in from a custom portal](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problems signing in from access panel](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problems signing in from My Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Error on application sign-in page](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

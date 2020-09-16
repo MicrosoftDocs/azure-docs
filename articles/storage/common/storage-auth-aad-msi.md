@@ -11,6 +11,7 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Authorize access to blob and queue data with managed identities for Azure resources
@@ -160,4 +161,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
 - [Use Azure AD with storage applications](storage-auth-aad-app.md).
-- [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](authorize-active-directory-powershell.md).
+- [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-active-directory-powershell.md)

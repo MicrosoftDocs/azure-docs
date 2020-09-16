@@ -7,9 +7,10 @@ manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/11/2020
-ms.author: sudbalas
+ms.author: sudbalas 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to use Key Vault soft-delete with PowerShell
@@ -43,7 +44,7 @@ Key Vault operations are separately managed via role-based access control (RBAC)
 |Recover|Restores a deleted key vault.|Microsoft.KeyVault/vaults/write|
 |Purge|Permanently removes a deleted key vault and all its contents.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-For more information on permissions and access control, see [Secure your key vault](secure-your-key-vault.md)).
+For more information on permissions and access control, see [Secure your key vault](secure-your-key-vault.md).
 
 ## Enabling soft-delete
 
@@ -278,5 +279,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## Other resources
 
-- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)).
-- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md)).
+- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md).

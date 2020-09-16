@@ -143,7 +143,7 @@ Now go to the destination Azure Blob Storage and verify that Office 365 data has
 
 ## Next steps
 
-Advance to the following article to learn about Azure SQL Data Warehouse support: 
+Advance to the following article to learn about Azure Synapse Analytics (formerly SQL Data Warehouse) support: 
 
 > [!div class="nextstepaction"]
 >[Office 365 connector](connector-office-365.md)

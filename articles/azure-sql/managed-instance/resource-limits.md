@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 02/25/2020
+ms.date: 09/14/2020
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ SQL Managed Instance has characteristics and resource limits that depend on the 
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| **Hardware** | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake) processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
+| **Hardware** | Intel® E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD vCore = 1 PP (physical core) | Intel® E5-2673 v4 (Broadwell) 2.3 GHz, Intel® SP-8160 (Skylake), and  Intel® 8272CL (Cascade Lake) 2.5 GHz processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
 | **Number of vCores** | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Max memory (memory/core ratio)** | 7 GB per vCore<br/>Add more vCores to get more memory. | 5.1 GB per vCore<br/>Add more vCores to get more memory. |
 | **Max In-Memory OLTP memory** | Instance limit: 1-1.5 GB per vCore| Instance limit: 0.8 - 1.65 GB per vCore |
@@ -93,12 +93,12 @@ Find more information about the [resource limits in SQL Managed Instance pools i
 
 ### File IO characteristics in General Purpose tier
 
-In the General Purpose service tier every database file gets dedicated IOPS and throughput that depend on the file size. Bigger data files get more IOPS and throughput. IO characteristics of the database files are shown in the following table:
+In the General Purpose service tier every database file gets dedicated IOPS and throughput that depend on the file size. Larger files get more IOPS and throughput. IO characteristics of database files are shown in the following table:
 
-| File size | >=0 and <=128 GiB | >128 and <=256 GiB | >256 and <= 512 GiB | >0.5 and <=1 TiB    | >1 and <=2 TiB    | >2 and <=4 TiB | >4 and <=8 TiB |
+| File size | >=0 and <=128 GiB | >128 and <= 512 GiB | >0.5 and <=1 TiB    | >1 and <=2 TiB    | >2 and <=4 TiB | >4 and <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS per file       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500   |
-| Throughput per file | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+| IOPS per file       | 500   | 2300              | 5000              | 7500              | 7500              | 12,500   |
+| Throughput per file | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 If you notice high IO latency on some database file or you see that IOPS/throughput is reaching the limit, you might improve performance by [increasing the file size](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 

@@ -37,6 +37,8 @@ landingContent:
         links:
           - text: Host your domain in Azure DNS
             url: dns-delegate-domain-azure-dns.md
+          - text: Creating a Child DNS zone
+            url: tutorial-public-dns-zones-child.md
 
   # Card
   - title: Deploy a private DNS zone

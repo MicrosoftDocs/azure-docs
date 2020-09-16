@@ -52,7 +52,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Change the configuration to **Release** and **x86**.
 1. Switch the debugger mode to **Local Machine**.\
   ![Solution configuration](./media/unity-deploy-config-pc.png)
-1. Build the solution (F7).
+1. Build the solution.
 
 ## Launch the sample project
 

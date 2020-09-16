@@ -6,7 +6,7 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -544,7 +544,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
 **Guidance**: Not applicable; this recommendation is intended for non-compute resources designed to store data.
 
@@ -866,13 +866,13 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: If using custom images, use RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
+**Guidance**: If using custom images, use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage Azure RBAC to ensure only authorized users may access the images.
 
-* [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Understand RBAC for Container Registry](../container-registry/container-registry-roles.md)
+* [Understand Azure RBAC for Container Registry](../container-registry/container-registry-roles.md)
 
-* [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 

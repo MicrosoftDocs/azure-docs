@@ -129,9 +129,12 @@ During configuration, for the default storage endpoint you specify a blob contai
 > [!IMPORTANT]
 > Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster using a storage account with secure transfer already enabled.
 
+> [!Note]  
+> Azure HDInsight does not automatically transfer, move or copy your data stored in Azure Storage from one region to another.
+
 ### Metastore settings
 
-You can create optional Hive or Apache Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores.
+You can create optional Hive or Apache Oozie metastores. However, not all cluster types support metastores, and Azure Synapse Analytics isn't compatible with metastores.
 
 For more information, see [Use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 

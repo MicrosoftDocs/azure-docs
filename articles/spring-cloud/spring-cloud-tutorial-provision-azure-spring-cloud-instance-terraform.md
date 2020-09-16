@@ -89,7 +89,7 @@ In this section, you use several Terraform commands to run the configuration.
     terraform apply plan.out
     ```
 
-1. To verify the results within the Azure portal, browse to the new resource group. The new **Azure Cosmos DB instance** shows in the new resource group.
+1. To verify the results within the Azure portal, browse to the new resource group. The new **Azure Spring Cloud** instance shows in the new resource group.
 
 ## Update configuration to config logs and metrics
 

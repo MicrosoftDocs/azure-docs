@@ -18,7 +18,10 @@ ms.author: Juliako
 ms.reviewer: willzhan
 
 ---
-# Using castLabs to deliver Widevine licenses to Azure Media Services 
+# Using castLabs to deliver Widevine licenses to Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)

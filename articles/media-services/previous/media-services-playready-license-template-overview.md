@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # Media Services PlayReady license template overview
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Azure Media Services now provides a service for delivering PlayReady licenses. When the player (for example, Silverlight) tries to play your PlayReady-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
 
 Media Services also provides APIs that you can use to configure your PlayReady licenses. Licenses contain the rights and restrictions that you want the PlayReady digital rights management (DRM) runtime to enforce when a user tries to play back protected content.

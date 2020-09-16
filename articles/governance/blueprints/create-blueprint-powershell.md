@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with PowerShell"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with PowerShell

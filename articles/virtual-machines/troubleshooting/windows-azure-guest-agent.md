@@ -9,7 +9,7 @@ editor:
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/07/2020
+ms.date: 09/15/2020
 ms.author: genli
 ---
 # Troubleshooting Windows Azure Guest Agent
@@ -47,7 +47,7 @@ Go to to the VM properties page in Azure portal, and check the **Agent status**.
     
     You can run the following PowerShell command to check whether VM Agent has been deployed to the VM:
     
-    `Get-Az VM -ResourceGroup “RGNAME” – Name “VMNAME” -displayhint expand`
+    `Get-AzVM -ResourceGroupName "RGNAME" -Name "VMNAME" -DisplayHint expand`
     
     In the output, locate the **ProvisionVMAgent** property, and check whether the value is set to **True**. If it is, this means that the agent is installed on the VM.
     
@@ -96,7 +96,7 @@ The Windows Azure Guest Agent has an auto-update feature. It will automatically 
 
 1. Move any folders that are named Packages or GuestAgent into the OLD folder.
 
-1. Download and install the latest version of the agent installation package from [here](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409). You must have Administrator rights to complete the installation.
+1. Download and install the latest version of the agent installation package from [here](https://go.microsoft.com/fwlink/?linkid=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 
 1. Install Guest Agent by using the following command:
 

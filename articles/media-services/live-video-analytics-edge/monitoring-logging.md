@@ -15,7 +15,8 @@ You will also learn about how you can control the logs that the module generates
 
 Live Video Analytics on IoT Edge emits events, or telemetry data according to the following taxonomy.
 
-![Live Video Analytics on IoT Edge telemetry schema](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomy of events":::
 
 * Operational: events that are generated as part of actions taken by a user, or during the execution of a [media graph](media-graph-concept.md).
    
@@ -66,6 +67,7 @@ Live Video Analytics on IoT Edge emits events, or telemetry data according to th
    * Examples:
       
       Motion detected (below), Inference result.
+
    ```      
    {
      "body": {
@@ -93,7 +95,30 @@ Live Video Analytics on IoT Edge emits events, or telemetry data according to th
      }
    }
    ```
+
 The events emitted by the module are sent to the [IoT Edge Hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub), and from there it can be routed to other destinations. 
+
+### Timestamps in analytic events
+
+As indicated above, events generated as part of video analysis have a timestamp associated with them. If you [recorded the live video](video-recording-concept.md) as part of your graph topology, then this timestamp helps you locate where in the recorded video that particular event occurred. Following are the guidelines on how to map the timestamp in an analytic event to the timeline of the video recorded into an [Azure Media Service asset](terminology.md#asset).
+
+First, extract the `eventTime` value. Use this value in a [time range filter](playback-recordings-how-to.md#time-range-filters) to retrieve a suitable portion of the recording. For example, you may want to fetch video that starts 30 seconds before `eventTime` and ends 30 seconds afterwards. With the above example, where `eventTime` is 2020-05-12T23:33:09.381Z, a request for a HLS manifest for the +/- 30s window would look like the following:
+
+```
+https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
+```
+
+The URL above would return a so-called [master playlist](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), containing URLs for media playlists. The media playlist would contain entries like the following:
+
+```
+...
+#EXTINF:3.103011,no-desc
+Fragments(video=143039375031270,format=m3u8-aapl)
+...
+```
+In the above, the entry reports that a video fragment is available that starts at a timestamp value of `143039375031270`. The `timestamp` value in the analytic event uses the same timescale as the media playlist, and can be used to identify the relevant video fragment, and seek to the correct frame.
+
+For more information, you can read one of the many [articles](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) on frame accurate seeking in HLS.
 
 ## Controlling events
 

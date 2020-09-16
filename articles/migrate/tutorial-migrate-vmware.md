@@ -89,26 +89,36 @@ Enable replication as follows:
 
 6. In **Target settings**, select the subscription and target region. Specify the resource group in which the Azure VMs reside after migration.
 7. In **Virtual Network**, select the Azure VNet/subnet which the Azure VMs join after migration.
-7. In **Azure Hybrid Benefit**:
+8. In **Availability options**, select:
+    -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
+    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
+    - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
+
+9. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
     ![Target settings](./media/tutorial-migrate-vmware/target-settings.png)
 
-8. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+10. In **Compute**, In Compute, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
-    - **Availability set**: If the VM  will reside in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
+    - **Availability Zone**: Specify the Availability Zone to use.
+    - **Availability Set**: Specify the Availability Set to use.
 
-    ![VM compute settings](./media/tutorial-migrate-vmware/compute-settings.png)
+> [!NOTE]
+>If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
-9. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
+
+ ![VM compute settings](./media/tutorial-migrate-vmware/compute-settings.png)
+
+11. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
    
-    ![Disks](./media/tutorial-migrate-vmware/disks.png)
+    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/tutorial-migrate-vmware/disks.png)
 
-10. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+12. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts (**Manage** > **Replicating machines**). You can't change settings after replication starts.

@@ -9,6 +9,7 @@ ms.subservice:
 ms.date: 04/15/2020 
 ms.author: v-stazar 
 ms.reviewer: jrasnick
+ms.custom: devx-track-csharp
 ---
 
 # Connection strings for Synapse SQL (preview)

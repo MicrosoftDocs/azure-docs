@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Share outside your org - Azure Data Share'
-description: Quickstart - Share data with customers and partners using Azure Data Share and Resource Manager template
+title: 'Share outside your org (ARM template) - Azure Data Share quickstart'
+description: Learn how to share data with customers and partners using Azure Data Share and Resource Manager template in this quickstart.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/17/2020
+ms.date: 08/19/2020
 ---
 
-# Tutorial: Share data using Azure Data Share and Resource Manager templates
+# Quickstart: Share data using Azure Data Share and Resource Manager templates
 
 Learn how to set up a new Azure Data Share from an Azure storage account by using Azure Resource Manager template and start sharing your data with customers and partners outside of your Azure organization. For a list of the supported data stores, see [Supported data stores in Azure Data Share](./supported-data-stores.md).
 
@@ -96,4 +96,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this tutorial, you learnt how to create an Azure data share and invite recipients. To learn more about how a data consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.
+In this quickstart, you learnt how to create an Azure data share and invite recipients. To learn more about how a data consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.

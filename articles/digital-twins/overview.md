@@ -107,5 +107,4 @@ If you have worked with the previous preview release of Azure Digital Twins, lea
 
 Or, go ahead and dive into working with Azure Digital Twins with the first tutorial:
 
-> [!div class="nextstepaction"]
-> [*Tutorial: Code a client app*](tutorial-code.md)
+[*Tutorial: Code a client app*](tutorial-code.md)

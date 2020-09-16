@@ -177,13 +177,13 @@ No, the dependency visualization report in agent-based visualization can't be ex
 For agent-based dependency visualization:
 
 - Use a [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
-- For MMA, [use the command line or automation](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- For MMA, [use the command line or automation](../azure-monitor/platform/log-analytics-agent.md#installation-options), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/intigua-for-azure-migration) to deploy the agents.
 
 ## What operating systems does MMA support?
 
-- View the list of [Windows operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
-- View the list of [Linux operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
+- View the list of [Windows operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+- View the list of [Linux operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#installation-options).
 
 ## Can I visualize dependencies for more than one hour?
 

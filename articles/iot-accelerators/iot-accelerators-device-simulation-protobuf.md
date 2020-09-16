@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom:  [mvc, amqp]
+ms.custom:  "mvc, amqp, devx-track-csharp"
 ms.date: 11/06/2018
 ms.author: dobett
 

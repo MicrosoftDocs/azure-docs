@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
 ms.topic: include
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites

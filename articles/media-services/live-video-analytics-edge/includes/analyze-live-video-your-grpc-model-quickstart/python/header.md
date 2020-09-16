@@ -1,0 +1,1 @@
+This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in Python, and it builds on the [Detect motion and emit events](../../../detect-motion-emit-events-quickstart.md) quickstart.

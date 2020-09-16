@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: anfeldma
+ms.custom: devx-track-csharp
 
 ---
 # Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
