@@ -19,7 +19,7 @@ ms.reviewer: larryfr
 * **Customer-managed key**: Audit or enforce whether workspaces must use a customer-managed key.
 * **Private link**: Audit whether workspaces use a private endpoint to communicate with a virtual network.
 
-Policies can be set at different scopes, such as at the subscription or resource group level.
+Policies can be set at different scopes, such as at the subscription or resource group level. For more information, see the [Azure Policy documentation](/azure/governance/policy/overview).
 
 ## Built-in policies
 
