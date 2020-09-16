@@ -65,7 +65,7 @@ Follow the appropriate section below depending on your target platform to config
 
 [Install on AKS on Azure Stack HCI](#install-on-aks-on-azure-stack-hci)
 
-[Install on Red Hat OpenShift Container Platform (OCP/ARO)](#install-on-red-hat-openshift-container-platform-ocp-aro)
+[Install on Red Hat OpenShift Container Platform (OCP/ARO)](#install-on-red-hat-openshift-container-platform-ocparo)
 
 [Install on open source, upstream Kubernetes (kubeadm)](#install-on-open-source-upstream-kubernetes-kubeadm)
 
