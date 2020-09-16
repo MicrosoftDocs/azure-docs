@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ---
 
@@ -78,6 +78,11 @@ Rate limit rules require two additional fields: **Rate limit duration** and **Ra
 The Azure managed Default Rule Set is enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group,  select the check box in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
 
  ![Change WAF Rule Set](../media/waf-cdn-create-portal/managed2.png)
+
+## Clean up resources
+
+When no longer needed, remove the resource group and all related resources.
+
 
 ## Next steps
 
