@@ -69,7 +69,7 @@ At this point, you should be able to step-through and debug your code using VS C
 Similar to remote experiment runs, you can expand your run node to inspect the logs and outputs.
 
 > [!TIP]
-> Docker images that use the same dependencies defined in your environment are reused between runs. However, if you run an experiment using a new environment, a new image is created. Since these images are saved to your local storage, it's recommended to remove old or unused Docker images. To do remove images from your system, use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/rmi/) or the [Visual Studio Code Docker extension](https://code.visualstudio.com/docs/containers/overview).
+> Docker images that use the same dependencies defined in your environment are reused between runs. However, if you run an experiment using a new or different environment, a new image is created. Since these images are saved to your local storage, it's recommended to remove old or unused Docker images. To do remove images from your system, use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/rmi/) or the [VS Code Docker extension](https://code.visualstudio.com/docs/containers/overview).
 
 ## Debug and troubleshoot machine learning pipelines
 
