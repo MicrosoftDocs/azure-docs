@@ -130,25 +130,34 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     .\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
     ```
 
-> [!NOTE]
-> The script enable-monitoring.ps1 uses the interactive device login. If you prefer non-interactive login, you can use existing or create new service principal which has required permissions as described in [Prerequisites](#prerequisites). To use service principal, you will have to pass $servicePrincipalClientId, $servicePrincipalClientSecret and $tenantId parameters with values of service principal you have intended to use to enable-monitoring.ps1 script.
-> 
-> $subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
-> $servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
-> 
-> Below role assignment only applicable, if you are using existing Azure Log Analytics which is in different Azure Subscription than the Arc K8s Connected Cluster resource
+After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
+
+### Using service principal
+The script *enable-monitoring.ps1* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](#prerequisites). To use service principal, you will have to pass $servicePrincipalClientId, $servicePrincipalClientSecret and $tenantId parameters with values of service principal you have intended to use to enable-monitoring.ps1 script.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+```
+
+The role assignment below is only applicable if you are using existing Log Analytics workspace in a different Azure Subscription than the Arc K8s Connected Cluster resource.
+
+```powershell
 $logAnalyticsWorkspaceResourceId = "<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
 New-AzRoleAssignment -RoleDefinitionName 'Log Analytics Contributor'  -ObjectId $servicePrincipal.Id -Scope  $logAnalyticsWorkspaceResourceId
->
-> $servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
-> $servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
-> $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
-> 
-> For example:
-> `.\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint`
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+For example:
+
+```powershell
+.\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint`
+```
 
 
-After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
 ## Enable using bash script
 
