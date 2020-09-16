@@ -92,7 +92,7 @@ The following table details all available methods to migrate your SQL Server dat
  
 > [!TIP]
 > For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md).
-> <---Try an extra bracket
+> 
  
 ### Test after heading
  
