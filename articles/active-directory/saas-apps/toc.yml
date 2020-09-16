@@ -427,6 +427,10 @@
         href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
         href: cyberark-saml-authentication-tutorial.md
+      - name: CyberSolutions CYBERMAILΣ
+        href: cybersolutions-cybermail-tutorial.md
+      - name: CyberSolutions MAILBASEΣ\CMSS
+        href: cybersolutions-mailbase-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -684,6 +688,8 @@
         href: github-enterprise-cloud-enterprise-account-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: Glint Inc
+        href: glint-inc-tutorial.md
       - name: GlobalOne
         href: globalone-tutorial.md
       - name: GoLinks
@@ -1406,7 +1412,7 @@
         href: salesforce-tutorial.md
       - name: Salesforce Sandbox
         href: salesforce-sandbox-tutorial.md
-      - name: Samanage
+      - name: SolarWinds Service Desk (previously Samanage)
         href: samanage-tutorial.md
       - name: SAML 1.1 Token enabled LOB App
         href: saml-tutorial.md
@@ -1864,6 +1870,8 @@
         href: zenqms-tutorial.md
       - name: ZephyrSSO
         href: zephyrsso-tutorial.md
+      - name: Zeroheight
+        href: zeroheight-tutorial.md
       - name: Ziflow
         href: ziflow-tutorial.md
       - name: ZIVVER
@@ -2063,7 +2071,7 @@
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
         href: salesforce-sandbox-provisioning-tutorial.md
-      - name: Samanage
+      - name: SolarWinds Service Desk (previously Samanage)
         href: samanage-provisioning-tutorial.md
       - name: SAP Analytics Cloud
         href: sap-analytics-cloud-provisioning-tutorial.md
