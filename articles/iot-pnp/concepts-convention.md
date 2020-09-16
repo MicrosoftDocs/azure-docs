@@ -11,7 +11,7 @@ services: iot-pnp
 
 # IoT Plug and Play conventions
 
-IoT Plug and Play devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play devices use the MQTT protocol to communicate with IoT Hub.
+IoT Plug and Play devices and IoT Edge modules should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play devices use the MQTT protocol to communicate with IoT Hub.
 
 You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) _model_. There are two types of model referred to in this article:
 
@@ -22,9 +22,9 @@ For more information, see [IoT Plug and Play components in models](concepts-comp
 
 ## Identify the model
 
-To announce the model it implements, an IoT Plug and Play device includes the model ID in the MQTT connection packet by adding `model-id` to the `USERNAME` field.
+To announce the model it implements, an IoT Plug and Play device or module includes the model ID in the MQTT connection packet by adding `model-id` to the `USERNAME` field.
 
-To identify the model that a device implements, a service can get the model ID from:
+To identify the model that a device or module implements, a service can get the model ID from:
 
 - The device twin `modelId` field.
 - The digital twin `$metadata.$model` field.
@@ -40,7 +40,7 @@ Telemetry sent from a multiple component device must add `$.sub` as a message pr
 
 ### Sample no component read-only property
 
-A device can send any valid JSON that follows the DTDL v2 rules.
+A device or module can send any valid JSON that follows the DTDL v2 rules.
 
 :::row:::
    :::column span="":::
@@ -73,7 +73,7 @@ A device can send any valid JSON that follows the DTDL v2 rules.
 
 ### Sample multiple components read-only property
 
-The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
+The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
 :::row:::
    :::column span="":::
@@ -120,7 +120,7 @@ The device must add the `{"__t": "c"}` marker to indicate that the element refer
 
 ## Writable properties
 
-The device should confirm that it received the property by sending a reported property. The reported property should include:
+The device or module should confirm that it received the property by sending a reported property. The reported property should include:
 
 - `value` - the actual value of the property (typically the received value, but the device may decide to report a different value).
 - `ac` - an acknowledgment code that uses an HTTP status code.
@@ -129,7 +129,7 @@ The device should confirm that it received the property by sending a reported pr
 
 ### Sample no component writable property
 
-A device can send any valid JSON that follows the DTDL v2 rules:
+A device or module can send any valid JSON that follows the DTDL v2 rules:
 
 :::row:::
    :::column span="":::
@@ -178,11 +178,11 @@ A device can send any valid JSON that follows the DTDL v2 rules:
 
 ### Sample multiple components writable property
 
-The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
+The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
 The marker is sent only for component level updates, so devices mustn't check for this flag.
 
-The device should confirm that it received the property by sending a reported property:
+The device or module should confirm that it received the property by sending a reported property:
 
 :::row:::
    :::column span="":::
@@ -250,7 +250,7 @@ The device should confirm that it received the property by sending a reported pr
 
 No component interfaces use the command name without a prefix.
 
-On a device, multiple component interfaces use command names with the following format: `componentName*commandName`.
+On a device or module, multiple component interfaces use command names with the following format: `componentName*commandName`.
 
 ## Next steps
 

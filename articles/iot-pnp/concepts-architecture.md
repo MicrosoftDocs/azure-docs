@@ -38,9 +38,27 @@ The model repository uses RBAC to enable you to limit access to interface defini
 A device builder implements the code to run on an IoT smart device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the device builder to:
 
 - Connect securely to an IoT hub.
-- Register the device with your IoT hub and announce the model ID that identifies the collection of interfaces the device implements.
-- Update the properties defined in the DTDL interfaces the device implements. These properties are implemented using digital twins that manage the synchronization with your IoT hub.
-- Add command handlers for the commands defined in the DTDL interfaces the device implements.
+- Register the device with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.
+- Synchronize the properties defined in the DTDL interfaces between the device and your IoT hub.
+- Add command handlers for the commands defined in the DTDL interfaces.
+- Send telemetry to the IoT hub.
+
+## IoT Edge gateway
+
+An IoT Edge gateway acts as an intermediary to connect IoT Plug and Play devices that can't connect directly to an IoT hub. To learn more, see [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md).
+
+## IoT Edge modules
+
+An _IoT Edge module_ lets you deploy and manage business logic on the edge. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code.
+
+The _IoT Edge hub_ is one of the modules that make up the Azure IoT Edge runtime. It acts as a local proxy for IoT Hub by exposing the same protocol endpoints as IoT Hub. This consistency means that clients (whether devices or modules) can connect to the IoT Edge runtime just as they would to IoT Hub.
+
+The device SDKs help a module builder to:
+
+- Use the IoT Edge hub to connect securely to your IoT hub.
+- Register the module with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.
+- Synchronize the properties defined in the DTDL interfaces between the device and your IoT hub.
+- Add command handlers for the commands defined in the DTDL interfaces.
 - Send telemetry to the IoT hub.
 
 ## IoT Hub

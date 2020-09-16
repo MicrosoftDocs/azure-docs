@@ -13,16 +13,18 @@ services: iot-pnp
 
 IoT Plug and Play lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-This guide describes the basic steps required to create a device that follows the [IoT Plug and Play conventions](concepts-convention.md), and the available REST APIs you can use to interact with the device.
+A smart device might be implemented directly or using IoT Edge modules.
 
-To build an IoT Plug and Play device, follow theses steps:
+This guide describes the basic steps required to create a device or IoT Edge module that follows the [IoT Plug and Play conventions](concepts-convention.md), and the available REST APIs you can use to interact with the device.
+
+To build an IoT Plug and Play device or IoT Edge module, follow theses steps:
 
 1. Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub.
 1. Create a [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) model to describe your device. To learn more, see [Understand components in IoT Plug and Play models](concepts-components.md).
-1. Update your device to announce the `model-id` as part of the device connection.
+1. Update your device or module to announce the `model-id` as part of the device connection.
 1. Implement telemetry, properties, and commands using the [IoT Plug and Play conventions](concepts-convention.md)
 
-Once your device implementation is ready, use the [Azure IoT explorer](howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play conventions.
+Once your device or module implementation is ready, use the [Azure IoT explorer](howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play conventions.
 
 > [!Tip]
 > All code fragments in this article use C#, but the concepts are applicable to any of the available SDKs for C, Python, Node, and Java.
@@ -39,6 +41,9 @@ DeviceClient.CreateFromConnectionString(
 ```
 
 The new `ClientOptions` overload is available in all `DeviceClient` methods used to initialize a connection.
+
+> [!TIP]
+> For IoT Edge, use `ModuleClient` in place of `DeviceClient`.
 
 The model ID announcement has been added to the next versions of the SDKs
 
@@ -77,7 +82,7 @@ public async Task SendComponentTelemetryValueAsync(string componentName, string 
   message.Properties.Add("$.sub", componentName);
   message.ContentType = "application/json";
   message.ContentEncoding = "utf-8";
-  await deviceClient.SendEventAsync(message);
+  await client.SendEventAsync(message);
 }
 ```
 
@@ -127,7 +132,7 @@ The device twin is updated with the next reported property:
 
 ### Writable properties
 
-These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
+These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient` or `ModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
 
 #### Report a writable property
 
@@ -383,11 +388,14 @@ await client.SetMethodHandlerAsync("start", (MethodRequest req, object ctx) =>
 > [!Tip]
 > The request and response names aren't present in the serialized payloads transmitted over the wire.
 
-## Interact with the device 
+## Interact with the device
 
 IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
 
 To use an IoT Plug and Play device that's connected to your IoT hub, use either the IoT Hub REST API or one of the IoT language SDKs. The following examples use the IoT Hub REST API. The current version of the API is `2020-05-31-preview`. Append `?api-version=2020-05-31` to your REST PI calls.
+
+> [!NOTE]
+> IoT Edge module twins are not currently supported by the `digitalTwins` API.
 
 If your thermostat device is called `t-123`, you get the all the properties on all the interfaces implemented by your device with a REST API GET call:
 

@@ -33,7 +33,7 @@ IoT Hub is a managed service, hosted in the cloud, that acts as a central messag
 
 ## Azure IoT device SDK
 
-There are device SDKs for multiple languages that you can use to build IoT Plug and Play device client applications.
+There are device SDKs for multiple languages that you can use to build IoT Plug and Play device client applications. USe **DeviceClient** for devices, and **ModuleClient** for IoT Edge modules.
 
 ## Commands
 
@@ -64,7 +64,7 @@ A device builder uses a [device model](#device-model) and [interfaces](#interfac
 
 ## Device modeling
 
-A [device builder](#device-builder) uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). A [solution builder](#solution-builder) can configure an IoT solution from the model.
+A [device builder](#device-builder) or [module builder](#module-builder)uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). A [solution builder](#solution-builder) can configure an IoT solution from the model.
 
 ## Digital twin
 
@@ -92,7 +92,7 @@ The IoT Hub query language is used for multiple purposes. For example, you can u
 
 ## IoT Plug and Play device
 
-An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device model](#device-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
+An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device model](#device-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. An IoT Plug and Play device might be implemented directly or as an IoT Edge module. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
 
 ## IoT Plug and Play conventions
 
@@ -109,6 +109,10 @@ A [model repository](concepts-model-repository.md) stores [device models](#devic
 ## Model repository REST API
 
 An API for managing and interacting with the model repository. For example, you can use the API to add and search for [device models](#device-model).
+
+## Module builder
+
+A module builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Module builders implement the code as an IoT Edge module to deploy to the IoT Edge runtime on a device.
 
 ## Properties
 
