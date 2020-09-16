@@ -1,5 +1,5 @@
 ---
-title: Debug Azure API Management Policies in Visual Studio Code | Microsoft Docs
+title: Debug Azure API Management policies in Visual Studio Code | Microsoft Docs
 description: Learn how to debug Azure API Management Policies using the Azure API Management Visual Studio Code extension 
 services: api-management
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
 ---
-# Debug Azure API Management Policies in Visual Studio Code
+# Debug Azure API Management policies in Visual Studio Code
 
 [Policies](api-management-policies.md) in Azure API Management provide powerful capabilities that help API publishers address cross-cutting concerns such as authentication, authorization, throttling, caching, and transformation. Policies are a collection of statements that are executed sequentially on the request or response of an API. 
 
@@ -27,9 +27,9 @@ This article describes how to debug API Management policies using the [Azure API
 
 Create an API Management Developer-tier instance by following this [tutorial](get-started-create-service-instance.md) first.
 
-Install [Visual Studio Code](https://code.visualstudio.com/) and the [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+Install [Visual Studio Code](https://code.visualstudio.com/) and the latest version of [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
 
-## Restrictions and Limitations
+## Restrictions and limitations
 
 This feature is only available in the Developer tier of API Management. Each API Management instance supports only one concurrent debugging session.
 
@@ -46,9 +46,9 @@ At this point, the extension will try to initiate and establish a debugging sess
 ![initiate debugging](media/api-management-debug-policies/initiate-debugging.png)
 
 ## Send a test request
-When the debugging session is established, the extension wii open a new editor that allows us to create and send a test HTTP request to this operation leveraging the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
+When the debugging session is established, the extension will open a new editor that allows us to create and send a test HTTP request to this operation leveraging the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 
-You will notice the **Ocp-Apim-Debug** header has already been added to the request. This header is required to trigger the debugging functionality in the API Management gateway.
+You will notice the **Ocp-Apim-Debug** header has already been added to the request. This header is required and the value must be set to the service-level, all-access subscription key to trigger the debugging functionality in the API Management gateway.
 
 Modify the HTTP request in the editor according to your test scenario. Then click **send request** to send the test request to the API Management gateway.
 
@@ -68,7 +68,7 @@ If there is an error during policy execution, you will see the details of the er
 ![exceptions](media/api-management-debug-policies/exception.png)
 
 > [!TIP]
-> Remember to exit the debug session when you are finished.
+> Remember to exit the debug session by clicking the **Stop** button when you are finished.
 
 
 ## Next steps
