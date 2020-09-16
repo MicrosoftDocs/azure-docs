@@ -62,8 +62,6 @@ Yes. You can link your existing jobs to your newly created Stream Analytics clus
 
 Your Stream Analytics clusters are charged based on the chosen SU capacity. Clusters are billing hourly and there are no additional charges per job running in these clusters. See the [Private Link Service pricing page](https://azure.microsoft.com/pricing/details/private-link/) for private endpoint billing updates.
 
-You can contact your account team or the [Stream Analytics team](mailto:askasa@microsoft.com) to learn about [commitment pricing](https://aka.ms/asaclusterpricing) discounts.
-
 ### Which inputs and outputs can I privately connect to from my Stream Analytics cluster?
 
 Stream Analytics supports various input and output types. Any of these services that support Azure Private Links can connect to your jobs privately. You can [create private endpoints](private-endpoints.md) in your cluster that allow jobs to access the input and output resources.
