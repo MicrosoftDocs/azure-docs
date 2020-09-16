@@ -58,6 +58,8 @@ Advisor identifies tables that don't have up-to-date [table statistics](../synap
 
 Advisor analysis can indicate that your application connecting to a MySQL server might not be managing connections efficiently. This condition could lead to unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can make these improvements by configuring a server-side connection pooler, like ProxySQL.
 
+## Update your current Compute Management SDK version to the most recent version
+Advisor identifies subscriptions which have operations using outdated Compute Management SDK versions. This might impact the security and performance of your workloads and thus, Advisor recommends you to switch to the latest version of Compute Management SDK. 
 
 ## Scale up to optimize cache utilization on your Azure Synapse Analytics tables to increase query performance
 

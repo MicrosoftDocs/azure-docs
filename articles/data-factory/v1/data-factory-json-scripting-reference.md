@@ -1158,7 +1158,7 @@ To define an Azure Synapse Analytics dataset, set the **type** of the dataset to
 
 For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) article.
 
-### SQL DW Source in Copy Activity
+### Azure Synapse Analytics Source in Copy Activity
 If you are copying data from Azure Synapse Analytics, set the **source type** of the copy activity to **SqlDWSource**, and specify following properties in the **source** section:
 
 
@@ -1213,7 +1213,7 @@ If you are copying data from Azure Synapse Analytics, set the **source type** of
 
 For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
 
-### SQL DW Sink in Copy Activity
+### Azure Synapse Analytics Sink in Copy Activity
 If you are copying data to Azure Synapse Analytics, set the **sink type** of the copy activity to **SqlDWSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
