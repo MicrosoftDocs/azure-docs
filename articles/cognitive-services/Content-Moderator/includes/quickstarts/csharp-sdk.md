@@ -31,9 +31,7 @@ Use the Content Moderator client library for .NET to:
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## Setting up
-
-### Create a Content Moderator Azure resource
+## Create a Content Moderator resource
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Content Moderator using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
@@ -41,7 +39,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 After you get a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `CONTENT_MODERATOR_SUBSCRIPTION_KEY` and `CONTENT_MODERATOR_ENDPOINT`, respectively.
 
-### Create a new C# application
+## Create a new C# application
 
 Create a new .NET Core application in your preferred text editor or IDE. 
 
@@ -78,7 +76,7 @@ In the **Program** class, create variables for your resource's endpoint location
 > [!NOTE]
 > If you created the environment variables after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variables.
 
-### Install the client library
+## Install the client library
 
 Within the application directory, install the Content Moderator client library for .NET with the following command:
 
@@ -100,7 +98,6 @@ The following classes handle some of the major features of the Content Moderator
 |[Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|This class provides the functionality of the Review APIs, including the methods for creating jobs, custom workflows, and human reviews.|
 
 ## Code examples
-
 
 These code snippets show you how to do the following tasks with the Content Moderator client library for .NET:
 
@@ -170,7 +167,7 @@ Add the following class definition within the **Program** class. This inner clas
 
 The following method iterates through the image URLs in a text file, creates an **EvaluationData** instance, and analyzes the image for adult/racy content, text, and human faces. Then it adds the final **EvaluationData** instance to a list and writes the complete list of returned data to the console.
 
-#### Iterate through image URLs
+#### Iterate through images
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_iterate)]
 
