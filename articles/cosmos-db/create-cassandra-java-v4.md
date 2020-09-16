@@ -1,6 +1,6 @@
 ---
 title: Java app with Azure Cosmos DB Cassandra API using Java 4.0 SDK
-description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 
+description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 4.0 SDK.
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
