@@ -33,10 +33,10 @@ Azure confidential computing allows you to protect your sensitive data while it'
 
 ## AKS Provided Daemon Sets
 
-#### SGX Device Plugin
+#### SGX Device Plugin <a id="sgx-device"></a>
 SGX Device Plugin daemon set mounts the SGX drivers on-behalf to make Kubernetes clusters aware of Intel SGX hardware per node. Device plugin also helps facilitate proper scheduling of SGX-dependent containers by advertising `kubernetes.azure.com/sgx_epc_mem_in_MiB` as a deployable resource to Kubernetes. This EPC memory keeps track of the deployments to better allocate memory per deployment. View the deployment details of the SGX Device Plugin [here](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx/device-plugin.yaml)
 
-#### SGX Quote Helper Service
+#### SGX Quote Helper Service <a id="sgx-quote"></a>
 
 Enclave application that performs remote attestation requires to generate quote which provides a cryptographically proof of the identity and the state of the application as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components from Intel, which are part of the Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node and can be leveraged when requesting attestation quote from enclave apps. Using the AKS provided service will help better manage the attestation failures due to driver, microcode and PSW incompatibility. [Read more](platform-software-management.md) on its usage and feature details.
 

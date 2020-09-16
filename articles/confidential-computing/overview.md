@@ -73,18 +73,18 @@ Azure confidential computing allows you to leverage confidential computing capab
 ## Get Started
 ### Azure Compute
 Build applications on top of confidential compute IaaS offerings in Azure.
-- Virtual Machines (VMs): DCsv2-Series
-- Azure Kubernetes (AKS): Orchestrate confidential containers
+- Virtual Machines (VMs): [DCsv2-Series](confidential-computing enclaves.md)
+- Azure Kubernetes (AKS): [Orchestrate confidential containers](confidential-nodes-aks-overview.md)
 
 ### Azure Security 
 Ensure your workloads are secure through verification methods and hardware-bound key management. 
-- Attestation: Microsoft Azure Attestation (Preview)
+- Attestation: [Microsoft Azure Attestation (Preview)](https://docs.microsoft.com/azure/attestation/overview)
 - Key Management: Managed-HSM (Preview)
 
 ### Develop
 Start using developing enclave-aware applications and deploy confidential algorithms using the confidential inferencing framework.
-- Write applications to run on DCsv2 VMs: Open-enclave SDK
-- Confidential ML models in ONNX runtime: Confidential inferencing (beta)
+- Write applications to run on DCsv2 VMs: [Open-enclave SDK](https://github.com/openenclave/openenclave)
+- Confidential ML models in ONNX runtime: [Confidential inferencing (beta)]((https://aka.ms/confidentialinference))
 
 ## Next steps
 

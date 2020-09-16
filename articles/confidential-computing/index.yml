@@ -28,12 +28,14 @@ landingContent:
           - text: What is Azure confidential computing?
             url: overview.md
           - text: Industry solutions
-            url: use-cases-scenarios.md ##Needed
+            url: use-cases-scenarios.md 
+          - text: Intel SGX powered DCSv2-series virtual-machines
+            url: ../../virtual-machines/dcv2-series
       - linkListType: concept
         links:
           - text: Virtual machines
             url: confidential-computing-enclaves.md
-          - text: Container compute
+          - text: Container computing on AKS
             url: confidential-containers.md
           - text: Application Development
             url: application-development.md
@@ -46,7 +48,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Intel SGX virtual machines
-            url: confidential-computing enclaves
+            url: confidential-computing-enclaves.md
           - text: Solutions on virtual machines
             url: virtual-machine-solutions.md
           - text: Pricing
@@ -67,43 +69,52 @@ landingContent:
   # Card
   - title: Container compute
     linkLists:
-      - linkListType: get-started
-        links:
-          - text: Confidential containers overview
-            url: confidential-containers.md
-          - text: Enclave-aware containers
-            url: enclave-aware-containers.md
-      - linkListType: concept
-        links:
-          - text: Platform Software Management
-            url: platform-software-management.md
-          - text: Confidential nodes on AKS 
+      - linkListType: overview
+        links: 
+          - text: Azure Kubernetes Service (AKS) Confidential Computing Nodes (preview)
             url: confidential-nodes-aks-overview.md
-      - linkListType: quickstart
+      - linkListType: learn
         links:
-          - text: Run confidential nodes on AKS 
+         -  text: Confidential containers
+            url: confidential-containers.md
+         -  text: Enclave-aware containers
+            url: enclave-aware-containers.md
+         -  text: SGX quote helper
+            url: confidential-nodes-outofproc-attestation.md
+      - linkListType: deploy
+        links:
+          - text: A simple enclave container app on AKS
             url: confidential-nodes-aks-getstarted.md
+          - text: Confidential Container Samples (unmodified containers on SGX)
+            url: https://github.com/Azure-Samples/confidential-container-samples
+          - text: Enclave Aware Container Samples
+            url: https://github.com/Azure-Samples/enclave-aware-container-samples
       - linkListType: reference
         links:
           - text: Confidential nodes on AKS FAQ 
             url: confidential-nodes-aks-overview.md
-          ## add sample
+          - text: About Azure Kubernetes Service (AKS) 
+            url: ../aks/
+
 
 
 ##ROW 2
   # Card
+  # Card
   - title: Confidential cloud services
     linkLists:
-      - linkListType: concept
+      - linkListType: reference
         links:
-          - text: placeholder
-            url: google.com
+          - text: Azure Attestation Services (MAA)
+            url: ../attestation/
   
 
 # Card
   - title: Build with confidential computing
     linkLists:
-      - linkListType: concept
+      - linkListType: tutorial
         links:
-          - text: placeholder
-            url: google.com
+          - text: Confidential Healthcare Demo on AKS
+            url: https://github.com/Azure-Samples/confidential-container-samples
+          - text: Attested Mutual TLS with Open Enclave on AKS
+            url: https://github.com/Azure-Samples/enclave-aware-container-samples

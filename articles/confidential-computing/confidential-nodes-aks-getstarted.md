@@ -15,7 +15,7 @@ Customer intent: As a developer or cluster operator, I want to quickly create an
 In this quickstart, you will learn how to deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using the Azure CLI and run an hello world application in an enclave. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. Read more about AKS [here](https://docs.microsoft.com/azure/aks/intro-kubernetes).
 
 > [!NOTE]
-> Confidential computing DCSv2 VMs leverage specialized hardware that is subject to higher pricing and region availability. For more information, see the virtual machines page for [available SKU's and supported regions](virtual-machine-solutions.md).
+> Confidential computing DCSv2 VMs leverage specialized hardware that is subject to higher pricing and region availability. For more information, see the virtual machines page for [available SKUs and supported regions](virtual-machine-solutions.md).
 
 ## Before you begin
 
@@ -83,7 +83,7 @@ First, create a resource group for the cluster using the az group create command
 az group create --name myResourceGroup --location westus2
 ```
 
-Now create an AKS cluster using the az aks create command. The following example creates a cluster with a single node of size `Standard_DC2s_v2`. You can choose other supported list of DC SKUs from [here](https://docs.microsoft.com/azure/virtual-machines/dcv2-series):
+Now create an AKS cluster using the az aks create command. The following example creates a cluster with a single node of size `Standard_DC2s_v2`. You can choose other supported list of DCsv2 SKUs from [here](https://docs.microsoft.com/azure/virtual-machines/dcv2-series):
 
 ```azurecli-interactive
 az aks create \
@@ -96,7 +96,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets
     --aks-custom-headers usegen2vm=true,confcom
 ```
-The above command should provision a new AKS cluster with DCSv2 node pools and automatically install two daemon sets - SGX Device Plugin & SGX Quote Helper
+The above command should provision a new AKS cluster with DCSv2 node pools and automatically install two daemon sets - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](#confidential-nodes-aks-overview.md#sgx-quote))
 
 Get the credentials for your AKS cluster using the az aks get-credentials command:
 
