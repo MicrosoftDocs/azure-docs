@@ -117,12 +117,12 @@ There are several ways that you can configure entitlement management for your or
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. Open the access package
 1. [Open the lifecycle settings](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [Update the expiration settings](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [Update the expiration settings](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### Access package manager: Update how access is approved for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Open an existing policy of request settings](entitlement-management-access-package-request-policy.md#change-approval-settings-of-an-existing-access-package)
+1. [Open an existing policy of request settings](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Update the approval settings](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### Access package manager: Update the people for a project
