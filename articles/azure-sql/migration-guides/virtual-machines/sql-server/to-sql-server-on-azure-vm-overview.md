@@ -83,10 +83,31 @@ The following table details all available methods to migrate your SQL Server dat
 | | | | | | |
 
 
+&nbsp;
+
 > [!TIP]
-> See [Data transfer for large datasets with low or no network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md) to learn more. 
+> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md). 
 
+&nbsp;
+ 
+> [!TIP]
+> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md).
+> <---Try an extra bracket
+ 
+### Test after heading
+ 
+> [!TIP]
+> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md).
+ 
+Test between normal text
+ 
+> [!TIP]
+> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md).
+ 
+Why is this happening?
 
+> [!TIP]
+> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](https://docs.microsoft.com/azure/storage/common/storage-solution-large-dataset-low-network).
 
 ### Considerations
 
