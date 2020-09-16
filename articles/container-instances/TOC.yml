@@ -17,7 +17,7 @@
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
   - name: Deploy a container instance - Docker CLI
-    href: container-instances-quickstart-docker-cli.md
+    href: quickstart-docker-cli.md
 - name: Tutorials
   items:
   - name: Create and deploy container image
@@ -34,6 +34,8 @@
       href: container-instances-multi-container-yaml.md
     - name: Deploy a container group - Resource Manager
       href: container-instances-multi-container-group.md
+    - name: Deploy a container group - Docker Compose
+      href: tutorial-docker-compose.md
   - name: Integrate with Azure services
     items:
     - name: Trigger with Azure Functions
