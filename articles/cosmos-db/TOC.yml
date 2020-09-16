@@ -1072,6 +1072,8 @@
           href: troubleshoot-not-found.md
         - name : Troubleshoot unauthorized
           href: troubleshoot-unauthorized.md
+        - name : SDK Availability in multiregional environments
+          href: troubleshoot-sdk-availability.md
       - name: .NET
         items: 
         - name: General Troubleshooting .NET SDK
