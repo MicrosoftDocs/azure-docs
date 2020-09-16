@@ -44,13 +44,13 @@ After the disconnection is identified, the offboarding process begins.
 
 -   AWS
 
--   Microsoft services security alerts: Microsoft Defender for Identity (*formerly Azure ATP*), Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint (*formerly Microsoft Defender ATP*), Azure Defender (*formerly Azure Security Center*)
+-   Microsoft services security alerts (Azure ATP, Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
 
 -   Threat Intelligence
 
--   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you have Azure Defender, these logs will continue to be collected.)
+-   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you have Azure Security Center, these logs will continue to be collected.)
 
--   Windows Security Events (If you have Azure Defender, these logs will continue to be collected.)
+-   Windows Security Events (If you have Azure Security Center, these logs will continue to be collected.)
 
 Within the first 48 hours, the data and analytic rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
 

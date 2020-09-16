@@ -247,6 +247,7 @@ When a timer trigger function is invoked, a timer object is passed into the func
 
 The `IsPastDue` property is `true` when the current function invocation is later than scheduled. For example, a function app restart might cause an invocation to be missed.
 
+
 ## NCRONTAB expressions 
 
 Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret NCRONTAB expressions. An NCRONTAB expression is similar to a CRON expression except that it includes an additional sixth field at the beginning to use for time precision in seconds:
@@ -279,6 +280,8 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 |`"0 30 9 * * 1-5"`|at 9:30 AM every weekday|
 |`"0 30 9 * Jan Mon"`|at 9:30 AM every Monday in January|
 
+> [!NOTE]
+> NCRONTAB expression requires **six field** format. Five field cron expressions are not supported in Azure.
 
 ### NCRONTAB time zones
 
