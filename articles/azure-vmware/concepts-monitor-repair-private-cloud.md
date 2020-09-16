@@ -1,40 +1,29 @@
 ---
-title: Concepts - Monitoring and repair of Azure VMware Solution private clouds
+title: Concepts - Monitor and repair Azure VMware Solution private clouds
 description: Learn how Azure VMware Solution monitors and repairs VMware ESXi servers on an Azure VMware Solution private cloud.
 ms.topic: conceptual
 ms.date: 09/16/2020
 ---
 
-# Monitoring and repair of Azure VMware Solution private clouds
+# Monitor and repair Azure VMware Solution private clouds
 
 Azure VMware Solution continuously monitors the VMware ESXi servers on an Azure VMware Solution private cloud. 
 
-## What does Azure VMware Solution monitor?
+## What Azure VMware Solution monitors
 
 Azure VMware Solution monitors the following for failure conditions on the host:  
 
 - Processor status 
-
 - Memory status 
-
 - Connection and power state 
-
 - Hardware fan status 
-
 - Network connectivity loss 
-
 - Hardware system board status 
-
 - Errors occurred on the disk(s) of a vSAN host 
-
 - Hardware voltage 
-
 - Hardware temperature status 
-
 - Hardware power status 
-
 - Storage status 
-
 - Connection failure 
 
 > [!NOTE]
