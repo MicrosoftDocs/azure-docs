@@ -26,8 +26,9 @@ In this article, you will use the [Azure portal](https://portal.azure.com) to **
 ## Prerequisites
 
 If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
-Sign in to the [Azure portal](https://portal.azure.com) with this account. \
-The rest of this section will walk you through these steps
+Sign in to the [Azure portal](https://portal.azure.com) with this account. 
+
+The rest of this section will walk you through these steps:
 - Set up an Azure Digital Twins instance
 - Get app registration client secret
 - Add a digital twin
