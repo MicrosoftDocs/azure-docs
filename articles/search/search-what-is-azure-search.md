@@ -22,7 +22,7 @@ Architecturally, a search service sits in between the external data stores that 
 
 Indexing brings text into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. An index schema determines the structure of searchable content. During indexing, you have the option of adding *cognitive skills*, either predefined ones from Microsoft or custom skills that you create. The subsequent analysis and transformations can result in new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
 
-Once an index is populated with searchable data, your client app sends query requests to a search service and handles responses. All query execution is over a search index that you create, own, and store in your service. The search experience is defined in your client using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
+Once an index is populated with searchable data, your client app sends query requests to a search service and handles responses. All query execution is over a search index that you create, own, and store in your service. In your client app, the search experience is defined using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. You can also use the Azure portal for service administration and content management, with tools for prototyping and querying your indexes and skillsets. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
@@ -58,7 +58,7 @@ Define an index schema to map to reflect the structure of the documents you wish
 It's common to [create the index schema in the Azure portal](search-what-is-an-index.md), or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](/rest/api/searchservice/).
 
 > [!TIP]
-> Jump to [the Import data wizard quickstart](search-get-started-portal) for to create, load, and query an index in minutes.
+> Jump to [the Import data wizard quickstart](search-get-started-portal.md) for to create, load, and query an index in minutes.
 
 ### Step 3: Load data
 
