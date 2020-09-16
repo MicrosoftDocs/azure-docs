@@ -115,7 +115,7 @@ On the **General settings** page of **Integration runtime setup** pane, complete
 
    4. For **Node Size**, select the size of the node in your integration runtime cluster. Only supported node sizes are displayed. Select a large node size (scale up) if you want to run many compute-intensive or memory-intensive packages.
    > [!NOTE]
-   > If your security requirements include [compute isolation](https://docs.microsoft.com/en-us/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), select a Standard_E64i_v3 node size. These node size represent isolated virtual machines that consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads.   
+   > If your security requirements include [compute isolation](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), select a Standard_E64i_v3 node size. These node size represent isolated virtual machines that consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads.   
 
    5. For **Node Number**, select the number of nodes in your integration runtime cluster. Only supported node numbers are displayed. Select a large cluster with many nodes (scale out) if you want to run many packages in parallel.
 
