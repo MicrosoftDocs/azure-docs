@@ -67,11 +67,11 @@ To create a custom rule, select **Add custom rule** under the **Custom rules** s
 
 The following screenshot shows a custom match rule to block a request if the query string contains the value **blockme**.
 
-![Change WAF policy mode](../media/waf-cdn-create-portal/custommatch.png)
+![Add custom match rule](../media/waf-cdn-create-portal/custommatch.png)
 
 Rate limit rules require two additional fields: **Rate limit duration** and **Rate limit threshold (requests)** as shown in the following example:
 
-![Change WAF policy mode](../media/waf-cdn-create-portal/customrate.png)
+![Add rate limit rule](../media/waf-cdn-create-portal/customrate.png)
 
 ### Default Rule Set (DRS)
 
