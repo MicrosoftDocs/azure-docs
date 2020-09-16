@@ -77,7 +77,7 @@ The following table summarizes the key differences between ML Studio (classic) a
 
 | Feature | ML Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-| Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer](concept-designer.md) <br/>(Requires Enterprise workspace) | 
+| Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer](concept-designer.md)| 
 | Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) and [R](tutorial-1st-r-experiment.md) SDKs |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 
