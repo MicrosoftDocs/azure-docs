@@ -52,7 +52,7 @@ Replace *microsoft* with your ACR login server name. The image name is found on 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:v1
+  image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
 ```
 
 Provide your own ACR login server name so that your manifest file looks like the following example:
