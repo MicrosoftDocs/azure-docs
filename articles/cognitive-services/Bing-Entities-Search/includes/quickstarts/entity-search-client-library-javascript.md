@@ -21,7 +21,7 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 
 To install the Bing Entity Search SDK:
 
-1. Run `npm install ms-rest-azure` in your development environment.
+1. Run `npm install @azure/ms-rest-azure-js` in your development environment.
 2. Run `npm install @azure/cognitiveservices-entitysearch` in your development environment.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -32,7 +32,7 @@ To install the Bing Entity Search SDK:
 1. Create a new JavaScript file in your favorite IDE or editor, and add the following requirements.
 
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     const EntitySearchAPIClient = require('@azure/cognitiveservices-entitysearch');
     ```
 
