@@ -103,7 +103,7 @@ In the *Edit Logic Apps Custom Connector* page that follows, configure this info
     - File: This will be the custom Swagger file you downloaded earlier. Hit *Import*, locate the file on your machine (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.json*), and hit *Open*.
 * **General information**
     - Icon: Upload an icon that you like
-    - Icon background color: Enter hexadecimal code in the format '#xxxxxx' for your color. You can search for it on search engine.
+    - Icon background color: Enter hexadecimal code in the format '#xxxxxx' for your color.
     - Description: Fill whatever values you would like.
     - Scheme: HTTPS (leave default)
     - Host: The *host name* of your Azure Digital Twins instance.
@@ -160,22 +160,11 @@ You are now done setting up a custom connector that can access the Azure Digital
 
 Next, you'll create a logic app that will use your new connector to automate Azure Digital Twins updates.
 
-Navigate to the [Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) page in the Azure portal (you can use this link or look for it in the portal search bar). Hit *Create logic app*.
+Navigate to the [Logic apps (consumption)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) page in the Azure portal (you can use this link or look for it in the portal search bar). Hit *Add* button to create a logic app.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="The 'Logic Apps' page in the Azure portal. Highlight around 'Create logic app' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="The 'Logic Apps (consumption)' page in the Azure portal. Hit 'Add' button":::
 
-
-In the *Logic app* page that follows, enter the following details:
-
-Project details:
-* _Subscription_: Select your Azure subscription
-    * _Resource group_: Select your resource group 
-
-Instance details:
-* _Logic App name_: Choose a name for your logic app
-* _Select the location_: Choose Region or Integration Service Environment
-* _Location_: Choose a location from the dropdown
-* _Log Analytics_: You can toggle it _On_ if you would like to push runtime events to Log Analytics 
+In the *Logic apps (consumption)* page that follows, enter your subscription, resource group. Also, choose a name for your logic app and select the location.
 
 Select _Review + create_ button.
 
