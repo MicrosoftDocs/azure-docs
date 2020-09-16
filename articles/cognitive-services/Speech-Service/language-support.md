@@ -33,21 +33,25 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Locale  | Language                          | Customizations                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Arabic (UAE)                      | No                                                |
+| `ar-AE` | Arabic (United Arab Emirates)     | Language model                                    |
 | `ar-BH` | Arabic (Bahrain), modern standard | Language model                                    |
 | `ar-EG` | Arabic (Egypt)                    | Language model                                    |
 | `ar-IL` | Arabic (Israel)                   | No                                                |
-| `ar-JO` | Arabic (Jordan)                   | No                                                |
-| `ar-KW` | Arabic (Kuwait)                   | No                                                |
-| `ar-LB` | Arabic (Lebanon)                  | No                                                |
-| `ar-PS` | Arabic (Palestine)                | No                                                |
-| `ar-QA` | Arabic (Qatar)                    | No                                                |
-| `ar-SA` | Arabic (Saudi Arabia)             | No                                                |
+| `ar-IQ` | Arabic (Iraq)                     | Language model                                    |
+| `ar-JO` | Arabic (Jordan)                   | Language model                                    |
+| `ar-KW` | Arabic (Kuwait)                   | Language model                                    |
+| `ar-LB` | Arabic (Lebanon)                  | Language model                                    |
+| `ar-OM` | Arabic (Oman)                     | Language model                                    |
+| `ar-PS` | Arabic (State of Palestine)       | No                                                |
+| `ar-QA` | Arabic (Qatar)                    | Language model                                    |
+| `ar-SA` | Arabic (Saudi Arabia)             | Language model                                    |
 | `ar-SY` | Arabic (Syria)                    | Language model                                    |
-| `ca-ES` | Catalan                           | Language model                                    |
+| `bg-BG` | Bulgarian (Bulgaria)              | Language model                                    |
+| `ca-ES` | Catalan (Spain)                   | Language model                                    |
 | `cs-CZ` | Czech (Czech Republic)            | Language Model                                    | 
 | `da-DK` | Danish (Denmark)                  | Language model                                    |
 | `de-DE` | German (Germany)                  | Acoustic model<br>Language model<br>Pronunciation |
+| `el-GR` | Greek (Greece)                    | Language model                                    |
 | `en-AU` | English (Australia)               | Acoustic model<br>Language model                  |
 | `en-CA` | English (Canada)                  | Acoustic model<br>Language model                  |
 | `en-GB` | English (United Kingdom)          | Acoustic model<br>Language model<br>Pronunciation |
@@ -79,27 +83,36 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `es-SV` | Spanish (El Salvador)             | Language Model                                    | 
 | `es-US` | Spanish (USA)                     | Language Model                                    | 
 | `es-UY` | Spanish (Uruguay)                 | Language Model                                    | 
-| `es-VE` | Spanish (Venezuela)               | Language Model                                    | 
+| `es-VE` | Spanish (Venezuela)               | Language Model                                    |
+| `et-EE` | Estonian(Estonia)                 | Language Model                                    | 
 | `fi-FI` | Finnish (Finland)                 | Language model                                    |
 | `fr-CA` | French (Canada)                   | Acoustic model<br>Language model                  |
 | `fr-FR` | French (France)                   | Acoustic model<br>Language model<br>Pronunciation |
+| `ga-IE` | Irish(Ireland)                    | Language model                                    |
 | `gu-IN` | Gujarati (Indian)                 | Language model                                    |
 | `hi-IN` | Hindi (India)                     | Acoustic model<br>Language model                  |
+| `hr-HR` | Croatian (Croatia)                | Language model                                    |
 | `hu-HU` | Hungarian (Hungary)               | Language Model                                    | 
 | `it-IT` | Italian (Italy)                   | Acoustic model<br>Language model<br>Pronunciation |
 | `ja-JP` | Japanese (Japan)                  | Language model                                    |
 | `ko-KR` | Korean (Korea)                    | Language model                                    |
+| `lt-LT` | Lithuanian (Lithuania)            | Language model                                    |
+| `lv-LV` | Latvian (Latvia)                  | Language model                                    |
 | `mr-IN` | Marathi (India)                   | Language model                                    |
+| `mt-MT` | Maltese(Malta)                    | Language model                                    |
 | `nb-NO` | Norwegian (Bokmål) (Norway)       | Language model                                    |
 | `nl-NL` | Dutch (Netherlands)               | Language model                                    |
 | `pl-PL` | Polish (Poland)                   | Language model                                    |
 | `pt-BR` | Portuguese (Brazil)               | Acoustic model<br>Language model<br>Pronunciation |
 | `pt-PT` | Portuguese (Portugal)             | Language model                                    |
+| `ro-RO` | Romanian (Romania)                | Language model                                    |
 | `ru-RU` | Russian (Russia)                  | Acoustic model<br>Language model                  |
+| `sk-SK` | Slovak (Slovakia)                 | Language model                                    |
+| `sl-SI` | Slovenian (Slovenia)              | Language model                                    |
 | `sv-SE` | Swedish (Sweden)                  | Language model                                    |
 | `ta-IN` | Tamil (India)                     | Language model                                    |
 | `te-IN` | Telugu (India)                    | Language model                                    |
-| `th-TH` | Thai (Thailand)                   | No                                                |
+| `th-TH` | Thai (Thailand)                   | Language model                                    |
 | `tr-TR` | Turkish (Turkey)                  | Language model                                    |
 | `zh-CN` | Chinese (Mandarin, Simplified)    | Acoustic model<br>Language model                  |
 | `zh-HK` | Chinese (Cantonese, Traditional)  | Language model                                    |

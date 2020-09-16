@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Custom Vision?
-    href: home.md
+    href: overview.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
@@ -49,7 +49,11 @@
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
       href: export-model-python.md
-  - name: Export or delete account data
+  - name: Integrate storage notifications
+    href: storage-integration.md
+  - name: Copy and move projects
+    href: copy-move-projects.md
+  - name: View or delete account data
     href: ./export-delete-data.md
   - name: Update your app to the 3.0 API
     href: ./update-application-to-3.0-sdk.md

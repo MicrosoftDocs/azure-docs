@@ -43,6 +43,30 @@ You can currently submit the same documents for all Text Analytics operations: s
 
 For more information about limits, see [Text Analytics Overview > Data limits](../overview.md#data-limits). 
 
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Sample text to be sent to the text analytics api."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    },
+    {
+      "language": "en",
+      "id": "3",
+      "text": "Pike place market is my favorite Seattle attraction."
+    }
+  ]
+}
+```
+
+
 ## Set up a request in Postman
 
 The service accepts request up to 1 MB in size. If you are using Postman (or another Web API test tool), set up the endpoint to include the resource you want to use, and provide the access key in a request header. Each operation requires that you append the appropriate resource to the endpoint. 
