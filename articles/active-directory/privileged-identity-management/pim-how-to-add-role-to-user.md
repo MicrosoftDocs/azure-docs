@@ -72,7 +72,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 ## Assign a role with restricted scope
 
-You can assigning roles for which the scope of the granted permissions is restricted to a single admin unit, service principal, or application. This procedure is an example using administrative units. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md). This feature is currently being rolled out to Azure AD organizations.
+For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md). This feature is currently being rolled out to Azure AD organizations.
 
 1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with Privileged Role Administrator permissions.
 
