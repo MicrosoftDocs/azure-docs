@@ -93,17 +93,9 @@ There are two categories of read/write workload patterns - single-threaded and m
 
 For the charts in this article, the following configuration was used: A single Standard D32s v3 VM with a single RSS enabled NIC with 4 channels. Load was generated using diskspd.exe, multiple-threaded with IO depth of 10, random IOs with various IO sizes.
 
-- Size - [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md)
-- vCPU - 32
-- Memory (GiB) - 128
-- Temp storage (SSD) in GiB - 256
-- Max data disks - 32
-- Max cached and temp storage throughput IOPS/MBps (cache size in GiB) - 64000/512 (800)
-- Max uncached disk throughput IOPS/MBps - 51200/768
-- Max NICs - 8
-- Expected network bandwidth (Mbps) - 16000
-
-
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
+|---|---|---|---|---|---|---|---|---|
+| [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) | 32 | 128 | 256 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
 
 :::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Screenshot of get-smbmultichannelconnection results." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
 
