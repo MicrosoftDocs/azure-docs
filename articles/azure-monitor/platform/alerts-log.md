@@ -29,7 +29,7 @@ Here the steps to get started writing queries for alerts:
 
 1. Go to the resource you would like to alert on.
 1. Under **Monitor**, select **Logs**.
-1. Query the log data that can indicate the issue. You can use examples to understand what you can discover or [get started on writing your own query](../log-query/get-started-portal.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+1. Query the log data that can indicate the issue. You can use the [alert query examples topic](../log-query/saved-queries.md) to understand what you can discover or [get started on writing your own query](../log-query/get-started-portal.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Press on '+ New Alert Rule' button to start the alert creation flow.
 
     ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
