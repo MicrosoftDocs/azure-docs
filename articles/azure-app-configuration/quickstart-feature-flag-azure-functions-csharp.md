@@ -16,7 +16,7 @@ ms.author: alkemper
 
 In this quickstart, you create an implementation of feature management in an Azure Functions app using Azure App Configuration. You will use the App Configuration service to centrally store all your feature flags and control their states. 
 
-The .NET Feature Management libraries extend the framework with feature flag management and support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
+The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
 
 ## Prerequisites
 
@@ -60,25 +60,30 @@ The .NET Feature Management libraries extend the framework with feature flag man
     using Microsoft.Extensions.DependencyInjection;
     ```
 
-1. Add the `Function1` method to connect to App Configuration. Add two `static` properties, one named `FeatureManager` to create a singleton instance of `IFeatureManager` and another named `services` to create a singleton instance of `IServiceCollection`. Then connect to App Configuration in `Function1` by calling `AddAzureAppConfiguration()`. This process will load the configuration at application startup. The same configuration instance will be used for all Functions calls later.
+1. Add the `Function1` method to connect to App Configuration. Add two `static` properties, one named `ServiceProvider` to create a singleton instance of `ServiceProvider`, and another below `Function1` named `FeatureManager` to create a singleton instance of `IFeatureManager`. Then connect to App Configuration in `Function1` by calling `AddAzureAppConfiguration()`. This process will load the configuration at application startup. The same configuration instance will be used for all Functions calls later. 
 
     ```csharp
-        private static IFeatureManager FeatureManager { set; get; }
-
-        private static IServiceCollection services; 
+        // Implements IDisposable, cached for life time of function
+        private static ServiceProvider ServiceProvider; 
 
         static Function1()
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-            .AddAzureAppConfiguration(options =>
-            {
-                options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                       .UseFeatureFlags();
-            }).Build();
+                .AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                           .UseFeatureFlags();
+                }).Build();
 
-            services = new ServiceCollection();                                                                           
+            var services = new ServiceCollection();                                                                             
             services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement();
+
+            ServiceProvider = services.BuildServiceProvider(); 
         }
+
+        private static IFeatureManager FeatureManager => ServiceProvider.GetRequiredService<IFeatureManager>();
+
+        [FunctionName("Function1")]
     ```
 
 1. Update the `Run` method to change value of the displayed message depending on the state of the feature flag.
@@ -88,14 +93,9 @@ The .NET Feature Management libraries extend the framework with feature flag man
                 [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
                 ILogger log)
             {
-                string message;
-                using (ServiceProvider serviceProvider = services.BuildServiceProvider())
-                {
-                    FeatureManager = serviceProvider.GetRequiredService<IFeatureManager>();
-                    message = await FeatureManager.IsEnabledAsync("Beta")
-                     ? "The Feature Flag 'Beta' is turned ON!"
+                string message = await FeatureManager.IsEnabledAsync("Beta")
+                     ? "The Feature Flag 'Beta' is turned ON"
                      : "The Feature Flag 'Beta' is turned OFF";
-                }
                 
                 return (ActionResult)new OkObjectResult(message); 
             }
