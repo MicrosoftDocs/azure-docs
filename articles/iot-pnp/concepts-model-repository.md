@@ -20,7 +20,7 @@ You can access the model repository using the:
 
 - [Azure IoT model repository](https://aka.ms/iotmodelrepo) portal
 - [Azure IoT model repository REST API](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)
-- [Azure CLI IoT model repository commands](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest)
+- [Azure CLI IoT model repository commands](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest&preserve-view=true)
 
 ## Public models
 
@@ -46,7 +46,7 @@ var modelId = "dtmi:com:mxchip:model;1";
 var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
-To view a public model using the CLI, see the Azure CLI [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) command.
+To view a public model using the CLI, see the Azure CLI [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) command.
 
 ## Company models
 
@@ -116,7 +116,7 @@ var modelId = "dtmi:com:mxchip:model;1";
 var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
-To view a company model or a shared model using the CLI, see the Azure CLI [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) command.
+To view a company model or a shared model using the CLI, see the Azure CLI [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) command.
 
 ### Manage roles
 
@@ -162,7 +162,7 @@ var modelId = "dtmi:com:mxchip:model;1";
 var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
 ```
 
-To upload a model using the CLI, see the Azure CLI [Create a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create) command.
+To upload a model using the CLI, see the Azure CLI [Create a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) command.
 
 ### Publish a model
 
@@ -187,7 +187,7 @@ To publish a model using the portal:
 
 To publish a model using the REST API, see the [Publish a model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) REST API documentation. Supply the query string parameter `update-metadata=true` to publish a model using the REST API. See [Passing a security token when accessing company models with a REST API](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
 
-To publish a model using the CLI, see the Azure CLI [Publish a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish) command.
+To publish a model using the CLI, see the Azure CLI [Publish a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish&preserve-view=true) command.
 
 ### Share a model
 
