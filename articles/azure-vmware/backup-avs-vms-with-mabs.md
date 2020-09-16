@@ -150,7 +150,7 @@ During the preview, Azure VMware Solution doesn't resolve the ESX host from the 
 
 1. Select **Add** to add the new credential.
 
-   ![Azure Backup Server Manage Credentials dialog box](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   ![Screenshot shows the Azure Backup Server Manage Credentials dialog box with new credentials displayed.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## Add the vCenter server to Azure Backup Server
 

@@ -175,7 +175,7 @@ To create a pipeline with a step to deploy a template:
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines step](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![Screenshot shows the ARM template deployment page with required values entered.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Select **Add**.
 
