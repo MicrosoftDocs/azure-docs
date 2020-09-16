@@ -104,7 +104,7 @@ To ensure people outside of your organization can request access packages and ge
 
 ### Review your Microsoft 365 group sharing settings
 
-- If you want to include Microsoft 365 groups in your access packages for external users, make sure the **Let users add new guests to the organization** is set to **On** to allow guest access. For more information, see [Manage guest access to Microsoft 365 Groups](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- If you want to include Microsoft 365 groups in your access packages for external users, make sure the **Let users add new guests to the organization** is set to **On** to allow guest access. For more information, see [Manage guest access to Microsoft 365 Groups](/Microsoft 365/admin/create-groups/manage-guest-access-in-groups?view=Microsoft 365-worldwide#manage-groups-guest-access).
 
 - If you want external users to be able to access the SharePoint Online site and resources associated with a Microsoft 365 group, make sure you turn on SharePoint Online external sharing. For more information, see [Turn external sharing on or off](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 

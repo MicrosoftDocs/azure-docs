@@ -5,7 +5,7 @@ services: synapse-analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab

@@ -23,7 +23,7 @@
     - name: Create a health data triage dashboard  
       href: howto-health-data-triage.md 
   
-    - name: Connect devices
+    - name: Connect and develop devices
       items:
         - name: Prepare and connect a Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
