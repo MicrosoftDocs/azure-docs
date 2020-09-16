@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 07/31/2020
+ms.date: 09/16/2020
 ---
 # Scale single database resources in Azure SQL Database
 
@@ -47,14 +47,14 @@ The estimated latency to change the service tier, scale the compute size of a si
 |Service tier|Basic single database,</br>Standard (S0-S1)|Basic elastic pool,</br>Standard (S2-S12), </br>General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|Hyperscale
 |:---|:---|:---|:---|:---|
 |**Basic single database,</br> Standard (S0-S1)**|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
-|**Basic elastic pool, </br>Standard (S2-S12), </br>General Purpose single database or elastic pool**|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|**Basic elastic pool, </br>Standard (S2-S12), </br>General Purpose single database or elastic pool**|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;For single databases, constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes for single databases</br>&bull; &nbsp;For elastic pools, proportional to the number of databases|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
 |**Premium or Business Critical single database or elastic pool**|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
 |**Hyperscale**|N/A|N/A|N/A|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 2 minutes|
 
 > [!NOTE]
 > Additionally, for Standard (S2-S12) and General Purpose databases, latency for moving a database in/out of an elastic pool or between elastic pools will be proportional to database size if the database is using Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)) storage.
 >
-> To determine if a database is using PFS storage, execute the following query in the context of the database. If the value in the AccountType column is `PremiumFileStorage`, the database is using PFS storage.
+> To determine if a database is using PFS storage, execute the following query in the context of the database. If the value in the AccountType column is `PremiumFileStorage` or `PremiumFileStorage-ZRS`, the database is using PFS storage.
  
 ```sql
 SELECT s.file_id,
