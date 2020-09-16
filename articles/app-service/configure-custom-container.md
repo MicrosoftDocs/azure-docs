@@ -11,7 +11,17 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 This article shows you how to configure a custom container to run on Azure App Service.
 
-This guide provides key concepts and instructions for containerization of Windows or Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. For Linux, there's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
+::: zone pivot="container-windows"
+
+This guide provides key concepts and instructions for containerization of Windows apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first.
+
+::: zone-end
+
+::: zone pivot="container-linux"
+
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
+
+::: zone-end
 
 ## I don't see the updated container
 
@@ -25,34 +35,74 @@ If the app changes compute instances for any reason, such as scaling up and down
 
 ## Configure port number
 
-By default, App Service assumes your custom container is listening on port 80. The web server in your custom image may use a port other than 80. You tell Azure about the port that your custom container uses by using the `WEBSITES_PORT` app setting. The GitHub page for the [Python sample in this tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) shows that you need to set `WEBSITES_PORT` to _8000_. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+By default, App Service assumes your custom container is listening on port 80. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_PORT=8000
+```
+
+In PowerShell:
+
+```azurepowershell-interactive
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_PORT"="8000"}
 ```
 
 App Service currently allows your container to expose only one port for HTTP requests. 
 
 ## Configure environment variables
 
-Your custom container may use environment variables that need to be supplied externally. You can pass them in by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+Your custom container may use environment variables that need to be supplied externally. You can pass them in via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings DB_HOST="myownserver.mysql.database.azure.com"
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings DB_HOST="myownserver.mysql.database.azure.com"
 ```
 
-When your app runs, App Service injects the app setting into the process as an environment variable automatically. This method works both for single-container apps or multi-container apps (Linux), where the environment variables are specified in the *docker-compose.yml* file.
+In PowerShell:
+
+```azurepowershell-interactive
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB_HOST"="myownserver.mysql.database.azure.com"}
+```
+
+When your app runs, the App Service app settings are injected into the process as environment variables automatically. 
+
+::: zone pivot="container-windows"
+For IIS or .NET based containers, they're injected into `System.ConfigurationManager` as .NET app settings and connection strings automatically.
+::: zone-end
+
+::: zone pivot="container-linux"
+
+This method works both for single-container apps or multi-container apps, where the environment variables are specified in the *docker-compose.yml* file.
+
+::: zone-end
 
 ## Use persistent shared storage
+
+::: zone pivot="container-windows"
 
 You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
 
 When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
 
-By default, persistent storage is *enabled* and the setting is not exposed in the Application Settings. To disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+You can use the *C:\home* directory in your app's file system to persist files across restarts and share them across instances. The `C:\home` in your app is provided to enable your container app to access persistent storage.
+
+When persistent storage is disabled, then writes to the `C:\home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `C:\home\LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app.
+
+::: zone-end
+
+By default, persistent storage is *enabled* and the setting is not exposed in the Application Settings. To disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
+```
+
+In PowerShell:
+
+```azurepowershell-interactive
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
 ```
 
 > [!NOTE]
@@ -66,36 +116,25 @@ The front ends are located inside Azure data centers. If you use TLS/SSL with yo
 
 ::: zone pivot="container-windows"
 
-## Connect to container with Win-RM
+## Connect to the container
 
-You can connect to your Windows container remotely for administrative tasks use Win-RM. Follow the steps below to enable it:
+You can connect to your Windows container directly for diagnostic tasks by navigating to `https://<app-name>.scm.azurewebsites.net/DebugConsole`. Here's how it works:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your App Service app.
-1. From your app's left navigation, select **Win-RM** > **On** and click **Save**.
-
-    ![](./media/configure-custom-container/enable-winrm.png)
-1. Confirm the selection by clicking **Yes**.
-
-1. From your app's left navigation, select **Overview** > **Restart**.
-
-The Win-RM page shows you the PowerShell commands to run on your local machine in order to connect to your Windows container. However, you can also just run the following PowerShell command in the [Cloud Shell PowerShell window](../cloud-shell/quickstart-powershell.md):
-
-```azurepowershell-interactive
-Enter-AzureRmWebAppContainerPSSession -ResourceGroupName <group-name> -Name <app-name>
-```
-
-> [!NOTE]
-> Any change you make to the container within the WinRM session does *not* persist when your app is restarted (except for changes in a [persistent shared storage](#use-persistent-shared-storage)), because it's not part of the Docker image. When your app restarts, App Service recreates the Docker container from your deployed image. 
->
-> To persist your changes, such as registry settings and software installation, you need to make them in the Dockerfile for your image. For example, in the tutorial [Migrate custom software to Azure App Service using a custom container](tutorial-custom-container.md?pivots=container-windows), the custom font project uses this method to [install a custom font in Dockerfile](tutorial-custom-container.md?pivots=container-windows#configure-windows-container).
+- The debug console lets you execute interactive commands, such as starting PowerShell sessions, inspecting registry keys, and navigate the entire container file system.
+- It functions separately from the graphical browser above it, which only shows the files in your [shared storage](#use-persistent-shared-storage).
+- In a scaled-out app, the debug console is connected to one of the container instances. You can select a different instance from the **Instance** dropdown in the top menu.
+- Any change you make to the container from within the console does *not* persist when your app is restarted (except for changes in the shared storage), because it's not part of the Docker image. To persist your changes, such as registry settings and software installation, make them part of the Dockerfile.
 
 ## Access diagnostic logs
 
-App Service logs actions by the Docker host as well as activities from within the container. There are several ways to access Docker logs:
+App Service logs actions by the Docker host as well as activities from within the container. Logs from the Docker host (platform logs) are shipped by default, but application logs or web server logs from within the container need to be enabled manually. For more information, see [Enable application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and [Enable web server logging](troubleshoot-diagnostic-logs.md#enable-web-server-logging). 
+
+There are several ways to access Docker logs:
 
 - [In Azure portal](#in-azure-portal)
 - [From the Kudu console](#from-the-kudu-console)
 - [With the Kudu API](#with-the-kudu-api)
+- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
 
 ### In Azure portal
 
@@ -105,7 +144,7 @@ Docker logs are displayed in the portal, in the **Container Settings** page of y
 
 Navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and click the **LogFiles** folder to see the individual log files. To download the entire **LogFiles** directory, click the **Download** icon to the left of the directory name. You can also access this folder using an FTP client.
 
-The naming convention for the Docker log is YYYY_MM_DD_RDxxxxxxxxxxxx_docker.log. If you try to download the Docker log that is currently in use using an FTP client, you may get an error because of a file lock.
+If you try to download the Docker log that is currently in use using an FTP client, you may get an error because of a file lock.
 
 ### With the Kudu API
 
@@ -115,20 +154,32 @@ To download all the logs together in one ZIP file, access `https://<app-name>.sc
 
 ## Customize container memory
 
-By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITE_MEMORY_LIMIT_MB=2000
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_MEMORY_LIMIT_MB=2000
 ```
 
-The value is defined in MB and must be less and equal to the total physical memory of the host.
+In PowerShell:
+
+```azurepowershell-interactive
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
+```
+
+The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8 GB.
 
 ## Customize the number of compute cores
 
-By default, a Windows container runs with all available cores for your chosen pricing tier. You may want to reduce the number of cores that your staging slot uses, for example. To reduce the number of cores used by a container, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+By default, a Windows container runs with all available cores for your chosen pricing tier. You may want to reduce the number of cores that your staging slot uses, for example. To reduce the number of cores used by a container, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --slot staging --settings WEBSITE_CPU_CORES_LIMIT=1
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --slot staging --settings WEBSITE_CPU_CORES_LIMIT=1
+```
+
+In PowerShell:
+
+```azurepowershell-interactive
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_CPU_CORES_LIMIT"=1}
 ```
 
 > [!NOTE]
@@ -141,16 +192,22 @@ Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logi
 Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
 ```
 
-The processors may be multicore or hyperthreading processors. Information on how many cores are available per SKU can be found in [](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/), in the **Premium Container (Windows) Plan** section.
+The processors may be multicore or hyperthreading processors. Information on how many cores are available per SKU can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium Container (Windows) Plan** section.
 
 ## Customize health ping behavior
 
 App Service considers a container to be successfully started when the container starts and responds to an HTTP ping. If the container starts but does not respond to a ping after a certain amount of time, App Service logs an event in the Docker log, saying that the container didn't start. 
 
-If your application is resource-intensive, the container might not respond to the HTTP ping in time. To control the actions when HTTP pings fail, set the `CONTAINER_AVAILABILITY_CHECK_MODE` app setting. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+If your application is resource-intensive, the container might not respond to the HTTP ping in time. To control the actions when HTTP pings fail, set the `CONTAINER_AVAILABILITY_CHECK_MODE` app setting. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings CONTAINER_AVAILABILITY_CHECK_MODE="ReportOnly"
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings CONTAINER_AVAILABILITY_CHECK_MODE="ReportOnly"
+```
+
+In PowerShell:
+
+```azurepowershell-interactive
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"CONTAINER_AVAILABILITY_CHECK_MODE"="ReportOnly"}
 ```
 
 The following table shows the possible values:
@@ -238,10 +295,10 @@ For *\<username>* and *\<password>*, supply the login credentials for your priva
 
 Multi-container apps like WordPress need persistent storage to function properly. To enable it, your Docker Compose configuration must point to a storage location *outside* your container. Storage locations inside your container don't persist changes beyond app restart.
 
-Enable persistent storage by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting, using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in Cloud Shell.
+Enable persistent storage by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting, using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
 In your *docker-compose.yml* file, map the `volumes` option to `${WEBAPP_STORAGE_HOME}`. 

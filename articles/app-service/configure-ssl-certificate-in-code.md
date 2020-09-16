@@ -103,29 +103,6 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 
 For languages that don't support or offer insufficient support for the Windows certificate store, see [Load certificate from file](#load-certificate-from-file).
 
-## Load certificate in Linux apps
-
-The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Linux hosted apps (including custom container apps) as files. The files are found under the following directories:
-
-- Private certificates - `/var/ssl/private` ( `.p12` files)
-- Public certificates - `/var/ssl/certs` ( `.der` files)
-
-The certificate file names are the certificate thumbprints. The following C# code shows how to load a public certificate in a Linux app.
-
-```csharp
-using System;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-
-...
-var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
-var cert = new X509Certificate2(bytes);
-
-// Use the loaded certificate
-```
-
-To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
-
 ## Load certificate from file
 
 If you need to load a certificate file that you upload manually, it's better to upload the certificate using [FTPS](deploy-ftp.md) instead of [Git](deploy-local-git.md), for example. You should keep sensitive data like a private certificate out of source control.
@@ -148,6 +125,35 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+
+## Load certificate in Linux/container apps
+
+The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows or Linux container apps (including built-in Linux containers) as files. The files are found under the following directories:
+
+| Container platform | Public certificates | Private certificates |
+| - | - | - |
+| Windows | `C:\appservice\certificates\public` | `C:\appservice\certificates\private` |
+| Linux | `/var/ssl/certs` | `/var/ssl/private` |
+
+The certificate file names are the certificate thumbprints. 
+
+In addition, Windows containers also loads the certificates into the certificate store automatically, in **LocalMachine\My**.
+
+The following C# code shows how to load a public certificate in a Linux app.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+
+...
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
