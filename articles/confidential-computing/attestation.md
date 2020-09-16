@@ -11,15 +11,17 @@ ms.date: 9/22/2020
 ms.author: JenCook
 ---
 
-# Attesting enclaves
-
-## Overview of attestation
+# Attestation for SGX Enclaves
 
 You'll want to get verification and validation that your trusted environment is secure. This verification is the process of attestation. 
 
-![attestation](media/attestation/attestation.png)
+## Overview 
 
 Attestation allows a relying party to have increased confidence that their software is (1) running in an enclave and (2) that the enclave is up to date and secure. For example, an enclave asks the underlying hardware to generate a credential that includes proof that the enclave exists on the platform. The report can then be given to a second enclave that verifies the report was generated on the same platform.
+
+![attestation](media/attestation/attestation.png)
+
+
 
 Attestation must be implemented using a secure attestation service that is compatible with the system software and silicon. Some examples of services you can use are
 

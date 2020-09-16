@@ -12,10 +12,6 @@
 
 # Application development on Intel SGX 
 
-// merge this page to also talk about enclave aware containers
-
-// amar add his image and merge his conent 
-
 
 Confidential computing infrastructure requires specific tools and software. This page specifically discusses concepts related to application development for Azure confidential computing virtual machines running on Intel SGX. Before reading this page, [read the introduction of Intel SGX virtual machines and enclaves](confidential-computing-enclaves.md). 
 
