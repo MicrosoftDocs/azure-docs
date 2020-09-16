@@ -41,7 +41,7 @@ The sign-in frequency setting works with apps that have implemented OAUTH2 or OI
 - Word, Excel, PowerPoint Online
 - OneNote Online
 - Office.com
-- O365 Admin portal
+- Microsoft 365 Admin portal
 - Exchange Online
 - SharePoint and OneDrive
 - Teams web client
