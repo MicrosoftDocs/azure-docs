@@ -132,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	![Instant Login](./media/clever-tutorial/ic798984.png "Instant Login")
 
 	> [!NOTE]
-	> Before you can Test single sign-on, You have to contact [Clever Client support team](https://clever.com/about/contact/) to enable Office 365 SSO in the back end.
+	> Before you can Test single sign-on, You have to contact [Clever Client support team](https://clever.com/about/contact/) to enable Microsoft 365 SSO in the back end.
 
 1. On the **Instant Login** page, perform the following steps:
  
