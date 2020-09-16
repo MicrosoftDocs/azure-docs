@@ -65,6 +65,44 @@ In this command, you specify both the source (language to translate **from**), a
 > [!NOTE]
 > See the [language and locale article](language-support.md) for a list of all supported languages with their corresponding locale codes.
 
+### Configuration files
+
+The Speech CLI can read and write multiple settings in configuration files, which are named with a @ symbol.
+You populated the @key and @region configuration files to set these values once rather than specifying them with each command line call.
+You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
+
+The following example clears a configuration file named `my.defaults`,
+adds key and region values in the file, and uses the configuration
+in a call to `spx recognize`.
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+You can also write dynamic content to a configuration file. For example, the following commands create a custom speech model and store the URL
+of the new model in a configuration file. The next command waits until the model at that URL is ready for use before returning.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+When --output includes an optional **add** keyword, the Speech CLI creates a configuration file or appends to an existing one.
+The following example writes two URLs to the `my.datasets.txt` configuration file:
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
 ## Batch operations
 
 The commands in the previous section are great for quickly seeing how the Speech service works. However, when assessing whether or not your use-cases can be met, you likely need to perform batch operations against a range of input you already have, to see how the service handles a variety of scenarios. This section shows how to:
