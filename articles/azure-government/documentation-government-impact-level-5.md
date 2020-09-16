@@ -89,7 +89,7 @@ Computer Vision can be used in Azure Government supporting Impact Level 5 worklo
 | --- | --- | --- | --- | --- | --- | 
 | **Computer Vision** | X | X | X | X | X |
 
-### [Cognitive Services - Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
+### [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
 
 Cognitive Services - Content Moderator can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
@@ -97,9 +97,9 @@ Cognitive Services - Content Moderator can be used in Azure Government supportin
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Cognitive Services - Content Moderator** | X | X | X |  |  |
+| **Content Moderator** | X | X | X |  |  |
 
-### [Cognitive Services – Face](https://azure.microsoft.com/services/cognitive-services/face/)
+### [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)
 
 Azure Cognitive Services – Face can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
@@ -107,9 +107,9 @@ Azure Cognitive Services – Face can be used in Azure Government supporting Imp
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Cognitive Services – Face** | X | X | X |  |  |
+| **Face** | X | X | X |  |  |
 
-### [Cognitive Services – Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
+### [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
 
 Cognitive Services – Language Understanding can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
@@ -117,7 +117,7 @@ Cognitive Services – Language Understanding can be used in Azure Government su
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Cognitive Services – Language Understanding** | X | X | X |  |  |
+| **Language Understanding** | X | X | X |  |  |
 
 ### [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 
@@ -127,20 +127,20 @@ Text Analytics can be used in Azure Government supporting Impact Level 5 workloa
 | --- | --- | --- | --- | --- | --- |
 | **Text Analytics** | X | X | X | X | X |
 
-### [Cognitive Services – Translator Text](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
+### [Cognitive Services: Translator](https://azure.microsoft.com/services/cognitive-services/translator/)
 
-Cognitive Services – Translator Text can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Cognitive Services – Translator can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Configure encryption at rest of content in Cognitive Services – Translator Text using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-encryption-of-data-at-rest)
+- Configure encryption at rest of content in Cognitive Services – Translator using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/translator/translator-encryption-of-data-at-rest)
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Cognitive Services – Translator Text** | X | X | X |  |  |
+| **Translator** | X | X | X |  |  |
 
 
-### [Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/)
+### [Cognitive Services: Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/)
 
-Azure Speech Service can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Cognitive Services - Speech Service can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
 - Configure encryption at rest of content in Azure Speech Service using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-encryption-of-data-at-rest)
 
@@ -232,20 +232,6 @@ Azure Stream Analytics can be used in Azure Government supporting Impact Level 5
 | **Stream Analytics** | X | X | X |  |  |
 
 ## Compute services
-
-### [Azure Automation](https://azure.microsoft.com/services/automation/)
-
-Azure Automation can be used in Azure Government supporting Impact level 5 workloads for providing compute level isolation.
-
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- |
-| **Azure Automation** | X | X | X | | |
-
-Azure Automation can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-- Use the [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation and then delivered to these one or more assigned computers known as Hybrid Runbook Workers. Use Azure Dedicated Host or Isolated Virtual Machine types for Hybrid worker role. [Isolated VM types](#isolated-virtual-machines) when deployed, consume the entire physical host for that VM providing the necessary level of isolation required to support IL5 workloads.
-
-- [Azure Dedicated Host](#azure-dedicated-hosts) provides physical servers, able to host one or more virtual machines, dedicated to one Azure subscription.
 
 ### [Azure Batch](https://azure.microsoft.com/services/batch/)
 
@@ -475,16 +461,6 @@ IoT Hub supports encryption of data at rest with customer-managed keys (CMK), al
 | --- | --- | --- | --- | --- | --- | 
 | **IoT Hub** | X | X | X | X | X | 
 
-### [Azure IoT security](https://azure.microsoft.com/en-us/overview/iot/security/)
-
-Azure IoT security can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-- Configure encryption at rest of content in Azure IoT Hub using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/iot-hub/iot-hub-customer-managed-keys)
-
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- |
-| **Azure IoT security** | X | X | X |  |  |
-
 ### [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) 
 
 Notification Hubs can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
@@ -494,6 +470,21 @@ Notification Hubs can be used in Azure Government supporting Impact Level 5 work
 | **Notification Hubs** | X | X | X | X | X | 
 
 ## Management and governance
+
+### [Automation](https://azure.microsoft.com/services/automation/)
+
+Automation can be used in Azure Government supporting Impact level 5 workloads for providing compute level isolation.
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Automation** | X | X | X | | |
+
+Automation can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Use the [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation and then delivered to these one or more assigned computers known as Hybrid Runbook Workers. Use Azure Dedicated Host or Isolated Virtual Machine types for Hybrid worker role. [Isolated VM types](#isolated-virtual-machines) when deployed, consume the entire physical host for that VM providing the necessary level of isolation required to support IL5 workloads.
+
+- [Azure Dedicated Host](#azure-dedicated-hosts) provides physical servers, able to host one or more virtual machines, dedicated to one Azure subscription.
+- By default, your Azure Automation account uses Microsoft-managed keys.You can manage encryption of secure assets for your Automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. (https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption)
 
 ### [Azure Advisor](https://azure.microsoft.com/services/advisor/) 
 
@@ -783,13 +774,13 @@ Azure Sentinel can be used in Azure Government supporting Impact Level 5 workloa
 | --- | --- | --- | --- | --- | --- |
 | **Azure Sentinel** | X | X | X |  |  |
 
-### [Customer LockBox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+### [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
-Customer LockBox can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Customer Lockbox can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Customer LockBox** | X | X | X |  |  |
+| **Customer Lockbox** | X | X | X |  |  |
 
 ### [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) 
 
