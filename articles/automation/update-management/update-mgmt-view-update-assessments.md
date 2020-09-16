@@ -29,19 +29,7 @@ In Update Management, you can view information about your machine, missing updat
 
 [ ![Update Management assessment view for Azure VM](./media/update-mgmt-overview/update-assessment-azure-vm.png)](./media/update-mgmt-overview/update-assessment-azure-vm-expanded.png#lightbox)
 
-To view update assessment from an Arc enabled server, perform the following.
-
-1. In the Azure portal, navigate to Arc enabled servers and select your server from the list.
-
-2. In the left menu, select **Guest and host updates**.
-
-3. On the **Guest + host updates** page, select **Go to Update Management**.
-
-In Update Management, you can view information about your Arc enabled machine, missing updates, update deployments, and scheduled update deployments.
-
-[ ![Update Management assessment view for Arc enabled servers](./media/update-mgmt-overview/update-assessment-azure-vm.png)](./media/update-mgmt-overview/update-assessment-azure-vm-expanded.png#lightbox)
-
-To view update assessment across several machines, from your Automation account, perform the following.
+To view update assessment across several machines, including Arc enabled servers from your Automation account, perform the following.
 
 1. In the Azure portal, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list.
 
