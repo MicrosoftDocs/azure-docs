@@ -339,7 +339,8 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Make a note of the `id` and `tenantId` values as these correspond to your Azure Resource Manager Subscription ID and Azure Resource Manager Tenant ID respectively and will be used in the later step.
+       
    The following environment variables need to be set to work as *service principal*:
 
    ```
@@ -349,7 +350,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   Your Azure Resource Manager Tenant ID, Azure Resource Manager Client ID, and Azure Resource Manager Subscription ID are all hard-coded and have the same values across all Azure Stack Edge devices. The Azure Resource Manager Client secret is the Azure Resource Manager password that you set.
+   Your Azure Resource Manager Client ID is hard-coded. Your Azure Resource Manager Tenant ID and Azure Resource Manager Subscription ID are both present in the output of `az login` command you ran earlier. The Azure Resource Manager Client secret is the Azure Resource Manager password that you set.
 
    For more information, see [Azure Resource Manager password](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
 
@@ -376,7 +377,7 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 2. When the script runs, uploading the VHD takes 20-30 minutes. To view the progress of the upload operation, you can use Azure Storage Explorer or AzCopy.
 
-    Here is a sample output of a successful run of the script. The script creates all the resources within a resource group, uses those resources to create a VM, and finally deletes the resource group including all the resources it created up.
+    Here is a sample output of a successful run of the script. The script creates all the resources within a resource group, uses those resources to create a VM, and finally deletes the resource group including all the resources it created.
 
     
     ```powershell

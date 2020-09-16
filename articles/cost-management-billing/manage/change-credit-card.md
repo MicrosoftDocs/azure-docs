@@ -185,7 +185,7 @@ If you're [paying by invoice](pay-by-invoice.md), send your payment to the locat
 
 ### How do I change the tax ID?
 
-To add or update tax ID, update your profile in the  [Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
+To add or update tax ID, update your profile in the  [Azure portal](https://portal.azure.com), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
 
 ## Check the type of your account
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 08/31/2020
 ms.author: jeedes
 ---
 
@@ -36,7 +36,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * My IBISWorld supports **SP and IDP** initiated SSO
 * My IBISWorld supports **Just In Time** user provisioning
-* Once you configure My IBISWorld you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure My IBISWorld you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding My IBISWorld from the gallery
 
@@ -50,7 +53,7 @@ To configure the integration of My IBISWorld into Azure AD, you need to add My I
 1. Select **My IBISWorld** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for My IBISWorld
+## Configure and test Azure AD SSO for My IBISWorld
 
 Configure and test Azure AD SSO with My IBISWorld using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in My IBISWorld.
 

@@ -95,7 +95,7 @@ management group hierarchy. If enabled, a user requires the
 `Microsoft.Management/managementGroups/write` operation on the root management group to create new
 child management groups.
 
-### Set default management group in portal
+### Set require authorization in portal
 
 To configure this setting in Azure portal, follow these steps:
 

@@ -18,7 +18,7 @@ Start running your application in Azure confidential computing using [Fortanix E
 Fortanix is a 3rd party software vendor with products and services built on top of Azure infrastructure. There are other third party providers offering similar confidential computing services on Azure.
 
 > [!Note] 
- > THE PRODUCTS REFERENCED IN THIS DOCUMENT ARE NOT UNDER THE CONTROL OF MICROSOFT. MICROSOFT IS PROVIDING THIS INFORMATION TO YOU ONLY AS A CONVENIENCE, AND THE REFERENCE TO THESE NON-MICROSOFT PRODUCTS DO NOT IMPLY ENDORSEMENT BY MICROSOFT.
+ > The products referenced in this document are not under the control of Microsoft. Microsoft is providing this information to you only as a convenience, and the reference to these non-Microsoft products do not imply endorsement by Microsoft.
 
 
 
@@ -37,7 +37,7 @@ This tutorial shows you how to convert your application image to a confidential 
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
 ## Add an application to Fortanix Enclave Manager
-1. Sign in to [Fortanix EM](https://fortanix.com)
+1. Sign in to [Fortanix Enclave Manager (Fortanix EM)](https://em.fortanix.com)
 1. Navigate to the **Accounts** page and select **ADD ACCOUNT** to create a new account. 
     
 ![Create an account](media/how-to-fortanix-enclave-manager/create-account.png)
@@ -114,7 +114,7 @@ Creating a Fortanix Node Agent will deploy a virtual machine, network interface,
 1. On this page, you'll be entering information to deploy a virtual machine. Specifically, this VM is a DCsv2-Series Intel SGX-enabled virtual machine from Azure with Fortanix Node Agent software installed. The Node Agent will allow your converted image to run securely on Intel SGX nodes in Azure.  Select the **subscription** and **resource group** where you want to deploy the virtual machine and associated resources. 
  
     > [!NOTE]
-    > There are constraints when deploying DCsv2-Series virtual machines in Azure. You may need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solution) for more information. 
+    > There are constraints when deploying DCsv2-Series virtual machines in Azure. You may need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) for more information. 
 
 1. Select an available region.
 1. Enter a name for your virtual machine in the **Node Name** field. 
