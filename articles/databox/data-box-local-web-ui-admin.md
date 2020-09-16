@@ -197,20 +197,45 @@ To enable SMB signing in your Azure Device:
 4. In the local web UI, go to **Shut down or restart**.
 5. Select **Restart**.
 
-## Enable backup operator privileges
-Backup operator privileges allow the local user to XXX SMB shares.
+## Enable Backup Operator privileges
+
+When Backup Operator privileges are enabled, all web UI users for your device can perform as Backup Operators for SMB shares.
+
+For more information about backup operator privileges, see [Role-Based Access Control to Manage Azure Backup Recovery Points](../backup/backup-rbac-rs-vault.md).
 
 To enable Backup Operator privileges in your Azure Device:
 
 1. In the top-right corner of the local web UI of your device, select **Settings**.
 
-   ![Enable SMB signing](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Open Data Box Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
-2. **Enable** Backup Operator Privileges
+2. **Enable** Backup Operator privileges
 
    ![Enable Backup Operator Privileges](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
 
 3. **Select Apply**.
+4. In the local web UI, go to **Shut down or restart**.
+5. Select **Restart**.
+
+## Enable ACLs for Azure Files
+
+Access Control Lists (ACLs), timestamps, and attributes can be copied when users upload files to an Azure storage account. ACLs for Azure Files must be enabled, and the user copying the files to Azure must have Backup Operator privileges.
+
+Types of metadata that are copied depend on the share type. For more information, see TOPIC IN DEVELOPMENT.
+
+To find out how to make users of the web UI Backup Operators, see Enable backup operator privileges INTERNAL LINK TO COME.
+
+To enable transfer of ACLs for Azure files:
+
+1. In the top-right corner of the local web UI of your device, select **Settings**.
+
+    ![Open Data Box Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Enable** ACLs for Azure files.
+
+     ![Enable ACLs for Azure files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+  
+3. Select **Apply**.
 4. In the local web UI, go to **Shut down or restart**.
 5. Select **Restart**.
 
@@ -224,7 +249,7 @@ To enable TLS 1.1 in your Azure device:
 
 1. In the top-right corner of the local web UI of your device, select **Settings**.
 
-    ![Open Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Open Data Box Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Enable** TLS 1.1.
 
