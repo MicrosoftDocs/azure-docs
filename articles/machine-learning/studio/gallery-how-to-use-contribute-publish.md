@@ -13,7 +13,7 @@ ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 
@@ -197,6 +197,6 @@ After you enter a tag, to enter another tag, press the Tab key.
 
 We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery.  
 
-![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Screenshot shows the Gallery feedback dialog box with smile and frown faces and a text box for feedback.](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[TAKE ME TO THE GALLERY >>](https://gallery.azure.ai)**
