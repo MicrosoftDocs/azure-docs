@@ -27,7 +27,7 @@ To view update assessment from an Azure VM, perform the following.
 
 In Update Management, you can view information about your machine, missing updates, update deployments, and scheduled update deployments.
 
-[ ![Update Management assessment view for Azure VM](./media/update-mgmt-overview/update-assessment-azure-vm.png)](./media/update-mgmt-overview/update-assessment-azure-vm-expanded.png#lightbox)
+[ ![Update Management assessment view for Azure VM](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
 
 To view update assessment across several machines, including Arc enabled servers from your Automation account, perform the following.
 
