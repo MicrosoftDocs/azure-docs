@@ -42,8 +42,6 @@ This preview extension brings many current and additional Logic Apps capabilitie
 
 * Test your workflows using your local development environment in Visual Studio Code.
 
-* Call Azure functions natively and directly from your workflows.
-
 * Publish and deploy your workflows directly from Visual Studio Code to multiple hosting environments, such as Azure App Service, Azure function apps, or as [Docker containers that you can run anywhere](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 <a name="stateful-stateless"></a>
@@ -373,8 +371,6 @@ The workflow in this example uses this trigger and these actions:
   > you create these connections in a logic app that uses the same Azure subscription and region as 
   > the workflow that you build in Visual Studio Code. After you create the connections, you can 
   > delete the logic app. Connections are Azure resources that exist separately from the logic app.
-
-* The built-in Local Function Operations action, **Invoke a function in this function app**, which calls a function that you later create in your local project.
 
 * The built-in [Response action](../connectors/connectors-native-reqres.md), which you use to send a reply and return data back to the caller.
 
