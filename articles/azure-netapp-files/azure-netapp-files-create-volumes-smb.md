@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 09/16/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
