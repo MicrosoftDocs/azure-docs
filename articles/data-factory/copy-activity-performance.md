@@ -139,9 +139,9 @@ Azure Data Factory provides the following performance optimization features:
 * [Parallel copy](#parallel-copy)
 * [Staged copy](#staged-copy)
 
-### Data Integration Units (DIU)
+### Data Integration Units
 
-A DIU is a measure that represents the power of a single unit in Azure Data Factory. Power is a combination of CPU, memory, and network resource allocation. DIU only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU does not apply to [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more here](copy-activity-performance-features.md#data-integration-units).
+A Data Integration Unit (DIU) is a measure that represents the power of a single unit in Azure Data Factory. Power is a combination of CPU, memory, and network resource allocation. DIU only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU does not apply to [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more here](copy-activity-performance-features.md#data-integration-units).
 
 ### Self-hosted integration runtime scalability
 
