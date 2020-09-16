@@ -19,17 +19,17 @@ Learn how to interactively debug Azure Machine Learning pipelines and deployment
 
 ## Run and debug experiments locally
 
-Use the Azure Machine Learning extension to validate, run and debug your machine learning experiments before submitting them to the cloud. 
+Use the Azure Machine Learning extension to validate, run and debug your machine learning experiments before submitting them to the cloud.
 
 ### Prerequisites
 
-* Azure Machine Learning Visual Studio Code extension. For more information, see [Set up Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* Azure Machine Learning VS Code extension (preview). For more information, see [Set up Azure Machine Learning VS Code extension](tutorial-setup-vscode-extension.md).
 * [Docker for Desktop](https://www.docker.com/get-started)
 * Python
 
 ### Configure experiment for debugging
 
-1. In Visual Studio Code, open the Azure Machine Learning extension view.
+1. In VS Code, open the Azure Machine Learning extension view.
 1. Expand the subscription node containing your workspace. If you don't already one, you can [create an Azure Machine Learning workspace](how-to-manage-resources-vscode.md#create-a-workspace) using the extension.
 1. Expand your workspace node.
 1. Right-click the **Experiments** node and select **Create experiment**. When the prompt appears, provide a name for your experiment.
@@ -38,22 +38,24 @@ Use the Azure Machine Learning extension to validate, run and debug your machine
 1. Select **Yes** to debug your experiment. Otherwise, select **No**. Selecting no will run your experiment locally without attaching to the debugger.
 1. Select **Create new Run Configuration** to create your run configuration. The run configuration defines the script you want to run, dependencies, and datasets used. Alternatively, if you already have one, select it from the dropdown.
     1. Choose your environment. You can choose from any of the [Azure Machine Learning curated](resource-curated-environments.md) or create your own.
-    1. Provide the name of the script you want to run. The path is relative to the directory opened in Visual Studio Code.
+    1. Provide the name of the script you want to run. The path is relative to the directory opened in VS Code.
     1. Choose whether you want to use a dataset or not.
     1. A configuration file containing your run configuration settings opens in the editor. If you're satisfied with the settings, select **Submit experiment**. Alternatively, you open the command palette (**View > Command Palette**) from the menu bar and enter the `Azure ML: Submit experiment` command into the text box.
 1. Once your experiment is submitted, a Docker image containing your script and the configurations specified in your run configuration is created.
 
-    At this time, the contents of the `60_control_log.txt` file stream to the output console in Visual Studio Code.
+    At this time, the contents of the `60_control_log.txt` file stream to the output console in VS Code.
 
     > [!NOTE]
     > The first time your Docker image is created can take several minutes.
 
-1. Once your image is built, a prompt appears to start the debugger. Select **Start debugger**. Doing so attaches the Visual Studio Code debugger to the container running your experiment. Alternatively, in the Azure Machine Learning extension, select the play icon to start the debugger.
+1. Once your image is built, a prompt appears to start the debugger. Set your breakpoints in the application and select **Start debugger** when you're ready to start debugging. Doing so attaches the VS Code debugger to the container running your experiment. Alternatively, in the Azure Machine Learning extension, hover over the node for your current node and select the play icon to start the debugger.
 
     > [!IMPORTANT]
-    > You cannot have multiple debug sessions for a single experiment. You can however debug two or more projects using multiple Visual Studio Code instances.
+    > You cannot have multiple debug sessions for a single experiment. You can however debug two or more projects using multiple VS Code instances.
 
-At this point, you should be able to step-through and debug your code using Visual Studio Code.
+If at any point you want to cancel your run, right-click your run node and select **Cancel run**.
+
+At this point, you should be able to step-through and debug your code using VS Code.
 
 ## Debug and troubleshoot machine learning pipelines
 
@@ -450,7 +452,7 @@ Local web service deployments require a working Docker installation on your loca
 
 At this point, VS Code connects to debugpy inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
-For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+For more information on using VS Code to debug Python, see [Debug your Python code](https://code.visualstudio.com/docs/python/debugging).
 
 ### Stop the container
 
@@ -462,6 +464,6 @@ docker stop debug
 
 ## Next steps
 
-Now that you've set up Visual Studio Code Remote, you can use a compute instance as remote compute from Visual Studio Code to interactively debug your code. 
+Now that you've set up VS Code Remote, you can use a compute instance as remote compute from VS Code to interactively debug your code. 
 
 [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
