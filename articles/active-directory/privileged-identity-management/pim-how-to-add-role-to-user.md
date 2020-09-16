@@ -114,7 +114,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Select **Roles** or **Members**.
 
-    ![Azure AD roles](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![open Azure AD roles](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Select **Add member** to open **Add managed members**.
 
@@ -124,7 +124,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Select **Select members**, select the users you want to assign to the role, and then select **Select**.
 
-    ![Select a role](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Select a user or group to assign](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. In **Add managed members**, select **OK** to add the user to the role.
 
@@ -182,7 +182,7 @@ Follow these steps to remove a specific user from an Azure AD admin role.
 
 1. In the message that asks you to confirm, select **Yes**.
 
-    ![Remove a role](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Confirm the removal](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     The role assignment is removed.
 
