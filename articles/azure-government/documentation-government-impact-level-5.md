@@ -71,6 +71,16 @@ Azure Cognitive Search can be used in Azure Government supporting Impact Level 5
 | --- | --- | --- | --- | --- | --- |
 | **Azure Cognitive Search** | X | X | X | X | X |
 
+### [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+
+Azure Machine Learning can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Azure Machine Learning using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob storage account that's tied to the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob storage is encrypted at rest with Microsoft-managed keys. (https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#data-encryption).  Customers can use their own keys for data stored in Azure Blob storage, refer to Azure Storage encryption with customer-managed keys in Azure Key Vault.
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure Machine Learning** | X | X | X |  |  |
+
 ### [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 
 
 Computer Vision can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
@@ -79,6 +89,36 @@ Computer Vision can be used in Azure Government supporting Impact Level 5 worklo
 | --- | --- | --- | --- | --- | --- | 
 | **Computer Vision** | X | X | X | X | X |
 
+### [Cognitive Services - Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
+
+Cognitive Services - Content Moderator can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Cognitive Services - Content Moderator using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/content-moderator/content-moderator-encryption-of-data-at-rest)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Cognitive Services - Content Moderator** | X | X | X |  |  |
+
+### [Cognitive Services – Face](https://azure.microsoft.com/services/cognitive-services/face/)
+
+Azure Cognitive Services – Face can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Cognitive Services – Face using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Cognitive Services – Face** | X | X | X |  |  |
+
+### [Cognitive Services – Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
+
+Cognitive Services – Language Understanding can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Cognitive Services – Language Understanding using customer-managed keys in Azure Key Vault https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Cognitive Services – Language Understanding** | X | X | X |  |  |
+
 ### [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 
 Text Analytics can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
@@ -86,6 +126,27 @@ Text Analytics can be used in Azure Government supporting Impact Level 5 workloa
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
 | **Text Analytics** | X | X | X | X | X |
+
+### [Cognitive Services – Translator Text](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
+
+Cognitive Services – Translator Text can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Cognitive Services – Translator Text using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-encryption-of-data-at-rest)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Cognitive Services – Translator Text** | X | X | X |  |  |
+
+
+### [Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/)
+
+Azure Speech Service can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Azure Speech Service using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-encryption-of-data-at-rest)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Speech Service** | X | X | X |  |  |
 
 ## Analytics services
 
@@ -151,6 +212,24 @@ Power BI Embedded can be used in Azure Government supporting Impact Level 5 work
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
 | **Power BI Embedded** | X | X | X | X | X |
+
+### [Power Automate](https://flow.microsoft.com/)
+
+Power Automate can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Power Automate** | X | X | X |  |  |
+
+### [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+
+Azure Stream Analytics can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Azure Stream Analytics using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/stream-analytics/data-protection)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Stream Analytics** | X | X | X |  |  |
 
 ## Compute services
 
@@ -279,6 +358,16 @@ Azure Container Instances service automatically encrypts data related to your co
 | --- | --- | --- | --- | --- | --- | 
 | **Container Instances** | X | X | X | X | X |
 
+### [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)
+
+Azure Kubernetes Service can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Azure Kubernetes Service using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure Kubernetes Service** | X | X | X |  |  |
+
 ### [Container Registry](https://azure.microsoft.com/services/container-registry/) 
 
 Container Registry can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
@@ -386,6 +475,16 @@ IoT Hub supports encryption of data at rest with customer-managed keys (CMK), al
 | --- | --- | --- | --- | --- | --- | 
 | **IoT Hub** | X | X | X | X | X | 
 
+### [Azure IoT security](https://azure.microsoft.com/en-us/overview/iot/security/)
+
+Azure IoT security can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Azure IoT Hub using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/iot-hub/iot-hub-customer-managed-keys)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure IoT security** | X | X | X |  |  |
+
 ### [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) 
 
 Notification Hubs can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
@@ -395,16 +494,6 @@ Notification Hubs can be used in Azure Government supporting Impact Level 5 work
 | **Notification Hubs** | X | X | X | X | X | 
 
 ## Management and governance
-
-### [Automation](https://azure.microsoft.com/services/automation/) 
-
-Automation can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-By default, your Azure Automation account uses Microsoft-managed keys.You can manage encryption of secure assets for your Automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. (https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption)
-
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | 
-| **Automation** | X | X | X | X | X | 
 
 ### [Azure Advisor](https://azure.microsoft.com/services/advisor/) 
 
@@ -446,6 +535,14 @@ Azure Cost Management can be used in Azure Government supporting Impact Level 5 
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Cost Management** | X | X | X | X | X |
 
+### [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)
+
+Azure Lighthouse can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure Lighthouse** | X | X | X |  |  |
+
 ### [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/) 
 
 Azure Managed Applications can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
@@ -471,6 +568,14 @@ Azure Policy can be used in Azure Government supporting Impact Level 5 workloads
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Policy** | X | X | X | X | X | 
+
+### [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)
+
+Azure Policy Guest Configuration can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure Policy Guest Configuration** | X | X | X |  |  |
 
 ### [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
@@ -532,6 +637,26 @@ Azure Media Services can be used in Azure Government supporting Impact Level 5 w
 | --- | --- | --- | --- | --- | --- | 
 | **Media Services** |   |   |   | X | X |
 
+## Migration services
+
+### [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)
+
+Azure Migrate can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Azure Migrate using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/migrate/how-to-migrate-vmware-vms-with-cmk-disks)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure Migrate** | X | X | X |  |  |
+
+### [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)
+
+Azure Database Migration Service can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure Database Migration Service** | X | X | X |  |  |
+
 ## Networking services
 
 ### [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)
@@ -557,6 +682,14 @@ ExpressRoute can be used in Azure Government supporting all impact levels with n
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
 | **ExpressRoute** | X | X | X | X | X | 
+
+### [Azure Front Door](https://azure.microsoft.com/services/frontdoor/)
+
+Azure Front Door can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure Front Door** | X | X | X |  |  |
 
 ### [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
 
@@ -639,6 +772,24 @@ Azure Security Center can be used in all Azure Government regions, supporting al
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Security Center** | X | X | X | X | X |
+
+### [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
+
+Azure Sentinel can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Azure Sentinel using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/sentinel/customer-managed-keys)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure Sentinel** | X | X | X |  |  |
+
+### [Customer LockBox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+
+Customer LockBox can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Customer LockBox** | X | X | X |  |  |
 
 ### [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) 
 
@@ -742,6 +893,16 @@ For more information on how to enable this Azure Storage Encryption feature, ple
 
 > [!NOTE]
 > When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.`
+
+### [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)
+
+Azure File Sync can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Configure encryption at rest of content in Azure File Sync using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#azure-file-share-encryption-at-rest)
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure File Sync** | X | X | X |  |  |
 
 ### [StorSimple](https://azure.microsoft.com/services/storsimple/)
 
