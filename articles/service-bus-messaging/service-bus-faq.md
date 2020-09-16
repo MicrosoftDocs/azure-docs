@@ -2,7 +2,7 @@
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 09/16/2020
 ---
 
 # Azure Service Bus - Frequently asked questions (FAQ)
