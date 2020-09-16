@@ -50,7 +50,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
-    ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
+    ![Screenshot shows the Application Insights site extensions page with Create new resource selected.](./media/azure-web-apps/choose-options-new.png)
  
  Below is a summary of data collected for each route:
         
