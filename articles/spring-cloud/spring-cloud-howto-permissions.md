@@ -1,6 +1,6 @@
 ---
 title: "How to - Use permissions in Azure Spring Cloud"
-description: Describes roles and permissions in Azure Spring Cloud.
+description: This article shows you how to create custom roles for permissions in Azure Spring Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 ---
 
 # How to use permissions in Azure Spring Cloud
-The examples in this document explain how to create roles with specific permissions for Azure Spring Cloud.  These are custom roles that delegate permissions to Azure Spring Cloud resources. Custom roles extend [built-in Azure roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) with various stock permissions.
+This article shows you how to create custom roles that delegate permissions to Azure Spring Cloud resources. Custom roles extend [built-in Azure roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) with various stock permissions.
 
 We implement the following roles:
 * Deploy, test, and restart apps
