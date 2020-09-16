@@ -147,10 +147,6 @@ We only show subscriptions that contain key vaults, chosen from the selected sub
 
 ![Screenshot of subscription filter](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### I am getting an error message that the "query exceeds the maximum number of workspaces/regions allowed", what to do now
-
-Currently, there is a limit to 25 regions and 200 workspaces, to view your data, you will need to reduce the number of subscriptions and/or resource groups.
-
 ### I want to make changes or add additional visualizations to Key Vault Insights, how do I do so
 
 To make changes, select the "Edit Mode" to modify the workbook, then you can save your work as a new workbook that is tied to a designated subscription and resource group.
