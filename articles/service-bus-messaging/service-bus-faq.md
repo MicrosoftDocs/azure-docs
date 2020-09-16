@@ -9,7 +9,6 @@ ms.date: 07/15/2020
 
 This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## General questions about Azure Service Bus
 ### What is Azure Service Bus?
@@ -54,9 +53,9 @@ To find the right IP addresses to add to allow list for your connections, follow
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only time it would change is if you restore the namespace on to a different cluster.
+2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+If you use the **zone redundancy** for your namespace, you need to do a few additional steps: 
 
 1. First, you run nslookup on the namespace.
 
@@ -71,6 +70,9 @@ If you use the zone redundancy for your namespace, you need to do a few addition
     <name>-s3.cloudapp.net
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
+
+    > [!NOTE]
+    > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or [moved to a different cluster](event-hubs-geo-dr.md). For more information, see [How can I make sure the public-facing IP address of a cloud service never changes](../cloud-services/cloud-services-connectivity-and-networking-faq.md#how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes).
 
 ### Where can I find the IP address of the client sending/receiving messages to/from a namespace? 
 We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review role-based access control ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
