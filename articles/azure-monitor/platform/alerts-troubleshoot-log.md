@@ -143,7 +143,7 @@ If you've reached the quota limit, the following steps may help resolve the issu
 
 #### From API
 
-- PowerShell - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
+- PowerShell - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule)
 - REST API - [List by subscription](/rest/api/monitor/scheduledqueryrules/listbysubscription)
 
 ## Activity log example when rule is disabled
