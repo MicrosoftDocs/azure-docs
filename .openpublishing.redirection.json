@@ -101,6 +101,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-instances/container-instances-quickstart-docker-cli.md",
+      "redirect_url": "/azure/container-instances/quickstart-docker-cli",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/digital-twins/how-to-manage-routes.md",
       "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
       "redirect_document_id": false
@@ -53446,6 +53451,11 @@
       "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial-od.md",
       "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/home.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/overview",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-graph-api-quickstart.md",
