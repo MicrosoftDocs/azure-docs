@@ -29,7 +29,7 @@ You can now configure your Communication Services resource. On the first page in
 * The subscription
 * The resource group (you can create a new one or choose an existing resource group)
 * The name of the Communication Services resource
-* The [geography](../../concepts/privacy.md) the resource will be associated with
+* The geography the resource will be associated with
 
 In the next step, you can assign tags to the resource. Tags can be used to organize your Azure resources. See the [resource tagging documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) for more information about tags.
 
