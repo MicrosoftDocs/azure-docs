@@ -16,10 +16,9 @@ To do end to end TLS, Application Gateway requires the backend instances to be a
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
->
-> - Export authentication certificate from a backend certificate (for v1 SKU)
-> - Export trusted root certificate from a backend certificate (for v2 SKU)
+
+- Export authentication certificate from a backend certificate (for v1 SKU)
+- Export trusted root certificate from a backend certificate (for v2 SKU)
 
 ## Prerequisites
 

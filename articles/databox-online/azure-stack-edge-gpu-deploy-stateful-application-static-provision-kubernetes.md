@@ -51,7 +51,10 @@ You are ready to deploy a stateful application on your Azure Stack Edge device.
 
 ## Provision a static PV
 
-To statically provision a PV, you need to create a share on your device. Follow these steps to provision a PV against your SMB or NFS share. 
+To statically provision a PV, you need to create a share on your device. Follow these steps to provision a PV against your SMB share. 
+
+> [!NOTE]
+> The specific example used in this how-to article does not work with NFS shares. In general, NFS shares can be provisioned on your Azure Stack Edge device with non-database applications.
 
 1. Choose whether you want to create an Edge share or an Edge local share. Follow the instructions in [Add a share](azure-stack-edge-manage-shares.md#add-a-share) to create a share. Make sure to select the check box for **Use the share with Edge compute**.
 
@@ -67,7 +70,7 @@ To statically provision a PV, you need to create a share on your device. Follow 
 
         ![Mount existing local share for PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. Make a note of the share name. When this share is created, a persistent volume object is automatically created in the Kubernetes cluster corresponding to the SMB or NFS share you created. 
+1. Make a note of the share name. When this share is created, a persistent volume object is automatically created in the Kubernetes cluster corresponding to the SMB share you created. 
 
 ## Deploy MySQL
 
@@ -143,7 +146,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
               claimName: mysql-pv-claim
     ```
     
-2. Copy and save as a `mysql-pv.yml` file to the same folder where you saved the `mysql-deployment.yml`. To use the SMB or NFS share that you earlier created with `kubectl`, set the `volumeName` field in the PVC object to the name of the share. 
+2. Copy and save as a `mysql-pv.yml` file to the same folder where you saved the `mysql-deployment.yml`. To use the SMB share that you earlier created with `kubectl`, set the `volumeName` field in the PVC object to the name of the share. 
 
     > [!NOTE] 
     > Make sure that the YAML files have correct indentation. You can check with [YAML lint](http://www.yamllint.com/) to validate and then save.
@@ -154,8 +157,8 @@ All `kubectl` commands you use to create and manage stateful application deploym
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
@@ -285,7 +288,6 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
 ## Verify MySQL is running
 
-The preceding YAML file creates a service that lets a Pod in the cluster access the database. The Service option clusterIP: None lets the Service DNS name resolve directly to the Pod's IP address. This is optimal when you have only one Pod behind a Service and you don't intend to increase the number of Pods.
 
 To run a command against a container in a pod that is running MySQL, type:
 

@@ -196,7 +196,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
 *  Support diagnostic tools on Configuration Manager
 *  Support table columns for tabular data sources for Azure Data Factory
-*  Support SQL DW for Azure Data Factory
+*  Support Azure Synapse Analytics for Azure Data Factory
 *  Support Reclusive in BlobSource and FileSource for Azure Data Factory
 *  Support CopyBehavior – MergeFiles, PreserveHierarchy, and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
 *  Support Copy Activity reporting progress for Azure Data Factory

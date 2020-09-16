@@ -191,7 +191,7 @@ The following are dimensions that can be used to filter run metrics:
 | Dimension | Description |
 | ---- | ---- |
 | ComputeType | The compute type that the run used. |
-| PipelineStepType | The type of [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) used in the run. |
+| PipelineStepType | The type of [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) used in the run. |
 | PublishedPipelineId | The ID of the published pipeline used in the run. |
 | RunType | The type of run. |
 

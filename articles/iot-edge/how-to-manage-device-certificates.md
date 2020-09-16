@@ -43,7 +43,7 @@ You should use your own certificate authority to create the following files:
 In this article, what we refer to as the *root CA* is not the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other.
 
 > [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050.
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -108,7 +108,9 @@ For these two automatically generated certificates, you have the option of setti
 >[!NOTE]
 >There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day lifetime, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
 
-To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config.yaml file.
+To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the **config.yaml** file.
+
+Upon expiry after the specified number of days, the IoT Edge security daemon has to be restarted to regenerate the Device CA certificate, it won't be renewed automatically.
 
 ```yaml
 certificates:
@@ -119,11 +121,9 @@ certificates:
 ```
 
 > [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050.
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
-If you provided your own device CA certificates, then this value still applies to the workload CA certificate, provided the lifetime value you set is shorter than the lifetime of the device CA certificate.
-
-After you specify the flag in the config.yaml file, take the following steps:
+After you specify the value in the config.yaml file, take the following steps:
 
 1. Delete the contents of the `hsm` folder.
 

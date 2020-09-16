@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 09/08/2020
 ---
 
 # Tag support for Azure resources
@@ -959,6 +959,9 @@ Jump to a resource provider namespace:
 > | dataFactorySchema | No | No |
 > | factories | Yes | Yes |
 > | factories / integrationRuntimes | No | No |
+
+> [!NOTE]
+> If you have Azure-SSIS integration runtimes in your data factory, their running cost will be tagged with data factory tags.  Running Azure-SSIS integration runtimes must be stopped and restarted for new data factory tags to be applied to their running cost.
 
 ## Microsoft.DataLakeAnalytics
 

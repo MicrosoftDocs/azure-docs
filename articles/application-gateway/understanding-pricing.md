@@ -22,14 +22,11 @@ You will be billed only for the resources pre-provisioned and utilized based on 
 
 This article describes the costs associated with each SKU and it is recommended that users utilize this document for planning and managing costs associated with the Azure Application Gateway.
 
-> [!NOTE]
-> A partial hour is billed as a full hour.
-
 ## V1 SKUs
 
 Standard Application Gateway and WAF V1 SKUs are billed as a combination of:
 
-* Fixed Costs
+* Fixed Cost
 
     Cost based on the time a particular type of Application Gateway/WAF is provisioned and running for processing requests.
     The fixed cost component takes in consideration the following factors:
@@ -39,18 +36,18 @@ Standard Application Gateway and WAF V1 SKUs are billed as a combination of:
 
     For N instances, the costs associated will be N * cost of one Instance of a particular Tier(Standard & WAF) & Size(Small, Medium & Large) combination.
 
-* Variable Costs
+* Variable Cost
 
     Cost based on the amount of data processed by the Application Gateway/WAF. Both the request and response bytes processed by the Application Gateway would be considered for billing.
 
-Total Costs = Fixed Costs + Variable Costs
+Total Cost = Fixed Cost + Variable Cost
 
 ### Standard Application Gateway
 
-Fixed Costs & Variable Costs will be calculated according to the Application Gateway type.
+Fixed Cost & Variable Cost will be calculated according to the Application Gateway type.
 The following table shows example prices based on a snapshot of East US pricing and are meant for illustration purposes only.
 
-#### Fixed Costs (East US region pricing)
+#### Fixed Cost (East US region pricing)
 
 |              Application Gateway Type             |  Costs ($/hr)  |
 | ------------------------------------------------- | ---------------|
@@ -60,7 +57,7 @@ The following table shows example prices based on a snapshot of East US pricing 
 
 Monthly price estimates are based on 730 hours of usage per month.
 
-#### Variable Costs (East US region pricing)
+#### Variable Cost (East US region pricing)
 
 |              Data Processed             |  Small ($/GB)  |  Medium ($/GB) |  Large ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
@@ -72,11 +69,11 @@ For more pricing information according to your region, see the [pricing page](ht
 
 ### WAF V1
 
-Fixed Costs & Variable Costs will be calculated according to the provisioned Application Gateway type.
+Fixed Cost & Variable Costs will be calculated according to the provisioned Application Gateway type.
 
 The following table shows example prices based on a snapshot of East US pricing and are for illustration purposes only.
 
-#### Fixed Costs (East US region pricing)
+#### Fixed Cost (East US region pricing)
 
 |              Application Gateway Type             |  Costs ($/hr)  |
 | ------------------------------------------------- | ---------------|
@@ -86,7 +83,7 @@ The following table shows example prices based on a snapshot of East US pricing 
 
 Monthly price estimates are based on 730 hours of usage per month.
 
-#### Variable Costs (East US region pricing)
+#### Variable Cost (East US region pricing)
 
 |              Data Processed             |  Small ($/GB)  |  Medium ($/GB) |  Large ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
@@ -101,7 +98,7 @@ For more pricing information according to your region, see the [pricing page](ht
 
 ### Example 1 (a) – Standard Application Gateway with 1 instance count
 
-Let’s assume you’ve provisioned a standard Application Gateway of medium type with One instance count and it processes 500 GB in a month. 
+Let’s assume you’ve provisioned a standard Application Gateway of medium type with 1 instance and it processes 500 GB in a month. 
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
 Fixed Price = $0.07 * 730 (Hours) =  $51.1
@@ -111,11 +108,11 @@ Variable Costs = Free (Medium tier has no costs for the first 10 TB processed pe
 Total Costs = $51.1 + 0 = $51.1 
 
 > [!NOTE]
-> To support high availability scenarios, it is required to setup a minimum of 2 instances for V1 SKUs.
+> To support high availability scenarios, it is required to setup a minimum of 2 instances for V1 SKUs. See [SLA for Application Gateway](https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2/)
 
 ### Example 1 (b) – Standard Application Gateway with > 1 instance count
 
-Let’s assume you’ve provisioned a standard Application Gateway of medium type with five instance count and it processes 500 GB in a month. 
+Let’s assume you’ve provisioned a standard Application Gateway of medium type with five instances and it processes 500 GB in a month. 
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
 Fixed Price = 5 (Instance count) * $0.07 * 730 (Hours) =  $255.5
@@ -129,7 +126,7 @@ Total Costs = $255.5 + 0 = $255.5
 Let’s assume you’ve provisioned a small type standard Application Gateway and a large type WAF Application Gateway for the first 15 days of the month. The small application gateway processes 15 TB in the duration that it is active and the large WAF application gateway processes 100 TB in the duration that it is active. 
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows: 
 
-###### Small Instance standard Application Gateway
+###### Small instance Standard Application Gateway
 
 24 Hours * 15 Days = 360 Hours
 
@@ -139,7 +136,7 @@ Variable Costs = 10 * 1000 *  $0.008/GB + 5 * 1000 * $0.008/GB  = $120
 
 Total Costs = $9 + $120 = $129
 
-###### Large Instance WAF Application Gateway
+###### Large instance WAF Application Gateway
 24 Hours * 15 Days = 360 Hours
 
 Fixed Price = $0.448  * 360 (Hours) =  $161.28
@@ -150,12 +147,12 @@ Total Costs = $161.28 + $210 = $371.28
 
 ## V2 SKUs  
 
-Application Gateway V2 and WAF V2 instances support autoscaling and guarantee high availability as a default.
+Application Gateway V2 and WAF V2 SKUs support autoscaling and guarantee high availability by default.
 
 ### Key Terms
 
 ##### Capacity Unit 
-Capacity Unit is the measure of capacity utilization for an Application Gateway instance across multiple parameters.
+Capacity Unit is the measure of capacity utilization for an Application Gateway across multiple parameters.
 
 A single Capacity Unit consists of the following parameters:
 * 2500 Persistent connections
@@ -166,7 +163,7 @@ If any one of these parameters are exceeded, then another n capacity unit(s) are
 The parameter with the highest utilization among the three above will be internally used for calculating capacity units, which is in turn billed.
 
 ##### Compute Unit
-Compute Unit is the measure of processor capacity consumed. Factors affecting compute unit consumption are TLS connections/sec, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF - incoming request size.
+Compute Unit is the measure of compute capacity consumed. Factors affecting compute unit consumption are TLS connections/sec, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF - incoming request size.
 
 Compute unit guidance:
 * Standard_v2 - Each compute unit is capable of approximately 50 connections per second with RSA 2048-bit key TLS certificate.
@@ -174,15 +171,15 @@ Compute unit guidance:
 * WAF_v2 - Each compute unit can support approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance is not affected by response size currently.
 
 ##### Instance Count 
- Pre-provisioning of resources for Application Gateway V2 SKUs is defined in terms of Instance counts. Each Instance guarantees a minimum of 10 capacity units in terms of processing capability. The same instance could potentially support more than 10 capacity units for different traffic patterns depending upon the Capacity Unit parameters.
+Pre-provisioning of resources for Application Gateway V2 SKUs is defined in terms of instance count. Each instance guarantees a minimum of 10 capacity units in terms of processing capability. The same instance could potentially support more than 10 capacity units for different traffic patterns depending upon the Capacity Unit parameters.
 
-Manually defined scale and limits set for autoscaling (minimum or maximum) are set in terms of Instance Count. The manually set scale for instance count and the minimum instance count in autoscale config will reserve 10 capacity units/Instance. These reserved CUs will be billed as long as the Application Gateway is active regardless of the actual resource consumption. If actual consumption crosses the 10 capacity units/Instance threshold, additional capacity units will be billed under the variable component.
+Manually defined scale and limits set for autoscaling (minimum or maximum) are set in terms of Instance Count. The manually set scale for instance count and the minimum instance count in autoscale config will reserve 10 capacity units/instance. These reserved CUs will be billed as long as the Application Gateway is active regardless of the actual resource consumption. If actual consumption crosses the 10 capacity units/instance threshold, additional capacity units will be billed under the variable component.
 
 V2 SKUs are billed based on the consumption and constitute of two parts:
 
 * Fixed Costs
 
-    Cost based on the time the Application Gateway V2 /WAF V2 is provisioned and available for processing requests. This ensures high availability - even if 0 instances are reserved by specifying 0 in minimum scale units as part of autoscaling. 
+    Cost based on the time the Application Gateway V2 /WAF V2 is provisioned and available for processing requests. This ensures high availability - even if 0 instances are reserved by specifying 0 in minimum instance count as part of autoscaling. 
     
     The fixed cost also includes the cost associated with the public IP attached to the Application Gateway.
 
@@ -190,7 +187,7 @@ V2 SKUs are billed based on the consumption and constitute of two parts:
 
 * Capacity Unit Costs 
 
-    Cost based on the number of capacity units either reserved or created with autoscaling as required for processing the incoming requests.  Consumption based costs are computed hourly.
+    Cost based on the number of capacity units either reserved or utilized additionally as required for processing the incoming requests.  Consumption based costs are computed hourly.
 
 Total Costs = Fixed Costs + Capacity Unit Costs
 
@@ -220,7 +217,7 @@ For more pricing information according to your region, see the [pricing page](ht
 > Outbound data transfers - data going out of Azure data centers from application gateways will be charged at standard [data transfer rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### Example 1 (a) – Manual Scaling 
-Let’s assume you’ve provisioned a Standard_V2 Application Gateway with manual scaling set to 8 scale units for the entire month. During this time, it receives an average of 88.8-Mbps data transfer.
+Let’s assume you’ve provisioned a Standard_V2 Application Gateway with manual scaling set to 8 instances for the entire month. During this time, it receives an average of 88.8-Mbps data transfer.
 
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
@@ -240,9 +237,9 @@ Total Costs = $179.58 + $467.2 = $646.78
 
 ![Diagram of Manual-scale 1.](./media/pricing/manual-scale-1.png)
 
-### Example 1 (b) – Manual Scaling With traffic going beyond set capacity
+### Example 1 (b) – Manual Scaling With traffic going beyond provisioned capacity
 
-Let’s assume you’ve provisioned a Standard_V2 Application Gateway with manual scaling set to 3 scale units for the entire month. During this time, it receives an average of 88.8-Mbps data transfer.
+Let’s assume you’ve provisioned a Standard_V2 Application Gateway with manual scaling set to 3 instances for the entire month. During this time, it receives an average of 88.8-Mbps data transfer.
 
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
@@ -255,7 +252,7 @@ Pre-provisioned CUs = 3 (Instance count) * 10 = 30
 Since 40 (required capacity) > 30 (reserved capacity), additional CUs are required.
 The number of additional CUs utilized would depend on the free capacity available with each instance.
 
-If processing capacity equivalent to 5 additional CUs was available for use within the 3 reserved instances.
+If processing capacity equivalent to 10 additional CUs was available for use within the 3 reserved instances.
 
 Fixed Price = $0.246  * 730 (Hours) =  $179.58
 
@@ -266,11 +263,11 @@ Total Costs = $179.58 + $204.4 = $383.98
 ![Diagram of Manual-scale 2.](./media/pricing/manual-scale-2.png)
 
 > [!NOTE]
-> In case of Manual Scaling, any additional requests exceeding the maximum processing capacity of the reserved instances will be dropped. In situations of high load, reserved instances may be able to provide more than 10 Capacity units of processing capacity depending upon the configuration and type of incoming requests.
+> In case of Manual Scaling, any additional requests exceeding the maximum processing capacity of the reserved instances may cause impact to the availability of your application. In situations of high load, reserved instances may be able to provide more than 10 Capacity units of processing capacity depending upon the configuration and type of incoming requests. But it is recommended to provision the number of instances as per your traffic requirements.
 
 ### Example 2 – WAF_V2 instance with Autoscaling
 
-Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum scale unit config to 6 Units for the entire month. The request load has caused the WAF instance to scale out and utilize 65 Capacity units(scale out of 5 capacity units, while 60 units were reserved) for the entire month.
+Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum instance count to 6 for the entire month. The request load has caused the WAF instance to scale out and utilize 65 Capacity units(scale out of 5 capacity units, while 60 units were reserved) for the entire month.
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
 Monthly price estimates are based on 730 hours of usage per month.
@@ -288,7 +285,7 @@ Total Costs = $323.39 + $683.28 = $1006.67
 
 ### Example 3 (a) – WAF_V2 instance with Autoscaling and 0 Min scale config
 
-Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum scale unit config to 0 Units for the entire month. The request load on the WAF is minimum but consistently present per hour for the entire month. The load is below the capacity of a single capacity unit.
+Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum instance count as 0 for the entire month. The request load on the WAF is minimum but consistently present per hour for the entire month. The load is below the capacity of a single capacity unit.
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
 Monthly price estimates are based on 730 hours of usage per month.
@@ -299,9 +296,9 @@ Variable Costs = $0.0144  * 1(capacity units) * 730 (Hours) = $10.512
 
 Total Costs = $323.39 + $10.512 = $333.902
 
-### Example 3 (b) – WAF_V2 instance with Autoscaling with 0 Min scale config 
+### Example 3 (b) – WAF_V2 instance with Autoscaling with 0 Min instance count
 
-Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum scale unit config to 0 Units for the entire month. However, there is 0 traffic directed to the WAF instance for the entire month.
+Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum instance count to 0 for the entire month. However, there is 0 traffic directed to the WAF instance for the entire month.
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
 Fixed Price = $0.443   * 730 (Hours) =  $323.39
@@ -310,9 +307,9 @@ Variable Costs = $0.0144  * 0(capacity units) * 730 (Hours) = $0
 
 Total Costs = $323.39 + $0 = $323.39
 
-### Example 3 (C) – WAF_V2 instance with manual scale set to 1 instance
+### Example 3 (C) – WAF_V2 instance with manual scaling set to 1 instance
 
-Let’s assume you’ve provisioned a WAF_V2 and set it to manual scaling with the minimum acceptable value of 1 Instance Unit for the entire month. However, there is 0 traffic directed to the WAF instance for the entire month.
+Let’s assume you’ve provisioned a WAF_V2 and set it to manual scaling with the minimum acceptable value of 1 instance for the entire month. However, there is 0 traffic directed to the WAF for the entire month.
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
 Monthly price estimates are based on 730 hours of usage per month.
@@ -320,13 +317,13 @@ Monthly price estimates are based on 730 hours of usage per month.
 Fixed Price = $0.443   * 730 (Hours) =  $323.39
 
 Variable Costs = $0.0144  * 1(Instance count) * 10(capacity units) * 730 (Hours) = 
-$105.12 (1 Instance unit is reserved)
+$105.12
 
 Total Costs = $323.39 + $105.12 = $428.51
 
 ### Example 4 – WAF_V2 with Autoscaling, capacity unit calculations
 
-Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum Instance Count config to 0 for the entire month. During this time, it receives 25 new TLS connections/sec with an average of 8.88-Mbps data transfer.
+Let’s assume you’ve provisioned a WAF_V2 with autoscaling enabled and set the minimum instance count to 0 for the entire month. During this time, it receives 25 new TLS connections/sec with an average of 8.88-Mbps data transfer.
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
 Monthly price estimates are based on 730 hours of usage per month.
@@ -339,7 +336,7 @@ Total Costs = $323.39 + $23.36 = $346.75
 
 ### Example 5 (a) – Standard_V2 with Autoscaling, time-based calculations
 
-Let’s assume you’ve provisioned a standard_V2 with autoscaling enabled and set the minimum scale unit config to 0 Units. This application gateway instance is active for 2 hours.
+Let’s assume you’ve provisioned a standard_V2 with autoscaling enabled and set the minimum instance count to 0 and this application gateway is active for 2 hours.
 During the first hour, it receives traffic that can be handled by 10 Capacity Units and during the second hour it receives traffic that required 20 Capacity Units to handle the load.
 Your Application Gateway costs using the pricing mentioned above would be calculated as follows:
 
@@ -353,7 +350,7 @@ Total Costs = $0.492 + $0.24 = $0.732
 
 ## Monitoring Billed Usage
 
-You can view the amount of consumption for different parameters (compute unit, throughput & persistent connections) as well as the Compute Units being utilized as part of the Application Gateway metrics under the **Monitoring** section.
+You can view the amount of consumption for different parameters (compute unit, throughput & persistent connections) as well as the Capacity Units being utilized as part of the Application Gateway metrics under the **Monitoring** section.
 
 ![Diagram of metrics section.](./media/pricing/metrics-1.png)
 
@@ -361,31 +358,28 @@ You can view the amount of consumption for different parameters (compute unit, t
 
 * Current capacity units
 
-    Count of capacity units consumed to load balance the traffic across the three parameters - Persistent connections, Throughput and Compute unit
+    Count of capacity units consumed to load balance the traffic across the three parameters - Current connections, Throughput and Compute unit
 
 * Fixed Billable Capacity Units
 
-    The minimum number of capacity units kept provisioned as per the Minimum scale units setting (one instance translates to 10 capacity units) in the Application Gateway configuration.
+    The minimum number of capacity units kept provisioned as per the minimum instance count setting (one instance translates to 10 capacity units) in the Application Gateway configuration.
 
 * Estimated Billed Capacity units
 
     Estimated Billed Capacity units indicates the number of capacity units using which the billing is estimated. This is calculated as the greater value between Current capacity units (capacity units required to load balance the traffic) and Fixed billable capacity units (minimum capacity units kept provisioned).
 
-More metrics such as throughput, current connections and compute units are also available to understand bottlenecks and estimate the number of capacity units required. Detailed information is available at [Application Gateway Metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#application-gateway-metrics)
+More metrics such as throughput, current connections and compute units are also available to understand bottlenecks and estimate the number of capacity units required. Detailed information is available at [Application Gateway Metrics](application-gateway-metrics.md)
 
-#### Example 1 (a) - Estimating Capacity Units being utilized
+#### Example - Estimating Capacity Units being utilized
 
 **Observed Metrics:**
 
-Compute Units = 22.25
+* Compute Units = 17.38
+* Throughput = 1.37M Bytes/sec - 10.96 Mbps
+* Current Connections = 123.08k
+* Capacity Units calculated = max(17.38, 10.96/2.22, 123.08k/2500) = 49.232
 
-Throughput = 16 Mbps (2000000B)
-
-Current Connections = 178.25k
-
-Capacity Units calculated = max (22.25, 16/2.22 , 178.25*1000/2500) = 71.3
-
-Observed Capacity Units in metrics = 72.3
+Observed Capacity Units in metrics = 49.23
 
 ## Next steps
 
