@@ -16,7 +16,7 @@ ms.author: jgao
 
 In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. If you’re not already using a health monitor, these are great solutions to start with:
 
-| | ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
+| Azure Monitor| ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|-----|------|------|
 |Azure Monitor, empowers to maximize the availability and performance of your applications and services by delivering a comprehensive solution. |Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, the all-in-one private and public cloud services monitoring solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, the monitoring and analytics platform for multi-cloud application environments. See [how Wavefront integrates with Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
 
@@ -37,7 +37,7 @@ The flow to getting setup with Azure Deployment Manager health checks:
     1. Authentication information. Currently only API-key style authentication is supported. For Azure Monitor, the authentication type should be set as – “RolloutIdentity” as the user assigned managed identity used for Azure Deployment Manager Rollout extends for Azure Monitor.
     1. [HTTP status codes](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) or regular expressions that define a healthy response.	Note that you may provide regular expressions, which ALL must match for the response to be considered healthy, or you may provide expressions of which ANY must match for the response to be considered healthy. Both methods are supported.
 
-    The following Json is an example for integrating Azure Monitor with Azure Deployment Manager that leverages RolloutIdentity and establishes health check wherein a Rollout proceeds if there are no alerts. The only supported Azure Monitor API: [Alerts – Get All](/rest/api/monitor/alertsmanagement/alerts/getall).
+    The following Json is an example for integrating Azure Monitor with Azure Deployment Manager that leverages RolloutIdentity and establishes health check wherein a Rollout proceeds if there are no alerts. The only supported Azure Monitor API: [Alerts – Get All](/rest/api/monitor/alertsmanagement/alerts/getall.md).
 
     ```json
     {
