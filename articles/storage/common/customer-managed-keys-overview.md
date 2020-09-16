@@ -26,7 +26,7 @@ You must use either Azure Key Vault or Azure Key Vault Managed Hardware Security
 
 The following diagram shows how Azure Storage uses Azure Active Directory and a key vault or managed HSM to make requests using the customer-managed key:
 
-![Diagram showing how customer-managed keys work in Azure Storage](media/encryption-customer-managed-keys/encryption-customer-managed-keys-diagram.png)
+![Diagram showing how customer-managed keys work in Azure Storage](media/customer-managed-keys-overview/encryption-customer-managed-keys-diagram.png)
 
 The following list explains the numbered steps in the diagram:
 
