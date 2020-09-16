@@ -2,7 +2,7 @@
 title: What's new with Azure Arc enabled servers (preview) agent
 description: This article has release notes for Azure Arc enabled servers (preview) agent. For many of the summarized issues, there are links to additional details.
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/14/2020
 ---
 
 # What's new with Azure Arc enabled servers (preview) agent
@@ -13,11 +13,39 @@ The Azure Arc enabled servers (preview) Connected Machine agent receives improve
 - Known issues
 - Bug fixes
 
+## September 2020
+
+Version: 1.0 (General Availability)
+
+### Plan for change
+
+- Support for preview agents (all versions older than 1.0) will be removed in a future service update.
+- Removed support for fallback endpoint `.azure-automation.net`. If you have a proxy, you need to allow the endpoint `*.his.arc.azure.com`.
+- If the Connected Machine agent is installed on a virtual machine hosted in Azure, VM extensions cannot be installed or modified from the Arc enabled Servers resource. This is to avoid conflicting extension operations being performed from the virtual machine's **Microsoft.Compute** and **Microsoft.HybridCompute** resource. Use the **Microsoft.Compute** resource for the machine for all extension operations.
+- Name of Guest Configuration process has changed, from *gcd* to *gcad* on Linux, and *gcservice* to *gcarcservice* on Windows.
+
+### New feature
+
+- Added `azcmagent logs` option to collect information for support.
+- Added `azcmagent license` option to display EULA.
+- Added `azcmagent show --json` option to output agent state in easily parseable format.
+- Added flag in `azcmagent show` output to indicate if server is on a virtual machine hosted in Azure.
+- Added `azcmagent disconnect --force-local-only` option to allow reset of local agent state when Azure service cannot be reached.
+- Added `azcmagent connect --cloud` option to support additional clouds. In this release, only Azure is supported by service at time of agent release.
+- Agent has been localized into Azure-supported languages.
+
+### Fixed
+
+- Improvements to connectivity check.
+- Corrected issue with proxy server settings being lost when upgrading agent on Linux.
+- Resolved issues when attempting to install agent on server running Windows Server 2012 R2.
+- Improvements to extension installation reliability
+
 ## August 2020
 
 Version: 0.11
 
-- Support for Ubuntu 20.04.
+- This release previously announced support for Ubuntu 20.04. Because some Azure VM extensions do not support Ubuntu 20.04, support for this version of Ubuntu is being removed.
 
 - Reliability improvements for extension deployments.
 
