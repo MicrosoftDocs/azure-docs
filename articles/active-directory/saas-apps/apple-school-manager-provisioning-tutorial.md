@@ -55,7 +55,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 [The Connect to SCIM window, which provides a token and a Copy button under it.]
 Leave this window open to copy the Tenant URL from Apple Business Manager to Azure AD, which is: https://federation.apple.com/feeds/school/scim
 
-	![Apple School Manager](media/appleschoolmanager-provisioning-tutorial/AXM-SCIM-token.png)
+	![Apple School Manager](media/appleschoolmanager-provisioning-tutorial/scim-token.png)
 
 > [!NOTE]
 > The secret token shouldn’t be shared with anyone other than the Azure AD administrator.
@@ -150,15 +150,15 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Review SCIM requirements for Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apdd88331cd6)
-* [How a Person ID is used in Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apd69e1e48e9)
-* [Use SCIM to import users into Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apd3ec7b95ad)
-* [Resolve SCIM user account conflicts in Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apd313013d12)
-* [Delete Azure AD accounts that appear in Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apdaa5798fbe)
-* [View SCIM activity in Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
-* [Manage existing SCIM token and connections in Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apdc9a823611)
-* [Disconnect the SCIM connection in Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apd609be3a61)* [Manage existing SCIM token and connections in Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
-* [Troubleshooting the SCIM connection in Apple School Manager]* (URL=https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
+* [Review SCIM requirements for Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apdd88331cd6)
+* [How a Person ID is used in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd69e1e48e9)
+* [Use SCIM to import users into Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd3ec7b95ad)
+* [Resolve SCIM user account conflicts in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd313013d12)
+* [Delete Azure AD accounts that appear in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apdaa5798fbe)
+* [View SCIM activity in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
+* [Manage existing SCIM token and connections in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apdc9a823611)
+* [Disconnect the SCIM connection in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd609be3a61)[Manage existing SCIM token and connections in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
+* [Troubleshooting the SCIM connection in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
 
 ## Next steps
 

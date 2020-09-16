@@ -1926,9 +1926,9 @@
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Apple Business Manager
-        href: applebusinessmanager-provisioning-tutorial.md
+        href: apple-business-manager-provisioning-tutorial.md
       - name: Apple School Manager
-        href: appleschoolmanager-provisioning-tutorial.md
+        href: apple-school-manager-provisioning-tutorial.md
       - name: Asana
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
