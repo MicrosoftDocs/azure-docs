@@ -57,7 +57,6 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 |**Get started** | [Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## Release history
-
 [!INCLUDE[Release notes](~/azure-cosmos-spark/CHANGELOG.md)]
 
 ## FAQ
