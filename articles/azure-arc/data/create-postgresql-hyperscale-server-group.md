@@ -119,7 +119,7 @@ To view the endpoints for a PostgreSQL instance, run the following command:
 azdata arc postgres server endpoint list -n <server group name>
 
 #Example
-#azdata arc postgres server endpoint list -n postgres01
+#azdata arc postgres endpoint list -n postgres01
 #Description           Endpoint
 #--------------------  ----------------------------------------------------------------------------------------------------------------------------
 #PostgreSQL Instance   postgresql://postgres:<replace with password>@10.240.0.6:31787
