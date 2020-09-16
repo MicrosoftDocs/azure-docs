@@ -94,13 +94,13 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 Yes, you can use Exchange ActiveSync in a Conditional Access policy.
 
-Some cloud apps like SharePoint Online and Exchange Online also support legacy authentication protocols. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a Conditional Access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
+Some cloud apps like SharePoint and Exchange Online also support legacy authentication protocols. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a Conditional Access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
 
-### How should you configure Conditional Access with Office 365 apps?
+### How should you configure Conditional Access with Microsoft 365 apps?
 
-Because Office 365 apps are interconnected, we recommend assigning commonly used apps together when creating policies.
+Because Microsoft 365 apps are interconnected, we recommend assigning commonly used apps together when creating policies.
 
-Common interconnected applications include Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online, and Office 365 Yammer.
+Common interconnected applications include Microsoft Flow, Microsoft Planner, Microsoft Teams, Exchange Online, SharePoint, and Yammer.
 
 It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don't, users won't be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won't be able to attach SharePoint files to a message. More information can be found in the article, [What are service dependencies in Azure Active Directory Conditional Access?](service-dependencies.md).
 
