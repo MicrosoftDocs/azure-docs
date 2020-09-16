@@ -18,10 +18,15 @@ Azure Files SMB Multichannel (Preview) enables an SMB 3.x client to establish mu
 Azure Files SMB Multichannel enables clients to use multiple network connections that provides increased performance while lowering the cost of ownership. Increased performance is achieved through bandwidth aggregation over multiple NICs and utilizing Receive Side Scaling (RSS) support for NICs to distribute the IO load across multiple CPUs.
 
 - Increased throughput
+    Multiple connections allows data to be transferred over multiple paths in parallel and thereby generally significantly benefits workloads that use larger file sizes with larger IO sizes, and require high throughput from a single VM or smaller set of VMs. Some of these workloads include media and entertainment for content creation or transcoding, genomics, or financial services risk analysis.
 - Higher IOPS
+    NIC RSS capability allows effective load distribution across multiple CPUs with multiple connections. This helps achieve higher IOPS scale and effective utilization of VM CPUs. This is particularly useful for workloads that have small IO sizes, such as database applications.
 - Network fault tolerance
+    Multiple connections mitigate the risk of disruption since clients no longer rely on an individual connection.
 - Automatic configuration
+    When SMB Multichannel is enabled on clients and storage accounts, it allows for dynamic discovery of existing connections, and can create addition connection paths as necessary.
 - Cost optimization
+    Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to premium shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
 
 To learn more about SMB Multichannel, refer to the [Windows documentation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn610980(v=ws.11)).
 
@@ -88,7 +93,7 @@ There are two categories of read/write workload patterns - single-threaded and m
 
 For the charts in this article, the following configuration was used: A single Standard D32s v3 VM with a single RSS enabled NIC with 4 channels. Load was generated using diskspd.exe, multiple-threaded with IO depth of 10, random IOs with various IO sizes.
 
-- Size - Standard_D32s_v3
+- Size - [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md)
 - vCPU - 32
 - Memory (GiB) - 128
 - Temp storage (SSD) in GiB - 256
@@ -130,7 +135,7 @@ The following tips may help you optimize your performance:
 - Use multi-threaded applications and spread load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing load.
 - Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
-- Maximum performance of a single VM client is still bound to VM limits. For example, Standard_D32s_V3 can support a max bandwidth of 16000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
+- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) can support a max bandwidth of 16000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
 - The initial test is usually a warm up, discard its results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, higher performance can be achieved by spreading load over multiple clients.
 
