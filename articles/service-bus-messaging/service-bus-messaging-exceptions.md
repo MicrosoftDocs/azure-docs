@@ -83,6 +83,8 @@ A [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) indic
 
 You should check the value of the [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit?view=netcore-3.1) property, as hitting this limit can also cause a [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1).
 
+Timeouts are expected to happen during or in-between maintenance operations on resources behind Service Bus namespaces until the maintenance operations have fully completed. This is because during OS updates, entities are moving around and there is an upgrade/reboot happening in the nodes during that timeframe which can cause timeouts and there is a 99.9% SLA for a Standard Namespace which uses shared resources for CPU/Memory which means the SB/EH namespace cannot be guaranteed to be error free during this timeframe.
+
 ### Queues and topics
 For queues and topics, the timeout is specified either in the [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
