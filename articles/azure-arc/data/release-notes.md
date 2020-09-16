@@ -49,4 +49,4 @@ After you deploy the data controller, see [Deploy an Azure SQL managed instance 
 - Deploying on OpenShift requires relaxed security constraints.  See documentation for details.
 - Scaling the number of Postgres Hyperscale worker nodes _down_ is not supported.
 - If you are using Azure Kubernetes Service Engine (AKS Engine) on Azure Stack Hub with Azure Arc data controller and database instances, upgrading to a newer Kubernetes version is not supported. Uninstall Azure Arc data controller and all the database instances before upgrading the Kubernetes cluster.
-- If you edit a SQL instance or PostgreSQL instance that currently does not have an external endpoint and you do not pass the --no-external-endpoint parameter to the edit command, an external endpoint will be added.
+- If you edit a SQL instance or PostgreSQL instance that currently does not have an external endpoint and you do not pass the --no-external-endpoint parameter to the edit command, an external endpoint will be added.  If this happens, and you want to remove the external endpoint you can re-run the edit command and pass the --no-external-endpoint parameter again.
