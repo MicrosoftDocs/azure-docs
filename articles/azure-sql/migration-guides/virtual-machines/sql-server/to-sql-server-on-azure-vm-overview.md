@@ -65,6 +65,10 @@ The following table details the available method for the **lift and shift** migr
 
 Due to the ease of setup, the recommended approach to migrate user databases is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method  supports larger databases (>1TB) for all versions of SQL Server starting from 2005 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
 
+When migrating SQL Server databases to an instance of SQL Server on Azure VMs, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes.
+
+Review and test an offline migration first to determine whether the downtime is acceptable; if not, plan for using an online migration method.
+
 The following table details all available methods to migrate your SQL Server database to SQL Server on Azure VMs: 
 <br />
 
@@ -78,8 +82,7 @@ The following table details all available methods to migrate your SQL Server dat
 | **[Distributed availability group](/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions)** | SQL Server 2016| SQL Server 2016 | [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  A [distributed availability group](/sql/database-engine/availability-groups/windows/distributed-availability-groups) is a special type of availability group that spans two separate availability groups. The availability groups that participate in a distributed availability group do not need to be in the same location and include cross-domain support. <br /><br /> This method minimizes downtime, use when you have an availability group configured on-premises. <br /><br /> **Automation & scripting**: [T-SQL](/sql/t-sql/statements/alter-availability-group-transact-sql)  |
 
 > [!TIP]
-> For large data transfers or for limited to no network options see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md)
->
+> For large data transfers or for limited to no network options see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md). 
 
 ### Considerations
 
@@ -171,7 +174,7 @@ The following lists alternative partners that can help with migration as well:
 
 ## Next steps
 
-To start migrating your SQL Server on SQL Server on Azure VMs, see the [Individual database migration guide](individual-database-migration-guide.md). 
+To start migrating your SQL Server on SQL Server on Azure VMs, see the [Individual database migration guide](individual-databases-migration-guide.md). 
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration.](../../../../dms/dms-tools-matrix.md)
 

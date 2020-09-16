@@ -101,13 +101,9 @@ It is highly recommended that all DMA fixes are scripted and applied to the targ
 
 ## Migrate
 
-After you have completed the pre-migration steps, you are ready to migrate the user databases and components. 
+After you have completed the pre-migration steps, you are ready to migrate the user databases and components. Migrate your databases using your preferred [migration method](to-sql-server-on-azure-vm-overview.md#migrate).  
 
-Migrate your databases using your preferred [migration method](to-sql-server-on-azure-vm-overview.md#migrate).  When migrating SQL Server databases to an instance of SQL Server on Azure VMs, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes.
-
-Review and test an offline migration first to determine whether the downtime is acceptable; if not, plan for using an online migration method.
-
-The following provides steps for performing offline and online migrations using the native backup and restore method. Once all necessary objects have been migrated, cut the application over to point to the new target. 
+The following provides steps for performing either an offline migration using backup and restore, or an online migration using backup and restore along with log shipping for the online cutover. 
 
 ### Offline Migration
 
@@ -132,14 +128,10 @@ To perform an online migration using backup and restore, follow these steps:
 1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10.md) (>1TB backups recommended).
 1. Restore Full Database backup(s) on the SQL Server on Azure VM.
 1. Setup [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialize the database(s) as this has already been completed in the previous steps.
-
-### Cut-Over
-
-Once databases and objects have been migrated over, perform a cut over of the application using these steps: 
-
-1. Pause/Stop Applications using databases to be migrated.
-1. Ensure User database(s) are inactive using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
-1. When required, perform [controlled fail-over](/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server) of on-premise database(s) to target SQL Server on Azure VM.
+1. **Cut over** to the online target. 
+   1. Pause/stop applications using databases to be migrated. 
+   1. Ensure user database(s) are inactive using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
+   1. When ready, perform [controlled fail-over](/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server) of on-premise database(s) to target SQL Server on Azure VM.
 
 
 
