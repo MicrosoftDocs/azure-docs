@@ -978,7 +978,7 @@
       href: insights/vminsights-maps.md
     - name: Monitor performance
       href: insights/vminsights-performance.md
-    - name: Monitor health
+    - name: Monitor guest health (preview)
       items:
       - name: Overview
         href: insights/vminsights-health-overview.md
@@ -986,6 +986,8 @@
         href: insights/vminsights-health-enable.md
       - name: Configure
         href: insights/vminsights-health-configure.md
+      - name: Configure at scale
+        href: insights/vminsights-health-configure-template.md
     - name: Analyze data with log queries
       href: insights/vminsights-log-search.md
     - name: Visualize data with workbooks

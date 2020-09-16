@@ -281,9 +281,3 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
   }
 }
 ```
-
-
-
-## Questions/feedback?
-
-Contact [ask-vmh@microsoft.com](mailto:ask-vmh@microsoft.com) if you have any questions or want to provide feedback around guest VM health functionality.

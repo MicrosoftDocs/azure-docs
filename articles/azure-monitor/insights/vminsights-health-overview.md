@@ -53,7 +53,7 @@ The following table lists the aggregate and unit monitors currently available fo
 | File systems | Aggregate | Aggregate health of all file systems on the VM. |
 | File system  | Aggregate | Health of each individual file system on the VM. The name of the monitor is the name of the file system. |
 | Free space | Unit | Percentage free space on the file system. |
-| Memory | Aggregate health of the memory on the VM. |
+| Memory | Aggregate | Aggregate health of the memory on the VM. |
 | Available memory | Unit | Available megabytes on the VM.
 
 
