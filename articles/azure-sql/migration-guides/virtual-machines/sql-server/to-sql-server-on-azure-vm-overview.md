@@ -87,7 +87,7 @@ The following table details all available methods to migrate your SQL Server dat
 &nbsp;
  
 > [!TIP]
-> For large data transfers or for limited to no network options, see [Data transfer for large datasets with low or network bandwidth](../../../../storage/common/storage-solution-large-dataset-low-network.md).
+> For large data transfers with limited to no network options, see [Large data transfers with limited connectivity](../../../../storage/common/storage-solution-large-dataset-low-network.md).
 > 
  
 
