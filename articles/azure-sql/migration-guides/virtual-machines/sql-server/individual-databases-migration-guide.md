@@ -119,7 +119,7 @@ To perform an offline migration using backup and restore, follow these steps:
 
 ### Online Migration
 
-To perform an online migration using backup and restore, follow these steps: 
+To perform an online migration using backup, restore, and log shipping follow these steps: 
 
 1. Setup connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Migrate objects outside user database (see objects outside user database) such as Logins, Jobs and Server level objects.
