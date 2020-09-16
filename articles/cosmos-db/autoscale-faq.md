@@ -22,7 +22,7 @@ Resources that were created with the previous tier model are automatically suppo
 
 For example, if you previously selected the tier that scaled between 400 to 4000 RU/s, the database or container will now show as having a maximum RU/s of 4000 RU/s, which scales between 400 to 4000 RU/s. From here, you can change the maximum RU/s to a custom value to suit your workload. 
 
-### How quickly will autoscale scale up and down based on spikes in traffic?
+### How quickly will autoscale scale up based on spikes in traffic?
 With autoscale, the system scales the throughput (RU/s) `T` up or down within the `0.1 * Tmax` and `Tmax` range, based on incoming traffic. Because the scaling is automatic and instantaneous, at any point in time, you can consume up to the provisioned `Tmax` with no delay. 
 
 ### How do I determine what RU/s the system is currently scaled to?
