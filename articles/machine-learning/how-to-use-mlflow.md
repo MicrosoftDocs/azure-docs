@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
 
-# Track model metrics and deploy ML models with MLflow and Azure Machine Learning (preview)
+# Track experiment runs and deploy ML models with MLflow and Azure Machine Learning (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect Azure Machine Learning as the backend of your MLflow experiments. 
 
-This article demonstrates how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect your MLflow experiments and Azure Machine Learning.  Doing so enables you to,
+Supported capabilities include: 
 
 + Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models.
 
 + Deploy your MLflow experiments as an Azure Machine Learning web service. By deploying as a web service, you can apply the Azure Machine Learning monitoring and data drift detection functionalities to your production models. 
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine, or an Azure Databricks cluster. 
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine, or an [Azure Databricks cluster](how-to-use-mlflow-azure-databricks.md). 
 
 >[!NOTE]
 > As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
@@ -37,7 +37,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 ## Compare MLflow and Azure Machine Learning clients
 
- The below table summarizes the different clients that can use Azure Machine Learning, and their respective function capabilities.
+ The following table summarizes the different clients that can use Azure Machine Learning, and their respective function capabilities.
 
  MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
@@ -54,21 +54,26 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 |Monitor model performance||✓|  |   |
 | Detect data drift |   | ✓ |   | ✓ |
 
-## Prerequisites
+The following table compares MLflow to Azure Machine Learning capabilities
 
-* [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) on your local computer  The SDK provides the connectivity for MLflow to access your workspace.
-* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+| Capability | MLflow Tracking & Deployment | Azure Machine Learning Python SDK 
+|---|---|---
+| Manage computes & datastores |   | ✓ | 
+| Log metrics      | ✓ | ✓ |
+|Create training jobs| ✓ | ✓ |
+| Upload & manage artifacts | ✓ | ✓ |
+| Manage registered models | ✓ | ✓ |
+| Deploy models    | ✓ | ✓ |
+
+## Prerequisites
+You need, 
+
+* [The Azure Machine Learning SDK installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) on your local computer.  The SDK provides the connectivity for MLflow to access your workspace with the `azureml-mlflow` package that's part of `azureml-core`.
+* [To create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
 
 ## Track local runs
 
 MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your local runs into your Azure Machine Learning workspace.
-
-Install the `azureml-mlflow` package to use MLflow Tracking with Azure Machine Learning on your experiments locally run in a Jupyter Notebook or code editor.
-
-```shell
-pip install azureml-mlflow
-```
 
 Import the `mlflow` and [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py&preserve-view=true) classes to access MLflow's tracking URI and configure your workspace.
 
@@ -95,124 +100,57 @@ mlflow.set_experiment(experiment_name)
 with mlflow.start_run():
     mlflow.log_metric('alpha', 0.03)
 ```
+## Track local or interactive runs
 
-## Track remote runs
-
-MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your remote runs into your Azure Machine Learning workspace.
-
-Remote runs let you train your models on more powerful computes, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Use compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
-
-Configure your compute and training run environment with the [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) class. Include `mlflow` and `azureml-mlflow` pip packages in environment's [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py&preserve-view=true) section. Then construct  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) with your remote compute as the compute target.
-
-```Python
-from azureml.core.environment import Environment
-from azureml.core.conda_dependencies import CondaDependencies
-from azureml.core import ScriptRunConfig
-
-exp = Experiment(workspace = 'my_workspace',
-                 name='my_experiment')
-
-mlflow_env = Environment(name='mlflow-env')
-
-cd = CondaDependencies.create(pip_packages=['mlflow', 'azureml-mlflow'])
-
-mlflow_env.python.conda_dependencies = cd
-
-src = ScriptRunConfig(source_directory='./my_script_location', script='my_training_script.py')
-
-src.run_config.target = 'my-remote-compute-compute'
-src.run_config.environment = mlflow_env
-```
+MLflow tracking lets you store  logged metrics and artifacts from your runs into your Azure Machine Learning workspace.
 
 In your training script, import `mlflow` to use the MLflow logging APIs, and start logging your run metrics.
 
 ```Python
 import mlflow
-
 with mlflow.start_run():
     mlflow.log_metric('example', 1.23)
 ```
 
-With this compute and training run configuration, use the `Experiment.submit('train.py')` method to submit a run. This method automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace.
+## Track remote runs
+
+Remote runs let you train your models on more powerful computes, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Use compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
+
+MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your remote runs into your Azure Machine Learning workspace. Any run with MLflow Tracking code in it will have metrics logged automatically to the workspace. 
+
+The following example conda environment includes `mlflow` and `azureml-mlflow` as pip packages. 
+
+
+```yaml
+name: sklearn-example
+dependencies:
+  - python=3.6.2
+  - scikit-learn
+  - matplotlib
+  - numpy
+  - pip:
+    - azureml-mlflow
+    - numpy
+```
+
+In your script, configure your compute and training run environment with the [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) class. Then, construct  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) with your remote compute as the compute target.
 
 ```Python
-run = exp.submit(src)
+from azureml.core import Environment, ScriptRunConfig, Experiment
+
+env = Environment.from_conda_specification(name='my-mlflow-environment', 
+                                           file_path='myenv.yml'
+                                          )
+
+src = ScriptRunConfig(source_directory=script_dir,
+                      script=script_name,
+                      environment=env,
+                      compute_target=compute_target,
+                     )
+
+run = Experiment(ws, 'mlflow-experiment').submit(src)
+run
 ```
-
-## Track Azure Databricks runs
-
-MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your Azure Databricks runs in your Azure Machine Learning workspace.
-
-To run your Mlflow experiments with Azure Databricks, you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). In your cluster, be sure to install the *azureml-mlflow* library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
-
-From here, import your experiment notebook, attach it to your Azure Databricks cluster and run your experiment. 
-
-### Install libraries
-
-To install libraries on your cluster, navigate to the **Libraries** tab and click **Install New**
-
- ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
-
-In the **Package** field, type azureml-mlflow and then click install. Repeat this step as necessary to install other additional packages to your cluster for your experiment.
-
- ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/install-libraries.png)
-
-### Set up your notebook and workspace
-
-Once your cluster is set up, import your experiment notebook, open it and attach your cluster to it.
-
-The following code should be in your experiment notebook. This code gets the details of your Azure subscription to instantiate your workspace. This code assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](how-to-manage-workspace.md). 
-
-```python
-import mlflow
-import mlflow.azureml
-import azureml.mlflow
-import azureml.core
-
-from azureml.core import Workspace
-from azureml.mlflow import get_portal_url
-
-subscription_id = 'subscription_id'
-
-# Azure Machine Learning resource group NOT the managed resource group
-resource_group = 'resource_group_name' 
-
-#Azure Machine Learning workspace name, NOT Azure Databricks workspace
-workspace_name = 'workspace_name'  
-
-# Instantiate Azure Machine Learning workspace
-ws = Workspace.get(name=workspace_name,
-                   subscription_id=subscription_id,
-                   resource_group=resource_group)
-```
-
-#### Connect your Azure Databricks and Azure Machine Learning workspaces
-
-On the [Azure portal](https://ms.portal.azure.com), you can link your Azure Databricks (ADB) workspace to a new or existing Azure Machine Learning workspace. To do so, navigate to your ADB workspace and select the **Link Azure Machine Learning workspace** button on the bottom right. Linking your workspaces enables you to track your experiment data in the Azure Machine Learning workspace. 
-
-### Link MLflow tracking to your workspace
-
-After you instantiate your workspace, set the MLflow tracking URI. By doing so, you link the MLflow tracking to Azure Machine Learning workspace. After linking, all your experiments will land in the managed Azure Machine Learning tracking service.
-
-#### Directly set MLflow Tracking in your notebook
-
-```python
-uri = ws.get_mlflow_tracking_uri()
-mlflow.set_tracking_uri(uri)
-```
-
-In your training script, import mlflow to use the MLflow logging APIs, and start logging your run metrics. The following example, logs the epoch loss metric. 
-
-```python
-import mlflow 
-mlflow.log_metric('epoch_loss', loss.item()) 
-```
-
-#### Automate setting MLflow Tracking
-
-Instead of manually setting the tracking URI in every subsequent experiment notebook session on your clusters, do so automatically using this [Azure Machine Learning Tracking Cluster Init script](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md).
-
-When configured correctly, you are able to see your MLflow tracking data in the Azure Machine Learning REST API and all clients, and in Azure Databricks via the MLflow user interface or by using the MLflow client.
 
 ## View metrics and artifacts in your workspace
 
@@ -364,3 +302,4 @@ The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) dem
 ## Next steps
 * [Manage your models](concept-model-management-and-deployment.md).
 * Monitor your production models for [data drift](how-to-monitor-data-drift.md).
+* [Track Azure Databricks runs with MLflow](how-to-use-mlflow-azure-databricks.md). 
