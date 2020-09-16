@@ -32,26 +32,13 @@ To learn more about SMB Multichannel, refer to the [Windows documentation](https
 
 This feature provides greater performance benefits to multi-threaded applications but typically does not help single-threaded applications. See the performance section for more details.
 
-## Limitations
+## Restrictions
 
-SMB Multichannel for Azure file shares currently has the following restrictions:
-- Can only be used with FileStorage accounts and premium file shares.
-- Can only use locally redundant storage as the redundancy option.
-- Maximum number of channels is four.
-- SMB Direct over RDMA is not supported.
-- [List Handles API](https://docs.microsoft.com/rest/api/storageservices/list-handles) is not supported.
+[!INCLUDE [storage-files-smb-multi-channel-restrictions](../../../includes/storage-files-smb-multi-channel-restrictions.md)]
 
 ### Regional availability
 
-SMB Multichannel for Azure file shares is currently only available in the following regions:
-
-- Australia East
-- Canada East
-- Central India
-- East US
-- South Central US
-- UAE North
-- West India
+[!INCLUDE [storage-files-smb-multi-channel-regions](../../../includes/storage-files-smb-multi-channel-regions.md)]
 
 ## Configuration
 

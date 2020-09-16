@@ -205,7 +205,7 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
 
 ### Solution
 
-Ensure that your subscription is registered for SMB Multichannel feature. See instructionS in step 2.  
+Ensure that your subscription is registered for SMB Multichannel feature. See [Getting started](storage-files-enable-smb-multichannel.md#getting-started)
 
 Ensure that the account kind is FileStorage (premium file account) in the account overview page. 
 
@@ -217,7 +217,7 @@ Error: Feature cannot be enabled for this storage account
 
 ### Solution
 
-Ensure that your account is in one of the supported regions and is of supported replication type. 
+Ensure that your account is in one of the [supported regions](storage-files-enable-smb-multichannel.md#regional-availability) and is of supported replication type. 
 
 ## SMB Multichannel successfully updated on the portal, but the feature does not work on clients.
 
@@ -227,7 +227,8 @@ Known issue with a few regions. Some of regions will return false success even t
 
 ### Solution
 
-Ensure that your account is in one of the supported regions and is of supported replication type. 
+Ensure that your account is in one of the [supported regions](storage-files-enable-smb-multichannel.md#regional-availability) and is of supported replication type.
+
 ## How to create alerts if a premium file share is trending towards being throttled
 
 1. Go to your **storage account** in the **Azure portal**.
