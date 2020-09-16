@@ -28,7 +28,7 @@ The following changes are being announced with the deprecation of the OMS portal
 - The [OMS Mobile App](#oms-mobile-app) is being deprecated. 
 - The [NSG solution is being replaced](#azure-network-security-group-analytics) with enhanced functionality available via Traffic Analytics solution.
 - New connections from System Center Operations Manager to Log Analytics require [updated management packs](#system-center-operations-manager).
-- See [Migrate your OMS Update Deployments to Azure](../../automation/migrate-oms-update-deployments.md) for details on changes to [Update Management](../../automation/automation-update-management.md).
+- See [Migrate your OMS Update Deployments to Azure](../../automation/migrate-oms-update-deployments.md) for details on changes to [Update Management](../../automation/update-management/update-mgmt-overview.md).
 
 
 ## What should I do now?

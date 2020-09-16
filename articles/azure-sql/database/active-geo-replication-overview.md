@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/28/2020
+ms.date: 08/27/2020
 ---
 
 # Creating and using active geo-replication - Azure SQL Database
@@ -173,7 +173,8 @@ The client performing the changes needs network access to the primary server. Al
 
 ### On the master of the secondary server
 
-1. Add the IP address to the allow list of the client performing the changes. It must the same exact IP address of the primary server.
+1. Add the client IP address to the allowed list under firewall rules for the secondary server. Validate that the exact same client IP address that has been added on the primary server has also been added to the secondary. This is a required step to be done before running the ALTER DATABASE ADD SECONDARY command to initiate geo-replication.
+
 1. Create the same login as on the primary server, using the same username password, and SID:
 
    ```sql
@@ -233,7 +234,7 @@ To measure lag with respect to changes on the primary database that have been ap
 
 ## Programmatically managing active geo-replication
 
-As discussed previously, active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../../role-based-access-control/overview.md).
+As discussed previously, active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### T-SQL: Manage failover of single and pooled databases
 

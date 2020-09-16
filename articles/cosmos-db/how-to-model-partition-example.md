@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
+ms.custom: devx-track-javascript
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example

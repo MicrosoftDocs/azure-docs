@@ -2,7 +2,8 @@
 title: PowerShell Script - Undelete a deleted File share
 description: Learn how to use an Azure PowerShell script to undelete an accidentally deleted File share.
 ms.topic: sample
-ms.date: 02/02/2020
+ms.date: 02/02/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # PowerShell script to undelete an accidentally deleted File share
@@ -149,7 +150,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### Prerequisites
 
-1. Install the latest Azure PowerShell Az modules from [this link](//powershell/azure/install-az-ps) before running the script.
+1. Install the latest Azure PowerShell Az modules from [this link](/powershell/azure/install-az-ps) before running the script.
 2. Keep the following details handy as you'll need to pass them as values for different parameters of the script:
 
     * **-SubscriptionId** - ID of the subscription where the file share is present.

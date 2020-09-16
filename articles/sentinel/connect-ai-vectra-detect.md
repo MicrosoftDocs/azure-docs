@@ -19,6 +19,11 @@ ms.author: yelevin
 ---
 # Connect AI Vectra Detect to Azure Sentinel
 
+> [!IMPORTANT]
+> The AI Vectra Detect data connector in Azure Sentinel is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 This article explains how to connect your [AI Vectra Detect](https://www.vectra.ai/product/cognito-detect) appliance to Azure Sentinel. The AI Vectra Detect data connector allows you to easily bring your AI Vectra Detect data into Azure Sentinel, so that you can view it in workbooks, use it to create custom alerts, and incorporate it to improve investigation.
 
 > [!NOTE]

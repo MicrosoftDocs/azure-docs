@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 series as backup target with NetBackup | Microsoft Docs
-description: Describes the StorSimple backup target configuration with Veritas NetBackup.
+description: Learn about the StorSimple backup target configuration with Veritas NetBackup and best practices for integrating both solutions.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -503,7 +503,7 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1. [Install Azure PowerShell](/powershell/azure/overview).
+1. [Install Azure PowerShell](/powershell/azure/).
 2. Download and setup [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell script.
 3. On the server that runs the script, run PowerShell as an administrator. Ensure that you run the script with `-WhatIf $true` to see what changes the script will make. Once the validation is complete, pass `-WhatIf $false`. Run the below command:
    ```powershell

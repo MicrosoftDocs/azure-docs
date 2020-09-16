@@ -119,7 +119,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 ## Deploy the quickstart template locally using PowerShell
 
 > [!IMPORTANT]
-> The command-line operations displayed below describe the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/overview).
+> The command-line operations displayed below describe the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/).
 
 1. In PowerShell, log in to your Azure account.
 
@@ -242,7 +242,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-       <img src="https://azuredeploy.net/deploybutton.png"/>
+       <img src="https://azuredeploy.net/deploybutton.png" alt="The Deploy to Azure button."/>
     </a>
 
 ## Next steps

@@ -138,7 +138,7 @@ If you have one or more webhooks created and saved before **3 April 2020**, you 
     }],
     "application": {
         "id": "<id>",
-        "displayName": "x - Store Analytics Checkout---PnP",
+        "displayName": "x - Store Analytics Checkout",
         "subdomain": "<subdomain>",
         "host": "<host>"
     }

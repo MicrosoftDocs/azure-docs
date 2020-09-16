@@ -4,7 +4,7 @@ description: Create and upload a virtual hard disk (VHD) to Azure using the Reso
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
@@ -68,7 +68,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-The destination storage account has to be the same as where you uploaded your virtual disk to. You also need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as virtual network, public IP address, username, and SSH keys. You can read more about the [available classic CLI Resource Manager parameters](../azure-cli-arm-commands.md#virtual-machines).
+The destination storage account has to be the same as where you uploaded your virtual disk to. You also need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as virtual network, public IP address, username, and SSH keys. You can read more about the [available classic CLI Resource Manager parameters](/previous-versions/azure/virtual-machines/azure-cli-arm-commands#virtual-machines).
 
 ## Requirements
 To complete the following steps, you need:

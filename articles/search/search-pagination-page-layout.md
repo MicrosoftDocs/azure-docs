@@ -15,7 +15,7 @@ ms.date: 04/01/2020
 
 This article explains how to get a query response that comes back with a total count of matching documents, paginated results, sorted results, and hit-highlighted terms.
 
-The structure of a response is determined by parameters in the query: [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) in the REST API, or [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in the .NET SDK.
+The structure of a response is determined by parameters in the query: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [DocumentSearchResult Class](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in the .NET SDK.
 
 ## Result composition
 
@@ -94,7 +94,7 @@ Another option is using a [custom scoring profile](index-add-scoring-profiles.md
 
 ## Hit highlighting
 
-Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](/rest/api/searchservice/search-documents). 
 
 To enable hit highlighting, add `highlight=[comma-delimited list of string fields]` to specify which fields will use highlighting. Highlighting is useful for longer content fields, such as a description field, where the match is not immediately obvious. Only field definitions that are attributed as **searchable** qualify for hit highlighting.
 

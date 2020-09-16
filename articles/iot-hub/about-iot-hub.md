@@ -5,7 +5,7 @@ author: nberdy
 ms.author: nberdy
 ms.date: 08/08/2019
 ms.topic: overview
-ms.custom:  [mvc, amqp, mqtt]
+ms.custom:  [mvc, amqp, mqtt, 'role: Direction', 'role: System Architecture']
 ms.service: iot-hub
 services: iot-hub
 ---
@@ -58,7 +58,7 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 * [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to automate business processes.
 
-* [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/) to add machine learning and AI models to your solution.
+* [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) to add machine learning and AI models to your solution.
 
 * [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) to run real-time analytic computations on the data streaming from your devices.
 

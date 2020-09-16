@@ -3,7 +3,7 @@ title: Tutorial - Trigger container group by Azure function
 description: Create an HTTP-triggered, serverless PowerShell function to automate creation of Azure container instances
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use an HTTP-triggered Azure function to create a container group

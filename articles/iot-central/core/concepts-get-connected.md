@@ -7,7 +7,8 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom:  [amqp, mqtt]
+manager: philmea
+ms.custom:  [amqp, mqtt, device-developer]
 
 ---
 
@@ -141,10 +142,10 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Group primary key from SAS-IoT-Devices enrollment group":::
 
-1. Use the [dps-keygen](https://www.npmjs.com/package/dps-keygen) tool to generate the device SAS keys. Use the group primary key from the previous step. The device IDs must be lower-case:
+1. Use the `az iot central device compute-device-key` command to generate the device SAS keys. Use the group primary key from the previous step. The device IDs must be lower-case:
 
-    ```cmd
-    dps-keygen -mk:<group primary key> -di:<device ID>
+    ```azurecli
+    az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
 1. The OEM flashes each device with a device ID, a generated device SAS key, and the application **ID scope** value.
@@ -207,13 +208,13 @@ One of the key features of IoT Central is the ability to associate device templa
 
 The following snippets show the format of the additional payload the device must send during the DPS registration call for automatic association to work.
 
-This is the format for devices that use the generally available device SDK that doesn't support IoT Plug and Play:
+This is the format for devices that use the generally available device SDK:
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-This is the format for devices using public preview device SDK that does support IoT Plug and Play:
+This is the format for devices using public preview device SDK:
 
 ```javascript
 '__iot:interfaces': {
@@ -274,8 +275,6 @@ The following table summarizes how Azure IoT Central device features map on to I
 | Property | Device twin reported properties |
 | Property (writeable) | Device twin desired and reported properties |
 | Command | Direct methods |
-
-To learn more about using the Device SDKs, see [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md) for example code.
 
 ### Protocols
 

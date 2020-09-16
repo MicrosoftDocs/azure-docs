@@ -109,9 +109,114 @@ Azure Marketplace is an online applications and services marketplace where you c
 12. Click **Next**.
 13. Click **Submit**.
 
-In this quickstart, you deployed a SQL Edge Module on an IoT Edge device.
+## Connect to Azure SQL Edge
+
+The following steps use the Azure SQL Edge command-line tool, **sqlcmd**, inside the container to connect to Azure SQL Edge.
+
+> [!NOTE]
+> sqlcmd tool is not available inside the ARM64 version of SQL Edge containers.
+
+1. Use the `docker exec -it` command to start an interactive bash shell inside your running container. In the following example `azuresqledge` is name specified by the `Name` parameter of your IoT Edge Module.
+
+   ```bash
+   sudo docker exec -it azuresqledge "bash"
+   ```
+
+2. Once inside the container, connect locally with sqlcmd. Sqlcmd is not in the path by default, so you have to specify the full path.
+
+   ```bash
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
+   ```
+
+   > [!TIP]
+   > You can omit the password on the command-line to be prompted to enter it.
+
+3. If successful, you should get to a **sqlcmd** command prompt: `1>`.
+
+## Create and query data
+
+The following sections walk you through using **sqlcmd** and Transact-SQL to create a new database, add data, and run a simple query.
+
+### Create a new database
+
+The following steps create a new database named `TestDB`.
+
+1. From the **sqlcmd** command prompt, paste the following Transact-SQL command to create a test database:
+
+   ```sql
+   CREATE DATABASE TestDB
+   Go
+   ```
+
+2. On the next line, write a query to return the name of all of the databases on your server:
+
+   ```sql
+   SELECT Name from sys.Databases
+   Go
+   ```
+
+### Insert data
+
+Next create a new table, `Inventory`, and insert two new rows.
+
+1. From the **sqlcmd** command prompt, switch context to the new `TestDB` database:
+
+   ```sql
+   USE TestDB
+   ```
+
+2. Create new table named `Inventory`:
+
+   ```sql
+   CREATE TABLE Inventory (id INT, name NVARCHAR(50), quantity INT)
+   ```
+
+3. Insert data into the new table:
+
+   ```sql
+   INSERT INTO Inventory VALUES (1, 'banana', 150); INSERT INTO Inventory VALUES (2, 'orange', 154);
+   ```
+
+4. Type `GO` to execute the previous commands:
+
+   ```sql
+   GO
+   ```
+
+### Select data
+
+Now, run a query to return data from the `Inventory` table.
+
+1. From the **sqlcmd** command prompt, enter a query that returns rows from the `Inventory` table where the quantity is greater than 152:
+
+   ```sql
+   SELECT * FROM Inventory WHERE quantity > 152;
+   ```
+
+2. Execute the command:
+
+   ```sql
+   GO
+   ```
+
+### Exit the sqlcmd command prompt
+
+1. To end your **sqlcmd** session, type `QUIT`:
+
+   ```sql
+   QUIT
+   ```
+
+2. To exit the interactive command-prompt in your container, type `exit`. Your container continues to run after you exit the interactive bash shell.
+
+## Connect from outside the container
+
+You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, refer [Connect and Query Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+
+In this quickstart, you deployed a SQL Edge Module on an IoT Edge device. 
 
 ## Next Steps
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).
+- [Data Streaming in Azure SQL Edge](stream-data.md)

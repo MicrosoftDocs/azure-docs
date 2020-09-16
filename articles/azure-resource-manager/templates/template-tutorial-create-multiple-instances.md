@@ -4,7 +4,8 @@ description: Learn how to create an Azure Resource Manager template to create mu
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Create multiple resource instances with ARM templates

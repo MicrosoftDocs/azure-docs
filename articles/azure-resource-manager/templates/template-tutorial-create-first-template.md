@@ -4,7 +4,8 @@ description: Create your first Azure Resource Manager template. In the tutorial,
 author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 
@@ -175,7 +176,7 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 ## Verify deployment
 

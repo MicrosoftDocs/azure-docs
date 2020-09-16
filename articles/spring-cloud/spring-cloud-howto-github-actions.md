@@ -6,7 +6,9 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
+ms.custom: devx-track-java
 ---
+
 # Azure Spring Cloud CI/CD with GitHub Actions
 
 GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure. 
@@ -157,7 +159,7 @@ jobs:
 ```
 
 ## Deploy with Maven Plugin
-Another option is to use the [Maven Plugin](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
+Another option is to use the [Maven Plugin](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
 ```
 name: AzureSpringCloud

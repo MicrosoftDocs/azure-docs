@@ -157,8 +157,8 @@ Some ready-made scripts are also available for download:
 [Purchase Options]: https://azure.microsoft.com/pricing/purchase-options/
 [Member Offers]: https://azure.microsoft.com/pricing/member-offers/
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Install and configure Azure PowerShell]: /powershell/azure/
 [.NET API for Notification Hubs]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure.service/get-azuresbauthorizationrule

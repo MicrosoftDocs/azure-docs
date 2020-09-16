@@ -2,18 +2,18 @@
 title: 'Using S2S VPN as a backup for Azure ExpressRoute Private Peering | Microsoft Docs'
 description: This page provides architectural recommendations for backing up Azure ExpressRoute private peering with S2S VPN.
 services: networking
-author: rambk
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.author: rambala
+ms.author: duau
 
 ---
 
 # Using S2S VPN as a backup for ExpressRoute private peering
 
-In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for backup connectivity solution for an ExpressRoute private peering connectivity and how to use geo-redundant ExpressRoute circuits for the purpose. In this article, let us consider how to leverage and maintain site-to-site (S2S) VPN as a back for ExpressRoute private peering. 
+In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for backup connectivity solution for an ExpressRoute private peering connectivity and how to use geo-redundant ExpressRoute circuits for the purpose. In this article, let us consider how to leverage and maintain site-to-site (S2S) VPN as a backup for ExpressRoute private peering. 
 
 Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN disaster recovery combination only in active-passive mode. A major challenge of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection. The common reason for the failures of the passive connection is lack of active maintenance. Therefore, in this article let's focus on how to verify and actively maintain S2S VPN connectivity that is backing up an ExpressRoute private peering.
 
@@ -113,7 +113,7 @@ Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
 
 ### Configuring for symmetric traffic flow
 
-We noted that when a given on-premises route is advertised via both ExpressRoute and S2S VPN, Azure would prefer the ExpressRoute path. To force Azure prefer S2S VPN path over the coexisting ExpressRoute, you need to advertise more specific routes (longer prefix with bigger subnet mask) via the VPN connection. Our objective here is to use the VPN connections as back only. So, the default path selection behavior of Azure is in-line with our objective. 
+We noted that when a given on-premises route is advertised via both ExpressRoute and S2S VPN, Azure would prefer the ExpressRoute path. To force Azure prefer S2S VPN path over the coexisting ExpressRoute, you need to advertise more specific routes (longer prefix with bigger subnet mask) via the VPN connection. Our objective here is to use the VPN connections as backup only. So, the default path selection behavior of Azure is in-line with our objective. 
 
 It is our responsibility to ensure that the traffic destined to Azure from on-premises also prefers ExpressRoute path over S2S VPN. The default local preference of the CE routers and firewalls in our on-premises setup is 100. So, by configuring the local preference of the routes received through the ExpressRoute private peerings greater than 100 (say 150), we can make the traffic destined to Azure prefer ExpressRoute circuit in the steady state.
 

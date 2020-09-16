@@ -15,9 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Develop Azure Functions with Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this article monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function. To review Azure functions, see  [Overview](../../azure-functions/functions-overview.md) and other topics in the **Azure functions** section.
 
@@ -334,7 +337,7 @@ To test your function, you need to upload an MP4 file into the **input** contain
 4. Press **Upload** and browse to a .mp4 file that you want to upload.
 
 >[!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## Next steps
 
@@ -346,4 +349,3 @@ Also, see [Use Azure WebHooks to monitor Media Services job notifications with .
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

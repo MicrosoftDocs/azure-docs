@@ -7,7 +7,8 @@ manager: philmea
 ms.author: kgremban
 ms.date: 4/14/2020
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Deploy and monitor IoT Edge modules at scale using the Azure CLI

@@ -130,7 +130,7 @@ Try the connection from your computer again. If you are still not able to connec
 
 For VMs created using the classic deployment model, you can use a remote Azure PowerShell session to the Azure virtual machine. First, you need to install a certificate for the virtual machine's hosting cloud service. Go to [Configure Secure Remote PowerShell Access to Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) and download the **InstallWinRMCertAzureVM.ps1** script file to your local computer.
 
-Next, install Azure PowerShell if you haven't already. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
+Next, install Azure PowerShell if you haven't already. See [How to install and configure Azure PowerShell](/powershell/azure/).
 
 Next, open an Azure PowerShell command prompt and change the current folder to the location of the **InstallWinRMCertAzureVM.ps1** script file. To run an Azure PowerShell script, you must set the correct execution policy. Run the **Get-ExecutionPolicy** command to determine your current policy level. For information about setting the appropriate level, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1).
 
@@ -193,7 +193,7 @@ Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 
 ## Additional resources
 [How to reset a password or the Remote Desktop service for Windows virtual machines](./reset-rdp.md)
 
-[How to install and configure Azure PowerShell](/powershell/azure/overview)
+[How to install and configure Azure PowerShell](/powershell/azure/)
 
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)
 

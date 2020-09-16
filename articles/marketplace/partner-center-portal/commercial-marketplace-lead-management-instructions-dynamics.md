@@ -22,7 +22,7 @@ The following user permissions are necessary to complete the steps in this artic
 
 * Administrator rights on your Dynamics 365 Customer Engagement instance to be able to install a solution.
 * Tenant admin rights to create a new service account for the lead service used to send leads from commercial marketplace offers.
-* Access to the Office 365 admin portal.
+* Access to the admin portal.
 * Access to the Azure portal.
 
 ## Install the solution

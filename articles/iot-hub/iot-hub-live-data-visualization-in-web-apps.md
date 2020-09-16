@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
+ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 ---
 
 # Visualize real-time sensor data from your Azure IoT hub in a web application

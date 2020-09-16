@@ -6,7 +6,8 @@ author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
-ms.author: tomfitz
+ms.author: tomfitz 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a managed application definition with Azure CLI

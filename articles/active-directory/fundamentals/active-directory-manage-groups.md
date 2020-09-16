@@ -2,7 +2,7 @@
 title: Manage app & resource access using groups - Azure AD
 description: Learn about how to manage access to your organization's cloud-based apps, on-premises apps, and resources using Azure Active Directory groups.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory

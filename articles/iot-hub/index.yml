@@ -134,4 +134,4 @@ landingContent:
      - linkListType: reference
        links:
          - text: PowerShell references for IoT
-           url: /powershell/module/az.iothub
+           url: /powershell/module/az.iothub#iothub

@@ -48,7 +48,7 @@ If you assign a host group to an availability zone, all VMs created on that host
 
 A host can be created in a specific fault domain. Just like VM in a scale set or availability set, hosts in different fault domains will be placed on different physical racks in the data center. When you create a host group, you are required to specify the fault domain count. When creating hosts within the host group, you assign fault domain for each host. The VMs do not require any fault domain assignment.
 
-Fault domains are not the same as collocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.
+Fault domains are not the same as colocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.
 
 Fault domains are scoped to the host group. You should not make any assumption on anti-affinity between two host groups (unless they are in different availability zones).
 
@@ -74,7 +74,15 @@ Once a dedicated host is provisioned, Azure assigns it to physical server. This 
 
 ## Quotas
 
-There is a default quota limit of 3000 vCPUs for dedicated hosts, per region. But, the number of hosts you can deploy is also limited by the quota for the VM size family used for the host. For example, a **Pay-as-you-go** subscription may only have a quota of 10 vCPUs available for the Dsv3 size series, in the East US region. In this case, you need to request a quota increase to at least 64 vCPUs before you can deploy a dedicated host. Select the **Request increase** button in the upper right corner to file a request if needed.
+There are two types of quota that are consumed when you deploy a dedicated host.
+
+1. Dedicated host vCPU quota. The default quota limit is 3000 vCPUs, per region.
+1. VM size family quota. For example, a **Pay-as-you-go** subscription may only have a quota of 10 vCPUs available for the Dsv3 size series, in the East US region. To deploy a Dsv3 dedicated host, you would need to request a quota increase to at least 64 vCPUs before you can deploy the dedicated host. 
+
+To request a quota increase, create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Provisioning a dedicated host will consume both dedicated host vCPU and the VM family vCPU quota, but it will not consume the regional vCPU.
+
 
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 

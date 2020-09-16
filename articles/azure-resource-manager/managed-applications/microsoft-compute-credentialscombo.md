@@ -16,15 +16,15 @@ A group of controls with built-in validation for Windows and Linux passwords and
 
 For Windows, users see:
 
-![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft-compute-credentialscombo-windows.png)
 
 For Linux with password selected, users see:
 
-![Microsoft.Compute.CredentialsCombo Linux password](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Microsoft.Compute.CredentialsCombo Linux password](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-password.png)
 
 For Linux with SSH public key selected, users see:
 
-![Microsoft.Compute.CredentialsCombo Linux key](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Microsoft.Compute.CredentialsCombo Linux key](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-key.png)
 
 ## Schema
 

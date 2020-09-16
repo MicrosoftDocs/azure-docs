@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins to update an Azure Maps indoor map
+title: Integrate with Azure Maps
 titleSuffix: Azure Digital Twins
-description: See how to create an Azure function that can use the twin graph and Azure Digital Twins notifications to update information shown in Azure Maps.
+description: See how to create an Azure function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
 ms.date: 6/3/2020
@@ -45,11 +45,11 @@ First, you'll create a route in Azure Digital Twins to forward all twin update e
 
 ## Create a route and filter to twin update notifications
 
-Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: *Connect an end-to-end solution*](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
+Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update your maps.
 
-This pattern reads from the room twin directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for temperature without needing to update our mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update our map logic.
+This pattern reads from the room twin directly, rather than the IoT device, which gives you the flexibility to change the underlying data source for temperature without needing to update your mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update your map logic.
 
-1. Create an event grid topic, which will receive events from our Azure Digital Twins instance.
+1. Create an event grid topic, which will receive events from your Azure Digital Twins instance.
     ```azurecli
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
@@ -60,15 +60,21 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
     ```
 
 3. Create a route in Azure Digital Twins to send twin update events to your endpoint.
+
+    >[!NOTE]
+    >There is currently a **known issue** in Cloud Shell affecting these command groups: `az dt route`, `az dt model`, `az dt twin`.
+    >
+    >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instead of Cloud Shell. For more detail on this, see [*Troubleshooting: Known issues in Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+
     ```azurecli
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
+    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## Create an Azure function to update maps
 
-You're going to create an Event Grid-triggered function inside our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
+You're going to create an Event Grid-triggered function inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
 
-See the following document for reference info: [Azure Event Grid trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+See the following document for reference info: [*Azure Event Grid trigger for Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
 
 Replace the function code with the following code. It will filter out only updates to space twins, read the updated temperature, and send that information to Azure Maps.
 
@@ -100,7 +106,7 @@ namespace SampleFunctionsApp
 
             //Parse updates to "space" twins
             if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in our map. 
+            {   //Set the ID of the room to be updated in your map. 
                 //Replace this line with your logic for retrieving featureID. 
                 string featureID = "UNIT103";
 
@@ -129,7 +135,7 @@ namespace SampleFunctionsApp
 
 You'll need to set two environment variables in your function app. One is your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), and one is your [Azure Maps stateset ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```

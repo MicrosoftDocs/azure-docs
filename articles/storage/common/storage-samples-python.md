@@ -8,7 +8,7 @@ ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Azure Storage samples using v12 Python client libraries

@@ -8,7 +8,8 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/25/2020
-ms.author: lcozzens
+ms.author: lcozzens 
+ms.custom: devx-track-azurecli
 
 
 #Customer intent: I want to be notified or trigger a workload when a key-value is modified.

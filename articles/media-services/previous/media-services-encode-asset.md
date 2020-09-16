@@ -16,10 +16,12 @@ ms.date: 06/25/2019
 ms.author: juliako
 
 ---
-# Overview of Azure on-demand media encoders 
+# Overview of Azure on-demand media encoders
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services provides multiple options for the encoding of media in the cloud.
 
@@ -56,7 +58,7 @@ The encoders input metadata is described [here](media-services-input-metadata-sc
 The encoders output metadata is described [here](media-services-output-metadata-schema.md).
 
 ### Generate thumbnails
-For information, see [How to generate thumbnails using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
+For information, see [How to generate thumbnails using Media Encoder Standard](media-services-advanced-encoding-with-mes.md).
 
 ### Trim videos (clipping)
 For information, see [How to trim videos using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#trim_video).

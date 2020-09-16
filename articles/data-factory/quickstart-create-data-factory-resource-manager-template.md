@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Data Factory using an ARM template
-description: Create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
+title: Create an Azure Data Factory using an Azure Resource Manager template (ARM template)
+description: Create a sample Azure Data Factory pipeline using an Azure Resource Manager template (ARM template).
 services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.custom: subject-armqs
 ms.date: 07/16/2020
 ---
 
-# Quickstart: Create an Azure Data Factory using Azure Resource Manager template
+# Quickstart: Create an Azure Data Factory using ARM template
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
@@ -21,16 +21,22 @@ ms.date: 07/16/2020
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This quickstart describes how to use an Azure Resource Manager template to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md).
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+
 ## Prerequisites
 
-Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+### Azure subscription
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ### Create a file
 
@@ -43,41 +49,41 @@ Jane, Doe
 
 Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't already exist, create it.)
 
-## Create an Azure Data Factory
-
-### Review template
+## Review template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
 :::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 There are Azure resources defined in the template:
-- [Microsoft.DataFactory/factories](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories): Create an Azure Data Factory.
-- [Microsoft.DataFactory/factories/linkedServices](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/linkedservices): Create an Azure Data Factory linked service.
-- [Microsoft.DataFactory/factories/datasets](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/datasets): Create an Azure Data Factory dataset.
-- [Microsoft.DataFactory/factories/pipelines](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/pipelines): Create an Azure Data Factory pipeline.
 
-More Azure Data Factory template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
+- [Microsoft.Storage/storageAccounts](/azure/templates/Microsoft.Storage/storageAccounts): Defines a storage account.
+- [Microsoft.DataFactory/factories](/azure/templates/microsoft.datafactory/factories): Create an Azure Data Factory.
+- [Microsoft.DataFactory/factories/linkedServices](/azure/templates/microsoft.datafactory/factories/linkedservices): Create an Azure Data Factory linked service.
+- [Microsoft.DataFactory/factories/datasets](/azure/templates/microsoft.datafactory/factories/datasets): Create an Azure Data Factory dataset.
+- [Microsoft.DataFactory/factories/pipelines](/azure/templates/microsoft.datafactory/factories/pipelines): Create an Azure Data Factory pipeline.
+
+More Azure Data Factory template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular).
 
 ## Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Data Factory account, a storage account, and a blob container.
 
-    [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-deploy-arm-template.png" alt-text="Deploy ADF ARM template":::
 
-    Unless it's specified, use the default values to create the Azure Data Factory resources.
+    Unless it's specified, use the default values to create the Azure Data Factory resources:
 
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new**, enter a unique name for the resource group, and then select **OK**.
     - **Region**: Select a location.  For example, *East US*.
-    - **Data Factory Name**: Enter a name for the Azure Data Factory service. It must be globally unique.
-    - **Location**: Enter a location where you want to create your Azure Data Factory service.
-    - **Storage Account Name**: The name of the storage account.
-    - **Blob Container**: The name of the container created in the storage account.
+    - **Data Factory Name**: Use  default value.
+    - **Location**: Use default value.
+    - **Storage Account Name**: Use default value.
+    - **Blob Container**: Use default value.
 
 ## Review deployed resources
 
@@ -165,20 +171,20 @@ You can clean up the resources that you created in the Quickstart in two ways. Y
 
 Deleting a resource group deletes all resources including data factories in it. Run the following command to delete the entire resource group: 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 If you want to delete just the data factory, and not the entire resource group, run the following command: 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## Next steps
 
-In this quickstart, you created an Azure Data Factory using an Azure Resource Manager template and validated the deployment. To learn more about Azure Data Factory and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created an Azure Data Factory using an ARM template and validated the deployment. To learn more about Azure Data Factory and Azure Resource Manager, continue on to the articles below.
 
 - [Azure Data Factory documentation](index.yml)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-- Get other [Azure Data Factory Resource Manager templates](https://azure.microsoft.com/resources/templates/)
+- Get other [Azure Data Factory ARM templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular)

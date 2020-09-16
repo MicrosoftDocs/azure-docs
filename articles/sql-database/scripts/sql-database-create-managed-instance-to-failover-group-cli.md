@@ -4,7 +4,7 @@ description: Azure CLI example script to create an Azure SQL Managed Instance, a
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT

@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
 ---
 
@@ -33,11 +33,11 @@ Using a wildcard character in the host name, you can match multiple host names i
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Wildcard Listener":::
 
 >[!NOTE]
-> This feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended to use this in a production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In [Azure portal](create-multiple-sites-portal.md), you can define them in separate text boxes in the host name field.
-
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Wildcard Listener example configuration":::
+>[!NOTE]
+>This feature is currently available only through [Azure PowerShell](tutorial-multiple-sites-powershell.md) and [Azure CLI](tutorial-multiple-sites-cli.md). Portal support is coming soon.
+> Please note that since portal support is not fully available, if you are using only the HostNames parameter, the listener will appear as a Basic listener in the portal and the Host name column of the listener list view will not show the host names that are configured. For any changes to a wildcard listener, make sure you use Azure PowerShell or CLI until it's supported in the portal.
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com,*.fabrikam.com"`
 
@@ -69,7 +69,7 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 *	The properties “hostname" takes one string as input, where you can mention only one non-wildcard domain name and “hostnames” takes an array of strings as input, where you can mention up to 5 wildcard domain names. But both the properties cannot be used at once.
 *	You cannot create a [redirection](redirect-overview.md) rule with a target listener which uses wildcard or multiple host names.
 
-See [create multi-site using Azure portal](create-multiple-sites-portal.md) or [using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
+See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
 ## Host headers and Server Name Indication (SNI)
 
@@ -87,6 +87,9 @@ Application Gateway relies on HTTP 1.1 host headers to host more than one websit
 
 ## Next steps
 
-After learning about multiple site hosting, go to [create multi-site using Azure portal](create-multiple-sites-portal.md) or [using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on creating an Application Gateway to host multiple websites.
+Learn how to configure multiple site hosting in Application Gateway
+* [Using Azure portal](create-multiple-sites-portal.md)
+* [Using Azure PowerShell](tutorial-multiple-sites-powershell.md) 
+* [Using Azure CLI](tutorial-multiple-sites-cli.md)
 
 You can visit [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) for an end to end template-based deployment.

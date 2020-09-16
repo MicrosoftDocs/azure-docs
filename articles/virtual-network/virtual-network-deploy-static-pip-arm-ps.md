@@ -1,6 +1,6 @@
 ---
 title: Create a VM with a static public IP address - PowerShell | Microsoft Docs
-description: Learn how to create a VM with a static public IP address using PowerShell.
+description: Create a virtual machine (VM) with a static public IP address using PowerShell. Static public IP addresses are addresses that never change.
 services: virtual-network
 documentationcenter: na
 author: asudbring

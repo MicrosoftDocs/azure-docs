@@ -4,7 +4,7 @@ description: Azure CLI example script to copy a database in Azure SQL Database t
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein

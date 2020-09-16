@@ -4,6 +4,8 @@ description: Learn about receiving payments for your earnings in the Microsoft c
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/09/2020
+author: eunjkim520
+ms.author: eunjkim
 ---
 # Getting paid in the commercial marketplace
 

@@ -33,7 +33,7 @@ Azure resources generate a significant amount of monitoring data. Azure Monitor 
 
 Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. This makes metrics particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
 
-Metrics are available for interactive analysis in the Azure portal with [Azure Metrics Explorer](../platform/metrics-getting-started.md). They can be added to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real time [alerting](alerts-metric.md).
+Metrics are available for interactive analysis in the Azure portal with [Azure Metrics Explorer](./metrics-getting-started.md). They can be added to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real time [alerting](alerts-metric.md).
 
 Read more about Azure Monitor Metrics including their sources of data in [Metrics in Azure Monitor](data-platform-metrics.md).
 
@@ -87,3 +87,4 @@ In addition to using the tools in Azure to analyze monitoring data, you may have
 - Read more about [Metrics in Azure Monitor](data-platform-metrics.md).
 - Read more about [Logs in Azure Monitor](data-platform-logs.md).
 - Learn about the [monitoring data available](data-sources.md) for different resources in Azure.
+

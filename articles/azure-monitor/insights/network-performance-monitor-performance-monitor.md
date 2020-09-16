@@ -124,4 +124,5 @@ In the following image, the root cause of the problem areas to the specific sect
 ![Topology map with node properties selected](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## Next steps
-[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.
+[Search logs](../log-query/log-query-overview.md) to view detailed network performance data records.
+

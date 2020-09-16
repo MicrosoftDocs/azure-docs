@@ -24,6 +24,8 @@ HTTP headers allow a client and server to pass additional information with a req
 
 Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and back-end pools.
 
+To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
+
 ![img](./media/rewrite-http-headers-url/header-rewrite-overview.png)
 
 
@@ -41,9 +43,12 @@ With URL rewrite capability in Application Gateway, you can:
 
 * Choose to route the request (select the backend pool) based on either the original URL or the rewritten URL
 
+To learn how to rewrite URL with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
+
 ![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
-  
+>[!NOTE]
+> URL rewrite feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended for use in production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Rewrite actions
 
@@ -99,25 +104,25 @@ Application gateway supports the following server variables:
 | add_x_forwarded_for_proxy | The X-Forwarded-For client request header field with the `client_ip` variable   (see explanation later in this table) appended to it in the format IP1, IP2,   IP3, and so on. If the X-Forwarded-For field isn't in the client request header,   the `add_x_forwarded_for_proxy` variable   is equal to the `$client_ip` variable.   This variable is particularly useful when you want to rewrite the   X-Forwarded-For header set by Application Gateway so that the header contains   only the IP address without the port information. |
 | ciphers_supported         | A list of the ciphers supported by the client.               |
 | ciphers_used              | The string of ciphers used for an established TLS   connection. |
-| client_ip                 | The IP address of the client from which the application   gateway received the request. If there's a reverse proxy before the   application gateway and the originating client, *client_ip* will   return the IP address of the reverse proxy. |
+| client_ip                 | The IP address of the client from which the application   gateway received the request. If there's a reverse proxy before the   application gateway and the originating client, `client_ip` will   return the IP address of the reverse proxy. |
 | client_port               | The client port.                                             |
 | client_tcp_rtt            | Information about the client TCP connection. Available on   systems that support the TCP_INFO socket option. |
 | client_user               | When HTTP authentication is used, the user name supplied   for authentication. |
-| host                      | In this order of precedence: the host name from the   request line, the host name from the Host request header field, or the server   name matching a request. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*,   host value will be is *contoso.com* |
+| host                      | In this order of precedence: the host name from the   request line, the host name from the Host request header field, or the server   name matching a request. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   host value will be is `contoso.com` |
 | cookie_*name*             | The *name* cookie.                                           |
 | http_method               | The method used to make the URL request. For example, GET   or POST. |
 | http_status               | The session status. For example, 200, 400, or 403.           |
 | http_version              | The request protocol. Usually HTTP/1.0, HTTP/1.1, or   HTTP/2.0. |
-| query_string              | The list of variable/value pairs that follows the   "?" in the requested URL. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*,   query_string value will be *id=123&title=fabrikam* |
+| query_string              | The list of variable/value pairs that follows the   "?" in the requested URL. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   query_string value will be `id=123&title=fabrikam` |
 | received_bytes            | The length of the request (including the request line,   header, and request body). |
 | request_query             | The arguments in the request line.                           |
 | request_scheme            | The request scheme: http or https.                           |
-| request_uri               | The full original request URI (with arguments). Example:   in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*,   request_uri value will be */article.aspx?id=123&title=fabrikam* |
+| request_uri               | The full original request URI (with arguments). Example:   in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*`,   request_uri value will be `/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | The number of bytes sent to a client.                        |
 | server_port               | The port of the server that accepted a request.              |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |
 | ssl_enabled               | “On” if the connection operates in TLS mode. Otherwise, an   empty string. |
-| uri_path                  | Identifies the specific resource in the host that the web   client wants to access. This is the part of the request URI without the   arguments. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*,   uri_path value will be */article.aspx* |
+| uri_path                  | Identifies the specific resource in the host that the web   client wants to access. This is the part of the request URI without the   arguments. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   uri_path value will be `/article.aspx` |
 
  
 
@@ -220,7 +225,7 @@ Now, if the user requests *contoso.com/listing?category=any*, then it will be ma
 
 Consider a scenario of a shopping website where the user visible link should be simple and legible, but the backend server needs the query string parameters to show the right content.
 
-In that case, Application Gateway can capture parameters from the URL and add query string key-value pairs from those from the URL. For example, let's say the user wants to rewrite, https://www.contoso.com/fashion/shirts to https://www.contoso.com/buy.aspx?category=fashion&product=shirts, it can be achieved through the following URL rewrite configuration.
+In that case, Application Gateway can capture parameters from the URL and add query string key-value pairs from those from the URL. For example, let's say the user wants to rewrite, `https://www.contoso.com/fashion/shirts` to `https://www.contoso.com/buy.aspx?category=fashion&product=shirts`, it can be achieved through the following URL rewrite configuration.
 
 **Condition** - If server variable `uri_path` equals to the pattern `/(.+)/(.+)`
 
@@ -245,7 +250,7 @@ In case of URL redirect, Application Gateway sends a redirect response to the cl
 - If a response has more than one header with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you are using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain two Set-Cookie headers: one used by the app service, for example: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, for example, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
 - Rewrites are not supported when the application gateway is configured to redirect the requests or to show a custom error page.
 - Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (_) special character in Header names.
-- Connection header cannot be rewritten
+- Connection and upgrade headers cannot be rewritten
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
-title: Use temporary tables with Synapse SQL
+title: Use temporary tables in Synapse SQL
 description: Essential guidance for using temporary tables in Synapse SQL. 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -18,7 +18,7 @@ This article contains essential guidance for using temporary tables and highligh
 
 Both the SQL pool and SQL on-demand (preview) resources can utilize temporary tables. SQL on-demand has limitations that are discussed at the end of this article. 
 
-## What are temporary tables?
+## Temporary tables
 
 Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With Synapse SQL, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
 
@@ -93,7 +93,7 @@ GROUP BY
 > 
 > 
 
-### Dropping temporary tables
+### Drop temporary tables
 When a new session is created, no temporary tables should exist.  However, if you're calling the same stored procedure that creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful, use a simple pre-existence check with  `DROP`: 
 
 ```sql
@@ -111,7 +111,7 @@ In stored procedure development, it's common to see the drop commands bundled to
 DROP TABLE #stats_ddl
 ```
 
-### Modularizing code
+### Modularize code
 Temporary tables can be used anywhere in a user session. This capability can then be exploited to help you modularize your application code.  To demonstrate, the following stored procedure generates DDL to update all statistics in the database by statistic name:
 
 ```sql

@@ -116,9 +116,6 @@
     href: service-fabric-powershell-samples.md
   - name: Service Fabric CLI
     href: samples-cli.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Understand microservices
@@ -143,6 +140,9 @@
       href: cluster-security-certificates.md
     - name: Certificate management in Service Fabric
       href: cluster-security-certificate-management.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
   - name: Terminology
@@ -633,7 +633,7 @@
       - name: Set up continuous integration with Azure Pipelines
         href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
       - name: Deploy your Linux applications using Jenkins
-        href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+        href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
   - name: Set up and configure reverse proxy
     items:
     - name: Set up and configure reverse proxy 
@@ -669,7 +669,7 @@
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
-          href: service-fabric-scale-up-node-type.md
+          href: service-fabric-scale-up-primary-node-type.md
         - name: Add a node type
           href: virtual-machine-scale-set-scale-node-type-scale-out.md        
         - name: Remove a node type
@@ -894,6 +894,9 @@
       href: service-fabric-service-model-schema-element-groups.md
   - name: Environment variables
     href: service-fabric-environment-variables-reference.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

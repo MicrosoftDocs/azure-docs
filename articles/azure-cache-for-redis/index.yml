@@ -20,8 +20,6 @@ landingContent:
         links:
           - text: What is Azure Cache for Redis?
             url: cache-overview.md
-          - text: Learn about Azure Cache for Redis Premium tier
-            url: cache-premium-tier-intro.md
       - linkListType: video
         links:
           - text: Administration options 

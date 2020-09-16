@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Bind an Azure Cosmos DB database to your Azure Spring Cloud application
@@ -15,7 +15,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 Prerequisites:
 
-* A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to get started.
+* A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](spring-cloud-quickstart.md) to get started.
 * An Azure Cosmos DB account with a minimum permission level of Contributor.
 
 ## Bind Azure Cosmos DB

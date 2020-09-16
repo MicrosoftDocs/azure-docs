@@ -6,7 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 09/23/2019
+ms.date: 09/23/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure HDInsight: Azure CLI samples

@@ -4,8 +4,8 @@ description: Learn about the technical and configuration requirements your Inter
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 04/03/2020
 ---
 

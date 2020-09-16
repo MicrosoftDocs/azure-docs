@@ -2,10 +2,7 @@
 title: Get started with U-SQL language in Azure Data Lake Analytics
 description: Learn the basics of the U-SQL language in Azure Data Lake Analytics. Write your first query using variables to extra data from files, transform the rowset, and aggregate data.
 services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: how-to
