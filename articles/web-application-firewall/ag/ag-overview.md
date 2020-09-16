@@ -5,7 +5,7 @@ description: This article provides an overview of Web Application Firewall (WAF)
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/15/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -80,11 +80,11 @@ You can configure a WAF policy and associate that policy to one or more applicat
 
 - Managed rule sets that are a collection of Azure-managed pre-configured set of rules
 
-When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are: ALLOW, BLOCK, LOG, and REDIRECT. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
+When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are: ALLOW, BLOCK, and LOG. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
 
 Rules within a policy are processed in a priority order. Priority is a unique integer that defines the order of rules to process. Smaller integer value denotes a higher priority and those rules are evaluated before rules with a higher integer value. Once a rule is matched, the corresponding action that was defined in the rule is applied to the request. Once such a match is processed, rules with lower priorities aren't processed further.
 
-A web application delivered by Application Gateway can have only one WAF policy associated with it at a time. However, you can have an Application Gateway configuration without any WAF policies associated with it. If a WAF policy is present, it's replicated to all of our edge locations to ensure consistent security policies across the world.
+A web application delivered by Application Gateway can have a WAF policy associated to it at the global level, at a per-site level, or at a per-URI level.
 
 ### Core rule sets
 
