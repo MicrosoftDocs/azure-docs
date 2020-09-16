@@ -20,7 +20,7 @@ Azure's Computer Vision API includes Optical Character Recognition (OCR) capabil
 
 ## Read API 
 
-The Computer Vision [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is Azure's latest OCR technology ([learn what's new](./whats-new.md#read-api-v31-public-preview-adds-simplified-chinese-support)) that extracts printed text (in several languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports detecting both printed and handwritten text in the same image or document.
+The Computer Vision [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is Azure's latest OCR technology ([learn what's new](./whats-new.md)) that extracts printed text (in several languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports detecting both printed and handwritten text in the same image or document.
 
 ![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
@@ -31,6 +31,9 @@ The **Read** call takes images and documents as its input. They have the followi
 * For PDF and TIFF files, up to 2000 pages (only first two pages for the free tier) are processed.
 * The file size must be less than 50 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
 * The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
+
+### Read 3.1 preview allows selecting page(s)
+With the [Read 3.1 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, you can provide specific page numbers or page ranges as an input parameter to extract text from only those pages. This is a new input parameter in addition to the optional language parameter.
 
 > [!NOTE]
 > **Language input** 
@@ -121,14 +124,24 @@ See the following example of a successful JSON response:
   }
 }
 ```
+### Read 3.1 preview adds text line style (Latin languages only)
+The [Read 3.1 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) outputs an **appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for Latin languages.
+
+```json
+  "appearance": {
+              "style": "handwriting",
+              "styleConfidence": 0.836
+            }
+```
 Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/client-library.md) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
 
 ## Supported languages for print text
-The [Read 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. 
-
-The [Read 3.1 API public preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adds support for Simplified Chinese. If your scenario requires supporting more languages, see the [OCR API](#ocr-api) section. 
+The [Read 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages.
 
 See the [Supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) for the full list of OCR-supported languages.
+
+### Read 3.1 preview adds Simplified Chinese and Japanese
+The [Read 3.1 API public preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) adds support for Simplified Chinese and Japanese. If your scenario requires supporting more languages, see the [OCR API](#ocr-api) section. 
 
 ## Supported languages for handwritten text
 The Read operation currently supports extracting handwritten text exclusively in English.
@@ -187,4 +200,4 @@ As with all the cognitive services, developers using the Read/OCR services shoul
 - Get started with the [Computer Vision Read 3.0 SDK quickstarts](./quickstarts-sdk/client-library.md) in C#, Java, JavaScript, or Python.
 - Use the [Read 3.0 REST API quickstarts](./QuickStarts/CSharp-hand-text.md) in C#, Java, JavaScript, or Python to learn how to use the REST APIs.
 - Learn about the [Read 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Learn about the [Read 3.1 public preview REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) with added support for Simplified Chinese.
+- Learn about the [Read 3.1 public preview REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) with added support for Simplified Chinese and Japanese.
