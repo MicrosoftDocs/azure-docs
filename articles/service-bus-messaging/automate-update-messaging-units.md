@@ -76,7 +76,7 @@ The following procedure shows you how to add a condition to automatically increa
     1. Select an **operation** in the **Action** section. In this example, it's set to **Decrease**. 
     1. Then, select **Add** 
 
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Default - scale out if CPU usage is greater than 75%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Default - scale in if CPU usage is less than 25%":::       
 
         > [!NOTE]
         > The autoscale feature decreases the messaging units for the namespace if the overall CPU usage goes below 25% in this example. Decrements are done from 8 to 4, 4 to 2, and 2 to 1. 
