@@ -27,8 +27,8 @@ There are two types of containers in Azure Cosmos DB:
 You can connect to an Azure Cosmos DB container without enabling Synapse Link, in which case you can only read/write to the transactional store. What follows is the list of the currently supported features within Synapse Link for Azure Cosmos DB. 
 
 | Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
-| -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Run-time Support** |Supported Azure Synapse runtime to access Azure Cosmos DB| ✓ | [Contact Us](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB) |
+| -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
+| **Run-time Support** |Supported Azure Synapse runtime to access Azure Cosmos DB| ✓ | [Contact Us](mailto:cosmosdbsynapselink@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB) |
 | **Azure Cosmos DB API support** | Supported Azure Cosmos DB API kind | SQL / MongoDB | SQL / MongoDB |
 | **Object**  |Objects such as a table that can be created, pointing directly to Azure Cosmos DB container| Dataframe, View, Table | View |
 | **Read**    | Type of Azure Cosmos DB container that can be read | OLTP / HTAP | HTAP  |
