@@ -57,7 +57,7 @@ If your application is instrumented with the [Application Insights SDK for Java]
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-This adds Docker information such as container and host id to every telemetry item sent from your app.
+This adds Docker information such as container and host ID to every telemetry item sent from your app.
 
 ## View your telemetry
 Go back to your Application Insights resource in the Azure portal.

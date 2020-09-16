@@ -335,7 +335,7 @@ Starting with version 2.8.9 the pre-installed site extension is used. If you are
 
 * [Upgrade through PowerShell](#enabling-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](#enabling-through-powershell).
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through PowerShell](#enabling-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
 If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).
