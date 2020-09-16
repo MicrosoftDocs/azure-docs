@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ---
 
-# Audit and manage Azure Machine Learning using Azure Policy (Preview)
+# Audit and manage Azure Machine Learning using Azure Policy
 
 [Azure Policy](/azure/governance/policy) is a governance tool that allows you to ensure that Azure resources are compliant with your policies. With Azure Machine Learning, you can assign the following policies:
 
@@ -41,7 +41,7 @@ Controls whether workspaces should be encrypted with a customer-managed key (CMK
 
 To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create workspaces without a CMK and an warning event is created in the activity log.
 
-If the policy is set to __deny__, then you cannot create a workspace unless it specifies a CMK. Attempting to create a workspace without a CMK results in an error similar to `Resource 'clustername' was disallowed by policy' and creates an error in the activity log. The policy identifier is also returned as part of this error.
+If the policy is set to __deny__, then you cannot create a workspace unless it specifies a CMK. Attempting to create a workspace without a CMK results in an error similar to `Resource 'clustername' was disallowed by policy` and creates an error in the activity log. The policy identifier is also returned as part of this error.
 
 ## Workspaces should use private link
 
