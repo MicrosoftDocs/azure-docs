@@ -150,7 +150,7 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 
 1. In the **Role** list, select a SharePoint Online site role.
 
-    ![Access package - Add resource role for a SharePoint Online site](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
+    ![Access package - Add resource role for a SharePoint Online site](./media/entitlement-management-shared/sharepoint-site-role.png)
 
 1. Click **Add**.
 
