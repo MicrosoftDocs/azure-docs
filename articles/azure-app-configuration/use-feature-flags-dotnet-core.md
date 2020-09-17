@@ -231,9 +231,9 @@ When an MVC controller or action is blocked because the controlling feature flag
 
 Open *_ViewImports.cshtml* in the *Views* directory, and add the feature manager tag helper:
 
-    ```html
-    @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
-    ```
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
 
 In MVC views, you can use a `<feature>` tag to render content based on whether a feature flag is enabled:
 
