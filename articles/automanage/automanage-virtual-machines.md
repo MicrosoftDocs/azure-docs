@@ -49,7 +49,7 @@ It is also important to note that Automanage only supports Windows VMs located i
 
 ## Participating services
 
-![Intelligently onboard services](media\automanage-virtual-machines\intelligently-onboard-services.png)
+:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Intelligently onboard services.":::
 
 See [Azure Automanage for Virtual Machines Best Practices](virtual-machines-best-practices.md) for the complete list of participating Azure services, as well as their supported configuration profiles.
 
@@ -107,8 +107,7 @@ In the Azure portal experience, when you are enabling Automanage on your VMs, th
 
 In the Azure portal, go to the **Automanage – Azure virtual machine best practices** page which lists all of your auto-managed VMs. Here you will see the overall status of each virtual machine.
 
-
-![List of configured virtual machines.](media\automanage-virtual-machines\configured-status.png)
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="List of configured virtual machines.":::
 
 For each listed VM, the following details are displayed: Name, Configuration profile, Configuration preference, Status, Account, Subscription, and Resource group.
 
@@ -126,8 +125,7 @@ You may decide one day to disable Automanage on certain VMs. For instance, your 
 
 To do that in the Azure portal, go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs. Select the checkbox next to the virtual machine you want to disable from Automanage, then click on the **Disable automanagment** button.
 
-![Disabling Automanage on a virtual machine.](media\automanage-virtual-machines\disable-step-1.png)
-
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Disabling Automanage on a virtual machine.":::
 
 Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**.
 
