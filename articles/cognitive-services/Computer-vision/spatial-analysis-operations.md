@@ -638,6 +638,95 @@ You may want to integrate spatial analysis detection or events into your applica
 * Set up **Message Routing** on your Azure IoT Hub to send the events to other endpoints or save the events to your data storage. See [IoT Hub Message Routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) for more information. 
 * Setup an Azure Stream Analytics job to process the events in real-time as they arrive and create visualizations. 
 
+## Deploying spatial analysis operations at scale (multiple cameras)
+
+In order to get best performance and utilization of the GPUs, you can deploy any spatial analysis operations on multiple cameras using graph instances. Below is a sample for running the cognitiveservices.vision.spatialanalysis-personcount operation on five(5) cameras.
+
+```
+ "properties.desired": {
+      "globalSettings": {
+          "PlatformTelemetryEnabled": false,
+          "CustomerTelemetryEnabled": true
+      },
+      "graphs": {
+          "personcount": {
+              "operationId": "cognitiveservices.vision.spatialanalysis-personcount",
+              "version": 1,
+              "enabled": true,
+              "sharedNodes": {
+                  "shared_detector1": {
+                      "node": "PersonCountGraph.detector",
+                      "parameters": {
+                          "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"batch_size\": 5}",
+                      }
+                  }
+              },
+              "parameters": {
+                  "VIDEO_DECODE_GPU_INDEX": 0,
+                  "VIDEO_IS_LIVE": true
+              },
+              "instances": {
+                  "1": {
+                      "sharedNodeMap": {
+                          "PersonCountGraph/detector": "shared_detector1"
+                      },
+                      "parameters": {
+                          "VIDEO_URL": "<Replace RTSP URL for camera 1>",
+                          "VIDEO_SOURCE_ID": "camera 1",
+                          "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"zone5\",\"polygon\":[[0,0],[1,0],[0,1],[1,1],[0,0]],\"threshold\":50.0, \"events\":[{\"type\":\"count\", \"output_frequency\": 1}]}]}"
+                      }
+                  },
+                  "2": {
+                      "sharedNodeMap": {
+                          "PersonCountGraph/detector": "shared_detector1"
+                      },
+                      "parameters": {
+                          "VIDEO_URL": "<Replace RTSP URL for camera 2>",
+                          "VIDEO_SOURCE_ID": "camera 2",
+                          "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                      }
+                  },
+                  "3": {
+                      "sharedNodeMap": {
+                          "PersonCountGraph/detector": "shared_detector1"
+                      },
+                      "parameters": {
+                          "VIDEO_URL": "<Replace RTSP URL for camera 3>",
+                          "VIDEO_SOURCE_ID": "camera 3",
+                          "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                      }
+                  },
+                  "4": {
+                      "sharedNodeMap": {
+                          "PersonCountGraph/detector": "shared_detector1"
+                      },
+                      "parameters": {
+                          "VIDEO_URL": "<Replace RTSP URL for camera 4>",
+                          "VIDEO_SOURCE_ID": "camera 4",
+                          "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                      }
+                  },
+                  "5": {
+                      "sharedNodeMap": {
+                          "PersonCountGraph/detector": "shared_detector1"
+                      },
+                      "parameters": {
+                          "VIDEO_URL": "<Replace RTSP URL for camera 5>",
+                          "VIDEO_SOURCE_ID": "camera 5",
+                          "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                      }
+                  }
+              }
+          }
+      }
+  }
+  ```
+
+| Name | Type| Description|
+|---------|---------|---------|
+| `batch_size` | int | Indicates the number of cameras will be used in that operation  .|
+  
+
 ## Next steps
 
 * [Deploy a People Counting web application](spatial-analysis-web-app.md)
