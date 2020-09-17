@@ -1,7 +1,7 @@
 ---
 title: Create and manage a compute instance
 titleSuffix: Azure Machine Learning
-description: Learn how to create and manage a compute instance in your Azure Machine Learning workspace. Use the compute instance as your developement environment, or for training and inferencing dev/test purposes.
+description: Learn how to create and manage a compute instance in your Azure Machine Learning workspace. Use the compute instance as your development environment, or for training and inferencing dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.custom: how-to
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 09/01/2020
+ms.date: 09/17/2020
 ---
 
 # Create and manage an Azure Machine Learning compute instance
 
 Learn how to create and manage a compute instance in your Azure Machine Learning workspace.
 
-Use a compute instance as your fully configured and managed development environment in the cloud for machine learning. Or as a compute target for training and inferencing for development and testing purposes. A compute instance can run multiple jobs in parallel and has a job queue. Unlike a [compute cluster](how-to-create-attach-compute-cluster.md) a compute instance cannot be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud for machine learning. Or use the instance as a compute target for training and inferencing for development and testing purposes. A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance cannot be shared with other users in your workspace.
 
 In this article, you learn how to:
 
@@ -43,7 +43,7 @@ Creating a compute instance is a one time process for your workspace. You can re
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance.
 
-The following example demonstrates how to create a compute instance with the SDK, CLI, studio, or with an Azure Resource Manager template:
+The following example demonstrates how to create a compute instance:
 
 # [Python](#tab/python)
 
