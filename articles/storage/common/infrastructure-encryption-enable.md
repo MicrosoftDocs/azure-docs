@@ -6,12 +6,11 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/14/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: references_regions
 ---
 
 # Create a storage account with infrastructure encryption enabled for double encryption of data
