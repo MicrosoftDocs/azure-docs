@@ -162,7 +162,7 @@ When you configure encryption with customer-managed keys, you can choose to auto
 > [!NOTE]
 > To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle the rotation of the key in Azure Key Vault, so you will need to rotate your key manually or create a function to rotate it on a schedule.
 
-### Configure encryption to automatically update the key version
+### Configure encryption for automatic updating of key versions
 
 Azure Storage can automatically update the customer-managed key that is used for encryption to use the latest key version. When the customer-managed key is rotated in Azure Key Vault, Azure Storage will automatically begin using the latest version of the key for encryption.
 
@@ -184,7 +184,7 @@ To configure customer-managed keys with automatic updating of the key version in
 
 1. Save your changes.
 
-After you've specified the key, the Azure portal indicates whether automatic updating of the key version is enabled and displays the key version currently in use for encryption.
+After you've specified the key, the Azure portal indicates that automatic updating of the key version is enabled and displays the key version currently in use for encryption.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot showing automatic updating of the key version enabled":::
 
@@ -192,7 +192,9 @@ After you've specified the key, the Azure portal indicates whether automatic upd
 
 To configure customer-managed keys with automatic updating of the key version with PowerShell, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later.
 
-To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
+
+Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -206,7 +208,9 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 To configure customer-managed keys with automatic updating of the key version with Azure CLI, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Remember to replace the placeholder values in brackets with your own values.
+To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account.
+
+Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -247,7 +251,9 @@ To configure customer-managed keys with manual updating of the key version in th
 
 # [PowerShell](#tab/powershell)
 
-To configure customer-managed keys with manual updating of the key version, explicitly provide the key version when you configure encryption for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+To configure customer-managed keys with manual updating of the key version, explicitly provide the key version when you configure encryption for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
+
+Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -262,7 +268,9 @@ When you manually update the key version, you'll need to update the storage acco
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure customer-managed keys with manual updating of the key version, explicitly provide the key version when you configure encryption for the storage account. Call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Remember to replace the placeholder values in brackets with your own values.
+To configure customer-managed keys with manual updating of the key version, explicitly provide the key version when you configure encryption for the storage account. Call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account.
+
+Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \

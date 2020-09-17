@@ -25,9 +25,9 @@ This article shows how to configure encryption with customer-managed keys stored
 
 ## Assign an identity to the storage account
 
-First, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the managed HSM. For more information about configuring system-assigned managed identities with Azure CLI, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md).
+First, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update):
+To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage account update \
@@ -38,7 +38,9 @@ az storage account update \
 
 ## Assign a role to the storage account for access to the managed HSM
 
-Next, assign the **Managed HSM Crypto Service Encryption** role to the storage account's managed identity so that the storage account has permissions to the managed HSM. To create the role assignment for storage account, call [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). Remember to replace the placeholder values in brackets with your own values.
+Next, assign the **Managed HSM Crypto Service Encryption** role to the storage account's managed identity so that the storage account has permissions to the managed HSM.
+
+To create the role assignment for storage account, call [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). Remember to replace the placeholder values in brackets with your own values.
   
 ```azurecli
 storage_account_principal = $(az storage account show \

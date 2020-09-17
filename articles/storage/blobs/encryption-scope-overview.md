@@ -1,6 +1,6 @@
 ---
 title: Encryption scopes for Blob storage (preview)
-description: Encryption scopes enable you to optionally manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
+description: Encryption scopes provide the ability to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 services: storage
 author: tamram
 
@@ -23,7 +23,7 @@ You can choose to use either Microsoft-managed keys or customer-managed keys sto
 After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](encryption-scope-manage.md).
 
 > [!NOTE]
-> Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS) accounts during preview.
+> Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) accounts during preview.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
