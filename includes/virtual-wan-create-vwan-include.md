@@ -16,7 +16,7 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 1. Select **Virtual WAN** from the results. On the Virtual WAN page, click **Create** to open the Create WAN page.
 1. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
 
-   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Basics":::
+   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
 
    * **Subscription** - Select the subscription that you want to use.
    * **Resource group** - Create new or use existing.

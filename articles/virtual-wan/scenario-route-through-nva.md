@@ -109,6 +109,8 @@ To set up routing via NVA, here are the steps to consider:
    
    You do not need to connect VNets 5,6,7,8 to the virtual hubs directly. Ensure that NSGs in VNets 5,6,7,8 allow traffic for branch (VPN/ER/P2S) or VNets connected to their remote VNets. For example, VNets 5,6 must ensure NSGs allow traffic for on-premise address prefixes and VNets 7,8 that are connected to the remote Hub 2.
 
+Virtual WAN  does not support a scenario where VNets 5,6 connect to virtual hub and communicate via VNet 2 NVA IP; therefore the need to connect VNets 5,6 to VNet2 and similarly VNet 7,8 to VNet 4.
+
 2. Add an aggregated static route entry for VNets 2,5,6 to Hub 1’s Default route table.
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Example":::

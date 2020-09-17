@@ -27,7 +27,7 @@ To control what cases users can consent to applications, choose the consent poli
 
 * **Disable user consent** - Users cannot grant permissions to applications. Users can continue to sign in to apps they had previously consented to or which are consented to by administrators on their behalf, but they will not be allowed to consent to new permissions or to new apps on their own. Only users who have been granted a directory role that includes the permission to grant consent will be able to consent to new permissions or new apps.
 
-* **Users can consent to apps from verified publishers, but only for permissions you select (preview)** - All users can only consent to apps that were published by a [verified publisher](../develop/publisher-verification-overview.md) and apps that are registered in your tenant. Users can only consent to the permissions you have classified as "Low impact".
+* **Users can consent to apps from verified publishers, but only for permissions you select (preview)** - All users can only consent to apps that were published by a [verified publisher](../develop/publisher-verification-overview.md) and apps that are registered in your tenant. Users can only consent to the permissions you have classified as "low impact", also referred to as "low risk". What is considered low risk for one organization, such as an app viewing a users email address, might be considered high risk for another organization. For this reason, the "low risk" permissions are set by the administrator for the tenant.
 
   Make sure to [classify permissions](#configure-permission-classifications-preview) to select which permissions users are allowed to consent to.
 
@@ -51,7 +51,7 @@ To configure user consent settings through the Azure portal:
 
 ### Configure user consent settings using PowerShell
 
-You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), to choose which consent policy governs user consent for applications.
+You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), to choose which consent policy governs user consent for applications.
 
 * **Disable user consent** - To disable user consent, set the consent policies which govern user consent to be empty:
 
@@ -104,7 +104,7 @@ In this example, we've classified the minimum set of permission required for sin
 
 ### Classify permissions using PowerShell
 
-You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
+You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
 
 #### To read the current permission classifications for an API:
 
@@ -191,9 +191,9 @@ In this example, all group owners are allowed to consent to apps accessing their
 
 ### Configure group owner consent using PowerShell
 
-You can use the Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own.
+You can use the Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own.
 
-1. Make sure you're using the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) module and the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) module).
+1. Make sure you're using the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module. This step is important if you have installed both the [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module and the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module).
 
     ```powershell
     Remove-Module AzureAD
@@ -275,7 +275,7 @@ In this case, an audit event will also be logged with a Category of "Application
 
 ### Disable or re-enable risk-based step-up consent using PowerShell
 
-You can use the Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), to disable the step-up to admin consent required in cases where Microsoft detects risk or to re-enable it if it was previously disabled.
+You can use the Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), to disable the step-up to admin consent required in cases where Microsoft detects risk or to re-enable it if it was previously disabled.
 
 You can do this using the same steps as shown above for [configuring group owner consent using PowerShell](#configure-group-owner-consent-using-powershell), but substituting a different settings value. There are three differences in steps: 
 

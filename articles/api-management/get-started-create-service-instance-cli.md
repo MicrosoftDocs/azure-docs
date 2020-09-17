@@ -46,7 +46,7 @@ az apim create --name myapim --resource-group myResourceGroup \
 By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md). 
 
 > [!TIP]
-> It usually takes between 20 and 30 minutes to create and activate an API Management service in this tier. The previous command uses the `--no-wait` option so that the command returns immediately while the service is created.
+> It can take between 30 and 40 minutes to create and activate an API Management service in this tier. The previous command uses the `--no-wait` option so that the command returns immediately while the service is created.
 
 Check the status of the deployment by running the [az apim show](/cli/azure/apim#az-apim-show) command:
 
