@@ -59,9 +59,23 @@ For information about how nested workflows behave differently between stateful a
 
 ## Prerequisites
 
+### Access and connectivity
+
+* Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure, a Docker container, or other environment.
+
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Access to the internet so that you can download the requirements, sign in to your Azure account, and publish from Visual Studio Code to Azure, a Docker container, or other environment.
+* To build the same example workflow in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
+
+  If you choose to use a different [email connector that's supported by Azure Logic Apps](/connectors/), such as Outlook.com or [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), you can still follow the example, and the general overall steps are the same, but your user interface and options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
+
+* Before you can sign in and connect to services and systems that require authentication from your workflow in Visual Studio Code, you have to first create these connections in a temporary logic app by using the [Azure portal](https://portal.azure.com). After you create these connections, you can delete the temporary logic app because connections are Azure resources that exist independently from the logic app.
+
+  > [!IMPORTANT]
+  > When you create the temporary logic app, make sure that you use the same Azure 
+  > subscription and region as the workflow that you want to build in Visual Studio Code.
+
+### Tools
 
 * [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/), which is free. Also, download and install these additional tools for Visual Studio Code, if you don't have them already:
 
@@ -79,7 +93,7 @@ For information about how nested workflows behave differently between stateful a
     > for running JavaScript code, you need to use the Azure Functions runtime version 3x because the 
     > action doesn't support version 2x. Also, this action currently isn't supported on Linux operating systems.
 
-  * [Azure Logic Apps (Preview) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). This public preview extension provides the capability for you to create stateful and stateless workflows and to test them locally in Visual Studio Code.
+  * [Azure Logic Apps (Preview) extension for Visual Studio Code 0.0.1](https://go.microsoft.com/fwlink/p/?linkid=2143167). This public preview extension provides the capability for you to create stateful and stateless workflows and to test them locally in Visual Studio Code.
 
     > [!IMPORTANT]
     > If you created workflows with the private preview extension, these workflows won't work with 
@@ -108,71 +122,70 @@ For information about how nested workflows behave differently between stateful a
 
        ![Screenshot that shows Visual Studio Code's installed extensions list with the "Azure Logic Apps (Preview)" extension underlined.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
 
-* Based on the operating system where you are running Visual Studio Code, set up the corresponding storage requirement:
-
-  **Mac OS**
-
-  1. Sign in to the [Azure portal](https://portal.azure.com).
-  
-  1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for Azure Functions](../azure-functions/storage-considerations.md).
-
-  1. [Find and copy the storage account's connection string](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys), for example:
-
-     `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
-
-     ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
-
-  1. Save the string somewhere safe so that you can later add the string to the `local.settings.json` files in the project that you use for creating your workflow in Visual Studio Code.
-
-     When you later try to open the Logic App Designer for your workflow, you get a message that the `Workflow design time could not be started`. After this message appears, you have to add the storage account's connection string to the two `local.settings.json` files in the project, and retry opening the designer again.
-
-  **Windows or another OS**
-
-  Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179). To run the emulator, you also need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
-
-  > [!IMPORTANT]
-  > Before you create your workflow, make sure that you start the emulator. Otherwise, when you try to open your 
-  > workflow in the Logic App Designer, you get a message that the `Workflow design time could not be started`. For more 
-  > information, see [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
-  >
-  > ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
-
-* Before you can sign in and connect to services and systems that require authentication from your workflow in Visual Studio Code, you have to first create these connections in a temporary logic app by using the [Azure portal](https://portal.azure.com). After you create these connections, you can delete the temporary logic app because connections are Azure resources that exist independently from the logic app.
-
-  > [!IMPORTANT]
-  > When you create the temporary logic app, make sure that you use the same Azure subscription and region 
-  > as the workflow that you want to build in Visual Studio Code.
-
-* To build the same example workflow in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
-
-  If you choose to use a different [email connector that's supported by Azure Logic Apps](/connectors/), such as Outlook.com or [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), you can still follow the example, and the general overall steps are the same, but your user interface and options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
-
 * To test the example workflow that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example workflow. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
+
+### Storage requirements
+
+Based on the operating system where you are running Visual Studio Code, set up the corresponding storage requirement.
+
+#### **Mac OS**
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and [create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for Azure Functions](../azure-functions/storage-considerations.md).
+
+1. [Find and copy the storage account's connection string](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys), for example:
+
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
+
+   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
+
+1. Save the string somewhere safe so that you can later add the string to the `local.settings.json` files in the project that you use for creating your workflow in Visual Studio Code.
+
+When you later try to open the Logic App Designer for your workflow, you get a message that the `Workflow design time could not be started`. After this message appears, you have to add the storage account's connection string to the two `local.settings.json` files in the project, and retry opening the designer again.
+
+#### Windows or other OS
+
+1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
+
+1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+
+> [!IMPORTANT]
+> Before you open the Logic App Designer to create your workflow, make sure that you start the emulator. 
+> Otherwise, you get a message that the `Workflow design time could not be started`. For more information, 
+> review [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
+>
+> ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 ## Set up Visual Studio Code
 
 1. To make sure that all the extensions are correctly installed, reload or restart Visual Studio Code.
 
-1. Make sure that Visual Studio Code is set up to automatically find and install updates for your extensions so that your public preview extension gets the latest updates.
+1. Enable or check that Visual Studio Code automatically finds and installs extension updates so that your public preview extension gets the latest updates.
 
-   To check this setting, on the **File** menu, go to **Preferences** **>** **Settings** **>** **User** **>** **Features** **>** **Extensions**, and confirm that **Auto Check Updates** and **Auto Update** are selected.
+   To check this setting, follow these steps:
 
-1. Set up the Azure Logic Apps (Preview) extension to use the Azure Functions Project Runtime version 2x or 3x.
+   1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
-   1. On the **File** menu, select **Preferences** **>** **Settings**.
+   1. On the **User** tab, go to **Features** **>** **Extensions**.
 
-   1. On the **User** tab, expand **Extensions**, and select **Azure Logic Apps**.
+   1. Confirm that **Auto Check Updates** and **Auto Update** are selected.
 
-   1. To select the [Azure Functions runtime version](../azure-functions/functions-versions.md) for the public preview extension to use, find the **Azurelogicappsv2: Project Runtime** setting.
+1. Enable or check that these **Azure Logic Apps (Preview)** extension settings are set up in Visual Studio Code:
 
-   1. Open the versions list, and select either **~3** or **~2**, based on the [Azure Functions Core Tools version](#prerequisites) that you installed earlier.
+   * **Azure Logic Apps V2: Panel Mode**
+   * **Azure Logic Apps V2: Project Runtime**
+
+   1. On the **File** menu, go to **Preferences** **>** **Settings**.
+
+   1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Preview)**.
+
+   1. Under **Azure Logic Apps V2: Panel Mode**, confirm that **Enable panel mode** is selected. Under **Azure Logic Apps V2: Project Runtime**, set the version to **~3** or **~2**, based on the [Azure Functions Core Tools version](#prerequisites) that you installed earlier.
 
       > [!IMPORTANT]
       > If you want to use the [**Inline Code** action](../logic-apps/logic-apps-add-run-inline-code.md) 
-      > for running JavaScript code, make sure that you use version 3 because the action doesn't support version 2. 
-      > Also, this action currently isn't supported on Linux operating systems.
+      > for running JavaScript code, make sure that you use Project Runtime version 3 because the action 
+      > doesn't support version 2. Also, this action currently isn't supported on Linux operating systems.
 
-      ![Screenshot that shows Azure Logic Apps extension settings with 'Azurelogicapps2: Project Runtime' set to '~3' or '~2'.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-project-runtime-version.png)
+      ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Preview)" extension.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-preview-settings.png)
 
 <a name="connect-azure-account"></a>
 
@@ -182,7 +195,7 @@ For information about how nested workflows behave differently between stateful a
 
    ![Screenshot that shows Visual Studio Code toolbar and selected Azure icon.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. In the Azure pane, under **Azure: Logic Apps (Preview)**, select **Sign in to Azure**. When the Microsoft sign-in page prompts you, sign in with your Azure account.
+1. In the Azure pane, under **Azure: Logic Apps (Preview)**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
 
    ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
@@ -239,6 +252,8 @@ Before you can create your workflow, create a local project to use for managing 
 Next, open the `workflow.json` file in the Logic App Designer.
 
 ### Open the workflow definition file in Logic App Designer
+
+Before you try opening your workflow definition file in the designer, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites).
 
 1. Expand the project folder for your workflow. Open the `workflow.json` file's shortcut menu, and select **Open in Designer**.
 
