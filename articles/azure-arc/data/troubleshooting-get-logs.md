@@ -1,6 +1,6 @@
 ---
 title: Get logs to troubleshoot Azure Arc enabled data controller
-description: Get service logs to troubleshoot Azure Arc enalbed data controller.
+description: Get service logs to troubleshoot Azure Arc enabled data controller.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -43,7 +43,7 @@ The log files will be created in the current working directory by default in a s
 
 You can choose to compress the files by omitting the `--skip-compress` parameter.
 
-You can trigger and include memory dumps by omitting the `--exclude-dumps`, but this is not recommended unless Microsoft Support has requested the memory dumps.  Taking a memory dump requires that the data controller setting `allowDumps` is set to `true` the time of the data controller deployment.
+You can trigger and include memory dumps by omitting the `--exclude-dumps`, but this is not recommended unless Microsoft Support has requested the memory dumps.  Taking a memory dump requires that the data controller setting `allowDumps` is set to `true` the time of the data controller creation.
 
 You can optionally choose to filter to collect logs for just a specific pod (`--pod`) or container (`--container`) by name.
 

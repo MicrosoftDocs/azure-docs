@@ -1,6 +1,6 @@
 ---
-title: Uninstall Azure Arc data controller
-description: Uninstall Azure Arc data controller
+title: Delete Azure Arc data controller
+description: Delete Azure Arc data controller
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,18 +11,18 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Uninstall Azure Arc data controller
+# Delete Azure Arc data controller
 
-The following article describes how to uninstall an Azure Arc data controller.
+The following article describes how to delete an Azure Arc data controller.
 
-Before you proceed, ensure all the data services that have been deployed on the data controller are removed as follows:
+Before you proceed, ensure all the data services that have been create on the data controller are removed as follows:
 
 Login to the data controller that you want to delete:
 
 ```
 azdata login
 ```
-Run the following command to check if there are any SQL managed instances deployed:
+Run the following command to check if there are any SQL managed instances create:
 
 ```
 azdata arc sql mi list
@@ -45,7 +45,7 @@ azdata arc postgres server delete -n <name>
 # for example: azdata arc postgres server delete -n pg1
 ```
 
-After all the SQL managed instances and PostgreSQL Hyperscale instances have been removed, the data controller can be uninstalled as follows:
+After all the SQL managed instances and PostgreSQL Hyperscale instances have been removed, the data controller can be deleted as follows:
 
 ```
 azdata arc dc delete -n <name> -ns <namespace>

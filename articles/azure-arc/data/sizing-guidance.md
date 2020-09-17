@@ -51,7 +51,7 @@ The data controller is a collection of pods that are deployed to your Kubernetes
 |**logsdb**|200m|1600Mi|2|1600Mi||
 |**logsui**|100m|500Mi|2|2Gi||
 |**metricsdb**|200m|800Mi|400m|2Gi||
-|**metricsdc**|100m|200Mi|200m|300Mi|Metricsdc is a daemonset which is deployed to each of the Kubernetes nodes in your cluster.  The numbers in the table here are _per node_. If you set allowNodeMetricsCollection = false in your deployment profile file before deploying the data controller, the metricsdc daemonset will not be deployed.|
+|**metricsdc**|100m|200Mi|200m|300Mi|Metricsdc is a daemonset which is created on each of the Kubernetes nodes in your cluster.  The numbers in the table here are _per node_. If you set allowNodeMetricsCollection = false in your deployment profile file before creating the data controller, the metricsdc daemonset will not be created.|
 |**metricsui**|20m|200Mi|500m|200Mi||
 |**mgmtproxy**|200m|250Mi|500m|500Mi||
 
@@ -83,7 +83,7 @@ Each SQL managed instance must have the following minimum resource requests:
 - Memory: 2Gi
 - Cores: 1
 
-Each SQL managed instance pod that is deployed has three containers:
+Each SQL managed instance pod that is created has three containers:
 |Container name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the SQL managed instance.||
@@ -98,7 +98,7 @@ Each PostgreSQL Hyperscale server group node must have the following minimum res
 - Memory: 256Mi
 - Cores: 1
 
-Each PostgreSQL Hyperscale server group coordinator or worker pod that is deployed has three containers:
+Each PostgreSQL Hyperscale server group coordinator or worker pod that is created has three containers:
 |Container name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the PostgreSQL Hyperscale server group nodes.|
@@ -107,9 +107,9 @@ Each PostgreSQL Hyperscale server group coordinator or worker pod that is deploy
 
 ## Cumulative sizing
 
-The overall size of an environment required for Azure Arc enabled data services is primarily a function of the number and size of the database instances that will be deployed.  The overall size can be difficult to predict ahead of time knowing that the number of instances will grow and shrink and the amount of resources that are required for each database instance will change.
+The overall size of an environment required for Azure Arc enabled data services is primarily a function of the number and size of the database instances that will be created.  The overall size can be difficult to predict ahead of time knowing that the number of instances will grow and shrink and the amount of resources that are required for each database instance will change.
 
-The baseline size for a given Azure Arc enabled data services environment is the size of the data controller which requires 4 cores and 16 GB of RAM.  From there you can add on top the cumulative total of cores and memory required for the database instances.  For SQL managed instance the number of pods is equal to the number of SQL managed instances that are deployed.  For PostgreSQL Hyperscale server groups the number of pods is equivalent to the number of worker nodes plus one for the coordinator node.  For example, if you have a PostgreSQL Server group with 3 worker nodes, the total number of pods will be 4.
+The baseline size for a given Azure Arc enabled data services environment is the size of the data controller which requires 4 cores and 16 GB of RAM.  From there you can add on top the cumulative total of cores and memory required for the database instances.  For SQL managed instance the number of pods is equal to the number of SQL managed instances that are created.  For PostgreSQL Hyperscale server groups the number of pods is equivalent to the number of worker nodes plus one for the coordinator node.  For example, if you have a PostgreSQL Server group with 3 worker nodes, the total number of pods will be 4.
 
 In addition to the cores and memory you request for each database instance, you should add 250m of cores and 250Mi of RAM for the agent containers.
 
@@ -137,13 +137,13 @@ See the [storage-configuration](storage-configuration.md) article for details on
 
 ## Other considerations
 
-Keep in mind that a given database instance size request for cores or RAM cannot exceed the available capacity of the Kubernetes nodes in the cluster.  For example, if the largest Kubernetes node you have in your Kubernetes cluster is 256 GB of RAM and 24 cores, you will not be able to deploy a database instance with a request of 512 GB of RAM and 48 cores.  
+Keep in mind that a given database instance size request for cores or RAM cannot exceed the available capacity of the Kubernetes nodes in the cluster.  For example, if the largest Kubernetes node you have in your Kubernetes cluster is 256 GB of RAM and 24 cores, you will not be able to create a database instance with a request of 512 GB of RAM and 48 cores.  
 
-It is a good idea to maintain at least 25% of available capacity across the Kubernetes nodes to allow Kubernetes to efficiently schedule pods to be deployed and to allow for elastic scaling and longer term growth on demand.  
+It is a good idea to maintain at least 25% of available capacity across the Kubernetes nodes to allow Kubernetes to efficiently schedule pods to be created and to allow for elastic scaling and longer term growth on demand.  
 
 In your sizing calculations, don't forget to add in the resource requirements of the Kubernetes system pods and any other workloads which may be sharing capacity with Azure Arc enabled data services on the same Kubernetes cluster.
 
-To maintain high availability during planned maintenance and disaster continuity, you should plan for at least one of the Kubernetes nodes in your cluster to be unavailable at any given point in time.  Kubernetes will attempt to reschedule the pods that were running on a given node that was taken down for maintenance or due to a failure.  If there is no available capacity on the remaining nodes those pods will not be rescheduled for deployment until there is available capacity again.  Be extra careful with large database instances.  For example, if there is only one Kubernetes node big enough to meet the resource requirements of a large database instance and that node fails then Kubernetes will not be able to schedule that database instance pod onto another Kubernetes node.
+To maintain high availability during planned maintenance and disaster continuity, you should plan for at least one of the Kubernetes nodes in your cluster to be unavailable at any given point in time.  Kubernetes will attempt to reschedule the pods that were running on a given node that was taken down for maintenance or due to a failure.  If there is no available capacity on the remaining nodes those pods will not be rescheduled for creation until there is available capacity again.  Be extra careful with large database instances.  For example, if there is only one Kubernetes node big enough to meet the resource requirements of a large database instance and that node fails then Kubernetes will not be able to schedule that database instance pod onto another Kubernetes node.
 
 Keep the [maximum limits for a Kubernetes cluster size](https://kubernetes.io/docs/setup/best-practices/cluster-large/) in mind.
 

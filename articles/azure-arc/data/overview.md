@@ -50,8 +50,8 @@ Many of the services such as self-service provisioning, automated backups/restor
 
 [Install the client tools](install-client-tools.md)
 
-[Deploy the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
+[Create the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
 
-After you deploy the data controller, see [Deploy an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) 
+[Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 
-[Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires deployment of an Azure Arc data controller first)
+[Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires creation of an Azure Arc data controller first)

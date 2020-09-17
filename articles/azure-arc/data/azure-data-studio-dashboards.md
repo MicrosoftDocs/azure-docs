@@ -87,7 +87,7 @@ You can also open the Azure portal in context to this data controller by clickin
 
 ## View the SQL managed instance dashboards
 
-If you have deployed some SQL managed instances, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
+If you have created some SQL managed instances, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
 
 To view the SQL managed instance dashboard for a given instance, right-click on the instance and choose Manage.
 
@@ -103,7 +103,7 @@ If you click on the Connection Strings tab on the left, you can see a list of pr
 
 ## View the PostgreSQL Hyperscale server group dashboards
 
-If you have deployed some PostgreSQL Hyperscale server groups, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
+If you have created some PostgreSQL Hyperscale server groups, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
 
 To view the PostgreSQL Hyperscale server group dashboard for a given server group, right-click on the server group and choose Manage.
 

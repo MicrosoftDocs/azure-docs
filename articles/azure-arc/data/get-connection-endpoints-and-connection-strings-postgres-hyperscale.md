@@ -38,7 +38,7 @@ azdata login --endpoint https://<external IP address of host/data controller>:30
 #### 2. Show the connection endpoints
 Run the following command:
 ```console
-azdata arc postgres server endpoint list -n <server group name>
+azdata arc postgres endpoint list -n <server group name>
 ```
 It returns an output like:
 ```console
@@ -65,7 +65,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - The password of the _postgresql_ user indicated in the end point named "_PostgreSQL Instance_ is the password you chose when deploying the server group.
+> - The password of the _postgresql_ user indicated in the end point named "_PostgreSQL Instance_ is the password you chose when you created the server group.
 > - About azdata: the lease associated to your connection lasts about 10 hours. After that you need to reconnect. If your lease has expired, you will get the following error message when you try to execute a command with azdata (other than azdata login):
 > _ERROR: (401)_
 > _Reason: Unauthorized_

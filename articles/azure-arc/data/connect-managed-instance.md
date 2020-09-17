@@ -35,7 +35,7 @@ sqldemo 1/1         10.240.0.4:32023  Ready
 If you are using AKS or kubeadm or OpenShift etc., you can copy the external IP and port number from here and connect to it using your favorite tool for connecting to a SQL Sever/Azure SQL instance such as Azure Data Studio or SQL Server Management Studio.  However, if you are using the quick start VM, see below for special information about how to connect to that VM from outside of Azure. 
 
 > [!NOTE]
-> Your corporate policies may block access to the IP and port, especially if this is deployed in the public cloud.
+> Your corporate policies may block access to the IP and port, especially if this is created in the public cloud.
 
 ## Connect 
 

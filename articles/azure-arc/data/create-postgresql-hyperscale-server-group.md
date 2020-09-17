@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Create an Azure Arc enabled PostgreSQL Hyperscale server group
 
-This document describes the steps to deploy a PostgreSQL Hyperscale server group on Azure Arc.
+This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -21,7 +21,7 @@ This document describes the steps to deploy a PostgreSQL Hyperscale server group
 
 ## Getting started
 If you are already familiar with the topics below you may skip this paragraph.
-There are important topics you may want read before you proceed with deployment:
+There are important topics you may want read before you proceed with creation:
 - [Overview of Azure Arc enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
@@ -40,7 +40,7 @@ azdata login
 
 You will then be prompted for the username, password and the system namespace.  
 
-> If you used the script to install the data controller then your namespace should be **arc**
+> If you used the script to create the data controller then your namespace should be **arc**
 
 ```console
 Namespace: arc
@@ -51,13 +51,13 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 ## Preliminary and temporary step for OpenShift users only
 
-Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your Postgres Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you deployed the Azure Arc data controller.
+Implement this step before moving to the next step. To create PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your Postgres Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you created the Azure Arc data controller.
 
 ```console
 oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
-_**Server-group-name** is the name of the server group you will deploy during the next step._
+_**Server-group-name** is the name of the server group you will create during the next step._
    
 For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
 You may now implement the next step.
@@ -79,7 +79,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 > - The unit accepted by the --volume-size-* parameters is a Kubernetes resource quantity (an integer followed by one of these SI suffices (T, G, M, K, m) or their power-of-two equivalents (Ti, Gi, Mi, Ki)).
 > - Names must be 10 characters or fewer in length and conform to DNS naming conventions.
 > - You will be prompted to enter the password for the _postgres_ standard administrative user.  You can skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
-> - If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to deploy the PostgreSQL Hyperscale server group too. The name of the default administrator user for the Postgres Hyperscale database engine is _postgresql_ and cannot be changed at this point.
+> - If you create the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to create the PostgreSQL Hyperscale server group too. The name of the default administrator user for the Postgres Hyperscale database engine is _postgresql_ and cannot be changed at this point.
 > - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
 > - The --port parameter cannot be changed at this point.
 > - If you do not have a default storage class in your Kubernetes cluster, you'll need to use the parameter--metadataStorageClass to specify one. Not doing this will result in the failure of the create command. To verify if you have a default storage class declared on your Kubernetes cluster, rung the following command: 
@@ -96,7 +96,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 >   ```
 
 
-## List your Azure Database for PostgreSQL server groups deployed in your Arc setup
+## List your Azure Database for PostgreSQL server groups created in your Arc setup
 
 To view the PostgreSQL Hyperscale server groups on Azure Arc, use the following command:
 
