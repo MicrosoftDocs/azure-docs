@@ -20,7 +20,11 @@ ms.custom: mvc,subject-armqs
 
 # Quickstart: Create a public load Balancer to load balance VMs by using an ARM template
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). This quickstart shows you how to deploy an Azure Resource Manager template (ARM template) that creates a standard load balancer to load balance VMs. Using an ARM template takes fewer steps comparing to other deployment methods.
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). 
+
+This quickstart shows you how to deploy a standard load balancer to load balance virtual machines.
+
+Using an ARM template takes fewer steps comparing to other deployment methods.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -48,7 +52,7 @@ Multiple Azure resources have been defined in the template:
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 of them).
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 of them).
-- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 of them): use to configure the IIS, and the web pages.
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 of them): use to configure the Internet Information Server (IIS), and the web pages.
 
 To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -87,7 +91,7 @@ It takes about 10 minutes to deploy the template. When completed, the output is 
 
 ![Azure Standard Load Balancer Resource Manager template PowerShell deployment output](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
-Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
+Azure PowerShell is used to deploy the template. You can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
 ## Review deployed resources
 
@@ -111,11 +115,21 @@ To see the load balancer distribute traffic across all three VMs, you can force 
 
 ## Clean up resources
 
-When you no longer need them, delete the resource group, the load balancer, and all related resources. To do so, go to the Azure portal, select the resource group that contains the load balancer, and then select **Delete resource group**.
+When you no longer need them, delete the: 
+
+* Resource group
+* Load balancer
+* Related resources
+
+Go to the Azure portal, select the resource group that contains the load balancer, and then select **Delete resource group**.
 
 ## Next steps
 
-In this quickstart, you created a Standard load balancer, attached VMs to it, configured the load-balancer traffic rule, did a health probe, and then tested the load balancer.
+In this quickstart, you:
+
+* Created a Standard load balancer and attached VMs to it.
+* Configured the load-balancer traffic rule, and the health probe.
+* Tested the load balancer.
 
 To learn more, continue to the tutorials for load Balancer.
 
