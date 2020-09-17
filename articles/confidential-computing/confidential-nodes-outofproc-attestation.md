@@ -31,7 +31,7 @@ The quote generation involves the trusted SW components - Quoting Enclave (QE) &
 In in-proc attestation mode each enclave application needs to instantiate the copy of QE and PCE for remote attestation. With out-of-proc, there is no need for container to host those enclaves and thus doesn’t consume enclave memory from the container quota.
 
 4.	Safeguards against Kernel enforcement 
-When the SGX driver is up streamed into Linux kernel there will be enforcement for an enclave to have higher privilege in order to invoke PCE, which will break the enclave application running in in-proc mode, since by default, they don't get this permission. Granting this privilege to an enclave application requires changes to the application installation process. This is handled easily for out-of-proc model as the service that handles out-of-proc requests is already installed with this privilege..
+When the SGX driver is up streamed into Linux kernel there will be enforcement for an enclave to have higher privilege in order to invoke PCE, which will break the enclave application running in in-proc mode, since by default, they don't get this permission. Granting this privilege to an enclave application requires changes to the application installation process. This is handled easily for out-of-proc model as the provider of the service that handles out-of-proc requests will make sure the service is installed with this privilege.
 
 5.	No need to check for backward compatibility with PSW & DCAP. The updates to quote generation components of PSW are validated for the backward compatibility by the provider before updating. This will help in handling the compatibility issues upfront and address them before deploying updates for confidential workloads.
 
@@ -51,7 +51,9 @@ An application can still use the in-proc attestation as before, but both in-proc
 
 ## Sample Implementation
 
-The below docker file sample is for an Open Enclave based application whereby setting the SGX_AESM_ADDR=1 environment variable the SGX application will automatically invoke AESM service that is running on the host as a DaemonSet. Also, note the inclusion of libsgx-quote-ex package.
+The below docker file sample is for an Open Enclave based application whereby setting the SGX_AESM_ADDR=1 environment variable in the docker file or by setting it on the deployment file. Follow the below sample for docker file and deployment yaml details. 
+
+>Note: The libsgx-quote-ex from Intel needs to be packaged in the application container for out of proc attestation to work properly.
 
 ```yaml
 # Refer to Intel_SGX_Installation_Guide_Linux for detail
@@ -86,7 +88,7 @@ ENV SGX_AESM_ADDR=1
 
 CMD make run
 ```
-Alternatively the out-of-proc attestation can set in the deployment yaml file as shown below
+Alternatively the out-of-proc attestation mode can be set in the deployment yaml file as shown below
 
 ```yaml
 apiVersion: batch/v1
@@ -116,7 +118,7 @@ spec:
 ```
 
 ## Getting Started
-
+Alternatively the out-of-proc attestation
 [Provision Confidential Nodes (DCsv2-Series) on AKS](./confidential-nodes-aks-getstarted.md)
 
 [Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)

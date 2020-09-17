@@ -34,17 +34,12 @@ Azure confidential computing allows you to protect your sensitive data while it'
 ## AKS Provided Daemon Sets
 
 #### SGX Device Plugin <a id="sgx-device"></a>
-SGX Device Plugin daemon set mounts the SGX drivers on-behalf to make Kubernetes clusters aware of Intel SGX hardware per node. Device plugin also helps facilitate proper scheduling of SGX-dependent containers by advertising `kubernetes.azure.com/sgx_epc_mem_in_MiB` as a deployable resource to Kubernetes. This EPC memory keeps track of the deployments to better allocate memory per deployment. View the deployment details of the SGX Device Plugin [here](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx/device-plugin.yaml)
+
+The SGX Device Plugin implements the Kubernetes device plugin interface for EPC memory. Effectively, this makes EPC memory a additional resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign SGX device driver permissions to confidential workload containers. A sample implementation of the EPC memory based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)
 
 #### SGX Quote Helper Service <a id="sgx-quote"></a>
 
-Enclave application that performs remote attestation requires to generate quote which provides a cryptographically proof of the identity and the state of the application as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components from Intel, which are part of the Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node and can be leveraged when requesting attestation quote from enclave apps. Using the AKS provided service will help better manage the attestation failures due to driver, microcode and PSW incompatibility. [Read more](platform-software-management.md) on its usage and feature details.
-
-
-### Confidential Computing Node Configuration
-[SGX DCAP Driver version 1.33](https://01.org/intel-softwareguard-extensions/downloads/intel-sgx-dcap-linux-1.3-release)
-[Intel FSGS Kernel Patch](https://lkml.org/lkml/2019/10/4/725)
-Azure Ubuntu Gen2 18.04
+Enclave application that performs remote attestation needs to generate QUOTE which provides a cryptographically proof of the identity and the state of the application as well as the environment the enclave is running in. QUOTE generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node and can be leveraged when requesting attestation QUOTE from enclave apps. Using the AKS provided service will help better maintain the compatibility between the PSW and other SW components in the host. [Read more](confidential-nodes-outofproc-attestation.md) on its usage and feature details.
 
 ## Programming & application models
 
