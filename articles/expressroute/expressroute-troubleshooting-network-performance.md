@@ -117,7 +117,7 @@ If you're not sure where the edge of the cloud actually is, isolating the Azure 
 ![2][2]
 
 >[!NOTE]
-> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to an MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Office 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
+> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to an MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Microsoft 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
 >
 >
 

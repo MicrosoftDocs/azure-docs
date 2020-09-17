@@ -47,7 +47,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Algorithm** | **Download** | **SHA256**
     --- | --- | ---
-    VMware (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    VMware (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 72fef66b8efd93106e626ea87354af0fb800893f9cb77edb5490490106c6a193
 
 
 
@@ -96,7 +96,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Scenario** | **Download** | **SHA256**
     --- | --- | ---
-    Hyper-V (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) |  5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    Hyper-V (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2116657) |  bea013eab690ae3a476422c55becd87c369c14834e52f8cafe6ad0ed7f416b4f
 
 ### Run the script
 

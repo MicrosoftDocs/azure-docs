@@ -1,237 +1,99 @@
 ---
-title: Customer-owned storage accounts for log ingestion
-description: Use your own storage account for ingestion of log data into a Log Analytics workspace in Azure Monitor.
+title: Using customer-managed storage accounts in Azure Monitor Log Analytics
+description: Use your own storage account for Log Analytics scenarios
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/20/2020
-
+author: noakup
+ms.author: noakuper
+ms.date: 09/03/2020
 ---
 
-# Customer-owned storage accounts for log ingestion in Azure Monitor
+# Using customer-managed storage accounts in Azure Monitor Log Analytics
 
-Azure Monitor uses storage accounts in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](./diagnostics-extension-logs.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. If you want control over your data during ingestion, you can use your own storage accounts instead of the service-managed storage. Using your own storage account gives you control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as Bring Your Own Storage, or BYOS. 
+Log Analytics relies on Azure Storage in a variety of scenarios. This use is typically managed automatically. However, some cases require you to provide and manage your own storage account, also referred to as a customer-managed storage account. This document details the usage of customer-managed storage for the ingestion of WAD/LAD logs, Private Link specific scenarios, and CMK encryption. 
 
-One scenario that requires BYOS is network isolation through Private Links. When using a VNet, network isolation is often a requirement, and access to the public internet is limited. In such cases, accessing Azure Monitor service storage for log ingestion is either completely blocked, or considered a bad practice. Instead, Logs should be ingested through a customer-owned storage account inside the VNet or easily accessible from it.
+> [!NOTE]
+> We recommend that you don’t take a dependency on the contents Log Analytics uploads to customer-managed storage, given that formatting and content may change.
 
-Another scenario is the encryption of logs with Customer-Managed Keys (CMK). Customers can encrypt logged data by using CMK on the clusters that store the logs. The same key can also be used to encrypt logs during the ingestion process.
+## Ingesting Azure Diagnostics extension logs (WAD/LAD)
+The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents respectively) collect various operating system logs and store them on a customer-managed storage account. You can then ingest these logs into Log Analytics to review and analyze them.
+How to collect Azure Diagnostics extension logs from your storage account
+Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs#collect-logs-from-azure-storage) or by calling the [Storage Insights API](https://docs.microsoft.com/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
 
-## Data types supported
+Supported data types:
+* Syslog
+* Windows events
+* Service Fabric
+* ETW Events
+* IIS Logs
 
-Data types that are ingested from a storage account include the following. See [Collect data from Azure diagnostics extension to Azure Monitor Logs](./diagnostics-extension-logs.md) for more information about the ingestion of these types.
+## Using Private links
+Customer managed storage accounts are required in some use cases, when private links are used to connect to Azure Monitor resources. One such case is the ingestion of Custom logs or IIS logs. These data types are first uploaded as blobs to an intermediary Azure Storage account and only then ingested to a workspace. Similarly, some Azure Monitor solutions may use storage accounts to store large files, such as Watson dump files, which are used by the Azure Security Center solution. 
 
-| Type | Table information |
-|:-----|:------------------|
-| IIS logs | Blob: wad-iis-logfiles|
-|Windows event logs | Table: WADWindowsEventLogsTable |
-| Syslog | Table: LinuxsyslogVer2v0 |
-| Windows ETW logs | Table: WADETWEventTable|
-| Service fabric | Table: WADServiceFabricSystemEventTable <br/> WADServiceFabricReliableActorEventTable<br/> WADServiceFabricReliableServicEventTable |
-| Custom logs | n/a |
-| Azure Security Center Watson dump files | n/a|  
+##### Private Link scenarios that require a customer-managed storage
+* Ingestion of Custom logs and IIS logs
+* Allowing ASC solution to collect Watson dump files
 
-## Storage account requirements 
-The storage account must meet the following requirements:
+### How to use a customer-managed storage account over a Private Link
+##### Workspace requirements
+When connecting to Azure Monitor over a private link, Log Analytics agents are only able to send logs to workspaces linked to your network over a private link. This rule requires that you properly configure an Azure Monitor Private Link Scope (AMPLS) object, connect it to your workspaces, and then connect the AMPLS to your network over a private link. For more information on the AMPLS configuration procedure, see [Use Azure Private Link to securely connect networks to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security). 
+##### Storage account requirements
+For the storage account to successfully connect to your private link, it must:
+* Be located on your VNet or a peered network and connected to your VNet over a private link. This allows agents on your VNet to send logs to the storage account.
+* Be located on the same region as the workspace it’s linked to.
+* Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, you should also allow this exception: “allow trusted Microsoft services to access this storage account”. This allows Log Analytics to read the logs ingested to this storage account.
+* If your workspace handles traffic from other networks as well, you should configure the storage account to allow incoming traffic coming from the relevant networks/internet.
 
-- Accessible to resources on your VNet that write logs to the storage.
-- Must be on the same region as the workspace it’s linked to.
-- Allow Azure Monitor access - If you chose to limit your storage account access to select networks, make sure to allow this exception: *allow trusted Microsoft services to access this storage account*.
+##### Link your storage account to a Log Analytics workspace
+You can link your storage account to the workspace via the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage) or [REST API](https://docs.microsoft.com/rest/api/loganalytics/linkedstorageaccounts). 
+Applicable dataSourceType values:
+* CustomLogs – to use the storage for custom logs and IIS logs during ingestion.
+* AzureWatson – use the storage for Watson dump files uploaded by the ASC (Azure Security Center) solution. 
+For more information on managing retention, replacing a linked storage account, and monitoring your storage account activity, see [Managing linked storage accounts](#managing-linked-storage-accounts). 
 
-## Process to configure customer-owned storage
-The basic process of using your own storage account for ingestion is as follows:
+## Encrypting data with CMK
+Azure Storage encrypts all data at rest in a storage account. By default, it encrypts data with Microsoft-managed keys (MMK). However, Azure Storage will instead let you use a Customer-managed key (CMK) from Azure Key vault to encrypt your storage data. You can either import your own keys into Azure Key Vault, or you can use the Azure Key Vault APIs to generate keys.
+##### CMK scenarios that require a customer-managed storage account
+* Encrypting log-alert queries with CMK
+* Encrypting saved queries with CMK
 
-1. Create a storage account or select an existing account.
-2. Link the storage account to a Log Analytics workspace.
-3. Manage the storage by reviewing its load and retention to ensure sure it’s functioning as expected.
+### How to apply CMK to customer-managed storage accounts
+##### Storage account requirements
+The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Storage encryption and key management, see [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-The only method available to create and remove links is through the REST API. Details on the specific API request required for each process are provided in the sections below.
+##### Apply CMK to your storage accounts
+To configure your Azure Storage account to use customer-managed keys with Azure Key Vault, use the [Azure portal](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal?toc=/azure/storage/blobs/toc.json), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-powershell?toc=/azure/storage/blobs/toc.json) or the [CLI](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-cli?toc=/azure/storage/blobs/toc.json). 
 
-## Command line and REST API
+## Managing linked storage accounts
 
-### Command line
-To create and manage linked storage accounts, use [az monitor log-analytics workspace linked-storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). This command can link and unlink storage accounts from a workspace and list the linked storage accounts.
+To link or unlink storage accounts to your workspace use the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage) or [REST API](https://docs.microsoft.com/rest/api/loganalytics/linkedstorageaccounts).
 
-### Request and CLI values
+##### Create or modify a link
+When you link a storage account to a workspace, Log Analytics will start using it instead of the storage account owned by the service. You can 
+* Register multiple storage accounts to spread the load of logs between them
+* Reuse the same storage account for multiple workspaces
 
-#### dataSourceType 
+##### Unlink a storage account
+To stop using a storage account, unlink the storage from the workspace. 
+Unlinking all storage accounts from a workspace means Log Analytics will attempt to rely on service-managed storage accounts. If your network has limited access to the internet, these storages may not be available and any scenario that relies on storage will fail.
 
-- AzureWatson - Use this value for Azure Security Center Azure Watson dump files.
-- CustomLogs – Use this value for the following data types:
-  - Custom logs
-  - IIS Logs
-  - Events (Windows)
-  - Syslog (Linux)
-  - ETW Logs
-  - Service Fabric Events
-  - Assessment data  
+##### Replace a storage account
+To replace a storage account used for ingestion,
+1.	**Create a link to a new storage account.** The logging agents will get the updated configuration and start sending data to the new storage as well. The process could take a few minutes.
+2.	**Then unlink the old storage account so agents will stop writing to the removed account.** The ingestion process keeps reading data from this account until it’s all ingested. Don’t delete the storage account until you see all logs were ingested.
 
-#### storage_account_resource_id
-This value uses the following structure:
+### Maintaining storage accounts
+##### Manage log retention
+When using your own storage account, retention is up to you. In other words, Log Analytics does not delete logs stored on your private storage. Instead, you should setup a policy to handle the load according to your preferences.
 
-```
-subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName1}
-```
-
-
-## Get linked storage accounts
-
-### Get linked storage accounts for all data source types
-
-#### API request
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts?api-version=2019-08-01-preview  
-```
-
-#### Response
-
-```json
-{
-    [
-        {
-            "properties":
-            {
-                "dataSourceType": "CustomLogs",
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_1>",
-                    "<storage_account_resource_id_2>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-            "name": "CustomLogs",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        },
-        {
-            "properties":
-            {
-                "dataSourceType": " AzureWatson "
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_3>",
-                    "<storage_account_resource_id_4>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/AzureWatson",
-            "name": "AzureWatson",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        }
-    ]
-}
-```
-
-
-### Get linked storage accounts for a specific data source type
-
-#### API request
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### Response 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-## Create or modify a link
-
-Once you link a storage account to a workspace, Log Analytics will start using it instead of the storage account owned by the service. You can register a list of storage accounts at the same time, and you can use the same storage account for multiple workspaces.
-
-If your workspace handles both VNet resources and resources outside a VNet, you should make sure it’s not rejecting traffic coming from the internet. Your storage should have the same settings as your workspace and be made available to resources outside your VNet. 
-
-### API request
-
-```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-### Payload
-
-```json
-{
-    "properties":
-    {
-        "storageAccountIds  " : 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    }
-}
-```
-
-### Response
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs"
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-"id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-"name": "CustomLogs",
-"type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-
-## Unlink a storage account
-If you decide to stop using a storage account for ingestion, or replace the workspace you use, you should unlink the storage from the workspace.
-
-Unlinking all storage accounts from a workspace means ingestion will attempt to rely on service-managed storage accounts. If your agents run on a VNet with limited access to the internet, ingestion is expected to fail. The workspace must have a linked storage account that is reachable from your monitored resources.
-
-Before deleting a storage account, you should make sure that all the data it contains has been ingested to the workspace. As a precaution, keep your storage account available after linking an alternative storage. Only delete it once all of its content has been ingested, and you can see new data is written to the newly connected storage account.
-
-
-### API request
-```
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-## Replace a storage account
-
-To replace a storage account used for ingestion, first create a link for a new storage account. The logging agents will get the updated configuration and start sending data to the new storage as well.
-
-Next unlink the old storage account so agents will stop writing to the removed account. The ingestion process keeps reading data from this account until it’s all ingested. Don’t delete the storage account until you see all logs were ingested.
-
-Agent configuration will be refreshed after a few minutes, and they will switch to the new storage.
-
-## Manage storage account
-
-### Load
-
-Storage accounts can handle a certain load of read and write requests before they start throttling requests. Throttling affects the time it takes to ingest logs and may result in lost data. If your storage is overloaded, register additional storage accounts and spread the load between them. 
+##### Consider load
+Storage accounts can handle a certain load of read and write requests before they start throttling requests (see [Scalability and performance targets for Blob storage](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account) for more details). Throttling affects the time it takes to ingest logs. If your storage account is overloaded, register an additional storage account to spread the load between them. To monitor your storage account’s capacity and performance review its [Insights in the Azure portal]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
 
 ### Related charges
-
-Storage accounts are charged by the volume of stored data, types of storage, and type of redundancy. For details see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
-
-If the registered storage account of your workspace is on another region, you will be charged for egress according to these [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
-
+Storage accounts are charged by the volume of stored data, the type of the storage, and the type of redundancy. For details see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs) and [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables).
 
 
 ## Next steps
 
-- For more information on setting up a private link, see [Use Azure Private Link to securely connect networks to Azure Monitor](private-link-security.md)
-
+- Learn about [using Azure Private Link to securely connect networks to Azure Monitor](private-link-security.md)
+- Learn about [Azure Monitor customer-managed keys](customer-managed-keys.md)
