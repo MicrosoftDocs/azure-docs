@@ -57,7 +57,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--name`: The name of your Azure Front Door resource.
 
-`--resource-group`: The resource group you want to place this Azure Front Door resource in. To learn more about resource groups, see [Manage resource groups in Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
+`--resource-group`: The resource group you want to place this Azure Front Door resource in. To learn more about resource groups, see [Manage resource groups in Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
 In the response you get when you run this command, look for the key `hostName`. You'll need this value in a later step. The `hostName` is the DNS name of the Azure Front Door resource you created.
 
@@ -137,7 +137,7 @@ Finally, if you're using a custom domain to reach your web application and want 
 
 ## Lock down your web application
 
-We recommend that you ensure that only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+We recommend that you ensure that only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## Clean up resources
 
