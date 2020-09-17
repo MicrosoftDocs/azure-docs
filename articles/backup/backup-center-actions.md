@@ -41,7 +41,7 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 1. Navigate to the Backup Center and select **+ Backup** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL server in this case).
 
-    ![Select datasource to configure Azure Database for PostgreSQL Server backup](./media/backup-center-actions/backup-select-datasource-postgresql.png)
+    ![Select datasource to configure Azure Database for PostgreSQL Server backup](./media/backup-center-actions/backup-select-datasource-type-postgresql.png)
 
 3. Select **Proceed**. This leads you to the backup configuration experience that it identical to the one reachable from a Backup vault. [Learn more about how to configure backup for Azure Database for PostgreSQL Server with a Backup vault](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).
 
