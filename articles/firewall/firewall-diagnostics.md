@@ -40,7 +40,7 @@ It can take a few minutes for the data to appear in your logs after you complete
 
 3. Select **Add diagnostic setting**. The **Diagnostics settings** page provides the settings for the diagnostic logs.
 5. In this example, Azure Monitor logs stores the logs, so type **Firewall log analytics** for the name.
-6. Under **Log**, select **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**, and **AzureFirewallDnsProxy** to collect logs for application and network rules.
+6. Under **Log**, select **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**, and **AzureFirewallDnsProxy** to collect  the logs.
 7. Select **Send to Log Analytics** to configure your workspace.
 8. Select your subscription.
 9. Select **Save**.
