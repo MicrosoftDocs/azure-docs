@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/15/2020
+ms.custom: contperfq1
 ---
 # What is Azure Cognitive Search?
 
