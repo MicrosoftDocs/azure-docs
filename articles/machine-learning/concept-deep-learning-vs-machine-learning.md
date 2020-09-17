@@ -9,6 +9,8 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
+
+ms.custom: contperfq1
 ---
 
 # Deep learning vs. machine learning in Azure Machine Learning
