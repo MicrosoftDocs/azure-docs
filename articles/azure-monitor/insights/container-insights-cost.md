@@ -136,7 +136,7 @@ This workbook helps you to visualize the source of your data without having to b
 - Billable container log data ingested by logsource entry
 - Billable diagnostic data ingested by diagnostic master node logs
 
-[![View workbooks dropdown](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
+[![Data usage workbook](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 To learn about managing rights and permissions to the workbook, review [Access control](../platform/workbooks-access-control.md).
 
