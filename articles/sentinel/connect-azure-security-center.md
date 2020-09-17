@@ -12,7 +12,7 @@ ms.author: yelevin
 ---
 # Connect data from Azure Security Center (ASC)
 
-Azure Sentinel enables you to connect alerts from [Azure Security Center](../security-center/security-center-intro.md) and stream them into Azure Sentinel. 
+Azure Sentinel enables you to connect alerts from [Azure Security Center](../security-center/security-center-introduction.md) and stream them into Azure Sentinel. 
 
 ## Prerequisites
 
