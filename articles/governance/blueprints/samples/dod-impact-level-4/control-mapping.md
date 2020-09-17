@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample controls
 description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 08/20/2020
+ms.date: 09/17/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
@@ -155,11 +155,11 @@ configuration and management. This blueprint helps you ensure events are logged 
 Analytics agent on Azure virtual machines.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Linux virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
-- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Windows virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-5 Response to Audit Processing Failures
@@ -181,11 +181,11 @@ reporting and analysis. This blueprint helps you ensure events are logged by ass
 Analytics agent on Azure virtual machines.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Linux virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
-- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Windows virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-6 (5) Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
@@ -208,7 +208,7 @@ Azure Sentinel and Azure Security Center as well.
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 
 ## AU-12 Audit Generation
 
@@ -219,11 +219,11 @@ operations that are performed within Azure resources. Additionally, auditing and
 Security are configured on SQL servers.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Linux virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
-- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Windows virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit diagnostic setting
 - Auditing should be enabled on advanced data security settings on SQL Server
@@ -540,11 +540,11 @@ resources. These capabilities can help you detect anomalous behavior and indicat
 you can take appropriate action.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics agent deployment in virtual machine scale sets - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Linux virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
-- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- Deploy Log Analytics agent for Windows virtual machine scale sets
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Advanced data security should be enabled on your managed instances
 - Advanced data security should be enabled on your SQL servers

@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 5 blueprint sample controls
 description: Control mapping of the DoD Impact Level 5 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 08/20/2020
+ms.date: 09/17/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 5 blueprint sample
