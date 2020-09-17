@@ -23,23 +23,15 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-A common challenge for developers is the management of credentials. Since many projects involve multiple services working together your code needs to have access to backend services and that means that it needs to authenticate to gain access. We want to make sure that we are handling credential information in the most secure manner possible so we want to avoid storing anything in code, checking it into source control or perhaps even sharing it with our developers. Azure Key Vault helps achieve this by providing a secure storage for secrets, certificates and keys but how does your code authenticate to Key Vault? 
+A common challenge for developers is the management of credentials. Since many projects involve multiple services working together your code needs access to backend services and that means that it needs to authenticate to them. We want to make sure that we are handling credential information in the most secure manner possible so we want to avoid storing any credential information in code, checking it into source control or perhaps even sharing it with our developers. [Azure Key Vault](../../key-vault/general/overview.md) helps achieve this by providing a secure storage for secrets, certificates, and keys but how does your code authenticate to Key Vault?
 
-Ideally you can achieve this while keeping credential information se
+Managed identities for Azure resources is a feature of Azure Active Directory (Azure AD) that solves this problem. Managed identities provides Azure services with an automatically managed identity in Azure AD. Here are some of the benefits of using Managed identities:
 
-A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping the credentials secure is an important task. Ideally, the credentials never appear on developer workstations and aren't checked into source control. Azure Key Vault provides a way to securely store credentials, secrets, and other keys, but your code has to authenticate to Key Vault to retrieve them.
-
-The managed identities for Azure resources feature in Azure Active Directory (Azure AD) solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. 
-
-
-You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
-
-The managed identities for Azure resources feature is free with Azure AD for Azure subscriptions. There's no additional cost.
-
-Regardless of the type of identity chosen a managed identity is a service principal of a special type that may only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is automatically removed.
-Also, when a User-Assigned or System-Assigned Identity is created, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity.
-
-Azure takes care of rolling the credentials that are used by the service instance. 
+- They may be used on multiple instances of a service or linked to a single instance of a service.
+- You can use managed identities to authenticate to any Azure service that supports Azure AD authentication including Azure Key Vault.
+- You don't need to worry about changing passwords because credential rotation is handled automatically by Azure. 
+- Managed identities can be used without any additional cost.
+- You don't need to store credential information in your code.
 
 > [!NOTE]
 > Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
@@ -58,16 +50,19 @@ The following terms are used throughout the managed identities for Azure resourc
 There are two types of managed identities:
 
 - **System-assigned** Some Azure services allow you to enable a managed identity directly on a service instance. When you enable the managed identity option as part of the configuration of a service instance Azure creates an identity in your Azure AD. After the identity is created, the credentials are provisioned onto the service instance where you enabled it. The system assigned managed identity has its life cycle tied directly to the service instance that triggered its creation. If the instance is deleted, Azure automatically removes the system-assigned managed identity information from Azure AD.
-- **User-assigned** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more instances of an Azure service. In the case of user assigned managed identities, the identity is managed separately from the resources that use it.
+- **User-assigned** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more instances of an Azure service. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it.
 
-Regardless of the type of identity chosen a managed identity is a service principal of a special type that may only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is automatically removed.
-Also, when a User-Assigned or System-Assigned Identity is created, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity.
-
-Azure takes care of rolling the credentials that are used by the service instance.
+>[!IMPORTANT]
+>Regardless of the type of identity chosen a managed identity is a service principal of a special type that may only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is automatically removed. Also, when a User-Assigned or System-Assigned Identity is created, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity. 
 
 ## Credential Rotation
 
-When using managed identities you no longer have to worry about changing passwords and updating authentication information. Credentials are rotated automatically. The resource provider hosting the service controls how often managed identities have their credentials rotated. By default, managed identities have their credentials rotated every 46 days but the resource provider may choose to implement credential rotation using a different interval.
+When using managed identities, you no longer have to worry about changing passwords and updating authentication information. Credentials are rotated automatically. The resource provider hosting the service controls how often managed identities have their credentials rotated. By default, managed identities have their credentials rotated every 46 days but the resource provider may choose to implement credential rotation using a different interval.
+
+
+Also, when a User-Assigned or System-Assigned Identity is created, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity.
+
+Azure takes care of rolling the credentials that are used by the service instance. 
 
 ## How can I use managed identities for Azure resources?
 
