@@ -94,7 +94,7 @@ spx csr model status --model @my.model.txt --wait
 ```
 
 The following example writes two URLs to the `@my.datasets.txt` configuration file.
-When `--output` includes an optional **add** keyword, the Speech CLI creates a configuration file or appends to an existing one.
+In this scenario, `--output` can include an optional **add** keyword to create a configuration file or append to the existing one.
 
 
 ```shell
