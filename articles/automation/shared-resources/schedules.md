@@ -41,9 +41,14 @@ You can create a new schedule for your runbooks in the Azure portal or with Powe
 ### Create a new schedule in the Azure portal
 
 1. From your Automation account, on the left-hand pane select **Schedules** under **Shared Resources**.
-1. On the **Schedules** page, select **Add a schedule**.
-1. On the **New schedule** page, enter a name and optionally enter a description for the new schedule.
-1. Select whether the schedule runs once or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once**, specify a start time and then select **Create**. If you select **Recurring**, specify a start time. For **Recur every**, select how often you want the runbook to repeat. Select by hour, day, week, or month.
+2. On the **Schedules** page, select **Add a schedule**.
+3. On the **New schedule** page, enter a name and optionally enter a description for the new schedule.
+
+    >[!NOTE]
+    >Automation schedules do not currently support using special characters in the schedule name.
+    >
+
+4. Select whether the schedule runs once or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once**, specify a start time and then select **Create**. If you select **Recurring**, specify a start time. For **Recur every**, select how often you want the runbook to repeat. Select by hour, day, week, or month.
 
     * If you select **Week**, the days of the week are presented for you to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time. For example, to choose a weekend schedule, select Saturday and Sunday.
 
@@ -53,11 +58,15 @@ You can create a new schedule for your runbooks in the Azure portal or with Powe
 
     ![Monthly schedule on first, fifteenth, and last day of the month](../media/schedules/monthly-first-fifteenth-last.png)
 
-1. When you're finished, select **Create**.
+5. When you're finished, select **Create**.
 
 ### Create a new schedule with PowerShell
 
 Use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) cmdlet to create schedules. You specify the start time for the schedule and the frequency it should run. The following examples show how to create many different schedule scenarios.
+
+>[!NOTE]
+>Automation schedules do not currently support using special characters in the schedule name.
+>
 
 #### Create a one-time schedule
 

@@ -24,7 +24,7 @@ Single sign-on (SSO) means accessing all applications and resources a user needs
 
 Single sign-on (SSO) adds security and convenience when users sign on to applications in Azure Active Directory (Azure AD). 
 
-Many organizations rely on software as a service (SaaS) applications, such as Office 365, Box, and Salesforce, for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each.
+Many organizations rely on software as a service (SaaS) applications, such as Microsoft 365, Box, and Salesforce, for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each.
 
 The Azure Marketplace has over 3000 applications with pre-integrated SSO connections, making it easy to integrate them in your tenant.
 
