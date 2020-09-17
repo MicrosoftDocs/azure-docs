@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
+ms.date: 09/17/2020
 ---
 
 # Azure Cosmos Emulator - Release notes and download information

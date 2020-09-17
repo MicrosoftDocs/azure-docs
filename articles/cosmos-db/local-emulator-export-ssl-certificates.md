@@ -1,23 +1,23 @@
 ---
 title: Export the Azure Cosmos DB Emulator certificates
-description: When developing in languages and runtimes that do not use the Windows Certificate Store you will need to export and manage the TLS/SSL certificates. This post gives step by step instructions.
+description: Learn how to export the Azure Cosmos DB emulator certificate for use with Java, Python, and Node.js apps. The certificates should be exported and used for languages and runtime environments that don't use the Windows Certificate Store. 
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java
 ---
 
-# Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js
+# Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps
 
 The Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Azure Cosmos emulator supports only secure communication through TLS connections.
 
 Certificates in the Azure Cosmos DB local emulator are generated the first time you run the emulator. There are two certificates. One of them is used to connect to the local emulator and the other is used to manage secrets within the emulator. The certificate you want to export is the connection certificate with the friendly name "DocumentDBEmulatorCertificate".
 
-When you use the emulator to develop apps in different languages such as Java, Python, or Node.js, you need to export the emulator certificate and import it into the the required certificate store.
+When you use the emulator to develop apps in different languages such as Java, Python, or Node.js, you need to export the emulator certificate and import it into the required certificate store.
 
-The .NET language and runtime uses the Windows Certificate Store to securely connect to the Azure Cosmos DB local emulator. Other languages have their own method of managing and using certificates. For example, Java uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) and Python uses [socket wrappers](https://docs.python.org/2/library/ssl.html) and Node.js which uses [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+The .NET language and runtime uses the Windows Certificate Store to securely connect to the Azure Cosmos DB local emulator. Other languages have their own method of managing and using certificates. For example, Java uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), Python uses [socket wrappers](https://docs.python.org/2/library/ssl.html), and Node.js uses [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 This article demonstrates how to export the TLS/SSL certificates for use in different languages and runtime environments that do not integrate with the Windows Certificate Store. You can read more about the emulator in [Use the Azure Cosmos DB Emulator for development and testing](./local-emulator.md).
 
@@ -27,11 +27,11 @@ You can regenerate both the emulator certificates by selecting **Reset Data** fr
 
 :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Azure Cosmos DB local emulator reset data":::
 
-If you have installed the certificate into the Java certificate store or used them elsewhere you need to update them with the regenerated certificates. Your application can't connect to the local emulator until you update the certificates.
+If you have installed the certificate into the Java certificate store or used them elsewhere, you need to update them with the regenerated certificates. Your application can't connect to the local emulator until you update the certificates.
 
-## Export the Azure Cosmos DB TLS/SSL certificate
+## <a id="export-emulator-certificate"></a>Export the Azure Cosmos DB TLS/SSL certificate
 
-You need to export the emulator certificate to use with languages and runtime environments that do not integrate with the Windows Certificate Store. You can export the certificate using the Windows Certificate Manager. Use the following step by step instructions to export the "DocumentDBEmulatorCertificate" certificate as a BASE-64 encoded X.509 (.cer) file:
+You need to export the emulator certificate to use with languages and runtime environments that do not integrate with the Windows Certificate Store. You can export the certificate using the Windows Certificate Manager. Use the following step-by-step instructions to export the "DocumentDBEmulatorCertificate" certificate as a BASE-64 encoded X.509 (.cer) file:
 
 1. Start the Windows Certificate manager by running certlm.msc and navigate to the Personal->Certificates folder and open the certificate with the friendly name **DocumentDbEmulatorCertificate**.
 
@@ -67,7 +67,7 @@ You need to export the emulator certificate to use with languages and runtime en
 
 ## Use the certificate with Java apps
 
-When running Java applications or MongoDB applications that use the Java client it is easier to install the certificate into the Java default certificate store than passing the `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flags. For example the included Java Demo application (`https://localhost:8081/_explorer/index.html`) depends on the default certificate store.
+When running Java applications or MongoDB applications that use the Java client it is easier to install the certificate into the Java default certificate store than passing the `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flags. For example, the included Java Demo application (`https://localhost:8081/_explorer/index.html`) depends on the default certificate store.
 
 Follow the instructions in the [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store) to import the X.509 certificate into the default Java certificate store. Keep in mind you will be working in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos Emulator.
 
@@ -87,26 +87,20 @@ sudo $JAVA_HOME/bin/keytool -cacerts -delete -alias cosmos_emulator
 sudo $JAVA_HOME/bin/keytool -cacerts -importcert -alias cosmos_emulator -file $EMULATOR_CERT_PATH
 ```
 
-Once the "CosmosDBEmulatorCertificate" TLS/SSL certificate is installed, your application should be able to connect and use the local Azure Cosmos DB Emulator. If you have any issues, you can follow the [Debugging SSL/TLS connections](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) article. In most cases, the certificate may not be installed into the *%JAVA_HOME%/jre/lib/security/cacerts* store. For example if you have multiple installed versions of Java your application may be using a different cacerts store than the one you updated.
+Once the "CosmosDBEmulatorCertificate" TLS/SSL certificate is installed, your application should be able to connect and use the local Azure Cosmos DB Emulator. If you have any issues, you can follow the [Debugging SSL/TLS connections](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) article. In most cases, the certificate may not be installed into the *%JAVA_HOME%/jre/lib/security/cacerts* store. For example, if you have multiple installed versions of Java your application may be using a different cacerts store than the one you updated.
 
 ## Use the certificate with Python apps
 
-When connecting to the emulator from Python apps, TLS verification is disabled. By default the [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) for the SQL API will not try and use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
+When connecting to the emulator from Python apps, TLS verification is disabled. By default the [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) for the SQL API will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
 
 ## How to use the certificate in Node.js
 
-When connecting to the emulator from Python and Node.js SDKs, TLS verification is disabled. By default the [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) for the SQL API will not try and use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+When connecting to the emulator from Python and Node.js SDKs, TLS verification is disabled. By default the [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) for the SQL API will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## Next steps
 
-In this tutorial, you've done the following:
-
-> [!div class="checklist"]
-> * Rotated certificates
-> * Exported the TLS/SSL certificate
-> * Learned how to use the certificate in Java, Python and Node.js
+Next you can learn 
 
 You can now proceed to the concepts section for more information about Azure Cosmos DB. 
 
-> [!div class="nextstepaction"]
->[Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)
+[Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

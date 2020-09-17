@@ -1,18 +1,18 @@
 ---
-title: Command-line tool reference for Azure Cosmos DB emulator 
+title: Command-line and PowerShell reference for Azure Cosmos DB emulator 
 description: Learn the command line parameters for Azure Cosmos DB emulator, how to control the emulator with PowerShell, and how to change the number of containers that you can create within emulator.   
 ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 09/15/2020
+ms.date: 09/17/2020
 ---
 
-# Command-line tool reference for Azure Cosmos DB emulator
+# Command-line and PowerShell reference for Azure Cosmos DB emulator
 
-From the installation location, you can use the command-line to start and stop the emulator, configure options, and perform other operations.
+The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. After [installing the emulator](local-emulator.md), you can control the emulator with command line and PowerShell commands. This article describes how to use the command-line and PowerShell commands to start and stop the emulator, configure options, and perform other operations. You have to run the commands from the installation location.
 
-##  <a id="command-line"></a>Command-line syntax
+##  <a id="command-line"></a>Manage the emulator with command-line syntax
 
 ```cmd
 Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
@@ -140,3 +140,6 @@ To change the number of containers available in the Azure Cosmos Emulator, run t
 1. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
 ## Next steps
+
+* [Export the Azure Cosmos emulator certificates for use with Java, Python, and Node.js apps](local-emulator-export-ssl-certificates.md)
+* [Degug issues with the emulator](troubleshoot-local-emulator.md)
