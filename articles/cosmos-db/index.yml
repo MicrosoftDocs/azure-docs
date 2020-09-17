@@ -29,7 +29,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Wire protocol compatibility with MongoDB
-            url: mongodb-feature-support.md
+            url: mongodb-feature-support-36.md
           - text: Wire protocol compatibility with Apache Cassandra
             url: cassandra-support.md
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin

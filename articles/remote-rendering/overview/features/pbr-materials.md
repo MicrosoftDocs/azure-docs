@@ -50,7 +50,7 @@ The core idea of physically based rendering is to use *BaseColor*, *Metalness*, 
 
   If both a metalness value and a metalness map are supplied, the final value will be the product of the two.
 
-  ![metalness and roughness](./media/metalness-roughness.png)
+  ![Spheres rendered with different metalness and roughness values](./media/metalness-roughness.png)
 
   In the picture above, the sphere in the bottom-right corner looks like a real metal material, the bottom-left looks like ceramic or plastic. The albedo color is also changing according to physical properties. With increasing roughness, the material loses reflection sharpness.
 
@@ -58,13 +58,13 @@ The core idea of physically based rendering is to use *BaseColor*, *Metalness*, 
 
 * **occlusionMap** and **aoScale:** [Ambient occlusion](https://en.wikipedia.org/wiki/Ambient_occlusion) makes objects with crevices look more realistic by adding shadows to occluded areas. Occlusion value range from `0.0` to `1.0`, where `0.0` means darkness (occluded) and `1.0` means no occlusions. If a 2D texture is provided as an occlusion map, the effect is enabled and *aoScale* acts as a multiplier.
 
-  ![Occlusion Map](./media/boom-box-ao2.gif)
+  ![An object rendered with and without ambient occlusion](./media/boom-box-ao2.gif)
 
 * **transparent:** For PBR materials, there is only one transparency setting: it is enabled or not. The opacity is defined by the albedo color's alpha channel. When enabled, a more complex rendering pipeline is invoked to draw semi-transparent surfaces. Azure Remote Rendering implements true [order independent transparency](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
 
   Transparent geometry is expensive to render. If you only need holes in a surface, for example for the leaves of a tree, it is better to use alpha clipping instead.
 
-  ![Transparency](./media/transparency.png)
+  ![Spheres rendered with zero to full transparency](./media/transparency.png)
   Notice in the image above, how the right-most sphere is fully transparent, but the reflection is still visible.
 
   > [!IMPORTANT]
@@ -76,6 +76,13 @@ Azure Remote Rendering uses the Cook-Torrance micro-facet BRDF with GGX NDF, Sch
 
  An alternative to the *Metalness-Roughness* PBR model used in Azure Remote Rendering is the *Specular-Glossiness* PBR model. This model can represent a broader range of materials. However, it is more expensive, and usually does not work well for real-time cases.
  It is not always possible to convert from *Specular-Glossiness* to *Metalness-Roughness* as there are *(Diffuse, Specular)* value pairs that cannot be converted to *(BaseColor, Metalness)*. The conversion in the other direction is simpler and more precise, since all *(BaseColor, Metalness)* pairs correspond to well-defined *(Diffuse, Specular)* pairs.
+
+## API documentation
+
+* [C# PbrMaterial class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RemoteManager.CreateMaterial()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ PbrMaterial class](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## Next steps
 

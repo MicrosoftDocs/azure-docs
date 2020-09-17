@@ -27,7 +27,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
 
-## New features 
+### New features 
 
 * You can now get high data content transfer performance between Live Video Analytics on IoT Edge and your custom extension using gRPC framework. See [this](analyze-live-video-use-your-grpc-model-quickstart.md) to get started.
 * Broader regional deployment of Live Video Analytics and only the cloud service has been updated.  
@@ -35,7 +35,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 * The [set up](https://aka.ms/lva-edge/setup-resources-for-samples) for quick starts has been updated as well with new regions support.
     * There is no call to action for anyone who has already setup resources
 
-## Bug fixes 
+### Bug fixes 
 
 * Remove the use of a deprecated azure extension in the set up script
 
