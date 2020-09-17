@@ -1,5 +1,5 @@
 ---
-title: Enroll TPM device to Azure Device Provisioning Service using Node.js
+title: Quickstart - Enroll TPM device to Azure Device Provisioning Service using Node.js
 description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service (DPS) using Node.js service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
