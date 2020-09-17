@@ -168,6 +168,29 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 
 - Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
 
+## SMB Multichannel option not visible under File share settings. 
+
+### Cause
+
+Either the subscription is not registered for the feature or the region and account type is not supported.
+
+### Solution
+
+Ensure that your subscription is registered for SMB Multichannel feature. See [Getting started](storage-files-enable-smb-multichannel.md#getting-started)
+Ensure that the account kind is FileStorage (premium file account) in the account overview page. 
+
+## SMB Multichannel is not being triggered.
+
+### Cause
+
+Recent changes to SMB Multichannel config settings without a remount.
+
+### Solution
+ 
+-	After any changes to Windows SMB client or account SMB multichannel configuration settings, you have to unmount the share, wait for 60 secs, and remount the share to trigger the multichannel.
+-	For Windows client OS, generate IO load with high queue depth say QD=8, for example copying a file to trigger SMB Multichannel.  For server OS, SMB Multichannel is triggered with QD=1, which means as soon as you start any IO to the share.
+
+
 ## How to create an alert if a file share is throttled
 
 1. Go to your **storage account** in the **Azure portal**.
@@ -197,31 +220,6 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 1. Click **Create alert rule** to create the alert.
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
-
-
-## SMB Multichannel option not visible under File share settings or Failed to update SMB Multichannel settings. 
-
-### Cause
-
-Either the subscription is not registered for the feature or the region and account type is not supported.
-
-### Solution
-
-Ensure that your subscription is registered for SMB Multichannel feature. See [Getting started](storage-files-enable-smb-multichannel.md#getting-started)
-
-Ensure that the account kind is FileStorage (premium file account) in the account overview page. 
-
-## Multiples channels are not triggered even after SMB Multichannel feature is emnabled on the storage account.
-
-### Cause
-
-Recent changes to SMB Multichannel config settings without a remount.
-
-### Solution
- 
--	After any changes to Windows SMB client or account SMB multichannel configuration settings, you have to unmount the share, wait for 60 secs, and remount the share to trigger the multichannel.
--	For Windows client OS, generate IO load with high queue depth say QD=8, for example copying a file to trigger SMB Multichannel.  For server OS, SMB Multichannel is triggered with QD=1, which means as soon as you start any IO to the share.
-
 
 ## How to create alerts if a premium file share is trending towards being throttled
 
