@@ -11,11 +11,22 @@ ms.author: normesta
 
 # Managing access permissions in Azure Data Lake Storage Gen2
 
-You can control access to the data in your account by using Azure role-based access control (RBAC) and access control lists (ACLs). This article describes both mechanisms and how to use them together.
+You can control access to the data in your account by using Azure role-based access control (RBAC) and access control lists (ACLs).
 
-## Using RBAC
 
-RBAC lets you control access to top-level resources such as a storage account or a containers. You can assign roles [security principals](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). These roles define which operations the security principal can perform such as reading or writing data. 
+If you assign security principals with an RBAC role, you can use ACLs to grant that security principal elevated access to specific files and directories. You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the Storage Blob Data Contributor role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
+
+
+You can use RBAC to grant permission to a top-level resource such as a storage account or a container and use ACLs to restrict access to specific directories and files. If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
+
+
+Some sort of main point here about how RBAC is evaluated first and then ACLs.
+
+
+
+## RBAC roles: Access control scoped access to directories and files
+
+RBAC lets you control access to top-level resources such as a storage account or a containers. You can assign roles [security principals](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). These roles define which operations the security principal can perform such as reading or writing data.  
 
 Azure Storage provides two layers of access: the management layer, and the data layer. A security principal can access subscriptions and storage accounts by using the management layer, and access containers, blobs, and other data resources by using the data layer. For example, if a user wants to get a list of their storage accounts, they would send a request to the management endpoint. If they wanted a list of blob containers in one of those accounts, they would send a request to the appropriate service endpoint.
 
@@ -45,15 +56,9 @@ The following table lists the built-in data roles. These roles are explicitly de
 | [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Read, write, and delete access to Blob storage containers and blobs. This access does not permit the security principal to set the ownership of an item, but it can modify the ACL of items that are owned by the security principal. |
 | [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Read and list Blob storage containers and blobs. |
 
-### How to assign RBAC roles
+You can use the [Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Azure CLI](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-cli?toc=/azure/storage/blobs/toc.json), or [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-powershell?toc=/azure/storage/blobs/toc.json) to assign a role to a security principal.
 
-See any of these links:
-
-- [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-- [Use PowerShell to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-powershell?toc=/azure/storage/blobs/toc.json)
-- [Use Azure CLI to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-cli?toc=/azure/storage/blobs/toc.json)
-
-## ACLs
+## ACLs: Access control scoped access to directories and files
 
 You can use ACLs to restrict access to specific directories and files. All directories and files have an ACL. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates user with an access level. To restrict access to an item (directory or file), you can add an entry to the ACL of that time which associates a security principal with a permission set. To learn more about the anatomy of an ACL and how to apply them, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -110,10 +115,10 @@ During security principal-based authorization, permissions are evaluated in the 
 
 3. If the operation is not fully authorized then ACLs are evaluated.
 
-> [!NOTE]
-> This description excludes Shared Key and SAS authentication methods in which no identity is associated with the operation and assumes that the storage account is accessible via appropriate networking configuration. It also excludes scenarios in which the security principal has been assigned the Storage Blob Data Owner built-in role which provides super-user access. 
+This evaluation order excludes Shared Key and SAS authentication methods in which no identity is associated with the operation and assumes that the storage account is accessible via appropriate networking configuration. It also excludes scenarios in which the security principal has been assigned the Storage Blob Data Owner built-in role which provides super-user access. 
 
-Image goes here.
+> [!div class="mx-imgBorder"]
+> ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
 ## Example scenarios
 
