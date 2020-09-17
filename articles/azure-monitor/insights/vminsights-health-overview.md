@@ -21,7 +21,7 @@ When the Health feature is enabled for a subscription, a new **Guest VM Health**
 ## Monitors
 Click on a virtual machine's health status to view its detailed health. The overall health of a computer is measured by multiple monitors, which each measures the health of some aspect of a managed object. 
 
-![Monitors](media/vminsights-health-overview/monitors.png)
+![Monitors example](media/vminsights-health-overview/monitors.png)
 
 Monitors each have three potential health states and will be in one and only one at any given time. When a monitor is initialized, it starts in a healthy state. The state changes only if the specified conditions for another state are detected.
 
@@ -79,7 +79,7 @@ View and modify the configuration of the monitor for the selected VM. See [Confi
 
 
 ## Alerts
-An [alert](../platform/alerts-alerts-overview.md) will be created for each virtual machine anytime it changes to a Warning or Critical state. View the alert from **Alerts** in the **Azure Monitor** menu or the virtual machine's menu in the Azure portal.
+An [alert](../platform/alerts-overview.md) will be created for each virtual machine anytime it changes to a Warning or Critical state. View the alert from **Alerts** in the **Azure Monitor** menu or the virtual machine's menu in the Azure portal.
 
 Alerts are not created for individual monitors but for the virtual machine itself. This means that if a monitor changes to a state that doesn't effect the current state of the virtual machine (because it's less than or equal to the current state), then no alert is created because the virtual machine state didn't change.
 
