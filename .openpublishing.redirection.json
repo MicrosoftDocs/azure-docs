@@ -27878,6 +27878,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/encryption-customer-provided-keys.md",
+      "redirect_url": "/azure/storage/blobs/encryption-customer-provided-keys",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-service-encryption.md",
       "redirect_url": "/azure/storage/common/storage-service-encryption",
       "redirect_document_id": true
