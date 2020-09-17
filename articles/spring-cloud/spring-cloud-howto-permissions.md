@@ -53,29 +53,23 @@ Follow these steps to start defining a role.
 
 ### Select the permissions:
 
-* From: Microsoft.AppPlatform/Spring
+From: **Microsoft.AppPlatform/Spring**, select:
 
-select:
+* Read : Get Azure Spring Cloud service instance
 
-   Read : Get Azure Spring Cloud service instance
+From: **Microsoft.AppPlatform/Spring/apps**, select:
 
-*From: Microsoft.AppPlatform/Spring/apps
+* Read : Read Microsoft Azure Spring Cloud application
 
-select:
+From: **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
-   Read : Read Microsoft Azure Spring Cloud application
+* Read : Read Microsoft Azure Spring Cloud application deployment
 
-*From: Microsoft.AppPlatform/Spring/apps/deployments
+* Other : Start Microsoft Azure Spring Cloud application deployment
 
-select:
+* Other : Stop Microsoft Azure Spring Cloud application deployment
 
-   Read : Read Microsoft Azure Spring Cloud application deployment
-
-   Other : Start Microsoft Azure Spring Cloud application deployment
-
-   Other : Stop Microsoft Azure Spring Cloud application deployment
-
-   Other : Restart Microsoft Azure Spring Cloud application deployment
+* Other : Restart Microsoft Azure Spring Cloud application deployment
 
   [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
@@ -102,21 +96,17 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
 6. Select the permissions:
 
-* From Microsoft.AppPlatform/Spring
+From **Microsoft.AppPlatform/Spring**, select:
 
-select:
+* Read : Get Azure Spring Cloud service instance
 
-   Read : Get Azure Spring Cloud service instance
+* Other : List Azure Spring Cloud service instance test keys
 
-   Other : List Azure Spring Cloud service instance test keys
+From **Microsoft.AppPlatform/Spring/apps/deployments**, select: 
 
-* From Microsoft.AppPlatform/Spring/apps/deployments
+* Other : Start Microsoft Azure Spring Cloud application deployment
 
-select: 
-
-   Other : Start Microsoft Azure Spring Cloud application deployment
-
-   Other : Stop Microsoft Azure Spring Cloud application deployment
+* Other : Stop Microsoft Azure Spring Cloud application deployment
 
    [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/app-platform-permissions.png#lightbox)
 
@@ -131,47 +121,39 @@ select:
 
 3. Select the permissions:
   
-* From: Microsoft.AppPlatform/Spring
-
-select:
+From: **Microsoft.AppPlatform/Spring**, select:
  
-   Write : Create or Update Azure Spring Cloud service instance
+* Write : Create or Update Azure Spring Cloud service instance
 
-   Read : Get Azure Spring Cloud service instance
+* Read : Get Azure Spring Cloud service instance
 
-   Other : Get Microsoft Azure Spring Cloud application resource upload URL
+* Other : Get Microsoft Azure Spring Cloud application resource upload URL
 
-* From: Microsoft.AppPlatform/Spring/apps
+From: **Microsoft.AppPlatform/Spring/apps**, select:
 
-select:
+* Write : Write Microsoft Azure Spring Cloud application
 
-   Write : Write Microsoft Azure Spring Cloud application
+* Delete : Delete Microsoft Azure Spring Cloud application
 
-   Delete : Delete Microsoft Azure Spring Cloud application
+* Read : Read Microsoft Azure Spring Cloud application
 
-   Read : Read Microsoft Azure Spring Cloud application
+* Other : Get Microsoft Azure Spring Cloud application resource upload URL
 
-   Other : Get Microsoft Azure Spring Cloud application resource upload URL
+From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
-* From Microsoft.AppPlatform/Spring/apps/deployments
+* Write : Write Microsoft Azure Spring Cloud application deployment
 
-select:
+* Delete : Delete Microsoft Azure Spring Cloud application deployment
 
-   Write : Write Microsoft Azure Spring Cloud application deployment
+* Read : Read Microsoft Azure Spring Cloud application deployment
 
-   Delete : Delete Microsoft Azure Spring Cloud application deployment
+* Other : Start Microsoft Azure Spring Cloud application deployment
 
-   Read : Read Microsoft Azure Spring Cloud application deployment
+* Other : Stop Microsoft Azure Spring Cloud application deployment
 
-   Other : Start Microsoft Azure Spring Cloud application deployment
+From: **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
 
-   Other : Stop Microsoft Azure Spring Cloud application deployment
-
-* From: Microsoft.AppPlatform/Spring/apps/deployments/skus
-
-select:
-
-   Read: List application deployment available skus    
+* Read: List application deployment available skus    
 
    [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-box.png#lightbox)
 
