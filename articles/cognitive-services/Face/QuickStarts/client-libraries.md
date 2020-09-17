@@ -20,18 +20,18 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/face-client-library-csharp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/face-client-library-python.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
 
-[!INCLUDE [Go quickstart](../includes/quickstarts/face-client-library-go.md)]
+[!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
 
 ::: zone-end
