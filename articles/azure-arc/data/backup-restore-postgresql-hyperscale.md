@@ -171,13 +171,14 @@ The general command to delete backups is:
 azdata arc postgres backup delete  [--server-name, -sn] {[--name, -n], -id}
 ```
 where:
-- --server-name is the name of the server group from which the user wants to delete a backup
-- --name is the name of the backup to delete
-- -id is the id of the backup to delete
+- `--server-name` is the name of the server group from which the user wants to delete a backup
+- `--name` is the name of the backup to delete
+- `-id`is the ID of the backup to delete
 
-Note that --name and -id are mutually exclusive.
+> [!NOTE]
+> `--name` and `-id` are mutually exclusive.
 
-You can retrieve the name and the id of your backups by running the list backup command as explained in the previous paragraph.
+You can retrieve the name and the ID of your backups by running the list backup command as explained in the previous paragraph.
 
 For example, consider you have the following backups listed:
 ```console
