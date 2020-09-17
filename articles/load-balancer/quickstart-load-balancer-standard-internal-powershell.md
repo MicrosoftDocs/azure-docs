@@ -56,7 +56,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Configure virtual network in the Standard SKU
+## Configure virtual network
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
@@ -472,7 +472,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Configure virtual network in the Basic SKU
+## Configure virtual network
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 

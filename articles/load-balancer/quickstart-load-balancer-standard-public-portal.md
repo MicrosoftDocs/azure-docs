@@ -63,7 +63,7 @@ When you create a public load balancer, you create a new public IP address that 
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Create a standard load balancer" border="true":::
  
-## Create load balancer resources in the Standard SKU
+## Create load balancer resources
 
 In this section, you configure:
 
@@ -137,7 +137,7 @@ In this section, you'll create a load balancer rule:
 
 4. Leave the rest of the defaults and then select **OK**.
 
-## Create backend servers in the Standard SKU
+## Create backend servers
 
 In this section, you:
 
@@ -145,7 +145,7 @@ In this section, you:
 * Create three virtual machines for the backend pool of the load balancer.
 * Install IIS on the virtual machines to test the load balancer.
 
-## Create the virtual network in the Standard SKU
+## Create the virtual network
 
 In this section, you'll create a virtual network and subnet.
 
@@ -342,7 +342,7 @@ When you create a public load balancer, you create a new public IP address that 
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Create a basic load balancer" border="true":::
 
-## Create load balancer resources in the Basic SKU
+## Create load balancer resources
 
 In this section, you configure:
 
@@ -351,7 +351,7 @@ In this section, you configure:
 * A health probe.
 * A load balancer rule.
 
-## Create the virtual network in the Basic SKU
+## Create the virtual network
 
 In this section, you'll create a virtual network and subnet.
 
@@ -472,7 +472,7 @@ In this section, you'll create a load balancer rule:
  
 4. Leave the rest of the defaults and then select **OK**.
 
-## Create backend servers in the Basic SKU
+## Create backend servers
 
 In this section, you:
 

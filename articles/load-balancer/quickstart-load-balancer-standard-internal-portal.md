@@ -46,7 +46,7 @@ A private IP address in the virtual network is configured as the frontend (named
 
 The frontend IP address can be **Static** or **Dynamic**.
 
-## Create the virtual network in the Standard SKU
+## Create the virtual network
 
 In this section, you'll create a virtual network and subnet.
 
@@ -97,7 +97,7 @@ In this section, you'll create a virtual network and subnet.
 
 9. Select **Create**.
 
-## Create load balancer in the Standard SKU
+## Create load balancer
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
 
@@ -122,7 +122,7 @@ In this section, you'll create a virtual network and subnet.
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Create a standard internal load balancer" border="true":::
  
-## Create load balancer resources in the Standard SKU
+## Create load balancer resources
 
 In this section, you configure:
 
@@ -199,7 +199,7 @@ In this section, you'll create a load balancer rule:
 >[!NOTE]
 >The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
 
-## Create backend servers in the Standard SKU
+## Create backend servers
 
 In this section, you:
 
@@ -290,7 +290,7 @@ A private IP address in the virtual network is configured as the frontend (named
 
 The frontend IP address can be **Static** or **Dynamic**.
 
-## Create the virtual network in the Basic SKU
+## Create the virtual network
 
 In this section, you'll create a virtual network and subnet.
 
@@ -341,7 +341,7 @@ In this section, you'll create a virtual network and subnet.
 
 9. Select **Create**.
 
-## Create load balancer in the Basic SKU
+## Create load balancer
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
 
@@ -365,7 +365,7 @@ In this section, you'll create a virtual network and subnet.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Create a standard internal load balancer" border="true":::
 
-## Create load balancer resources in the Basic SKU
+## Create load balancer resources
 
 In this section, you configure:
 
@@ -446,7 +446,7 @@ In this section, you'll create a load balancer rule:
  
 4. Leave the rest of the defaults and then select **OK**.
 
-## Create backend servers in the Basic SKU
+## Create backend servers
 
 In this section, you:
 

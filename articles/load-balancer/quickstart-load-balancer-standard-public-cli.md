@@ -51,7 +51,7 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Configure virtual network in the Standard SKU
+## Configure virtual network
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
@@ -174,7 +174,7 @@ Create three network interfaces with [az network nic create](https://docs.micros
     --network-security-group myNSG
 ```
 
-## Create backend servers in the Standard SKU
+## Create backend servers
 
 In this section, you create:
 
@@ -293,7 +293,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 ```
 It may take a few minutes for the VMs to deploy.
 
-## Create a public IP address in the Standard SKU
+## Create a public IP address
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
@@ -634,7 +634,7 @@ Add the virtual machines to the outbound pool with [az network nic ip-config add
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Configure virtual network in the Basic SKU
+## Configure virtual network
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
@@ -758,7 +758,7 @@ Create three network interfaces with [az network nic create](https://docs.micros
     --network-security-group myNSG
 ```
 
-## Create backend servers in the Basic SKU
+## Create backend servers
 
 In this section, you create:
 
@@ -897,7 +897,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 It may take a few minutes for the VMs to deploy.
 
 
-## Create a public IP address in the Basic SKU
+## Create a public IP address
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 

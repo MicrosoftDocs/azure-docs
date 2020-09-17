@@ -20,11 +20,11 @@ If you're using version 2.1 of the Text Analytics API, this article will help yo
 
 #### [Sentiment analysis](#tab/sentiment-analysis)
 
-## Feature changes for Sentiment Analysis
+## Feature changes 
 
 Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. Version 3 instead returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores. 
 
-## Steps to migrate for Sentiment Analysis
+## Steps to migrate
 
 ### REST API
 
@@ -36,14 +36,14 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 #### [NER and entity linking](#tab/named-entity-recognition)
 
-## Feature changes for NER and entity linking
+## Feature changes
 
 > [!NOTE] 
 > Currently, [v3 entity categories](named-entity-types.md) are only returned on English and Spanish text. The API returns version 2.1 results for requests in other languages, provided they are supported in version 2.1.
 
 In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
 
-## Steps to migrate for NER and entity linking
+## Steps to migrate
 
 ### REST API
 
@@ -64,11 +64,11 @@ You will also need to update your application to use the [entity categories](nam
 
 #### [Language detection](#tab/language-detection)
 
-## Feature changes for language detection
+## Feature changes 
 
 The language detection feature has not changed in v3 outside of the endpoint version, but the JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns a single language in the output. 
 
-## Steps to migrate for language detection
+## Steps to migrate
 
 ### REST API
 

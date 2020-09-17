@@ -35,7 +35,7 @@ Follow the steps in this article to investigate security alerts for Azure AD rol
 
 ![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
-## Security alerts for new version
+## Security alerts
 
 This section lists all the security alerts for Azure AD roles, along with how to fix and how to prevent. Severity has the following meaning:
 
@@ -120,7 +120,7 @@ This section lists all the security alerts for Azure AD roles, along with how to
 | **Activation renewal timeframe** | This setting specifies in days, hours, minutes, and second the time period you want to use to track suspicious renewals. |
 | **Number of activation renewals** | This setting specifies the number of activations, from 2 to 100, at which you would like to be notified, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box. |
 
-## Configure security alert settings for new version
+## Configure security alert settings
 
 From the Alerts page, go to **Settings**.
 
@@ -134,7 +134,7 @@ Customize settings on the different alerts to work with your environment and sec
 
 ![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## Security alerts for previous version
+## Security alerts
 
 This section lists all the security alerts for Azure AD roles, along with how to fix and how to prevent. Severity has the following meaning:
 
@@ -219,7 +219,7 @@ This section lists all the security alerts for Azure AD roles, along with how to
 | **Activation renewal timeframe** | This setting specifies in days, hours, minutes, and second the time period you want to use to track suspicious renewals. |
 | **Number of activation renewals** | This setting specifies the number of activations, from 2 to 100, at which you would like to be notified, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box. |
 
-## Configure security alert settings for previous version
+## Configure security alert settings
 
 You can customize some of the security alerts in Privileged Identity Management to work with your organization's needs and security goals. Follow these steps to open the security alert settings:
 
