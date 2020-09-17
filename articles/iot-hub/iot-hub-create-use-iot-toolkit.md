@@ -1,6 +1,6 @@
 ---
 title: Create an Azure IoT Hub using Azure IoT Tools for VS Code | Microsoft Docs
-description: Learn how to use the Azure IoT tools for Visual Studio Code to create an Azure IoT hub in a resource group. 
+description: Learn how to use the Azure IoT tools for Visual Studio Code to create an Azure IoT Hub in a resource group. 
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
@@ -13,7 +13,7 @@ ms.author: junhan
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article shows you how to use the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to create an Azure IoT hub. 
+This article shows you how to use the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to create an Azure IoT Hub. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
