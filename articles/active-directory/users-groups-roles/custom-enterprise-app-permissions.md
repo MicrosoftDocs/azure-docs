@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -16,15 +16,17 @@ ms.custom: it-pro
 
 # Enterprise application permissions for custom roles in Azure Active Directory
 
-This article contains the currently available Enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article you'll find: permission lists for some common scenarios and the full list of enterprise app permissions.
+This article contains the currently available enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article you'll find: permission lists for some common scenarios and the full list of enterprise app permissions.
 
 ## Required license plan
 
 Using this feature requires an Azure AD Premium P1 license for your Azure AD organization. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## Delegate app proxy connector management
+## App proxy permissions
 
-To delegate create, read, update and delete (CRUD) operations for connector management. Permissions required:
+### Delegate app proxy connector management
+
+To delegate create, read, update and delete (CRUD) permissions for connector management. Permissions required:
 
 - microsoft.directory/connectorGroups/allProperties/read
 - microsoft.directory/connectorGroups/allProperties/update
@@ -33,9 +35,9 @@ To delegate create, read, update and delete (CRUD) operations for connector mana
 - microsoft.directory/connectors/allProperties/read
 - microsoft.directory/connectors/create
 
-## Delegate app proxy settings management
+### Delegate app proxy settings management
 
-To delegate create, read, update and delete (CRUD) operations for app proxy properties on an app. Permissions required:
+To delegate create, read, update and delete (CRUD) permissions for app proxy properties on an app. Permissions required:
 
 - microsoft.directory/applications/applicationProxy/read
 - microsoft.directory/applications/applicationProxy/update
@@ -46,14 +48,14 @@ To delegate create, read, update and delete (CRUD) operations for app proxy prop
 - microsoft.directory/applications/authentication/update
 - microsoft.directory/connectorGroups/allProperties/read
 
-## Read App Proxy Settings for an app
+### Read App Proxy Settings for an app
 
 To delegate Read permissions for app proxy properties on an app. Permissions required:
 
 - microsoft.directory/applications/applicationProxy/read
 - microsoft.directory/connectorGroups/allProperties/read
 
-## Update URL configuration App Proxy settings for an app
+### Update URL configuration App Proxy settings for an app
 
 Read properties for app proxy properties on an app. Permissions required:
 
