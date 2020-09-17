@@ -46,10 +46,7 @@ For a SQL Database the backup storage redundancy can be configured at the time o
 > [!NOTE]
 > Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only.  
 
-If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
-
 ### Backup usage
-
 
 You can use these backups to:
 
@@ -132,7 +129,8 @@ Backup retention for purposes of PITR within the last 1-35 days is sometimes cal
 
 For both SQL Database and SQL Managed Instance, you can configure full backup long-term retention (LTR) for up to 10 years in Azure Blob storage. After the LTR policy is configured, full backups are automatically copied to a different storage container weekly. To meet various compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly full backups. Storage consumption depends on the selected frequency and retention periods of LTR backups. You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage.
 
-Updating the backup storage redundancy for an existing Azure SQL Database, only applies to the future backups taken for the database. All existing LTR backups for the database will continue to reside in the existing storage blob and new backups will be stored on the requested storage blob type. 
+> [!IMPORTANT]
+> Updating the backup storage redundancy for an existing Azure SQL Database, only applies to the future backups taken for the database. All existing LTR backups for the database will continue to reside in the existing storage blob and new backups will be stored on the requested storage blob type. 
 
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
 
@@ -371,7 +369,14 @@ For more information, see [Backup Retention REST API](https://docs.microsoft.com
 
 A backup storage redundancy of a managed instance can be set during instance creation only. The default value is geo-redundant storage (RA-GRS). For differences in pricing between locally-redundant (LRS), zone-redundant (ZRS) and geo-redundant (RA-GRS) backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
-### Configure backup storage redundancy for SQL Managed Instance using the Azure portal
+### Configure backup storage redundancy by using the Azure portal
+
+#### [SQL Database](#tab/single-database)
+
+In Azure portal, you can configure the backup storage redundancy on the **Create SQL Database** blade. The option is available under the Backup Storage Redundancy section. 
+![Open Create SQL Database blade](./media/automated-backups-overview/sqldb-backup-storage-redundancy.png)
+
+#### [SQL Managed Instance](#tab/managed-instance)
 
 In the Azure portal, the option to change backup storage redundancy is located on the **Compute + storage** blade accessible from the **Configure Managed Instance** option on the **Basics** tab when you are creating your SQL Managed Instance.
 ![Open Compute+Storage configuration-blade](./media/automated-backups-overview/open-configuration-blade-mi.png)
@@ -379,11 +384,31 @@ In the Azure portal, the option to change backup storage redundancy is located o
 Find the option to select backup storage redundancy on the **Compute + storage** blade.
 ![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
 
-### Configure backup storage redundancy for SQL Database using the Azure portal
+---
 
-In Azure portal, you can configure the backup storage redundancy on the **Create SQL Database** blade. The option is available under the Backup Storage Redundancy section. 
-![Open Create SQL Database blade](./media/automated-backups-overview/sqldb-backup-storage-redundancy.png)
+### Configure backup storage redundancy by using PowerShell
 
+#### [SQL Database](#tab/single-database)
+
+For configuring backup storage redundancy during database creation you can specify -BackupStoageRedundancy parameter. Possible values are Geo, Zone and Local.
+
+```powershell
+New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Geo
+```
+
+For more details visit [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase).
+
+#### [SQL Managed Instance](#tab/managed-instance)
+
+For configuring backup storage redundancy during managed instance creation you can specify -BackupStoageRedundancy parameter. Possible values are Geo, Zone and Local.
+
+```powershell
+New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
+```
+
+For more details visit [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+
+---
 
 ## Next steps
 
