@@ -33,7 +33,7 @@ In the indirectly connected mode, billing data is periodically exported out of t
 
 To upload billing data to Azure, the following should happen first:
 
-1. Create an Azure Arc enabled data service data service if you don't have one already. For example create one of the following:
+1. Create an Azure Arc enabled data service if you don't have one already. For example create one of the following:
    - [Create a SQL Managed Instance](/scenarios/003-create-sqlmiaa-instance.md)
    - [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md) 
 1. [Upload metrics and logs to Azure Monitor](/scenarios/007-upload-metrics-and-logs-to-Azure-Monitor.md) if you haven't already.
