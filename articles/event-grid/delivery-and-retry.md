@@ -87,7 +87,7 @@ There is a five-minute delay between the last attempt to deliver an event and wh
 Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-You might want to be notified when an event has been sent to the dead letter location. To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. Every time your dead-letter blob storage receives an undelivered event, Event Grid notifies your handler. The handler responds with actions you wish to take for reconciling undelivered events.
+You might want to be notified when an event has been sent to the dead letter location. To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. Every time your dead-letter blob storage receives an undelivered event, Event Grid notifies your handler. The handler responds with actions you wish to take for reconciling undelivered events. For an example of setting up a dead letter location and retry policies, see [Dead letter and retry policies](manage-event-delivery.md).
 
 ### Dead-letter event formats
 The following sections provide you with example dead-letter events in different delivery schema formats. 
@@ -177,9 +177,6 @@ Here's a sample dead-letter event in the custom schema format.
   }
 }
 ```
-
-### Dead-letter location and retry policies
-For an example of setting up a dead letter location and retry policies, see [Dead letter and retry policies](manage-event-delivery.md).
 
 
 ## Message delivery status
