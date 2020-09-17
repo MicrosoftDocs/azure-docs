@@ -54,20 +54,10 @@ Customer-managed keys can enabled only on existing storage accounts. The key vau
 
 You can switch between customer-managed keys and Microsoft-managed keys at any time. For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 
-To learn how to use customer-managed keys with a key vault for Azure Storage encryption, see one of these articles:
-
-- [Configure customer-managed keys with Key Vault for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys with Key Vault for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys with Key Vault for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
-
-Using customer-managed keys with a managed HSM is available in preview with Azure CLI. For more information, see ???
+To learn how to configure Azure Storage encryption with customer-managed keys in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md). To configure customer-managed keys in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md).
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure AD. Managed identities do not currently support cross-directory scenarios. When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned to your storage account under the covers. If you subsequently move the subscription, resource group, or storage account from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
-
-## Store customer-managed keys in a key vault or managed HSM
-
-To enable customer-managed keys on a storage account, you must use a key vault or managed HSM to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault or managed HSM.
 
 Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
@@ -80,7 +70,7 @@ When you configure encryption with customer-managed keys, you have two options f
 - **Automatically update the key version:** To automatically update a customer-managed key when a new version is available, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, then Azure Storage checks the key vault or managed HSM daily for a new version of a customer-managed key. Azure Storage automatically uses the latest version of the key.
 - **Manually update the key version:** To use a particular version of a key for Azure Storage encryption, specify that key version when you enable encryption with customer-managed keys for the storage account. If you specify the key version, then Azure Storage uses that version for encryption until you manually update the key version.
 
-    When the key version is manually updated, you must update the storage account to use the new key version URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see [Manually update the key version](storage-encryption-keys-portal.md#manually-update-the-key-version).
+    When the key version is manually updated, you must update the storage account to use the new key version URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md).
 
 Updating the key version for a customer-managed key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
 
@@ -121,7 +111,6 @@ Customer-managed keys are also available for managing encryption of Azure manage
 
 ## Next steps
 
-- [Configure customer-managed keys with Key Vault for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys with Key Vault for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys with Key Vault for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md)
+- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md)

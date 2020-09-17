@@ -211,11 +211,7 @@ The following JSON example creates a general-purpose v2 storage account that is 
 
 ---
 
-After you have created an account that relies on the account encryption key, see one of the following articles to configure customer-managed keys with Azure Key Vault:
-
-- [Configure customer-managed keys with Azure Key Vault by using the Azure portal](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys with Azure Key Vault by using PowerShell](storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys with Azure Key Vault by using Azure CLI](storage-encryption-keys-cli.md)
+After you have created an account that relies on the account encryption key, you can configure customer-managed keys. For more information, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md).
 
 ## Verify the account encryption key
 
@@ -250,5 +246,6 @@ N/A
 
 ## Next steps
 
-- [Azure Storage encryption for data at rest](storage-service-encryption.md) 
+- [Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
 - [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

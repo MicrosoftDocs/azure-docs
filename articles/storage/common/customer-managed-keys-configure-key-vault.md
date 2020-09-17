@@ -1,7 +1,7 @@
 ---
-title: Configure customer-managed keys for encryption
+title: Configure encryption with customer-managed keys stored in Azure Key Vault
 titleSuffix: Azure Storage
-description: Learn how to configure customer-managed keys for Azure Storage encryption. Customer-managed keys may be stored in an Azure Key Vault or Key Vault Managed Hardware Security Model (HSM).
+description: Learn how to configure Azure Storage encryption with customer-managed keys stored in Azure Key Vault by using the Azure portal, PowerShell, or Azure CLI.
 services: storage
 author: tamram
 
@@ -14,25 +14,28 @@ ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ---
 
-# Configure customer-managed keys for encryption
+# Configure encryption with customer-managed keys stored in Azure Key Vault
 
-[!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
+Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of blob and file data. Customer-managed keys must be stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM) (preview).
 
-Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+This article shows how to configure encryption with customer-managed keys stored in a key vault by using the Azure portal, PowerShell, or Azure CLI. To learn how to configure encryption with customer-managed keys stored in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md).
 
-This article shows how to configure an Azure Key Vault with customer-managed keys using PowerShell. To learn how to create a key vault using  Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../../key-vault/secrets/quick-create-powershell.md).
+> [!NOTE]
+> Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
 
 ## Configure a key vault
 
-You can use a new or existing key vault to store customer-managed keys. Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
+You can use a new or existing key vault to store customer-managed keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions.
+
+Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
 # [Azure portal](#tab/portal)
 
-To learn how to create a new key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../../key-vault/general/quick-create-portal.md). 
+To learn how to create a new key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../../key-vault/general/quick-create-portal.md).
 
 To enable purge protection when you create the key vault, select **Enable purge protection**, as shown in the following image.
 
-:::image type="content" source="media/customer-managed-keys-configure/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault":::
 
 To enable purge protection on an existing key vault, follow these steps:
 
@@ -91,9 +94,6 @@ Next, assign a system-assigned managed identity to the storage account. You'll u
 To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update):
 
 ```azurecli-interactive
-az login
-az account set --subscription <subscription-id>
-
 az storage account update \
     --name <storage-account> \
     --resource-group <resource_group> \
@@ -165,7 +165,7 @@ To configure customer-managed keys in the Azure portal, follow these steps:
 1. Navigate to your storage account.
 1. On the **Settings** blade for the storage account, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following image.
 
-    ![Portal screenshot showing encryption option](./media/customer-managed-keys-configure/portal-configure-encryption-keys.png)
+    ![Portal screenshot showing encryption option](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
 Next, you'll have the opportunity to specify a key to associate with the storage account. You can also indicate whether Azure Storage should automatically update the customer-managed key to the latest version, or whether you will update the key version manually.
 
@@ -180,7 +180,7 @@ To specify a key from a key vault, follow these steps:
 1. Select the key vault containing the key you want to use.
 1. Select the key from the key vault.
 
-   ![Screenshot showing how to select key vault and key](./media/customer-managed-keys-configure/portal-select-key-from-key-vault.png)
+   ![Screenshot showing how to select key vault and key](./media/customer-managed-keys-configure-key-vault/portal-select-key-from-key-vault.png)
 
 1. Save your changes.
 
@@ -195,19 +195,19 @@ To specify a key as a URI, follow these steps:
 1. To locate the key URI in the Azure portal, navigate to your key vault, and select the **Keys** setting. Select the desired key, then click the key to view its versions. Select a key version to view the settings for that version.
 1. Copy the value of the **Key Identifier** field, which provides the URI.
 
-    ![Screenshot showing key vault key URI](media/customer-managed-keys-configure/portal-copy-key-identifier.png)
+    ![Screenshot showing key vault key URI](media/customer-managed-keys-configure-key-vault/portal-copy-key-identifier.png)
 
 1. In the **Encryption key** settings for your storage account, choose the **Enter key URI** option.
 1. Paste the URI that you copied into the **Key URI** field. Omit the key version from the URI to enable automatic updating of the key version.
 
-   ![Screenshot showing how to enter key URI](./media/customer-managed-keys-configure/portal-specify-key-uri.png)
+   ![Screenshot showing how to enter key URI](./media/customer-managed-keys-configure-key-vault/portal-specify-key-uri.png)
 
 1. Specify the subscription that contains the key vault.
 1. Save your changes.
 
 After you've specified the key, the Azure portal indicates whether automatic updating of the key version is enabled and displays the key version currently in use for encryption.
 
-:::image type="content" source="media/customer-managed-keys-configure/portal-auto-rotation-enabled.png" alt-text="Screenshot showing automatic updating of the key version enabled":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot showing automatic updating of the key version enabled":::
 
 If you choose to manage the key version yourself, then you must update the key version that is associated with the storage account each time you create a new version of the key. To update the storage account to use the new key version, follow these steps:
 
@@ -393,4 +393,5 @@ az storage account update
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
-- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
+- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md)

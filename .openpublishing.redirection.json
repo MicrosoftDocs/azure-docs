@@ -27859,17 +27859,17 @@
     },
     {
       "source_path": "articles/storage/common/storage-encryption-keys-portal.md",
-      "redirect_url": "/azure/storage/common/customer-managed-keys-configure",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/common/storage-encryption-keys-powershell.md",
-      "redirect_url": "/azure/storage/common/customer-managed-keys-configure",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/common/storage-encryption-keys-cli.md",
-      "redirect_url": "/azure/storage/common/customer-managed-keys-configure",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
       "redirect_document_id": false
     },
     {

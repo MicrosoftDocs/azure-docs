@@ -92,14 +92,10 @@ If your encryption scope is protected with customer-managed keys, then you can a
 - [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md)
 - [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md)
 
-???add links to managed HSM docs
-
 > [!NOTE]
 > It is not possible to delete an encryption scope.
 
 ## Next steps
 
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
-- [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
