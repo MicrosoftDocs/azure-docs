@@ -23,15 +23,15 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-A common challenge for developers is the management of credentials. Since many projects involve multiple services working together your code needs access to backend services and that means that it needs to authenticate to them. We want to make sure that we are handling credential information in the most secure manner possible so we want to avoid storing any credential information in code, checking it into source control or perhaps even sharing it with our developers. [Azure Key Vault](../../key-vault/general/overview.md) helps achieve this by providing a secure storage for secrets, certificates, and keys but how does your code authenticate to Key Vault?
+A common challenge for developers is the management of credentials. Since many projects involve multiple services working together your code needs access to backend services and that generally means that it needs to authenticate to them. We want to make sure that we are handling credential information in the most secure manner possible so we want to avoid storing any credential information in code, checking it into source control or perhaps even sharing it with our developers. [Azure Key Vault](../../key-vault/general/overview.md) helps achieve this by providing a secure storage for secrets, certificates, and keys but how does your code authenticate to Key Vault?
 
 Managed identities for Azure resources is a feature of Azure Active Directory (Azure AD) that solves this problem. Managed identities provides Azure services with an automatically managed identity in Azure AD. Here are some of the benefits of using Managed identities:
 
+- You don't need to store credential information in your code.
 - They may be used on multiple instances of a service or linked to a single instance of a service.
 - You can use managed identities to authenticate to any Azure service that supports Azure AD authentication including Azure Key Vault.
 - You don't need to worry about changing passwords because credential rotation is handled automatically by Azure. 
 - Managed identities can be used without any additional cost.
-- You don't need to store credential information in your code.
 
 > [!NOTE]
 > Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
