@@ -1,6 +1,6 @@
 ---
 title: Create workflows with Visual Studio Code (preview)
-description: Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code
+description: Create stateful and stateless workflows by using the Azure Logic Apps (Preview) extension in Visual Studio Code
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, vikanand, absaafan, hongzili, logicappspm
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ---
 
-# Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code (preview)
+# Create stateful and stateless workflows by using the Azure Logic Apps (Preview) extension in Visual Studio Code
 
 > [!IMPORTANT]
 > This capability is currently in public preview. This preview version is provided without a service level agreement and 
@@ -139,7 +139,7 @@ For information about how nested workflows behave differently between stateful a
 
   **Windows or another OS**
 
-  Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). To run the emulator, you also need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+  Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179). To run the emulator, you also need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
   > [!IMPORTANT]
   > Before you create your workflow, make sure that you start the emulator. 
@@ -221,7 +221,9 @@ After you install all the extensions, disable automatic extension updates in Vis
 
 Before you can create your workflow, create a local project to use for managing and deploying your workflow in Visual Studio Code. The underlying project is very similar to an Azure Functions project, also known as a function app project.
 
-1. Before you start, make sure that you close any open folders or files in Visual Studio Code.
+1. On your computer, create a local folder to use for the project you'll later create in Visual Studio Code.
+
+1. In Visual Studio Code, close any and all open folders.
 
 1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create New Project** (icon that shows a folder and lightning bolt).
 
@@ -229,7 +231,7 @@ Before you can create your workflow, create a local project to use for managing 
 
 1. If Windows Defender Firewall prompts you to grant network access for `Code.exe`, which is Visual Studio Code, and for `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
-1. Browse to the location where you want to save your project. Create a folder for your project, select that folder, and select **Select**.
+1. Browse to the location where you created your project folder, select that folder, and select **Select**.
 
    ![Screenshot that shows "Select Folder" dialog box with a newly created project folder and the "Select" button selected.](./media/create-stateless-stateful-workflows/select-project-folder.png)
 
@@ -249,10 +251,10 @@ Before you can create your workflow, create a local project to use for managing 
 
    ![Screenshot that shows the Explorer window with project folder, workflow folder, and "workflow.json" file.](./media/create-stateless-stateful-workflows/local-project-created.png)
 
-1. Download and add these NuGet files to your project's root folder:
+1. Download these [NuGet](/nuget/what-is-nuget) files for the public preview extension, and add them to your project folder in the root location:
 
-     * `Microsoft.Azure.Workflows.WebJobs.Extension.1.0.0.1-preview.nupkg`
-     * `nuget.config`
+   * [**Microsoft.Azure.Workflows.WebJobs.Extension.1.0.0.1-preview.nupkg**](https://go.microsoft.com/fwlink/p/?linkid=2143529)
+   * [**nuget.config**](https://go.microsoft.com/fwlink/p/?linkid=2143474)
 
 1. Expand the project folder for your workflow. Open the `workflow.json` file's shortcut menu, and select **Open in Designer**.
 
