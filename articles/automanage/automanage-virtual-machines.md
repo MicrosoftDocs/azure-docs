@@ -41,6 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - Non-scale set VMs only
 - VMs must be in a supported region
 - User must have correct permissions
+- VMs must not link to a log analytics workspace in a different subscription
 
 The following RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 

@@ -27,7 +27,7 @@ The following are prerequisites for enabling Azure Automanage:
 - VMs must be in a supported region
 - User must have correct permissions
 - Non-scale set VMs only
-
+- VMs must not link to a log analytics workspace in a different subscription
 
 **What RBAC permission is needed to enable Automanage?**
 
@@ -49,7 +49,7 @@ Automanage enrolls, configures, and monitors throughout the lifecycle of the VM 
 Customers can customize settings for specific services, like Azure Backup retention, through configuration preferences. For the full list of settings that can be changed, see our documentation [here](virtual-machines-best-practices.md).
 
 
-**Does Azure Automanage work with both Linux and Windows VMs?**   
+**Does Azure Automanage work with both Linux and Windows VMs?**
 
 Currently, Automanage supports Windows Server Azure VMs.
 
@@ -90,14 +90,14 @@ No, Automanage will not reconfigure it. We will begin to monitor the resources a
 
 **Why does my VM have a Failed status in the Automanage portal?**
 
-If you see the status as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details. 
+If you see the status as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
 
 **How can I get troubleshooting support for Automanage?**
 
-You can file a [technical support case ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section. 
+You can file a [technical support case ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section.
 
 
-## Next steps 
+## Next steps
 
 Try enabling Automanage for virtual machines in the Azure portal.
 
