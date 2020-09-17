@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. To modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
 
-	![Ceritificate](common/edit-certificate.png) 
+	![Certificate](common/edit-certificate.png) 
 
 	![SAML Signing Certificate](./media/workday-tutorial/signing-option.png)
 
@@ -170,6 +170,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     * Click on **Enable IDP Initiated Logout** checkbox.
 
     * In the Azure portal, on the **Set up Workday** section, copy the **Logout URL** value, and then paste it into the **Logout Response URL** textbox.
+
+    * In the **Logout Request URL** textbox, paste the **Logout URL** value, which you have copied from Azure portal.
+
+    * Click on **SP Initiated** checkbox.
 
     * In the **Service Provider ID** textbox, type **http://www.workday.com**.
 
