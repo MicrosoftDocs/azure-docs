@@ -2,7 +2,7 @@
 title: Use dedicated pool to run task - Tasks
 description: Set up a dedicated compute pool (agent pool) in your registry to run an Azure Container Registry task.
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/17/2020
 ---
 
 # Run an ACR task on a dedicated agent pool
@@ -12,7 +12,7 @@ Set up an Azure-managed VM pool (*agent pool*) to enable running your [Azure Con
 An agent pool provides:
 
 - **Virtual network support** - Assign an agent pool to an Azure VNet, providing access to resources in the VNet such as a container registry, key vault, or storage.
-- **Scale as needed** - Increase the number of instances in an agent pool for compute-intensive tasks, or scale to zero. Billing is based on allocation.
+- **Scale as needed** - Increase the number of instances in an agent pool for compute-intensive tasks, or scale to zero. Billing is based on pool allocation. For details, see [Pricing](https://azure.microsoft.com/pricing/details/container-registry/).
 - **Flexible options** - Choose from different [pool tiers](#pool-tiers) and scale options to meet your task workload needs.
 - **Azure management** - Task pools are patched and maintained by Azure, providing reserved allocation without the need to maintain the individual VMs.
 
