@@ -114,9 +114,9 @@ See [Install and configure Windows Azure diagnostics extension (WAD)](platform/d
 Azure Monitor monitors your custom applications using [Application Insights](app/app-insights-overview.md), which you must configure for each application you want to monitor. The configuration process will vary depending on the type of application being monitored and the type of monitoring that you want to perform. Data collected by Application Insights is stored in Azure Monitor Metrics, Azure Monitor Logs, and Azure blob storage, depending on the feature. Performance data is stored in both Azure Monitor Metrics and Azure Monitor Logs with no additional configuration required.
 
 ### Create an application resource
-You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs but is separate from your Log Analytics workspace as described in [How is data in Azure Monitor Logs structured?](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Currently in preview though is the ability to store your application data directly in a Log Analytics workspace with your other data. This simplifies your configuration and allows your application to take advantage of all the features of a Log Analytics workspace.
+You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separate from your Log Analytics workspace as described in [Structure of data](platform/data-platform-logs.md#structure-of-data).
 
- When you create the application, you must select whether to use classic or workspace-based (preview). See [Create an Application Insights resource](app/create-new-resource.md) to create a classic application. 
+ When you create the application, you must select whether to use classic or workspace-based. See [Create an Application Insights resource](app/create-new-resource.md) to create a classic application. 
 See [Workspace-based Application Insights resources (preview)](app/create-workspace-resource.md) to create a workspace-based application.
 
 ### Configure codeless or code-based monitoring

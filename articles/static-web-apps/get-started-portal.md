@@ -60,7 +60,7 @@ After you sign in with GitHub, enter the repository information.
     # [No Framework](#tab/vanilla-javascript)
 
     1. Select **Custom** from the _Build Presets_ dropdown
-    1. Clear the default value in the _App location_ box
+    1. Keep the the default value in the _App location_ box
     1. Clear the default value from the _Api location_ box
     1. Leave the _App artifact location_ box empty
 

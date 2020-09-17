@@ -17,11 +17,15 @@ ms.service: digital-twins
 
 # Use the Azure Digital Twins APIs and SDKs
 
-Azure Digital Twins comes equipped with both **control plane APIs** and **data plane APIs** for managing your instance and its elements. This article gives an overview of the APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers, or through an SDK.
+Azure Digital Twins comes equipped with both **control plane APIs** and **data plane APIs** for managing your instance and its elements. 
+* The control plane APIs are [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) APIs, and cover resource management operations like creating and deleting your instance. 
+* The data plane APIs are Azure Digital Twins APIs, and are used for data management operations like managing models, twins, and the graph.
+
+This article gives an overview of the APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers, or through an SDK.
 
 ## Overview: control plane APIs
 
-The control plane APIs are used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
+The control plane APIs are [ARM](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
 
 The most current control plane API version for public preview is _**2020-03-01-preview**_.
 
@@ -38,7 +42,7 @@ You can also exercise control plane APIs by interacting with Azure Digital Twins
 
 ## Overview: data plane APIs
 
-The data plane APIs are used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins. They can be broadly divided into the following categories:
+The data plane APIs are the Azure Digital Twins APIs used to manage the elements within your Azure Digital Twins instance. They  include operations like creating routes, uploading models, creating relationships, and managing twins. They can be broadly divided into the following categories:
 * **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, retrieval, and deletion of models authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
@@ -56,7 +60,8 @@ To use the data plane APIs:
    - you can view the [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true).
    - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can use the **JavaScript** SDK. To use the JavaScript SDK...
-   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)
+   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
+   - you can view the [SDK reference documentation](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](how-to-use-cli.md).

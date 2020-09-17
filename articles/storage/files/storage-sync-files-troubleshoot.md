@@ -1253,23 +1253,7 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool and send its .zip file output to the support engineer assigned to your case for further diagnosis.
 
-For Agent Version v11 and Later:
-
-1. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
-
-    > [!NOTE]
-    >AFSDiag will create the output directory and a temp folder within it prior to collecting logs and will delete the temp folder after execution. Specify an output location which does not contain data.
-    
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
-    ```
-
-2. Reproduce the issue. When you're finished, enter **D**.
-3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
-
-For Agent Version v10 and Earlier:
+To run AFSDiag, perform the following steps:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
     > [!NOTE]
     >AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
