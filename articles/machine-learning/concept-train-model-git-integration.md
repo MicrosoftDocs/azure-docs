@@ -33,7 +33,7 @@ For a guide on how to use the Git CLI, read here [here](https://guides.github.co
 
 ## Authenticating your Git Account with SSH
 ### Generating a new SSH key
-1) Open [Terminal](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) in the Azure Machine Learning Notebook Tab.
+1) Open [Terminal](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) in the Azure Machine Learning Notebook Tab.
 
 2) Paste the text below, substituting in your email address.
 
@@ -77,11 +77,11 @@ cat ~/.ssh/id_rsa.pub
 
 2) Select and copy the key output in the clipboard.
 
-+ If you are using **GitHub**, [follow these instructions](https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
++ If you are using **GitHub**, [follow these instructions](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
 + If you are using **GitLab**, [follow these instructions](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ If you are using **Azure DevOps**, [follow these instructions](https://docs.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Start at **Step 2**.
++ If you are using **Azure DevOps**, [follow these instructions](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Start at **Step 2**.
 
 + If you are using **BitBucket**, [follow these instructions](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Start at **Step 4**.
 
