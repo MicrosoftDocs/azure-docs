@@ -208,7 +208,7 @@ azdata arc dc config replace --path ./custom/control.json --json-values "spec.st
 By default, the azure-arc-openshift deployment profile uses 'NodePort' as the service type.  If you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration to use the LoadBalancer service type using the following command:
 
 ```console
-azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.endpoints[*].serviceType=LoadBalancer"
+azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
 Oftentimes, when using OpenShift you might want to run with the default security policies in OpenShift or want to generally lock down the environment more than typical.  You can optionally choose to disable some features to minimize the permissions required at deployment time and at run time by running the following commands.
@@ -277,7 +277,7 @@ azdata arc dc config replace --path ./custom/control.json --json-values "spec.st
 By default, the kubeadm deployment profile uses 'NodePort' as the service type.  If you are using a Kubernetes cluster that is integrated with a load balancer, you can change the configuration using the following command.
 
 ```console
-azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.endpoints[*].serviceType=LoadBalancer"
+azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
 Now you are ready to install the data controller using the following command.
