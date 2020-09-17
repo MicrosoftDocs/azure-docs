@@ -41,7 +41,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
 - An [Azure Machine Learning Studio (classic)](https://studio.azureml.net/) account.
-- An [Azure Storage (General-purpose v2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts) account. (Any Azure Storage account that supports Azure blob storage will also work.)
+- An [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts), A **General-purpose v2** account is preferred, but any Azure Storage account that supports Azure Blob storage will also work.
 
 > [!Note]
 > This article uses Azure Stream Analytics and several other paid services. Extra charges are incurred in Azure Stream Analytics when data must be transferred across Azure regions. For this reason, it would be good to ensure that your Resource Group, IoT Hub, and Azure Storage account -- as well as the Machine Learning Studio (classic) workspace and Azure Stream Analytics Job added later in this tutorial -- are all located in the same Azure region. You can check regional support for Azure Machine Learning Studio and other Azure services on the [Azure product availability by region page](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
@@ -107,7 +107,7 @@ In this section, you validate the model, set up a predictive web service based o
 
 1. In the predictive experiment diagram, delete the connection between the **Web service input** module and the **Select Columns in Dataset** at the top. Then drag the **Web service input** module somewhere near the **Score Model** module and connect it as shown:
 
-   ![Connect two modules in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![Connect two modules in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
 
 1. Select **RUN** to validate the steps in the model.
 
@@ -128,18 +128,20 @@ In this section, you validate the model, set up a predictive web service based o
 
 ### Create a Stream Analytics job
 
-1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Internet of Things** > **Stream Analytics job**.
+1. In the [Azure portal](https://portal.azure.com/), select **Create a resource**. Type "stream analytics job" in the Search box, and select **Stream Analytics job** from the results dropdown. When the **Stream Analytics job** pane opens, select **Create**.
 1. Enter the following information for the job.
 
    **Job name**: The name of the job. The name must be globally unique.
+
+   **Subscription**: Select your subscription if it is different than the default.
 
    **Resource group**: Use the same resource group that your IoT hub uses.
 
    **Location**: Use the same location as your resource group.
 
-   **Pin to dashboard**: Check this option for easy access to your IoT hub from the dashboard.
+   Leave all other fields at their default.
 
-   ![Create a Stream Analytics job in Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
+   ![Create a Stream Analytics job in Azure](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
 1. Select **Create**.
 
@@ -187,7 +189,7 @@ In this section, you validate the model, set up a predictive web service based o
 ### Add a function to the Stream Analytics job to call the web service you deployed
 
 1. Under **Job Topology**, select **Functions**.
-1. In the **Functions** pane, select **Add**, and then select **Azure ML Studio** from the dropdown. (Make sure you select **Azure ML Studio** not **Azure ML Service**.) On the **New function** pane, choose the **Provide Azure Machine Learning function settings manually** and enter the following information:
+1. In the **Functions** pane, select **Add**, and then select **Azure ML Studio** from the dropdown. (Make sure you select **Azure ML Studio**, not **Azure ML Service**.) On the **New function** pane, choose the **Provide Azure Machine Learning function settings manually** and enter the following information:
 
    **Function Alias**: Enter `machinelearning`.
 
@@ -220,7 +222,7 @@ In this section, you validate the model, set up a predictive web service based o
 1. Select **Save query**.
 
 > [!Note]
-> Testing queries is not supported for Machine learning functions. If you select **Test query**, you'll be presented with a message informing that test query doesn't work with Machine Learning functions. You can safely ignore this message, close the message box, and proceed to the next section.
+> If you select **Test query**, you'll be presented with the following message: Query testing with Machine Learning functions is not supported. Please modify the query and try again. You can safely ignore this message and select **OK** to close the message box. Make sure you save the query before proceeding to the next section.
 
 ### Run the Stream Analytics job
 
