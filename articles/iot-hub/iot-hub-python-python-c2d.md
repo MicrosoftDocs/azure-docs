@@ -1,6 +1,6 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (Python) | Microsoft Docs
-description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Python. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
+description: How to send cloud-to-device messages to a device from an Azure IoT Hub using the Azure IoT SDKs for Python. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
