@@ -1,6 +1,6 @@
 ---
-title: Event replication and cross-region federation - Azure Event Hubs | Microsoft Docs 
-description: This article provides an overview of event replication and cross-region federation with Azure Event Hubs. 
+title: Multi-site and multi-region federation - Azure Event Hubs | Microsoft Docs
+description: This article provides an overview of multi-site and multi-region federation with Azure Event Hubs. 
 ms.topic: article
 ms.date: 09/15/2020
 ---
