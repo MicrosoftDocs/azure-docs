@@ -84,7 +84,3 @@
   items:
   - name: REST API documentation
     href: https://docs.microsoft.com/rest/api/azure/
-- name: Resources
-  items:
-  - name: Roadmap
-    href: roadmap.md
