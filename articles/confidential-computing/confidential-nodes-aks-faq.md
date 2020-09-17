@@ -26,7 +26,7 @@ Yes review the [confidential containers page](confidential-containers.md) for mo
 
 ## What Intel SGX Driver version is installed in the AKS Image? 
 
-Currently Azure Confidential Computing(ACC) DCSv2 VMs are installed with Intel 1.33. We also work closely with Intel to keep our patches updated. If you have a need for a support of particular version raise a product feedback here https://aka.ms/accaksfeedback or email the product team at acconaks@microsoft.com 
+Currently Azure Confidential Computing(ACC) DCSv2 VMs are installed with Intel SGX DCAP 1.33. We also work closely with Intel to keep our patches updated. If you have a need for a support of particular version raise a product feedback here https://aka.ms/accaksfeedback or email the product team at acconaks@microsoft.com 
 
 ## Can I open an Azure Support ticket if I run into issues? 
 
@@ -54,7 +54,7 @@ You can send feedback directly to product team by opening a feedback here https:
 
 ## What if my container size is more than available EPC memory? 
 
-The EPC memory applies to the part of your application that is programmed to be executed in the enclave. The total size of your container is not the right way to compare it with the max available EPC memory. In fact, DCSv2 machines where SGX is made available allow maximum VM memory of 32 GB where your untrusted part of the application would utilize. However, if your container consumes more than available EPC memory then it will be penalized with performance.
+The EPC memory applies to the part of your application that is programmed to be executed in the enclave. The total size of your container is not the right way to compare it with the max available EPC memory. In fact, DCSv2 machines where SGX is made available allow maximum VM memory of 32 GB where your untrusted part of the application would utilize. However, if your container consumes more than available EPC memory then the performance of the part of program running in the enclave might be impacted.
 
 To better manage the EPC memory in the worker nodes, consider the EPC memory-based limits management through Kubernetes. Follow the example below as reference
 
@@ -83,15 +83,15 @@ spec:
 
 ## What happens if my enclave consumes more than maximum available EPC memory? 
 
-Total available EPC memory is shared between the enclave applications in the same VMs or worker nodes. If your application uses EPC memory more than available then you will be penalized by low performance because of paging. For this reason, we recommend you setting toleration per application in your deployment yaml file to better manage the available EPC memory per worker nodes as shown in the examples above. Alternatively, you can always choose to move up on the worker node pool VM sizes or add more nodes. 
+Total available EPC memory is shared between the enclave applications in the same VMs or worker nodes. If your application uses EPC memory more than available then the application performance might be impacted. For this reason, we recommend you setting toleration per application in your deployment yaml file to better manage the available EPC memory per worker nodes as shown in the examples above. Alternatively, you can always choose to move up on the worker node pool VM sizes or add more nodes. 
 
 ## Why can't I do forks () and exec to run multiple processes in my enclave application? 
 
 Currently Intel SGX powering the Azure Confidential Computing (ACC) DC SKU VMs supports a single address space for the program executing in an enclave. Single process is a current limitation designed around high security. However, confidential container enablers may have alternate implementations to overcome this limitation.
 
-## Do you automatically install any additional daemon sets to expose the SGX drivers? 
+## Do you automatically install any additional daemonsets to expose the SGX drivers? 
 
-Yes. The name of the daemon set is sgx-device-plugin and sgx-quote-helper. Read more on their respective purposes [here](confidential-nodes-aks-overview.md#features).  
+Yes. The name of the daemonset is sgx-device-plugin and sgx-quote-helper. Read more on their respective purposes [here](confidential-nodes-aks-overview.md#features).  
 
 ## What is the VM SKU I should be choosing for confidential computing nodes? 
 
