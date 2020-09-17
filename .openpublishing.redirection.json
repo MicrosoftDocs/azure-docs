@@ -31988,6 +31988,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/quick-create-vs-code.md",
+      "redirect_url": "/azure/stream-analytics/quick-create-visual-studio-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/stream-analytics/setup-cicd-vs-code.md",
+      "redirect_url": "/azure/stream-analytics/cicd-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagnostic-logs",
       "redirect_document_id": false
