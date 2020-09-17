@@ -91,7 +91,7 @@ If you use the **zone redundancy** for your namespace, you need to do a few addi
     ```
 
     > [!NOTE]
-    > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or [moved to a different cluster](event-hubs-geo-dr.md). For more information, see [How can I make sure the public-facing IP address of a cloud service never changes](../cloud-services/cloud-services-connectivity-and-networking-faq.md#how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes).
+    > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
 ### Where can I find client IP sending or receiving messages to my namespace?

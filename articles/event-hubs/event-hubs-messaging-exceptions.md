@@ -79,7 +79,8 @@ A [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preser
 
 For Event Hubs, the timeout is specified either as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
-Timeouts are expected to happen during or in-between maintenance operations such as Event Hubs service updates (or) OS updates on resources that run the service. During OS updates, entities are moved around and nodes are updated or rebooted, which can cause timeouts. There is a 99.9% SLA for a standard namespace that uses shared resources for CPU/memory, which means the Event Hubs namespace cannot be guaranteed to be error free during this time frame.
+Timeouts are expected to happen during or in-between maintenance operations such as Event Hubs service updates (or) OS updates on resources that run the service. During OS updates, entities are moved around and nodes are updated or rebooted, which can cause timeouts. For service level agreement (SLA) details for the Azure Event Hubs service, see [SLA for Event Hubs](https://azure.microsoft.com/support/legal/sla/event-hubs/). 
+
 
 ### Common causes
 There are two common causes for this error: incorrect configuration, or a transient service error.
