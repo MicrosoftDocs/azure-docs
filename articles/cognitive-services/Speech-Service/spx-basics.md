@@ -65,10 +65,10 @@ In this command, you specify both the source (language to translate **from**), a
 > [!NOTE]
 > See the [language and locale article](language-support.md) for a list of all supported languages with their corresponding locale codes.
 
-### Configuration files
+### Configuration files in the datastore
 
-The Speech CLI can read and write multiple settings in configuration files, which are named with a @ symbol.
-You populated the `@key` and `@region` configuration files to set these values once rather than specifying them with each command line call.
+The Speech CLI can read and write multiple settings in configuration files, which are stored in the Speech CLI datastore, and are named with a @ symbol.
+You set the `@key` and `@region` configuration files with your account details once rather than specifying them with each command line call.
 You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
 
 The following example clears the `@my.defaults` configuration file,
@@ -93,8 +93,9 @@ spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url
 spx csr model status --model @my.model.txt --wait
 ```
 
+The following example writes two URLs to the `@my.datasets.txt` configuration file.
 When `--output` includes an optional **add** keyword, the Speech CLI creates a configuration file or appends to an existing one.
-The following example writes two URLs to the `@my.datasets.txt` configuration file:
+
 
 ```shell
 spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
