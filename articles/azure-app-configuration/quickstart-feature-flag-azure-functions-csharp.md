@@ -60,7 +60,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
     using Microsoft.Extensions.DependencyInjection;
     ```
 
-1. Add the `Function1` method to connect to App Configuration. Add two `static` properties, one named `ServiceProvider` to create a singleton instance of `ServiceProvider`, and another below `Function1` named `FeatureManager` to create a singleton instance of `IFeatureManager`. Then connect to App Configuration in `Function1` by calling `AddAzureAppConfiguration()`. This process will load the configuration at application startup. The same configuration instance will be used for all Functions calls later. 
+1. Add the `Function1` static constructor below to bootstrap the Azure App Configuration provider. Next add two `static` members, a field named `ServiceProvider` to create a singleton instance of `ServiceProvider`, and a property below `Function1` named `FeatureManager` to create a singleton instance of `IFeatureManager`. Then connect to App Configuration in `Function1` by calling `AddAzureAppConfiguration()`. This process will load the configuration at application startup. The same configuration instance will be used for all Functions calls later. 
 
     ```csharp
         // Implements IDisposable, cached for life time of function
@@ -82,13 +82,12 @@ The .NET Feature Management libraries extend the framework with feature flag sup
         }
 
         private static IFeatureManager FeatureManager => ServiceProvider.GetRequiredService<IFeatureManager>();
-
-        [FunctionName("Function1")]
     ```
 
 1. Update the `Run` method to change value of the displayed message depending on the state of the feature flag.
 
     ```csharp
+        [FunctionName("Function1")]
         public static async Task<IActionResult> Run(
                 [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
                 ILogger log)
