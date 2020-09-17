@@ -87,7 +87,7 @@ The objective of this section is to outline how to enable provisioning of Active
 
 4. Set the **Provisioning Mode** to **Automatic**. 
 
-    ![provisioning](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for Box in Azure portal. Provisioning Mode is set to Automatic and Authorize is highlighted in Admin Credentials.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Under the **Admin Credentials** section, click **Authorize** to open a Box login dialog in a new browser window.
 

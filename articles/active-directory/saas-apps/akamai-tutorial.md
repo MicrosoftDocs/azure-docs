@@ -96,7 +96,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 All the setup listed below are same for the **Integration Scenario 1** and **Scenario 2**. For the **Integration scenario 2** you have to set up Individual IDP in the Akamai EAA and the URL property needs to be modified to point to the application URL.
 
-![Important](./media/header-akamai-tutorial/important.png)
+![Screenshot of the General tab for AZURESSO-SP in Akamai Enterprise Application Access. The Authentication configuration URL field is highlighted.](./media/header-akamai-tutorial/important.png)
 
 ## Adding Akamai from the gallery
 

@@ -125,7 +125,7 @@ Logic App Designer.
 
    **Check for create record failure**
 
-   ![Condition](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Screenshot of the CreateErrorRecord screen in the Logic App Designer showing the fields for creating an error entry.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## Logic app source code
 
