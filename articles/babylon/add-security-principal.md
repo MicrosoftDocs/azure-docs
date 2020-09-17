@@ -25,9 +25,9 @@ A security principal can be a user, Azure Active Directory group, service princi
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-## Add or remove a security principal from a role
+## Add a security principal to a security role
 
-To add a security principal to a Catalog administrator role:
+To add a security principal to a Catalog administrator security role:
 
 1. Go to the [**Babylon portal**](https://aka.ms/babylonportal) in the Azure portal.
 
@@ -53,12 +53,6 @@ To add a security principal to a Catalog administrator role:
 
    :::image type="content" source="./media/add-security-principal/add-catalog-administrator.png" alt-text="Screenshot showing how to add security principals to the catalog administrator role.":::
 
-To remove a security principal from a role:
-
-1. In the [**Babylon portal**](https://aka.ms/babylonportal), select **Management Center** in the left pane, and then select **Assign roles**.
-
-1. In the **Catalog administrator** list, select each name that you want to remove, and then select **Remove access** from the top menu.
-
 ## Assign permission to scan content into the catalog
 
 To scan content into the catalog, you must be an Owner or Contributor in the Azure portal as well as a Catalog administrator or Data source administrator in the Azure Data Catalog portal.
@@ -80,6 +74,24 @@ The previous section described how to add a security principal to the Catalog ad
 1. In the **Select** drop-down list, choose the user you want to set up for scanning, and then select **Save**.
 
    :::image type="content" source="./media/add-security-principal/add-role-assignment-dialog.png" alt-text="Screenshot showing how to set the role assignment to contributor.":::
+
+## Clean up resources
+
+If you no longer need the role assignment you made for your security principal in the Babylon portal, remove it with the following steps:
+
+1. In the [**Babylon portal**](https://aka.ms/babylonportal), select **Management Center** in the left pane, and then select **Assign roles**.
+
+1. In the **Catalog administrator** list, select the name of the security principal that you want to remove, and then select **Remove access** from the top menu.
+
+If you no longer need the role assignment you made in the Azure portal, remove it with the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and find your catalog resource.
+
+1. From the left pane, select **Access control (IAM)**
+
+1. Under **View role assignments**, select **View**.
+
+1. In the list of role assignments, select the assignment you want to remove, and then select **Remove** from the top menu.
 
 ## Next steps
 
