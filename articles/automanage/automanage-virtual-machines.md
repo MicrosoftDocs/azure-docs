@@ -123,7 +123,7 @@ If you see the **Status** as *Failed*, you can troubleshoot the deployment throu
 
 You may decide one day to disable Automanage on certain VMs. For instance, your machine is running some super sensitive secure workload and you need to lock it down even further than Azure would have done naturally, so you need to configure the machine outside of Azure best practices.
 
-To do that in the Azure portal, go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs. Select the checkbox next to the virtual machine you want to disable from Automanage, then click on the **Disable automanagent** button.
+To do that in the Azure portal, go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs. Select the checkbox next to the virtual machine you want to disable from Automanage, then click on the **Disable automanagment** button.
 
 ![Disabling Automanage on a virtual machine.](media\automanage-virtual-machines\disable-step-1.png)
 
