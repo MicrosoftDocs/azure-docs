@@ -94,7 +94,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 # [OWASP 3.1](#tab/owasp31)
 
-## <a name="owasp31"></a> Rule sets (OWASP 3.1)
+## <a name="owasp31"></a> Rule sets
 
 ### <a name="general-31"></a> <p x-ms-format-detection="none">General</p>
 
@@ -342,7 +342,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 # [OWASP 3.0](#tab/owasp30)
 
-## <a name="owasp30"></a> Rule sets (OWASP 3.0)
+## <a name="owasp30"></a> Rule sets
 
 ### <a name="general-30"></a> <p x-ms-format-detection="none">General</p>
 
@@ -542,7 +542,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 # [OWASP 2.2.9](#tab/owasp2)
 
-## <a name="owasp229"></a> Rule sets (OWASP 2.2.9)
+## <a name="owasp229"></a> Rule sets
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 

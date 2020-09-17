@@ -18,7 +18,7 @@ The following sections show how to enable and use soft delete for Azure file sha
 
 # [Portal](#tab/azure-portal)
 
-## Getting started with the Azure portal
+## Getting started
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Navigate to your storage account and select **Soft delete** under **File service**.
@@ -34,7 +34,7 @@ The following sections show how to enable and use soft delete for Azure file sha
 
 Soft delete cmdlets are currently only available in the [2.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) and [2.3.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) versions of the Az.Storage module. 
 
-## Getting started with Azure PowerShell
+## Getting started
 
 To enable soft delete, you must update a file client's service properties. The following example enables soft delete for all file shares in a storage account:
 
