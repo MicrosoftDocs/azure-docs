@@ -11,14 +11,14 @@ ms.subservice: files
 
 # SMB Multichannel performance
 
-Azure Files SMB Multichannel (*preview*) enables an SMB 3.x client to establish multiple network connections to the premium file shares in a FileStorage account. The SMB 3.0 protocol introduced SMB Multichannel feature in Windows Server 2012 and Windows 8 clients. Because of this, any Azure Files SMB 3.x client that supports SMB Multichannel can take advantage of the feature for their Azure premium file shares. There is no additional cost for enabling SMB Multichannel on a storage account.
+Azure Files SMB Multichannel (preview) enables an SMB 3.x client to establish multiple network connections to the premium file shares in a FileStorage account. The SMB 3.0 protocol introduced SMB Multichannel feature in Windows Server 2012 and Windows 8 clients. Because of this, any Azure Files SMB 3.x client that supports SMB Multichannel can take advantage of the feature for their Azure premium file shares. There is no additional cost for enabling SMB Multichannel on a storage account.
 
 ## Benefits
 
 Azure Files SMB Multichannel enables clients to use multiple network connections that provides increased performance while lowering the cost of ownership. Increased performance is achieved through bandwidth aggregation over multiple NICs and utilizing Receive Side Scaling (RSS) support for NICs to distribute the IO load across multiple CPUs.
 
 - **Increased throughput**:
-    Multiple connections allows data to be transferred over multiple paths in parallel and thereby significantly benefit workloads that use larger file sizes with larger IO sizes, and require high throughput from a single VM or a smaller set of VMs. Some of these workloads include media and entertainment for content creation or transcoding, genomics, financial services risk analysis.
+    Multiple connections allows data to be transferred over multiple paths in parallel and thereby significantly benefits workloads that use larger file sizes with larger IO sizes, and require high throughput from a single VM or a smaller set of VMs. Some of these workloads include media and entertainment for content creation or transcoding, genomics, and financial services risk analysis.
 - **Higher IOPS**:
     NIC RSS capability allows effective load distribution across multiple CPUs with multiple connections. This helps achieve higher IOPS scale and effective utilization of VM CPUs. This is particularly useful for workloads that have small IO sizes, such as database applications.
 - **Network fault tolerance**:
@@ -47,8 +47,8 @@ SMB Multichannel only works when the feature is enabled on both client-side (you
 On Windows clients, SMB Multichannel is enabled by default. You can verify your configuration by running the following PowerShell command: 
 
 `Get-smbClientConfiguration | select EnableMultichannel`.
-
-On Azure storaga ccount, you will need to enable SMB Multichannel. See [Enable SMB Multichannel (preview)](storage-files-enable-smb-multichannel.md).
+ 
+On your Azure storage account, you will need to enable SMB Multichannel. See [Enable SMB Multichannel (preview)](storage-files-enable-smb-multichannel.md).
 
 ### Disable SMB Multichannel
 In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, some specific scenarios such as single-threaded workloads or for testing purposes, you may want to disable SMB Multichannel. See [Performance comparison]( storage-files-smb-multichannel-performance.md#performance-comparison) for more details.
@@ -68,7 +68,7 @@ In most scenarios, particularly multi-threaded workloads, clients should see imp
 
 ## Performance comparison
 
-There are two categories of read/write workload patterns - single-threaded and multi-threaded. Most workloads use multiple files, but there could be specific use cases where the workload works with a single file in a share. This section covers different use cases and the performance impact for each of them. In general, most workloads are multi-threaded and distribute workload over multiple files so they so should observe significant performance improvements with this feature.
+There are two categories of read/write workload patterns - single-threaded and multi-threaded. Most workloads use multiple files, but there could be specific use cases where the workload works with a single file in a share. This section covers different use cases and the performance impact for each of them. In general, most workloads are multi-threaded and distribute workload over multiple files so they should observe significant performance improvements with SMB Multichannel.
 
 - **Multi-threaded/multiple files**:
     Depending on the workload pattern, you should see significant performance improvement in read and write IOs over multiple channels. The performance gains vary from anywhere between 2x to 4x in terms of IOPS, throughput, and latency. For this category, SMB Multichannel should be enabled for the best performance.
@@ -95,8 +95,8 @@ Load was generated against 10 files with various IO sizes. The scale up test res
 
 :::image type="content" source="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-throughput-performance.png" alt-text="Diagram of throughput performance." lightbox="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-throughput-performance.png":::
 
-- On a single NIC, for reads, performance increase of 2x-3x was observed and for writes, gains of 3x-4x in both terms of IOPS and throughput.
-- SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC and with 4 channels limit.
+- On a single NIC, for reads, performance increase of 2x-3x was observed and for writes, gains of 3x-4x in terms of both IOPS and throughput.
+- SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC and the four channel limit.
 - Since egress (or reads to storage) are not metered, read throughput was able to exceed the VM published limit of 16000 Mbps (2 GiB/s). The test achieved >2.7 GiB/s. Ingress (or writes to storage) are still subject to VM limits.
 - Spreading load over multiple files allowed for substantial improvements.
 

@@ -172,7 +172,7 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 
 ### Cause
 
-Either the subscription is not registered for the feature or the region and account type is not supported.
+Either the subscription is not registered for the feature, or the region and account type is not supported.
 
 ### Solution
 
