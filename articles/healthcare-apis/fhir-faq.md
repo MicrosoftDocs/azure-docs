@@ -52,6 +52,10 @@ We do not allow custom FHIR resources. If you need a custom FHIR resource, you c
 
 We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you could save this as a structure definition resource. 
 
+### What is the limit on _count?
+
+The current limit on count is 100.
+
 ## Azure IoT Connector for FHIR (preview)
 
 ### What is IoMT?
