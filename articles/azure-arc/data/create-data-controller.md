@@ -50,18 +50,18 @@ Regardless of the deployment option you choose, during the deployment you will n
 - **Azure subscription ID** - the Azure subscription GUID for where you want the data controller resource in Azure to be created.
 - **Azure resource group name** - the name of the resource group where you want the data controller resource in Azure to be created
 - **Azure location** - the Azure location where the data controller resource will be created in Azure - enter one of the following: 
-  - eastus
-  - eastus2
   - australiaeast
   - centralus
-  - westus2
-  - westeurope
-  - southeastasia
+  - eastus
+  - eastus2
+  - francecentral
+  - japaneast
   - koreacentral
   - northeurope
-  - westeurope
+  - southeastasia
   - uksouth
-  - francecentral
+  - westeurope
+  - westus2
 
 ## Next steps
 
