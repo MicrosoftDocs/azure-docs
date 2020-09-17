@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: QnA Maker client library for Go"
 description: This quickstart shows how to get started with the QnA Maker client library for Go.
-author: v-jawe
+author: v-jaswel
 manager: chrhoder
 ms.service: cognitive-services
 ms.subservice: qna-maker
