@@ -137,7 +137,7 @@ azdata arc postgres server endpoint list -n postgres01
 ]
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL instance from your favorite tool:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
 
 If you are using an Azure VM to test, follow the instructions below:
 
