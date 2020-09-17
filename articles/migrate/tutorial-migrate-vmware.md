@@ -116,7 +116,7 @@ Enable replication as follows:
 
 11. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
    
-    ![Disks](./media/tutorial-migrate-vmware/disks.png)
+    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/tutorial-migrate-vmware/disks.png)
 
 12. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
