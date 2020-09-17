@@ -14,10 +14,10 @@ This article shows you how to create custom roles that delegate permissions to A
 
 We will implement the following custom roles:
 
-* Developer role: Allowed to deploy, test, and restart apps. Can apply and make changes to the app config in the git repository. Can get the log stream.
-* DevOps role: Allows permissions to restart apps and see their log streams. Cannot make changes to apps or configuration.
-* Azure Pipelines/Jenkins/Github Actions role: Can perform create, read, update, delete operations.
-* Provisioning pipelines role: Can create and configure everything in Azure Spring Cloud and apps within service instance (Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates).
+* **Developer role**: Allowed to deploy, test, and restart apps. Can apply and make changes to the app config in the git repository. Can get the log stream.
+* **DevOps role**: Allows permissions to restart apps and see their log streams. Cannot make changes to apps or configuration.
+* **Azure Pipelines/Jenkins/Github Actions role**: Can perform create, read, update, delete operations.
+* **Provisioning pipelines role**: Can create and configure everything in Azure Spring Cloud and apps within service instance (Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates).
 
 ## Define Developer role
 
