@@ -200,67 +200,53 @@ The following sections walk you through how to set up the Fortigate VM.
 
     ![Screenshot of Upload Remote Certificate.](certificate.png)
 
-### Upload the Azure Active Directory SAML Signing Certificate
+### Upload the Azure AD SAML signing certificate
 
-1. Navigate to `https://<address>`
+1. Go to `https://<address>`. Here, `<address>` is the FQDN or the public IP address assigned to the FortiGate VM.
 
-    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+2. Continue past any certificate errors.
+3. Sign in by using the administrator credentials provided during the FortiGate VM deployment.
+4. In the left menu, select **System** > **Certificates**.
+5. Select **Import** > **Remote Certificate**.
+6. Browse to the certificate downloaded from the FortiGate custom App deployment in the
+    Azure tenant. Select it, and select **OK**.
 
-2. Continue past any certificate errors
-3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
-4. In the left-hand menu, click **System**
-5. Under System, click **Certificates**
-6. Click **Import** - > **Remote Certificate**
-7. Browse to the certificate downloaded from the FortiGate custom App deployment in the
-    Azure tenant, select it and click **OK**
+### Upload and configure a custom SSL certificate
 
-### Upload and Configure a Custom SSL Certificate
+You might want to configure the FortiGate VM with your own SSL certificate that supports the FQDN you're using. If you have access to an SSL certificate packaged with the private key in PFX format, it
+can be used for this purpose
 
-You may wish to configure the FortiGate VM with your own SSL certificate that supports the FQDN
-you are using. If you have access to an SSL certificate packaged with the private key in .PFX format, it
-may be used for this purpose
+1. Go to `https://<address>`. Here, `<address>` is the FQDN or the public IP address assigned to the FortiGate VM.
 
-1. Navigate to `https://<address>`
-
-    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
-
-2. Continue past any certificate errors
-3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
-4. In the left-hand menu, click **System**
-5. Under System, click **Certificates**
-6. Click **Import** - > **Local Certificate**
-7. Click **PKCS #12 Certificate**
-8. Browse to the .PFX file containing the SSL Certificate and the Private Key
-9. Provide the .PFX password
-10. Provide a meaningful name for the Certificate
-11. Click **OK**
-12. In the left-hand menu, click **System**
-13. Under System, click **Settings**
-14. Under Administration Settings, expand the drop down next to HTTPS server certificate and
-    select the SSL certificate imported above
-15. Click **Apply**
-16. Close the browser window and then navigate again to `https://<address>`
-17. Sign-in with the FortiGate administrator credentials and observe the correct SSL certificate in
-    use
+2. Continue past any certificate errors.
+3. Sign in by using the administrator credentials provided during the FortiGate VM deployment.
+4. In the left menu, select **System** > **Certificates**.
+5. Select **Import** > **Local Certificate** > **PKCS #12 Certificate**.
+6. Browse to the .PFX file that contains the SSL certificate and the private key.
+7. Provide the .PFX password, and a meaningful name for the certificate. Then select **OK**.
+8. In the left menu, select **System** > **Settings**.
+9. Under **Administration Settings**, expand the list next to **HTTPS server certificate**, and select the SSL certificate imported earlier.
+10. Select **Apply**.
+11. Close the browser window and go to `https://<address>`.
+12. Sign in with the FortiGate administrator credentials. You should now see the correct SSL certificate in use.
 
 
-### Perform Command Line Configuration
+### Perform command line configuration
 
-_Perform Command Line Configuration for SAML Authentication_
+The following sections provide steps for various configurations by using the command line.
 
-1. Navigate to https://portal.azure.com and open the settings for the FortiGate VM
-2. In the left-hand menu, click on **Serial Console**
-3. Sign-in at the Serial Console with the FortiGate VM administrator credentials
+#### For SAML authentication
 
-    For the next step, the URLs recorded earlier will be required. Namely –
-
+1. Go to https://portal.azure.com, and open the settings for the FortiGate VM.
+2. In the left menu, select **Serial Console**.
+3. Sign in at the Serial Console with the FortiGate VM administrator credentials. For the next step, the URLs you recorded earlier are required:
     - Entity ID
     - Reply URL
     - Logout URL
     - Azure Login URL
     - Azure AD Identifier
     - Azure Logout URL
-4. At the Serial Console, execute the following commands –
+4. At the Serial Console, run the following commands:
 
     ```
     config user saml
@@ -277,37 +263,30 @@ _Perform Command Line Configuration for SAML Authentication_
     end
     ```
     > [!NOTE]
-    > The Azure Logout URL contains a? character. This requires a special key sequence in
-    order for it to be correctly provided to the FortiGate Serial Console. The URL is typically-
+    > The Azure Logout URL contains a `?` character. This requires a special key sequence in
+    order for it to be correctly provided to the FortiGate Serial Console. The URL is typically
+    `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1`. To provide this in the Serial Console, type:
+        ```
+        set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation
+        ```.
+    Then type CTRL+V, and paste the rest of the URL in to complete the line: 
+        ```
+        set idp-single-logout-url
+        https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.
+        ```
 
-    `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1`
-
-    To provide this in the Serial Console, proceed by typing
-
-    ```
-    set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation
-    ```
-    Then type CTRL+V,
-
-    Then paste the rest of the URL in to complete the line
-
-    ```
-    set idp-single-logout-url
-    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.
-    ```
-
-5. To confirm the configuration, execute –
+5. To confirm the configuration, run the following:
 
     ```
     show user saml
     ```
 
-_Perform Command Line Configuration for Group Matching_
+#### For group matching
 
-1. Navigate to https://portal.azure.com and open the settings for the FortiGate VM
-2. In the left-hand menu, click on **Serial Console**
-3. Sign-in at the Serial Console with the FortiGate VM administrator credentials
-4. At the Serial Console, execute the following commands –
+1. Go to https://portal.azure.com, and open the settings for the FortiGate VM.
+2. In the left menu, select **Serial Console**.
+3. Sign in at the Serial Console with the FortiGate VM administrator credentials.
+4. At the Serial Console, run the following commands:
 
     ```
     config user group
@@ -322,84 +301,59 @@ _Perform Command Line Configuration for Group Matching_
     next
     ```
 
-    Repeat these command from edit `group 1 name` but for each additional group that will have a different portal experience in FortiGate
+    For each additional group that will have a different portal experience in FortiGate, repeat these commands (starting with the second line of the code).
 
-_Perform Command Line Configuration for Authentication Time Out_
+#### For authentication timeout
 
-1. Navigate to https://portal.azure.com and open the settings for the FortiGate VM
-2. In the left-hand menu, click on **Serial Console**
-3. Sign-in at the Serial Console with the FortiGate VM administrator credentials
-4. At the Serial Console, execute the following commands –
+1. Go to https://portal.azure.com, and open the settings for the FortiGate VM.
+2. In the left menu, select **Serial Console**.
+3. Sign in at the Serial Console with the FortiGate VM administrator credentials.
+4. At the Serial Console, run the following commands:
 
     ```
     config system global
     set remoteauthtimeout 60
     end
     ```
-### Create VPN Portals and Firewall Policy
+### Create VPN portals and firewall policy
 
-1. Navigate to `https://<address>`
+1. Go to `https://<address>`. Here, `<address>` is the FQDN or the public IP address assigned to the FortiGate VM.
 
-    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
-
-2. Sign-in using the administrator credentials provided during the FortiGate VM deployment
-3. In the left-hand menu, click **VPN**
-4. Under VPN, click **SSL-VPN Portals**
-5. Click **Create New**
+2. Sign in by using the administrator credentials provided during the FortiGate VM deployment.
+3. In the left menu, select **VPN** > **SSL-VPN Portals** > **Create New**.
 6. Provide a name (usually matching it to the Azure Group used to provide the custom portal
-    experience)
-7. Click the plus sign ( **+** ) next to Source IP Pools, select the default pool and click **Close**
-8. Customize the experience for this group. For testing, this can be customization of the Portal
-    Message and the Theme. This is also where you can create custom bookmarks that direct
-    users to internal resources
-9. Click **OK**
-10. Repeat steps 5 to 9 for each Azure Group that will have a custom portal experience
-11. Under VPN, click **SSL-VPN Settings**
-12. Click the plus sign ( **+** ) next to Listen on Interfaces
-13. Select **Port1** and click **Close**
+    experience).
+7. Select the plus sign ( **+** ) next to **Source IP Pools**, select the default pool, and then select **Close**.
+8. Customize the experience for this group. For testing, this can be customization of the portal message and the theme. This is also where you can create custom bookmarks that direct
+    users to internal resources.
+9. Select **OK**.
+10. Repeat steps 5-9 for each Azure Group that will have a custom portal experience.
+11. Under VPN, select **SSL-VPN Settings**.
+12. Select the plus sign ( **+** ) next to **Listen on Interfaces**, select **Port1**, and then select **Close**.
+14. If you previously installed a custom SSL certificate, change **Server Certificate** to use the custom SSL certificate in the drop-down menu.
+15. Under **Authentication/Portal Mapping**, select **Create New**. Choose the first Azure Group and match it with the portal of the same name. Then select **OK**.
+18. Repeat steps 15-17 for each pairing of an Azure Group and a portal.
+19. Under **Authentication/Portal Mapping**, edit **All Other Users/Groups**.
+20. Set the portal to **full-access**, and select **OK** > **Apply**.
+23. Scroll to the top of the **SSL-VPN Setting** page, and select **No SSL-VPN policies exist. Click here to create a new SSL-VPN policy using these settings.**
+24. Provide a name, such as **VPN Grp**. Then set **Outgoing Interface** to **port**, and select **Source**.
+27. Under **Address**, select **all**.
+28. Under **User**, select the first Azure Group.
+29. Select **Close** > **Destination**. Under **Address**, this is usually the internal network. Select **login.microsoft.com** for testing.
+32. Select **Close** > **Service** > **All**. Then select **Close** > **OK**.
+37. In the left menu, select **Policy & Objects** > **Firewall Policy**.
+39. Expand **SSL-VPN tunnel interface (ssl.root)** > **port**.
+40. Right-click the VPN policy created earlier ( **VPN Grp 1** ), and select **Copy**.
+41. Right-click under the VPN policy, and select **Paste** > **Below**.
+42. Edit the new policy, providing it with a different name (for example, **VPN Grp2**). Also change the group it applies to (to another Azure Group).
+43. Right-click the new policy and set the status to **Enabled**.
 
 
-14. If a custom SSL certificate was previously installed, change Server Certificate to use the
-    custom SSL certificate in the drop-down menu
-15. Under Authentication/Portal Mapping, click **Create New**
-16. Choose the first Azure Group and match it with the Portal of the same name
-17. Click **OK**
-18. Repeat steps 15 to 17 for each Azure Group / Portal pair
-19. Under Authentication/Portal Mapping, edit **All Other Users/Groups**
-20. Set the portal to **full-access**
-21. Click **OK**
-22. Click **Apply**
-23. Scroll to the top of the SSL-VPN Setting page and click on the warning **No SSL-VPN policies**
-    **exist. Click here to create a new SSL-VPN policy using these settings**
-24. Provide a name such as **VPN Grp**
-25. Set Outgoing Interface to **port**
-26. Click **Source**
-27. Under Address, select **all**
-28. Under User, select the first Azure Group
-29. Click **Close**
-30. Click **Destination**
-31. Under Address, this would usually be the internal network. Select login.microsoft.com for
-    testing
-32. Click **Close**
-33. Click **Service**
-34. Click **All**
-35. Click **Close**
-36. Click **OK**
-37. In the left-hand menu, click **Policy & Objects**
-38. Under Policy & Objects, click **Firewall Policy**
-39. Expand **SSL-VPN tunnel interface (ssl.root) -> port**
-40. Right-click the VPN policy created earlier ( **VPN Grp 1** ) and select **Copy**
-41. Right-click under the VPN policy and select **Paste** - > **Below**
-42. Edit the new policy, providing it with a different name (say **VPN Grp2** ) and changing the
-    group is applies to (another Azure Group)
-43. Right-click the new policy and set the status to **Enabled**
+## Test sign-in by using Azure
 
-
-## Test Sign-In Using Azure
-
-1. Using an in-private browser session, navigate to `https://<address>`	
-2. The sign-in should redirect to Azure Active Directory for sign-in
+1. Using an in-private browser session, go to `https://<address>`.	
+2. The sign-in should redirect to Azure AD for sign-in.
 3. After providing credentials for a user who has been assigned to the FortiGate App in the
-    Azure tenant, the appropriate user portal should be shown
+    Azure tenant, the appropriate user portal should appear.
 
-    ![Fortigate SSL VPN](test-sign-in.png)
+    ![Screenshot of Fortigate SSL VPN](test-sign-in.png)
