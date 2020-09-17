@@ -47,11 +47,17 @@ To schedule a new update deployment, perform the following steps. Depending on t
 4. Select the operating system to target for the update deployment.
 
     > [!NOTE]
-    > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
+    > This option is not available if you selected an Azure VM or Arc enabled server. The operating system automatically specified.
 
 5. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](update-mgmt-groups.md).
 
+    > [!NOTE]
+    > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
+
 6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md).
+
+    > [!NOTE]
+    > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
 
 7. Use the **Update classifications** region to specify [update classifications](update-mgmt-view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
 
