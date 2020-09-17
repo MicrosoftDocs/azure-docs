@@ -59,7 +59,7 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
     - Create a new key or choose an existing key that has **Send** permissions.
     - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
     - Alternatively, you can generate a connection string for the entire Event Hubs namespace:
-        1. Go to your Event Hubs namespace in the Azure Portal.
+        1. Go to your Event Hubs namespace in the Azure portal.
         2. Under **Settings**, select **Shared Access Policies**
         3. Create a new key or choose an existing key that has **Send** permissions.
         4. Copy either the primary or secondary connection string
@@ -79,7 +79,7 @@ If you don't have an existing Service Bus namespace to export to, follow these s
     - Create a new key or choose an existing key that has **Send** permissions.
     - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
     - Alternatively, you can generate a connection string for the entire Service Bus namespace:
-        1. Go to your Service Bus namespace in the Azure Portal.
+        1. Go to your Service Bus namespace in the Azure portal.
         2. Under **Settings**, select **Shared Access Policies**
         3. Create a new key or choose an existing key that has **Send** permissions.
         4. Copy either the primary or secondary connection string
