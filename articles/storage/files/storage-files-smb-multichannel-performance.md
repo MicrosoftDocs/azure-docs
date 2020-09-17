@@ -68,14 +68,14 @@ In most scenarios, particularly multi-threaded workloads, clients should see imp
 
 ## Performance comparison
 
-There are two categories of read/write workload patterns - single-threaded and multi-threaded. Most workloads use multiple files, but there could be specific use cases where the workload works with a single file in its share. This section covers different use cases and the performance impact for each of them. In general, most workloads are multi-threaded and distribute workload over multiple files.
+There are two categories of read/write workload patterns - single-threaded and multi-threaded. Most workloads use multiple files, but there could be specific use cases where the workload works with a single file in a share. This section covers different use cases and the performance impact for each of them. In general, most workloads are multi-threaded and distribute workload over multiple files so they so should observe significant performance improvements with this feature.
 
-- Multi-threaded/multiple files
-    Depending on the workload pattern, there should be a performance improvement over single-threaded from anywhere between 2x to 4x in IOPS, throughput, and latency. For this category, SMB Multichannel should be enabled for the best performance.
-- Multi-threaded/single file
-    For most use cases in this category, they will benefit from having SMB Multichannel enabled, especially if the workload has an average IO size > ~16k. A few example scenarios which benefit from SMB Multichannel are backup or recovery of a single large file. An exception where you may want to disable SMB Multichannel is if your workload is small IOs heavy. In that case, you may observe a slight performance loss of ~10%. Depending on the use case, consider spreading load across multiple files, or disable the feature. See the [Configuration](#configuration) section for details.
-- Single-threaded/multiple files or single file
-    For most single-threaded workloads, there are minimum performance benefits from parallelism, usually there is a slight performance degradation of ~10% if SMB Multichannel is enabled. In this case, it's ideal to disable SMB Multichannel, with one exception. If the single-threaded workload can distribute load across multiple files and uses on average larger IO sizes (> 16k), then there should be performance benefits from SMB Multichannel.
+- **Multi-threaded/multiple files**:
+    Depending on the workload pattern, you should see significant performance improvement in read and write IOs over multiple channels. The performance gains vary from anywhere between 2x to 4x in terms of IOPS, throughput, and latency. For this category, SMB Multichannel should be enabled for the best performance.
+- **Multi-threaded/single file**:
+    For most use cases in this category, workloads will benefit from having SMB Multichannel enabled, especially if the workload has an average IO size > ~16k. A few example scenarios which benefit from SMB Multichannel are backup or recovery of a single large file. An exception where you may want to disable SMB Multichannel is if your workload is small IOs heavy. In that case, you may observe a slight performance loss of ~10%. Depending on the use case, consider spreading load across multiple files, or disable the feature. See the [Configuration](#configuration) section for details.
+- **Single-threaded/multiple files or single file**:
+    For most single-threaded workloads, there are minimum performance benefits due to lack of parallelism, usually there is a slight performance degradation of ~10% if SMB Multichannel is enabled. In this case, it's ideal to disable SMB Multichannel, with one exception. If the single-threaded workload can distribute load across multiple files and uses on an average larger IO sizes (> ~16k), then there should be slight performance benefits from SMB Multichannel.
 
 ### Testing performance configuration
 
