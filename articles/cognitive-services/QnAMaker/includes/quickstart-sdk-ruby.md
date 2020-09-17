@@ -1,8 +1,13 @@
 ---
 title: "Quickstart: QnA Maker client library for Ruby"
 description: This quickstart shows how to get started with the QnA Maker client library for Ruby.
+author: v-jawe
+manager: chrhoder
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: include
-ms.date: 06/18/2020
+ms.date: 09/04/2020
+ms.author: v-jawe
 ---
 Use the QnA Maker client library for Ruby to:
 
