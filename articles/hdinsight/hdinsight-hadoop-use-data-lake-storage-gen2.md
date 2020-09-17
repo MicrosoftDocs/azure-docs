@@ -14,7 +14,7 @@ ms.date: 04/24/2020
 
 [!INCLUDE [selector](../../includes/hdinsight-hadoop-use-data-lake-storage-gen2-selector.md)]
 
-[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) is a cloud storage service dedicated to big data analytics, built on [Azure Blob storage](storage-blobs-introduction.md). Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The resulting service offers features from Azure Data Lake Storage Gen1. These features include: file system semantics, directory-level and file-level security, and adaptability. Along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
+[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is a cloud storage service dedicated to big data analytics, built on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The resulting service offers features from Azure Data Lake Storage Gen1. These features include: file system semantics, directory-level and file-level security, and adaptability. Along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
 
 For a full comparison of cluster creation options using Data Lake Storage Gen2, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 

@@ -10,7 +10,7 @@ ms.custom: hdinsightactive,seoapr2020
 ms.date: 09/17/2020
 ---
 
-## Create a cluster with Data Lake Storage Gen2 through the Azure portal
+# Create a cluster with Data Lake Storage Gen2 through the Azure portal
 
 [!INCLUDE [selector](../../includes/hdinsight-hadoop-use-data-lake-storage-gen2-selector.md)]
 
