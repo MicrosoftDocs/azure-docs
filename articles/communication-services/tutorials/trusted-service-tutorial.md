@@ -1,5 +1,5 @@
 ---
-title: Trusted Authentication Service using Azure Functions in Azure Communication Services
+title: Build a trusted authentication service using Azure Functions in Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a trusted authentication service for  Communication services with Azure Functions
 author: ddematheu
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp
 ---
 
-# Trusted Authentication Service using Azure Functions
+# Build a trusted authentication service using Azure Functions
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 

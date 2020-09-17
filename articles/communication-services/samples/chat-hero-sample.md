@@ -72,9 +72,8 @@ You can test the sample locally by opening multiple browser sessions with the UR
 3. Go to ClientApp and run `npm run setup`
    1. If you see an error 1, look above in the output for a URL where you'll need to go to to authorize your client. (URL will look like this: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...`)Once you visit the URL in a browser, copy the command from the browser window and run it.
    2. Run command `npm run setup` again once you complete the previous step.
-4. Go to the ClientApp folder and run `npm install`.
-5. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
-6. Once you get the `Connection String`, Add the connection string to the **appsetting.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
+4. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
+5. Once you get the `Connection String`, Add the connection string to the **appsetting.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
 
 ### Local run
 

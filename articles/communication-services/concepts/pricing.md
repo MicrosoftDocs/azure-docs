@@ -15,11 +15,13 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
+<!--
 > [!WARNING]
 > This document is under construction and needs the following items to be addressed:
 > - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
+-->
 
-Prices for Azure Communication Services are based on a pay as you go model with no upfront fees. There are no charges to create a Communication Services account, and you will only be billed for your consumption and use of the services.
+Prices for Azure Communication Services are based on a pay-as-you-go model with no upfront fees. You'll only be billed for your consumption and use of the services.
 
 ## Voice/Video Calling and Screen Sharing
 
@@ -27,7 +29,7 @@ Azure Communication Services allow for adding voice/video calling and screen sha
 
 ### Pricing
 
-Calling/Screen-Sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. To understand the various call flows that are possible, please refer to [this page](./call-flows.md).
+Calling/screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. To understand the various call flows that are possible, please refer to [this page](./call-flows.md).
 
 Each participant of the call will count in billing for each minute they are connected to the call regardless of the modalities that used within (that is, video calling, voice calling or screen-sharing).
 
@@ -54,7 +56,7 @@ With Communication Services you can enhance your application with the ability to
 
 - You are charged $0.0008 for every chat message sent.
 
-### Pricing example: Chat between 2 users 
+### Pricing example: Chat between two users 
 
 Geeta starts a chat thread with Emily to share an update and sends 5 messages. The chat lasts 10 minutes wherein Geeta and Emily send another 15 messages each.
 

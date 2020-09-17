@@ -71,8 +71,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                       | Description                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SmsClient](../../../references/overview.md)      | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages.                           |
-| [SendSmsOptions](../../../references/overview.md) | This class provides options to configure delivery reporting. If enable_delivery_report is set to True, then an event will be emitted when delivery was successful |
+| SmsClient     | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages.                           |
+| SendSmsOptions | This class provides options to configure delivery reporting. If enable_delivery_report is set to True, then an event will be emitted when delivery was successful |
 
 ## Authenticate the client
 
@@ -89,7 +89,7 @@ SmsClient smsClient = new SmsClient(connectionString);
 
 ## Send an SMS message
 
-Send an SMS message by calling the [Send](../../../references/overview.md) method. Add this code to the end of `Main` method in **Program.cs**:
+Send an SMS message by calling the Send method. Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
 smsClient.Send(

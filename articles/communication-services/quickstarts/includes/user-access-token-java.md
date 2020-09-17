@@ -80,28 +80,30 @@ Instantiate a `CommunicationIdentityClient` with your resource's access key and 
 Add the following code to the `main` method:
 
 ```java
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+// Your user access token retrieved from your trusted service
+String accessToken = "SECRET";
 CommunicationClientCredential credential = null;
 try {
-    credential = new CommunicationClientCredential(accessKey);
-} catch (NoSuchAlgorithmException e) {
-    System.out.println(e.getMessage());
+    credential = new CommunicationClientCredential(accessToken);
 } catch (InvalidKeyException e) {
     System.out.println(e.getMessage());
+} catch (NoSuchAlgorithmException e) {
+    System.out.println(e.getMessage());
 }
+CommunicationIdentityClientBuilder builder = new CommunicationIdentityClientBuilder();
 
 // Create an HttpClient builder of your choice and customize it
+// Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-
-// Create a new CommunicationIdentityClientBuilder to instantiate a CommunicationIdentityClient
-CommunicationIdentityClientBuilder builder = new CommunicationIdentityClientBuilder();
 
 // Set the endpoint, access key, and the HttpClient
 builder.endpoint(endpoint)
     .credential(credential)
     .httpClient(httpClient);
 
-// Build a new CommunicationIdentityClient
-CommunicationIdentityClient client = builder.buildClient();
+// Initialize the CommunicationIdentityClient
+CommunicationIdentityClient communicationIdentityClient = builder.buildClient();
 
 ```
 
@@ -112,7 +114,7 @@ You can initialize the client with any custom HTTP client the implements the `co
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. You should maintain a mapping between your application's users and Communication Services generated identities (e.g. by storing them in your application server's database).
 
 ```java
-CommunicationUser user = client.createUser();
+CommunicationUser user = communicationIdentityClient.createUser();
 System.out.println("\nCreated a user with ID: " + user.getId());
 ```
 
@@ -124,11 +126,12 @@ Use the `issueToken` method to issue an access token for a Communication Service
 
 ```java
 // Issue an access token with the "voip" scope for a new user
-List<String> scopes = new ArrayList<String>(Arrays.asList("voip"));
-CommunicationUserToken response = client.issueToken(user, scopes);
+List<String> scopes = new ArrayList<>(Arrays.asList("voip"));
+CommunicationUserToken response = communicationIdentityClient.issueToken(user, scopes);
 OffsetDateTime expiresOn = response.getExpiresOn();
 String token = response.getToken();
-System.out.println("\nIssued a token with 'voip' scope that expires at " + expiresOn + ":");
+String userId = response.getUser().getId();
+System.out.println("\nIssued a access token with 'voip' scope for identity with ID: " + userId + ": " + token);
 System.out.println(token);
 ```
 
@@ -139,7 +142,7 @@ User access tokens are short-lived credentials that need to be reissued in order
 In some cases, you may need to explicitly revoke user access tokens, for example, when a user changes the password they use to authenticate to your service. This use the `revokeTokens` method to invalidate all of a user's access tokens.
 
 ```java  
-client.revokeTokens(user);
+communicationIdentityClient.revokeTokens(user, OffsetDateTime.now());
 System.out.println("\nRevoked tokens for the user with ID: " + user.getId());
 ```
 
@@ -148,8 +151,8 @@ System.out.println("\nRevoked tokens for the user with ID: " + user.getId());
 Deleting a user revokes all active tokens and prevents you from issuing subsequent tokens for the identities. It also removes all the persisted content associated with the user.
 
 ```java
-client.deleteUser(user);
-System.out.println("\nDeleted the user with ID: " + user.getId());
+communicationIdentityClient.deleteUser(user);
+System.out.println("\nSuccessfully deleted the identity with ID: " + user.getId());
 ```
 
 ## Run the code

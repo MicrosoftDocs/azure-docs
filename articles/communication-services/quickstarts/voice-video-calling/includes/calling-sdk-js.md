@@ -30,7 +30,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                              | Description                                                                                                                                      |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallClient](../../../references/overview.md) | The CallClient is used to create the CallAgent and to get the DeviceManager. |
+| CallClient | The CallClient is used to create the CallAgent and to get the DeviceManager. |
 
 ## Initialize the CallClient
 

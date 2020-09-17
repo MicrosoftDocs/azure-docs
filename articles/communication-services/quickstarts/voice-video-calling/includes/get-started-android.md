@@ -39,6 +39,35 @@ Select Minimum client library of "API 26: Android 8.0 (Oreo)" or greater.
 ### Install the package
 
 <!-- TODO: update with instructions on how to download, install and add package to project -->
+Locate your project level build.gradle and make sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`
+```groovy
+buildscript {
+    repositories {
+    ...
+        mavenCentral()
+    ...
+    }
+}
+```
+
+```groovy
+allprojects {
+    repositories {
+    ...
+        mavenCentral()
+    ...
+    }
+}
+```
+Then, in your module level build.gradle add the the following lines to the dependencies section
+
+```groovy
+dependencies {
+    ...
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    ...
+}
+```
 
 ### Add permissions to application manifest
 
@@ -219,9 +248,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| [CallClient](../../../references/overview.md)| The CallClient is the main entry point to the Calling client library.|
-| [CallAgent](../../../references/overview.md) | The CallAgent is used to start and manage calls. |
-| [CommunicationUserCredential](../../../references/overview.md) | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.|
+| CallClient| The CallClient is the main entry point to the Calling client library.|
+| CallAgent | The CallAgent is used to start and manage calls. |
+| CommunicationUserCredential | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.|
 
 ## Create an agent from the user access token
 

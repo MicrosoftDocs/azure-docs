@@ -52,7 +52,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                              | Description                                                                                                                                      |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [ACSCallClient](../../../references/overview.md) | This class is needed for all calling functionality. You instantiate an ACSCallAgent instance with CommunicationUserCredential object, and use it to start and manage calls. |
+| ACSCallClient | This class is needed for all calling functionality. You instantiate an ACSCallAgent instance with CommunicationUserCredential object, and use it to start and manage calls. |
 
 ## Initialize the ACSCallAgent
 

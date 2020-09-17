@@ -66,9 +66,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| [SmsClient](../../../references/overview.md) | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages. |
-| [SendSmsOptions](../../../references/overview.md) | This interface provides options to configure delivery reporting. If `enable_delivery_report` is set to `true`, then an event will be emitted when delivery was successful. |
-| [SendMessageRequest](../../../references/overview.md) | This interface is the model for building the sms request (eg. configure the to and from phone numbers and the sms content). |
+| SmsClient | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages. |
+| SendSmsOptions | This interface provides options to configure delivery reporting. If `enable_delivery_report` is set to `true`, then an event will be emitted when delivery was successful. |
+| SendMessageRequest | This interface is the model for building the sms request (eg. configure the to and from phone numbers and the sms content). |
 
 ## Authenticate the client
 
@@ -89,7 +89,7 @@ const smsClient = new SmsClient(connectionString);
 
 ## Send an SMS message
 
-Send an SMS message by calling the [send](../../../references/overview.md) method. Add this code to the end of the **send-sms.js**:
+Send an SMS message by calling the `send` method. Add this code to the end of the **send-sms.js**:
 
 ```javascript
 await smsClient.send({

@@ -108,9 +108,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                                           | Description                                                                                   |
 | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| [CallClient](../../../references/overview.md)                  | The CallClient is the main entry point to the Calling client library.                         |
-| [CallAgent](../../../references/overview.md)                   | The CallAgent is used to start and manage calls.                                              |
-| [AzureCommunicationUserCredential](../../../references/overview.md) | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent.
+| CallClient                  | The CallClient is the main entry point to the Calling client library.                         |
+| CallAgent                   | The CallAgent is used to start and manage calls.                                              |
+| AzureCommunicationUserCredential | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent.
 
 ## Authenticate the client
 
@@ -131,7 +131,7 @@ Add an event handler to initiate a call to our echo bot when the `callButton` is
 ```javascript
 callButton.addEventListener("click", () => {
   // start a call
-  const acsUser = { communicationUserId: <ACS_USER_ID>};
+  const acsUser = { communicationUserId: calleeInput.value };
   call = callAgent.call([acsUser], {});
 
   // toggle button states

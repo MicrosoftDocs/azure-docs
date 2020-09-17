@@ -33,7 +33,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Issue user access tokens using Azure Functions
+  - name: Build a trusted authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
 - name: Concepts
   expanded: false

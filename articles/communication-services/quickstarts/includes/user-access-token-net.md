@@ -49,7 +49,7 @@ dotnet add package Azure.Communication.Administration
 From the project directory:
 
 1. Open **Program.cs** file in a text editor
-1. Add a `using` directive to include the `Azure.Communication` namespace
+1. Add a `using` directive to include the `Azure.Communication.Administration` namespace
 1. Update the `Main` method declaration to support async code
 
 Use the following code to begin:
@@ -112,7 +112,7 @@ Console.WriteLine($"\nIssued a token with 'voip' scope that expires at {expiresO
 Console.WriteLine(token);
 ```
 
-User access tokens are short-lived credentials that need to be reissued in order to prevent your users from experiencing service disruptions. The `expiresAt` response property indicates the lifetime of the token.
+User access tokens are short-lived credentials that need to be reissued in order to prevent your users from experiencing service disruptions. The `expiresOn` response property indicates the lifetime of the token.
 
 ## Revoke user access tokens
 

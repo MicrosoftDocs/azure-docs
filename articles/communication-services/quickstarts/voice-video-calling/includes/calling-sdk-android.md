@@ -24,7 +24,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                              | Description                                                                                                                                      |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallAgent](../../../references/overview.md) | This class is needed for all calling functionality. You instantiate it with your subscription information, and use it to start and manage calls. |
+| CallAgent | This class is needed for all calling functionality. You instantiate it with your subscription information, and use it to start and manage calls. |
 
 ## Initialize the CallClient and obtain a Call Agent
 

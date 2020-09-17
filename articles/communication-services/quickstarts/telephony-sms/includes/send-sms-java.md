@@ -105,11 +105,11 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                                             | Description                                                                                     |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [SmsClientBuilder](../../../references/overview.md)              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
-| [SmsClient](../../../references/overview.md)                     | This class is needed for all SMS functionality. You use it to send SMS messages.                |
-| [SendSmsResponse](../../../references/overview.md)               | This class contains the response from the SMS service.                                          |
-| [CommunicationClientCredential](../../../references/overview.md) | This class handles signing requests.                                                            |
-| [PhoneNumber](../../../references/overview.md)                   | This class holds phone number information
+| SmsClientBuilder              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
+| SmsClient                    | This class is needed for all SMS functionality. You use it to send SMS messages.                |
+| SendSmsResponse               | This class contains the response from the SMS service.                                          |
+| CommunicationClientCredential | This class handles signing requests.                                                            |
+| PhoneNumber                   | This class holds phone number information
 
 ## Authenticate the client
 
@@ -135,7 +135,7 @@ You can initialize the client with any custom HTTP client the implements the `co
 
 ## Send an SMS message
 
-Send an SMS message by calling the [sendMessage](../../../references/overview.md) method. Add this code to the end of `main` method:
+Send an SMS message by calling the sendMessage method. Add this code to the end of `main` method:
 
 ```java
 List<PhoneNumber> to = new ArrayList<PhoneNumber>();
