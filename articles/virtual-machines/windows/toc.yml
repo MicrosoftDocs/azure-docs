@@ -826,8 +826,6 @@
         href: proximity-placement-groups-portal.md
       - name: PowerShell
         href: proximity-placement-groups.md
-      - name: Maintenance and alignment
-        href: ../ppg-alignment.md
     - name: Vertically scale
       items:
       - name: PowerShell

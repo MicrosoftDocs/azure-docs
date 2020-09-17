@@ -857,8 +857,6 @@
         href: proximity-placement-groups.md
       - name: Portal
         href: ../windows/proximity-placement-groups-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-      - name: Maintenance and alignment
-        href: ../ppg-alignment.md
     - name: Create VM in availability zone
       href: create-cli-availability-zone.md
   - name: Use automation tools
