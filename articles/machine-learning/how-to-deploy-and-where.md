@@ -21,9 +21,9 @@ Learn how to deploy your machine learning model as a web service in the Azure cl
 
 The workflow is similar no matter where you deploy your model:
 
-1. Register the model.
-1. Prepare an inference configuration
-1. Prepare an entry script (unless using [no-code deployment](how-to-deploy-no-code-deployment.md))
+1. Register the model (optional, see below).
+1. Prepare an inference configuration (unless using [no-code deployment](./how-to-deploy-no-code-deployment.md))
+1. Prepare an entry script (unless using [no-code deployment](./how-to-deploy-no-code-deployment.md))
 1. Deploy the model to the compute target.
 1. Test the deployed model, also called a web service.
 
