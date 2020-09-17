@@ -249,8 +249,8 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
             "type": "SystemAssigned"
         },
         "sku": {
-            "tier": "enterprise",
-            "name": "enterprise"
+            "tier": "basic",
+            "name": "basic"
         },
         "properties": {
             "sharedPrivateLinkResources":

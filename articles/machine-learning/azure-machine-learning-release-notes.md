@@ -17,6 +17,54 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-09-21
+
+### Azure Machine Learning SDK for Python v1.14.0
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Grid Profiling removed from the SDK and is not longer supported.
+  + **azureml-accel-models**
+    + azureml-accel-models package now supports Tensorflow 2.x
+  + **azureml-automl-core**
+    + Added error handling in get_output for cases when local versions of pandas/sklearn don't match the ones used during training
+  + **azureml-automl-runtime**
+    + Fixed a bug where AutoArima iterations would fail with a PredictionException and the message: "Silent failure occurred during prediction."
+  + **azureml-cli-common**
+    + Grid Profiling removed from the SDK and is not longer supported.
+  + **azureml-contrib-server**
+    + Update description of the package for pypi overview page.
+  + **azureml-core**
+    + Grid Profiling removed from the SDK and is no longer supported.
+    + Reduce number of error messages when workspace retrieval fails.
+    + Don't show warning when fetching metadata fails
+    + New Kusto Step and Kusto Compute Target.
+    + Update document for sku parameter. Remove sku in workspace update functionality in CLI and SDK.
+    + Update description of the package for pypi overview page.
+    + Updated documentation for AzureML Environments.
+    + Expose service managed resources settings for AML workspace in SDK.
+  + **azureml-dataprep**
+    + Enable execute permission on files for Dataset mount.
+  + **azureml-mlflow**
+    + Updated AzureML MLflow documentation and notebook samples 
+    + New support for MLflow projects with AzureML backend
+    + MLflow model registry support
+    + Added RBAC support for AzureML-MLflow operations 
+    
+  + **azureml-pipeline-core**
+    + Improved the documentation of the PipelineOutputFileDataset.parse_* methods.
+    + New Kusto Step and Kusto Compute Target.
+    + Provided Swaggerurl property for pipeline-endpoint entity via that user can see the schema definition for published pipeline endpoint.
+  + **azureml-pipeline-steps**
+    + New Kusto Step and Kusto Compute Target.
+  + **azureml-telemetry**
+    + Update description of the package for pypi overview page.
+  + **azureml-train**
+    + Update description of the package for pypi overview page.
+  + **azureml-train-automl-client**
+    + Added error handling in get_output for cases when local versions of pandas/sklearn don't match the ones used during training
+  + **azureml-train-core**
+    + Update description of the package for pypi overview page.
+    
 ## 2020-08-31
 
 ### Azure Machine Learning SDK for Python v1.13.0
