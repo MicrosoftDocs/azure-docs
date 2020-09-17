@@ -17,20 +17,20 @@ Azure Files SMB Multichannel (*preview*) enables an SMB 3.x client to establish 
 
 Azure Files SMB Multichannel enables clients to use multiple network connections that provides increased performance while lowering the cost of ownership. Increased performance is achieved through bandwidth aggregation over multiple NICs and utilizing Receive Side Scaling (RSS) support for NICs to distribute the IO load across multiple CPUs.
 
-- Increased throughput
-    Multiple connections allows data to be transferred over multiple paths in parallel and thereby generally significantly benefits workloads that use larger file sizes with larger IO sizes, and require high throughput from a single VM or smaller set of VMs. Some of these workloads include media and entertainment for content creation or transcoding, genomics, or financial services risk analysis.
-- Higher IOPS
+- **Increased throughput**:
+    Multiple connections allows data to be transferred over multiple paths in parallel and thereby significantly benefit workloads that use larger file sizes with larger IO sizes, and require high throughput from a single VM or a smaller set of VMs. Some of these workloads include media and entertainment for content creation or transcoding, genomics, financial services risk analysis.
+- **Higher IOPS**:
     NIC RSS capability allows effective load distribution across multiple CPUs with multiple connections. This helps achieve higher IOPS scale and effective utilization of VM CPUs. This is particularly useful for workloads that have small IO sizes, such as database applications.
-- Network fault tolerance
+- **Network fault tolerance**:
     Multiple connections mitigate the risk of disruption since clients no longer rely on an individual connection.
-- Automatic configuration
+- **Automatic configuration**:
     When SMB Multichannel is enabled on clients and storage accounts, it allows for dynamic discovery of existing connections, and can create addition connection paths as necessary.
-- Cost optimization
+- **Cost optimization**:
     Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to premium shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
 
 To learn more about SMB Multichannel, refer to the [Windows documentation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn610980(v=ws.11)).
 
-This feature provides greater performance benefits to multi-threaded applications but typically does not help single-threaded applications. See the performance section for more details.
+This feature provides greater performance benefits to multi-threaded applications but typically does not help single-threaded applications. See the performance comparison section for more details.
 
 ## Restrictions
 
@@ -42,14 +42,16 @@ This feature provides greater performance benefits to multi-threaded application
 
 ## Configuration
 
-SMB Multichannel only works when the feature is enabled on both client-side (your client) and server-side (your Azure storage account).
+SMB Multichannel only works when the feature is enabled on both client-side (your client) and service-side (your Azure storage account).
 
-On Windows clients, SMB Multichannel is generally enabled by default. You can verify your configuration by running the following PowerShell command: `Get-smbClientConfiguration | select EnableMultichannel`.
+On Windows clients, SMB Multichannel is enabled by default. You can verify your configuration by running the following PowerShell command: 
 
-You will need to enable SMB Multichannel on your storage account in addition to your client, see [Enable SMB Multichannel (preview)](storage-files-enable-smb-multichannel.md).
+`Get-smbClientConfiguration | select EnableMultichannel`.
+
+On Azure storaga ccount, you will need to enable SMB Multichannel. See [Enable SMB Multichannel (preview)](storage-files-enable-smb-multichannel.md).
 
 ### Disable SMB Multichannel
-In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, some specific scenarios such as single-threaded workloads or testing purposes, you may want to disable SMB Multichannel. See <Section> for more details.
+In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, some specific scenarios such as single-threaded workloads or for testing purposes, you may want to disable SMB Multichannel. See performance comparison for more details.
 
 ## Verify SMB Multichannel is configured correctly
 
@@ -57,10 +59,9 @@ In most scenarios, particularly multi-threaded workloads, clients should see imp
 1. Ensure your client supports SMB Multichannel (one or more network adapter has receive-side scaling enabled). Refer to the [Windows documentation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn610980(v=ws.11)) for more details.
 1. Mount a file share to your client.
 1. Generate load with your application.
-
     A copy tool such as robocopy /MT, or any performance tool such as Diskspd to read/write files can generate load.
-
-1. Open PowerShell as an admin and use the following command: `Get-SmbMultichannelConnection |fl`
+1. Open PowerShell as an admin and use the following command: 
+`Get-SmbMultichannelConnection |fl`
 1. Look for **MaxChannels** and **CurrentChannels** properties
 
 :::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Screenshot of get-smbmultichannelconnection results." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
