@@ -30,6 +30,9 @@ Ordering isn't ensured when using partitioned entities. In the event that a part
 
  Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
+### <a name="in-region-data-residency"></a>Where does Azure Service Bus store customer data?
+Azure Service Bus stores customer data. This data is automatically stored by Service Bus in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
 
