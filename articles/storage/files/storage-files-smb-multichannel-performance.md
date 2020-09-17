@@ -51,7 +51,7 @@ On Windows clients, SMB Multichannel is enabled by default. You can verify your 
 On Azure storaga ccount, you will need to enable SMB Multichannel. See [Enable SMB Multichannel (preview)](storage-files-enable-smb-multichannel.md).
 
 ### Disable SMB Multichannel
-In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, some specific scenarios such as single-threaded workloads or for testing purposes, you may want to disable SMB Multichannel. See performance comparison for more details.
+In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, some specific scenarios such as single-threaded workloads or for testing purposes, you may want to disable SMB Multichannel. See [Performance comparison]( storage-files-smb-multichannel-performance.md#performance-comparison) for more details.
 
 ## Verify SMB Multichannel is configured correctly
 
