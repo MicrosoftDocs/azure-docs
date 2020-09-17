@@ -26,6 +26,6 @@ ms.author: rogarana
 |Ingress     |See standard file throughput values         |200 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)**        |
 |Throughput     |Up to 60 MiB/sec         |See premium file ingress/egress values         |
 
-\* <sup> Applies to read and write IOPS. Metadata operations, other than reads and writes, may be lower. </sup>
+\* <sup> Applies to read and write IOs (typically smaller IO sizes <=64K). Metadata operations, other than reads and writes, may be lower. </sup>
 
 \*\* <sup> Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](../articles/storage/files/storage-files-smb-multichannel-performance.md). </sup>
