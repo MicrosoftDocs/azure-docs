@@ -132,7 +132,7 @@ The following tips may help you optimize your performance:
 
 **Throughput = IO size * IOPS**
 
-Higher IO sizes drive higher throughput and will have higher latencies, resulting in a smaller number of net IOPS. Smaller IO sizes will drive higher IOPS but results in lower net throughput and latencies.
+Higher IO sizes drive higher throughput and will have higher latencies, resulting in a lower number of net IOPS. Smaller IO sizes will drive higher IOPS but results in lower net throughput and latencies.
 
 ## Next steps
 
