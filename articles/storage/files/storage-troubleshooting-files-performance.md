@@ -199,9 +199,11 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 
-## SMB Multichannel option not visible under File share settings. 
+## SMB Multichannel option not visible under File share settings or Failed to update SMB Multichannel settings. 
 
 ### Cause
+
+Either the subscription is not registered for the feature or the region and account type is not supported.
 
 ### Solution
 
@@ -209,25 +211,17 @@ Ensure that your subscription is registered for SMB Multichannel feature. See [G
 
 Ensure that the account kind is FileStorage (premium file account) in the account overview page. 
 
-## Failed to update SMB Multichannel. 
+## Multiples channels are not triggered even after SMB Multichannel feature is emnabled on the storage account.
 
 ### Cause
 
-Error: Feature cannot be enabled for this storage account 
+Recent changes to SMB Multichannel config settings without a remount.
 
 ### Solution
+ 
+-	After any changes to Windows SMB client or account SMB multichannel configuration settings, you have to unmount the share, wait for 60 secs, and remount the share to trigger the multichannel.
+-	For Windows client OS, generate IO load with high queue depth say QD=8, for example copying a file to trigger SMB Multichannel.  For server OS, SMB Multichannel is triggered with QD=1, which means as soon as you start any IO to the share.
 
-Ensure that your account is in one of the [supported regions](storage-files-enable-smb-multichannel.md#regional-availability) and is of supported replication type. 
-
-## SMB Multichannel successfully updated on the portal, but the feature does not work on clients.
-
-### Cause
-
-Known issue with a few regions. Some of regions will return false success even though region does not support SMB Multichannel.
-
-### Solution
-
-Ensure that your account is in one of the [supported regions](storage-files-enable-smb-multichannel.md#regional-availability) and is of supported replication type.
 
 ## How to create alerts if a premium file share is trending towards being throttled
 
