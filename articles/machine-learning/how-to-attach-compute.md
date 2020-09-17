@@ -12,7 +12,7 @@ ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ---
-# Create compute targets for model training and deployment with Python SDK
+# Attach compute targets for model training and deployment with Python SDK
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -24,9 +24,9 @@ In this article, use the Azure Machine Learning Python SDK to create and manage 
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
 ## Limitations
 
@@ -46,14 +46,9 @@ Azure Machine Learning has varying support across different compute targets. A t
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-> [!NOTE]
-> Azure Machine Learning Compute clusters can be created as a persistent resource or created dynamically when you request a run. Run-based creation removes the compute target after the training run is complete, so you cannot reuse compute targets created this way.
-
 Use the sections below to configure these compute targets:
 
 * [Local computer](#local)
-* [Azure Machine Learning compute cluster](#amlcompute)
-* [Azure Machine Learning compute instance](#instance)
 * [Remote virtual machines](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -64,7 +59,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 * As a __web service__ that is used for real-time inference. Web service deployments use one of the following compute targets:
 
     * [Local computer](#local)
-    * [Azure Machine Learning compute instance](#instance)
+    * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
     * [Azure Container Instances](#aci)
     * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
     * Azure Functions (preview). Deployment to Azure Functions only relies on Azure Machine Learning to build the Docker container. From there, it is deployed using Azure Functions. For more information, see [Deploy a machine learning model to Azure Functions (preview)](how-to-deploy-functions.md).
@@ -79,148 +74,6 @@ When you use your local computer for **training**, there is no need to create a 
 
 When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a id="amlcompute"></a>Azure Machine Learning compute cluster
-
-Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute is created within your workspace region as a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
-
-You can use Azure Machine Learning Compute to distribute a training or batch inference process across a cluster of CPU or GPU compute nodes in the cloud. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
-
-Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
-
-> [!TIP]
-> Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication. 
-
-Azure Machine Learning Compute can be reused across runs. The compute can be shared with other users in the workspace and is retained between runs, automatically scaling nodes up or down based on the number of runs submitted, and the max_nodes set on your cluster. The min_nodes setting controls the minimum nodes available.
-
-[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
-
-1. **Create and attach**: To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties. The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
-    
-    * **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
-    * **max_nodes**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
-    
-   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
-
-   You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
-    ) for details.
-
-    Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](how-to-create-attach-compute-studio.md#portal-create).
-
-Now that you've attached the compute, the next step is to [submit the training run](how-to-set-up-training-targets.md) or [run batch inference](how-to-use-parallel-run-step.md).
-
- ### <a id="low-pri-vm"></a> Lower your compute cluster cost
-
-You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
-
-Use any of these ways to specify a low-priority VM:
-    
-* In the studio, choose **Low Priority** when you create a VM.
-    
-* With the Python SDK, set the `vm_priority` attribute in your provisioning configuration.  
-    
-    ```python
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                                vm_priority='lowpriority',
-                                                                max_nodes=4)
-    ```
-    
-* Using the CLI, set the `vm-priority`:
-    
-    ```azurecli-interactive
-    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
-    ```
-
- ### <a id="managed-identity"></a> Set up managed identity
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
-
-Configure managed identity in your provisioning configuration:  
-    
-* System assigned managed identity:
-    ```python
-    # configure cluster with a system-assigned managed identity
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                            max_nodes=5,
-                                                            identity_type="SystemAssigned",
-                                                            )
-    ```
-
-* User-assigned managed identity: 
-
-    ```python
-    # configure cluster with a user-assigned managed identity
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                            max_nodes=5,
-                                                            identity_type="UserAssigned",
-                                                            identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
-
-    cpu_cluster_name = "cpu-cluster"
-    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
-    ```
-
-Add managed identity to an existing compute cluster:  
-    
-* System-assigned managed identity:
-
-    ```python
-    # add a system-assigned managed identity
-    cpu_cluster.add_identity(identity_type="SystemAssigned")
-    ````
-
-* User-assigned managed identity:
-
-    ```python
-    # add a user-assigned managed identity
-    cpu_cluster.add_identity(identity_type="UserAssigned", 
-                                identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
-    ```
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
-
-#### Managed identity usage
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
-
-
-## <a id="instance"></a>Azure Machine Learning compute instance
-
-[Azure Machine Learning compute instance](concept-compute-instance.md) is a managed-compute infrastructure that allows you to easily create a single VM. The compute is created within your workspace region, but unlike a compute cluster, an instance cannot be shared with other users in your workspace. Also the instance does not automatically scale down.  You must stop the resource to prevent ongoing charges.
-
-A compute instance can run multiple jobs in parallel and has a job queue. 
-
-Compute instances can run jobs securely in a [virtual network environment](how-to-enable-virtual-network.md#compute-instance), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
-
-1. **Create and attach**: 
-    
-    ```python
-    import datetime
-    import time
-    
-    from azureml.core.compute import ComputeTarget, ComputeInstance
-    from azureml.core.compute_target import ComputeTargetException
-    
-    # Choose a name for your instance
-    # Compute instance name should be unique across the azure region
-    compute_name = "ci{}".format(ws._workspace_id)[:10]
-    
-    # Verify that instance does not exist already
-    try:
-        instance = ComputeInstance(workspace=ws, name=compute_name)
-        print('Found existing instance, use it.')
-    except ComputeTargetException:
-        compute_config = ComputeInstance.provisioning_configuration(
-            vm_size='STANDARD_D3_V2',
-            ssh_public_access=False,
-            # vnet_resourcegroup_name='<my-resource-group>',
-            # vnet_name='<my-vnet-name>',
-            # subnet_name='default',
-            # admin_user_ssh_public_key='<my-sshkey>'
-        )
-        instance = ComputeInstance.create(ws, compute_name, compute_config)
-        instance.wait_for_completion(show_output=True)
-    ```
-
-Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-set-up-training-targets.md) or [deploy a model for inference](how-to-deploy-local-container-notebook-vm.md).
 
 ## <a id="aci"></a>Azure Container Instance
 
@@ -274,8 +127,6 @@ Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
-
-Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-set-up-training-targets.md).
 
 ## <a id="hdinsight"></a>Azure HDInsight 
 

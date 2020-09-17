@@ -28,9 +28,7 @@ All you need to do is define the environment for each compute target within a **
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
-* A compute target, `my_compute_target`.  Create a compute target with:
-  * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
+* A compute target, `my_compute_target`.  [Create a compute target](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-run-configuration"></a>What's a script run configuration?
 

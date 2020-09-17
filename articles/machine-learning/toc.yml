@@ -230,17 +230,22 @@
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Create compute resources
+    - name: Create & manage compute resources
       items: 
-        - name: Use studio
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
-          href: how-to-create-attach-compute-studio.md
-        - name: Use Python SDK
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
-          href: how-to-create-attach-compute-sdk.md
+        - name: Compute instance
+          href: how-to-create-manage-compute-instance.md
+        - name: Compute cluster
+          href: how-to-create-manage-compute-cluster.md
+          displayName: low priority
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
+        - name: Attach your own
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+          href: how-to-attach-compute
+        - name: Use studio
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
+          href: how-to-create-attach-compute-studio.md
     - name: Set up your environment
       items: 
         - name: Set up dev environments

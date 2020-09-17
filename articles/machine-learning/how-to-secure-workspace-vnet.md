@@ -175,7 +175,7 @@ To use Azure Container Registry inside a virtual network, you must meet the foll
 
 * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 
-* Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute).
+* Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
 
     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 

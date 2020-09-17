@@ -25,7 +25,7 @@ The estimator class makes it easier to train models with deep learning and reinf
 ## Train with an estimator
 
 Once you've created your [workspace](concept-workspace.md) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
-1. Create a [remote compute target](how-to-create-attach-compute-sdk.md) (or you can also use local computer as compute target)
+1. Create a [remote compute target](how-to-create-attach-compute-studio.md) (or you can also use local computer as compute target)
 2. Upload your [training data](how-to-access-data.md) to datastore (Optional)
 3. Create your [training script](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Create an `Estimator` object
@@ -35,7 +35,7 @@ This article focuses on steps 4-5. For steps 1-3, refer to the [train a model tu
 
 ### Single-node training
 
-Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-create-attach-compute-sdk.md#amlcompute) object `compute_target` and your [FileDataset](how-to-create-register-datasets.md) object `ds`.
+Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-create-attach-compute-cluster.md) object `compute_target` and your [FileDataset](how-to-create-register-datasets.md) object `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -59,7 +59,7 @@ Parameter | Description
 --|--
 `source_directory`| Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute.
 `script_params`| Dictionary specifying the command-line arguments to pass to your training script `entry_script`, in the form of `<command-line argument, value>` pairs. To specify a verbose flag in `script_params`, use `<command-line argument, "">`.
-`compute_target`| Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-create-attach-compute-sdk.md#amlcompute)) cluster. (Note even though AmlCompute cluster is the commonly used target, it is also possible to choose other compute target types such as Azure VMs or even local computer.)
+`compute_target`| Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-create-attach-compute-cluster.md)) cluster. (Note even though AmlCompute cluster is the commonly used target, it is also possible to choose other compute target types such as Azure VMs or even local computer.)
 `entry_script`| Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder.
 `conda_packages`| List of Python packages to be installed via conda needed by your training script.  
 
@@ -91,7 +91,7 @@ There are two additional training scenarios you can carry out with the `Estimato
 
 The following code shows how to carry out distributed training for a Keras model. In addition, instead of using the default Azure Machine Learning images, it specifies a custom docker image from Docker Hub `continuumio/miniconda` for training.
 
-You should have already created your [compute target](how-to-create-attach-compute-sdk.md#amlcompute) object `compute_target`. You create the estimator as follows:
+You should have already created your [compute target](how-to-create-attach-compute-cluster.md) object `compute_target`. You create the estimator as follows:
 
 ```Python
 from azureml.train.estimator import Estimator
