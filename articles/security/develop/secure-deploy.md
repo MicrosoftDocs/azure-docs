@@ -118,7 +118,7 @@ designed to help you continuously improve performance and usability.
 #### Azure Security Center
 
 [Azure Security
-Center](../../security-center/security-center-intro.md)
+Center](../../security-center/security-center-introduction.md)
 helps you prevent, detect, and respond to threats with increased
 visibility into (and control over) the security of your Azure resources,
 including web applications. Azure Security Center helps detect threats
