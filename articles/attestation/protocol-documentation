@@ -10,7 +10,6 @@ ms.author: mbaldwin
 
 
 ---
-
 # VBS attestation protocol documentation
 
 - The Enclave starts the protocol by requesting a challenge from the service (here shown as the Init message)
