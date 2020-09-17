@@ -56,7 +56,7 @@ There is nothing to install or configure for a compute instance.  Create one any
 
 To learn more about compute instances, including how to install packages, see [compute instances](concept-compute-instance.md).
 
-To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-bring-data.md#clean-up-resources).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
