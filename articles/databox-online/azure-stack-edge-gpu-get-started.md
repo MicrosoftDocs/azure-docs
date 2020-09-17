@@ -15,97 +15,61 @@ Customer intent: As an IT admin, I need to understand how to prepare the portal 
 
 This quickstart details the prerequisites and the steps required to deploy your Azure Stack Edge Pro GPU device. The quickstart steps are performed in the Azure portal and on the local web UI of the device. 
 
-For detailed step-by-step instructions, go to [Tutorial: Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#deployment-configuration-checklist). 
+The total procedure should approximately take XX minutes to complete. For detailed step-by-step instructions, go to [Tutorial: Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#deployment-configuration-checklist). 
 
-The total procedure should approximately take XX minutes to complete.
 
 ## Prerequisites
 
 Before you deploy, make sure that following prerequisites are in place:
 
 1. The Azure Stack Edge Pro GPU device is delivered to your site, [unpacked](azure-stack-edge-gpu-deploy-install.md#unpack-the-device) and [rack mounted](azure-stack-edge-gpu-deploy-install.md#rack-the-device). 
-1. Configure your network such that your device can reach the [listed URLs patterns and ports](azure-stack-edge-gpu-system-requirements.md#networking-requirements). 
+1. Configure your network such that your device can reach the [listed URLs patterns and ports](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
 1. You have owner or contributor access to Azure subscription.
 1. In the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. Search for `Microsoft.DataBoxEdge` and register the resource provider. Repeat to register `Microsoft.Devices` if you'll create an IoT Hub resource to deploy compute workloads.
 1. Make sure you have a minimum of 2 free, static, contiguous IPs for Kubernetes nodes and at least 1 static IP for IoT Edge service. For each module or external service, you deploy, you will need 1 additional IP.
 1. See the [deployment checklist](azure-stack-edge-gpu-deploy-checklist.md) to get everything you'll need for device configuration. 
 
 
-### Get started
+## Deployment steps
 
-### Install
+1. **Install**: Connect PORT 1 to a client computer via a crossover cable or USB Ethernet adapter. Connect at least one other device port for data, preferably 25 GbE, (from PORT 3 to PORT 6) to Internet via at least 1 GbE switch and SFP+ copper cables. Connect the provided power cords to the Power Supply Units and to separate power distribution outlets. Press the power button on the front panel to turn on the device.  
 
-1. Connect PORT 1 to a client computer via a crossover cable or USB Ethernet adapter. Connect at least one other device port for data, preferably 25 GbE, (from PORT 3 to PORT 6) to Internet via at least 1 GbE switch and SFP+ copper cables. 
-1. Connect the provided power cords to the Power Supply Units and to separate power distribution outlets. 
-1. Press the power button on the front panel to turn on the device.  
-
-See [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) and [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products]((https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) to get compatible network cables and switches.
+    See [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) and [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products]((https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) to get compatible network cables and switches.
 
 
-![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+    ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
-### Connect
+2. **Connect**: Configure the IPv4 settings on the Ethernet adapter on your computer with a static IP address of **192.168.100.5** and subnet **255.255.255.0**. Open your browser and connect to the local web UI of device at https://192.168.100.10. This may take a few minutes. Continue to the webpage when you see the security certificate warning.
 
-1. Configure the IPv4 settings on the Ethernet adapter on your computer with a static IP address of **192.168.100.5** and subnet **255.255.255.0**. 
-1. Open your browser and connect to the local web UI of device at https://192.168.100.10. This may take a few minutes. 
-1. Continue to the webpage when you see the security certificate warning.
+3. **Sign in**: Sign into the device with default password *Password1*. Change the device administrator password. The password must contain between 8 to 16 characters, and 3 of the uppercase, lowercase, numeric, and special characters.
 
-### Sign in
+4. **Configure network**: Accept the default DHCP configuration for connected data port if you have a DHCP server in your network. If not, provide an IP, DNS server, and default gateway. See more information on [Network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-network).
 
-1. Sign into the device with default password *Password1*.
-1. Change the device administrator password. The password must contain between 8 to 16 characters, and 3 of the uppercase, lowercase, numeric, and special characters.
+5. **Configure compute network**: Create a virtual switch by enabling a port on your device. Enter 2 free, contiguous static IPs for Kubernetes nodes in the same network that you created the switch. Provide at least 1 static IP for IoT Edge Hub service to access compute modules and 1 static IP for each extra service or container that you want to access from outside the Kubernetes cluster. 
 
-### Configure network
+    Kubernetes is required to deploy all containerized workloads. See more information on [Compute network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network).
 
-Accept the default DHCP configuration for connected data port if you have a DHCP server in your network. If not, provide an IP, DNS server, and default gateway. See more information on [Network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-network).
+6. **Configure web proxy**: If you use web proxy in your environment, enter web proxy server IP in `http://<web-proxy-server-FQDN>:<port-id>`. Set authentication to **None**. 
 
-### Configure compute network
+    See more information on [Web proxy settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-web-proxy).
 
-1. Create a virtual switch by enabling a port on your device. 
-1. Enter 2 free, contiguous static IPs for Kubernetes nodes in the same network that you created the switch. 
-1. Provide at least 1 static IP for IoT Edge Hub service to access compute modules and 1 static IP for each extra service or container that you want to access from outside the Kubernetes cluster. Kubernetes is required to deploy all containerized workloads.
+7. **Configure device**: Enter a device name and DNS domain or accept defaults. 
 
-See more information on [Compute network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-compute-network).
+8. **Configure Update server**: Accept the default Microsoft Update server or specify a Windows Server Update Services (WSUS) server and the path to the server. 
 
-### Configure web proxy
+9. **Configure time settings**: Accept the default time settings or set time zone, primary NTP server, and secondary NTP server on local network or as public servers.
 
-1. If you use web proxy in your environment, enter web proxy server IP in `http://<web-proxy-server-FQDN>:<port-id>`. 
-1. Set authentication to **None**. 
+10. **Configure certificates**: If you changed device name and/or DNS domain, then you must generate certificates or add certificates to activate the device. 
 
-See more information on [Web proxy settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-web-proxy).
+    - To test non-production workloads, use Generate certificates option. 
+    - If you bring your own certificates including the signing chain(s), Add certificates in appropriate format. Make sure to upload the signing chain first. See [Create certificates](azure-stack-edge-j-series-create-certificates-tool.md) and [Upload certificates via the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
 
-### Configure device
+11. **Activate**: To get the activation key 
 
-Enter a device name and DNS domain or accept defaults. 
+    1. In the Azure portal, go to your **Azure Stack Edge resource > Overview > Device setup > Activate > Generate key**. Copy the key. 
+    1. In the local web UI, go to **Get started > Activate** and provide the activation key. When the key is applied, the device takes a few minutes for activation. Download the `<device-serial-number>`.json file when prompted to safely store device keys needed for a future recovery. 
 
-### Configure Update server
-
-Accept the default Microsoft Update server or specify a WSUS server and the path to the server. 
-
-### Configure time settings
-
-Accept the default time settings or set time zone, primary NTP server, and secondary NTP server on local network or as public servers.
-
-### Configure certificates
-
-If you changed device name and/or DNS domain, then you must generate certificates or add certificates to activate the device. 
-
-- To test non-production workloads, use Generate certificates option. 
-- If you bring your own certificates including the signing chain(s), Add certificates in appropriate format. Make sure to upload the signing chain first. See [Create certificates](azure-stack-edge-j-series-create-certificates-tool.md) and [Upload certificates via the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
-
-### Activate
-
-1. To get activation key, in the Azure portal, go to your **Azure Stack Edge resource > Overview > Device setup > Activate > Generate key**. 
-1. Copy the key. 
-1. In the local web UI, go to **Get started > Activate** and provide the activation key. When the key is applied, the device takes a few minutes for activation. 
-1. Download the `<device-serial-number>`.json file when prompted to safely store device keys needed for a future recovery. 
-
-### Configure compute 
-
-1. In the Azure portal, go to **Overview > Device**. 
-1. Verify that the device is **Online**. 
-1. In the left-pane, go to **Edge compute > Get started > Configure Edge compute > Compute**. 
-1. Provide an existing or new IoT Hub service and wait for about 20 minutes for the compute to configure.  
+12. **Configure compute**: In the Azure portal, go to **Overview > Device**. Verify that the device is **Online**. In the left-pane, go to **Edge compute > Get started > Configure Edge compute > Compute**. Provide an existing or new IoT Hub service and wait for about 20 minutes for the compute to configure.  
 
 
 ## Next steps
