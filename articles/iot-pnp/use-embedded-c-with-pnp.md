@@ -4,18 +4,9 @@
 
 If you are developing for **constrained devices**, then you can use IoT Plug and Play with the [Embedded C SDK](https://aka.ms/embeddedcsdk). This page serves as a landing page for samples showcasing Azure IoT Plug and Play for various constrained scenarios. 
 
-## Using the Embedded C SDK on Bare Metal
+## Using the Embedded C SDK
 
 [Fill in with overview]
-
-The Embedded C SDK repository contains [several samples](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0-preview.4/sdk/samples/iot#iot-hub-plug-and-play-sample) showcasing how to use Azure IoT Plug and Play. 
-
-### Introductory Embedded C SDK & IoT Plug and Play Samples
-*Note that these samples are shown running on Windows and Linux for educational and debugging purposes-- in production these are intended for constrained devices only.*
-
-- [Thermostat example with Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_sample.c)
-
-- [Temperature Controller example with the Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/blob/1.0.0-preview.4/sdk/samples/iot/paho_iot_hub_pnp_component_sample.c)
 
 ### Use a real device
 
@@ -23,7 +14,18 @@ For a complete end to end tutorial of using the Embedded C SDK with the Device P
 
 - [PIC-IoT Wx Development Board](https://github.com/Azure-Samples/Microchip-PIC-IoT-Wx)
 
-## Using the Embedded C SDK with Azure RTOS
+### Introductory Embedded C SDK & IoT Plug and Play Samples
+
+The Embedded C SDK repository contains [several samples](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0-preview.4/sdk/samples/iot#iot-hub-plug-and-play-sample) showcasing how to use Azure IoT Plug and Play. 
+
+*Note that these samples are shown running on Windows and Linux for educational and debugging purposes-- in production these are intended for constrained devices only.*
+
+- [Thermostat example with Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_sample.c)
+
+- [Temperature Controller example with the Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/blob/1.0.0-preview.4/sdk/samples/iot/paho_iot_hub_pnp_component_sample.c)
+
+
+## Using Azure RTOS
 
 [Fill in with overview]
 
