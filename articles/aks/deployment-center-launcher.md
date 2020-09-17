@@ -82,7 +82,7 @@ In this tutorial, you will:
 
 1. You'll see the successful logs after deployment is complete.
 
-    ![Logs](media/deployment-center-launcher/logs.png)
+    ![Screenshot shows Deployment center with Release-1 marked with a green check mark icon.](media/deployment-center-launcher/logs.png)
 
 ## Examine the CI pipeline
 
