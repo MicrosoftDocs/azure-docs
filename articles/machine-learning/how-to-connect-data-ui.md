@@ -54,7 +54,7 @@ If your data storage account is in a **virtual network**, additional configurati
 
 ### Access validation
 
-**As part of the initial datastore create and register process**, Azure Machine Learning automatically validates that the underlying storage service exists and the user provided principal (username, service principal, or SAS token) has access to the specified storage.
+**As part of the initial datastore creation and registration process**, Azure Machine Learning automatically validates that the underlying storage service exists and the user provided principal (username, service principal, or SAS token) has access to the specified storage.
 
 **After datastore creation**, this validation is only performed for methods that require access to the underlying storage container, **not** each time datastore objects are retrieved. For example, validation happens if you want to download files from your datastore; but if you just want to change your default datastore, then validation does not happen.
 
@@ -104,7 +104,7 @@ With datasets you can,
 * Keep a single copy of data in your storage.
 * Share data and collaborate with other users.
 * Seamlessly access data during model training without worrying about connection strings or data paths. Learn more about [training ML models with datasets](#train-with-datasets).
-* Leverage open source libraries for data exploration like pandas.
+* Leverage open-source libraries for data exploration like pandas.
 * Create references to single or multiple files or public URLs with [FileDatasets](how-to-create-register-datasets.md#filedataset).
 
 * Represent your data in a tabular format with [TabularDatasets](how-to-create-register-datasets.md#tabulardataset).
@@ -172,6 +172,6 @@ Use your datasets in your machine learning experiments for training ML models. [
 
 ## Next steps
 
-* See a step by step example of  [training with TabularDatasets and automated machine learning](tutorial-first-experiment-automated-ml.md).
+* See a step-by-step example of [training with TabularDatasets and automated machine learning](tutorial-first-experiment-automated-ml.md).
 * [Train a model](how-to-train-ml-models.md)
 * For more dataset training examples, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
