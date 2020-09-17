@@ -183,7 +183,7 @@ To create a pipeline with a step to deploy a template:
 
     The yml file shall be similar to:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![Screenshot shows the Review page with the new pipline titled Review your pipeline YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Select **Save and run**.
 1. From the **Save and run** pane, select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.

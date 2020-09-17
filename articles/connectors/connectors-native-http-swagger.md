@@ -49,17 +49,17 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Enter URL for Swagger endpoint](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Screenshot shows the Logic app designer page with the Swagger Endpoint URL entered.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. When the designer shows the operations described by the Swagger file, select the operation that you want to use.
 
-   ![Operations in Swagger file](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Screenshot shows the Logic app designer page with the Swagger operation options displayed.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Provide the values for the trigger parameters, which vary based on the selected operation, that you want to include in the endpoint call. Set up the recurrence for how often you want the trigger to call the endpoint.
 
    This example renames the trigger to "HTTP + Swagger trigger: Face - Detect" so that the step has a more descriptive name.
 
-   ![Operation details](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Screenshot shows an example of the HTTP + Swagger trigger: Face - Detect window.](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 

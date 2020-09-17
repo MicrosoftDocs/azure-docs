@@ -187,7 +187,7 @@ properties that are specific to records in that table.
    | **Area ID** | Yes | The ID for the record you want, such as "99999" in this example |
    ||||
 
-   ![Select table](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Screenshot shows the Get row (Preview) window with the Table name drop-down menu open and the Area value highlighted.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. When you're done, on the designer toolbar, choose **Save**.
 
@@ -229,7 +229,7 @@ section, but add the **Get rows** action instead, and then return here to contin
 1. Open the **Table name** list, and then select the table you want, 
 which is "AREA" in this example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Screenshot shows the Get row (Preview) window with the Area value highlighted.](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. To specify a filter or query for results, choose **Show advanced options**.
 
@@ -288,7 +288,7 @@ properties that are specific to records in that table.
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Screenshot shows the Logic Apps Designer page.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. When you're done, on the designer toolbar, choose **Save**.
 
@@ -346,7 +346,7 @@ properties that are specific to records in that table.
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Screenshot shows an example of the Logic Apps Designer page.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. When you're done, on the designer toolbar, choose **Save**.
 
@@ -401,7 +401,7 @@ properties that are specific to records in that table.
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Screenshot shows the Logic Apps Designer with the Delete row (Preview) section displayed.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. When you're done, on the designer toolbar, choose **Save**.
 
