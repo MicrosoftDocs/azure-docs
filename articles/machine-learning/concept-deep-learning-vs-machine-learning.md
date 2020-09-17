@@ -69,7 +69,7 @@ Deep learning has been applied in many object detection use cases. Object detect
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
 
-Learn how to use an image classification model from an open source framework in Azure Machine Learning: [Classify images by using a Pytorch model](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Learn how to use an image classification model from an open-source framework in Azure Machine Learning: [Classify images by using a Pytorch model](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### Image caption generation
 
@@ -109,7 +109,7 @@ Recurrent neural networks are a widely used artificial neural network. These net
 
 A convolutional neural network is a particularly effective artificial neural network, and it presents a unique architecture. Layers are organized in three dimensions: width, height, and depth. The neurons in one layer connect not to all the neurons in the next layer, but only to a small region of the layer's neurons. The final output is reduced to a single vector of probability scores, organized along the depth dimension. 
 
-Convolutional neural networks have been used in areas such as video recognition, image recognition and recommender systems.
+Convolutional neural networks have been used in areas such as video recognition, image recognition, and recommender systems.
 
 ## Next steps
 
