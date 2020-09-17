@@ -20,8 +20,9 @@ A P2S VPN connection is started from Windows and Mac devices. Connecting clients
 
 * RADIUS server
 * VPN Gateway native certificate authentication
+* Native Azure Active Directory authentication (Windows 10 only)
 
-This article helps you configure a P2S configuration with authentication using RADIUS server. If you want to authenticate using generated certificates and VPN gateway native certificate authentication instead, see [Configure a Point-to-Site connection to a VNet using VPN gateway native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md).
+This article helps you configure a P2S configuration with authentication using RADIUS server. If you want to authenticate using generated certificates and VPN gateway native certificate authentication instead, see [Configure a Point-to-Site connection to a VNet using VPN gateway native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md) or [Create an Azure Active Directory tenant for P2S OpenVPN protocol connections](openvpn-azure-ad-tenant.md) for Azure Active Directory authentication.
 
 ![Connection diagram - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
@@ -36,7 +37,7 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 P2S connections require the following:
 
 * A RouteBased VPN gateway. 
-* A RADIUS server to handle user authentication. The RADIUS server can be deployed on-premises, or in the Azure VNet.
+* A RADIUS server to handle user authentication. The RADIUS server can be deployed on-premises, or in the Azure VNet. You can also configure two RADIUS servers for high availability.
 * A VPN client configuration package for the Windows devices that will connect to the VNet. A VPN client configuration package provides the settings required for a VPN client to connect over P2S.
 
 ## <a name="aboutad"></a>About Active Directory (AD) Domain Authentication for P2S VPNs
