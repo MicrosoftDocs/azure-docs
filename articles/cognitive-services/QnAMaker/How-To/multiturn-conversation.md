@@ -87,7 +87,7 @@ Select **View options**, and then select **Show context**. The list displays que
 
 The multi-turn context is displayed in the first column.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot shows the Context section highlighted." column" lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot shows the Context section highlighted." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 In the preceding image, **#1** indicates bold text in the column, which signifies the current question. The parent question is the top item in the row. Any questions below it are the linked question-and-answer pairs. These items are selectable, so that you can immediately go to the other context items.
 

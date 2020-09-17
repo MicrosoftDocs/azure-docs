@@ -85,7 +85,7 @@ Select **Create** to provision the web app to the *East US* region.
 
 ![Screenshot shows the Web App for Containers Create window with the Create button highlighted.][deploy-app-portal-06]
 
-## View the deployed web app
+## View the second deployed web app
 
 As before, you can view the running application by navigating to its URL in your browser.
 
