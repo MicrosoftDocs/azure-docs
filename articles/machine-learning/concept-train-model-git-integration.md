@@ -71,7 +71,7 @@ cat ~/.ssh/id_rsa.pub
 ```
 > [!TIP]
 > **Copy and Paste in Terminal**
-> * Windows: Right-click and select `Copy` to copy and use `Ctrl-Shift-v` to paste.
+> * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
 > * FireFox/IE may not support clipboard permissions properly.
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
 
