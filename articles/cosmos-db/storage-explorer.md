@@ -8,9 +8,9 @@ ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ---
-# Use Azure Storage Explorer to work with data
+# Manage Azure Cosmos DB resources by using Azure Storage Explorer
 
-Azure Cosmos DB in Azure Storage Explorer is a standalone app. It lets you connect to Azure Cosmos DB accounts hosted on Azure and sovereign clouds from Windows, macOS, or Linux.
+You can use Azure Storage explorer to connect to Azure Cosmos DB. It lets you connect to Azure Cosmos DB accounts hosted on Azure and sovereign clouds from Windows, macOS, or Linux.
 
 Use the same tool to manage your different Azure entities in one place. You can manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
 
@@ -59,7 +59,7 @@ You can use a connection string to connect to an Azure Cosmos DB. This method on
 2. In the **Connect to Cosmos DB** window:
    1. Choose the API from the drop-down menu.
    1. Paste your connection string in the **Connection string** box. For how to retrieve the primary connection string, see [Get the connection string](manage-with-powershell.md#list-keys).
-   1. Enter an Account label, and then select **Next** to check the summary.
+   1. Enter an **Account label**, and then select **Next** to check the summary.
    1. Select **Connect** to connect the Azure Cosmos DB account.
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Enter your connection string":::
@@ -77,7 +77,7 @@ Use the following steps to connect to an Azure Cosmos DB with an emulator. This 
 
 1. In the **Connect to Cosmos DB** window:
    1. Paste your connection string in the **Connection string** box. For information on retrieving the primary connection string, see [Get the connection string](manage-with-powershell.md#list-keys).
-   1. Enter an Account label, and then select **Next** to check the summary.
+   1. Enter an **Account label**, and then select **Next** to check the summary.
    1. Select **Connect** to connect the Azure Cosmos DB account.
 
       :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Connect to Cosmos DB from the emulator dialog box":::
