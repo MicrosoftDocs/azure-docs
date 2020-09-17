@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 09/17/2020
 ms.author: jeedes
 ---
 
@@ -169,7 +169,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     * Click on **Enable IDP Initiated Logout** checkbox.
 
-    * In the Azure portal, on the **Set up Workday** section, copy the **Logout URL** value, and then paste it into the **Logout Response URL** textbox.
+    * In the **Logout Response URL** textbox, type **http://www.workday.com**.
 
     * In the **Logout Request URL** textbox, paste the **Logout URL** value, which you have copied from Azure portal.
 
