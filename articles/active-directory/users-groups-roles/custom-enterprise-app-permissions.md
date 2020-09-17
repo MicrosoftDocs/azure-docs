@@ -22,7 +22,7 @@ This article contains the currently available Enterprise application permissions
 
 Using this feature requires an Azure AD Premium P1 license for your Azure AD organization. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## Delegate only App Proxy connectors
+## Delegate app proxy connector management
 
 To delegate create, read, update and delete (CRUD) operations for connector management. Permissions required:
 
@@ -33,7 +33,7 @@ To delegate create, read, update and delete (CRUD) operations for connector mana
 - microsoft.directory/connectors/allProperties/read
 - microsoft.directory/connectors/create
 
-## Manage only App Proxy settings for an app
+## Delegate app proxy settings management
 
 To delegate create, read, update and delete (CRUD) operations for app proxy properties on an app. Permissions required:
 
@@ -46,14 +46,14 @@ To delegate create, read, update and delete (CRUD) operations for app proxy prop
 - microsoft.directory/applications/authentication/update
 - microsoft.directory/connectorGroups/allProperties/read
 
-## Read only App Proxy Settings for an App
+## Read App Proxy Settings for an app
 
 To delegate Read permissions for app proxy properties on an app. Permissions required:
 
 - microsoft.directory/applications/applicationProxy/read
 - microsoft.directory/connectorGroups/allProperties/read
 
-## Update only URL configuration App Proxy Settings for an App
+## Update URL configuration App Proxy settings for an app
 
 Read properties for app proxy properties on an app. Permissions required:
 
