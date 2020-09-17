@@ -48984,21 +48984,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/Content-Moderator/includes/quickstarts/content-moderator-client-library-csharp.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/includes/csharp-sdk",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/cognitive-services/Content-Moderator/includes/quickstarts/content-moderator-client-library-java.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/includes/java-sdk",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/cognitive-services/Content-Moderator/includes/quickstarts/content-moderator-client-library-python.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/includes/python-sdk",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
       "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
