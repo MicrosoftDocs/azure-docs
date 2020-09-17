@@ -101,6 +101,7 @@ Load was generated against 10 files with various IO sizes. The scale up test res
 - Spreading load over multiple files allowed for substantial improvements.
 
 An example command that was used in this testing is: 
+
 `diskspd.exe -W300 -C5 -r -w100 -b4k -t8 -o8 -Sh -d60 -L -c2G -Z1G z:\write0.dat z:\write1.dat z:\write2.dat z:\write3.dat z:\write4.dat z:\write5.dat z:\write6.dat z:\write7.dat z:\write8.dat z:\write9.dat `.
 
 ### Multi-threaded/single file workloads with SMB Multichannel
@@ -111,7 +112,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 :::image type="content" source="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-throughput-performance.png" alt-text="Diagram of single file throughput performance." lightbox="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-throughput-performance.png":::
 
-- On a single NIC with larger average IO size (> ~16k) there was significant improvements in btoh reads and writes.
+- On a single NIC with larger average IO size (> ~16k) there was significant improvements in both reads and writes.
 - For smaller IO sizes, there was a slight impact of ~10% on performance when SMB Multichannel was enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
 - Performance is still bound by [single file limits](storage-files-scale-targets.md#file-share-and-file-scale-targets).
 
