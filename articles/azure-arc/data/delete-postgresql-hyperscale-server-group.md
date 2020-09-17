@@ -69,7 +69,7 @@ logs-postgres01-3   Bound    pvc-f9e4cb98-c943-45b0-aa07-dd5cff7ea585   5Gi     
 There are 8 PVCs for this server group.
 
 ### 2. Delete each of the PVCs
-Delete the data and log PVCs for each of the Postgres Hyperscale nodes (Coordinator and Workers) of the server group you deleted.
+Delete the data and log PVCs for each of the PostgreSQL Hyperscale nodes (Coordinator and Workers) of the server group you deleted.
 The general format of this command is: 
 ```console
 kubectl delete pvc <name of pvc>
