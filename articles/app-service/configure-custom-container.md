@@ -23,6 +23,24 @@ This guide provides key concepts and instructions for containerization of Linux 
 
 ::: zone-end
 
+## Change the Docker image of a custom container
+
+To change an existing custom container app from the current Docker image to a new image, use the following command:
+
+```azurecli-interactive
+az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <docker-hub-repo>/<image>
+```
+
+## Use an image from a private registry
+
+To use an image from a private registry, such as Azure Container Registry, run the following command:
+
+```azurecli-interactive
+az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <image-name> --docker-registry-server-url <private-repo-url> --docker-registry-server-user <username> --docker-registry-server-password <password>
+```
+
+For *\<username>* and *\<password>*, supply the login credentials for your private registry account.
+
 ## I don't see the updated container
 
 If you change your Docker container settings to point to a new container, it may take a few minutes before the app serves HTTP requests from the new container. While the new container is being pulled and started, App Service continues to serve requests from the old container. Only when the new container is started and ready to receive requests does App Service start sending requests to it.
@@ -66,7 +84,15 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB
 When your app runs, the App Service app settings are injected into the process as environment variables automatically. 
 
 ::: zone pivot="container-windows"
-For IIS or .NET based containers, they're injected into `System.ConfigurationManager` as .NET app settings and connection strings automatically.
+For IIS or .NET Framework (4.0 or above) based containers, they're injected into `System.ConfigurationManager` as .NET app settings and connection strings automatically by App Service. For all other language or framework, they're provided as environment variables for the process, with one of the following corresponding prefixes:
+
+- `APPSETTING_`
+- `SQLCONTR_`
+- `MYSQLCONTR_`
+- `SQLAZURECOSTR_`
+- `POSTGRESQLCONTR_`
+- `CUSTOMCONNSTR_`
+
 ::: zone-end
 
 ::: zone pivot="container-linux"
@@ -79,17 +105,17 @@ This method works both for single-container apps or multi-container apps, where 
 
 ::: zone pivot="container-windows"
 
-You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
+You can use the *C:\home* directory in your app's file system to persist files across restarts and share them across instances. The `C:\home` in your app is provided to enable your container app to access persistent storage.
 
-When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
+When persistent storage is disabled, then writes to the `C:\home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `C:\home\LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-You can use the *C:\home* directory in your app's file system to persist files across restarts and share them across instances. The `C:\home` in your app is provided to enable your container app to access persistent storage.
+You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
 
-When persistent storage is disabled, then writes to the `C:\home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `C:\home\LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app.
+When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
 
 ::: zone-end
 
@@ -166,7 +192,7 @@ In PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8 GB.
+The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8 GB. Information on how much memory is available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium Container (Windows) Plan** section.
 
 ## Customize the number of compute cores
 
@@ -192,11 +218,11 @@ Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logi
 Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
 ```
 
-The processors may be multicore or hyperthreading processors. Information on how many cores are available per SKU can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium Container (Windows) Plan** section.
+The processors may be multicore or hyperthreading processors. Information on how many cores are available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium Container (Windows) Plan** section.
 
 ## Customize health ping behavior
 
-App Service considers a container to be successfully started when the container starts and responds to an HTTP ping. If the container starts but does not respond to a ping after a certain amount of time, App Service logs an event in the Docker log, saying that the container didn't start. 
+App Service considers a container to be successfully started when the container starts and responds to an HTTP ping. The health ping request containers the header `User-Agent= "App Service Hyper-V Container Availability Check"`. If the container starts but does not respond to a ping after a certain amount of time, App Service logs an event in the Docker log, saying that the container didn't start. 
 
 If your application is resource-intensive, the container might not respond to the HTTP ping in time. To control the actions when HTTP pings fail, set the `CONTAINER_AVAILABILITY_CHECK_MODE` app setting. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
@@ -214,8 +240,8 @@ The following table shows the possible values:
 
 | Value | Descriptions |
 | - | - |
-| **Repair** | The default value. Restart the container after three consecutive availability checks |
-| **ReportOnly** | Don't restart the container but report in the Docker logs for the container after three consecutive availability checks. |
+| **Repair** | Restart the container after three consecutive availability checks |
+| **ReportOnly** | The default value. Don't restart the container but report in the Docker logs for the container after three consecutive availability checks. |
 | **Off** | Don't check for availability. |
 
 ::: zone-end
@@ -266,24 +292,6 @@ SSH enables secure communication between a container and a client. In order for 
 ## Access diagnostic logs
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
-
-## Change the Docker image of a custom container
-
-To change an existing custom container app from the current Docker image to a new image, use the following command:
-
-```azurecli-interactive
-az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <docker-hub-repo>/<image>
-```
-
-## Use an image from a private registry
-
-To use an image from a private registry, such as Azure Container Registry, run the following command:
-
-```azurecli-interactive
-az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <image-name> --docker-registry-server-url <private-repo-url> --docker-registry-server-user <username> --docker-registry-server-password <password>
-```
-
-For *\<username>* and *\<password>*, supply the login credentials for your private registry account.
 
 ## Configure multi-container apps
 
@@ -362,3 +370,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 > [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Load certificate in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificate-in-windowslinux-containers)
