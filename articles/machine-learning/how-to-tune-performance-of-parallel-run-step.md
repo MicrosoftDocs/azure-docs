@@ -37,9 +37,11 @@ Logs of ParallelRunStep are stored in temporary location of local disk during th
 
 ## How to Choose Compute Target
 
-- To understand concept of compute target, please refer to this article: [What are compute targets in Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
+For the concept of compute target, please refer to: 
+- [What are compute targets in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)
 
-- Sizes and options for Azure virtual machines are described in this article: [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes).
+For the sizes and options for Azure virtual machines, please refer to: 
+- [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes)
 
 
 ## Best Practices of Compute Target Choice
