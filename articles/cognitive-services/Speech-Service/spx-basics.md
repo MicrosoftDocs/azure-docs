@@ -69,7 +69,8 @@ In this command, you specify both the source (language to translate **from**), a
 
 The Speech CLI can read and write multiple settings in configuration files, which are stored in the Speech CLI datastore, and are named with a @ symbol.
 You set the `@key` and `@region` configuration files with your account details once rather than specifying them with each command line call.
-You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
+You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime. The Speech CLI will also look in the current directory to find
+configuration files not found in the datastore.
 
 The following example clears the `@my.defaults` configuration file,
 adds key-value pairs for **key** and **region** in the file, and uses the configuration
