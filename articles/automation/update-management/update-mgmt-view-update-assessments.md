@@ -29,7 +29,7 @@ In Update Management, you can view information about your Arc enabled machine, m
 
 [ ![Update Management assessment view for Arc enabled servers](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
 
-To view update assessment across several machines, including Arc enabled servers from your Automation account, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list. In your Automation account, select **Update management** from the left menu.
+To view update assessment across all machines, including Arc enabled servers from your Automation account, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list. In your Automation account, select **Update management** from the left menu.
 
 The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of them is shown on the **Missing updates** tab.
 
