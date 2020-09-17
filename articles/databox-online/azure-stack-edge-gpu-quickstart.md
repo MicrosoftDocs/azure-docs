@@ -34,9 +34,10 @@ Before you deploy, make sure that following prerequisites are in place:
 
 1. **Install**: Connect PORT 1 to a client computer via a crossover cable or USB Ethernet adapter. Connect at least one other device port for data, preferably 25 GbE, (from PORT 3 to PORT 6) to Internet via at least 1 GbE switch and SFP+ copper cables. Connect the provided power cords to the Power Supply Units and to separate power distribution outlets. Press the power button on the front panel to turn on the device.  
 
-    See [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) and [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products]((https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) to get compatible network cables and switches.
+    See [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) and [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) to get compatible network cables and switches.
 
-    ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+    Here is the minimum cabling configuration needed to deploy your device:
+    ![Back plane of a cabled device](./media/azure-stack-edge-gpu-quickstart/backplane-min-cabling-1.png)
 
 2. **Connect**: Configure the IPv4 settings on the Ethernet adapter on your computer with a static IP address of **192.168.100.5** and subnet **255.255.255.0**. Open your browser and connect to the local web UI of device at https://192.168.100.10. This may take a few minutes. Continue to the webpage when you see the security certificate warning.
 
