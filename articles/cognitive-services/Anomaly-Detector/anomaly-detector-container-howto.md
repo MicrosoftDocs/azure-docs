@@ -20,7 +20,7 @@ The Anomaly Detector has the following container feature functionality:
 
 | Function | Features |
 |--|--|
-| Anomaly detector | <li> Detects anomalies as they occur in real-time. <li> Detects anomalies throughout your data set as a batch. <li> Infers the expected normal range of your data. <li> Supports anomaly detection sensitivity adjustment to better fit your data. |
+| Anomaly detector | <li> Detects anomalies as they occur in real-time. <li> Detects anomalies throughout your data set as a batch. <li> Detects trend change points in your data set as a batch.<li> Infers the expected normal range of your data. <li> Supports anomaly detection sensitivity adjustment to better fit your data. |
 
 For detailed information about the APIs, please see:
 * [Learn more about Anomaly Detector API service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -174,7 +174,7 @@ For more information about these options, see [Configure containers](anomaly-det
 In this article, you learned concepts and workflow for downloading, installing, and running Anomaly Detector containers. In summary:
 
 * Anomaly Detector provides one Linux container for Docker, encapsulating anomaly detection with batch vs streaming, expected range inference, and sensitivity tuning.
-* Container images are downloaded from a private Azure Container Registry dedicated for containers preview.
+* Container images are downloaded from a private Azure Container Registry dedicated for containers.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Anomaly Detector containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
