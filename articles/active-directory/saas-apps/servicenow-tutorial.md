@@ -58,11 +58,11 @@ To configure the integration of ServiceNow into Azure AD, you need to add Servic
 1. In the **Add from the gallery** section, enter **ServiceNow** in the search box.
 1. Select **ServiceNow** from results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for ServiceNow
+## Configure and test Azure AD SSO for ServiceNow
 
 Configure and test Azure AD SSO with ServiceNow by using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ServiceNow.
 
-To configure and test Azure AD SSO with ServiceNow, complete the following building blocks:
+To configure and test Azure AD SSO with ServiceNow, perform the following steps:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
 	1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
@@ -87,20 +87,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. In the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In **Sign on URL**, enter a URL that uses the following pattern:
-    `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    `https://<instancename>.service-now.com/navpage.do`
 
     b. In **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
-	c. For **Reply URL**, enter one of the following URL:
+	c. For **Reply URL**, enter one of the following URL patterns:
 
 	| Reply URL|
 	|----------|
-	| `https://instancename.service-now.com/navpage.do` |
-	| `https://instancename.service-now.com/customer.do` | 
+	| `https://<instancename>.service-now.com/navpage.do` |
+	| `https://<instancename>.service-now.com/customer.do` | 
+
+	d. In **Logout URL**, enter a URL that uses the following pattern:
+	`https://<instancename>.service-now.com/navpage.do`
 
 	> [!NOTE]
-	> These values aren't real. You need to update these values with the actual sign-on URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. 
 
@@ -155,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 4. In the **Basic SAML Configuration** section, perform the following steps:
 
 	a. For **Sign on URL**, enter a URL that uses the following pattern:
-    `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    `https://<instancename>.service-now.com/navpage.do`
 
     b. For **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
@@ -164,11 +167,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	| Reply URL |
 	|-----------|
-	| `https://instancename.service-now.com/navpage.do` |
-	| `https://instancename.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/navpage.do` |
+	| `https://<instancename>.service-now.com/customer.do` |
+
+	d. In **Logout URL**, enter a URL that uses the following pattern:
+	`https://<instancename>.service-now.com/navpage.do`
 
 	> [!NOTE]
-	> These values aren't real. You need to update these values with the actual sign-on URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Base64)** from the specified options, as per your requirement. Save it on your computer.
 
@@ -252,18 +258,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		       a. For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
 
-		       b. Remove the populated **Identity Provider's SingleLogoutRequest** value from the textbox.
-
-		       c. Copy the **ServiceNow Homepage** value, and paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		       b. Copy the **ServiceNow Homepage** value, and paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
 			    > [!NOTE]
 			    > The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
-		      d. Copy the **Entity ID / Issuer** value, and paste it in **Identifier** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		      c. Copy the **Entity ID / Issuer** value, and paste it in **Identifier** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
-		      e. Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value. 
+		      d. Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value. 
 
-			  f. Click on **Advanced** and give the **Single Sign-On Script** value as **MultiSSOv2_SAML2_custom**.
+			  e. Click on **Advanced** and give the **Single Sign-On Script** value as **MultiSSOv2_SAML2_custom**.
 
 	     1. Scroll down to the **X.509 Certificate** section, and select **Edit**.
 
@@ -318,18 +322,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		a. For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
 
-		b. Remove the populated **Identity Provider's SingleLogoutRequest** value from the text box.
-
-		c. Copy the **ServiceNow Homepage** value. Paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		b. Copy the **ServiceNow Homepage** value. Paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
 		> [!NOTE]
 		> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
-		d. Copy the **Entity ID / Issuer** value. Paste it in **Identifier** in **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		c. Copy the **Entity ID / Issuer** value. Paste it in **Identifier** in **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
-		e. Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value.
+		d. Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value.
 
-		f. Select **Advanced**. In **User Field**, enter **email**.
+		e. Select **Advanced**. In **User Field**, enter **email**.
 
 		> [!NOTE]
 		> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
