@@ -93,7 +93,7 @@ Related links:
 
 ### Configure service access
 
-Currently, Azure Security Center can't perform [image vulnerability scanning](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. Also, resources of the following services are unable to access a container registry with network restrictions:
+Currently, Azure Security Center can't perform [image vulnerability scanning](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. Also, resources of the following services are unable to access a container registry with network restrictions:
 
 * Azure DevOps Services 
 * Azure Container Instances
