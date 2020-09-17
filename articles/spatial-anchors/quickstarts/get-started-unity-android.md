@@ -55,7 +55,7 @@ Select your device in **Run Device** and then select **Build And Run**. You'll b
 
 Once the app starts, you should see a screen that looks like this:
 
-<img src="./media/get-started-unity-android/demo-app-screen.png" alt="App screen" width="30%">
+![App screen](./media/get-started-unity-android/demo-app-screen.png)
 
 Follow the instructions in the app to place and recall an anchor.
 
