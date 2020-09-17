@@ -41,11 +41,11 @@ Apache Spark history server is the web user interface for completed and running 
 
 1. From your Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
 
-   ![Launch Spark history server](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
+   ![Launch Spark history server 1](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
 
 2. Select **Spark history server** from the slide out panel.
 
-   ![Launch Spark history server](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
+   ![Launch Spark history server 2](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
 
 ## Explore the Data tab in Spark history server
 
