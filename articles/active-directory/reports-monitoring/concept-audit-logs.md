@@ -25,6 +25,8 @@ ms.collection: M365-identity-device-management
 
 With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing.
 
+
+
 The reporting architecture consists of the following components:
 
 - **Activity** 
