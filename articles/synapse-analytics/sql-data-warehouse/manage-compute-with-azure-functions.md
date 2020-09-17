@@ -119,10 +119,10 @@ Currently, there are only two scaling functions included within the template. Wi
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600
+   // Scale the SQL pool instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
-       "ServiceLevelObjective": "DW600"
+       "ServiceLevelObjective": "DW600c"
    }
    ```
 
