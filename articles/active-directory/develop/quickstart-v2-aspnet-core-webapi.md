@@ -73,7 +73,7 @@ The web API receives a token from a client, and the code in the web API validate
 
 ### Startup class
 
-*Microsoft.AspNetCore.Authentication* middleware uses a Startup class that is executed when the hosting process initializes:
+The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's executed when the hosting process initializes:
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -84,9 +84,9 @@ The web API receives a token from a client, and the code in the web API validate
     }
 ```
 
-The method `AddAuthentication` configures the service to add JwtBearer-based authentication.
+The `AddAuthentication()` configures the service to add JwtBearer-based authentication.
 
-The line containing `.AddMicrosoftIdentityWebApi` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint.
+The line containing `.AddMicrosoftIdentityWebApi` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 
 > |Where | Description |
 > |---------|---------|
