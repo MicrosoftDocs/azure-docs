@@ -20,7 +20,7 @@ In part two of this three-part tutorial for predicting iron ore impurities in Az
 
 ## Create Azure Stream Analytics module
 
-Create an Azure Stream Analytics module that will be used in this tutorial. To learn more about using streaming jobs with SQL Edge, see [Using streaming jobs with SQL Edge](stream-analytics.md).
+Create an Azure Stream Analytics module that will be used in this tutorial.
 
 Once the Azure Stream Analytics job is created with the hosting environment set as Edge, set up the inputs and outputs for the tutorial.
 
@@ -49,7 +49,7 @@ Once the Azure Stream Analytics job is created with the hosting environment set 
 
    `SELECT * INTO <name_of_your_output_stream> FROM <name_of_your_input_stream>`
    
-4. Under **Configure**, select **Publish**, and then select the **Publish** button. Save the SAS URI for use with the SQL Database Edge module.
+4. Under **Configure**, select **Publish**, and then select the **Publish** button. Save the SAS URI for use with the SQL Edge module.
 
 ## Specify container registry credentials
 
@@ -92,11 +92,11 @@ Now, specify the container credentials in the IoT Edge module.
    ASEdemocontregistry.azurecr.io/silicaprediction:amd64
    ```
 
-3. CLick **Add**.
+3. Click **Add**.
 
 ## Deploy the Azure SQL Edge module
 
-1. Deploy the Azure SQL Edge module by following the steps listed in [Deploy Azure SQL Edge (Preview)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+1. Deploy the Azure SQL Edge module by following the steps listed in [Deploy Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
 
 2. On the **Specify Route** of the **Set Modules** page, specify the routes for module to IoT Edge hub communication as follows. 
 
