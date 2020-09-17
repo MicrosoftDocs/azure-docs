@@ -106,7 +106,7 @@ Add the bot protection rule set:
 
 ## Associate the WAF policy with the Azure Front Door resource
 
-In this step, we'll associate the WAF policy we've created with the Azure Front Door resource that's in front of your web application:
+In this step, we'll associate the WAF policy we created with the Azure Front Door resource that's in front of your web application:
 
 ```azurecli-interactive 
 az network front-door update --name <> --resource-group <> --set frontendEndpoints[0].webApplicationFirewallPolicyLink='{"id":"<>"}'
@@ -125,11 +125,11 @@ If you're not using any custom domains to access your web applications, you can 
 
 ## Configure the custom domain for your web application
 
-The custom domain name of your web application is the one that customers use to refer to your application, for example, www.contoso.com. Initially, this custom domain name was pointing to the location where it was running before you introduced Azure Front Door. After you add Azure Front Door and WAF to front the application, the DNS entry that corresponds to that custom domain should point to the Azure Front Door resource. You can make this change by remapping the entry in your DNS server to the Azure Front Door `hostName` you noted when you created the Azure Front Door resource.
+The custom domain name of your web application is the one that customers use to refer to your application. For example, www.contoso.com. Initially, this custom domain name was pointing to the location where it was running before you introduced Azure Front Door. After you add Azure Front Door and WAF to front the application, the DNS entry that corresponds to that custom domain should point to the Azure Front Door resource. You can make this change by remapping the entry in your DNS server to the Azure Front Door `hostName` you noted when you created the Azure Front Door resource.
 
 Specific steps to update your DNS records will depend on your DNS service provider. If you use Azure DNS to host your DNS name, you can refer to the documentation for [steps to update a DNS record](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) and point to the Azure Front Door `hostName`. 
 
-There's one important thing to note if you need your customers to navigate to your website by using the zone apex, for example, contoso.com. In this case, you have to use Azure DNS and its [ALIAS record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
+There's one important thing to note if you need your customers to get to your website by using the zone apex (for example, contoso.com). In this case, you have to use Azure DNS and its [alias record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
 
 You also need to update your Azure Front Door configuration to [add the custom domain](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) to it so that it's aware of this mapping.
 
@@ -157,4 +157,4 @@ To learn how to troubleshoot your Front Door, see the troubleshooting guides:
 > [Troubleshooting common routing issues](front-door-troubleshoot-routing.md)
 
 > [!div class="nextstepaction"]
-> [Allowed certificate authorities](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-troubleshoot-allowed-ca)
+> [Allowed certificate authorities](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)
