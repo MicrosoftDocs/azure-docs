@@ -332,7 +332,7 @@ Once you update the sample [DeploymentManifest.json](https://go.microsoft.com/fw
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
 |Parameter  |Description  |
