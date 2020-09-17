@@ -3,13 +3,13 @@ title: View Azure Automation update assessments
 description: This article tells how to view update assessments for Update Management deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 09/16/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ---
 
 # View update assessments in Update Management
 
-In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments. You can view the assessment information scoped to the selected machine from the selected Azure virtual machine, from the selected Arc enabled server, or from the Automation account across all configured machines and servers.
+In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Arc enabled server, or from the Automation account across all configured machines and servers.
 
 ## Sign in to the Azure portal
 
