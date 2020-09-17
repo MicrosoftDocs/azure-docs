@@ -1,33 +1,41 @@
 ---
 title: Create and manage a compute instance
 titleSuffix: Azure Machine Learning
-description: 'A compute instance is... Learn how to create a and manage cluster through Azure Machine Learning. '
+description: Learn how to create and manage a compute instance in your Azure Machine Learning workspace. Use the compute instance as your developement environment, or for training and inferencing dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.author: jordane
-author: jpe316
+ms.author: sgilley
+author: sdgilley
 ms.reviewer: sgilley
 ms.date: 09/01/2020
 ---
 
-# Create and manage a compute instance
+# Create and manage an Azure Machine Learning compute instance
 
-[Azure Machine Learning compute instance](concept-compute-instance.md) is a managed-compute infrastructure that allows you to easily create a single VM. The compute is created within your workspace region, but unlike a [compute cluster](how-to-create-attach-compute-cluster.md), an instance cannot be shared with other users in your workspace. Also the instance does not automatically scale down.  You must stop the resource to prevent ongoing charges.
+Learn how to create and manage a compute instance in your Azure Machine Learning workspace.
 
-Use a compute instance as your fully configured and managed development environment in the cloud for machine learning. Or as a compute target for training and inferencing for development and testing purposes. A compute instance can run multiple jobs in parallel and has a job queue. 
+Use a compute instance as your fully configured and managed development environment in the cloud for machine learning. Or as a compute target for training and inferencing for development and testing purposes. A compute instance can run multiple jobs in parallel and has a job queue. Unlike a [compute cluster](how-to-create-attach-compute-cluster.md) a compute instance cannot be shared with other users in your workspace.
 
-Compute instances can run jobs securely in a [virtual network environment](how-to-enable-virtual-network.md#compute-instance), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
+In this article, you learn how to:
+
+* Create a compute instance 
+* Manage (start, stop, restart, delete) a compute instance
+* Access the terminal window to:
+  * Install R or Python packages
+  * Create new environments or Jupyter kernels
+
+Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
-## Create a compute instance
+## Create 
 
 **Time estimate**: Approximately 5 minutes.
 
@@ -77,7 +85,7 @@ For more information on the classes, methods, and parameters used in this exampl
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
+az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
 For more information, see the [az ml computetarget create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) reference.
@@ -91,91 +99,7 @@ For information on creating a compute instance in the studio, see [Create comput
 ---
 
 
-You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-
-
-## Managing a compute instance
-
-# [Python](#tab/python)
-
-# [Azure CLI](#tab/azure-cli)
-
-Manage compute instances.  In all the examples below, the name of the compute instance is **cpu**
-
-+ Create a new computeinstance.
-
-    ```azurecli-interactive
-    az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
-    ```
-
-    For more information, see [az ml computetarget create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
-
-+ Stop a computeinstance.
-
-    ```azurecli-interactive
-    az ml computetarget stop computeinstance -n cpu -v
-    ```
-
-    For more information, see [az ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
-
-+ Start a computeinstance.
-
-    ```azurecli-interactive
-    az ml computetarget start computeinstance -n cpu -v
-    ```
-
-    For more information, see [az ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
-
-+ Restart a computeinstance.
-
-    ```azurecli-interactive
-    az ml computetarget restart computeinstance -n cpu -v
-    ```
-
-    For more information, see [az ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
-
-+ Delete a computeinstance.
-
-    ```azurecli-interactive
-    az ml computetarget delete -n cpu -v
-    ```
-
-    For more information, see [az ml computetarget delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
-
-# [Studio](#tab/azure-studio)
-
-In your workspace in Azure Machine Learning studio, select **Compute**, then select **Compute Instance** on the top.
-
-![Manage a compute instance](./media/concept-compute-instance/manage-compute-instance.png)
-
-You can perform the following actions:
-
-* [Create a compute instance](#create). 
-* Refresh the compute instances tab.
-* Start, stop, and restart a compute instance.  You do pay for the instance whenever it is running. Stop the compute instance when you are not using it to reduce cost. Stopping a compute instance deallocates it. Then start it again when you need it.
-* Delete a compute instance.
-* Filter the list of compute instanced to show only those you have created.
-
-For each compute instance in your workspace that you can use, you can:
-
-* Access Jupyter, JupyterLab, RStudio on the compute instance
-* SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
-* Get details about a specific compute instance such as IP address, and region.
-
----
-
-### RBAC
-
-[RBAC](/azure/role-based-access-control/overview) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user log in and all actions will use that user’s identity for RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
-
-These actions can be controlled by RBAC:
-* *Microsoft.MachineLearningServices/workspaces/computes/read*
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/computes/delete*
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-
+You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). The template will allow you to use currently existing resource instances (Storage, Key Vault, App-Insights, and Azure Container Registry-ACR) when creating a new Workspace.
 
 ### Create on behalf of (preview)
 
@@ -195,21 +119,159 @@ The data scientist can start, stop, and restart the compute instance. They can u
 * RStudio
 * Integrated notebooks
 
-## Install packages
+## Manage
 
-You can install packages directly in Jupyter Notebook or RStudio:
+Start, stop, restart and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges.
 
-* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
-* Python: Add install code and execute in a Jupyter Notebook cell.
+# [Python](#tab/python)
 
-Or you can access a terminal window in any of these ways:
+In the examples below, the name of the compute instance is **instance**
+
+* Get status
+
+    ```python
+    # get_status() gets the latest status of the ComputeInstance target
+    instance.get_status()
+    ```
+
+* Stop
+
+    ```python
+    # stop() is used to stop the ComputeInstance
+    # Stopping ComputeInstance will stop the billing meter and persist the state on the disk.
+    # Available Quota will not be changed with this operation.
+    instance.stop(wait_for_completion=True, show_output=True)
+    ```
+
+* Start
+
+    ```python
+    # start() is used to start the ComputeInstance if it is in stopped state
+    instance.start(wait_for_completion=True, show_output=True)
+    ```
+
+* Restart
+
+    ```python
+    # restart() is used to restart the ComputeInstance
+    instance.restart(wait_for_completion=True, show_output=True)
+    ```
+
+* Delete
+
+    ```python
+    # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
+    instance.delete(wait_for_completion=True, show_output=True)
+    ```
+
+# [Azure CLI](#tab/azure-cli)
+
+In the examples below, the name of the compute instance is **instance**
+
+* Stop
+
+    ```azurecli-interactive
+    az ml computetarget stop computeinstance -n instance -v
+    ```
+
+    For more information, see [az ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+
+* Start 
+
+    ```azurecli-interactive
+    az ml computetarget start computeinstance -n instance -v
+    ```
+
+    For more information, see [az ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+
+* Restart 
+
+    ```azurecli-interactive
+    az ml computetarget restart computeinstance -n instance -v
+    ```
+
+    For more information, see [az ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+
+* Delete
+
+    ```azurecli-interactive
+    az ml computetarget delete -n instance -v
+    ```
+
+    For more information, see [az ml computetarget delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
+
+# [Studio](#tab/azure-studio)
+
+In your workspace in Azure Machine Learning studio, select **Compute**, then select **Compute Instance** on the top.
+
+![Manage a compute instance](./media/concept-compute-instance/manage-compute-instance.png)
+
+You can perform the following actions:
+
+* Create a new compute instance 
+* Refresh the compute instances tab.
+* Start, stop, and restart a compute instance.  You do pay for the instance whenever it is running. Stop the compute instance when you are not using it to reduce cost. Stopping a compute instance deallocates it. Then start it again when you need it.
+* Delete a compute instance.
+* Filter the list of compute instances to show only those you have created.
+
+For each compute instance in your workspace that you created (or that was created for you), you can:
+
+* Access Jupyter, JupyterLab, RStudio on the compute instance
+* SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
+* Get details about a specific compute instance such as IP address, and region.
+
+---
+
+### RBAC
+
+[RBAC](/azure/role-based-access-control/overview) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user log in and all actions will use that user’s identity for RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
+
+These actions can be controlled by RBAC:
+* *Microsoft.MachineLearningServices/workspaces/computes/read*
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/computes/delete*
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+
+## Access the terminal window
+
+Open the terminal window of your compute instance in any of these ways:
 
 * RStudio: Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
-* SSH to the machine.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
+* SSH to the machine.  
+
+Use the terminal window to install packages and create additional kernels.
+
+### Install packages
+
+Open a terminal window.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
+
+Or install directly in Jupyter Notebook or RStudio:
+
+* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* Python: Add install code and execute in a Jupyter Notebook cell.
+
+Or use a terminal window to install packages.  
+
+### Create kernels
+ 
+The compute instance is configured with a number of Jupyter kernels to use for your machine learning tasks.  Use the terminal window to add new kernels.
+
+```bash
+conda create -n 'myenv3' python=3.7 ipykernel
+conda activate myenv3
+ipython kernel install --name "mykernel3" –user
+```
+
+To learn more about IPython kernels, see [Kernels for different environments](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments)
+
+
+> [!CAUTION]
+> Do not delete the existing **azureml_py36** environment.
 
 ## Next steps
 
-* [Submit the training run](how-to-set-up-training-targets.md) 
-* [How and where to deploy a model](how-to-deploy-and-where.md)
+* [Submit a training run](how-to-set-up-training-targets.md) 
