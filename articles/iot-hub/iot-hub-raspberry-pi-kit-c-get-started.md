@@ -33,7 +33,7 @@ Connect Raspberry Pi to an IoT hub that you create. Then you run a sample applic
 
 ## What you learn
 
-* How to create an Azure IoT hub and get your new device connection string.
+* How to create an Azure IoT Hub and get your new device connection string.
 
 * How to connect Pi with a BME280 sensor.
 
