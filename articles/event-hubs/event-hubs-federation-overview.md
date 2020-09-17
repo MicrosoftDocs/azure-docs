@@ -1,19 +1,21 @@
 ---
-title: Multi-site and multi-region federation - Azure Event Hubs | Microsoft Docs
-description: This article provides an overview of multi-site and multi-region federation with Azure Event Hubs. 
+title: Event replication and cross-region federation - Azure Event Hubs | Microsoft Docs
+description: This article provides an overview of event replication and cross-region federation with Azure Event Hubs. 
 ms.topic: article
 ms.date: 09/15/2020
 ---
 
-# Multi-site and multi-region federation
+# Event replication and cross-region federation
 
 Many sophisticated solutions require the same event streams to be made available for consumption in multiple locations and/or event streams to be collected in multiple locations and then consolidated into a specific locations for consumption.
 
-Practically, that means your solution will maintain multiple Event Hubs in different regions or namespaces and replicate events between them, and/or that you will exchange events with sources and targets like Azure Service Bus, Azure IoT Hubs, or Apache Kafka. Maintaining multiple active Event Hubs in different regions also allows to switch between them. 
+Practically, that means your solution will maintain multiple Event Hubs in different regions or namespaces and replicate events between them, and/or that you will exchange events with sources and targets like [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), [Azure IoT Hub](../iot-fundamentals/iot-introduction.md), or [Apache Kafka](https://kafka.apache.org). 
+
+Maintaining multiple active Event Hubs in different regions also allows clients to choose and switch between them. 
 
 ## Federation Patterns
 
-There are numerous potential motivations for why you may want to move events between different Event Hubs or other sources and targets:
+There are numerous potential motivations for why you may want to move events between different Event Hubs or other sources and targets, and we enumerate the most important patterns in this section:
 
 ### Resiliency against regional availability events 
 
@@ -41,6 +43,8 @@ Global solutions are often composed of regional footprints that are largely inde
 
 Normalization is a flavor of the consolidation scenario, whereby two or more incoming event streams carry the same kind of events, but with different structures or different encodings, and the events most be transcoded or transformed before they can be consumed. 
 
+Normalization may also include cryptographic work such as decrypting end-to-end encrypted payloads and re-encrypting it with different keys and algorithms for the downstream consumer audience. 
+
 ### Splitting and routing of event streams
 
 ![Splitting](media/event-hubs-federation-overview/splitting.jpg)
@@ -51,5 +55,32 @@ While a true "publish-subscribe" capability leaves it to subscribers to pick the
 
 Many scenarios where Event Hubs is primarily used for moving events within an application within a region have some cases where select events, maybe just from a single partition, also have to be made available elsewhere. This is similar to the splitting scenario, but might use a scalable router that considers all the messages arriving in an Event Hub and cherry-picks just a few for onward routing and might differentiate routing targets by event metadata or content. 
 
+## Event and Message Replication in Azure
 
+Implementing the patterns above requires a scalable and reliable execution environment for the replication tasks that you want to configure and run. That runtime environment is [Azure Functions](../azure-functions/functions-overview.md). 
 
+Many replication tasks will be straightforward copy operations, but you will occasionally also need to create and run custom transcoding and/or transformation tasks, for which Azure Functions is ideal. You can write such tasks in Java, C#, Python, or JavScript/TypeScript.  
+
+Azure Functions can run under a [Azure managed identity](../active-directory/managed-identities-azure-resources/overview.md) such that the replication tasks can integrate with the role-based access control rules of the source and target services without you having to manage secrets along the replication path. For replication sources and targets that require explicit credentials, Azure Functions can hold the configuration values for those credentials in tightly access-controlled storage inside of [Azure Key Vault](../key-vault/general/overview.md).
+
+Azure Functions furthermore allows the replication tasks to directly integrate with Azure virtual networks and [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) for all Azure messaging services, and it is readily integrated with [Azure Monitor](../azure-monitor/overview.md).
+
+Most importantly, Azure Functions has prebuilt, scalable triggers and output bindings for [Azure Event Hubs](../azure-functions/functions-bindings-event-hubs.md), [Azure IoT Hub](../azure-functions/functions-bindings-event-iot), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md), and [Azure Queue Storage](/azure-functions/functions-bindings-storage-queue.md), as well as custom extensions for [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension), and [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). Most triggers will dynamically adapt to the throughput needs by scaling the number of concurrently executing instance up and down based on documented metrics. 
+
+With the Azure Functions consumption plan, the prebuilt triggers can even scale down to zero while no messages are available for replication, which means you incur no costs for keeping the configuration ready to scale back up; the key downside of using the consumption plan is that the latency for replication tasks "waking up" from this state is significantly higher than with the hosting plans where the infrastructure is kept running.  
+
+In contrast to all of this, most common replication engines for messaging and eventing, such as Apache Kafka's [MirrorMaker](http://kafka.apache.org/documentation/#basic_ops_mirror_maker) require you to provide a hosting environment and manage scaling the replication engine yourself. That includes configuring and integrating the security and networking features and facilitating the flow of monitoring data, and then you usually still don't have an opportunity to inject custom replication tasks into the flow. 
+
+## Next Steps
+
+In this article, we explored a range of federation patterns and explained the role of Azure Functions as the event and messaging replication runtime in Azure. 
+
+Next, you might want to read up how to set up a replicator application with Azure Functions and then how to replicate event flows between Event Hubs and various other eventing and messaging systems:
+
+- Event replicator applications in Azure Functions
+- Replicating events between Event Hubs, and from IoT Hub
+- Replicating events from and to Apache Kafka
+- Routing events from and to Azure Event Grid 
+- Routing events from and to Azure Service Bus 
+- Routing events from and to Queue Storage
+- Routing events to Notification Hubs
