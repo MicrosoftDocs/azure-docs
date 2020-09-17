@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 09/16/2020
+ms.date: 09/17/2020
 ---
 
 # Interactive debugging with Visual Studio Code
@@ -35,15 +35,18 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 > [!TIP]
 > For Windows, although not required, it's highly recommended to [use Docker with Windows Subsystem for Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
 
-### Configure experiment for debugging
+> [!IMPORTANT]
+> Before running your experiment locally, make sure that Docker is running.
+
+### Debug experiment locally
 
 1. In VS Code, open the Azure Machine Learning extension view.
-1. Expand the subscription node containing your workspace. If you don't already one, you can [create an Azure Machine Learning workspace](how-to-manage-resources-vscode.md#create-a-workspace) using the extension.
+1. Expand the subscription node containing your workspace. If you don't already have one, you can [create an Azure Machine Learning workspace](how-to-manage-resources-vscode.md#create-a-workspace) using the extension.
 1. Expand your workspace node.
 1. Right-click the **Experiments** node and select **Create experiment**. When the prompt appears, provide a name for your experiment.
 1. Expand the **Experiments** node, right-click the experiment you want to run and select **Run Experiment**.
 1. From the list of options to run your experiment, select **Locally**.
-1. **First time use on Windows only**. When prompted to allow File Share, select **Yes**. This will enable Docker to store the logs and outputs from your run in a temporary directory on your system.
+1. **First time use on Windows only**. When prompted to allow File Share, select **Yes**. When you enable file share it allows Docker to mount the directory containing your script to the container. Additionally, it also allows Docker to store the logs and outputs from your run in a temporary directory on your system.
 1. Select **Yes** to debug your experiment. Otherwise, select **No**. Selecting no will run your experiment locally without attaching to the debugger.
 1. Select **Create new Run Configuration** to create your run configuration. The run configuration defines the script you want to run, dependencies, and datasets used. Alternatively, if you already have one, select it from the dropdown.
     1. Choose your environment. You can choose from any of the [Azure Machine Learning curated](resource-curated-environments.md) or create your own.
