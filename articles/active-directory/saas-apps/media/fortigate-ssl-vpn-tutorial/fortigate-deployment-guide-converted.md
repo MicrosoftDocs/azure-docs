@@ -100,131 +100,105 @@ being deployed, create a Host (A) record for the VM. This record maps to the pre
 5. Select **Add**.
 
 
-## Create a Custom Azure App for FortiGate
+## Create a custom Azure app for FortiGate
 
-1. Navigate to https://portal.azure.com and open the Azure Active Directory blade for the
-    tenant that will provide Identity for FortiGate sign-ins
-2. Click **Enterprise Applications** in the left-hand menu
-3. Click **New Application**
-4. Click **Non-gallery application**
-5. Provide a name (e.g. FortiGate) and click **Add**
-6. Click **Users and groups** in the left-hand menu
-7. Add users who will be able to sign-in and click **Assign**
-8. Click **Single sign-on** in the left-hand menu
-9. Click **SAML**
-10. Under **Basic SAML Configuration** click the pencil to edit the configuration
-11. Configure
-    - Identifier (Entity ID) to be `https://<address>/remote/saml/metadata`
-    - Reply URL (Assertion Consumer Service URL) to be
-       `https://<address>/remote/saml/login`
-    - Logout URL to be `https://<address>/remote/saml/logout`
+1. Go to https://portal.azure.com, and open the Azure AD pane for the
+    tenant that will provide the identity for FortiGate sign-ins.
+2. In the left menu, select **Enterprise Applications**.
+3. Select **New Application** > **Non-gallery application**.
+4. Enter a name (for example, FortiGate), and select **Add**.
+5. In the left menu, select **Users and groups**.
+6. Add users who will be able to sign in, and select **Assign**.
+7. In the left menu, select **Single sign-on**.
+8. Select **SAML**.
+9. Under **Basic SAML Configuration**, select the pencil icon to edit the configuration.
+10. Configure the following:
+    - **Identifier (Entity ID)** to be `https://<address>/remote/saml/metadata`.
+    - **Reply URL (Assertion Consumer Service URL)** to be
+       `https://<address>/remote/saml/login`.
+    - **Logout URL** to be `https://<address>/remote/saml/logout`.
 
-    Where `address` is the FQDN or the public IP address assigned to the FortiGate VM
+    `<address>` is the FQDN or the public IP address assigned to the FortiGate VM.
 
-    Record each of these URLs for later use –
-
-    - Entity ID
-    - Reply URL
-    - Logout URL
-12. Click **Save**
-13. Close the Basic SAML Configuration
-14. Under **3 – SAML Signing Certificate** , download the **Certificate (Base64)** and save it for later
-15. Under **4 – Set up (App Name)** , copy the Azure Login URL, Azure AD Identifier and Azure
-Logout URL and save them for later
-    - Azure Login URL
-    - Azure AD Identifier
-    - Azure Logout URL
-16. Under **2 – User Attributes and Claims** , click the pencil to edit the configuration
-17. Click **Add new claim**
-18. Set the Name to **username**
-19. Set the Source attribute to **user.userprincipalname**
-20. Click **Save**
-21. Click **Add a group claim**
-22. Select **All groups**
-23. Check **Customize the name of the group claim**
-24. Set the Name to **group**
-25. Click **Save**
+11. Record each of these URLs for later use: Entity ID, Reply URL, and Logout URL.
+12. Select **Save**, and close **Basic SAML Configuration**.
+13. Under **3 – SAML Signing Certificate**, download **Certificate (Base64)** and save it for later.
+14. Under **4 – Set up (App Name)**, copy the Azure Login URL, Azure AD Identifier, and Azure
+Logout URL, and save them for later.
+15. Under **2 – User Attributes and Claims**, select the pencil icon to edit the configuration.
+16. Select **Add new claim**, and set the name to **username**.
+17. Set the source attribute to **user.userprincipalname**.
+18. Select **Save** > **Add a group claim** > **All groups**.
+19. Select **Customize the name of the group claim**, and set the name to **group**.
+20. Select **Save**.
 
 
-## Prepare for Group Matching
+## Prepare for group matching
 
-FortiGate allows for different user portal experiences after sign-in based on group membership. For
-example, there may be one experience for the Marketing group and another for the Finance group.
+FortiGate allows for different user portal experiences after sign-in, based on group membership. For example, there might be one experience for the marketing group and another for the finance group. Here's how you create groups for users:
 
-Configure this as follows –
-
-### Create Groups for Users
-
-1. Navigate to https://portal.azure.com and open the Azure Active Directory blade for the
-    tenant that will provide Identity for FortiGate sign-ins
-2. Click **Groups**
-3. Click **New Group**
-4. Create a group with
+1. Go to https://portal.azure.com, and open the Azure AD pane for the
+    tenant that will provide the identity for FortiGate sign-ins.
+2. Select **Groups** > **New Group**.
+3. Create a group with the following details:
     - Group type = Security
     - Group name = `a meaningful name`
     - Group description = `a meaningful description for the group`
     - Membership type = Assigned
     - Members = `users for the user experience that will map to this group`
-5. Repeat steps 3 and 4 for any additional user experiences
-6. After the groups have been created, select each group and record the Object ID for each one
-7. Save these Object Ids and group names for later
+4. Repeat steps 3 and 4 for any additional user experiences.
+5. After you create the groups, select each group and record the **Object ID** for each one.
+6. Save these object IDs and group names for later.
 
 
 ## Configure the FortiGate VM
 
-### Install the License
+The following sections walk you through how to set up the Fortigate VM.
 
-1. Navigate to `https://<address>`
+### Install the license
 
-    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+1. Go to `https://<address>`. Here, `<address>` is the FQDN or the public IP address assigned to the FortiGate VM.
 
-2. Continue past any certificate errors
-3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
-4. If the deployment uses the BYOL model, a prompt to upload a license will be shown. Select
-    the license file created earlier and upload it, click **OK** and restart the FortiGate VM –
+2. Continue past any certificate errors.
+3. Sign in by using the administrator credentials provided during the FortiGate VM deployment.
+4. If the deployment uses the bring-your-own-license model, you'll see a prompt to upload a license. Select the license file created earlier, and upload it. Select **OK** and restart the FortiGate VM.
 
-    ![Fortigate SSL VPN](license.png)
+    ![Screenshot of Fortigate VM License.](license.png)
 
-5. After the reboot, sign-in again with the administrator credentials to validate the license
+5. After the reboot, sign in again with the administrator credentials to validate the license.
 
-### Update Firmware
+### Update firmware
 
-1. Navigate to `https://<address>`
+1. Go to `https://<address>`. Here, `<address>` is the FQDN or the public IP address assigned to the FortiGate VM.
 
-    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+2. Continue past any certificate errors.
+3. Sign in by using the administrator credentials provided during the FortiGate VM deployment.
+4. In the left menu, select **System** > **Firmware**.
+5. In **Firmware Management**, select **Browse**, and select the firmware file downloaded
+    earlier.
+6. Ignore the warning and select **Backup config and upgrade**.
 
-2. Continue past any certificate errors
-3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
-4. In the left-hand menu, click **System**
-5. In the left-hand menu under System, click **Firmware**
-6. In the Firmware Management page, click **Browse** and select the firmware file downloaded
-    earlier
-7. Ignore the warning and click **Backup config and upgrade** –
+    ![Screenshot of Firmware Management.](backup-configure-upgrade.png)
 
-    ![Fortigate SSL VPN](backup-configure-upgrade.png)
+7. Select **Continue**.
+8. When you're prompted to save the FortiGate configuration (as a .conf file), select **Save**.
+9. Wait for the firmware to upload and to be applied. Wait for the FortiGate VM to reboot.
+10. After the FortiGate VM reboots, sign in again with the administrator credentials.
+11. When you're prompted to set up the dashboard, select **Later**.
+12. When the tutorial video begins, select **OK**.
 
-8. Click **Continue**
-9. When prompted to save the FortiGate configuration (as a .conf file), click **Save**
-10. Wait for the firmware to upload, for it to be applied and for the FortiGate VM to reboot
-11. After the FortiGate VM reboots, sign-in again with the administrator credentials
-12. When prompted to perform Dashboard Setup, click **Later**
-13. When the tutorial video begins, click **OK**
+### Change the management port to TCP
 
-### Change the Management Port to TCP
+1. Go to `https://<address>`. Here, `<address>` is the FQDN or the public IP address assigned to the FortiGate VM.
 
-1. Navigate to `https://<address>`
+2. Continue past any certificate errors.
+3. Sign in by using the administrator credentials provided during the FortiGate VM deployment.
+4. In the left menu, select **System**.
+5. Under **Administration Settings**, change the HTTPS port to **8443**, and select **Apply**.
+6. After the change applies, the browser attempts to reload the administration page, but it
+    fails. From now on, the administration page address is `https://<address>`.
 
-    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
-
-2. Continue past any certificate errors
-3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
-4. In the left-hand menu, click **System**
-5. Under Administration Settings, change the HTTPS port to **8443**
-6. Click **Apply**
-7. After the change applies, the browser will attempt to reload the Administration page but it
-    will fail. From now on, the administration page address will be `https://<address>`
-
-    ![Fortigate SSL VPN](certificate.png)
+    ![Screenshot of Upload Remote Certificate.](certificate.png)
 
 ### Upload the Azure Active Directory SAML Signing Certificate
 
