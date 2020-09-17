@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: conceptual
- ms.date: 09/15/2020
+ ms.date: 09/17/2020
  ms.author: zivr
  ms.custom: 
 ---
@@ -46,25 +46,11 @@ placement groups.
 
 ## Re-align resources 
 
-In case a proximity placement group is ‘Not Aligned’, you can try
-stopping(deallocating) and starting the affected resources. If the affected
-resource is a VM in an Availability Set or a VMSS, all VMs in the Availability
-Set or VM instances in a VMSS must be stopped(deallocated) first before starting
-them.
+If a proximity placement group is `Not Aligned`, you can stop\deallocate and then restart the affected resources. If the VM is in an availability set or a scale set, all VMs in the availability set or scale set must be stopped\deallocated first before restarting them.
 
-If this results in an allocation failure due to deployment constraints, you may
-have to stop(deallocate) all resources in the affected proximity placement group
-(which includes even the aligned resources) first and then start them back to
-restore alignment.
+If there is an allocation failure due to deployment constraints, you may have to stop\deallocate all resources in the affected proximity placement group (including the aligned resources) first and then restart them to restore alignment.
 
-In case you do not take action within the self-service period indicated in the
-intimation, Azure will automatically initiate maintenance on the affected
-resources in your PPG one update domain at a time. This could cause downtime and
-may result in allocation failures due to deployment constraints. If you notice
-failures for any resources in your PPG, you may have to stop(deallocate) all
-resources in the affected PPG (which includes even the aligned resources) first
-and then start them back to restore alignment.
 
 ## Next steps
 
-
+For a general overview, see the [proximity placement group](co-location.md#proximity-placement-groups) overview.

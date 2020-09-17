@@ -851,11 +851,14 @@
     - name: Change availability set
       href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Create a proximity placement group
+      displayName: PPG aligned colocation co-location
       items:
       - name: CLI
         href: proximity-placement-groups.md
       - name: Portal
         href: ../windows/proximity-placement-groups-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Maintenance and alignment
+        href: ../ppg-alignment.md
     - name: Create VM in availability zone
       href: create-cli-availability-zone.md
   - name: Use automation tools
