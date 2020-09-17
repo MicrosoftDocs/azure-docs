@@ -680,8 +680,10 @@
       items:
       - name: Security recommendations
         href: security-recommendations.md
-      - name: Access control (directories and files)
+      - name: Access control lists (ACLs)
         href: data-lake-storage-access-control.md
+      - name: Using Azure RBAC with ACLs
+        href: role-based-access-control-with-access-control-lists.md
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
@@ -741,6 +743,10 @@
         href: data-lake-storage-use-hdfs-data-lake-storage.md
       - name: Set ACLs recursively
         href: recursive-access-control-lists.md
+    - name: Secure
+      items:
+      - name: Secure Data Lake Storage
+        href: configure-data-lake-storage-security.md
     - name: Query
       items:
       - name: Filter data with query acceleration
