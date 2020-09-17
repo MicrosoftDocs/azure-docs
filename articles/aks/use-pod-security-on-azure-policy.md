@@ -3,7 +3,7 @@ title: Secure pods with Azure Policy in Azure Kubernetes Service (AKS)
 description: Learn how to secure pods with Azure Policy on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/15/2020
+ms.date: 09/17/2020
 author: jluk
 ---
 
@@ -41,9 +41,7 @@ By using the Azure Policy Add-on, an AKS cluster can use built-in Azure policies
 
 This document details how to use Azure Policy to secure pods in an AKS cluster and instruct how to migrate from pod security policies (preview).
 
-## Limitations
-
-See [Azure Policy imitations][policy-limitations] for guidance on the various limitations for using the Azure Policy add-on.
+[!INCLUDE [Limitations](https://review.docs.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes?branch=pr-en-us-127480#limitations)]
 
 ## Recommendations
 
