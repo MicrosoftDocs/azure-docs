@@ -34,12 +34,12 @@ Example `/22` CIDR network address block:  `10.10.0.0/22`
 
 The subnets:
 
-| Network usage             | Subnet | Example        |
-| ------------------------- | ------ | -------------- |
-| Private cloud management  | `/24`  | `10.10.0.0/24` |
-| vMotion network           | `/24`  | `10.10.1.0/24` |
-| VM workloads              | `/24`  | `10.10.2.0/24` |
-| ExpressRoute peering      | `/24`  | `10.10.3.8/30` |
+| Network usage             | Subnet | Example          |
+| ------------------------- | ------ | ---------------- |
+| Private cloud management  | `/26`  | `10.10.0.0/26`   |
+| vMotion network           | `/25`  | `10.10.1.128/25` |
+| VM workloads              | `/24`  | `10.10.2.0/24`   |
+| ExpressRoute peering      | `/29`  | `10.10.3.8/29`   |
 
 
 ### Network ports required to communicate with the service
