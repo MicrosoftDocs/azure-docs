@@ -126,7 +126,7 @@ When programmatically signing in, you need to pass the tenant ID with your authe
    ![Copy the application (client) ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## Authentication, Two Options
-There are two types of authentication available for service principals: password-based authentication (application secret) and certificate-based authentication.  We recommend using a certificate, but you can also create a new application secret.
+There are two types of authentication available for service principals: password-based authentication (application secret) and certificate-based authentication.  **We recommend using a certificate**, but you can also create a new application secret.
 
 ### Option 1: Upload a certificate
 
