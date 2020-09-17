@@ -122,7 +122,7 @@ Once IoT Edge is successfully installed at `/etc/iotedge/`, the output prompts y
 
 ## Configure the security daemon
 
-Configure the IoT Edge runtime to link your physical device with a device identity that exists in an Azure IoT hub.
+Configure the IoT Edge runtime to link your physical device with a device identity that exists in an Azure IoT Hub.
 
 The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. The file is write-protected by default, you might need elevated permissions to edit it.
 
