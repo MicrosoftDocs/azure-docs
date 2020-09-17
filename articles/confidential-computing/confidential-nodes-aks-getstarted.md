@@ -81,10 +81,10 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-vm-size Standard_DC2s_v2 \
-    --node-count 3
-    --enable-addon confcom
-    --network-plugin azure
-    --vm-set-type VirtualMachineScaleSets
+    --node-count 3 \
+    --enable-addon confcom \
+    --network-plugin azure \
+    --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
 The above command should provision a new AKS cluster with DCSv2 node pools and automatically install two daemon sets - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](#confidential-nodes-aks-overview.md#sgx-quote))
