@@ -18,7 +18,7 @@ ms.custom: mvc,subject-armqs
 
 ---
 
-# Quickstart: Create a public load Balancer to load balance VMs by using an ARM template
+# Quickstart: Create a public load balancer to load balance VMs by using an ARM template
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). 
 
