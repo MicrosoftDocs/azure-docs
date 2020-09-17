@@ -554,6 +554,11 @@
       "path_to_root": "azure-storage-snippets",
       "url": "https://github.com/azure-samples/AzureStorageSnippets",
       "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-net",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {
