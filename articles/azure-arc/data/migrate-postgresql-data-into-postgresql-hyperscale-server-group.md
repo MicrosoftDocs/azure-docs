@@ -124,9 +124,7 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 
    ```console
    azdata arc postgres endpoint list -n postgres01
-   ```
 
-   ```output
 [
   {
     "Description": "PostgreSQL Instance",
