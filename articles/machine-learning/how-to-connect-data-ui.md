@@ -1,7 +1,7 @@
 ---
-title: Connect to data in Azure storage services
+title: Connect to data in storage services on Azure
 titleSuffix: Azure Machine Learning
-description: Create datastores and datasets to securely connect to data in Azure storage services with the studio.
+description: Create datastores and datasets to securely connect to data in storage services in Azure with the studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,19 +9,20 @@ ms.topic: conceptual
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
-ms.date: 09/14/2020
+ms.date: 09/22/2020
 ms.custom: how-to
 
-# Customer intent: As low code experience data scientist, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
+# Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my machine learning models.
 ---
 
 # Connect to data with the Azure Machine Learning studio
 
-In this article, learn how to access and use your data with the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). Connect to your data in Azure storage services with [Azure Machine Learning datastores](how-to-access-data.md), and then use that data in your machine learning workflows with [Azure Machine Learning datasets](how-to-create-register-datasets.md).
+In this article, learn how to access your data with the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). Connect to your data in storage services on Azure with [Azure Machine Learning datastores](how-to-access-data.md), and then package that data for tasks in your machine learning workflows with [Azure Machine Learning datasets](how-to-create-register-datasets.md).
 
-**Azure Machine Learning datastores** securely connect to your Azure storage service without putting your authentication credentials and your original data sources at risk. They store connection information, like your subscription ID and token authorization in the [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with your workspace, so you can securely access your storage without having to hard code them in your scripts.
-
-**Azure Machine Learning datasets** make it easier to access and work with your data. By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily-evaluated, and the data remains in its existing location, you
+|What to use| Description| 
+|---|---|
+|Azure Machine Learning datastores| Securely connect to your storage service on Azure <li> Don't put authentication credentials or original data sources at risk. <li> Store connection information, so you don't hard code them in your scripts.
+|Azure Machine Learning datasets| Make it easier to access and work with your data. By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily-evaluated, and the data remains in its existing location, you
 
 * Incur no extra storage cost
 * Don't risk unintentionally changing your original data sources.
@@ -35,7 +36,6 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 ## Prerequisites
 
-You'll need:
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 - An Azure storage account with a [supported storage type](how-to-access-data.md#matrix).
@@ -43,6 +43,10 @@ You'll need:
 - Access to [Azure Machine Learning studio](https://ml.azure.com/).
 
 - An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+
+## Default datastore
+
+The Azure Mahcine Learning workspace comes with a default blob datastore that is easy to use
 
 ## Storage access and permissions
 
@@ -71,7 +75,7 @@ You can find account key, SAS token, and service principal information on your [
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]
-> For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so, be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to sync your updated credentials with [these steps](how-to-change-storage-access-key.md).
+> For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so, be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md).
 
 ### Permissions
 
@@ -79,7 +83,7 @@ For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authe
 
 ## Create datastores
 
-You can create datastores from [these Azure storage solutions](how-to-access-data.md#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
+You can create datastores from [these Azure storage solutions](how-to-access-data.md#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, you must [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
 
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
@@ -118,7 +122,7 @@ The following steps and animation show how to create a dataset in [Azure Machine
 ![Create a dataset with the UI](./media/how-to-connect-data-ui/create-dataset-ui.gif)
 
 To create a dataset in the studio:
-1. Sign in at https://ml.azure.com.
+1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datasets** in the **Assets** section of the left pane.
 1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, public URLs or [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 1. Select **Tabular** or **File** for Dataset type.
@@ -132,9 +136,9 @@ To create a dataset in the studio:
 
 ### Data profile and preview
 
-After you create your dataset, view the profile and preview in the studio with the following steps. 
+After you create your dataset, verify you can view the profile and preview in the studio with the following steps. 
 
-1. Sign in at https://ml.azure.com.
+1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/)
 1. Select **Datasets** in the **Assets** section of the left pane.
 1. Select the name of the dataset you want to view. 
 1. Select the **Explore** tab. 
@@ -172,6 +176,8 @@ Use your datasets in your machine learning experiments for training ML models. [
 
 ## Next steps
 
-* See a step-by-step example of [training with TabularDatasets and automated machine learning](tutorial-first-experiment-automated-ml.md).
-* [Train a model](how-to-train-ml-models.md)
+* [A step-by-step example of training with TabularDatasets and automated machine learning](tutorial-first-experiment-automated-ml.md).
+
+* [Train a model](how-to-train-ml-models.md).
+
 * For more dataset training examples, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
