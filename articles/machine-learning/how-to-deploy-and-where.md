@@ -22,10 +22,11 @@ Learn how to deploy your machine learning model as a web service in the Azure cl
 The workflow is similar no matter where you deploy your model:
 
 1. Register the model (optional, see below).
-1. Prepare an inference configuration (unless using [no-code deployment](./how-to-deploy-no-code-deployment.md))
-1. Prepare an entry script (unless using [no-code deployment](./how-to-deploy-no-code-deployment.md))
+1. Prepare an inference configuration (unless using [no-code deployment](./how-to-deploy-no-code-deployment.md)).
+1. Prepare an entry script (unless using [no-code deployment](./how-to-deploy-no-code-deployment.md)).
+1. Choose a compute target.
 1. Deploy the model to the compute target.
-1. Test the deployed model, also called a web service.
+1. Test the resulting web service.
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
@@ -81,8 +82,6 @@ A registered model is a logical container for one or more files that make up you
 
 > [!TIP]
 > When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](./how-to-deploy-advanced-entry-script.md#load-registered-models).
-
-Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or from somewhere else. When registering a model, you can optionally provide metadata about the model. The `tags` and `properties` dictionaries that you apply to a model registration can then be used to filter models.
 
 The following examples demonstrate how to register a model.
 

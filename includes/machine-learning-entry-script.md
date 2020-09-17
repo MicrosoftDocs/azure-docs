@@ -21,7 +21,7 @@ Let's go through these steps in detail.
 
 #### Loading a registered model
 
-Your registered models are stored at a path pointed to by an environment variable called `AZUREML_MODEL_DIR`. For more information on the exact directory structure, see [Locate model files in your entry script](./how-to-deploy-advanced-entry-script.md#load-registered-models)
+Your registered models are stored at a path pointed to by an environment variable called `AZUREML_MODEL_DIR`. For more information on the exact directory structure, see [Locate model files in your entry script](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#load-registered-models)
 
 #### Loading a local model
 
