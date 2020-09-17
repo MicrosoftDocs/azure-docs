@@ -116,15 +116,25 @@ postgres01  Ready     2
 To view the endpoints for a PostgreSQL instance, run the following command:
 
 ```console
-azdata arc postgres server endpoint list -n <server group name>
-
-#Example
-#azdata arc postgres server endpoint list -n postgres01
-#Description           Endpoint
-#--------------------  ----------------------------------------------------------------------------------------------------------------------------
-#PostgreSQL Instance   postgresql://postgres:<replace with password>@10.240.0.6:31787
-#Log Search Dashboard  https://52.152.248.25:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'kubernetes_pod_name:"postgres01"'))
-#Metrics Dashboard     https://52.152.248.25:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+azdata arc postgres endpoint list -n <server group name>
+```
+For example:
+```console
+azdata arc postgres server endpoint list -n postgres01
+[
+  {
+    "Description": "PostgreSQL Instance",
+    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+  },
+  {
+    "Description": "Log Search Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
+  },
+  {
+    "Description": "Metrics Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
+  }
+]
 ```
 
 You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL instance from your favorite tool:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
@@ -182,7 +192,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## Next steps
 
-- Read the concepts and How-to guides of Azure Database for Postgres Hyperscale to distribute your data across multiple Postgres Hyperscale nodes and to benefit from all the power of Azure Database for Postgres Hyperscale. :
+- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale. :
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
     * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
@@ -191,7 +201,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
     * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-    > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
+    > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled PostgreSQL Hyperscale.
 
 - [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
