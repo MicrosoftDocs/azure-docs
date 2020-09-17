@@ -219,6 +219,17 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
+   To specify **two** RADIUS servers **(Preview)** use the following syntax. Modify the **-VpnClientProtocol** value as needed
+
+    ```azurepowershell-interactive
+    $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
+    $radiusServer2 = New-AzRadiusServer -RadiusServerAddress 10.1.0.16 -RadiusServerSecret $radiuspd -RadiusServerScore 1
+
+    $radiusServers = @( $radiusServer1, $radiusServer2 )
+
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool 201.169.0.0/16 -VpnClientProtocol "IkeV2" -RadiusServerList $radiusServers
+    ```
+
 ## 6. <a name="vpnclient"></a>Download the VPN client configuration package and set up the VPN client
 
 The VPN client configuration lets devices connect to a VNet over a P2S connection. To generate a VPN client configuration package and set up the VPN client, see [Create a VPN Client Configuration for RADIUS authentication](point-to-site-vpn-client-configuration-radius.md).
