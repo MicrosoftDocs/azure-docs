@@ -318,7 +318,7 @@ Let’s look at two of the most common tasks, creating new threat indicators and
 
 1. Select the **Add new** button from the top menu of the page.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Add a new threat indicator":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Add a new threat indicator" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
 
 1. Choose the indicator type, then complete the required fields marked with a red asterisk (*) on the **New indicator** panel.
 
@@ -326,7 +326,7 @@ Let’s look at two of the most common tasks, creating new threat indicators and
 
 Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply a tag to indicators related to a particular incident, or to indicators representing threats from a particular known actor or a well known attack campaign. You can tag threat indicators individually, or multi-select indicators and tag them all at once. Shown below is an example of tagging multiple indicators with an incident ID. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags. You can apply multiple tags to each indicator.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
  
 ## Analytics puts your threat indicators to work detecting potential threats
 
