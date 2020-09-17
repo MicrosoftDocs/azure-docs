@@ -122,9 +122,8 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 
 1. List the end points to help from your `psql` connection string:
 
-   ```console
-   azdata arc postgres endpoint list -n postgres01
-
+```console
+azdata arc postgres endpoint list -n postgres01
 [
   {
     "Description": "PostgreSQL Instance",
@@ -139,7 +138,7 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
     "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
   }
 ]
-   ```
+```
 
 1. From your `psql` connection string use the `-d` parameter to indicate the database name. With the below command, you will be prompted for the password:
 
