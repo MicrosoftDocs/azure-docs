@@ -16,8 +16,31 @@ We implement the following roles:
 * Deploy, test, and restart apps
 * DevOps
 * Developer
+We will implement the following custom roles:
 
-## Navigate subscription and resource group Access control (IAM)
+* Developer role:
+
+Allows you to deploy, test, and restart apps.
+Apply and make changes to the app config in the git repository
+Get the log stream
+
+* DevOps role:
+
+Allow permissions to restart apps and see their log streams
+Cannot make changes to apps, configuration
+
+* Azure Pipelines/Jenkins/Github Actions role:
+
+Can perform Create, Read, Update, Delete operations
+Provisioning pipelines role:
+
+Create and configure everything in Azure Spring Cloud and apps within service instance (Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates)
+
+## Define Developer role
+
+The developer role icludes permissions to restart apps and see their log streams, but cannot make changes to apps, configuration.
+
+### Navigate subscription and resource group Access control (IAM)
 
 Follow these steps to start defining a role.
 
@@ -28,123 +51,21 @@ Follow these steps to start defining a role.
 
    ![Open Access control (IAM)](media/spring-cloud-permissions/add-custom-role.png)
 
-## Define role to deploy, test, and restart apps
-This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
+### Select the permissions:
 
-1. In the **Create custom role** dialog add role name and description.
-2. Click **Next**.
-
-   ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
-
-3. Click **Add permissions**.
-
-   ![Add permissions start](media/spring-cloud-permissions/add-permissions.png)
-
-4. In the search box, search for *Microsoft.app*.
-5. Select *Microsoft Azure Spring Cloud*.
-
-   ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
-
-6. Select the permissions:
-
-From Microsoft.AppPlatform/Spring
+* From: Microsoft.AppPlatform/Spring
 
 select:
 
    Read : Get Azure Spring Cloud service instance
 
-   Other : List Azure Spring Cloud service instance test keys
-
-From Microsoft.AppPlatform/Spring/apps/deployments
-
-select: 
-
-   Other : Start Microsoft Azure Spring Cloud application deployment
-
-   Other : Stop Microsoft Azure Spring Cloud application deployment
-
-   [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/app-platform-permissions.png#lightbox)
-
-7. Click **Add**.
-
-## Define DevOps role
-
-1. Repeat the previous procedures to create a role.
-
-   ![Create DevOps role](media/spring-cloud-permissions/create-dev-opps-role.png)
-2. Open the **Permissions** options.
-
-3. Select the permissions:
-  
-From: Microsoft.AppPlatform/Spring
-
-select:
- 
-   Write : Create or Update Azure Spring Cloud service instance
-
-   Read : Get Azure Spring Cloud service instance
-
-   Other : Get Microsoft Azure Spring Cloud application resource upload URL
-
-From: Microsoft.AppPlatform/Spring/apps
-
-select:
-
-   Write : Write Microsoft Azure Spring Cloud application
-
-   Delete : Delete Microsoft Azure Spring Cloud application
-
-   Read : Read Microsoft Azure Spring Cloud application
-
-   Other : Get Microsoft Azure Spring Cloud application resource upload URL
-
-From Microsoft.AppPlatform/Spring/apps/deployments
-
-select:
-
-   Write : Write Microsoft Azure Spring Cloud application deployment
-
-   Delete : Delete Microsoft Azure Spring Cloud application deployment
-
-   Read : Read Microsoft Azure Spring Cloud application deployment
-
-   Other : Start Microsoft Azure Spring Cloud application deployment
-
-   Other : Stop Microsoft Azure Spring Cloud application deployment
-
-From: Microsoft.AppPlatform/Spring/apps/deployments/skus
-
-select:
-
-   Read: List application deployment available skus    
-
-   [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-box.png#lightbox)
-
-4. Click **Add**.
-
-5. Review the permissions.
-   ![Review permissions](media/spring-cloud-permissions/dev-ops-review-permissions.png)
-
-6. Click **Review and create**.
-
-## Define Developer role
-
-1. Repeat the previous procedures to create a new role.
-2. Select the permissions:
-
-From: Microsoft.AppPlatform/Spring
-
-select:
-
-   Read : Get Azure Spring Cloud service instance
-
-From: Microsoft.AppPlatform/Spring/apps
+*From: Microsoft.AppPlatform/Spring/apps
 
 select:
 
    Read : Read Microsoft Azure Spring Cloud application
 
-From: Microsoft.AppPlatform/Spring/apps/deployments
+*From: Microsoft.AppPlatform/Spring/apps/deployments
 
 select:
 
@@ -159,6 +80,108 @@ select:
   [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
 3. Click **Add**.
+
+
+## Define role to deploy, test, and restart apps
+This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
+
+1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+1. In the **Create custom role** dialog add role name and description.
+1. Click **Next**.
+
+   ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
+
+3. Click **Add permissions**.
+
+   ![Add permissions start](media/spring-cloud-permissions/add-permissions.png)
+
+4. In the search box, search for *Microsoft.app*.
+5. Select *Microsoft Azure Spring Cloud*.
+
+   ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
+
+6. Select the permissions:
+
+* From Microsoft.AppPlatform/Spring
+
+select:
+
+   Read : Get Azure Spring Cloud service instance
+
+   Other : List Azure Spring Cloud service instance test keys
+
+* From Microsoft.AppPlatform/Spring/apps/deployments
+
+select: 
+
+   Other : Start Microsoft Azure Spring Cloud application deployment
+
+   Other : Stop Microsoft Azure Spring Cloud application deployment
+
+   [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/app-platform-permissions.png#lightbox)
+
+7. Click **Add**.
+
+## Define DevOps role
+
+1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+
+   ![Create DevOps role](media/spring-cloud-permissions/create-dev-opps-role.png)
+2. Open the **Permissions** options.
+
+3. Select the permissions:
+  
+* From: Microsoft.AppPlatform/Spring
+
+select:
+ 
+   Write : Create or Update Azure Spring Cloud service instance
+
+   Read : Get Azure Spring Cloud service instance
+
+   Other : Get Microsoft Azure Spring Cloud application resource upload URL
+
+* From: Microsoft.AppPlatform/Spring/apps
+
+select:
+
+   Write : Write Microsoft Azure Spring Cloud application
+
+   Delete : Delete Microsoft Azure Spring Cloud application
+
+   Read : Read Microsoft Azure Spring Cloud application
+
+   Other : Get Microsoft Azure Spring Cloud application resource upload URL
+
+* From Microsoft.AppPlatform/Spring/apps/deployments
+
+select:
+
+   Write : Write Microsoft Azure Spring Cloud application deployment
+
+   Delete : Delete Microsoft Azure Spring Cloud application deployment
+
+   Read : Read Microsoft Azure Spring Cloud application deployment
+
+   Other : Start Microsoft Azure Spring Cloud application deployment
+
+   Other : Stop Microsoft Azure Spring Cloud application deployment
+
+* From: Microsoft.AppPlatform/Spring/apps/deployments/skus
+
+select:
+
+   Read: List application deployment available skus    
+
+   [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-box.png#lightbox)
+
+4. Click **Add**.
+
+5. Review the permissions.
+   ![Review permissions](media/spring-cloud-permissions/dev-ops-review-permissions.png)
+
+6. Click **Review and create**.
+
 
 For more information about three methods that define a custom permissions see:
 * [Clone a role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
