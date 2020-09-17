@@ -203,6 +203,8 @@ sudo systemctl restart docker
 ## Enable NVIDIA MPS on the host computer
 
 > [!TIP]
+> Don't install MPS if your GPU compute capability < 7.x (i,e, pre Volta). See [CUDA Compatability](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#support-title) for reference. 
+>
 > Run the MPS instructions from a terminal window on the host computer. Not inside your Docker container instance.
 
 For best performance and utilization, configure the host computer's GPU(s) for [NVIDIA Multiprocess Service (MPS)](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf). Run the MPS instructions from a terminal window on the host computer.
