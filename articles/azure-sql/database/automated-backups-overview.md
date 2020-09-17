@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 08/04/2020
+ms.date: 09/25/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -32,17 +32,19 @@ When you restore a database, the service determines which full, differential, an
 
 By default, SQL Database and SQL Managed Instance store data in geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../best-practices-availability-paired-regions.md). This helps to protect against outages impacting backup storage in the primary region and allow you to restore your server to a different region in the event of a disaster. 
 
-SQL Managed Instance introduces the ability to change the storage redundancy to either locally-redundant (LRS) or zone-redundant (ZRS) storage blobs to ensure that your data stays within the same region where your managed instance is deployed. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. 
+The option to configure backup storage redundancy provides the flexibility to choose between locally-redundant, zone-redundant, or geo-redundant storage blobs for a SQL Managed Instance or a SQL Database. To ensure that your data stays within the same region where your managed instance or SQL database is deployed, you can change the default geo-redundant backup storage redundancy and configure either locally-redundant (LRS) or zone-redundant (ZRS) storage blobs for backups. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. The configured backup storage redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR). 
 
-The option to configure backup storage redundancy provides the flexibility to choose between LRS, ZRS, or RA-GRS storage blobs for a SQL Managed Instance. Configure backup storage redundancy during the managed instance creation process as once the resource is provisioned, it is no longer possible to change the storage redundancy. (Zone-redundant storage (ZRS) is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
+For a SQL Database the backup storage redundancy can be configured at the time of database creation or can be updated for an existing database. The updated backup storage redundancy on an existing database, only applies to the future backups taken.
 
 
 > [!IMPORTANT]
-> In SQL Managed Instance, the configured backup redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR).
+> Configure backup storage redundancy during the managed instance creation process as once the resource is provisioned, it is no longer possible to change the storage redundancy. 
 
+> [!IMPORTANT]
+> Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Redundancy is currently available as a limited private preview for certain customers in Southeast Asia Azure region. If you would like to be considered for enrollment in this private preview, please contact [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com). 
+> Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only.  
 
 If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
 
@@ -55,7 +57,7 @@ You can use these backups to:
 - **Point-in-time restore of deleted database** - [Restore a deleted database to the time of deletion](recovery-using-backups.md#deleted-database-restore) or to any point in time within the retention period. The deleted database can be restored only on the same server or managed instance where the original database was created. When deleting a database, the service takes a final transaction log backup before deletion, to prevent any data loss.
 - **Geo-restore** - [Restore a database to another geographic region](recovery-using-backups.md#geo-restore). Geo-restore allows you to recover from a geographic disaster when you cannot access your database or backups in the primary region. It creates a new database on any existing server or managed instance, in any Azure region.
    > [!IMPORTANT]
-   > Geo-restore is available only for managed instances with configured geo-redundant (RA-GRS) backup storage.
+   > Geo-restore is available only for SQL databases or managed instances configured with geo-redundant backup storage.
 - **Restore from long-term backup** - [Restore a database from a specific long-term backup](long-term-retention-overview.md) of a single database or pooled database, if the database has been configured with a long-term retention policy (LTR). LTR allows you to restore an old version of the database by using [the Azure portal](long-term-backup-retention-configure.md#using-the-azure-portal) or [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) to satisfy a compliance request or to run an old version of the application. For more information, see [Long-term retention](long-term-retention-overview.md).
 
 To perform a restore, see [Restore database from backups](recovery-using-backups.md).
@@ -130,6 +132,8 @@ Backup retention for purposes of PITR within the last 1-35 days is sometimes cal
 
 For both SQL Database and SQL Managed Instance, you can configure full backup long-term retention (LTR) for up to 10 years in Azure Blob storage. After the LTR policy is configured, full backups are automatically copied to a different storage container weekly. To meet various compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly full backups. Storage consumption depends on the selected frequency and retention periods of LTR backups. You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage.
 
+Updating the backup storage redundancy for an existing Azure SQL Database, only applies to the future backups taken for the database. All existing LTR backups for the database will continue to reside in the existing storage blob and new backups will be stored on the requested storage blob type. 
+
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
 
 ## Storage costs
@@ -156,7 +160,7 @@ For managed instances, the total billable backup storage size is aggregated at t
 
 `Total billable backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
 
-Total billable backup storage, if any, will be charged in GB/month. This backup storage consumption will depend on the workload and size of individual databases, elastic pools, and managed instances. Heavily modified databases have larger differential and log backups, because the size of these backups is proportional to the amount of data changes. Therefore, such databases will have higher backup charges.
+Total billable backup storage, if any, will be charged in GB/month as per the rate of the backup storage redundancy used. This backup storage consumption will depend on the workload and size of individual databases, elastic pools, and managed instances. Heavily modified databases have larger differential and log backups, because the size of these backups is proportional to the amount of data changes. Therefore, such databases will have higher backup charges.
 
 SQL Database and SQL Managed Instance computes your total billable backup storage as a cumulative value across all backup files. Every hour, this value is reported to the Azure billing pipeline, which aggregates this hourly usage to get your backup storage consumption at the end of each month. If a database is deleted, backup storage consumption will gradually decrease as older backups age out and are deleted. Because differential backups and log backups require an earlier full backup to be restorable, all three backup types are purged together in weekly sets. Once all backups are deleted, billing stops. 
 
@@ -178,7 +182,7 @@ Backup storage redundancy impacts backup costs in the following way:
 For more details about backup storage pricing visit [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) and [Azure SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 > [!IMPORTANT]
-> Configurable storage redundancy for backups is currently only available for SQL Managed Instance, and can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option.
+> Configurable backup storage redundancy for SQL Managed instance is available in all Azure regions and currently available in Southeast Asia Azure region only for SQL Database. For Managed Instance it can only be specified during the create managed instance process. Once the resource is provisioned, you cannot change the backup storage redundancy option.
 
 ### Monitor costs
 
@@ -363,17 +367,23 @@ For more information, see [Backup Retention REST API](https://docs.microsoft.com
 ## Configure backup storage redundancy
 
 > [!NOTE]
-> Configurable storage redundancy for backups is currently only available for SQL Managed Instance, and can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option.
+> Configurable storage redundancy for backups is currently only available for SQL Managed Instance, and can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option. For SQL Database, this feature is currently only available in Southeast Asia Azure region. 
 
 A backup storage redundancy of a managed instance can be set during instance creation only. The default value is geo-redundant storage (RA-GRS). For differences in pricing between locally-redundant (LRS), zone-redundant (ZRS) and geo-redundant (RA-GRS) backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
-### Configure backup storage redundancy by using the Azure portal
+### Configure backup storage redundancy for SQL Managed Instance using the Azure portal
 
 In the Azure portal, the option to change backup storage redundancy is located on the **Compute + storage** blade accessible from the **Configure Managed Instance** option on the **Basics** tab when you are creating your SQL Managed Instance.
 ![Open Compute+Storage configuration-blade](./media/automated-backups-overview/open-configuration-blade-mi.png)
 
 Find the option to select backup storage redundancy on the **Compute + storage** blade.
 ![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
+
+### Configure backup storage redundancy for SQL Database using the Azure portal
+
+In Azure portal, you can configure the backup storage redundancy on the **Create SQL Database** blade. The option is available under the Backup Storage Redundancy section. 
+![Open Create SQL Database blade](./media/automated-backups-overview/sqldb-backup-storage-redundancy.png)
+
 
 ## Next steps
 
