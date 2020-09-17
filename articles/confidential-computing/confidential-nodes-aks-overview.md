@@ -26,9 +26,9 @@ Azure confidential computing allows you to protect your sensitive data while it'
 1. SGX DCAP driver pre-installed
 1. Intel FSGS Patch pre-installed
 1. Supports CPU consumption based horizontal pod autoscaling and cluster autoscaling
-1. Intel Platform Software management daemon sets to help with attestation needs
-1. Linux Containers support with Gen 2 VM Ubuntu 18.04 worker nodes
-1. Supports GA'ed regions of DCSv2  
+1. Out of proc attestation helper through AKS daemonset
+1. Linux Containers support through Ubuntu 18.04 Gen 2 VM worker nodes
+1. Supports [GA'ed regions of DCSv2](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines&regions=all)  
 
 
 ## AKS Provided Daemon Sets
@@ -50,11 +50,11 @@ AKS supports applications that are programmed to run on confidential nodes and u
 
 ### Confidential Containers
 
-Confidential containers run existing programs and most programming language runtime, along with their existing library dependencies, without any source-code modification or recompilation. This model is the fastest model to confidentiality enabled through Open Source Projects & Azure Partners. The container images that are made ready created to run in the secure enclaves are termed as confidential containers. [Read more](confidential-containers.md)
+Confidential containers run existing programs and most **common programming language** runtime (Python, Node, Java etc.), along with their existing library dependencies, without any source-code modification or recompilation. This model is the fastest model to confidentiality enabled through Open Source Projects & Azure Partners. The container images that are made ready created to run in the secure enclaves are termed as confidential containers. [Read more](confidential-containers.md)
 
 ## Getting Started
 
-[Provision Confidential Nodes (DCsv2-Series) on AKS](./confidential-nodes-aks-getstarted.md)
+[Deploy AKS Cluster with confidential computing nodes](./confidential-nodes-aks-getstarted.md)
 
 [Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 

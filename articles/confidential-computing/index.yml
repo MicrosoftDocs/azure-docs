@@ -84,7 +84,7 @@ landingContent:
             url: confidential-containers.md
          -  text: Enclave-aware containers
             url: enclave-aware-containers.md
-         -  text: SGX quote helper
+         -  text: Out of proc attestation
             url: confidential-nodes-outofproc-attestation.md
       - linkListType: quickstart
         links:

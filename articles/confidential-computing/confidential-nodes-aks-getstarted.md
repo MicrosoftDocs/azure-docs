@@ -28,7 +28,7 @@ In this quickstart, you will learn how to deploy an Azure Kubernetes Service (AK
 
 1. Linux Worker Nodes supporting Linux Containers Only
 1. Ubuntu Generation 2 18.04 Virtual Machines
-1. Intel SGX based CPU with Encrypted Page Cache Memory (EPC). Read more [here](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. Intel SGX-based CPU with Encrypted Page Cache Memory (EPC). Read more [here](https://docs.microsoft.com/azure/confidential-computing/faq)
 1. Kubernetes version 1.16+
 1. Pre-installed Intel SGX DCAP Driver. Read more [here](https://docs.microsoft.com/azure/confidential-computing/faq)
 1. CLI based deployed during preview
@@ -64,7 +64,7 @@ When the status shows as registered, refresh the registration of the Microsoft.C
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Create an AKS cluster
+## Creating an AKS cluster
 
 If you already have an AKS cluster that meets the above requirements, [skip to the existing cluster section](#existing-cluster) to add a new confidential computing node pool.
 
@@ -116,7 +116,7 @@ az aks update --enable-addons confcom --resource-group myResourceGroup --name my
 
 This section assumes you have an AKS cluster running already that meets the criteria listed in the pre-requisites section.
 
-First, lets enable the confidential computing related AKS add-ons on the existing cluster:
+First, lets enable the confidential computing-related AKS add-ons on the existing cluster:
 
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
@@ -145,9 +145,9 @@ output (you may also see other daemonsets along SGX daemonsets as below)
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 kube-system     sgx-quote-helper-xxxx      1/1     Running
 ```
-If the output matches to the above then your AKS cluster is now ready to run enclave applications.
+If the output matches to the above matches then your AKS cluster is now ready to run confidential applications.
 
-## Hello World From the Enclave Deployment <a id="hello-world"></a>
+## Hello World from isolated enclave application <a id="hello-world"></a>
 Create a file named *hello-world-enclave.yaml* and paste the following YAML manifest. This Open Enclave based sample application code can be found in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld).
 
 ```yaml
@@ -229,7 +229,7 @@ az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resou
 
 ## Next steps
 
-Run confidential container sample applications by visiting [confidential container samples](https://github.com/Azure-Samples/confidential-container-samples).
+Run Python, Node etc. Applications confidentially through confidential containers by visiting [confidential container samples](https://github.com/Azure-Samples/confidential-container-samples).
 
 Run Enclave aware applications by visiting [Enclave Aware Azure Container Samples](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
 

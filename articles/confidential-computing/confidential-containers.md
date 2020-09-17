@@ -37,11 +37,12 @@ To run an existing docker container application on confidential computing nodes 
 Confidential containers are fully supported on AKS and enabled through Azure Partners and Open Source Software (OSS) projects. Developers can choose software providers based on the features, integration to Azure services and tooling support.
 
 ### Partner Enablers
- >NOTE: The below solutions are offered through Azure Partners and may incur licensing feeds. Please verify the partner software terms independently. 
+> [!NOTE]
+>The below solutions are offered through Azure Partners and may incur licensing fees. Please verify the partner software terms independently. 
 
 #### Fortanix
 
-[Fortanix](https://www.fortanix.com/) offers developers a choice of a portal and CLI based expereince to bring their containerized applications and covert them to SGX capable confidential containers without any need to modify or recompile the application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications. Users can start with [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/) to create confidential containers by following the [Quick Start](https://support.fortanix.com/hc/en-us/sections/360008910732-Quickstart) guide and [deploying on Azure Kubernetes Service] (https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service).
+[Fortanix](https://www.fortanix.com/) offers developers a choice of a portal and CLI based expereince to bring their containerized applications and covert them to SGX capable confidential containers without any need to modify or recompile the application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications. Users can start with [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/) to create confidential containers by following the [Quick Start](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) guide for Azure Kubernets Service.
 
 ![Fortanix Deployment Process](./media/confidential-containers/fortanixconfidentialcontainersflow.png)
 
@@ -65,8 +66,8 @@ SCONE can convert existing most binaries into applications that run inside of en
 Scone deployments on confidential computing nodes with AKS are fully supported and integrated. Get started with a sample application here https://sconedocs.github.io/aks/
 
 ### OSS Enablers 
-
->NOTE: The below solutions are offered through Open Source Solutions and not directly affiliated with Azure Confidential Computing (ACC) or Microsoft.  
+> [!NOTE]
+> The below solutions are offered through Open Source Projects and are not directly affiliated with Azure Confidential Computing (ACC) or Microsoft.  
 
 #### Graphene
 

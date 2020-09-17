@@ -17,9 +17,12 @@
     - name: Create with Marketplace
       href: quick-create-marketplace.md
   - name: Azure Kubernetes Services (AKS)
-    items: 
-    - name: Deploy an AKS cluster with confidential nodes with Azure CLI
+    items:
+    - name: AKS Confidential nodes overview
+      href: confidential-nodes-aks-overview.md
+    - name: Confidential nodes with Azure CLI
       href: confidential-nodes-aks-getstarted.md
+  
 - name: Concepts
   expanded: true
   items:
@@ -34,21 +37,13 @@
 
   
   - name: Container Compute
-    items: 
-    - name: Azure Kubernetes Service (AKS)
-      items: 
-        - name: Getting started on confidential nodes
-          href: confidential-nodes-aks-overview.md
-        - name: Confidential nodes on AKS FAQ
-          href: confidential-nodes-aks-faq.md
-        - name: SGX quote helper feature
-          href: confidential-nodes-outofproc-attestation.md
-    - name: Confidential containers 
-      items:
-        - name: Getting started
-          href: confidential-containers.md
-    - name: Enclave-aware containers
-      items:
+    items:  
+  - name: Confidential containers (lift & shift)
+    items:
+      - name: Getting started
+        href: confidential-containers.md
+  - name: Enclave-aware containers
+    items:
         - name: Getting started 
           href: enclave-aware-containers.md
   - name: Attestation
@@ -59,6 +54,7 @@
   items:
   - name: Fortanix Enclave Manager
     href: how-to-fortanix-enclave-manager.md
+  
 - name: Samples
   items:
   - name: Confidential containers
