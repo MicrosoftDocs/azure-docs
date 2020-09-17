@@ -33,7 +33,7 @@ The following example sets the cpu core and memory requests and limits.
 azdata arc sql mi edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
 ```
 
-To view the changes made to the SQL managed instance, you can use thIS commands to view the configuration yaml file:
+To view the changes made to the SQL managed instance, you can use the following commands to view the configuration yaml file:
 
 ```
 azdata arc sql mi show -n <NAME_OF_SQL_MI>
