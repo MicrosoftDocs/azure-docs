@@ -92,8 +92,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concepts
   items: 
-    - name: Enterprise vs. Basic editions
-      href: concept-editions.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -450,6 +448,9 @@
       - name: Profile models
         displayName: profile resource requirement
         href: how-to-deploy-profile-model.md
+      - name: Deploy designer models
+        displayName: designer, studio
+        href: how-to-deploy-model-designer.md
       - name: (Preview) No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
