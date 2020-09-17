@@ -302,6 +302,12 @@ Check fetch log's lines, times, and sizes, if those settings look good replace *
 
 You can export logs from the Azure Blob Storage when troubleshooting issues. 
 
+## Common issues
+
+If the user sees this message in the module logs, it might mean the subscription needs to be whitelisted: 
+
+``` Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type. ```
+
 ## Troubleshooting the Azure Stack Edge device
 
 The following section is provided for help with debugging and verification of the status of your Azure Stack Edge device.
