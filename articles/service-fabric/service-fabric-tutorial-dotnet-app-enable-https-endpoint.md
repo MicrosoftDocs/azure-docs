@@ -394,26 +394,21 @@ $slb | Set-AzLoadBalancer
 Do the same for the associated virtual network.
 
 ```powershell
-$rulename="AppPortVNetRule6"
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
 $RGname="voting_RG"
-$region="southcentralus"
 $port=443
 
-# Get the virtual network resource
-$resource = Get-AzResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/virtualNetworks"}
-$vnet = Get-AzVirtualNetwork -Name $resource.Name -ResourceGroupName $RGname
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
 
-# Create rule config for virtual network
-$netRule = New-AzNetworkSecurityRuleConfig -Name http-passthrough -Description "HTTPS passthrough" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange $port
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
 
-# Create a new NSG with the rule we just made
-$networkSecurityGroup = New-AzNetworkSecurityGroup -ResourceGroupName $RGname -Location $region -Name "NSG-FrontEnd" -SecurityRules $netRule
-
-# Create a subnet using the NSG we've created
-$subnet = New-AzVirtualNetworkSubnetConfig -Name testSubnet -AddressPrefix "10.0.1.0/24" -NetworkSecurityGroup $networkSecurityGroup
-
-# Set the goal state for the virtual network
-$vnet | Set-AzVirtualNetwork  -Subnet $subnet
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
 ```
 
 ## Deploy the application to Azure
