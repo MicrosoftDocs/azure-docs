@@ -12,29 +12,12 @@ ms.custom: devx-track-java
 # How to use permissions in Azure Spring Cloud
 This article shows you how to create custom roles that delegate permissions to Azure Spring Cloud resources. Custom roles extend [built-in Azure roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) with various stock permissions.
 
-We implement the following roles:
-* Deploy, test, and restart apps
-* DevOps
-* Developer
 We will implement the following custom roles:
 
-* Developer role:
-
-Allows you to deploy, test, and restart apps.
-Apply and make changes to the app config in the git repository
-Get the log stream
-
-* DevOps role:
-
-Allow permissions to restart apps and see their log streams
-Cannot make changes to apps, configuration
-
-* Azure Pipelines/Jenkins/Github Actions role:
-
-Can perform Create, Read, Update, Delete operations
-Provisioning pipelines role:
-
-Create and configure everything in Azure Spring Cloud and apps within service instance (Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates)
+* Developer role: Allowed to deploy, test, and restart apps. Can apply and make changes to the app config in the git repository. Can get the log stream.
+* DevOps role: Allows permissions to restart apps and see their log streams. Cannot make changes to apps or configuration.
+* Azure Pipelines/Jenkins/Github Actions role: Can perform create, read, update, delete operations.
+* Provisioning pipelines role: Can create and configure everything in Azure Spring Cloud and apps within service instance (Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates).
 
 ## Define Developer role
 
@@ -160,6 +143,7 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
 4. Click **Add**.
 
 5. Review the permissions.
+
    ![Review permissions](media/spring-cloud-permissions/dev-ops-review-permissions.png)
 
 6. Click **Review and create**.
