@@ -269,6 +269,139 @@ For Node.js applications, you can modify your `package.json` file to set the `NO
 ```
 --- 
 
+## Enable access to emulator on a local network
+
+You can run the emulator on a local network. To enable network access, specify the `/AllowNetworkAccess` option at the [command-line](#command-line-syntax), which also requires that you specify `/Key=key_string` or `/KeyFile=file_name`. You can use `/GenKeyFile=file_name` to generate a file with a random key upfront. Then you can pass that to `/KeyFile=file_name` or `/Key=contents_of_file`.
+
+To enable network access for the first time the user should shut down the emulator and delete the emulator's data directory (%LOCALAPPDATA%\CosmosDBEmulator).
+
+## Authenticate connections when using emulator
+
+As with Azure Cosmos DB in the cloud, every request that you make against the Azure Cosmos emulator must be authenticated. The Azure Cosmos emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the Azure Cosmos Emulator. They are:
+
+```bash
+Account name: localhost:<port>
+Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
+
+> [!NOTE]
+> The master key supported by the Azure Cosmos emulator is intended for use only with the emulator. You cannot use your production Azure Cosmos DB account and key with the Azure Cosmos Emulator.
+
+> [!NOTE]
+> If you have started the emulator with the /Key option, then use the generated key instead of the default key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. For more information about /Key option, see [Command-line tool reference.](#command-line)
+
+As with the Azure Cosmos DB, the Azure Cosmos emulator supports only secure communication via TLS.
+
+
+## Connect to different APIs with the emulator
+
+### SQL API
+
+Once you have the Azure Cosmos emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos emulator also includes a built-in data explorer that lets you create containers for SQL API or Cosmos DB for Mongo DB API, and view and edit items without writing any code.
+
+```csharp
+// Connect to the Azure Cosmos emulator running locally
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+
+```
+
+### Azure Cosmos DB's API for MongoDB
+
+Once you have the Azure Cosmos emulator running on your desktop, you can use the [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md) to interact with the emulator. Start emulator from command prompt as an administrator with "/EnableMongoDbEndpoint". Then use the following connection string to connect to the MongoDB API account:
+
+```bash
+mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
+```
+
+### Table API
+
+Once you have the Azure Cosmos emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md) to interact with the emulator. Start emulator from command prompt as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the table API account:
+
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using CloudTable = Microsoft.WindowsAzure.Storage.Table.CloudTable;
+using CloudTableClient = Microsoft.WindowsAzure.Storage.Table.CloudTableClient;
+
+string connectionString = "DefaultEndpointsProtocol=http;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=http://localhost:8902/;";
+
+CloudStorageAccount account = CloudStorageAccount.Parse(connectionString);
+CloudTableClient tableClient = account.CreateCloudTableClient();
+CloudTable table = tableClient.GetTableReference("testtable");
+table.CreateIfNotExists();
+table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
+```
+
+### Cassandra API
+
+Start emulator from an administrator command prompt with "/EnableCassandraEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
+
+* [Install Python 2.7](https://www.python.org/downloads/release/python-2716/)
+
+* [Install Cassandra CLI/CQLSH](https://cassandra.apache.org/download/)
+
+* Run the following commands in a regular command prompt window:
+
+  ```bash
+  set Path=c:\Python27;%Path%
+  cd /d C:\sdk\apache-cassandra-3.11.3\bin
+  set SSL_VERSION=TLSv1_2
+  set SSL_VALIDATE=false
+  cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
+  ```
+
+* In the CQLSH shell, run the following commands to connect to the Cassandra endpoint:
+
+  ```bash
+  CREATE KEYSPACE MyKeySpace WITH replication = {'class':'MyClass', 'replication_factor': 1};
+  DESCRIBE keyspaces;
+  USE mykeyspace;
+  CREATE table table1(my_id int PRIMARY KEY, my_name text, my_desc text);
+  INSERT into table1 (my_id, my_name, my_desc) values( 1, 'name1', 'description 1');
+  SELECT * from table1;
+  EXIT
+  ```
+
+### Gremlin API
+
+Start emulator from an administrator command prompt with "/EnableGremlinEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+
+* [Install apache-tinkerpop-gremlin-console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
+
+* In the emulator's Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
+
+* Run the following commands in a regular command prompt window:
+
+  ```bash
+  cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
+  
+  copy /y conf\remote.yaml conf\remote-localcompute.yaml
+  notepad.exe conf\remote-localcompute.yaml
+    hosts: [localhost]
+    port: 8901
+    username: /dbs/db1/colls/coll1
+    password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    connectionPool: {
+    enableSsl: false}
+    serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
+    config: { serializeResultToString: true  }}
+
+  bin\gremlin.bat
+  ```
+
+* In the Gremlin shell run the following commands to connect to the Gremlin endpoint:
+
+  ```bash
+  :remote connect tinkerpop.server conf/remote-localcompute.yaml
+  :remote console
+  :> g.V()
+  :> g.addV('person1').property(id, '1').property('name', 'somename1')
+  :> g.addV('person2').property(id, '2').property('name', 'somename2')
+  :> g.V()
+  ```
+
 ## Next steps
 
 In this tutorial, you've learned how to use the local emulator for free local development. You can now proceed to the next tutorial and learn how to export emulator TLS/SSL certificates.
