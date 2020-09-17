@@ -17,7 +17,6 @@ This article covers information about Azure Automanage for virtual machines, whi
 
 - Intelligently onboards virtual machines to select best practices Azure services
 - Automatically configures each service per Azure best practices
-- Configures the guest operating system per Microsoft baseline configuration
 - Monitors for drift and corrects for it when detected
 - Provides a simple experience (point, click, set, forget)
 
@@ -28,7 +27,7 @@ Azure Automanage for virtual machines is a service that eliminates the need to d
 
 After onboarding your virtual machines to Azure Automanage, it automatically configures each best practice service to its recommended settings. Best practices are different for each of the services. An example might be Azure Backup, where the best practice might be to back up the virtual machine once a day and have a retention period of six months.
 
-Azure Automanage also configures the guest operating system per Microsoft's own [baseline configurations](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). Additionally, it automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine is onboarded to Azure Automanage, we'll not only configure it per Azure best practices, but we'll monitor your machine to ensure that it continues to comply with those best practices across its entire lifecycle. If your virtual machine does drift or deviate from those practices, we will correct it and pull your machine back into the desired state.
+Azure Automanage also automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine is onboarded to Azure Automanage, we'll not only configure it per Azure best practices, but we'll monitor your machine to ensure that it continues to comply with those best practices across its entire lifecycle. If your virtual machine does drift or deviate from those practices, we will correct it and pull your machine back into the desired state.
 
 Lastly, the experience is incredibly simple.
 
@@ -107,7 +106,8 @@ In the Azure portal experience, when you are enabling Automanage on your VMs, th
 
 In the Azure portal, go to the **Automanage – Azure virtual machine best practices** page which lists all of your auto-managed VMs. Here you will see the overall status of each virtual machine.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="List of configured virtual machines.":::
+
+![List of configured virtual machines.](media\automanage-virtual-machines\configured-status.png)
 
 For each listed VM, the following details are displayed: Name, Configuration profile, Configuration preference, Status, Account, Subscription, and Resource group.
 
