@@ -69,8 +69,8 @@ Read properties for app proxy properties on an app. Permissions required:
 
 Permission | Description
 ---------- | -----------
-microsoft.directory/applicationPolicies/allProperties/read | Read all properties (including privileged properties) on application policies.
-microsoft.directory/applicationPolicies/allProperties/update | Update all properties (including privileged properties) on application policies.
+microsoft.directory/applicationPolicies/allProperties/read | Read all properties on application policies.
+microsoft.directory/applicationPolicies/allProperties/update | Update all properties on application policies.
 microsoft.directory/applicationPolicies/basic/update | Update standard properties of application policies.
 microsoft.directory/applicationPolicies/create | Create application policies.
 microsoft.directory/applicationPolicies/createAsOwner | Create application policies. Creator is added as the first owner.
@@ -80,8 +80,8 @@ microsoft.directory/applicationPolicies/owners/update | Update the owner propert
 microsoft.directory/applicationPolicies/policyAppliedTo/read | Read application policies applied to objects list.
 microsoft.directory/applicationPolicies/standard/read | Read standard properties of application policies.
 microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete servicePrincipals, and read and update all properties in Azure Active Directory.
-microsoft.directory/servicePrincipals/allProperties/read | Read all properties (including privileged properties) on servicePrincipals.
-microsoft.directory/servicePrincipals/allProperties/update | Update all properties (including privileged properties) on servicePrincipals.
+microsoft.directory/servicePrincipals/allProperties/read | Read all properties on servicePrincipals.
+microsoft.directory/servicePrincipals/allProperties/update | Update all properties on servicePrincipals.
 microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Read service principal role assignments.
 microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments.
 microsoft.directory/servicePrincipals/appRoleAssignments/read | Read role assignments assigned to service principals.
@@ -93,7 +93,7 @@ microsoft.directory/servicePrincipals/create | Create service principals.
 microsoft.directory/servicePrincipals/createAsOwner | Create service principals. Creator is added as the first owner.
 microsoft.directory/servicePrincipals/credentials/update | Update credentials properties on service principals.
 microsoft.directory/servicePrincipals/delete | Delete service principals.
-microsoft.directory/servicePrincipals/disable |  
+microsoft.directory/servicePrincipals/disable | Disable service principals.
 microsoft.directory/servicePrincipals/enable | Enable service principals.
 microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals.
 microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Manage password single sign-on credentials on service principals.
@@ -105,8 +105,8 @@ microsoft.directory/servicePrincipals/policies/read | Read policies on service p
 microsoft.directory/servicePrincipals/policies/update | Update policies on service principals.
 microsoft.directory/servicePrincipals/standard/read | Read standard properties of service principals.
 microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal.
-microsoft.directory/servicePrincipals/tag/update |  
-microsoft.directory/applicationTemplates/instantiate | 
+microsoft.directory/servicePrincipals/tag/update | Update tags property on service principals.
+microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates.
 microsoft.directory/auditLogs/allProperties/read | Read audit logs.
 microsoft.directory/signInReports/allProperties/read | Read sign-in reports.
 microsoft.directory/applications/applicationProxy/read | Read all application proxy properties of all types of applications.
