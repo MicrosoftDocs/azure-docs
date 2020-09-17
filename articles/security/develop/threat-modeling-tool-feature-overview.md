@@ -153,7 +153,7 @@ You can connect elements in two ways:
 
 If you create a threat model and forget to connect data flows to elements, you get a notification. You can ignore the message, or you can follow the instructions to fix the issue. 
 
-![Screenshot show a thread model a connector not connected to elements, with the message that this issue causes.](./media/threat-modeling-tool-feature-overview/messages.png)
+![Screenshot shows a threat model connector not connected to elements, with the message that this issue causes.](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### Notes
 
