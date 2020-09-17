@@ -520,7 +520,7 @@ Next, debug and test your workflow locally in Visual Studio Code.
 
 1. In Visual Studio Code, return to your workflow's overview page.
 
-   After the request that you sent triggers the workflow, the overview page shows the workflow's run status and history. For more information about run statuses, see [Review runs history](../logic-apps/monitor-logic-apps.md#review-runs-history).
+   If you created a stateful workflow, after the request that you sent triggers the workflow, the overview page shows the workflow's run status and history. For more information about run statuses, see [Review runs history](../logic-apps/monitor-logic-apps.md#review-runs-history).
 
    ![Screenshot that shows your workflow's overview page with run status and history](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
@@ -585,7 +585,7 @@ After you make updates to your workflow, you can run another test by rerunning t
 
 1. In Postman or your tool for creating and sending requests, send another request to trigger your workflow.
 
-1. On the workflow's overview page, check the status for the most recent run. To view the status, inputs, and outputs for each step in that run, select the ellipses (**...**) button for that run, and select **Show Run**.
+1. If you created a stateful workflow, on the workflow's overview page, check the status for the most recent run. To view the status, inputs, and outputs for each step in that run, select the ellipses (**...**) button for that run, and select **Show Run**.
 
    For example, here's the step-by-step status for a run after the sample workflow was updated with the Response action.
 
@@ -606,7 +606,7 @@ From Visual Studio Code, you can deploy your project directly to Azure, which pu
 
 ### Enable run history for publishing to deployed Logic App (Preview) resources
 
-If you choose to publish to an already deployed **Logic App (Preview)** resource, follow these steps to enable the workflow's run history:
+If you choose to publish to an already deployed **Logic App (Preview)** resource, follow these steps to enable the run history for a stateful workflow.
 
 1. In the [Azure portal](https://portal.azure.com), find and select the deployed **Logic App (Preview)** resource.
 
@@ -617,8 +617,6 @@ If you choose to publish to an already deployed **Logic App (Preview)** resource
 1. When you're done, on the **CORS** toolbar, select **Save**.
 
 ![Screenshot that shows the Azure portal with a deployed Logic Apps (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
-
-For more information, see [Run history of function apps - GitHub Issue #104](https://github.com/Azure/logicapps/issues/104).
 
 ### Publish as a new Logic App (Preview) resource
 
@@ -648,9 +646,9 @@ For more information, see [Run history of function apps - GitHub Issue #104](htt
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
-   1. Create a new Windows App Service plan or select an existing plan. This example selects **Create new App Service Plan**.
+   1. Create a new App Service plan or select an existing plan. This example selects **Create new App Service Plan**.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to "Create new App Service Plan" or select an existing Windows App Service plan.](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
 
    1. Provide a name for the new App Service plan, and then select an App Service [pricing tier](https://azure.microsoft.com/pricing/details/app-service/windows/) to use. This example selects the **F1 Free** plan.
 
@@ -663,6 +661,10 @@ For more information, see [Run history of function apps - GitHub Issue #104](htt
 1. To review and monitor the deployment process, on the **View** menu, select **Output**. From the Output window toolbar list, select **Azure Logic Apps**.
 
    ![Screenshot that shows the Output window with the "Azure Logic Apps" selected in the toolbar list along with the deployment progress and statuses.](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
+
+   When Visual Studio Code finishes deploying your workflow, this message appears:
+
+   ![Screenshot that shows a message that deployment to Azure successfully completed.](./media/create-stateful-stateless-workflows-visual-studio-code/deployment-to-azure-completed.png)
 
 1. To confirm that your workflow deployed successfully, sign in to the Azure portal. On the Azure search bar, find and select your deployed logic app.
 
