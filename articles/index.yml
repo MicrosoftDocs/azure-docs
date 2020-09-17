@@ -701,7 +701,7 @@ productDirectory:
         - databases
       url: azure-sql/managed-instance/index.yml
     # Card
-    - title: Azure SQL Edge (Preview)
+    - title: Azure SQL Edge
       summary: Small-footprint, edge-optimized data engine with built-in AI
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
       azureCategories:
