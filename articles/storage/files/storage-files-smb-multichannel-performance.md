@@ -77,9 +77,9 @@ There are two categories of read/write workload patterns - single-threaded and m
 - **Single-threaded/multiple files or single file**:
     For most single-threaded workloads, there are minimum performance benefits due to lack of parallelism, usually there is a slight performance degradation of ~10% if SMB Multichannel is enabled. In this case, it's ideal to disable SMB Multichannel, with one exception. If the single-threaded workload can distribute load across multiple files and uses on an average larger IO sizes (> ~16k), then there should be slight performance benefits from SMB Multichannel.
 
-### Testing performance configuration
+### Performance test configuration
 
-For the charts in this article, the following configuration was used: A single Standard D32s v3 VM with a single RSS enabled NIC with 4 channels. Load was generated using diskspd.exe, multiple-threaded with IO depth of 10, random IOs with various IO sizes.
+For the charts in this article, the following configuration was used: A single Standard D32s v3 VM with a single RSS enabled NIC with 4 channels. Load was generated using diskspd.exe, multiple-threaded with IO depth of 10, and random IOs with various IO sizes.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -89,18 +89,19 @@ For the charts in this article, the following configuration was used: A single S
 
 ### Mutli-threaded/multiple files with SMB Multichannel
 
-Load was generated against 10 files, with SMB Mutlichannel enabled. The scale up test results showed significant improvements in both IOPS and throughput test results with SMB Multichannel than without it. The follow graphs depict the results:
+Load was generated against 10 files with various IO sizes. The scale up test results showed significant improvements in both IOPS and throughput test results with SMB Multichannel than without it. The follow graphs depict the results:
 
 :::image type="content" source="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-iops-performance.png" alt-text="Diagram of performance" lightbox="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-iops-performance.png":::
 
 :::image type="content" source="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-throughput-performance.png" alt-text="Diagram of throughput performance." lightbox="media/storage-files-smb-multichannel-performance/diagram-smb-multi-channel-multiple-files-compared-to-single-channel-throughput-performance.png":::
 
-- On a single NIC, for reads, performance increase of 2x-3x was observed, and writes gains of 3x-4x, in both IOPS and throughput.
-- SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC, 4 channels limit.
+- On a single NIC, for reads, performance increase of 2x-3x was observed and for writes, gains of 3x-4x in both terms of IOPS and throughput.
+- SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC and with 4 channels limit.
 - Since egress (or reads to storage) are not metered, read throughput was able to exceed the VM published limit of 16000 Mbps (2 GiB/s). The test achieved >2.7 GiB/s. Ingress (or writes to storage) are still subject to VM limits.
 - Spreading load over multiple files allowed for substantial improvements.
 
-An example command that was used in this testing is: `diskspd.exe -W300 -C5 -r -w100 -b4k -t8 -o8 -Sh -d60 -L -c2G -Z1G z:\write0.dat z:\write1.dat z:\write2.dat z:\write3.dat z:\write4.dat z:\write5.dat z:\write6.dat z:\write7.dat z:\write8.dat z:\write9.dat `.
+An example command that was used in this testing is: 
+`diskspd.exe -W300 -C5 -r -w100 -b4k -t8 -o8 -Sh -d60 -L -c2G -Z1G z:\write0.dat z:\write1.dat z:\write2.dat z:\write3.dat z:\write4.dat z:\write5.dat z:\write6.dat z:\write7.dat z:\write8.dat z:\write9.dat `.
 
 ### Multi-threaded/single file workloads with SMB Multichannel
 
