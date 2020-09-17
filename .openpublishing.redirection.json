@@ -57141,6 +57141,16 @@
     "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
     "redirect_url": "/azure/iot-dps/concepts-roles-operations",
     "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/alter-external-stream-transact-sql.md",
+      "redirect_url": "/azure/azure-sql-edge/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/stream-analytics.md",
+      "redirect_url": "/azure/azure-sql-edge/release-notes",
+      "redirect_document_id": false
     }
   ]
 }
