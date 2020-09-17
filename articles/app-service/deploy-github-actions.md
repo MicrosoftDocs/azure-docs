@@ -26,6 +26,16 @@ For an Azure App Service workflow, the file has three sections:
 
 ## Generate deployment credentials
 
+# [App-level credentials](#tab/applevel)
+
+You can use app-level credentials by using publish profile for your app. 
+
+1. Go to your app service in the Azure portal. 
+
+1. On the **Overview** page, select **Get Publish profile**.
+
+1. Save the downloaded file. You will use the contents of the file to create a GitHub secret.
+
 # [User-level credentials](#tab/userlevel)
 
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
@@ -51,33 +61,10 @@ In the example above, replace the placeholders with your subscription ID, resour
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
-# [App-level credentials](#tab/applevel)
-
-You can use app-level credentials by using publish profile for your app. 
-
-1. Go to your app service in the Azure portal. 
-
-1. On the **Overview** page, select **Get Publish profile**.
-
-1. Save the downloaded file. You will use the contents of the file to create a GitHub secret.
-
 ---
 
 ## Configure the GitHub secret
 
-# [User-level credentials](#tab/userlevel)
-
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
-
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
-
-When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
-
-```yaml
-- uses: azure/login@v1
-  with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}
-```
 
 # [App-level credentials](#tab/applevel)
 
@@ -91,6 +78,20 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 - uses: azure/webapps-deploy@v2
   with:
     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+```
+
+# [User-level credentials](#tab/userlevel)
+
+In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+
+To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+
+When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
+
+```yaml
+- uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
 
 ---
