@@ -31,20 +31,26 @@
       href: virtual-machine-solutions.md
     - name: Confidential computing VM FAQ 
       href: faq.md
-  - name: Confidential containers
+
+  
+  - name: Container Compute
     items: 
-    - name: Confidental containers overview
-      href: confidential-containers.md
-    - name: Enclave-aware containers
-      href: enclave-aware-containers.md
-    - name: Platform Software Management
-      href: platform-software-management.md
     - name: Azure Kubernetes Service (AKS)
+      items: 
+        - name: Getting started on confidential nodes
+          href: confidential-nodes-aks-overview.md
+        - name: Confidential nodes on AKS FAQ
+          href: confidential-nodes-aks-faq.md
+        - name: SGX quote helper feature
+          href: confidential-nodes-outofproc-attestation.md
+    - name: Confidential containers 
       items:
-      - name: Confidential nodes on AKS 
-        href: confidential-nodes-aks-overview.md
-      - name: Confidential nodes on AKS FAQ 
-        href: confidential-nodes-aks-faq.md
+        - name: Getting started
+          href: confidential-containers.md
+    - name: Enclave-aware containers
+      items:
+        - name: Getting started 
+          href: enclave-aware-containers.md
   - name: Attestation
     href: attestation.md
   - name: Application development

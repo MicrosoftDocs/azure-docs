@@ -4,7 +4,7 @@ description: Find answers to some of the common questions about AKS & Azure Conf
 author: agowdamsft
 ms.service: container-compute
 ms.topic: conceptual
-ms.date: 09/05/2020
+ms.date: 09/22/2020
 ms.author: amgowda
 ---
 

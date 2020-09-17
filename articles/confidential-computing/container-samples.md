@@ -3,7 +3,7 @@ title: Azure confidential computing containers samples
 description: The confidential nodes on AKS samples demonstrate key features in Azure confidential computing. Provides links to samples on GitHub. 
 author: JBCook
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 09/22/2020
 ms.author: JenCook
 ---
 
