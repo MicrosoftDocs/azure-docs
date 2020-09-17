@@ -602,7 +602,9 @@ From Visual Studio Code, you can deploy your project directly to Azure, which pu
 
    * **Create new Logic App (Preview) in Azure** (quick create)
    * **Create new Logic App (Preview) in Azure - Advanced**
-   * An existing **Logic App (Preview)** resource
+   * A previously deployed **Logic App (Preview)** resource, if any
+
+   This example selects the non-advanced **Create new Logic App (Preview) in Azure** option.
 
    ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with a list that has quick and advanced creation options and also any existing logic apps to select instead.](./media/create-stateless-stateful-workflows/select-create-logic-app-options.png)
 
@@ -612,9 +614,29 @@ From Visual Studio Code, you can deploy your project directly to Azure, which pu
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateless-stateful-workflows/enter-logic-app-name.png)
 
-   1. Select a hosting plan for your new logic app.
+   1. Select a hosting plan for your new logic app. This example selects **App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateless-stateful-workflows/select-hosting-plan.png)
+
+   1. Create a new Windows App Service plan or select an existing plan. This example selects **Create new App Service Plan**.
+
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to "Create new App Service Plan" or select an existing Windows App Service plan.](./media/create-stateless-stateful-workflows/create-app-service-plan.png)
+
+   1. Provide a name for the new App Service plan, and then select an App Service [pricing tier](https://azure.microsoft.com/pricing/details/app-service/windows/) to use. This example selects the **F1 Free** plan.
+
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select a pricing tier.](./media/create-stateless-stateful-workflows/select-pricing-tier.png)
+
+    1. Select either **Create new resource group** or an existing resource group to use for the new resources. If you create a new group, provide a name and the location or region to use for the new group.
+
+   When you're done, Visual Studio Code starts creating and deploying the resources necessary for publishing your workflow.
+
+1. To review and monitor the deployment process, on the **View** menu, select **Output**. From the Output window toolbar list, select **Azure Logic Apps**.
+
+   ![Screenshot that shows the Output window with the "Azure Logic Apps" selected in the toolbar list along with the deployment progress and statuses.](./media/create-stateless-stateful-workflows/logic-app-deployment-output-window.png)
+
+1. To confirm that your workflow deployed successfully, sign in to the Azure portal. On the Azure search bar, find and select your deployed logic app.
+
+   ![Screenshot that shows the Azure portal and the search bar with search results for deployed logic app, which appears selected.](./media/create-stateless-stateful-workflows/find-deployed-workflow-azure-portal.png)
 
 <a name="deploy-to-docker"></a>
 
