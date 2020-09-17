@@ -20,7 +20,7 @@ By default, a storage account is encrypted with a key that is scoped to the enti
 
 You can choose to use either Microsoft-managed keys or customer-managed keys stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM) (preview) to protect and control access to the key that encrypts your data. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
 
-After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](../blobs/encryption-scope-manage.md).
+After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](encryption-scope-manage.md).
 
 > [!NOTE]
 > Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS) accounts during preview.
@@ -58,5 +58,5 @@ If your encryption scope is protected with customer-managed keys, then you can a
 
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
 - [Create and manage encryption scopes (preview)](encryption-scope-manage.md)
-- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
+- [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)

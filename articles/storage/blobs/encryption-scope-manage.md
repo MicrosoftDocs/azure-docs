@@ -208,6 +208,8 @@ az storage account encryption-scope list \
 
 When you create a container, you can specify a default encryption scope. Blobs in that container will use that scope by default.
 
+An individual blob can be created with its own encryption scope, unless the container is configured to require that all blobs use its default scope.
+
 # [Portal](#tab/portal)
 
 To create a container with a default encryption scope in the Azure portal, first create the encryption scope as described in [Create an encryption scope](#create-an-encryption-scope). Next, follow these steps to create the container:
@@ -223,7 +225,7 @@ To create a container with a default encryption scope in the Azure portal, first
 
 To create a container with a default encryption scope with PowerShell, call the [New-AzRmStorageContainer](/powershell/module/az.storage/new-azrmstoragecontainer) command, specifying the scope for the `-DefaultEncryptionScope` parameter. The **New-AzRmStorageContainer** command creates a container by using the Azure Storage resource provider, which enables configuration of encryption scopes and other resource management operations.
 
-An individual blob can be created with its own encryption scope, unless the container is configured to require that all blobs use its default scope. To force all blobs in a container to use the container's default scope, set the `-PreventEncryptionScopeOverride` parameter to `true`.
+To force all blobs in a container to use the container's default scope, set the `-PreventEncryptionScopeOverride` parameter to `true`.
 
 ```powershell
 $containerName1 = "container1"
@@ -239,7 +241,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/cli)
 
-To create a container with a default encryption scope with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command, specifying the scope for the `--default-encryption-scope` parameter. An individual blob can be created with its own encryption scope, unless the container is configured to require that all blobs use its default scope. To force all blobs in a container to use the container's default scope, set the `--prevent-encryption-scope-override` parameter to `true`.
+To create a container with a default encryption scope with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command, specifying the scope for the `--default-encryption-scope` parameter. To force all blobs in a container to use the container's default scope, set the `--prevent-encryption-scope-override` parameter to `true`.
 
 The following example uses your Azure AD account to authorize the operation to create the container. You can also use the account access key. For more information, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md).
 

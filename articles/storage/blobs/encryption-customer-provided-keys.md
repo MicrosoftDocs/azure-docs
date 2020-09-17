@@ -72,5 +72,5 @@ To rotate an encryption key that was used to encrypt a blob, download the blob a
 
 ## Next steps
 
-- [Specify a customer-provided key on a request to Blob storage with .NET](../blobs/storage-blob-customer-provided-key.md)
-- [Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [Specify a customer-provided key on a request to Blob storage with .NET](storage-blob-customer-provided-key.md)
+- [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
