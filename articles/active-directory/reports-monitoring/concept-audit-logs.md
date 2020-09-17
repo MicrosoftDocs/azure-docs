@@ -61,15 +61,15 @@ An audit log has a default list view that shows:
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Audit logs](./media/concept-audit-logs/columns.png "Audit logs")
+![Audit columns](./media/concept-audit-logs/columns.png "Audit columns")
 
 This enables you to display additional fields or remove fields that are already displayed.
 
-![Audit logs](./media/concept-audit-logs/columnselect.png "Audit logs")
+![Remove fields](./media/concept-audit-logs/columnselect.png "Remove fields")
 
 Select an item in the list view to get more detailed information.
 
-![Audit logs](./media/concept-audit-logs/details.png "Audit logs")
+![select item](./media/concept-audit-logs/details.png "Select item")
 
 
 ## Filtering audit logs
@@ -84,7 +84,7 @@ You can filter the audit data on the following fields:
 - Initiated by (Actor)
 - Date range
 
-![Audit logs](./media/concept-audit-logs/filter.png "Audit logs")
+![Filter](./media/concept-audit-logs/filter.png "Filter")
 
 The **Service** filter allows you to select from a drop-down list of the following services:
 
@@ -156,7 +156,7 @@ When you select a custom timeframe, you can configure a start time and an end ti
 
 You can also choose to download the filtered data, up to 250,000 records, by selecting the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
 
-![Audit logs](./media/concept-audit-logs/download.png "Audit logs")
+![Download](./media/concept-audit-logs/download.png "Download")
 
 ## Audit logs shortcuts
 
@@ -187,11 +187,11 @@ With user and group-based audit reports, you can get answers to questions such a
 
 If you want to review only auditing data that is related to users, you can find a filtered view under **Audit logs** in the **Monitoring** section of the **Users** tab. This entry point has **UserManagement** as preselected category.
 
-![Audit logs](./media/concept-audit-logs/users.png "Audit logs")
+![User](./media/concept-audit-logs/users.png "User")
 
 If you want to review only auditing data that is related to groups, you can find a filtered view under **Audit logs** in the **Monitoring** section of the **Groups** tab. This entry point has **GroupManagement** as preselected category.
 
-![Audit logs](./media/concept-audit-logs/groups.png "Audit logs")
+![Groups](./media/concept-audit-logs/groups.png "Groups")
 
 ### Enterprise applications audit logs
 
@@ -205,7 +205,7 @@ With application-based audit reports, you can get answers to questions such as:
 
 If you want to review audit data related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Enterprise applications** preselected as the **Application Type**.
 
-![Audit logs](./media/concept-audit-logs/enterpriseapplications.png "Audit logs")
+![Enterprise applications](./media/concept-audit-logs/enterpriseapplications.png "Enterprise applications")
 
 ## Microsoft 365 activity logs
 
