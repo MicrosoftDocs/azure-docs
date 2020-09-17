@@ -114,7 +114,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 - On a single NIC with larger average IO size (> ~16k) there was significant improvements in both reads and writes.
 - For smaller IO sizes, there was a slight impact of ~10% on performance when SMB Multichannel was enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
-- Performance is still bound by [single file limits](storage-files-scale-targets.md#file-share-and-file-scale-targets).
+- Performance is still bound by  [single file limits](storage-files-scale-targets.md#file-level-limits)  https://review.docs.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets?branch=pr-en-us-122016#file-level-limits.
 
 ## Optimizing performance
 
