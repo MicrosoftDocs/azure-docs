@@ -32,38 +32,33 @@ Before starting the following steps, make sure that you have selected your prefe
 
 1. Pull the Azure SQL Edge container image from Microsoft Container Registry.
 
-    - Pull the Premium Edition Image
+    - Pull the Azure SQL Edge container Image
         ```bash
-        sudo docker pull mcr.microsoft.com/azure-sql-edge-premium:latest 
-        ```
-
-    - Pull the Developer Edition Image
-        ```bash
-        sudo docker pull mcr.microsoft.com/azure-sql-edge-developer:latest 
+        sudo docker pull mcr.microsoft.com/azure-sql-edge:latest 
         ```
 
 > [!NOTE]
 > For the bash commands in this article `sudo` is used. On macOS & windows, sudo might not be required. On Linux, if you do not want to use sudo to run Docker, you can configure a docker group and add users to that group. For more information, see [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/).
 
-The previous command pulls the latest Azure SQL Edge Premium/Developer container images. To see all available images, see [the azure-sql-egde Docker hub page]().
+The previous command pulls the latest Azure SQL Edge container images. To see all available images, see [the azure-sql-egde Docker hub page](https://hub.docker.com/_/microsoft-azure-sql-edge).
 
 2. To run the container image with Docker, you can use the following command from a bash shell (Linux/macOS) or elevated PowerShell command prompt.
     
     - Start a Azure SQL Edge instance running as the Developer edition
         ```bash
-        sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge-developer
+        sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge
         ```
 
     - Start a Azure SQL Edge instance running as the Premium edition
         ```bash
-        sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Premium' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge-premium
+        sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Premium' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge
         ```
     > [!NOTE]
     > If you are using PowerShell on Windows to run these commands use double quotes instead of single quotes.
 
 
     > [!NOTE]
-    > The password should follows the Microsoft SQL Database Engine default password policy, otherwise the container can not setup SQL server and will stop working. By default, the password must be at least 8 characters long and contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Base 10 digits, and Symbols. You can examine the error log by executing the [docker logs](https://docs.docker.com/engine/reference/commandline/logs/) command.
+    > The password should follow the Microsoft SQL Database Engine default password policy, otherwise the container can not setup SQL engine and will stop working. By default, the password must be at least 8 characters long and contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Base 10 digits, and Symbols. You can examine the error log by executing the [docker logs](https://docs.docker.com/engine/reference/commandline/logs/) command.
     
     The following table provides a description of the parameters in the previous `docker run` example:
 
