@@ -11,7 +11,7 @@ ms.author: robinsh
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 ---
 
-# Visualize real-time sensor data from your Azure IoT hub in a web application
+# Visualize real-time sensor data from your Azure IoT Hub in a web application
 
 ![End-to-end diagram](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
 
