@@ -148,6 +148,10 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
 
 6. Click **Review and create**.
 
+## Provisioning pipelines role
+ 
+>Need permissions specs<
+
 
 For more information about three methods that define a custom permissions see:
 * [Clone a role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
