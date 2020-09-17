@@ -28,7 +28,7 @@ public static async Task<HttpResponseMessage> RunSingle(
 {
     // Check if an instance with the specified ID already exists.
     var existingInstance = await starter.GetStatusAsync(instanceId);
-    if (existingInstance == null)
+    if (existingInstance == null || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Completed)
     {
         // An instance with the specified ID doesn't exist, create one.
         dynamic eventData = await req.Content.ReadAsAsync<object>();
@@ -92,7 +92,7 @@ module.exports = async function(context, req) {
 
     // Check if an instance with the specified ID already exists.
     const existingInstance = await client.getStatus(instanceId);
-    if (!existingInstance) {
+    if (!existingInstance || existingInstance.runtimeStatus == "Completed") {
         // An instance with the specified ID doesn't exist, create one.
         const eventData = req.body;
         await client.startNew(functionName, instanceId, eventData);
@@ -151,7 +151,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
     existing_instance = await client.get_status(instance_id)
 
-    if existing_instance != None:
+    if existing_instance != None or existing_instance._runtime_status == "Completed":
         event_data = req.get_body()
         instance_id = await client.start_new(function_name, instance_id, event_data)
         logging.info(f"Started orchestration with ID = '{instance_id}'.")
