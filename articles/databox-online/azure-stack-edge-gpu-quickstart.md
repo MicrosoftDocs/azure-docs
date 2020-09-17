@@ -15,7 +15,7 @@ Customer intent: As an IT admin, I need to understand how to prepare the portal 
 
 This quickstart details the prerequisites and the steps required to deploy your Azure Stack Edge Pro GPU device. The quickstart steps are performed in the Azure portal and on the local web UI of the device. 
 
-The total procedure should approximately take XX minutes to complete. For detailed step-by-step instructions, go to [Tutorial: Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#deployment-configuration-checklist). 
+The total procedure should approximately take 1.5 hours to complete. For detailed step-by-step instructions, go to [Tutorial: Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#deployment-configuration-checklist). 
 
 
 ## Prerequisites
