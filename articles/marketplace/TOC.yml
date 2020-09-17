@@ -17,7 +17,7 @@
         href: ./lead-management-for-cloud-marketplace.md
       - name: Transacting in the commercial marketplace
         href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
-      - name: Plans and Pricing
+      - name: Plans and pricing
         href: plans-pricing.md
       - name: Private offers
         href: ./private-offers.md
@@ -30,6 +30,8 @@
     - name: Publishing guides by offer type
       href: ./publisher-guide-by-offer-type.md
       items:
+      - name: Plan a SaaS offer
+        href: ./plan-saas-offer.md
       - name: Virtual machines
         href: ./marketplace-virtual-machines.md
       - name: Azure apps solution templates

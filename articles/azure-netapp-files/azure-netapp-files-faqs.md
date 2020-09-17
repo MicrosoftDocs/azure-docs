@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/09/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -65,10 +65,9 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All 
 
 Key management for Azure NetApp Files is handled by the service. A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. Encryption keys are deleted immediately when a volume is deleted.
 
-Support for user-managed keys (Bring Your Own Keys) using Azure Dedicated HSM is available on a controlled basis in the US East, US West2, and US South Central regions.  You can request access at **anffeedback@microsoft.com**. As capacity is available, requests will be approved.
+Support for customer-managed keys (Bring Your Own Key) using Azure Dedicated HSM is available on a controlled basis in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
 
 ### Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
-
 
 Yes, you can configure up to five rules in a single NFS export policy.
 

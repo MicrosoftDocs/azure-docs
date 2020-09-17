@@ -3,7 +3,7 @@ title: Install Update 5.1 on StorSimple 8000 series device | Microsoft Docs
 description: Explains how to install StorSimple 8000 Series Update 5.1 on your StorSimple 8000 series device.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 
 ms.assetid: 
 ms.service: storsimple
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
-ms.author: twooley
+ms.author: alkohli
 
 ---
 # Install Update 5.1 on your StorSimple device
