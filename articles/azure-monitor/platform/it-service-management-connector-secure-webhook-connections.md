@@ -113,7 +113,9 @@ Ensure that you've met the following prerequisites:
 
 ### Configure the BMC Helix connection
 
-1. Follow the instructions in [Enabling prebuilt integration with Azure Monitor for version 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+1. Follow the instructions accoring to the version:
+   * [Enabling prebuilt integration with Azure Monitor for version 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+   * [Enabling prebuilt integration with Azure Monitor for version 19.11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
 
 1. As a part of the configuration of the connection in BMC Helix, go into your integration BMC instance and follow these instructions:
 
