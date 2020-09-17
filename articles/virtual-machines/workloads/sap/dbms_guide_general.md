@@ -145,11 +145,11 @@ As already stated, if your IOPS requirement exceeds what a single VHD can provid
 
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > We recommend that you use Windows Storage Spaces to create stripe sets across multiple Azure VHDs. Use at least Windows Server 2012 R2 or Windows Server 2016.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > Only MDADM and Logical Volume Manager (LVM) are supported to build a software RAID on Linux. For more information, see:
 >
@@ -225,11 +225,11 @@ Azure VMs offer nonpersistent disks after a VM is deployed. In the case of a VM 
 For more information, see [Understand the temporary drive on Windows VMs in Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines).
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > Drive D in an Azure VM is a nonpersisted drive, which is backed by some local disks on the Azure compute node. Because it's nonpersisted, any changes made to the content on drive D are lost when the VM is rebooted. Changes include files that were stored, directories that were created, and applications that were installed.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > Linux Azure VMs automatically mount a drive at /mnt/resource that's a nonpersisted drive backed by local disks on the Azure compute node. Because it's nonpersisted, any changes made to content in /mnt/resource are lost when the VM is rebooted. Changes include files that were stored, directories that were created, and applications that were installed.
 >
@@ -334,11 +334,11 @@ To further reduce network latency between Azure VMs, we recommend that you choos
 >
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > To learn how to deploy VMs with Accelerated Networking for Windows, see [Create a Windows virtual machine with Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-powershell.md).
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > For more information on Linux distribution, see [Create a Linux virtual machine with Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md).
 >

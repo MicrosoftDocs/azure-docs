@@ -45,7 +45,7 @@ When you're ready to use the data in your cloud-based storage solution, we recom
 
 The following diagram provides a visual demonstration of this recommended workflow.
 
-![Data-concept-diagram](./media/concept-data/data-concept-diagram.svg)
+![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset. The dataset flows into model training, which flows into data drift, which flows back to dataset.](./media/concept-data/data-concept-diagram.svg)
 
 ## Datastores
 
