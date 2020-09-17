@@ -84,7 +84,7 @@ You can filter the audit data on the following fields:
 - Initiated by (Actor)
 - Date range
 
-![Filter](./media/concept-audit-logs/filter.png "Filter")
+![Filter object](./media/concept-audit-logs/filter.png "Filter object")
 
 The **Service** filter allows you to select from a drop-down list of the following services:
 
@@ -156,7 +156,7 @@ When you select a custom timeframe, you can configure a start time and an end ti
 
 You can also choose to download the filtered data, up to 250,000 records, by selecting the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
 
-![Download](./media/concept-audit-logs/download.png "Download")
+![Download data](./media/concept-audit-logs/download.png "Download data")
 
 ## Audit logs shortcuts
 
@@ -191,7 +191,7 @@ If you want to review only auditing data that is related to users, you can find 
 
 If you want to review only auditing data that is related to groups, you can find a filtered view under **Audit logs** in the **Monitoring** section of the **Groups** tab. This entry point has **GroupManagement** as preselected category.
 
-![Groups](./media/concept-audit-logs/groups.png "Groups")
+![Filter groups](./media/concept-audit-logs/groups.png "Filter groups")
 
 ### Enterprise applications audit logs
 
