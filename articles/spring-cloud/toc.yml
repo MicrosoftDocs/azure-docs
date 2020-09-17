@@ -93,6 +93,8 @@
       href: spring-cloud-howto-enable-system-assigned-managed-identity.md
     - name: Self diagnose and solve problems
       href: spring-cloud-howto-self-diagnose-solve.md
+    - name: Identify outbound public IP addresses
+      href: spring-cloud-how-to-outbound-public-ip.md
     - name: Monitor
       items:
         - name: Distributed tracing and App Insights

@@ -9,9 +9,9 @@ ms.date: 09/17/2020
 ms.custom: devx-track-java
 ---
 
-# Outbound public IP addresses in Azure Spring Cloud
+# How to identify outbound public IP addresses in Azure Spring Cloud
 
-This page will instruct you on how to view the static outbound public IP addresses of your Application, which are used to communicate with external resources, such as Database, Storage, Key Vault, etc.
+This page will show you how to view the static outbound public IP addresses of your Application, which are used to communicate with external resources, such as Database, Storage, Key Vault, etc.
 
 
 
@@ -19,26 +19,22 @@ This page will instruct you on how to view the static outbound public IP address
 
 An Azure Spring Cloud service has one or more outbound public IP addresses. The number of outbound public IP addresses may vary according to the tiers and other factors. 
 
-The outbound public IP addresses usually remain the same, but there are exceptions.
+The outbound public IP addresses usually constant and stay the same, but there are exceptions.
 
 
 
 ## When outbound IPs change
 
-Each Azure Spring Cloud instance has a set number of outbound public IP addresses at any given time. Any outbound connection from the Applications, such as to a back-end database, uses one of the outbound public IP addresses as the origin IP address. The IP address to use is selected randomly at runtime, so your back-end service must open its firewall to all the outbound IP addresses.
-
-
+Each Azure Spring Cloud instance has a set number of outbound public IP addresses at any given time. Any outbound connection from the applications, such as to a back-end database, uses one of the outbound public IP addresses as the origin IP address. The IP address is selected randomly at runtime, so your back-end service must open its firewall to all the outbound IP addresses.
 
 The number of outbound public IPs changes when you perform one of the following actions:
 
 - Upgrade your Azure Spring Cloud instance between tiers.
 - Raise a support ticket for more outbound public IPs for business needs.
 
-
-
 ## Find outbound IPs
 
-To find the outbound public IP addresses currently belongs to your service instance in the Azure portal, click **Networking** in your instance's left-hand navigation. They are listed in the **Outbound IP addresses** field.
+To find the outbound public IP addresses currently used by your service instance in the Azure portal, click **Networking** in your instance's left-hand navigation pane. They are listed in the **Outbound IP addresses** field.
 
 You can find the same information by running the following command in the Cloud Shell
 
