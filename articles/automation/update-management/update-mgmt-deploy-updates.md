@@ -46,7 +46,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 4. Select the operating system to target for the update deployment.
 
-    > [!INFORMATION]
+    > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
 
 5. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](update-mgmt-groups.md).
