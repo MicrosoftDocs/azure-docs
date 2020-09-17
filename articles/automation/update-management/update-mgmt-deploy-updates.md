@@ -100,7 +100,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
     ![Update Schedule Settings pane](./media/update-mgmt-deploy-updates/manageupdates-schedule-win.png)
 
-15. You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule that you've created.
+15. You're returned to the status dashboard. Select **Deployment schedules** to show the deployment schedule that you've created.
 
 ## Schedule an update deployment programmatically
 
@@ -110,7 +110,7 @@ You can use a sample runbook to create a weekly update deployment. To learn more
 
 ## Check deployment status
 
-After your scheduled deployment starts, you can see its status on the **Update deployments** tab under **Update management**. The status is **In progress** when the deployment is currently running. When the deployment ends successfully, the status changes to **Succeeded**. If there are failures with one or more updates in the deployment, the status is **Partially failed**.
+After your scheduled deployment starts, you can see its status on the **History** tab under **Update management**. The status is **In progress** when the deployment is currently running. When the deployment ends successfully, the status changes to **Succeeded**. If there are failures with one or more updates in the deployment, the status is **Failed**.
 
 ## View results of a completed update deployment
 
