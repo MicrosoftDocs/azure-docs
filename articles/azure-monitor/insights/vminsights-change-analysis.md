@@ -23,11 +23,12 @@ To onboard change analysis in Azure Monitor for VMs, you must register the *Micr
 ## View change analysis
 Change analysis is available from the **Performance** tab of Azure Monitor for VMs by selecting the **Change** option. 
 
-\<Screenshot\>
+[![Change details](media/vminsights-change-analysis/investigate-changes.png)](media/vminsights-change-analysis/investigate-changes.png#lightbox)
+
 
 Click the **Investigate changes** button to launch the Application Change Analysis page filtered for the VM. You can review the listed changes to see if there are any that could have caused the issue. If you are unsure about a particular change, you can reference the **Change by** column to determine the person who made the change.
 
-\<Screenshot\>
+[![Change details](media/vminsights-change-analysis/change-details.png)](media/vminsights-change-analysis/change-details.png#lightbox)
 
 ## Next steps
 - Learn more about [Application Change Analysis](../app/change-analysis.md).
