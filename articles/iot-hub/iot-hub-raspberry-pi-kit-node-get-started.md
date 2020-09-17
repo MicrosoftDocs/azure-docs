@@ -33,7 +33,7 @@ Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-w
 
 ## What you learn
 
-* How to create an Azure IoT hub and get your new device connection string.
+* How to create an Azure IoT Hub and get your new device connection string.
 
 * How to connect Pi with a BME280 sensor.
 
