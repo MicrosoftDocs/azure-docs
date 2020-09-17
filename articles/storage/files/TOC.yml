@@ -87,8 +87,6 @@
     items:
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
-    - name: Enable large file shares
-      href: storage-files-how-to-create-large-file-share.md
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
     - name: Create an NFS share
@@ -233,6 +231,8 @@
     items:
     - name: Enable SMB Multichannel
       href: storage-files-enable-smb-multichannel.md
+    - name: Enable large file shares
+      href: storage-files-how-to-create-large-file-share.md
   - name: Develop
     items:
     - name: Configure connection strings
