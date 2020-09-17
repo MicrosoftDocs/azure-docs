@@ -31,6 +31,80 @@ You can clone any Git repository you can authenticate to (GitHub, Azure Repos, B
 
 For a guide on how to use the Git CLI, read here [here](https://guides.github.com/introduction/git-handbook/).
 
+## Authenticating your Git Account with SSH
+### Generating a new SSH key
+1) Open [Terminal](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) in the Azure Machine Learning Notebook Tab.
+
+2) Paste the text below, substituting in your email address.
+
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+This creates a new ssh key, using the provided email as a label.
+
+```
+> Generating public/private rsa key pair.
+```
+
+3) When you're prompted to "Enter a file in which to save the key" press Enter. This accepts the default file location.
+
+> [!TIP]
+> Make sure the SSH key is saved in '/home/azureuser/.ssh'. This file is saved on the Compute Instance is only accessible by the owner of the Compute Instance
+
+```
+> Enter a file in which to save the key (/home/azureuser/.ssh/id_rsa): [Press enter]
+```
+
+4) At the prompt, type a secure passphrase. We recommend you add a password to your SSH key for added security
+
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+```
+
+### Adding the public key to Git Account.
+1) In your terminal window, copy the contents of your public key file. If you renamed the key, replace id_rsa.pub with the public key file name.
+
+```
+cat ~/.ssh/id_rsa.pub
+```
+> [!TIP]
+> **Copy and Paste in Terminal**
+> * Windows: Right-click and select `Copy` to copy and use `Ctrl-Shift-v` to paste.
+> * FireFox/IE may not support clipboard permissions properly.
+> * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
+
+2) Select and copy the key output in the clipboard.
+
++ If you are using **GitHub**, [follow these instructions](https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
++ If you are using **GitLab**, [follow these instructions](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
+
++ If you are using **Azure DevOps**, [follow these instructions](https://docs.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Start at **Step 2**.
+
++ If you are using **BitBucket**, [follow these instructions](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Start at **Step 4**.
+
+### Clone the Git repository with SSH
+
+1) Copy the SSH Git clone URL from the Git repo.
+
+2) Paste the text below, substituting in your SSH Git repo URL. should look like:
+```
+git clone git@example.com:GitUser/azureml-example.git
+Cloning into 'azureml-example'...
+The authenticity of host 'example.com (192.30.255.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of known hosts.
+```
+
+SSH may display the server's SSH fingerprint and ask you to verify it. You should verify that the displayed fingerprint matches one of the fingerprints in the SSH public keys page.
+
+SSH displays this fingerprint when it connects to an unknown host to protect you from [man-in-the-middle attacks](https://technet.microsoft.com/library/cc959354.aspx). Once you accept the host's fingerprint, SSH will not prompt you again unless the fingerprint changes.
+
+3) When you are asked if you want to continue connecting, type `yes`. Git will clone the repo and set up the origin remote to connect with SSH for future Git commands.
+
 ## Track code that comes from Git repositories
 
 When you submit a training run from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training run. This information is stored in the following properties for the training run:
