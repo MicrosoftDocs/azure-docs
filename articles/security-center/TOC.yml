@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: About Security Center
-    href: security-center-intro.md
+    href: security-center-introduction.md
   - name: Supported platforms
     href: security-center-os-coverage.md
   - name: Security Center features

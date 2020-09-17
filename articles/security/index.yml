@@ -27,7 +27,7 @@ highlightedContent:
       url: ./fundamentals/best-practices-and-patterns.md
     - title: What is Azure Security Center?
       itemType: overview
-      url: ../security-center/security-center-intro.md
+      url: ../security-center/security-center-introduction.md
 
 
 conceptualContent:
