@@ -52,6 +52,7 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
     1. Choose your environment. You can choose from any of the [Azure Machine Learning curated](resource-curated-environments.md) or create your own.
     1. Provide the name of the script you want to run. The path is relative to the directory opened in VS Code.
     1. Choose whether you want to use an Azure Machine Learning dataset or not. You can create [Azure Machine Learning datasets](how-to-manage-resources-vscode.md#create-dataset) using the extension.
+    1. Debugpy is required in order to attach the debugger to the container running your experiment. To add debugpy as a dependency,select **Add Debugpy**. Otherwise, select **Skip**.
     1. A configuration file containing your run configuration settings opens in the editor. If you're satisfied with the settings, select **Submit experiment**. Alternatively, you open the command palette (**View > Command Palette**) from the menu bar and enter the `Azure ML: Submit experiment` command into the text box.
 1. Once your experiment is submitted, a Docker image containing your script and the configurations specified in your run configuration is created.
 
@@ -72,7 +73,7 @@ At this point, you should be able to step-through and debug your code using VS C
 Similar to remote experiment runs, you can expand your run node to inspect the logs and outputs.
 
 > [!TIP]
-> Docker images that use the same dependencies defined in your environment are reused between runs. However, if you run an experiment using a new or different environment, a new image is created. Since these images are saved to your local storage, it's recommended to remove old or unused Docker images. To do remove images from your system, use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/rmi/) or the [VS Code Docker extension](https://code.visualstudio.com/docs/containers/overview).
+> Docker images that use the same dependencies defined in your environment are reused between runs. However, if you run an experiment using a new or different environment, a new image is created. Since these images are saved to your local storage, it's recommended to remove old or unused Docker images. To remove images from your system, use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/rmi/) or the [VS Code Docker extension](https://code.visualstudio.com/docs/containers/overview).
 
 ## Debug and troubleshoot machine learning pipelines
 
