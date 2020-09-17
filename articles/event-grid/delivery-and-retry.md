@@ -89,35 +89,12 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 You might want to be notified when an event has been sent to the dead letter location. To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. Every time your dead-letter blob storage receives an undelivered event, Event Grid notifies your handler. The handler responds with actions you wish to take for reconciling undelivered events.
 
-The following sections provide you with example dead-letter events in different delivery schemas. 
+### Dead-letter event formats
+The following sections provide you with example dead-letter events in different delivery schema formats. 
 
-### Event Grid schema
+#### Event Grid schema
+Here's a sample dead-letter event in the Event Grid schema format. 
 
-#### Event
-
-```json
-{
-    "id": "93902694-901e-008f-6f95-7153a806873c",
-    "eventTime": "2020-08-13T17:18:13.1647262Z",
-    "eventType": "Microsoft.Storage.BlobCreated",
-    "dataVersion": "",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
-    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
-    "data": {
-      "api": "PutBlob",
-      "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
-      "requestId": "93902694-901e-008f-6f95-7153a8000000",
-      "eTag": "0x8D83FACDC0C3402",
-      "contentType": "text/plain",
-      "contentLength": 0,
-      "blobType": "BlockBlob",
-      "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
-      "sequencer": "00000000000000000000000000015508000000000005101c",
-      "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
-    }
-}
-```
 #### Dead-letter event
 
 ```json
@@ -151,25 +128,7 @@ The following sections provide you with example dead-letter events in different 
 ```
 
 ### CloudEvents 1.0 schema
-
-#### Event
-
-```json
-{
-  "id": "caee971c-3ca0-4254-8f99-1395b394588e",
-  "source": "mysource",
-  "dataversion": "1.0",
-  "subject": "mySubject",
-  "type": "fooEventType",
-  "datacontenttype": "application/json",
-  "data": {
-    "prop1": "value1",
-    "prop2": 5
-  }
-}
-```
-
-#### Dead-letter event
+Here's a sample dead-letter event in the CloudEvents 1.0 schema format. 
 
 ```json
 {
@@ -193,18 +152,7 @@ The following sections provide you with example dead-letter events in different 
 ```
 
 ### Custom schema
-
-#### Event
-
-```json
-{
-      "prop1": "my property",
-      "prop2": 5,
-      "myEventType": "fooEventType"
-}
-```
-
-#### Dead-letter event
+Here's a sample dead-letter event in the custom schema format. 
 
 ```json
 {
@@ -230,8 +178,8 @@ The following sections provide you with example dead-letter events in different 
 }
 ```
 
-For an example of setting up a dead letter location, see [Dead letter and retry policies](manage-event-delivery.md).
-
+### Dead-letter location and retry policies
+For an example of setting up a dead letter location and retry policies, see [Dead letter and retry policies](manage-event-delivery.md).
 
 
 ## Message delivery status
