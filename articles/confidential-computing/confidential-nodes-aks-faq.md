@@ -83,7 +83,7 @@ spec:
 
 ## What happens if my enclave consumes more than maximum available EPC memory? 
 
-Total available EPC memory is shared between the enclave applications in the same VMs or worker nodes. If your application uses EPC memory more than available then you will be penalized by low performance because of paging. For this reason, we recommend you setting toleration per application in your deployment yaml file to better manage the available EPC memory per worker nodes as shown in the examples above. Alternatively, you can always choose to move up on the worker node pool VM sizes or add more nodes. 
+Total available EPC memory is shared between the enclave applications in the same VMs or worker nodes. If your application uses EPC memory more than available then the application performance might be impacted. For this reason, we recommend you setting toleration per application in your deployment yaml file to better manage the available EPC memory per worker nodes as shown in the examples above. Alternatively, you can always choose to move up on the worker node pool VM sizes or add more nodes. 
 
 ## Why can't I do forks () and exec to run multiple processes in my enclave application? 
 
