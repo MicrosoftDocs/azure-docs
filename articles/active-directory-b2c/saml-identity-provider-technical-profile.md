@@ -162,7 +162,7 @@ The **CryptographicKeys** element contains the following attributes:
 | Attribute |Required | Description |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Yes | The X509 certificate (RSA key set) to use to sign SAML messages. Azure AD B2C uses this key to sign the requests and send them to the identity provider. |
-| SamlAssertionDecryption |Yes | The X509 certificate (RSA key set) to use to decrypt SAML messages. This certificate should be provided by the identity provider. Azure AD B2C uses this certificate to decrypt the data sent by the identity provider. |
+| SamlAssertionDecryption |Yes | The X509 certificate (RSA key set) to use to decrypt SAML messages sent to B2C. This should be the private key certificate used by B2C to decrypt SAML assertions.  The Identity Provider should retrieve the associated public key from the B2C metadata, and use that to encrypt the data sent by the identity provider to B2C. |
 | MetadataSigning |No | The X509 certificate (RSA key set) to use to sign SAML metadata. Azure AD B2C uses this key to sign the metadata.  |
 
 ## SAML entityID customization
