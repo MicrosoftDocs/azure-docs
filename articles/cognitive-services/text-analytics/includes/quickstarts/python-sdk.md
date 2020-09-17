@@ -212,6 +212,100 @@ Neutral=0.77
 Negative=0.02
 ```
 
+In order to do sentiment analysis with opinion mining, create a new function called `sentiment_analysis_with_opinion_mining_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function with option flag `show_opinion_mining=True`. The returned response object will contain not only the sentiment label and score of the entire input document with sentiment analysis for each sentence, but also aspect and opinion level sentiment analysis.
+
+
+```python
+def sentiment_analysis_with_opinion_mining_example(client):
+
+    documents = [
+        "The food and service were unacceptable, but the concierge were nice",
+        "The rooms were beautiful but dirty. The AC was good and quiet, but the elevator was broken"
+    ]
+
+    result = text_analytics_client.analyze_sentiment(documents, show_opinion_mining=True)
+    doc_result = [doc for doc in result if not doc.is_error]
+
+    positive_reviews = [doc for doc in doc_result if doc.sentiment == "positive"]
+    negative_reviews = [doc for doc in doc_result if doc.sentiment == "negative"]
+
+    positive_mined_opinions = []
+    mixed_mined_opinions = []
+    negative_mined_opinions = []
+
+    for document in doc_result:
+        print("Document Sentiment: {}".format(document.sentiment))
+        print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
+            document.confidence_scores.positive,
+            document.confidence_scores.neutral,
+            document.confidence_scores.negative,
+        ))
+        for sentence in document.sentences:
+            print("Sentence: {}".format(sentence.text))
+            print("Sentence sentiment: {}".format(sentence.sentiment))
+            print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
+                sentence.confidence_scores.positive,
+                sentence.confidence_scores.neutral,
+                sentence.confidence_scores.negative,
+            ))
+            for mined_opinion in sentence.mined_opinions:
+                aspect = mined_opinion.aspect
+                print("......'{}' aspect '{}'".format(aspect.sentiment, aspect.text))
+                for opinion in mined_opinion.opinions:
+                    print("......'{}' opinion '{}'".format(opinion.sentiment, opinion.text))
+        print("\n")
+          
+sentiment_analysis_with_opinion_mining_example(client)
+```
+
+### Output
+
+```console
+Document Sentiment: positive
+Overall scores: positive=0.84; neutral=0.00; negative=0.16
+
+Sentence: The food and service were unacceptable, but the concierge were nice
+Sentence sentiment: positive
+Sentence score:
+Positive=0.84
+Neutral=0.00
+Negative=0.16
+
+......'negative' aspect 'food'
+......'negative' opinion 'unacceptable'
+......'negative' aspect 'service'
+......'negative' opinion 'unacceptable'
+......'positive' aspect 'concierge'
+......'positive' opinion 'nice'
+
+
+Document Sentiment: negative
+Overall scores: positive=0.00; neutral=0.00; negative=1.00
+
+Sentence: The rooms were beautiful but dirty.
+Sentence sentiment: negative
+Sentence score:
+Positive=0.01
+Neutral=0.00
+Negative=0.99
+
+......'mixed' aspect 'rooms'
+......'positive' opinion 'beautiful'
+......'negative' opinion 'dirty'
+Sentence: The AC was good and quiet, but the elevator was broken
+Sentence sentiment: negative
+Sentence score:
+Positive=0.00
+Neutral=0.00
+Negative=1.00
+
+......'positive' aspect 'AC'
+......'positive' opinion 'good'
+......'positive' opinion 'quiet'
+......'negative' aspect 'elevator'
+......'negative' opinion 'broken'
+```
+
 #### [Version 3.0](#tab/version-3)
 
 Create a new function called `sentiment_analysis_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
