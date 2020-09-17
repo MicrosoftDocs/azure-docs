@@ -507,7 +507,7 @@ a policy definition that ensures that Kubernetes Services is upgraded to its non
 - Latest TLS version should be used in your API App
 - Latest TLS version should be used in your Function App
 - Latest TLS version should be used in your Web App
-- \[Preview\]: Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version
+- Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version
 
 ## SI-3 Malicious Code Protection
 
