@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -24,9 +24,7 @@ Using this feature requires an Azure AD Premium P1 license for your Azure AD org
 
 ## Delegate only App Proxy connectors
 
-To delegate create, read, update and delete (CRUD) actions for connector management.
-
-Permissions required
+To delegate create, read, update and delete (CRUD) operations for connector management. Permissions required:
 
 - microsoft.directory/connectorGroups/allProperties/read
 - microsoft.directory/connectorGroups/allProperties/update
@@ -35,11 +33,9 @@ Permissions required
 - microsoft.directory/connectors/allProperties/read
 - microsoft.directory/connectors/create
 
-## Manage only App Proxy Settings for an App 
+## Manage only App Proxy settings for an app
 
-To delegate Create, Read, Update and delete actions for app proxy properties on an app.  
-
-Permissions required
+To delegate create, read, update and delete (CRUD) operations for app proxy properties on an app. Permissions required:
 
 - microsoft.directory/applications/applicationProxy/read
 - microsoft.directory/applications/applicationProxy/update
@@ -52,18 +48,14 @@ Permissions required
 
 ## Read only App Proxy Settings for an App
 
-To delegate Read permissions for app proxy properties on an app.  
-
-Permissions required
+To delegate Read permissions for app proxy properties on an app. Permissions required:
 
 - microsoft.directory/applications/applicationProxy/read
 - microsoft.directory/connectorGroups/allProperties/read
 
 ## Update only URL configuration App Proxy Settings for an App
 
-Read properties for app proxy properties on an app.  
-
-Permissions required
+Read properties for app proxy properties on an app. Permissions required:
 
 - microsoft.directory/applications/applicationProxy/read
 - microsoft.directory/connectorGroups/allProperties/read
@@ -75,61 +67,64 @@ Permissions required
 
 ## Full list of permissions
 
-microsoft.directory/applicationPolicies/standard/read
-microsoft.directory/applicationPolicies/allProperties/read
-microsoft.directory/applicationPolicies/policyAppliedTo/read
-microsoft.directory/applicationPolicies/basic/update
-microsoft.directory/applicationPolicies/owners/read
-microsoft.directory/applicationPolicies/allProperties/update
-microsoft.directory/applicationPolicies/owners/update
-microsoft.directory/applicationPolicies/create
-microsoft.directory/applicationPolicies/createAsOwner
-microsoft.directory/applicationPolicies/delete
-microsoft.directory/servicePrincipals/standard/read
-microsoft.directory/servicePrincipals/allProperties/read
-microsoft.directory/servicePrincipals/allProperties/update
-microsoft.directory/servicePrincipals/appRoleAssignedTo/read
-microsoft.directory/servicePrincipals/appRoleAssignedTo/update
-microsoft.directory/servicePrincipals/appRoleAssignments/read
-microsoft.directory/servicePrincipals/owners/read
-microsoft.directory/servicePrincipals/policies/read
-microsoft.directory/servicePrincipals/owners/update
-microsoft.directory/applications/owners/update
-microsoft.directory/applicationTemplates/instantiate
-microsoft.directory/servicePrincipals/policies/update
-microsoft.directory/servicePrincipals/tag/update
-microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials
-microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials
-microsoft.directory/servicePrincipals/create
-microsoft.directory/servicePrincipals/createAsOwner
-microsoft.directory/servicePrincipals/disable
-microsoft.directory/servicePrincipals/enable
-microsoft.directory/servicePrincipals/audience/update
-microsoft.directory/servicePrincipals/authentication/update
-microsoft.directory/servicePrincipals/basic/update
-microsoft.directory/servicePrincipals/credentials/update
-microsoft.directory/servicePrincipals/permissions/update
-microsoft.directory/servicePrincipals/delete
-microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read
-microsoft.directory/servicePrincipals/synchronization/standard/read
-microsoft.directory/auditLogs/allProperties/read
-microsoft.directory/signInReports/allProperties/read
-microsoft.directory/applications/applicationProxy/read
-microsoft.directory/applications/applicationProxy/update
-microsoft.directory/applications/applicationProxyAuthentication/update
-microsoft.directory/applications/applicationProxyUrlSettings/update
-microsoft.directory/applications/applicationProxySslCertificate/update
-microsoft.directory/applications/synchronization/standard/read
-microsoft.directory/connectorGroups/create
-microsoft.directory/connectorGroups/delete
-microsoft.directory/connectorGroups/allProperties/read
-microsoft.directory/connectorGroups/allProperties/update
-microsoft.directory/connectors/create
-microsoft.directory/connectors/allProperties/read
-microsoft.directory/servicePrincipals/synchronizationJobs/manage
-microsoft.directory/servicePrincipals/synchronization/standard/read
-microsoft.directory/servicePrincipals/synchronizationSchema/manage
-microsoft.directory/provisioningLogs/allProperties/read
+Permission | Description
+---------- | -----------
+microsoft.directory/applicationPolicies/allProperties/read | Read all properties (including privileged properties) on application policies.
+microsoft.directory/applicationPolicies/allProperties/update | Update all properties (including privileged properties) on application policies.
+microsoft.directory/applicationPolicies/basic/update | Update standard properties of application policies.
+microsoft.directory/applicationPolicies/create | Create application policies.
+microsoft.directory/applicationPolicies/createAsOwner | Create application policies. Creator is added as the first owner.
+microsoft.directory/applicationPolicies/delete | Delete application policies.
+microsoft.directory/applicationPolicies/owners/read | Read owners on application policies.
+microsoft.directory/applicationPolicies/owners/update | Update the owner property of application policies.
+microsoft.directory/applicationPolicies/policyAppliedTo/read | Read application policies applied to objects list.
+microsoft.directory/applicationPolicies/standard/read | Read standard properties of application policies.
+microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete servicePrincipals, and read and update all properties in Azure Active Directory.
+microsoft.directory/servicePrincipals/allProperties/read | Read all properties (including privileged properties) on servicePrincipals.
+microsoft.directory/servicePrincipals/allProperties/update | Update all properties (including privileged properties) on servicePrincipals.
+microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Read service principal role assignments.
+microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments.
+microsoft.directory/servicePrincipals/appRoleAssignments/read | Read role assignments assigned to service principals.
+microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals.
+microsoft.directory/servicePrincipals/authentication/read |  
+microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals.
+microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals.
+microsoft.directory/servicePrincipals/create | Create service principals.
+microsoft.directory/servicePrincipals/createAsOwner | Create service principals. Creator is added as the first owner.
+microsoft.directory/servicePrincipals/credentials/update | Update credentials properties on service principals.
+microsoft.directory/servicePrincipals/delete | Delete service principals.
+microsoft.directory/servicePrincipals/disable |  
+microsoft.directory/servicePrincipals/enable | Enable service principals.
+microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals.
+microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Manage password single sign-on credentials on service principals.
+microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | Read delegated permission grants on service principals.
+microsoft.directory/servicePrincipals/owners/read | Read owners on service principals.
+microsoft.directory/servicePrincipals/owners/update | Update owners on service principals.
+microsoft.directory/servicePrincipals/permissions/update |  
+microsoft.directory/servicePrincipals/policies/read | Read policies on service principals.
+microsoft.directory/servicePrincipals/policies/update | Update policies on service principals.
+microsoft.directory/servicePrincipals/standard/read | Read standard properties of service principals.
+microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal.
+microsoft.directory/servicePrincipals/tag/update |  
+microsoft.directory/applicationTemplates/instantiate | 
+microsoft.directory/auditLogs/allProperties/read | Read audit logs.
+microsoft.directory/signInReports/allProperties/read | Read sign-in reports.
+microsoft.directory/applications/applicationProxy/read | Read all application proxy properties of all types of applications.
+microsoft.directory/applications/applicationProxy/update | Update all application proxy properties of all types of applications.
+microsoft.directory/applications/applicationProxyAuthentication/update | Update application proxy authentication properties of all types of applications.
+microsoft.directory/applications/applicationProxyUrlSettings/update | Update application proxy internal and external URLs of all types of applications.
+microsoft.directory/applications/applicationProxySslCertificate/update | Update application proxy custom domains of all types of applications.
+microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object.
+microsoft.directory/connectorGroups/create | Create application proxy connector groups.
+microsoft.directory/connectorGroups/delete | Delete application proxy connector groups.
+microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups.
+microsoft.directory/connectorGroups/allProperties/update | Update all properties of application proxy connector groups.
+microsoft.directory/connectors/create | Create application proxy connectors.
+microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors.
+microsoft.directory/servicePrincipals/synchronizationJobs/manage | Manage all aspects of job synchronization for service principal resources
+microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with service principals
+microsoft.directory/servicePrincipals/synchronizationSchema/manage | Manage all aspects of schema synchronization for service principal resources
+microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs
 
 ## Next steps
 
