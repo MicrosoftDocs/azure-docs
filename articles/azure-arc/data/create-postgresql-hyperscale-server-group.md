@@ -120,7 +120,6 @@ azdata arc postgres endpoint list -n <server group name>
 ```
 For example:
 ```console
-azdata arc postgres server endpoint list -n postgres01
 [
   {
     "Description": "PostgreSQL Instance",
