@@ -19,12 +19,12 @@ This article describes the functionalities that are currently supported in Azure
 
 There are two types of containers in Azure Cosmos DB:
 * HTAP container - A container with Synapse Link enabled. This container has both transactional store and analytical store. 
-* OLTP container - A container with only transaction store; Synapse Link is not enabled. 
+* OLTP container - A container with only transaction store; Synapse Link isn't enabled. 
 
 > [!IMPORTANT]
 > Azure Synapse Link for Azure Cosmos DB is currently supported for workspaces that do not have managed virtual network enabled. 
 
-You can connect to an Azure Cosmos DB container without enabling Synapse Link, in which case you can only read/write to the transactional store. What follows a is list of the currently supported features within Synapse Link for Azure Cosmos DB. 
+You can connect to an Azure Cosmos DB container without enabling Synapse Link. In this scenario, you can only read/write to the transactional store. What follows is a list of the currently supported features within Synapse Link for Azure Cosmos DB. 
 
 | Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
@@ -34,7 +34,7 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link, i
 | **Read**    |Read data from an Azure Cosmos DB container| OLTP / HTAP | HTAP  |
 | **Write**   |Write data from run-time into an Azure Cosmos DB container| OLTP | n/a |
 
-* If you write data into an Azure Cosmos DB container from Spark, this process happens through the transactional store of Azure Cosmos DB and will impact the transactional performance of Azure Cosmos DB by consuming Request Units.
+* If you write data into an Azure Cosmos DB container from Spark, this process happens through the transactional store of Azure Cosmos DB. It will impact the transactional performance of Azure Cosmos DB by consuming Request Units.
 * SQL pool integration through external tables is currently not supported.
 
 ## Supported code-generated actions for Spark

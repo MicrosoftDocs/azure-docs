@@ -91,7 +91,7 @@ df.write.format("cosmos.oltp").
 ```
 
 ## Load streaming DataFrame from container
-In this gesture, you'll use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) that you connected to the workspace. 
+In this gesture, you'll use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) you connected to the workspace. 
 
 If the folder */localReadCheckpointFolder* isn't created, it will be automatically created. This operation will impact the transactional performance of Azure Cosmos DB.
 
