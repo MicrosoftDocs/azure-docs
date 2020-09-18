@@ -21,14 +21,6 @@ The .NET language and runtime uses the Windows Certificate Store to securely con
 
 This article demonstrates how to export the TLS/SSL certificates for use in different languages and runtime environments that do not integrate with the Windows Certificate Store. You can read more about the emulator in [Use the Azure Cosmos DB Emulator for development and testing](./local-emulator.md).
 
-## Rotate emulator certificates
-
-You can regenerate both the emulator certificates by selecting **Reset Data** from the Azure Cosmos DB emulator running in the Windows Tray.
-
-:::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Azure Cosmos DB local emulator reset data":::
-
-If you have installed the certificate into the Java certificate store or used them elsewhere, you need to update them with the regenerated certificates. Your application can't connect to the local emulator until you update the certificates.
-
 ## <a id="export-emulator-certificate"></a>Export the Azure Cosmos DB TLS/SSL certificate
 
 You need to export the emulator certificate to use with languages and runtime environments that do not integrate with the Windows Certificate Store. You can export the certificate using the Windows Certificate Manager. Use the following step-by-step instructions to export the "DocumentDBEmulatorCertificate" certificate as a BASE-64 encoded X.509 (.cer) file:
@@ -69,7 +61,7 @@ You need to export the emulator certificate to use with languages and runtime en
 
 When running Java applications or MongoDB applications that use the Java client it is easier to install the certificate into the Java default certificate store than passing the `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flags. For example, the included Java Demo application (`https://localhost:8081/_explorer/index.html`) depends on the default certificate store.
 
-Follow the instructions in the [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store) to import the X.509 certificate into the default Java certificate store. Keep in mind you will be working in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos Emulator.
+Follow the instructions in the [Adding a Certificate to the Java Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store) to import the X.509 certificate into the default Java certificate store. Keep in mind you will be working in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos Emulator.
 
 Alternatively you can run the following bash script to import the certificate:
 
@@ -96,6 +88,14 @@ When connecting to the emulator from Python apps, TLS verification is disabled. 
 ## How to use the certificate in Node.js
 
 When connecting to the emulator from Python and Node.js SDKs, TLS verification is disabled. By default the [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) for the SQL API will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+
+## Rotate emulator certificates
+
+You can regenerate both the emulator certificates by selecting **Reset Data** from the Azure Cosmos DB emulator running in the Windows Tray.
+
+:::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Azure Cosmos DB local emulator reset data":::
+
+If you have installed the certificate into the Java certificate store or used them elsewhere, you need to update them with the regenerated certificates. Your application can't connect to the local emulator until you update the certificates.
 
 ## Next steps
 

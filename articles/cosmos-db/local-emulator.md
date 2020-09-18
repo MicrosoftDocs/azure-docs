@@ -63,41 +63,29 @@ To get started, download and install the latest version of [Azure Cosmos emulato
 
 Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux, or [macOS](#run-on-linux-macos) as described in next sections of this article.
 
-### Check for updates
+## Check for emulator updates
 
 Each version of emulator comes with a set of feature updates or bug fixes. To see the available versions, read the [emulator release notes](local-emulator-release-notes.md) article.
 
 After installation, the data corresponding to the emulator is saved at `%LOCALAPPDATA%\CosmosDBEmulator` location or data path optional settings. The data created in one version of the Azure Cosmos emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure Cosmos account, instead of the Azure Cosmos emulator.
 
-### <a id="uninstall"></a>Uninstall the local emulator
-
-Use the following steps to uninstall the emulator:
-
-1. Exit all the open instances of the local emulator by right-clicking the **Azure Cosmos emulator** icon on the system tray, and then select **Exit**. It may take a minute for all instances to exit.
-
-1. In the Windows search box, type **Apps & features** and select **Apps & features (System settings)** result.
-
-1. In the list of apps, scroll to the **Azure Cosmos DB Emulator**, select it, click **Uninstall**, then confirm and select **Uninstall** again.
-
-1. When the app is uninstalled, navigate to `%LOCALAPPDATA%\CosmosDBEmulator` location and delete the folder.
-
-## <a id="run-on-windows"></a>Run the emulator on Windows
+## <a id="run-on-windows"></a>Use the emulator on Windows
 
 The Azure Cosmos emulator is installed at `C:\Program Files\Azure Cosmos DB Emulator` location by default. To start the Azure Cosmos emulator on Windows, select the **Start** button or press the Windows key. Begin typing **Azure Cosmos Emulator**, and select the emulator from the list of applications.
 
 :::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Select the Start button or press the Windows key, begin typing Azure Cosmos emulator, and select the emulator from the list of applications":::
 
-When the emulator is running, you'll see an icon in the Windows taskbar notification area.
+When the emulator has started, you'll see an icon in the Windows taskbar notification area. It automatically opens the Azure Cosmos data explorer in your browser at this URL `https://localhost:8081/_explorer/index.html` URL.
 
 :::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB local emulator task bar notification":::
 
 You can also start and stop the emulator from the command-line or PowerShell commands. For more information, see the [command-line tool reference](emulator-command-line-parameters.md) article.
 
-The Azure Cosmos emulator by default runs on the local machine ("localhost") listening on port 8081. When the Azure Cosmos emulator launches, it automatically opens the Azure Cosmos data explorer in your browser. The address appears as `https://localhost:8081/_explorer/index.html`. If you close the explorer and would like to reopen it later, you can either open the URL in your browser or launch it from the Azure Cosmos emulator in the Windows Tray Icon as shown below.
+The Azure Cosmos emulator by default runs on the local machine ("localhost") listening on port 8081. The address appears as `https://localhost:8081/_explorer/index.html`. If you close the explorer and would like to reopen it later, you can either open the URL in your browser or launch it from the Azure Cosmos emulator in the Windows Tray Icon as shown below.
 
 :::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Azure Cosmos local emulator data explorer launcher":::
 
-## <a id="run-on-windows-docker"></a>Run the emulator on Docker for Windows
+## <a id="run-on-windows-docker"></a>Use the emulator on Docker for Windows
 
 You can run the Azure Cosmos emulator on the Windows Docker container. See the [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) for the docker pull command and [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) for the `Dockerfile` and more information. Currently the emulator does not work on Docker for Oracle Linux. Use the following instructions to run the emulator on Docker for Windows:
 
@@ -171,9 +159,14 @@ You can run the Azure Cosmos emulator on the Windows Docker container. See the [
 
 If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, use the instructions in the next section to import the certificate into the Linux docker container.
 
-## <a id="run-on-linux-macos"></a>Run the emulator on Linux or macOS
+## <a id="run-on-linux-macos"></a>Use the emulator on Linux or macOS
 
-Currently the Azure Cosmos emulator can only be run on Windows. If you are using Linux or macOS, you can run the emulator in a Windows virtual machine hosted in a hypervisor such as Parallels or VirtualBox. Use the following steps to enable this.
+Currently the Azure Cosmos emulator can only be run on Windows. If you are using Linux or macOS, you can run the emulator in a Windows virtual machine hosted in a hypervisor such as Parallels or VirtualBox.
+
+> [!NOTE]
+> Every time you restart the Windows virtual machine that is hosted in a hypervisor, you have to reimport the certificate because the IP address of the virtual machine changes. Importing the certificate isn't required in case you have configured the virtual machine to preserve the IP address.
+
+Use the following steps to use the emulator on Linux or macOS environments:
 
 1. Run the following command from the Windows virtual machine and make a note of the IPv4 address:
 
@@ -191,14 +184,14 @@ Currently the Azure Cosmos emulator can only be run on Windows. If you are using
 
 1. Finally, you need to resolve the certificate trust process between the application running on the Linux or Mac environment and the emulator. You can use one of the following two options to resolve the certificate:
 
-   1. [Import the emulator CA certificate into the Linux or Mac environment](#import-certificate) or
-   2. [Disable the SSL validation in the application](#disable-ssl-validation)
+   1. [Import the emulator TLS/SSL certificate into the Linux or Mac environment](#import-certificate) or
+   2. [Disable the TLS/SSL validation in the application](#disable-ssl-validation)
 
-### <a id="import-certificate"></a>Option 1: Import the emulator CA certificate
+### <a id="import-certificate"></a>Option 1: Import the emulator TLS/SSL certificate
 
-The following sections show how to import the emulator CA certificate into Linux and macOS environments.
+The following sections show how to import the emulator TLS/SSL certificate into Linux and macOS environments.
 
-**Linux environment**
+#### Linux environment
 
 If you are working on Linux, .NET relays on OpenSSL to do the validation:
 
@@ -218,13 +211,13 @@ If you are working on Linux, .NET relays on OpenSSL to do the validation:
    cp YourCTR.crt /usr/local/share/ca-certificates/
    ```
 
-1. Update the CA certificates, which will update the `/etc/ssl/certs/` folder.
+1. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
 
    ```bash
    update-ca-certificates
    ```
 
-**macOS environment**
+#### macOS environment
 
 Use the following steps if you are working on Mac:
 
@@ -239,8 +232,6 @@ Use the following steps if you are working on Mac:
 1. Open the context menu for that particular item, select *Get Item* and under *Trust* > *When using this certificate* option, select *Always Trust*. 
 
    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust":::
-
-After following these steps, your environment will trust the certificate used by the emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
   
 ### <a id="disable-ssl-validation"></a>Option 2: Disable the SSL validation in the application
 
@@ -268,6 +259,8 @@ For Node.js applications, you can modify your `package.json` file to set the `NO
 --- 
 
 ## Enable access to emulator on a local network
+
+If you have multiple machines using a single network, and if you setup the emulator on one machine and want to access it from other machine. In such case, you need to enable access to the emulator on a local network.
 
 You can run the emulator on a local network. To enable network access, specify the `/AllowNetworkAccess` option at the [command-line](emulator-command-line-parameters.md), which also requires that you specify `/Key=key_string` or `/KeyFile=file_name`. You can use `/GenKeyFile=file_name` to generate a file with a random key upfront. Then you can pass that to `/KeyFile=file_name` or `/Key=contents_of_file`.
 
@@ -396,6 +389,16 @@ Start emulator from an administrator [command prompt](emulator-command-line-para
    :> g.addV('person2').property(id, '2').property('name', 'somename2')
    :> g.V()
    ```
+
+## <a id="uninstall"></a>Uninstall the local emulator
+
+Use the following steps to uninstall the emulator:
+
+1. Exit all the open instances of the local emulator by right-clicking the **Azure Cosmos emulator** icon on the system tray, and then select **Exit**. It may take a minute for all instances to exit.
+
+1. In the Windows search box, type **Apps & features** and select **Apps & features (System settings)** result.
+
+1. In the list of apps, scroll to the **Azure Cosmos DB Emulator**, select it, click **Uninstall**, then confirm and select **Uninstall** again.
 
 ## Next steps
 

@@ -10,17 +10,21 @@ ms.date: 09/17/2020
 
 # Troubleshoot issues when using the Azure Cosmos emulator
 
-The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Use the following tips to help troubleshoot issues you encounter when installing or using the Azure Cosmos Emulator:
+The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Use the tips in this article to help troubleshoot issues you encounter when installing or using the Azure Cosmos Emulator. 
 
-* If you installed a new version of the emulator and are experiencing errors, ensure you reset your data. You can reset your data by right-clicking the Azure Cosmos emulator icon on the system tray, and then clicking Reset Data…. If that does not fix the errors, you can uninstall the emulator and any older versions of the emulator if found, remove *C:\Program files\Azure Cosmos DB Emulator* directory and reinstall the emulator. See [Uninstall the local emulator](local-emulator.md#uninstall) for instructions.
+If you installed a new version of the emulator and are experiencing errors, ensure you reset your data. You can reset your data by right-clicking the Azure Cosmos emulator icon on the system tray, and then clicking Reset Data…. If that does not fix the errors, you can uninstall the emulator and any older versions of the emulator if found, remove *C:\Program files\Azure Cosmos DB Emulator* directory and reinstall the emulator. See [Uninstall the local emulator](local-emulator.md#uninstall) for instructions. Alternatively if resetting the data doesn't work, navigate to `%LOCALAPPDATA%\CosmosDBEmulator` location and delete the folder.
 
-* If the Azure Cosmos emulator crashes, collect dump files from `%LOCALAPPDATA%\CrashDumps` folder, compress them, and open a support ticket from the [Azure portal](https://portal.azure.com).
+## Troubleshoot corrupted windows performance counters
+
+* If the Azure Cosmos emulator crashes, collect the dump files from `%LOCALAPPDATA%\CrashDumps` folder, compress them, and open a support ticket from the [Azure portal](https://portal.azure.com).
 
 * If you experience crashes in `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, this might be a symptom where the Performance Counters are in a corrupted state. Usually running the following command from an admin command prompt fixes the issue:
 
   ```cmd
   lodctr /R
    ```
+
+## Troubleshoot connectivity issues
 
 * If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and open a support ticket in the [Azure portal](https://portal.azure.com).
 
