@@ -195,7 +195,7 @@ Add managed identity to an existing compute cluster:
 
 # [Studio](#tab/azure-studio)
 
-See [Set up managed identity in studio](how-to-create-attach-compute-studio.md#managed-identity").
+See [Set up managed identity in studio](how-to-create-attach-compute-studio.md#managed-identity).
 
 ---
 
