@@ -17,7 +17,7 @@ ms.author: sausin
 
 Web endpoints often require sensitive data such as api-key passed in to execute. In this article, you will learn how to include such sensitive data in calling web endpoints in a custom commands application by referencing secrets stored in your key vault. Presuming you have secrets already stored in Azure key vault, this can be achieved in two simple steps.
 
- - Create system-assigned [managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for your speech resource and allow access to your key vault.
+ - Create system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for your speech resource and allow access to your key vault.
  - Configure and reference secrets in the key vault in web endpoints in a custom commands application.
 
 ## Prerequisites
@@ -29,8 +29,8 @@ You must have completed the steps in the following articles:
 
 The following articles provide background on azure key vault and managed identity, a feature of Azure AD:
 
-> * [About Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview)
-> * [What are managed identities for Azure resources?](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
+> * [About Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview)
+> * [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## Enable system-assigned managed identity for your speech resource and allow access to your key vault.
 
