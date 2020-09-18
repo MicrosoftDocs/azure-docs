@@ -257,11 +257,13 @@ az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-
 ```
 
 If the host computer isn't an Azure Stack Edge device, you will need to install [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.8. Follow these steps to download the correct version:
+
 Ubuntu Server 18.04:
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-Copy the generated list.
+```
 
+Copy the generated list.
 ```bash
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 ```
