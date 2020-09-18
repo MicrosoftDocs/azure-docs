@@ -38,12 +38,12 @@ For more information about application lifecycle management, read [Application l
 
 You can create clusters for Service Fabric in many environments, including [Azure or on premises](service-fabric-deploy-anywhere.md), on [Windows Server or Linux](service-fabric-linux-windows-differences.md). You can even create clusters on other public clouds. The development environment in the Service Fabric SDK is identical to the production environment, with no emulators involved. In other words, what runs on your local development cluster is what deploys to your clusters in other environments.
 
-For [Windows development](service-fabric-get-started.md), the Service Fabric .NET SDK is integrated with Visual Studio and Powershell. For [Linux development](service-fabric-get-started-linux.md), the Service Fabric Java SDK is integrated with Eclipse, and Yeoman is used to generate templates for Java, .NET Core, and container applications.
+For [Windows development](service-fabric-get-started.md), the Service Fabric .NET SDK is integrated with Visual Studio and PowerShell. For [Linux development](service-fabric-get-started-linux.md), the Service Fabric Java SDK is integrated with Eclipse, and Yeoman is used to generate templates for Java, .NET Core, and container applications.
 
 ## Compliance
 
-Azure Service Fabric Resource Provider is available in all Azure regions and is compliant with all compliance certs that Azure has; this includes the following: SOC, ISO, PCI DSS, HIPAA, and GDPR. Please review the following for a complete list of compliance certs:
-[Compliance Offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Azure Service Fabric Resource Provider is available in all Azure regions and is compliant with all Azure compliance certifications, including: SOC, ISO, PCI DSS, HIPAA, and GDPR. For a complete list, see
+[Microsoft Compliance Offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## Next steps
 
