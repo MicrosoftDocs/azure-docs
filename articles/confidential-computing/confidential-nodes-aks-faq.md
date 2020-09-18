@@ -118,4 +118,4 @@ We support and recommend Kubernetes version 1.16 and above
 1. Supports Ubuntu 18.04 Gen 2 VM Nodes only 
 2. No Windows Nodes Support or Windows Containers Support
 3. EPC Memory based Horizontal Pod Autoscaling is not supported. CPU and regular memory-based scaling is supported.
-4. Dev Spaces on AKS for confidential apps is not currently supported 
+4. Dev Spaces on AKS for confidential apps is not currently supported
