@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
 
 > [!IMPORTANT]
-> This capability is in public preview,is provided without a service level agreement, 
+> This capability is in public preview, is provided without a service level agreement, 
 > and is not recommended for production workloads. Certain features might not be supported 
 > or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine.
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
 
 Behind the scenes, an automation task is actually a workflow that runs on the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service and is billed using the same [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps/) and [pricing model](../logic-apps/logic-apps-pricing.md). After you create the task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
@@ -201,6 +201,12 @@ To change a task, you have these options:
 
 When you change the underlying workflow for an automation task, your changes affect only the task instance that you created, and not the template that creates the task. After you make and save your changes, the name that you provided for your original task might not accurately describe the task anymore, so you might have to recreate the task with a different name.
 
+> [!TIP]
+> As a best practice, clone the underlying workflow so that you can edit the copied version instead. That way, you can make and test your 
+> changes on the copy while the original automation task continues to work and run without risking disruption or breaking existing functionality.
+> After you finish your changes and are satisified that the new version runs sucessfully, you can disable or delete the original automation 
+> task and use the cloned version for your automation task. The following steps include information about how to clone your workflow.
+
 1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
 
 1. On the resource's menu, under **Settings**, select **Automation tasks**.
@@ -217,7 +223,21 @@ When you change the underlying workflow for an automation task, your changes aff
 
    ![Screenshot that shows the "Logic app designer" menu option selected and designer surface with the underlying workflow](./media/create-automation-tasks-azure-resources/view-task-workflow-logic-app-designer.png)
 
-   You can now edit the properties for the workflow's trigger and actions as well as edit the trigger and actions that define the workflow itself.
+   You can now edit the properties for the workflow's trigger and actions as well as edit the trigger and actions that define the workflow itself. However, as best practice, follow the steps to clone your workflow so that you can make your changes on a copy while the original workflow continues to work and run.
+
+1. To clone your workflow and edit the copied version instead, follow these steps:
+
+   1. On the logic app workflow menu, select **Overview**.
+
+   1. On the overview pane's toolbar, select **Clone**.
+
+   1. On the logic app creation pane, under **Name**, enter a new name for your copied logic app workflow.
+
+      Except for **Logic App Status**, the other properties aren't available for editing. 
+      
+   1. Under **Logic App Status**, select **Disabled** so that the cloned workflow doesn't run while you make your changes. You can enable the workflow when you're ready to test your changes.
+
+   1. After Azure finishes provisioning your cloned workflow, find and open that workflow in the Logic App Designer.
 
 1. To view the properties for the trigger or an action, expand that trigger or action.
 
@@ -241,5 +261,6 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Next steps
 
+* [Provide feedback on this preview capability](mailto:logicapps@microsoft.com)
 * [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md)
 
