@@ -332,7 +332,7 @@ If the cluster was created with Databricks non ML runtime 7.1 or above, run the 
 ```
 %pip install -r https://aka.ms/automl_linux_requirements.txt
 ```
-For Databricks non ML runtime 7.0 and love, install the AML SDK using the [init script](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
+For Databricks non ML runtime 7.0 and lower, install the AML SDK using the [init script](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
 
 
 ### Start exploring
