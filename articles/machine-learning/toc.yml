@@ -235,16 +235,16 @@
         - name: Compute instance
           href: how-to-create-manage-compute-instance.md
         - name: Compute cluster
-          href: how-to-create-manage-compute-cluster.md
-          displayName: low priority
+          href: how-to-create-attach-compute-cluster.md
+          displayName: low priority, managed identity
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
         - name: Attach your own
           displayName: compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-          href: how-to-attach-compute
+          href: how-to-attach-compute.md
         - name: Use studio
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
     - name: Set up your environment
       items: 

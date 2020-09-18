@@ -105,7 +105,7 @@ Create a single or multi node compute cluster for your training, batch inferenci
 |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
 |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
 
-#### <a id="managed-identity"></a> Set up managed identity
+#### <a name="managed-identity"></a> Set up managed identity
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 

@@ -82,11 +82,11 @@ You can also configure several advanced properties when you create Azure Machine
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-For more information, see [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+For more information, see [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
 
 # [Studio](#tab/azure-studio)
 
-For information on creating a compute cluster in the studio, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#compute-cluster).
+For information on creating a compute cluster in the studio, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#amlcompute).
 
 ---
 
