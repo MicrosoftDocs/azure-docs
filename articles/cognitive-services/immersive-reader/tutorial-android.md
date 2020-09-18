@@ -11,6 +11,8 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: dylankil
+ms.custom: devx-track-java
+
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
 
@@ -23,7 +25,7 @@ In the [overview](./overview.md), you learned about what the Immersive Reader is
 > * Acquire an access token.
 > * Start the Immersive Reader with sample content.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

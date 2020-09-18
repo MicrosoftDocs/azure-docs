@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Set up a staging environment in Azure Spring Cloud

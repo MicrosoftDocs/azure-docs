@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Understand and invoke direct methods from IoT Hub
@@ -46,7 +46,7 @@ Now, invoke a direct method from a back-end app.
 
 Direct method invocations on a device are HTTPS calls that are made up of the following items:
 
-* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/devicemethod/invokedevicemethod):
+* The *request URI* specific to the device along with the [API version](https://docs.aws.amazon.com/cli/latest/reference/iot1click-devices/invoke-device-method.html):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30

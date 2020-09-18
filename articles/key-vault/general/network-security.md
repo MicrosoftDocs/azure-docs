@@ -7,12 +7,13 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/22/2020
-ms.author: sudbalas
+ms.date: 09/14/2020
+ms.author: sudbalas 
+ms.custom: devx-track-azurecli
 ---
 # Configure Azure Key Vault firewalls and virtual networks
 
-This article provides step-by-step instructions to configure Azure Key Vault firewalls and virtual networks to restrict access to your key vault. The [virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)) allow you to restrict access to a specified virtual network and set of IPv4 (internet protocol version 4) address ranges.
+This article provides step-by-step instructions to configure Azure Key Vault firewalls and virtual networks to restrict access to your key vault. The [virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md) allow you to restrict access to a specified virtual network and set of IPv4 (internet protocol version 4) address ranges.
 
 > [!IMPORTANT]
 > After firewall rules are in effect, users can only perform Key Vault [data plane](secure-your-key-vault.md#data-plane-access-control) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker by other Azure services. Users might be able to see list of key vaults, but not list keys, if firewall rules prevent their client machine.
@@ -20,7 +21,6 @@ This article provides step-by-step instructions to configure Azure Key Vault fir
 > [!NOTE]
 > Be aware of the following configuration limitations:
 > * A maximum of 127 virtual network rules and 127 IPv4 rules are allowed. 
-> * Small address ranges that use the "/31" or "/32" prefix sizes are not supported. Instead, configure these ranges by using individual IP address rules.
 > * IP network rules are only allowed for public IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) are not allowed in IP rules. Private networks include addresses that start with **10.**, **172.16-31**, and **192.168.**. 
 > * Only IPv4 addresses are supported at this time.
 
@@ -122,5 +122,5 @@ Here's how to configure Key Vault firewalls and virtual networks by using PowerS
 
 ## Next steps
 
-* [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md))
-* [Secure your key vault](secure-your-key-vault.md))
+* [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
+* [Secure your key vault](secure-your-key-vault.md)

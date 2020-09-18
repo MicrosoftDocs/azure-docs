@@ -7,16 +7,18 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
+ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Access public containers and blobs anonymously with .NET
 
-Azure Storage supports anonymous, public read access for containers and blobs. Clients can access public containers and blobs anonymously by using the Azure Storage client libraries, as well as by using other tools and utilities that support data access to Azure Storage.
+Azure Storage supports optional public read access for containers and blobs. Clients can access public containers and blobs anonymously by using the Azure Storage client libraries, as well as by using other tools and utilities that support data access to Azure Storage.
 
-This article shows how to access a public container or blob from .NET. For information about configuring anonymous read access on a container, see . For information about preventing all anonymous access to a storage account, see .
+This article shows how to access a public container or blob from .NET. For information about configuring anonymous read access on a container, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md). For information about preventing all anonymous access to a storage account, see [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
 
 A client that accesses containers and blobs anonymously can use constructors that do not require credentials. The following examples show a few different ways to reference containers and blobs anonymously.
 

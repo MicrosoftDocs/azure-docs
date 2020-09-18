@@ -17,7 +17,7 @@ With Azure Synapse Analytics, you can create complex pipelines that can automate
 
 This article explains how to monitor your pipeline runs, which allows you to keep an eye on the latest status, issues, and progress of your pipelines.
 
-## Access the list of pipeline runs
+## Access pipeline runs list
 
 To see the list of pipeline runs in your workspace, first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace.
 
@@ -31,7 +31,7 @@ Select **Pipeline runs** to view the list of pipeline runs.
 
 ![Select pipeline runs](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
-## Filtering your pipeline runs
+## Filter your pipeline runs
 
 You can filter the list of pipeline runs to the ones you're interested in. The filters at the top of the screen allow you to specify a field on which you'd like to filter.
 
@@ -41,7 +41,7 @@ For example, you can filter the view to see only the pipeline runs for the pipel
 
 ![Sample filter](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
-## Viewing details about a specific pipeline run
+## View details about a specific pipeline run
 
 To view details about your pipeline run, select the pipeline run. Then view the activity runs associated with the pipeline run. If the pipeline is still running, you can monitor the progress. 
   

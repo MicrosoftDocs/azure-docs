@@ -20,8 +20,11 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | :-------------------       | :------------------- |
 | **Deployment**       | The Hyper-V host can be standalone or deployed in a cluster. <br/>Azure Migrate replication software (Hyper-V Replication provider) is installed on the Hyper-V hosts.|
 | **Permissions**           | You need administrator permissions on the Hyper-V host. |
-| **Host operating system** | Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2. |
+| **Host operating system** | Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2 with latest updates. Note that Server core installation of these operating systems is also supported. |
+| **Other Software requirements** | .NET Framework 4.7 or later |
 | **Port access** |  Outbound connections on HTTPS port 443 to send VM replication data.
+| **Free disk space (cache)** |  600 GB |
+| **Free disk space (retention disk)** |  600 GB |
 
 
 ## Hyper-V VMs
@@ -33,7 +36,8 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 **Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. For other operating systems you make the [required changes](prepare-for-migration.md#linux-machines) manually.
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
-| **UEFI boot**                  | The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.|
+| **UEFI boot**                  | Supported. Ensure that you select a VM size supported by Azure generation 2 VM  |
+| **UEFI - Secure boot**         | Not supported for migration.|
 | **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.|
 | **Disk number** | A maximum of 16 disks per VM.|
 | **Encrypted disks/volumes**    | Not supported for migration.|

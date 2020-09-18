@@ -108,7 +108,7 @@ Test out validations using the **SetTemperature** command. Use the following ste
     | ---- | ---- | ---- |
     | Min Value | `60` | For Number parameters, the minimum value this parameter can assume |
     | Max Value | `80` | For Number parameters, the maximum value this parameter can assume |
-    | Failure response |  Simple editor > First Variation > `Sorry, I can only set temperature between 60 and 80 degrees` | Prompt to ask for a new value if the validation fails |
+    | Failure response |  Simple editor > First Variation > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Prompt to ask for a new value if the validation fails |
 
     > [!div class="mx-imgBorder"]
     > ![Add a range validation](media/custom-commands/add-validations-temperature.png)

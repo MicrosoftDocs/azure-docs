@@ -5,7 +5,8 @@ description: Learn how to apply differential privacy best practices to Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta

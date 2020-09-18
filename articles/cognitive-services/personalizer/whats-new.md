@@ -2,14 +2,12 @@
 title: What's new - Personalizer
 titleSuffix: Azure Cognitive Services
 description: This article contains news about Personalizer.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 07/17/2020
-ms.author: diberry
 ---
 # What's new in Personalizer
 

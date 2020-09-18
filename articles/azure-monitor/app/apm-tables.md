@@ -462,5 +462,6 @@ Legacy table: traces
 
 ## Next steps
 
-* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
+* [Explore metrics](../platform/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)
+

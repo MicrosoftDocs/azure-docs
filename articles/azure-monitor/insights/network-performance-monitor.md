@@ -34,7 +34,9 @@ More information on the various capabilities supported by [Network Performance M
 NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
 * North Europe
 * West Europe
+* Switzerland North
 * France Central
+* South Africa North
 * Canada Central
 * West US
 * West Central US
@@ -54,6 +56,7 @@ NPM can monitor connectivity between networks and applications in any part of th
 * Korea Central
 * Central India
 * US Government Virginia
+* US Government Arizona
 * China East 2
 
 
@@ -61,6 +64,9 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 
 ## Set up and configure
+
+> [!NOTE]
+> You may also see the Log Analytics agent referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent.
 
 ### Install and configure agents 
 
@@ -106,7 +112,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
 ### Configure the solution 
 
-1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md). 
+1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md). 
 2. Open your Log Analytics workspace, and select the **Overview** tile. 
 3. Select the **Network Performance Monitor** tile with the message *Solution requires additional configuration*.
 
@@ -285,3 +291,4 @@ Information on pricing is available [online](network-performance-monitor-pricing
 
 ## Next steps 
 Learn more about [Performance Monitor](network-performance-monitor-performance-monitor.md), [Service Connectivity Monitor](network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](network-performance-monitor-expressroute.md). 
+

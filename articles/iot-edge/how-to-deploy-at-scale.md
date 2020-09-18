@@ -55,7 +55,7 @@ There are five steps to create a deployment. The following sections walk through
 
 ### Step 2: Modules
 
-You can add up to 30 modules to a deployment. If you create a deployment with no modules, it removes any current modules from the target devices.
+You can add up to 50 modules to a deployment. If you create a deployment with no modules, it removes any current modules from the target devices.
 
 In deployments, you can manage the settings for the IoT Edge agent and IoT Edge hub modules. Select **Runtime Settings** to configure the two runtime modules. In layered deployment, the runtime modules are not included so cannot be configured.
 

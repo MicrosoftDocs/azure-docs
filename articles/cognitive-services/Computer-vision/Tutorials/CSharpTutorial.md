@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Sample: Explore an image processing app with C#

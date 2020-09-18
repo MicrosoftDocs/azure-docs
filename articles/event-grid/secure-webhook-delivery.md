@@ -7,7 +7,7 @@ ms.date: 07/07/2020
 
 # Publish events to Azure Active Directory protected endpoints
 
-This article describes how to take advantage of Azure Active Directory to secure the connection between your Event Subscription and your webhook endpoint. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+This article describes how to take advantage of Azure Active Directory to secure the connection between your Event Subscription and your webhook endpoint. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../active-directory/develop/v2-overview.md).
 
 This article uses the Azure portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
 
@@ -23,7 +23,7 @@ Begin by creating an Azure AD Application for your protected endpoint. See https
 Use the PowerShell script below in order to create a role and service principal in your Azure AD Application. You will need the Tenant ID and Object ID from your Azure AD Application:
 
    > [!NOTE]
-   > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
+   > You must be a member of the [Azure AD Application Administrator role](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) to execute this script.
     
 1. Modify the PowerShell script's $myTenantId to use your Azure AD Tenant ID.
 1. Modify the PowerShell script's $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application

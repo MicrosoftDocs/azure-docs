@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
 ---
 
@@ -24,7 +24,7 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 ![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
 
-In **Project Details**, select the subscription and resource group that will host the cache. Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.
+In **Project Details**, select the subscription and resource group that will host the cache.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
 
 In **Service Details**, set the cache name and these other attributes:
 
@@ -54,9 +54,9 @@ Azure HPC Cache manages which files are cached and preloaded to maximize cache h
 
 ## Enable Azure Key Vault encryption (optional)
 
-If your cache is in a region that supports customer-managed encryption keys, the **Disk encryption keys** page appears between the **Cache** and **Tags** tabs. At publication time, this option is supported in East US, South Central US, and West US 2.
+If your cache is in a region that supports customer-managed encryption keys, the **Disk encryption keys** page appears between the **Cache** and **Tags** tabs. Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support.
 
-If you want to manage the encryption keys used with your cache storage, supply your Azure Key Vault information on the **Disk encryption keys** page. The key vault must be in the same region and in the same subscription as the cache.
+If you want to manage the encryption keys used for your cache storage, supply your Azure Key Vault information on the **Disk encryption keys** page. The key vault must be in the same region and in the same subscription as the cache.
 
 You can skip this section if you do not need customer-managed keys. Azure encrypts data with Microsoft-managed keys by default. Read [Azure storage encryption](../storage/common/storage-service-encryption.md) to learn more.
 

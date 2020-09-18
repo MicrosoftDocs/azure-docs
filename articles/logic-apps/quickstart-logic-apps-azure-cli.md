@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/09/2020
+ms.date: 07/30/2020
 ---
 
 # Quickstart: Create and manage logic apps using the Azure CLI
@@ -266,3 +266,11 @@ You can use the following optional global Azure CLI parameters with your `az log
 | Debug | `--debug` | Shows all debug logs. |
 | Help message | `--help -h` | Show help dialog. |
 | Query | `--query` | Set a JMESPath query string for JSON output. |
+
+## Next steps
+
+For more information on the Azure CLI, see the [Azure CLI documentation](/cli/azure/?view=azure-cli-latest).
+
+For an example of how to create a basic logic app through the CLI, see the [sample script and workflow definition](sample-logic-apps-cli-script.md).
+
+You can find additional Logic Apps CLI script samples in [Microsoft's code samples browser](/samples/browse/?products=azure-logic-apps).

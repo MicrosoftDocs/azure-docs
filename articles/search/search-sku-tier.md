@@ -35,7 +35,7 @@ Most features are available on every tier, including Free, but resource-intensiv
 
 Tiers are differentiated by:
 
-+ Quantity of indexes and indexers you can create
++ Quantity of indexes and indexers (maximum limits)
 + Size and speed of partitions (physical storage)
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
@@ -57,9 +57,18 @@ You can find out more about the various tiers on the [pricing page](https://azur
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
 + Cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
+
 + Adding capacity (replicas or partitions)
-+ Bandwidth charges (outbound data transfer) 
-+ Add-on services such as AI enrichment (attaching Cognitive Services in skillsets that define AI processing, or using Azure storage for knowledge store) or deploying a search service in a private virtual network
+
++ Bandwidth charges (outbound data transfer)
+
++ Add-on services required for specific capabilities or features:
+
+  + AI enrichment (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
+  + customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### Service costs
 
@@ -85,7 +94,7 @@ For [AI enrichment](cognitive-search-concept-intro.md), you should plan to [atta
 | Operation | Billing impact |
 |-----------|----------------|
 | Document cracking, text extraction | Free |
-| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
+| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
 | [Built-in cognitive skills](cognitive-search-predefined-skills.md) | Billed at the same rate as if you had performed the task by using Cognitive Services directly. |
 | Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services. |
 
@@ -117,7 +126,7 @@ The following suggestions can help you lower costs or manage costs more effectiv
 
 + Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-Additionally, visit [Billing and cost management](https://docs.microsoft.com/azure/billing/billing-getting-started) for built-in tools and features related to spending.
+Additionally, visit [Billing and cost management](../cost-management-billing/manage/getting-started.md) for built-in tools and features related to spending.
 
 Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
 
@@ -162,7 +171,7 @@ With a rough estimate in hand, you might double that amount to budget for two in
 
 Dedicated resources can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. Some customers jump right in with a billable tier and then re-evaluate as the development project matures.
 
-1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
+1. [Review service limits at each tier](./search-limits-quotas-capacity.md#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
 
 1. [Create a service at a billable tier](search-create-service-portal.md):
 

@@ -14,7 +14,7 @@ ms.date: 1/8/2019
 > [!NOTE]
 > The term "users" refers to users within a Hyperscale (Citus)
 > server group. To learn instead about Azure subscription users and their
-> privileges, visit the [Azure role based access control (RBAC)
+> privileges, visit the [Azure role-based access control (Azure RBAC)
 > article](../role-based-access-control/built-in-roles.md) or review [how to
 > customize roles](../role-based-access-control/custom-roles.md).
 

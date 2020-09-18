@@ -3,12 +3,12 @@ title: Performance and scalability checklist for Table storage - Azure Storage
 description: A checklist of proven practices for use with Table storage in developing high-performance applications.
 services: storage
 author: tamram
-
+ms.author: tamram
 ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.author: tamram
 ms.subservice: tables
+ms.custom: devx-track-csharp
 ---
 
 # Performance and scalability checklist for Table storage
@@ -192,7 +192,7 @@ This section lists several quick configuration settings that you can use to make
 
 Beginning with storage service version 2013-08-15, the Table service supports using JSON instead of the XML-based AtomPub format for transferring table data. Using JSON can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.
 
-For more information, see the post [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+For more information, see the post [Microsoft Azure Tables: Introducing JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) and [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ### Disable Nagle
 

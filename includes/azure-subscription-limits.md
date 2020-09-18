@@ -1,7 +1,7 @@
 ---
  title: include file
  description: include file
-  author: rothja
+ author: rothja
  ms.service: azure-resource-manager
  ms.topic: include
  ms.date: 05/18/2018

@@ -70,7 +70,7 @@ You must now install the downloaded file on the target computer.
 
 When complete, the **Log Analytics agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
 
-For further information on installing and configuring the agent, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+For further information on installing and configuring the agent, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Now you can monitor your Azure VMs and non-Azure computers in one place. Under **Compute**, you have an overview of all VMs and computers along with recommendations. Each column represents one set of recommendations. The color represents the VM's or computer's current security state for that recommendation. Security Center also surfaces any detections for these computers in Security alerts.
 

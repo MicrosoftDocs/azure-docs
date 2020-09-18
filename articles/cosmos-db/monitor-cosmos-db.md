@@ -5,7 +5,7 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring 
 ---
@@ -18,7 +18,7 @@ You can monitor your data with client-side and server-side metrics. When using s
 
 * **Monitor from Azure Cosmos DB portal:** You can monitor with the metrics available within the **Metrics** tab of the Azure Cosmos account. The metrics on this tab include throughput, storage, availability, latency, consistency, and system level metrics. By default, these metrics have a retention period of 7 days. To learn more, see the [Monitoring data collected from Azure Cosmos DB](#monitoring-from-azure-cosmos-db) section of this article.
 
-* **Monitor with metrics in Azure monitor:** You can monitor the metrics of your Azure Cosmos account and create dashboards from the Azure Monitor. Azure Monitor collects the Azure Cosmos DB metrics by default, you don’t have configure anything explicitly. These metrics are collected with one-minute granularity, the granularity may vary based on the metric you choose. By default, these metrics have a retention period of 30 days. Most of the metrics that are available from the previous options are also available in these metrics. To learn more, see the [Analyze metric data](#analyze-metric-data) section of this article.
+* **Monitor with metrics in Azure monitor:** You can monitor the metrics of your Azure Cosmos account and create dashboards from the Azure Monitor. Azure Monitor collects the Azure Cosmos DB metrics by default, you don’t have configure anything explicitly. These metrics are collected with one-minute granularity, the granularity may vary based on the metric you choose. By default, these metrics have a retention period of 30 days. Most of the metrics that are available from the previous options are also available in these metrics. The dimension values for the metrics such as container name are case-insensitive. So you need to use case-insensitive comparison when doing string comparisons on these dimension values. To learn more, see the [Analyze metric data](#analyze-metric-data) section of this article.
 
 * **Monitor with diagnostic logs in Azure Monitor:** You can monitor the logs of your Azure Cosmos account and create dashboards from the Azure Monitor. Telemetry such as events and traces that occur at a second granularity are stored as logs. For example, if the throughput of a container is changes, the properties of a Cosmos account are changed these events are captures within the logs. You can analyze these logs by running queries on the gathered data. To learn more, see the [Analyze log data](#analyze-log-data) section of this article.
 
@@ -153,14 +153,16 @@ The account level metrics available in the portal, such as account storage usage
 To access additional metrics, use the [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights). Available metric definitions can be retrieved by calling:
 
 ```http
-https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01
 ```
 
-Queries to retrieve individual metrics use the following format:
+To retrieve individual metrics use the following format:
 
 ```http
-https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metrics?timespan={StartTime}/{EndTime}&interval={AggregationInterval}&metricnames={MetricName}&aggregation={AggregationType}&`$filter={Filter}&api-version=2018-01-01
 ```
+
+To learn more, see the [Azure monitoring REST API](../azure-monitor/platform/rest-api-walkthrough.md) article.
 
 ## Next steps
 

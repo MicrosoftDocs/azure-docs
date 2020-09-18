@@ -388,7 +388,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|
 |Min/max elastic pool vCore choices per database|0-8|0-10|0-12|0-14|0-16|0-18|
 |Number of replicas|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|No|No|No|No|No|No|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -423,7 +423,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Max concurrent logins per pool (requests) <sup>3</sup>|2,000|2,400|3,200|6,400|12,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|No|No|No|No|No|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 

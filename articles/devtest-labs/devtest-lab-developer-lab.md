@@ -38,9 +38,9 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
    | Task | What you learn |
    | --- | --- |
-   | [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) |Learn how you can whitelist Azure Marketplace images, making available for selection only the images you want for the developers.|
+   | [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) |Learn how you can allow Azure Marketplace images, making available for selection only the images you want for the developers.|
    | [Create a custom image](devtest-lab-create-template.md) |Create a custom image by pre-installing the software you need so that developers can quickly create a VM using the custom image.|
-   | [Learn about image factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Watch a video that describes how to set up and use an image factory.|
+   | [Learn about image factory](./devtest-lab-faq.md#blog-post) |Watch a video that describes how to set up and use an image factory.|
 
 3. **Create reusable templates for developer machines** 
    
@@ -119,4 +119,3 @@ In this article, you learn about various Azure DevTest Labs features that can be
    | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

@@ -8,9 +8,9 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
+
 # Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API
 
 > [!div class="op_single_selector"]

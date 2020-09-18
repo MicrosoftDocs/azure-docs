@@ -1,6 +1,6 @@
 ---
 title: Migrate data on StorSimple 5000-7000 series to 8000 series device| Microsoft Docs
-description: Provides an overview and the prerequisites of the Migration feature.
+description: Learn about migrating data on StorSimple 5000-7000 series to 8000 series device and what the prerequisites are for the migration process.
 services: storsimple
 documentationcenter: NA
 author: alkohli

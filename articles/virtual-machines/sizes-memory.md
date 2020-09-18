@@ -12,7 +12,7 @@ keywords: VM isolation,isolated VM,isolation,isolated
 ms.assetid: 
 ms.service: virtual-machines
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
@@ -53,3 +53,5 @@ Azure Compute offers virtual machine sizes that are Isolated to a specific hardw
 ## Next steps
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+For more information on how Azure names its VMs, see [Azure virtual machine sizes naming conventions](./vm-naming-conventions.md).

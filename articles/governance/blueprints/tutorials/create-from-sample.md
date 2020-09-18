@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Blueprint sample to new environment"
 description: In this tutorial, you use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create an environment from a blueprint sample
@@ -165,7 +165,7 @@ resources directly.
    From this page, we can see the assignment succeeded and the list of created resources along with
    their blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down
    shows details about the deployment of each definition version. Each listed resource that was
-   created can be clicked and opens that resources property page.
+   created can be selected and opens that resources property page.
 
 1. Select the **ProductionRG** resource group.
 
@@ -234,7 +234,7 @@ Removing the assignment doesn't remove the deployed artifacts.
 
 1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
 
-The security for each resource groups still has the deployed role assignments, but the blueprint
+The security for each resource group still has the deployed role assignments, but the blueprint
 assignment no longer has _Owner_ access.
 
 Once the **Removing blueprint assignment succeeded** portal notification appears, move to the next

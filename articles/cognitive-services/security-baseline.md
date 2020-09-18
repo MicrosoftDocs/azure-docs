@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -71,7 +71,7 @@ Also note that you must disable deep packet inspection for your firewall solutio
 **Guidance**: When virtual machines are deployed in the same virtual network as your Azure Cognitive Services container, define and implement standard security configurations for related network resources with Azure Policy. Use Azure Policy aliases in the "Microsoft.CognitiveServices" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Cache for Redis instances. You may also make use of built-in policy definitions such as:
 - DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 If you are using Cognitive Services within a container, you may augment your container deployment with a front-facing web-application firewall solution that filters malicious traffic and supports end-to-end TLS encryption, keeping the container endpoint private and secure.
 
@@ -149,7 +149,7 @@ You may also use application security groups (ASG) to help simplify complex secu
 
 **Guidance**: Define and implement standard security configurations for network resources related to your Azure Cognitive Services container with Azure Policy. Use Azure Policy aliases in the "Microsoft.CognitiveServices" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Cache for Redis instances.
 
-You can also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You can also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -530,9 +530,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (Azure AD) role-based access control (RBAC) to control access to the Azure Cognitive Services control plane (i.e. Azure portal).
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Cognitive Services control plane (i.e. Azure portal).
 
 * [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
@@ -870,7 +870,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 * [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center monitoring**: Yes
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 09/14/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -27,17 +27,17 @@ This document focuses on enabling security key based passwordless authentication
 ## Requirements
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
+- Enable [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
-- WebAuthN requires Windows 10 version 1809 or higher**
+- WebAuthN requires Windows 10 version 1903 or higher**
 
 To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. These include Microsoft Edge, Chrome, Firefox, and Safari.
 
 ## Prepare devices for preview
 
-Azure AD joined devices that you pilot with must run Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
+Azure AD joined devices that you pilot with must run Windows 10 version 1909 or higher. The best experience is on Windows 10 version 1903 or higher.
 
-Hybrid Azure AD joined devices must run Windows 10 Insider Build 18945 or newer.
+Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
 
 ## Enable passwordless authentication method
 
@@ -70,7 +70,7 @@ Registration features for passwordless authentication methods rely on the combin
 
 ## Sign in with passwordless credential
 
-In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of a supported browser on Windows 10 version 1809 or higher.
+In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of a supported browser on Windows 10 version 1903 or higher.
 
 ![Security key sign-in Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 

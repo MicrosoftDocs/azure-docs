@@ -2,7 +2,8 @@
 title: 'Tutorial: Manage backed-up SAP HANA DB using CLI' 
 description: In this tutorial, learn how to manage backed-up SAP HANA databases running on an Azure VM using Azure CLI.
 ms.topic: tutorial
-ms.date: 12/4/2019
+ms.date: 12/4/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Manage SAP HANA databases in an Azure VM using Azure CLI
@@ -29,7 +30,7 @@ If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-ha
 * backed-up database/item named *saphanadatabase;hxe;hxe*
 * resources in the *westus2* region
 
-Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM that is backed-up using Azure Backup. This tutorial details each of the management operations.
+Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM that's backed-up using Azure Backup. This tutorial details each of the management operations.
 
 ## Monitor backup and restore jobs
 
@@ -74,7 +75,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## Protect new databases added to an SAP HANA instance
 
-[Registering an SAP HANA instance with a recovery services vault](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatically discovers all the databases on this instance.
+[Registering an SAP HANA instance with a Recovery Services vault](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatically discovers all the databases on this instance.
 
 However, in cases when new databases are added to the SAP HANA instance later, use the [az backup protectable-item initialize](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-initialize) cmdlet. This cmdlet discovers the new databases added.
 
@@ -113,7 +114,7 @@ You can stop protecting an SAP HANA database in a couple of ways:
 
 If you choose to leave recovery points, keep these details in mind:
 
-* All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
+* All recovery points will remain intact forever, and all pruning will stop at stop protection with retain data.
 * You'll be charged for the protected instance and the consumed storage.
 * If you delete a data source without stopping backups, new backups will fail.
 

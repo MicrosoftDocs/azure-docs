@@ -5,7 +5,7 @@ author: jeffhollan
 ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-java
 ---
 
 # Create your first function with Java and Eclipse 

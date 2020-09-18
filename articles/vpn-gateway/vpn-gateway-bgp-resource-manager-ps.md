@@ -6,8 +6,9 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/12/2017
-ms.author: yushwang
+ms.date: 09/02/2020
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to configure BGP on Azure VPN Gateways using PowerShell
@@ -310,4 +311,4 @@ If you completed all three parts of this exercise, you have established the foll
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.

@@ -80,7 +80,7 @@ You can integrate Microsoft Antimalware and partner solutions with [Azure Securi
 Azure VMs, like all on-premises VMs, are meant to be user managed. Azure doesn't push Windows updates to them. You need to manage your VM updates.
 
 **Best practice**: Keep your VMs current.   
-**Detail**: Use the [Update Management](../../automation/automation-update-management.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+**Detail**: Use the [Update Management](../../automation/update-management/update-mgmt-overview.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 Computers that are managed by Update Management use the following configurations to perform assessment and update deployments:
 

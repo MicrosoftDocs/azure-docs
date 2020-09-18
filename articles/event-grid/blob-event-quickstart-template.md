@@ -37,7 +37,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -82,7 +82,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 
 For more information about Azure Resource Manager templates, see the following articles:
 
-* [Azure Resource Manager documentation](/azure/azure-resource-manager)
+* [Azure Resource Manager documentation](../azure-resource-manager/index.yml)
 * [Define resources in Azure Resource Manager templates](/azure/templates/)
 * [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

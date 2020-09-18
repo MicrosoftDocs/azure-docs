@@ -1,13 +1,13 @@
 ---
 title: Tutorial to ship Azure Data Box Disk back| Microsoft Docs
-description: Use this tutorial to learn how to ship your Azure Data Box Disk to Microsoft
+description: In this tutorial, learn how to return your Azure Data Box Disk. The pickup instructions depend on where you are returning the device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -85,7 +85,7 @@ Azure datacenters in Australia have an additional security notification. All the
 
 1. Use the provided return ship label and make sure that the TAU code (reference number) is written on it. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue you are facing.
 2. Affix the label on the box.
-3. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
+3. Book a pickup online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
 
 ### [Japan](#tab/in-japan)
 
@@ -138,7 +138,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - XZ00001234567
+    Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
      b.    Requestor contact number
@@ -155,6 +155,32 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
    If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
 
 3. Hand over to the courier.
+
+### [South Africa](#tab/in-sa)
+
+Take the following steps if returning the device in South Africa.
+
+1. Attach the provided shipping label on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
+
+2. Seal the shipping box and ensure that the return shipping label is visible.
+
+3. To book a pickup with DHL:
+
+    * Call the customer service contact center on +27(0) 11 9213600, select option 1 and specify waybill number.
+    * You must call before 2:00 PM South Africa Standard Time (ZA) to schedule a pickup.  
+    * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) to organize pickup using the following email template:
+
+    ```output
+    To: Priority.Support@dhl.com
+    Subject:Pickup request for Microsoft Azure
+    Body:  Need pick up for the below shipment
+    *  DHL tracking number (reference number/waybill number)
+    *  Requested pickup date：yyyy/mm/dd; time: HH MM
+    ```
+
+    * Alternatively, you can drop off the package at the nearest DHL service point.
+
+4. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
 ### [China](#tab/in-china)
 
@@ -198,7 +224,7 @@ Take the following steps if returning the device in China.
 
 ### [Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box Disk in Japan, Singapore, Korea, West Europe, or India and have selected the self-managed shipping option during order creation, follow these instructions.
+If you are using Data Box Disk in US Government, Japan, Singapore, Korea, West Europe, South Africa or India and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
@@ -231,7 +257,3 @@ Advance to the next how-to to learn how to verify data upload from Data Box Disk
 > [Verify data upload from Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)
 
 ::: zone-end
-
-
-
-

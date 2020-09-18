@@ -2,7 +2,7 @@
 title: Add or remove group members - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add or remove members from a group using Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory

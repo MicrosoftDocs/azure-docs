@@ -3,13 +3,11 @@ title: Confidence score - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A knowledge base must be published. Once published, the knowledge base is queried at the runtime prediction endpoint using the generateAnswer API.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.author: diberry
 ms.custom: seodec18
 ---
 

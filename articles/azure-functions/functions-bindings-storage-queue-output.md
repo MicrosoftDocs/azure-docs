@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47, tracking-python
+ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 ---
 
 # Azure Queue storage output bindings for Azure Functions

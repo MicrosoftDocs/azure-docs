@@ -2,7 +2,8 @@
 title: Tutorial - SAP HANA DB restore on Azure using CLI 
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 12/4/2019
+ms.date: 12/4/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI
@@ -18,7 +19,7 @@ By the end of this tutorial you'll be able to:
 > * View restore points for a backed-up database
 > * Restore a database
 
-This tutorial assumes you have an SAP HANA database running on Azure VM that is backed-up using Azure Backup. If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-hana-backup-cli.md) to back up your SAP HANA database, then you're using the following resources:
+This tutorial assumes you have an SAP HANA database running on Azure VM that's backed-up using Azure Backup. If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-hana-backup-cli.md) to back up your SAP HANA database, then you're using the following resources:
 
 * a resource group named *saphanaResourceGroup*
 * a vault named *saphanaVault*
@@ -57,7 +58,7 @@ As you can see, the list above contains three recovery points: one each for full
 
 Ensure that the following prerequisites are met before restoring a database:
 
-* You can restore the database only to an SAP HANA instance that is in the same region
+* You can restore the database only to an SAP HANA instance that's in the same region
 * The target instance must be registered with the same vault as the source
 * Azure Backup can't identify two different SAP HANA instances on the same VM. Therefore, restoring data from one instance to another on the same VM isn't possible.
 
@@ -83,7 +84,7 @@ In this tutorial, you'll restore to a previous restore point. [View the list of 
 Using the above restore point name and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
 * **--target-item-name** This is the name that the restored database will be using. In this case, we used the name *restored_database*.
-* **--target-server-name** This is the name of an SAP HANA server that is successfully registered to a recovery services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database to the same SAP HANA server that we have protected, named *hxehost*.
+* **--target-server-name** This is the name of an SAP HANA server that's successfully registered to a Recovery Services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database to the same SAP HANA server that we've protected, named *hxehost*.
 * **--target-server-type** For the restore of SAP HANA databases, **SapHanaDatabase** must be used.
 
 ```azurecli-interactive
@@ -107,7 +108,7 @@ The response to the above query will be a recovery config object that looks some
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-Now, to restore the database run the [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet. To use this command, we will enter the above json output that is saved to a file named *recoveryconfig.json*.
+Now, to restore the database run the [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet. To use this command, we'll enter the above json output that's saved to a file named *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -148,7 +149,7 @@ The response to the above query will be a recovery config object that looks as f
 {"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-Now, to restore the database run the [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet. To use this command, we will enter the above json output that is saved to a file named *recoveryconfig.json*.
+Now, to restore the database run the [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet. To use this command, we'll enter the above json output that's saved to a file named *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -175,7 +176,7 @@ For this tutorial, we'll choose the previous point-in-time `28-11-2019-09:53:00`
 
 Using the restore point name above and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
-* **--target-container-name** This is the name of an SAP HANA server that is successfully registered to a recovery services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database as files to the same SAP HANA server that we've protected, named *hxehost*.
+* **--target-container-name** This is the name of an SAP HANA server that's successfully registered to a Recovery Services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database as files to the same SAP HANA server that we've protected, named *hxehost*.
 * **--rp-name** For a point-in-time restore the restore point name will be **DefaultRangeRecoveryPoint**
 
 ```azurecli-interactive
@@ -267,7 +268,7 @@ The files that are dumped onto the target container are:
 
 * Database backup files
 * Catalog files
-* JSON metadata files (for each backup file that is involved)
+* JSON metadata files (for each backup file that's involved)
 
 Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
 
@@ -296,7 +297,7 @@ Move these restored files to the SAP HANA server where you want to restore them 
     hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
     ```
 
-    In the above command:
+    In the command above:
 
     * `<DataFileDir>` - the folder that contains the full backups
     * `<LogFilesDir>` - the folder that contains the log backups
