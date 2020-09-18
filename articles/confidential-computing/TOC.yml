@@ -54,11 +54,6 @@
   items:
   - name: Fortanix Enclave Manager
     href: how-to-fortanix-enclave-manager.md
-  
-- name: Samples
-  items:
-  - name: Confidential containers
-  - href: container-samples.md
 - name: Resources
   items:
   - name: Confidential computing feedback

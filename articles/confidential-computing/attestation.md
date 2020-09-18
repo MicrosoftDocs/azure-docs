@@ -11,15 +11,15 @@ ms.date: 9/22/2020
 ms.author: JenCook
 ---
 
-# Attestation for SGX Enclaves
+# Attesting SGX Enclaves
 
-You'll want to get verification and validation that your trusted environment is secure. This verification is the process of attestation. 
+Confidential computing on Azure offers Intel SGX-based virtual machines that can isolate a portion of you code or data. When working with these [enclaves](confidential-computing-enclaves.md), you'll want to get verification and validation that your trusted environment is secure. This verification is the process of attestation. 
 
 ## Overview 
 
 Attestation allows a relying party to have increased confidence that their software is (1) running in an enclave and (2) that the enclave is up to date and secure. For example, an enclave asks the underlying hardware to generate a credential that includes proof that the enclave exists on the platform. The report can then be given to a second enclave that verifies the report was generated on the same platform.
 
-![attestation](media/attestation/attestation.png)
+![attest code in the enclave](media/attestation/attestation.png)
 
 
 

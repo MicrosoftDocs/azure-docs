@@ -43,11 +43,12 @@ A TEE is an environment that enforces execution of only authorized code. Any dat
 ### Lessen the need for trust
 Running workloads on the cloud requires trust. You give this trust to various providers enabling different components of your application.
 
-<br>
-**App software vendors**: Trust software by deploying on-prem, using open-source, or by building in-house application software. <br>
+
+**App software vendors**: Trust software by deploying on-prem, using open-source, or by building in-house application software.
+
 **Hardware vendors**: Trust hardware by using on-premise hardware or in-house hardware. 
-<br>
-**Infrastructure providers**: Trust cloud providers or manage your own on-premise datacenters.
+
+**Infrastructure providers**: Trust cloud providers or manage your own on-premise data centers.
 
 
 Azure confidential computing makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the compute cloud infrastructure. Azure confidential computing minimizes trust for the host OS kernel, the hypervisor, the VM admin, and the host admin.
@@ -73,7 +74,7 @@ Azure confidential computing allows you to leverage confidential computing capab
 ## Get Started
 ### Azure Compute
 Build applications on top of confidential compute IaaS offerings in Azure.
-- Virtual Machines (VMs): [DCsv2-Series](confidential-computing enclaves.md)
+- Virtual Machines (VMs): [DCsv2-Series](confidential-computing-enclaves.md)
 - Azure Kubernetes (AKS): [Orchestrate confidential containers](confidential-nodes-aks-overview.md)
 
 ### Azure Security 
@@ -84,7 +85,7 @@ Ensure your workloads are secure through verification methods and hardware-bound
 ### Develop
 Start using developing enclave-aware applications and deploy confidential algorithms using the confidential inferencing framework.
 - Write applications to run on DCsv2 VMs: [Open-enclave SDK](https://github.com/openenclave/openenclave)
-- Confidential ML models in ONNX runtime: [Confidential inferencing (beta)]((https://aka.ms/confidentialinference))
+- Confidential ML models in ONNX runtime: Confidential inferencing (beta)
 
 ## Next steps
 

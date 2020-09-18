@@ -42,7 +42,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Intel SGX virtual machines
-            url: ../../virtual-machines/dcv2-series
+            url: ../virtual-machines/dcv2-series
 
 
   # Card (optional)
