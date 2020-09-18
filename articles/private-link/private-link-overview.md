@@ -63,10 +63,10 @@ Azure Private Link provides the following benefits:
 |Azure Machine Learning | EAST US, SOUTH CENTRAL US,<br/> WEST US 2      |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | All public regions |  | Preview | |
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
-| Azure SignalR | EAST US, SOUTH CENTRAL US,<br/>WEST US 2, All China regions      |  | GA   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
+| Azure SignalR | EAST US, SOUTH CENTRAL US,<br/>WEST US 2, All China regions      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
 | Azure Batch | EAST US, WEST US 2, SOUTH CENTRAL US,<br/> WEST CENTRAL US, FRANCE CENTRAL, EAST ASIA, UK SOUTH, US GOV VIRGINIA, US GOV ARIZONA  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) | 
-|Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn more](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-private-link)   |
+|Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn more](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
 
 
 For the most up-to-date notifications, check the [Azure Private Link updates page](https://azure.microsoft.com/updates/?product=private-link).
