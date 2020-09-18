@@ -38,7 +38,7 @@ When you press the "Start a call" button, the web application fetches a user acc
 
 :::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once your configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
+Once you configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
@@ -46,15 +46,15 @@ Components of the main calling screen:
 
 - **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
 - **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
-- **Side Bar**: This is where participants and setting information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
+- **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
 Below you'll find more information on prerequisites, steps to set up the sample, and step-by-step tutorials to help familiarize yourself with its various components.
 
 ## Prerequisites
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
-- [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
+- [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
+- [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 

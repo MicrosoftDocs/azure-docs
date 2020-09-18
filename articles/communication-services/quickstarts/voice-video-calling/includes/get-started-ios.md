@@ -17,7 +17,7 @@ To complete this tutorial, you’ll need the following prerequisites:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [User Access Token](../../user-access-tokens.md) for your Azure Communication Service.
+- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
 
 ## Setting up
 
@@ -33,7 +33,7 @@ Add the Azure Communication Services Calling client library and its dependencies
 
 > [!NOTE]
 > With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
-The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step.
+The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools.
 
 1. Download the Azure Communication Services Calling client library for iOS.
 2. In Xcode, click on your project file to and select the build target to open the project settings editor.
@@ -58,10 +58,11 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 ### Set up the app framework
 
-Open your project's **ContentView.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunicationCalling library`.
+Open your project's **ContentView.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunicationCalling library`. In addition, import `AVFoundation`, we will need this for audio permission request in the code.
 
 ```swift
 import AzureCommunicationCalling
+import AVFoundation
 ```
 
 Replace the implementation of the `ContentView` struct with some simple UI controls that enable a user to initiate and end a call. We will attach business logic to these controls in this quickstart.
@@ -113,8 +114,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling client library.|
-| CallAgent | The CallAgent is used to start and manage calls. |
+| ACSCallClient | The CallClient is the main entry point to the Calling client library.|
+| ACSCallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationUserCredential | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.| 
 | CommunicationIndentifier | The CommunicationIndentifier is used to represent the identity of the user which can be one of the following: CommunicationUser/PhoneNumber/CallingApplication. |
 
@@ -146,7 +147,7 @@ self.callClient?.createCallAgent(userCredential) { (agent, error) in
 }
 ```
 
-You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../user-access-tokens.md) documentation if you don't already have a token available.
+You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
 
 ## Start a call
 
@@ -155,8 +156,14 @@ The `startCall` method is set as the action that will be performed when the *Sta
 ```swift
 func startCall()
 {
-    let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
-    self.call = self.callAgent?.call(callees, options: ACSStartCallOptions())
+    // Ask permissions
+    AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
+        if granted {
+            // start call logic
+            let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
+            self.call = self.callAgent?.call(callees, options: ACSStartCallOptions())
+        }
+    }
 }
 ```
 
@@ -188,3 +195,6 @@ You can make an outbound VOIP call by providing a user ID in the text field and 
 > [!NOTE]
 > The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
 
+## Sample
+
+You can download the sample app from [GitHub](https://github.com/Azure/Communication/tree/master/samples/AzureCommunicationCalling/iOS/Swift)

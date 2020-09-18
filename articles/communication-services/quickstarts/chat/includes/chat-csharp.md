@@ -17,7 +17,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
-- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client. Be sure to set the scope to "chat", and print out the token string as well as the userId string.
+- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
 
 ## Setting up
 
@@ -55,14 +55,15 @@ The following classes handle some of the major features of the Azure Communicati
 
 ## Create a chat client
 
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client.
-
-!NOTE Ensure that your user access token has 'chat' scope.
+To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of prerequisite steps. You need to use the `CommunicationIdentityClient` class from the `Administration` client library to create a user and issue a token to pass to your chat client. Learn more about [User Access Tokens](../../access-tokens.md).
 
 ```csharp
+using Azure.Communication.Identity;
+
 // Your unique Azure Communication service endpoint
-System.Uri endpoint = System.Uri("https://<RESOURCE_NAME>.communicationservices.azure.com");
-CommunicationUserCredential communicationUserCredential = new CommunicationUserCredential("<USER_ACCESS_TOKEN>");
+Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
+
+CommunicationUserCredential communicationUserCredential = new CommunicationUserCredential(<Access_Token>);
 ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 ```
 
@@ -70,29 +71,19 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Use the `createChatThread` method to create a chat thread.
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
-- Use `members` to list the thread members to be added to the thread. The member associated with the access token that was generated as part of pre-requisite steps should be part of the list.
+- Use `members` property to pass a  list of `ChatThreadMember` objects to be added to the chat thread. The `ChatThreadMember` object is initialized with a `CommunicationUser` object. To get a `CommunicationUser` object, you will need to pass an Access ID which you
+created by following instruction to [Create a user](../../access-tokens.md#create-a-user)
 
 The response `chatThreadClient` is used to perform operations on the created chat thread: adding members to the chat thread, sending a message, deleting a message, etc.
 It contains the `Id` attribute which is the unique ID of the chat thread. 
 
-!NOTE Replace <MEMBER_ID_#> with the generated user's ID as demonstrated in the [User Access Token](../../user-access-tokens.md) tutorial.
-
 ```csharp
-var topic = "Chat Thread topic C# sdk";
-
-var member1 = new ChatThreadMember(new CommunicationUser("<MEMBER_ID_1>"));
-member1.DisplayName = "display name member 1";
-
-var member2 = new ChatThreadMember(new CommunicationUser("<MEMBER_ID_2>"));
-
-var members = new List<ChatThreadMember>
+var chatThreadMember = new ChatThreadMember(new CommunicationUser("<Access_ID>"))
 {
-    member1,
-    member2    
+    DisplayName = "UserDisplayName"
 };
-
-ChatThreadClient chatThreadClient = chatClient.CreateChatThread(topic, members);
-var threadId = chatThreadClient.Id;
+ChatThreadClient chatThreadClient = await chatClient.CreateChatThreadAsync(topic: "Chat Thread topic C# sdk", members: new[] { chatThreadMember });
+string threadId = chatThreadClient.Id;
 ```
 
 ## Get a chat thread client
@@ -100,7 +91,7 @@ The `GetChatThreadClient` method returns a thread client for a thread that alrea
 
 ```csharp
 string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
+ChatThreadClient chatThreadClient = await chatClient.GetChatThreadClientAsync(threadId);
 ```
 
 ## Send a message to a chat thread
@@ -118,7 +109,7 @@ var content = "hello world";
 var priority = ChatMessagePriority.Normal;
 var senderDisplayName = "sender name";
 
-SendChatMessageResult sendChatMessageResult = chatThreadClient.SendMessage(content, priority, senderDisplayName);
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content, priority, senderDisplayName);
 string messageId = sendChatMessageResult.Id;
 ```
 
@@ -127,20 +118,14 @@ string messageId = sendChatMessageResult.Id;
 You can retrieve chat messages by polling the `GetMessages` method on the chat thread client at specified intervals.
 
 ```csharp
-Pageable<ChatMessage> allMessages = chatThreadClient.GetMessages();
-var maxPageSize = 3; // Number of messages per page
-string continuationToken = null; // Opaque url that contains a link to be used by the client library to retrieve the next page from the API 
-
-foreach (Page<ChatMessage> page in allMessages.AsPages(continuationToken, maxPageSize))
+AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
+await foreach (ChatMessage message in allMessages)
 {
-	foreach (ChatMessage chatMessage in page.Values)
-	{
-		Console.WriteLine(chatMessage.Id);
-		Console.WriteLine(chatMessage.Content);
-	}
-	continuationToken = page.ContinuationToken;
+    Console.WriteLine($"{message.Id}:{message.Sender.Id}:{message.Content}");
 }
 ```
+
+`GetMessages` takes an optional `DateTimeOffset` parameter. If that offset is specified, you will receive messages that were received, updated or deleted after it. Note that messages received before the offset time but edited or removed after it will also be returned.
 
 `GetMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `UpdateMessage` and `DeleteMessage`. For deleted messages, `chatMessage.DeletedOn` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.EditedOn` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.CreatedOn`, and it can be used for ordering the messages.
 
@@ -156,6 +141,24 @@ foreach (Page<ChatMessage> page in allMessages.AsPages(continuationToken, maxPag
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
+## Update a message
+
+You can update a message that has already been sent by invoking `UpdateMessage` on `ChatThreadClient`.
+
+```csharp
+string id = "id-of-message-to-edit";
+string content = "updated content";
+await chatThreadClient.UpdateMessageAsync(id, content);
+```
+
+## Deleting a message
+
+You can delete a message by invoking `DeleteMessage` on `ChatThreadClient`.
+
+```csharp
+string id = "id-of-message-to-delete";
+await chatThreadClient.DeleteMessageAsync(id);
+```
 
 ## Add a user as member to the chat thread
 
@@ -169,24 +172,17 @@ Use `AddMembers` method to add thread members to the thread identified by thread
  - `ShareHistoryTime`, optional, time from which the chat history is shared with the member. To share history since the beginning of chat thread, set it to DateTime.MinValue. To share no history, previous to when the member was added, set it to the current time. To share partial history, set it to a point in time between the thread creation and the current time.
 
 ```csharp
-var member1 = new ChatThreadMember(new CommunicationUser("<MEMBER_ID_1>"));
-member1.DisplayName = "display name member 1";
-member1.ShareHistoryTime = DateTime.MinValue; // share all history
-var members = new List<ChatThreadMember>
-{
-    member1
-};
-chatThreadClient.AddMembers(members);
+ChatThreadMember member = new ChatThreadMember(communicationUser);
+member.DisplayName = "display name member 1";
+member.ShareHistoryTime = DateTime.MinValue; // share all history
+await chatThreadClient.AddMembersAsync(members: new[] {member});
 ```
 ## Remove user from a chat thread
 
 Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the identity (CommunicationUser) of the members you have added.
 
-Use `RemoveMember`, where `memberId` is the ID of the member to be removed from the thread.
-
 ```csharp
-string memberId = "<MEMBER_ID_1>";
-chatThreadClient.RemoveMember(new CommunicationUser(memberId));
+await chatThreadClient.RemoveMemberAsync(communicationUser);
 ```
 
 ## Run the code
@@ -196,4 +192,3 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
-

@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 There are two separate families of Calling client libraries, for *clients* and *services.* Currently available client libraries are intended for end-user experiences: websites and native apps.
 
-The Service client libraries are yet available, and provide "raw" access to the voice and video data planes, suitable for integration with bots and other services.
+The Service client libraries are not yet available, and provide access to the raw voice and video data planes, suitable for integration with bots and other services.
 
 ## Calling client library capabilities
 
@@ -42,12 +42,13 @@ The following list presents the set of features which are currently available in
 | Roster            | List participants                                                                                                   | ✔️   | ✔️              | ✔️                 |
 |                   | Remove a participant                                                                                                | ✔️   | ✔️              | ✔️                 |
 | PSTN              | Connect PSTN participants into group calls (dial out from the meetings)                                             | ✔️   | ✔️              | ✔️                 |
+|General | Maximum number of participants in a group call is 350|  ✔️   | ✔️              | ✔️                 |
 
 ## Calling client library browser support
 
 The following table represents the set of supported browsers and versions which are currently available.
 
-|                                  | Windows          | macOS          | Android | Linux  | Ubuntu | iOS    |
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
 | **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
 

@@ -37,9 +37,9 @@ When an application is **in the background and non-active**, you may still want 
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notifications Hub.":::
 
-When an application is **active and using the Calling or Chat client libraries**, those client libraries provide events for actions such as `SMS Received` and `Chat Message Received`. These client library events allow for a real-time foreground application experience with limited polling. These events are powered by non-public client-to-service connections managed internally by these client libraries.
+When an application is **active and using the Calling or Chat client libraries**, those client libraries provide events for actions such as `Call Received` and `Chat Message Received`. These client library events allow for a real-time foreground application experience with limited polling. These events are powered by non-public client-to-service connections managed internally by these client libraries.
 
-To learn more about the SMS client library, please see the topic on [SMS concepts](./telephony-sms/concepts.md).
+To learn more about the SMS client library, please see the topic on [Voice and video concepts](./voice-video-calling/about-call-types.md).
 
 To learn more about the Chat client library, please see the topic on [Chat concepts](./chat/concepts.md).
 
@@ -75,10 +75,9 @@ In the portal, navigate to your Azure Communication Services resource. Inside th
 
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure Portal.":::
 
-<!-- potentially de-scoped until post-ignite ### Device registration 
+#### Device registration 
 
-This captures the registration of your device handle with Communication Services. Please see [Register Push Notifications](./voice-video-calling/post-ignite/mobile-push-notifications.md#tab/registerPushNotification) -->
-
+Refer to the [Register Push Notifications](../quickstarts/voice-video-calling/includes/calling-sdk-ios.md#push-notification) quickstart section to learn how to register your device handle with Communication Services. 
 
 ## Next steps
 

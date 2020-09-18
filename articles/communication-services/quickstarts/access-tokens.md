@@ -16,7 +16,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by using the Communication Services Administration client library to provision and manage your access tokens. Access tokens let your client applications authenticate directly against Azure Communication Services. These tokens are generated on a server-side token provisioning service that you implement. They're then used to initialize the Communication Services client libraries on client devices.
+Get started with Azure Communication Services by using the Communication Services Administration client library to provision and manage your access tokens. Access tokens let your Chat and Calling client libraries authenticate directly against Azure Communication Services. These tokens are generated on a server-side token provisioning service that you implement. They're then used to initialize the Communication Services client libraries on client devices.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]

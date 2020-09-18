@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Azure Communication Services Chat client libraries can be used to add rich, real-time chat to your applications with an easy to use, a low maintenance interface.
+Azure Communication Services Chat client libraries can be used to add rich, real-time chat to your applications with an easy to use, low maintenance interface.
 
 ## Chat client library capabilities
 
@@ -29,7 +29,7 @@ The following list presents the set of features which are currently available in
 |                   | Choose whether to share chat message history with newly added members - *all/none/up to certain time* | ✔️   | ✔️   | ✔️    | ✔️  |
 |                   | Get a list of all chat members thread                                                                          | ✔️   | ✔️  | ✔️ | ✔️ |
 |                   | Delete a chat thread                                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|                   | Get a list of a user's chat thread memberships of                                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
+|                   | Get a list of a user's chat thread memberships                                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Get info for a particular chat thread                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |
 |                   | Send and receive messages in a chat thread                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |
 |                   | Edit the content of a message after it's been sent                                                                   | ✔️   | ✔️  | ✔️ | ✔️ |
@@ -39,10 +39,10 @@ The following list presents the set of features which are currently available in
 |                   | Send and receive typing notifications when a member is actively typing a message in a chat thread <br/> *Not available when there are more than 20 members in a chat thread*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | Get all messages in a chat thread <br/> *Unicode emojis supported*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Send emojis as part of message content                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Real-time signaling| Get notified when a user receives a new message in a chat thread they're a member of                                     | ✔️   | ❌    | ❌  | ❌  |
+|Real-time signaling (enabled by proprietary signalling package)| Get notified when a user receives a new message in a chat thread they're a member of                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | Get notified when a message has been edited by another member in a chat thread they're a member of                | ✔️   | ❌    | ❌    | ❌  |
-|                    | Get notified when a message has been deleted by another member in a chat thread that user is member of                | ✔️   | ❌    | ❌    | ❌  |
-|                    | Get notified when a typing notification is received from another chat thread member                                 | ✔️   | ❌    | ❌    | ❌  |
+|                    | Get notified when a message has been deleted by another member in a chat thread they're a member of                | ✔️   | ❌    | ❌    | ❌  |
+|                    | Get notified when another chat thread member is typing                                                             | ✔️   | ❌    | ❌    | ❌  |
 |                    | Get notified when another member has read a message (read receipt) in the chat thread                               | ✔️   | ❌    | ❌    | ❌  |
 | Events             | Use Event Grid to subscribe to user activity happening in chat threads and integrate custom notification services or business logic     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Monitoring        | Monitor usage in terms of messages sent                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |

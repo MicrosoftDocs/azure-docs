@@ -37,7 +37,7 @@ Azure Communication Services provides excellent flexibility for developers. On m
 
 The available plans depend on the country and phone number type that you're operating within.The diagram below represents the decision flow:	The available plans depend on the country and phone number type that you're operating within.
 
-<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. ![Example for the decision flow](../../media/example-decision-flow.png) -->
+<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Example for the decision flow"::: -->
 
 Before you can select a phone number type, let’s review the international phone numbering plan.
 

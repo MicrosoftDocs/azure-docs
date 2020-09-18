@@ -88,10 +88,12 @@ Our instance of the Communication Services Management client library client (``A
 
 #### Create a Communication Services resource
 
+When creating a Communication Services resource, you'll specify the resource group name and resource name. Note that the `Location` property will always be `global`, and during public preview the `DataLocation` value must be `UnitedStates`.
+
 ```csharp
 var resourceGroupName = "myResourceGroupName";
 var resourceName = "myResource";
-var resource = new CommunicationServiceResource { Location = "West US" };
+var resource = new CommunicationServiceResource { Location = "Global", DataLocation = "UnitedStates"  };
 await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
 ```
 

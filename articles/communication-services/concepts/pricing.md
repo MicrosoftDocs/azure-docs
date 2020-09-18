@@ -25,19 +25,19 @@ Prices for Azure Communication Services are based on a pay-as-you-go model with 
 
 ## Voice/Video Calling and Screen Sharing
 
-Azure Communication Services allow for adding voice/video calling and screen sharing to your applications. You can embed the experience into your applications using JavaScript, Objective-C (Apple), Java (Android), or .NET client libraries. Please refer to our [full list of available client libraries](./sdk-options.md).
+Azure Communication Services allow for adding voice/video calling and screen sharing to your applications. You can embed the experience into your applications using JavaScript, Objective-C (Apple), Java (Android), or .NET client libraries. Refer to our [full list of available client libraries](./sdk-options.md).
 
 ### Pricing
 
-Calling/screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. To understand the various call flows that are possible, please refer to [this page](./call-flows.md).
+Calling and screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. To understand the various call flows that are possible, refer to [this page](./call-flows.md).
 
-Each participant of the call will count in billing for each minute they are connected to the call regardless of the modalities that used within (that is, video calling, voice calling or screen-sharing).
+Each participant of the call will count in billing for each minute they're connected to the call. This holds true regardless of whether the user is video calling, voice calling, or screen-sharing.
 
 ### Pricing example: Group audio/video call using JS and iOS client libraries
 
 Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used the JS client libraries, Charlie iOS client libraries.
 
-- The call lasts a total of 60 minutes
+- The call lasts a total of 60 minutes.
 - Alice and Bob participated for the entire call. Alice turned on her video for five minutes and shared her screen for 23 minutes. Bob had the video on for the whole call (60 minutes) and shared his screen for 12 minutes.
 - Charlie left the call after 43 minutes. Charlie used audio and video for the duration of time he participated (43 minutes).
 
@@ -50,7 +50,7 @@ Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used
 
 ## Chat
 
-With Communication Services you can enhance your application with the ability to send and receive the chat messages. Chat client libraries are available for .NET, Python, Java, iOS and Android. Please refer to [this page to learn about client libraries](./sdk-options.md)
+With Communication Services you can enhance your application with the ability to send and receive chat messages between 2 or more users. Chat client libraries are available for JavaScript, .NET, Python and Java. Refer to [this page to learn about client libraries](./sdk-options.md)
 
 ### Price
 

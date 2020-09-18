@@ -28,7 +28,9 @@ Scopes allow you to specify the exact Azure Communications Services functionalit
 | Name                  | Description                                                  |
 | --------------------- | ------------------------------------------------------------ |
 | `Chat`                | Grants the ability to participate in a chat                  |
-| `VoIP`                | Grants the ability to make and receive VOIP calls using the calling client library |
-| `Pstn`                | Grants the ability to make a PSTN calls using the calling client library |
+| `VoIP`                | Grants the ability to make and receive VOIP calls using the calling client library* |
+| `Pstn`                | Grants the ability to make a PSTN calls using the calling client library* |
+
+\* Feature is not yet supported and will be available soon
 
 If you wish to remove a user's ability to access to some specific functionality, you should first [revoke any existing access tokens](#revoke-user-access-tokens) that may include undesired scopes before issuing a new token with a more limited set of scopes.

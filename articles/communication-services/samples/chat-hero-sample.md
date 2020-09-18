@@ -73,7 +73,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
    1. If you see an error 1, look above in the output for a URL where you'll need to go to to authorize your client. (URL will look like this: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...`)Once you visit the URL in a browser, copy the command from the browser window and run it.
    2. Run command `npm run setup` again once you complete the previous step.
 4. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
-5. Once you get the `Connection String`, Add the connection string to the **appsetting.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
+5. Once you get the `Connection String`, Add the connection string to the **appsettings.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
 
 ### Local run
 
@@ -91,7 +91,7 @@ Clean/rebuild the C# solution
 
 ## Publish the sample to Azure
 
-1. Right click on the `ServiceSampleDotNet` project and select Publish.
+1. Right click on the `Chat` project and select Publish.
 2. Create a new publish profile and select your Azure subscription.
 3. Before publishing, add your connection string with `Edit App Service Settings`, and fill in `ResourceConnectionString` as the key and provide your connection string (copied from appsettings.json) as the value.
 
