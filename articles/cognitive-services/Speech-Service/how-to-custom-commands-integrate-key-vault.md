@@ -72,4 +72,4 @@ The following articles provide background on azure key vault and managed identit
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How To: Add interaction rules](./how-to-custom-commands-add-interaction-rules.md)
+> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-cicd.md)

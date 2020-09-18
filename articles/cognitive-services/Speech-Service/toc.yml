@@ -10,7 +10,7 @@
     href: language-support.md
   - name: Region support
     href: regions.md
-  - name: What's new in docs? 
+  - name: What's new in docs?
     href: whats-new.md
 - name: Speech-to-text
   items:
@@ -359,7 +359,7 @@
           items:
             - name: Develop
               items:
-                - name: Create application with simple commands  
+                - name: Create application with simple commands
                   href: how-to-custom-commands-create-application-with-simple-commands.md
                 - name: Add parameters to commands
                   href: how-to-custom-commands-add-parameters-to-commands.md
@@ -379,6 +379,8 @@
                   href: how-to-custom-commands-send-activity-to-client.md
                 - name: Set up web endpoints
                   href: how-to-custom-commands-setup-web-endpoints.md
+                - name: Reference secrets in Azure Key Vault for web endpoints
+                  href: how-to-custom-commands-integrate-key-vault.md
             - name: Deploy
               items:
                 - name: Continuous Deployment with Azure DevOps
@@ -454,7 +456,7 @@
     - name: Speaker Recognition overview
       href: speaker-recognition-overview.md
     - name: Speaker Recognition quickstart
-      href: get-started-speaker-recognition.md 
+      href: get-started-speaker-recognition.md
     - name: Reference
       items:
         - name: Speaker Recognition REST API
