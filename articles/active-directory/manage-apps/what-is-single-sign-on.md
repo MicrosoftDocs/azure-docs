@@ -48,7 +48,7 @@ How you implement single sign-on depends on where the app is hosted. Hosting mat
 > [!TIP]
 > Cloud hosted apps are also called Software as a Service (SaaS) apps. 
 
-Single sign-on for cloud hosted apps are straightforward. You let the identity provider know it's being used for the app. And then you configure the app to trust the identity provider. To learn how to use Azure AD as an identity provider for an app, see the [Quickstart Series on Application Management](view-applications-portal.md).
+Single sign-on for cloud hosted apps are straightforward. You let the identity provider know it's being used for the app. And then you configure the app to trust the identity provider. To learn how to use Azure AD as an identity provider for an app, see the [Quickstart Series on Application Management](add-application-portal.md).
 
 > [!TIP]
 > The terms cloud and Internet are often used interchangeable. The reason for this has to do with network diagrams. It is common to denote large computer networks with a cloud shape on a diagram because it is not feasible to draw every component. The Internet is the most well-known network and thus it is easy to use the terms interchangeably. However, any computer network can be coined a cloud.
