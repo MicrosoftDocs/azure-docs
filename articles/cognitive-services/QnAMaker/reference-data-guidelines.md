@@ -1,6 +1,6 @@
 ---
 title: Import and export data reference - QnA Maker
-description: Understand how the types of URLs are used to import and create QnA pairs.
+description: Use this import and export reference to get the best results for your knowledge base backup, storage, and replacement.
 ms.topic: reference
 ms.date: 01/02/2020
 ---

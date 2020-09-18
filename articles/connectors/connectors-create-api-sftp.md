@@ -121,6 +121,10 @@ This trigger starts a logic app workflow when a file is added or changed on an S
 
 This action gets the content from a file on an SFTP server. So for example, you can add the trigger from the previous example and a condition that the file's content must meet. If the condition is true, the action that gets the content can run.
 
+## Connector reference
+
+For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/azure/data-factory/connector-sftp).
+
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
