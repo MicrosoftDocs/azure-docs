@@ -26,7 +26,9 @@ For an Azure App Service workflow, the file has three sections:
 
 ## Generate deployment credentials
 
-# [App-level credentials](#tab/applevel)
+The recommended way to authenticate with Azure App Services for GitHub Actions is by using a publish profile. 
+
+# [Publish profile](#tab/applevel)
 
 You can use app-level credentials by using publish profile for your app. 
 
@@ -36,7 +38,7 @@ You can use app-level credentials by using publish profile for your app.
 
 1. Save the downloaded file. You will use the contents of the file to create a GitHub secret.
 
-# [User-level credentials](#tab/userlevel)
+# [Service principal](#tab/userlevel)
 
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
@@ -66,7 +68,7 @@ In the example above, replace the placeholders with your subscription ID, resour
 ## Configure the GitHub secret
 
 
-# [App-level credentials](#tab/applevel)
+# [Publish profile](#tab/applevel)
 
 In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
@@ -80,7 +82,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 ```
 
-# [User-level credentials](#tab/userlevel)
+# [Service principal](#tab/userlevel)
 
 In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
@@ -107,7 +109,27 @@ Setting up the environment can be done using one of the setup actions.
 |**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
-The following examples show the part of the workflow that sets up the environment for the various supported languages:
+The following examples show how to set up the environment for the different supported languages:
+
+**.NET**
+
+```yaml
+    - name: Setup Dotnet 3.3.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.3.x'
+```
+
+**Java**
+
+```yaml
+    - name: Setup Java 1.8.x
+      uses: actions/setup-java@v1
+      with:
+        # If your pom.xml <maven.compiler.source> version is not in 1.8.x,
+        # change the Java version to match the version in pom.xml <maven.compiler.source>
+        java-version: '1.8.x'
+```
 
 **JavaScript**
 
@@ -135,90 +157,55 @@ jobs:
         python-version: 3.x
 ```
 
-**.NET**
-
-```yaml
-    - name: Setup Dotnet 2.2.300
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '2.2.300'
-```
-
-**Java**
-
-```yaml
-    - name: Setup Java 1.8.x
-      uses: actions/setup-java@v1
-      with:
-        # If your pom.xml <maven.compiler.source> version is not in 1.8.x
-        # Please change the Java version to match the version in pom.xml <maven.compiler.source>
-        java-version: '1.8.x'
-```
-
 ## Build the web app
 
-This depends on the language and for languages supported by Azure App Service, this section should be the standard build steps of each language.
+The process of building a web app and deploying to Azure App Service changes depending on the language. 
 
-The following examples show the part of the workflow that builds the web app, in the various supported languages.
+The following examples show the part of the workflow that builds the web app, in different supported languages.
+
+For all languages, you can set the web app root directory with `working-directory`. 
 
 **JavaScript**
 
-If your app is not in the root directory, you can set `working-directory` or change for npm directory in `pushd`. 
-```yaml
-env:
-  NODE_VERSION: '14.x'                # set this to the node version to use
+For Node.js, you can set `working-directory` or change for npm directory in `pushd`. 
 
-jobs:
-  build-and-deploy:
-    name: Build and Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-      working-directory: my-app-folder # set to the folder with your app if it is not the root directory
+```yaml
+- name: npm install, build, and test
+  run: |
+    npm install
+    npm run build --if-present
+    npm run test --if-present
+  working-directory: my-app-folder # set to the folder with your app if it is not the root directory
 ```
 
 **Python**
 
 ```yaml
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+- name: Install dependencies
+  run: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
 ```
 
 **.NET**
 
+This example includes an environment variable `AZURE_WEBAPP_PACKAGE_PATH` that sets the path to your web app project. 
+
 ```yaml
-    - name: 'Run dotnet build'
-      shell: bash
-      run: |
-        # If your web app project is not located in your repository's root
-        # Please consider using pushd to change your path
-        pushd .
-        dotnet build --configuration Release --output ./output
-        popd
+- name: dotnet build and publish
+  run: |
+    dotnet restore
+    dotnet build --configuration Release
+    dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
 ```
 
 **Java**
 
 ```yaml
-    - uses: actions/checkout@v1
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+- name: Build with Maven
+  run: mvn package --file pom.xml
 ```
+
 ## Deploy to App Service
 
 To deploy your code to an App Service app, use the `azure/webapps-deploy@v2` action. This action has four parameters:
@@ -231,7 +218,7 @@ To deploy your code to an App Service app, use the `azure/webapps-deploy@v2` act
 | **slot-name** | (Optional) Enter an existing Slot other than the Production slot |
 
 
-# [App-level credentials](#tab/applevel)
+# [Publish profile](#tab/applevel)
 
 Below is the sample workflow to build and deploy a Node.js app to Azure using the app's publish profile. Note how the `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
@@ -380,7 +367,19 @@ jobs:
         package: my/target/*.jar
 ```
 
-# [User-level credentials](#tab/userlevel)
+To deploy a `war` instead of a `jar`, change the `package` value. 
+
+
+```yaml
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: my/target/*.war
+```
+
+# [Service principal](#tab/userlevel)
 
 Below is the sample workflow to build and deploy a Node.js app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
