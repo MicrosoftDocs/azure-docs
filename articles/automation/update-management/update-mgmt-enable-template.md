@@ -24,9 +24,9 @@ The template does not automate enabling Update Management on one or more Azure o
 If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. Using this template successfully creates the link and deploys Update Management.
 
 >[!NOTE]
->Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](manage-runas-account.md).
+>Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](../manage-runas-account.md).
 
-After you complete these steps, you need to [configure diagnostic settings](automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
+After you complete these steps, you need to [configure diagnostic settings](../automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
 
 ## API versions
 
@@ -57,15 +57,15 @@ The following parameters in the template are set with a default value for the Lo
 >If you want to create or configure a Log Analytics workspace in a subscription that has opted into the April 2018 pricing model, the only valid Log Analytics pricing tier is *PerGB2018*.
 >
 
-The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For more information about working with templates, see [Deploy resources with ARM templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For more information about working with templates, see [Deploy resources with ARM templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 If you're new to Azure Automation and Azure Monitor, it's important that you understand the following configuration details. They can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
-* Review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [additional details](../../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
-* Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
+* Review [workspace mappings](../how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../azure-monitor/platform/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
+* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../../azure-monitor/platform/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy template
 
@@ -326,11 +326,11 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 3. From the left-pane, select **Runbooks**. On the **Runbooks** page, listed are three tutorial runbooks created with the Automation account.
 
-    ![Tutorial runbooks created with Automation account](./media/quickstart-create-automation-account-template/automation-sample-runbooks.png)
+    ![Tutorial runbooks created with Automation account](../media/quickstart-create-automation-account-template/automation-sample-runbooks.png)
 
 4. From the left-pane, select **Linked workspace**. On the **Linked workspace** page, it shows the Log Analytics workspace you specified earlier linked to your Automation account.
 
-    ![Automation account linked to the Log Analytics workspace](./media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
+    ![Automation account linked to the Log Analytics workspace](../media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
 5. From the left-pane, select **Update management**. On the **Update management** page, it shows the assessment page without any information as a result of just being enabled and no machines are configured to be managed yet.
 
