@@ -26,7 +26,7 @@ You can migrate SQL Server running on-premises or on:
 
 For more migration information, see the [migration overview](sql-server-to-managed-instance-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
 
-:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow.png" alt-text="Migration process flow":::
+:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
 ## Prerequisites 
 
