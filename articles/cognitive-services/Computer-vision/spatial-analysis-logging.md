@@ -304,7 +304,7 @@ You can export logs from the Azure Blob Storage when troubleshooting issues.
 
 ## Common issues
 
-If the user sees this message in the module logs, it might mean the subscription needs to be whitelisted: 
+If you see the following message in the module logs, it might mean your Azure subscription needs to be approved: 
 
 ``` Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type. ```
 

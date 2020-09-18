@@ -49,7 +49,10 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 2 NVIDIA Tesla T4 GPUs
 * 50 GB of SSD space
 
-NOTE: Alternatively, you may use the NVIDIA Tesla K80, NVIDIA 1070 Ti, or the NVIDIA 2080 Ti GPU. Please note the additional environment variables you will need to set.
+> [!NOTE]
+> Alternatively, you can use the NVIDIA Tesla K80, NVIDIA 1070 Ti, or the NVIDIA 2080 Ti GPU. If you use one of these GPUs, you will need to set the `ARCHON_GRAPH_READY_TIMEOUT` and `ORT_TENSORRT_ENGINE_CACHE_ENABLE` environment variables in the [IoT deployment manifest](#iot-deployment-manifest).
+
+. See the [Enable NVIDIA MPS on the host computer](#enable-nvidia-mps-on-the-host-computer) section in the **Desktop machine** tab for more information.
 
 In this article, you will download and install the following software packages. The host computer must be able to run the following (see below for instructions):
 
@@ -113,9 +116,8 @@ Click **Create**. The IoT Hub resource creation may take a couple of minutes. Af
 When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. The Azure IoT Edge Runtime will already be running on the IoT Edge device.         	 
 
 > [!NOTE]
-> Currently only the Linux platform is available for IoT Edge devices. For help troubleshooting the Azure Stack Edge device, see the [logging and troubleshooting](spatial-analysis-logging.md) article.
-
-> To learn more about how to configure an IoT Edge device to communicate through a proxy server, see [Configure an IoT Edge device to communicate through a proxy server - Azure portal](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
+> * Currently only the Linux platform is supported for IoT Edge devices. For help troubleshooting the Azure Stack Edge device, see the [logging and troubleshooting](spatial-analysis-logging.md) article.
+> * To learn more about how to configure an IoT Edge device to communicate through a proxy server, see [Configure an IoT Edge device to communicate through a proxy server - Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
 
 ###  Enable MPS on Azure Stack Edge 
 
@@ -207,9 +209,8 @@ sudo systemctl restart docker
 ## Enable NVIDIA MPS on the host computer
 
 > [!TIP]
-> Don't install MPS if your GPU compute capability < 7.x (i,e, pre Volta). See [CUDA Compatability](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#support-title) for reference. 
->
-> Run the MPS instructions from a terminal window on the host computer. Not inside your Docker container instance.
+> * Don't install MPS if your GPU compute capability is less than 7.x (pre Volta). See [CUDA Compatability](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#support-title) for reference. 
+> * Run the MPS instructions from a terminal window on the host computer. Not inside your Docker container instance.
 
 For best performance and utilization, configure the host computer's GPU(s) for [NVIDIA Multiprocess Service (MPS)](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf). Run the MPS instructions from a terminal window on the host computer.
 
