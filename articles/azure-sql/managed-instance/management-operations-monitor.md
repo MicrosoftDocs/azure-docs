@@ -47,7 +47,7 @@ The following table compares management operation monitoring options:
 
 <sup>1</sup The deployment history for a resource group is limited to 800 deployments.
 
-<sup>2</sup> Resource group deployments support cancel operation. However, due to cancel logic, only an operation scheduled for deployment after the cancel action is performed will be canceled. Ongoing deployment is not canceled when the resource group deployment is cancelled. Since managed instance deployment consists of one long running step (from the Azure Resource Manger perspective), cancelling resource group deployment will not cancel managed instance deployment and the operation will complete. 
+<sup>2</sup> Resource group deployments support cancel operation. However, due to cancel logic, only an operation scheduled for deployment after the cancel action is performed will be canceled. Ongoing deployment is not canceled when the resource group deployment is canceled. Since managed instance deployment consists of one long running step (from the Azure Resource Manger perspective), canceling resource group deployment will not cancel managed instance deployment and the operation will complete. 
 
 ## Managed instance operations API
 

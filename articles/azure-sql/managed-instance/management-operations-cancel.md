@@ -61,9 +61,9 @@ To cancel management operations using the Azure portal, follow these steps:
 1. Confirm that you want to cancel the operation. 
 
 
-If the cancel request succeeds, the management operation is cancelled and results in a failure. You will get a notification that the cancellation succeeds or fails.
+If the cancel request succeeds, the management operation is canceled and results in a failure. You will get a notification that the cancellation succeeds or fails.
 
-![Canceling operation result](./media/management-operations-cancel/cancelling-operation-result.png)
+![Canceling operation result](./media/management-operations-cancel/canceling-operation-result.png)
 
 
 If the cancel request fails or the cancel button is not active, it means that the management operation has entered non-cancelable state and that will finish shortly.  The management operation will continue its execution until it is completed.
@@ -108,9 +108,9 @@ For detailed commands explanation, see [az sql mi op](https://docs.microsoft.com
 
 ---
 
-## Cancelled deployment request
+## Canceled deployment request
 
-With API version 2020-02-02, as soon as the instance creation request is accepted, the instance starts to exist as a resource, no matter the progress of the deployment process (managed instance status is **Provisioning**).If you cancel the instance deployment request (new instance creation), the managed instance will go from the **Provisioning** state to **FailedToCreate**.
+With API version 2020-02-02, as soon as the instance creation request is accepted, the instance starts to exist as a resource, no matter the progress of the deployment process (managed instance status is **Provisioning**). If you cancel the instance deployment request (new instance creation), the managed instance will go from the **Provisioning** state to **FailedToCreate**.
 
 Instances that have failed to create are still present as a resource and: 
 
