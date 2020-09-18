@@ -27,7 +27,7 @@ All management operations can be categorized as follows:
 - Instance update (changing instance properties, such as vCores or reserved storage).
 - Instance deletion.
 
-Most management operations are [long running operations](management-operations-overview.md#management-operations-duration). Therefore there is a need to monitor the status or follow the progress of operation steps. 
+Most management operations are [long running operations](management-operations-overview.md#duration). Therefore there is a need to monitor the status or follow the progress of operation steps. 
 
 There are several ways to monitor managed instance management operations:
 
@@ -42,7 +42,7 @@ The following table compares management operation monitoring options:
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Resource group deployments | Infinite<sup>1</sup> | No<sup>2</sup> | Visible | Visible | Not visible | Visible | Not visible |
 | Activity log | 90 days | No | Visible | Visible | Visible | Visible |  Not visible |
-| Managed instance operations API | 24 hours | [Yes](management-operations-cancelling.md) | Visible | Visible | Visible | Visible | Visible |
+| Managed instance operations API | 24 hours | [Yes](management-operations-canceling.md) | Visible | Visible | Visible | Visible | Visible |
 |  |  |  |  |  |  |  | |
 
 <sup>1</sup The deployment history for a resource group is limited to 800 deployments.

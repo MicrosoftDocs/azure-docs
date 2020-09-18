@@ -113,7 +113,7 @@ SQL Managed Instance is not available to client applications during deployment a
 
 ## Management operations steps
 
-Management operations consist of multiple steps. With [Operations API introduced](management-operations-monitoring.md) these steps are exposed for subset of operations (deployment and update). Deployment operation consists of three steps while update operation is performed in six steps. For details on operations duration, see the [management operations duration](#management-operations-duration) section. Steps are listed by order of execution.
+Management operations consist of multiple steps. With [Operations API introduced](management-operations-monitor.md) these steps are exposed for subset of operations (deployment and update). Deployment operation consists of three steps while update operation is performed in six steps. For details on operations duration, see the [management operations duration](#duration) section. Steps are listed by order of execution.
 
 ### Managed instance deployment steps
 
@@ -153,11 +153,11 @@ Management operations on a managed instance can affect other management operatio
 
 ## Monitoring management operations
 
-To learn how to monitor management operation progress and status, see [Monitoring management operations](management-operations-monitoring.md).
+To learn how to monitor management operation progress and status, see [Monitoring management operations](management-operations-monitor.md).
 
 ## Canceling management operations
 
-To learn how to cancel management operation, see [Canceling management operations](management-operations-cancelling.md).
+To learn how to cancel management operation, see [Canceling management operations](management-operations-cancel.md).
 
 
 ## Next steps
