@@ -25,11 +25,11 @@ Microsoft provides support for a wide variety of products and services. Finding 
  
 3. The **Help and support** pane will appear from the right-hand side of the page.
  
-   ![Support drop-down menu](./media/commercial-marketplace-support-pane.png)
+   ![Support drop-down menu](./media/support/commercial-marketplace-support-pane.png)
 
     Or go to the **Home page** pane and select **Help and support**.
 
-   ![Help and support from Home page](./media/homepage-help-support.png)
+   ![Help and support from Home page](./media/support/homepage-help-support.png)
 
 4. Select **[Documentation](../index.yml)** to review comprehensive answers to questions and resources.
 
@@ -41,7 +41,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 Now you're ready to open a support ticket on the **Help and Support** screen.
 
-![Help and support](./media/help-and-support.png)
+![Help and support](./media/support/help-and-support.png)
 
 >[!Note]
 >If you are logged in Partner Center, you will receive better experience with support.
@@ -52,7 +52,7 @@ Now you're ready to open a support ticket on the **Help and Support** screen.
 
 Once you have found the topic of your choice, select **Review Solutions**.
 
-![Next step](./media/next-step.png)
+![Next step](./media/support/next-step.png)
 
 The following options will become available:
 
@@ -61,7 +61,7 @@ The following options will become available:
 * Review **recommended steps**, if available.
 * Review **recommended documents**, if available.
 
-![Recommended solutions](./media/recommended-solutions.png)
+![Recommended solutions](./media/support/recommended-solutions.png)
 
 In case you cannot find your answer in **recommended solutions**, click on **provide issue details**.  Fill in the form and all required fields to help speed up the resolution process.  Then click **submit**.
 
