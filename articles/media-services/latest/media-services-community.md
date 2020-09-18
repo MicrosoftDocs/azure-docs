@@ -3,7 +3,7 @@ title: Azure Media Services v3 community overview
 description: This Azure Media Services community page discusses different ways you can ask questions, give feedback, and get updates about Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/22/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
-# Azure Media Services v3 community  
+# Azure Media Services v3 community
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]  
 
 This Azure Media Services community page discusses different ways you can ask questions, give feedback, and get updates about Media Services.
 

@@ -10,6 +10,7 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/05/2020
+ms.custom: devx-track-csharp
 ---
 # How to use Microsoft.Azure.Search (v10) in a .NET Application
 

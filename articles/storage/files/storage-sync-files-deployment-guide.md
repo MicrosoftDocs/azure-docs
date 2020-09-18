@@ -152,7 +152,7 @@ To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.
 
 On the pane that opens, enter the following information:
 
-- **Name**: A unique name (per subscription) for the Storage Sync Service.
+- **Name**: A unique name (per region) for the Storage Sync Service.
 - **Subscription**: The subscription in which you want to create the Storage Sync Service. Depending on your organization's configuration strategy, you might have access to one or more subscriptions. An Azure subscription is the most basic container for billing for each cloud service (such as Azure Files).
 - **Resource group**: A resource group is a logical group of Azure resources, such as a storage account or a Storage Sync Service. You can create a new resource group or use an existing resource group for Azure File Sync. (We recommend using resource groups as containers to isolate resources logically for your organization, such as grouping HR resources or resources for a specific project.)
 - **Location**: The region in which you want to deploy Azure File Sync. Only supported regions are available in this list.
@@ -398,6 +398,9 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 
 ## Create a server endpoint
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint must be a path on a registered server (rather than a mounted share), and to use cloud tiering, the path must be on a non-system volume. Network attached storage (NAS) is not supported.
+
+> [!NOTE]
+> Changing the path or drive letter after you established a server endpoint on a volume is not supported. Make sure you are using a final path on your registered server.
 
 # [Portal](#tab/azure-portal)
 To add a server endpoint, go to the newly created sync group and then select **Add server endpoint**.

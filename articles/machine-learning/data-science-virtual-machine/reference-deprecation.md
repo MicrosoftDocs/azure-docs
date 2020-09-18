@@ -46,18 +46,3 @@ Existing DSVM provisioned images in your subscription will continue to operate a
 >
 > ARM templates that have not been updated with the new DSVM image details will fail to to deploy after the retirement date.
 
-## Mitigating upcoming retirements
-
-In this section, we discuss mitigation to upcoming retirements.
-
-### Upgrade Windows 2016 DSVM
-
-In order to migrate a data disk from your existing Windows 2016 DSVM to a Windows 2019 DSVM, take the following steps:
-
-1. Create a new Windows 2019 DSVM, following the instructions shown [here](./provision-vm.md#create-your-dsvm).
-1. Detach existing data disks from your Windows 2016 image using [these instructions](../../virtual-machines/windows/detach-disk.md).
-1. Attach the disk from the previous step to your Windows 2019 image using [these instructions](../../virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-
-### Upgrade Ubuntu 16.04 DSVM
-
-We recommend upgrading existing Ubuntu 16.04 DSVMs to the [Ubuntu 18.04 DSVM edition](./dsvm-ubuntu-intro.md).

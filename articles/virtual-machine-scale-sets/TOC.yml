@@ -93,9 +93,6 @@
       href: ./scripts/powershell-single-av-zone-scale-set.md
     - name: Create a zone-redundant scale set
       href: ./scripts/powershell-sample-zone-redundant-scale-set.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Azure Resource Manager
@@ -343,8 +340,16 @@
       href: virtual-machine-scale-sets-upgrade-scale-set.md
     - name: Networking for scale sets
       href: virtual-machine-scale-sets-networking.md
-    - name: Automatic OS upgrades
-      href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: OS image upgrades
+      items:
+      - name: Automatic OS upgrades
+        href: virtual-machine-scale-sets-automatic-upgrade.md
+      - name: Maintenance control
+        items:
+        - name: Overview (Preview)
+          href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+        - name: PowerShell (Preview)
+          href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
     - name: Automatic instance repairs
       href: virtual-machine-scale-sets-automatic-instance-repairs.md
     - name: Instance protection
@@ -394,6 +399,9 @@
     href: /rest/api/virtualmachinescalesets/
   - name: Azure templates
     href: /azure/templates/microsoft.compute/virtualmachinescalesets
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

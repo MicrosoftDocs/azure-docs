@@ -36,10 +36,10 @@ In this article, using the Azure CLI, you learn how to perform the following man
 - To run the CLI script examples, you have three options:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
     - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block.
-    - [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
+    - [Install the latest version of the Azure CLI](/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
       
       > [!NOTE]
-      > The commands have been updated to reflect the latest release of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).     
+      > The commands have been updated to reflect the latest release of the [Azure CLI](/cli/azure/install-azure-cli).     
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -49,7 +49,7 @@ In this section, you learn how to enable and disable the system-assigned managed
 
 ### Enable system-assigned managed identity during creation of an Azure VM
 
-To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
@@ -71,7 +71,7 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 
 ### Enable system-assigned managed identity on an existing Azure VM
 
-To enable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+To enable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that is associated with the Azure subscription that contains the VM.
 
@@ -87,7 +87,7 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
 
 ### Disable system-assigned identity from an Azure VM
 
-To disable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+To disable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
 If you have a Virtual Machine that no longer needs the system-assigned identity, but still needs user-assigned identities, use the following command:
 
@@ -107,11 +107,12 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 ## User-assigned managed identity
 
-In this section, you will learn how to add and remove a user-assigned managed identity from an Azure VM using Azure CLI.
+In this section, you will learn how to add and remove a user-assigned managed identity from an Azure VM using Azure CLI. If you create your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity to assign it to your VM.
+    i.e. --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
 
 ### Assign a user-assigned managed identity during the creation of an Azure VM
 
-To assign a user-assigned identity to a VM during its creation, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) and [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
+To assign a user-assigned identity to a VM during its creation, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
 
 1. You can skip this step if you already have a resource group you would like to use. Create a [resource group](~/articles/azure-resource-manager/management/overview.md#terminology) for containment and deployment of your user-assigned managed identity, using [az group create](/cli/azure/group/#az-group-create). Be sure to replace the `<RESOURCE GROUP>` and `<LOCATION>` parameter values with your own values. :
 
@@ -151,7 +152,7 @@ To assign a user-assigned identity to a VM during its creation, your account nee
 
 ### Assign a user-assigned managed identity to an existing Azure VM
 
-To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) and [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
+To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
 
 1. Create a user-assigned identity using [az identity create](/cli/azure/identity#az-identity-create).  The `-g` parameter specifies the resource group where the user-assigned identity is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
 
@@ -178,7 +179,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    }
    ```
 
-2. Assign the user-assigned identity to your VM using [az vm identity assign](/cli/azure/vm). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY NAME>` is the user-assigned managed identity's resource `name` property, as created in the previous step:
+2. Assign the user-assigned identity to your VM using [az vm identity assign](/cli/azure/vm). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY NAME>` is the user-assigned managed identity's resource `name` property, as created in the previous step. If you created your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity.
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
@@ -186,7 +187,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 
 ### Remove a user-assigned managed identity from an Azure VM
 
-To remove a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment. 
+To remove a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment. 
 
 If this is the only user-assigned managed identity assigned to the virtual machine, `UserAssigned` will be removed from the identity type value.  Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY>` will be the user-assigned identity's `name` property, which can be found in the identity section of the virtual machine using `az vm identity show`:
 
@@ -213,21 +214,4 @@ az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' ide
 - [Managed identities for Azure resources overview](overview.md)
 - For the full Azure VM creation Quickstarts, see: 
   - [Create a Windows virtual machine with CLI](../../virtual-machines/windows/quick-create-cli.md)  
-  - [Create a Linux virtual machine with CLI](../../virtual-machines/linux/quick-create-cli.md) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - [Create a Linux virtual machine with CLI](../../virtual-machines/linux/quick-create-cli.md)

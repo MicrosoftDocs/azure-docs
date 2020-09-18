@@ -22,6 +22,8 @@ ms.author: mlottner
 
 This article provides an explanation of the different components of the Azure Security Center for IoT service and explains how to get started with the service using two possible deployment options.
 
+Looking for get started with the Security Module for Azure RTOS? Go to the [Quickstart for Security Module for Azure RTOS](quickstart-azure-rtos-security-module.md) section. 
+
 ## Deployment options
 
 Choose the service scenario that best meets your IoT device and environment requirements.

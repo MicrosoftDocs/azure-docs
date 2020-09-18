@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Azure Arc
-    href: arc-overview.md
+    href: overview.md
 - name: Arc enabled servers >
   href: ./servers/overview.md
 - name: Arc enabled Kubernetes >

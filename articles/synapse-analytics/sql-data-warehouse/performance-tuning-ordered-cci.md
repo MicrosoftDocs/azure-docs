@@ -44,9 +44,6 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 ```
 
->[!TIP]
-> For improved performance in Synapse SQL, consider using **sys.pdw_permanent_table_mappings** instead of **sys.pdw_table_mappings** on permanent user tables. See **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** for more information.
-
 > [!NOTE] 
 > In an ordered CCI table, the new data resulting from the same batch of DML or data loading operations are sorted within that batch, there is no global sorting across all data in the table.  Users can REBUILD the ordered CCI to sort all data in the table.  In Synapse SQL, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
 

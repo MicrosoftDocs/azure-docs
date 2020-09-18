@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
+ms.custom: devx-track-csharp
 ---
 
 # Server sizes

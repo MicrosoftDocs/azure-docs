@@ -20,6 +20,8 @@
     href: set-up-service-alerts.md
 - name: How-to
   items:
+  - name: Migrate manually
+    href: manual-migration.md
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
@@ -94,8 +96,14 @@
     href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
+  - name: Use Azure Advisor
+    href: azure-advisor.md
+  - name: Resolve recommendations
+    href: azure-advisor-recommendations.md
 - name: Concepts
   items:
+  - name: Authentication
+    href: authentication.md
   - name: Safe URL list
     href: safe-url-list.md
   - name: Windows Virtual Desktop environment
@@ -160,6 +168,8 @@
     href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+  - name: Email discovery
+    href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Resources
   items:
   - name: PowerShell

@@ -32,11 +32,11 @@ Once you've configured an Azure resource with a managed identity, you can give t
 - To run the CLI script examples, you have three options:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
     - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block.
-    - [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
+    - [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Use RBAC to assign a managed identity access to another resource
+## Use Azure RBAC to assign a managed identity access to another resource
 
 After you've enabled managed identity on an Azure resource, such as an [Azure virtual machine](qs-configure-cli-windows-vm.md) or [Azure virtual machine scale set](qs-configure-cli-windows-vmss.md): 
 

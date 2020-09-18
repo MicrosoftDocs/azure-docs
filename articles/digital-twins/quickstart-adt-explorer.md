@@ -28,6 +28,10 @@ The quickstart contains the following major steps:
 1. Explore the scenario graph that is created
 1. Make changes to the graph
 
+The sample graph you will be working with represents a building with two floors and two rooms. The graph will look like this:
+
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="View of a graph made of 4 circular nodes connected by arrows. A circle labeled 'Floor1' is connected by a arrow labeled 'contains' to a circle labeled 'Room1'; a circle labeled 'Floor0' is connected by an arrow labeled 'contains' to a circle labeled 'Room0'. 'Floor1' and 'Floor0' are not connected.":::
+
 ## Prerequisites
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, **[create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** now.
@@ -53,7 +57,7 @@ In this quickstart, you will need the following values from when you set up your
 
 ### Set ADT Explorer permissions
 
-Next, prepare the Azure Digital Twins instance you created to work with ADT explorer, which is a locally-hosted web application. Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your app registration from the list.
+Next, prepare the Azure Digital Twins instance you created to work with ADT Explorer, which is a locally-hosted web application. Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your app registration from the list.
 
 Select *Authentication* from the registration's menu, and hit *+ Add a platform*.
 
@@ -100,10 +104,13 @@ Hit the *Sign in* button at the top of the window to configure ADT Explorer to w
 Enter the important information you gathered earlier in the [Prerequisites](#prerequisites) section:
 * Application (client) ID
 * Directory (tenant) ID
-* ADT URL, in the format *https://{instance host name}*
+* Azure Digital Twins instance URL, in the format *https://{instance host name}*
 
 >[!NOTE]
 > You can revisit/edit this information at any time by selecting the same icon to pull up the Sign In box again. It will keep the values that you passed in.
+
+> [!TIP]
+> If a `SignalRService.subscribe` error message is shown when you connect, make sure that your Azure Digital Twins URL begins with *https://*.
 
 If you see a *Permissions requested* pop-up window from Microsoft, grant consent for this application and accept to continue.
 

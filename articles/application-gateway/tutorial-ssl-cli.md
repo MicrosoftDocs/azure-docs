@@ -16,11 +16,10 @@ You can use the Azure CLI to create an [application gateway](overview.md) with a
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Create a virtual machine scale set with the default backend pool
+* Create a self-signed certificate
+* Set up a network
+* Create an application gateway with the certificate
+* Create a virtual machine scale set with the default backend pool
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-ssl-powershell.md).
 

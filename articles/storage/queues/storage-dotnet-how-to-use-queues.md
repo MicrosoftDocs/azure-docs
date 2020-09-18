@@ -9,6 +9,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
+ms.custom: devx-track-csharp
 ---
 
 # Get started with Azure Queue storage using .NET

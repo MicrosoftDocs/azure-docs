@@ -1,6 +1,6 @@
 ---
 title: Azure Arc enabled servers (preview) Overview
-description: Learn how to use Azure Arc enabled servers (preview) to manage machines that are hosted outside of Azure as if it is an Azure resource.
+description: Learn how to use Azure Arc enabled servers (preview) to manage servers hosted outside of Azure like an Azure resource.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
 ms.custom: references_regions
 ms.date: 08/06/2020
@@ -9,7 +9,7 @@ ms.topic: overview
 
 # What is Azure Arc enabled servers (preview)?
 
-Azure Arc enabled servers (preview) allows you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider, similarly to how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID, is managed as part of a resource group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and applying tags.
+Azure Arc enabled servers (preview) allows you to manage your Windows and Linux machines hosted outside of Azure, on your corporate network or other cloud provider, similar to how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID, is managed as part of a resource group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and applying tags. Service providers who manage a customer's on-premises infrastructure can manage their hybrid machines, just like they do today with native Azure resources, across multiple customer environments, using [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) with Azure Arc.
 
 To deliver this experience with your hybrid machines hosted outside of Azure, the Azure Connected Machine agent needs to be installed on each machine that you plan on connecting to Azure. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
 
@@ -29,6 +29,8 @@ When you connect your machine to Azure Arc enabled servers (preview), it enables
 
 Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
 
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## Supported regions
 
 With Azure Arc enabled servers (preview), only certain regions are supported:
@@ -46,4 +48,4 @@ The Connected Machine agent sends a regular heartbeat message to the service eve
 
 ## Next steps
 
-Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review the [Connected Machine agent overview](agent-overview.md) article to understand what is required, technical details about the agent, and deployment methods.
+Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.

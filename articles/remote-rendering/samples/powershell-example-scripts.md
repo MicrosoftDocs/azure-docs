@@ -4,7 +4,8 @@ description: Examples that show how to use the front end via PowerShell scripts
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
-ms.topic: sample
+ms.topic: sample 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Example PowerShell scripts

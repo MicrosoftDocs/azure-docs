@@ -42,31 +42,27 @@ auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourService
 
 After you've created a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer), you'll need to pass it your `speech_config`. This provides the credentials that the speech service requires to validate your request.
 
-If you're recognizing speech using your device's default microphone, here's what the [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) should look like:
-
 ```cpp
 auto recognizer = SpeechRecognizer::FromConfig(config);
 ```
 
-If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) and provide the `audioConfig` parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer).
+## Recognize from microphone or file
 
-> [!TIP]
-> [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
+If you want to specify the audio input device, you need to create an [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) and pass it as a parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer).
 
-First, add the following `using namespace` statement after your `#include` definitions.
+To recognize speech using your device microphone, create an `AudioConfig` using `FromDefaultMicrophoneInput()`, then pass the audio config when creating your `SpeechRecognizer` object.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
-```
 
-Next, you'll be able to reference the `AudioConfig` object as follows:
-
-```cpp
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
 ```
 
-If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, when you create an [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), instead of calling `FromDefaultMicrophoneInput`, you'll call `FromWavFileOutput` and pass the `filename` parameter.
+> [!TIP]
+> [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
+
+If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig`. However, when you create the [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), instead of calling `FromDefaultMicrophoneInput()`, you call `FromWavFileInput()` and pass the `filename` parameter.
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");

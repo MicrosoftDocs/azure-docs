@@ -579,3 +579,32 @@ groups:
     title: Linux container
   - id: container-windows
     title: Windows container  
+- id: programming-languages-spring-cloud
+# Owner: bmitchell287
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+- id: speech-full-stack-go
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-spx
+    title: CLI
+  

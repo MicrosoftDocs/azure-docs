@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Cognitive Search.
 ---
 

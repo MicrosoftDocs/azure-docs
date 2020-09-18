@@ -18,7 +18,7 @@ This article will explain Managed private endpoints in Azure Synapse Analytics.
 
 Managed private endpoints are private endpoints created in the Managed workspace Microsoft Azure Virtual Network establishing a private link to  Azure resources. Azure Synapse manages these private endpoints on your behalf.
 
-Azure Synapse supports private links. Private link enables you to access Azure services (such as Azure Storage, Azure Cosmos DB, and Azure SQL Data Warehouse) and Azure hosted customer/partner services from your Azure Virtual Network securely.
+Azure Synapse supports private links. Private link enables you to access Azure services (such as Azure Storage and Azure Cosmos DB) and Azure hosted customer/partner services from your Azure Virtual Network securely.
 
 When you use a private link, traffic between your Virtual Network and workspace traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
 
