@@ -45,13 +45,13 @@ The following table compares management operation monitoring options:
 | Managed instance operations API | 24 hours | [Yes](management-operations-cancel.md) | Visible | Visible | Visible | Visible | Visible |
 |  |  |  |  |  |  |  | |
 
-<sup>1</sup The deployment history for a resource group is limited to 800 deployments.
+<sup>1</sup> The deployment history for a resource group is limited to 800 deployments.
 
 <sup>2</sup> Resource group deployments support cancel operation. However, due to cancel logic, only an operation scheduled for deployment after the cancel action is performed will be canceled. Ongoing deployment is not canceled when the resource group deployment is canceled. Since managed instance deployment consists of one long running step (from the Azure Resource Manger perspective), canceling resource group deployment will not cancel managed instance deployment and the operation will complete. 
 
 ## Managed instance operations API
 
-Management operations APIs are specially designed to monitor operations. Monitoring managed instance operations can provide insights on operation parameters and operation steps, as well as allow to [cancel specific operations](management-operations-cancel.md). Besides operation details and cancel command, this API can be used in automation scripts with multi-resource deployments - based on the progress step, you can kick off some dependent resource deployment.
+Management operations APIs are specially designed to monitor operations. Monitoring managed instance operations can provide insights on operation parameters and operation steps, as well as [cancel specific operations](management-operations-cancel.md). Besides operation details and cancel command, this API can be used in automation scripts with multi-resource deployments - based on the progress step, you can kick off some dependent resource deployment.
 
 These are the APIs: 
 
@@ -74,7 +74,7 @@ For example, the **Create operation** is visible at the start of the creation pr
 
 ![Managed instance create progress](./media/management-operations-monitor/monitoring-create-operation.png)
 
-Select **Ongoing operation** to open the **Ongoing operation** page and view **Create** or **Update** operations. You can also [Cancel]((management-operations-cancel.md operations from this page as well.  
+Select **Ongoing operation** to open the **Ongoing operation** page and view **Create** or **Update** operations. You can also [Cancel](management-operations-cancel.md) operations from this page as well.  
 
 ![Managed instance operation details](./media/management-operations-monitor/monitoring-operation-details.png)
 
@@ -89,7 +89,8 @@ The Get-AzSqlInstanceOperation cmdlet gets information about the operations on a
 $managedInstance = "yourInstanceName"
 $resourceGroup = "yourResourceGroupName"
 
-$managementOperations = Get-AzSqlInstanceOperation -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
+$managementOperations = Get-AzSqlInstanceOperation `
+    -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
 For detailed commands explanation, see [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation).

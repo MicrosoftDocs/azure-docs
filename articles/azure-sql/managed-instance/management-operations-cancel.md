@@ -97,7 +97,8 @@ If you don't already have the Azure CLI installed, see [Install the Azure CLI](/
 To cancel the management operation, you need to specify the management operation name. Therefore, first use the get command to retrieve the operation list, and then cancel the specific operation.
 
 ```azurecli-interactive
-az sql mi op list -g yourResourceGroupName --mi yourInstanceName --query "[?state=='InProgress' && isCancellable].{Name: name}" -o tsv |
+az sql mi op list -g yourResourceGroupName --mi yourInstanceName |
+   --query "[?state=='InProgress' && isCancellable].{Name: name}" -o tsv |
 while read -r operationName; do
 
 az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operationName
@@ -116,7 +117,7 @@ Instances that have failed to create are still present as a resource and:
 
 - Are not charged
 - Do not count towards resource limits (subnet or vCore quota)
-- Keep the instance name reserved - To deploy an instance with the same name, delete the failed instance to release the name. 
+- Keep the instance name reserved - To deploy an instance with the same name, delete the failed instance to release the name
 
 
 > [!NOTE]

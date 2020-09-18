@@ -1,5 +1,5 @@
 ---
-title: Management Operations overview
+title: Management operations overview
 titleSuffix: Azure SQL Managed Instance 
 description: Learn about Azure SQL Managed Instance management operations duration and best practices.
 services: sql-database
@@ -38,14 +38,14 @@ The duration of operations on the virtual cluster can vary, but typically have t
 
 The following are values that you can typically expect, based on existing service telemetry data:
 
-- **Virtual cluster creation**:  Creation is a synchronous step in instance management operations. **90% of operations finish in 4 hours**.
-- **Virtual cluster resizing (expansion or shrinking)**: Expansion is a synchronous step, while shrinking is performed asynchronously (without impact on the duration of instance management operations). **90% of cluster expansions finish in less than 2.5 hours**.
-- **Virtual cluster deletion**: Deletion is an asynchronous step, but it can also be [initiated manually](virtual-cluster-delete.md) on an empty virtual cluster, in which case it executes synchronously. **90% of virtual cluster deletions finish in 1.5 hours**.
+- **Virtual cluster creation**:  Creation is a synchronous step in instance management operations. <br/> **90% of operations finish in 4 hours**.
+- **Virtual cluster resizing (expansion or shrinking)**: Expansion is a synchronous step, while shrinking is performed asynchronously (without impact on the duration of instance management operations). <br/>**90% of cluster expansions finish in less than 2.5 hours**.
+- **Virtual cluster deletion**: Deletion is an asynchronous step, but it can also be [initiated manually](virtual-cluster-delete.md) on an empty virtual cluster, in which case it executes synchronously. <br/>**90% of virtual cluster deletions finish in 1.5 hours**.
 
 Additionally, management of instances may also include one of the operations on hosted databases, which result in longer durations:
 
-- **Attaching database files from Azure Storage**:  A synchronous step, such as scaling compute (vCores), or storage up or down in the General Purpose service tier. **90% of these operations finish in 5 minutes**.
-- **Always On availability group seeding**: A synchronous step, such as compute (vCores), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. **90% of these operations execute at 220 GB/hour or higher**.
+- **Attaching database files from Azure Storage**:  A synchronous step, such as scaling compute (vCores), or storage up or down in the General Purpose service tier. <br/>**90% of these operations finish in 5 minutes**.
+- **Always On availability group seeding**: A synchronous step, such as compute (vCores), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. <br/>**90% of these operations execute at 220 GB/hour or higher**.
 
 The following tables summarize operations and typical overall durations, based on the category of the operation:
 
