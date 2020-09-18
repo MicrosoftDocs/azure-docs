@@ -2,7 +2,7 @@
 title: Troubleshoot issues when using the Azure Cosmos emulator
 description: Learn how to troubleshot service unavailable, certificate, encryption, and versioning issues when using the Azure Cosmos emulator. 
 ms.service: cosmos-db
-ms.topic: how-to
+ms.topic: troubleshooting
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020

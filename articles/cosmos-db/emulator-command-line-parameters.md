@@ -1,6 +1,6 @@
 ---
 title: Command-line and PowerShell reference for Azure Cosmos DB emulator 
-description: Learn the command line parameters for Azure Cosmos DB emulator, how to control the emulator with PowerShell, and how to change the number of containers that you can create within emulator.   
+description: Learn the command-line parameters for Azure Cosmos DB emulator, how to control the emulator with PowerShell, and how to change the number of containers that you can create within the emulator.   
 ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
@@ -124,8 +124,8 @@ By default, you can create up to 25 fixed size containers (only supported using 
 
 If you attempt to create a container after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
 
-"Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again.
-ActivityId: 12345678-1234-1234-1234-123456789abc"
+> Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again.
+> ActivityId: 12345678-1234-1234-1234-123456789abc
 
 To change the number of containers available in the Azure Cosmos Emulator, run the following steps:
 
@@ -142,4 +142,4 @@ To change the number of containers available in the Azure Cosmos Emulator, run t
 ## Next steps
 
 * [Export the Azure Cosmos emulator certificates for use with Java, Python, and Node.js apps](local-emulator-export-ssl-certificates.md)
-* [Degug issues with the emulator](troubleshoot-local-emulator.md)
+* [Debug issues with the emulator](troubleshoot-local-emulator.md)

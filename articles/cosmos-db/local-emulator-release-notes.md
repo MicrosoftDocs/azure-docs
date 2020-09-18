@@ -2,7 +2,7 @@
 title: Azure Cosmos Emulator download and release notes
 description: Get the Azure Cosmos emulator release notes for different versions and download information. 
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/17/2020
