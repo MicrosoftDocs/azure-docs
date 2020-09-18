@@ -17,17 +17,24 @@ The following article describes how to delete an Azure Arc data controller.
 
 Before you proceed, ensure all the data services that have been create on the data controller are removed as follows:
 
-Login to the data controller that you want to delete:
+## Log in to the data controller
+
+Log in to the data controller that you want to delete:
 
 ```
 azdata login
 ```
-Run the following command to check if there are any SQL managed instances create:
+
+## List & delete existing data services
+
+Run the following command to check if there are any SQL managed instances created:
 
 ```
 azdata arc sql mi list
 ```
+
 For each SQL managed instance from the list above, run the delete command as follows:
+
 ```
 azdata arc sql mi delete -n <name>
 # for example: azdata arc sql mi delete -n sqlinstance1
@@ -45,12 +52,15 @@ azdata arc postgres server delete -n <name>
 # for example: azdata arc postgres server delete -n pg1
 ```
 
+## Delete controller
+
 After all the SQL managed instances and PostgreSQL Hyperscale instances have been removed, the data controller can be deleted as follows:
 
 ```
 azdata arc dc delete -n <name> -ns <namespace>
 # for example: azdata arc dc delete -ns arc -n arcdc
 ```
+
 ### Remove SCCs (Red Hat OpenShift only)
 
 ```console
@@ -66,4 +76,6 @@ kubectl delete ns <nameSpecifiedDuringCreation>
 # for example kubectl delete ns arc
 ```
 
+## Next steps
 
+[What are Azure Arc enabled data services?](overview.md)

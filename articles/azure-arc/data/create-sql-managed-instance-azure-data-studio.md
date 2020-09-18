@@ -27,7 +27,7 @@ Before you can create an instance, log in to the Azure Arc data controller if yo
 azdata login
 ```
 
-You will then be prompted for the namespace where the data controller is created, the username and password to login to the controller.  
+You will then be prompted for the namespace where the data controller is created, the username and password to log in to the controller.  
 
 > If you need to validate the namespace, you can run ```kubectl get pods -A``` to get a list of all the namespaces on the cluster.
 
@@ -58,11 +58,11 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 - This should initiate the creation of the Azure SQL managed instance - Azure Arc on the data controller.
 
-- In a few minutes, your ceation should successfully complete
+- In a few minutes, your creation should successfully complete
 
 ## Connect to Azure SQL managed instance - Azure Arc from Azure Data Studio
 
-- Login to the Azure Arc data controller, by providing the namespace, username and password for the data controller: 
+- Log in to the Azure Arc data controller, by providing the namespace, username and password for the data controller: 
 ```console
 azdata login
 ```
@@ -84,9 +84,9 @@ sqlinstance1  1/1         25.51.65.109:1433  Ready
 
 - In Azure Data Studio, under **Connections** tab, click on the **New Connection** on the **Servers** view
 - In the **Connection** blade, paste the ServerEndpoint into the Server textbox
-- Select "SQL Login" as the Authentication type
-- Enter "sa" as the user name
-- Enter the password for the "sa" account
+- Select **SQL Login** as the Authentication type
+- Enter *sa* as the user name
+- Enter the password for the `sa` account
 - Optionally, enter the specific database name to connect to
 - Optionally, select/Add New Server Group as appropriate
 - Select **Connect** to connect to the Azure SQL managed instance - Azure Arc

@@ -119,4 +119,4 @@ If you click on the Resource health tab on the left you can see the current high
 
 If you click on the Diagnose and solve problems tab on the left, you can launch the PostgreSQL troubleshooting notebook.
 
-If you click on the New support request tab on the left, you can launch the Azure portal in context to the server group and create an Azure support request from there.  Please keep in mind that during the private preview support is provided directly by the engineering team through Teams, GitHub, and your PM contact.
+If you click on the New support request tab on the left, you can launch the Azure portal in context to the server group and create an Azure support request from there.

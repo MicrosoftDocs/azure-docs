@@ -51,19 +51,7 @@ Regardless of the option you choose, during the creation process you will need t
 - **Connectivity mode** - The [connectivity mode](connectivity.md) of your cluster. Currently only "indirect" is supported.
 - **Azure subscription ID** - The Azure subscription GUID for where you want the data controller resource in Azure to be created.
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
-- **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. Choose one of the following: 
-  - eastus
-  - eastus2
-  - australiaeast
-  - centralus
-  - westus2
-  - westeurope
-  - southeastasia
-  - koreacentral
-  - northeurope
-  - westeurope
-  - uksouth
-  - francecentral
+- **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
 ## Next steps
 
