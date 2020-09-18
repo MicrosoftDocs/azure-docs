@@ -225,7 +225,7 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 ## logger
 
-Controls filtering for logs written by an [ILogger object](functions-monitoring.md#write-logs-in-c-functions) or by [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controls filtering for logs written by an [ILogger](functions-dotnet-class-library.md#ilogger) object or by [context.log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -335,7 +335,7 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 
 *Version 1.x*
 
-Configuration settings for logs that you create by using a `TraceWriter` object. See [C# Logging](functions-reference-csharp.md#logging) and [Node.js Logging](functions-reference-node.md#writing-trace-output-to-the-console).
+Configuration settings for logs that you create by using a `TraceWriter` object. To learn more, see [C# Logging].
 
 ```json
 {

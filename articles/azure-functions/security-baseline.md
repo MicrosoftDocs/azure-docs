@@ -311,7 +311,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 - [How to enable diagnostic settings for Azure Functions](./functions-monitor-log-analytics.md)
 
-- [How to enable Application Insights for Azure Functions](./functions-monitoring.md#enable-application-insights-integration)
+- [How to enable Application Insights for Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
 - [How to create alerts within Azure](../azure-monitor/learn/tutorial-response.md)
 

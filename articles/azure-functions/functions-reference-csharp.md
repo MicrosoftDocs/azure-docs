@@ -244,7 +244,7 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> For information about a newer logging framework that you can use instead of `TraceWriter`, see [Write logs in C# functions](functions-monitoring.md#write-logs-in-c-functions) in the **Monitor Azure Functions** article.
+> For information about a newer logging framework that you can use instead of `TraceWriter`, see the [ILogger](functions-dotnet-class-library.md#ilogger) documentation in the .NET class library developer guide.
 
 ### Custom metrics logging
 

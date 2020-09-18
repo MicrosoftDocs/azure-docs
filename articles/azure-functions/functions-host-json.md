@@ -133,7 +133,7 @@ The following sections of this article explain each top-level property. All are 
 
 This setting is a child of [logging](#logging).
 
-Controls options for Application Insights, including [sampling options](./functions-monitoring.md#configure-sampling).
+Controls options for Application Insights, including [sampling options](./configure-monitoring.md#configure-sampling).
 
 For the complete JSON structure, see the earlier [example host.json file](#sample-hostjson-file).
 
