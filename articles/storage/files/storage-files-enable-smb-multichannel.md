@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Enable SMB Multichannel on a filestorage account (preview) 
+# Enable SMB Multichannel on a FileStorage account (preview) 
 
-Azure FileStorage accounts support SMB Multichannel (preview), which increases the performance from an SMB 3.x client by establishing multiple network connection to your premium file shares. This article provides step-by-step guidance to enable SMB Multichannel on an existing storage account. For detailed information on Azure Files SMB Multichannel, see SMB Multichannel performance.
+Azure FileStorage accounts support SMB Multichannel (preview), which increases the performance from an SMB 3.x client by establishing multiple network connections to your premium file shares. This article provides step-by-step guidance to enable SMB Multichannel on an existing storage account. For detailed information on Azure Files SMB Multichannel, see SMB Multichannel performance.
 
 ## Restrictions
 
@@ -62,13 +62,13 @@ Once you have created a FileStorage account, you can follow the instructions to 
 
 :::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Screenshot of storage account, smb multichannel is toggled on.":::
 
-If the SMB Multichannel option is not visible under **File share settings** or you get an failed to update setting error while updating the configuration, please make sure that your subscription is registered and your account is in one of the [supported regions](#regional-availability) with supported account type and replication.
+If the SMB Multichannel option is not visible under **File share settings** or you get a failed to update setting error while updating the configuration, please make sure that your subscription is registered and your account is in one of the [supported regions](#regional-availability) with supported account type and replication.
 
 # [PowerShell](#tab/azure-powershell)
-Azure PowerShell does not yet support configuring SMB Multichannel. Please see the portal instructions to configure SMB Multichannel on storage account.
+Azure PowerShell does not yet support configuring SMB Multichannel. See the portal instructions to configure SMB Multichannel on storage account.
 
 # [Azure CLI](#tab/azure-cli)
-Azure CLI does not yet support configuring SMB Multichannel. Please see the portal instructions to configure SMB Multichannel on storage account.
+Azure CLI does not yet support configuring SMB Multichannel. See the portal instructions to configure SMB Multichannel on storage account.
 
 ---
 
