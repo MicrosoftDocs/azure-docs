@@ -92,7 +92,6 @@ The Active Directory configuration varies, depending on whether your Application
 
    ![Advanced Application Configuration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
-
 ## SSO for non-Windows apps
 
 The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). 
@@ -101,7 +100,7 @@ In the next phase, a request is sent to the backend application with this Kerber
 
 There are several mechanisms that define how to send the Kerberos ticket in such requests. Most non-Windows servers expect to receive it in form of SPNEGO token. This mechanism is supported on Azure AD Application Proxy, but is disabled by default. A connector can be configured for SPNEGO or standard Kerberos token, but not both.
 
-If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard Kerberos token should be routed through other connectors that are not configured for SPNEGO.
+If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard Kerberos token should be routed through other connectors that are not configured for SPNEGO. Some web applications accept both of the formats without the requirement of any change in their configuration. 
  
 
 To enable SPNEGO:
@@ -131,6 +130,8 @@ With Application Proxy, you can select which identity to use to obtain the Kerbe
 ![Delegated login identity parameter screenshot](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 If delegated login identity is used, the value might not be unique across all the domains or forests in your organization. You can avoid this issue by publishing these applications twice using two different Connector groups. Since each application has a different user audience, you can join its Connectors to a different domain.
+
+In case of using "On-premises SAM account name" as logon identity, the computer hosting the connector must be added to the domain, where the user account is located.
 
 ### Configure SSO for different identities
 1. Configure Azure AD Connect settings so the main identity is the email address (mail). This is done as part of the customize process, by changing the **User Principal Name** field in the sync settings. These settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
