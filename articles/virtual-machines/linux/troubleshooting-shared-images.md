@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot issues with shared images in Azure 
-description: Learn how to troubleshoot issues with shared image galleries.
+description: Learn how to troubleshoot issues with shared Linux image galleries.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: imaging
