@@ -202,10 +202,12 @@ To change a task, you have these options:
 When you change the underlying workflow for an automation task, your changes affect only the task instance that you created, and not the template that creates the task. After you make and save your changes, the name that you provided for your original task might not accurately describe the task anymore, so you might have to recreate the task with a different name.
 
 > [!TIP]
-> As a best practice, clone the underlying workflow so that you can edit the copied version instead. That way, you can make and test your 
-> changes on the copy while the original automation task continues to work and run without risking disruption or breaking existing functionality.
-> After you finish your changes and are satisified that the new version runs sucessfully, you can disable or delete the original automation 
-> task and use the cloned version for your automation task. The following steps include information about how to clone your workflow.
+> As a best practice, clone the underlying workflow so that you can edit the copied version instead. 
+> That way, you can make and test your changes on the copy while the original automation task continues 
+> to work and run without risking disruption or breaking existing functionality. After you finish your 
+> changes and are satisfied that the new version runs successfully, you can disable or delete the 
+> original automation task and use the cloned version for your automation task. The following steps 
+> include information about how to clone your workflow.
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
 
@@ -259,8 +261,10 @@ When you change the underlying workflow for an automation task, your changes aff
 
 1. To disable the workflow so that the task doesn't continue running, see [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md).
 
+## Provide feedback
+
+We'd like to hear from you! To report bugs, provide feedback, or ask questions about this preview capability, [contact the Azure Logic Apps team](mailto:logicapps@microsoft.com).
+
 ## Next steps
 
-* [Provide feedback on this preview capability](mailto:logicapps@microsoft.com)
 * [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md)
-
