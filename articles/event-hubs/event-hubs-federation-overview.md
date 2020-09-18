@@ -23,11 +23,18 @@ There are numerous potential motivations for why you may want to move events bet
 
 While maximum availability and reliability are the top operational priorities for Event Hubs, there are nevertheless a lot of ways in which a producer or consumer might be prevented from talking to its assigned "primary" Event Hub due to networking or name resolution issues, or where an Event Hub might indeed be temporarily unresponsive or returning errors. Such conditions are generally not "disastrous" such that you will want to abandon the regional deployment altogether as you might do in a disaster recovery situation, but the business scenario of some applications might already be impacted by availability events that last not more than a few minutes or even seconds. 
 
-### Latency optimization
+### Latency optimization 
 
 ![Latency Optimization](media/event-hubs-federation-overview/latency-optimization.jpg)  
 
 Event streams are written once by producers, but can be read any number of times by event consumers. For scenarios where an event stream in a region is shared by multiple consumers, and needs to be accessed repeatedly during analytics processing residing in a different region or with throughout demands that would starve out concurrent consumers, it may be beneficial to place a copy of the event stream near the analytics processor in order to reduce the roundtrip latency. 
+
+### Validation, reduction, and enrichment
+
+![Latency Optimization](media/event-hubs-federation-overview/latency-optimization.jpg)  
+
+[TBD]
+
 
 ### Integration with analytics services
 
@@ -57,7 +64,7 @@ Many scenarios where Event Hubs is primarily used for moving events within an ap
 
 ## Event and Message Replication in Azure
 
-Implementing the patterns above requires a scalable and reliable execution environment for the replication tasks that you want to configure and run. That runtime environment is [Azure Functions](../azure-functions/functions-overview.md). 
+Implementing the patterns above requires a scalable and reliable execution environment for the replication tasks that you want to configure and run. On Azure, the runtime environment that is best suited for these tasks is [Azure Functions](../azure-functions/functions-overview.md). 
 
 Many replication tasks will be straightforward copy operations, but you will occasionally also need to create and run custom transcoding and/or transformation tasks, for which Azure Functions is ideal. You can write such tasks in Java, C#, Python, or JavScript/TypeScript.  
 
@@ -77,7 +84,7 @@ In this article, we explored a range of federation patterns and explained the ro
 
 Next, you might want to read up how to set up a replicator application with Azure Functions and then how to replicate event flows between Event Hubs and various other eventing and messaging systems:
 
-- Event replicator applications in Azure Functions
+- [Event replicator applications in Azure Functions](event-hubs-federation-replicator-functions.md)
 - Replicating events between Event Hubs, and from IoT Hub
 - Replicating events from and to Apache Kafka
 - Routing events from and to Azure Event Grid 
