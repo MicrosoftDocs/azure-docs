@@ -126,7 +126,7 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 1. Select **Yes** in the pop-up window. The database node is deleted, and the Azure Cosmos DB account refreshes automatically.
 
-   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Screenshot of the confirmation window with the Yes button hightlighted.":::
+   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Screenshot of the confirmation window with the Yes button highlighted.":::
 
 #### Create a collection
 
