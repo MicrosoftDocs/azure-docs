@@ -31,7 +31,7 @@ This article describes what is new and what has changed with every new build of 
 
 ### Fixes
 1. Additional error messages and details for troubleshooting TSQL Streaming operations. 
-2. Imporvements to preserve Battery life in Idle mode. 
+2. Improvements to preserve Battery life in Idle mode. 
 3. TSQL Streaming engine fixes: 
    - Cleanup for stopped streaming job 
    - Fixes for localization and unicode handling improvements
@@ -52,7 +52,7 @@ This article describes what is new and what has changed with every new build of 
 
 ### Fixes
 1. Additional error messages and details for troubleshooting TSQL Streaming operations. 
-2. Imporvements to preserve Battery life in Idle mode. 
+2. Improvements to preserve Battery life in Idle mode. 
 3. TSQL Streaming engine fixes: 
    - Fix stuck watermark issue with substreamed hopping window 
    - Fix framework exception handling to make sure it is collected as user actionable error
