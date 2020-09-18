@@ -19,6 +19,8 @@
         href: ./hdinsight-administer-use-dotnet-sdk.md
       - name: Manage HDInsight clusters - PowerShell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
+        href: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
       - name: Create clusters with Runbooks
         href: ./manage-clusters-runbooks.md
       - name: Apache Ambari email notifications
@@ -103,6 +105,10 @@
         href: hdinsight-hadoop-use-blob-storage.md
       - name: Using Azure Data Lake Storage Gen2
         href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+      - name: Using Azure Data Lake Storage Gen2 in the portal
+        href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+      - name: Using Azure Data Lake Storage Gen2 with Azure CLI
+        href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
       - name: Using Azure Data Lake Storage Gen1
         href: hdinsight-hadoop-use-data-lake-store.md
     - name: Extend clusters

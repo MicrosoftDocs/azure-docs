@@ -14,6 +14,14 @@ ms.date: 09/17/2020
 
 [!INCLUDE [selector](../../includes/hdinsight-hadoop-use-data-lake-storage-gen2-selector.md)]
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for steps.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 To create an HDInsight cluster that uses Data Lake Storage Gen3 for storage, follow these steps.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
