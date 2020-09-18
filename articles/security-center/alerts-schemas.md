@@ -17,7 +17,7 @@ ms.author: memildin
 
 # Security alerts schemas
 
-If your subscription has Azure Defender enabled, you'll receive security alerts when Security Center detects threats to their resources.
+Users of Azure Security Center's standard tier receive security alerts when Security Center detects threats to their resources.
 
 You can view these security alerts in Azure Security Center's **Threat Protection** pages, or through external tools such as:
 

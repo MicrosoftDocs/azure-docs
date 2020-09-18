@@ -7,7 +7,7 @@ services: security-center
 ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
-ms.topic: how-to
+ms.topic: conceptual
 ---
 
 # Explore and manage your resources with asset inventory and management tools
@@ -20,22 +20,19 @@ When any resource has outstanding recommendations, they'll appear in the invento
 
 Use this view and its filters to address such questions as:
 
-- Which of my subscriptions with Azure Defender enabled have outstanding recommendations?
+- Which of my standard tier subscriptions has outstanding recommendations?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
-- How many of my machines tagged with a specific tag have outstanding recommendations?
+- How many of my machines, tagged with a specific tag have outstanding recommendations?
 - How many resources in a specific resource group have security findings from a vulnerability assessment service?
 
 The asset management possibilities for this tool are substantial and continue to grow. 
-
-> [!TIP]
-> The security recommendations are the same as those on the **Recommendations** page, but here they're filtered to the specific resource type you've selected. For more information about how to resolve recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|Preview|
 |Pricing:|Free|
 |Required roles and permissions:|All users|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
@@ -54,7 +51,7 @@ The inventory page provides the following tools:
 
 - **Filters** - The multiple filters at the top of the page provide a way to quickly refine the list of resources according to the question you're trying to answer. For example, if you wanted to answer the question *Which of my machines with the tag 'Production' are missing the Log Analytics agent?* you could combine the **Agent monitoring** filter with the **Tags** filter as shown in the following clip:
 
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtering to production resources that aren't monitored":::
+    ![Filtering to production resources that aren't monitored](./media/asset-inventory/filtering-to-prod-unmonitored.gif)
 
     As soon as you've applied filters, the summary values are updated to relate to the query results. 
 
@@ -67,9 +64,8 @@ The inventory page provides the following tools:
 
 - **Asset management options** - Inventory lets you perform complex discovery queries. When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
 
-    - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag.
-    - Onboard new servers to Security Center - use the **Add non-Azure servers** toolbar button.
-    - Automate workloads with Azure Logic Apps - use the **Trigger Logic App** button to run a logic app on one or more resources. Your logic apps have to be prepared in advance, and accept the relevant trigger type (HTTP request). [Learn more about logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag
+    - Onboard new servers to Security Center - use the **Add non-Azure servers** toolbar button
 
 
 ## How does asset inventory work?
@@ -85,18 +81,18 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 1. From Security Center's sidebar, select **Inventory**.
 
-1. Use the **Filter by name** box to display a specific resource, or use the filters as described below.
+1. Optionally, to display a specific resource enter the name in the **Filter by name** box.
 
 1. Select the relevant options in the filters to create the specific query you want to perform.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Inventory's filtering options" lightbox="./media/asset-inventory/inventory-filters.png":::
+    ![Inventory's filters](./media/asset-inventory/inventory-filters.png)
 
     By default, the resources are sorted by the number of active security recommendations.
 
     > [!IMPORTANT]
     > The options in each filter are specific to the resources in the currently selected subscriptions **and** your selections in the other filters.
     >
-    > For example, if you've selected only one subscription, and the subscription has no resources with outstanding security recommendations to remediate (0 unhealthy resources), the **Recommendations** filter will have no options. 
+    > For example, if you've selected only one subscription, and the subscription has no resources with outstanding security recommendations to remediate (0 Unhealthy Resources), the **Recommendations** filter will have no options. 
 
 1. To use the **Security findings contain** filter, enter free text from the ID, security check, or CVE name of a vulnerability finding to filter to the affected resources:
 
@@ -105,24 +101,19 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
     > [!TIP]
     > The **Security findings contain** and **Tags** filters only accept a single value. To filter by more than one, use **Add filters**.
 
-1. To use the **Azure Defender** filter, select one or more options (Off, On, or Partial):
+1. To use the **Pricing tier** filter, select one or more options (Free, Partial, or Standard):
 
-    - **Off** - Resources that aren't protected by an Azure Defender plan. You can right click on any of these and upgrade them:
+    - **Free** - Resources that are on the free pricing tier
+    - **Standard** - Resources that are on the standard pricing tier
+    - **Partial** - This applies to subscriptions that are on the standard pricing tier but have some of the optional security plans disabled. For example, the following subscription is on the standard tier but has five elements of the standard tier disabled. 
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Azure Defender from right click" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
-
-    - **On** - Resources that are protected by an Azure Defender plan
-    - **Partial** - This applies to **subscriptions** that have some but not all of the Azure Defender plans disabled. For example, the following subscription has five Azure Defender plans disabled. 
-
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription partially on Azure Defender":::
+        ![Subscription on standard(partial) pricing tier](./media/asset-inventory/pricing-tier-partial.png)
 
 1. To further examine the results of your query, select the resources that interest you.
 
-1. To view the current selected filter options as a query in Resource Graph Explorer, select **View in resource graph explorer**.
+1. Optionally, select **View in resource graph explorer** to open the query in Resource Graph Explorer.
 
     ![Inventory query in ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
-
-1. To run a previously defined logic app with 
 
 1. If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
 
@@ -131,19 +122,22 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 ### Why aren't all of my subscriptions, machines, storage accounts, etc. shown?
 
-The inventory view lists your Security Center connected resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations. 
+The inventory view lists your resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations. 
 
-For example, the following screenshot shows a user with access to 38 subscriptions but only 10 currently have recommendations. So when they filter by **Resource type = Subscriptions**, only those 10 subscriptions with active recommendations appear in the inventory:
+For example, if you have nine subscriptions but only eight currently have recommendations, when you filter by **Resource type = Subscriptions** you will only see the eight subscriptions with active recommendations:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subs returned when there are no active recommendations":::
+![Not all subs returned when there are no active recommendations](./media/asset-inventory/filtered-subscriptions-some.png)
 
-### Why do some of my resources show blank values in the Azure Defender or agent monitoring columns?
+
+### Why do some of my resources show blank values in the pricing or agent monitoring columns?
 
 Not all Security Center monitored resources have agents. For example, Azure Storage accounts or PaaS resources such as disks, Logic Apps, Data Lake Analysis, and Event Hub.
 
 When pricing or agent monitoring isn't relevant for a resource, nothing will be shown in those columns of inventory.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the agent monitoring or Azure Defender columns":::
+![Some resources show blank info in agent monitoring or pricing columns](./media/asset-inventory/agent-pricing-blanks.png)
+
+
 
 ## Next steps
 
@@ -152,4 +146,5 @@ This article described the asset inventory page of Azure Security Center.
 For more information on related tools, see the following pages:
 
 - [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
+
 - [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
