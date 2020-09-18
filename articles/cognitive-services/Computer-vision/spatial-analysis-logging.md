@@ -308,6 +308,8 @@ If you see the following message in the module logs, it might mean your Azure su
 
 ``` Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type. ```
 
+For more information, see [Request access to the spatial analysis functionality](spatial-analysis-container.md#request-access-to-the-spatial-analysis-functionality). 
+
 ## Troubleshooting the Azure Stack Edge device
 
 The following section is provided for help with debugging and verification of the status of your Azure Stack Edge device.
