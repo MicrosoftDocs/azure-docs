@@ -19,7 +19,7 @@ If you are new to Azure file shares, we recommend reading our [planning guide](s
 
 - AD DS Identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD. Password hash synchronization is optional. 
 - Supports Azure file shares managed by Azure File Sync.
-- Supports Kerberos authentication with AD with RC4-HMAC and AES 256 encryption. AES 128 Kerberos encryption is not yet supported.
+- Supports Kerberos authentication with AD with RC4-HMAC and [AES 256 encryption](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). AES 128 Kerberos encryption is not yet supported.
 - Supports single sign-on experience.
 - Only supported on clients running on OS versions newer than Windows 7 or Windows Server 2008 R2.
 - Only supported against the AD forest that the storage account is registered to. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) for details.
