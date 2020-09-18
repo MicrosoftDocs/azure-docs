@@ -78,13 +78,13 @@ Currently in preview, Azure Sentinel [deep investigation](tutorial-investigate-c
 
 Use Azure Sentinel's [powerful hunting search-and-query tools](hunting.md), based on the MITRE framework, which enable you to proactively hunt for security threats across your organization’s data sources, before an alert is triggered. After you discover which hunting query provides high-value insights into possible attacks, you can also create custom detection rules based on your query, and surface those insights as alerts to your security incident responders. While hunting, you can create bookmarks for interesting events, enabling you to return to them later, share them with others, and group them with other correlating events to create a compelling incident for investigation.
 
-![Hunting](./media/overview/hunting.png)
+![Screenshot shows the Azure Sentinel Hunting page in the Azure portal.](./media/overview/hunting.png)
 
 ## Community
 
 The Azure Sentinel community is a powerful resource for threat detection and automation. Our Microsoft security analysts constantly create and add new workbooks, playbooks, hunting queries, and more, posting them to the community for you to use in your environment. You can download sample content from the private community GitHub [repository](https://aka.ms/asicommunity) to create custom workbooks, hunting queries, notebooks, and playbooks for Azure Sentinel. 
 
-![Community](./media/overview/community.png)
+![Screenshot shows Azure Sentinel resources to download from a GitHub repository.](./media/overview/community.png)
 
 ## Next steps
 
