@@ -38,7 +38,7 @@ The following steps show you how to connect to your virtual machine using a remo
 
 1. After deployment completes, go to the virtual machine resource.
 
-   ![VM](./media/database-import-export-azure-services-off/vm.png)  
+   ![Screenshot shows a virtual machine Overview page with a Connect button.](./media/database-import-export-azure-services-off/vm.png)  
 
 2. Select **Connect**.
 
