@@ -25,7 +25,7 @@ Attestation allows a relying party to have increased confidence that their softw
 
 Attestation must be implemented using a secure attestation service that is compatible with the system software and silicon. Some examples of services you can use are
 
-- [Microsoft Azure Attestation service (preview)](https://docs.microsoft.com/azure/attestation/overview) 
+- [Microsoft Azure Attestation (MAA) (preview)](https://docs.microsoft.com/azure/attestation/overview) 
 or
 - [Intel's attestation and provisioning services](https://software.intel.com/sgx/attestation-services)
 
@@ -33,4 +33,4 @@ or
 which are both compatible with Azure confidential computing Intel SGX infrastructure. 
 
 ## Next steps
-Run the [Microsoft Azure Attestation sample for Intel SGX](https://docs.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/). Here, you'll generate a quote from an SGX enclave using Open Enclave SDK and then get it validated by Microsoft Azure Attestation.
+Try the [Microsoft Azure Attestation sample samples for enclave aware apps](https://docs.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/).

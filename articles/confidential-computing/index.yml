@@ -110,7 +110,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Attestation Services (MAA)
+          - text: Microsoft Azure Attestation (MAA)
             url: ../attestation/
           - text: Confidential Inferencing ONNX Runtime
             url: https://aka.ms/confidentialinference

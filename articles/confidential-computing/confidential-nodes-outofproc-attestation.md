@@ -13,11 +13,13 @@
 Enclave application that performs remote attestation requires to generate QUOTE that provides a cryptographically proof of the identity and the state of the application as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components from Intel that are part of the Intel’s Platform Software Components (PSW) among others. 
  
 Intel supports two attestation modes to run the quote generation:
-1. in-proc: hosts the trusted software components inside the enclave application process
+1. **in-proc**: hosts the trusted software components inside the enclave application process
 
-1. out-of-proc: hosts the trusted software components outside of the enclave application.
+1. **out-of-proc**: hosts the trusted software components outside of the enclave application.
  
 SGX applications built using Open Enclave SDK by default use in-proc attestation mode. SGX based applications allow out-of-proc and would require extra hosting and exposing the required components such as Architectural Enclave Service Manager (AESM) external to the application.
+
+Utilizing this feature is **highly recommended** as it helps with better uptime for your enclave apps during the Intel Platform updates or DCAP driver updates.
 
 ## Why and What are the benefits of out-of-proc?
 
@@ -43,9 +45,7 @@ The high-level design follows the model where the quote requestor and quote gene
 
 The above abstract model applied to confidential workload scenario, by taking advantage of already available AESM service. AESM is containerized and deployed as a DaemonSet across the Kubernetes cluster. Kubernetes guarantees a single instance of an AESM service container, wrapped in a Pod, to be deployed on each agent node. The new SGX Quote DaemonSet will have a dependency on the sgx-device-plugin DaemonSet, since the AESM service container would request EPC memory from sgx-device-plugin for launching QE and PCE enclaves.
 
-![sgx quote helper daemon](./media/platform-software-management/sgxquotehelperdaemon.png)
-
-Each container needs to opt in to use out-of-proc quote generation by setting the environment variable SGX_AESM_ADDR=1 during creation. The container should also include the package libsgx-quote-ex that is responsible to direct the request to default Unix domain socket
+Each container needs to opt in to use out-of-proc quote generation by setting the environment variable **SGX_AESM_ADDR=1** during creation. The container should also include the package libsgx-quote-ex that is responsible to direct the request to default Unix domain socket
 
 An application can still use the in-proc attestation as before, but both in-proc and out-of-proc can’t be used simultaneously within an application as it is not supported. Note the out-of-proc infrastructure is available by default and consumes resources.
 
@@ -53,7 +53,7 @@ An application can still use the in-proc attestation as before, but both in-proc
 
 The below docker file sample is for an Open Enclave based application whereby setting the SGX_AESM_ADDR=1 environment variable in the docker file or by setting it on the deployment file. Follow the below sample for docker file and deployment yaml details. 
 
->Note: The libsgx-quote-ex from Intel needs to be packaged in the application container for out of proc attestation to work properly.
+>Note: The **libsgx-quote-ex** from Intel needs to be packaged in the application container for out of proc attestation to work properly.
 
 ```yaml
 # Refer to Intel_SGX_Installation_Guide_Linux for detail

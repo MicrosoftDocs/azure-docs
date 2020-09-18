@@ -13,12 +13,12 @@
 
 # Confidential Computing nodes on Azure Kubernetes Service (public preview)
 
-Azure confidential computing allows you to protect your sensitive data while it's in use from other applications,administrators and cloud providers. AKS supports adding DCSv2 confidential computing nodes on AKS to run the sensitive workloads within a hardware based Trusted Execution Environment (TEE). The confidential worker nodes run on Intel SGX-based CPUs to create isolated execution between each container to the CPU leverage directly. The SGX execution model removes the intermediate layers of Guest OS and Hypervisor to directly execute your program with CPU while encrypting the memory. Read more about confidential computing and its security [here](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+Azure confidential computing allows you to protect your sensitive data while it's in use from other applications,administrators and cloud providers. AKS supports adding DCSv2 confidential computing nodes on AKS to run the sensitive workloads within a hardware based Trusted Execution Environment (TEE). The confidential worker nodes run on Intel SGX by allowing user-level code to allocate private regions of memory called enclaves. The hardware based and isolated enclaves are designed to be protected from processes running at higher privilege. The SGX execution model removes the intermediate layers of Guest OS and Hypervisor to directly execute the container applications with CPU while keeping the special block of memory encrypted. Read more about confidential computing and its security [here](/overview)
 
 
 ![sgx node overview](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
-## Features
+## AKS Confidential Nodes Features
 
 1. Hardware based and process level container isolation through SGX trusted execution environment (TEE) 
 1. Heterogenous node pool clusters (mix confidential and non-confidential node pools)
@@ -43,20 +43,19 @@ Enclave application that performs remote attestation needs to generate QUOTE whi
 
 ## Programming & application models
 
-### Enclave aware containers
-
-AKS supports applications that are programmed to run on confidential nodes and utilize special instruction set made available through the SDKs and frameworks. This application model provides most control to your applications with a lowest Trusted Computing Base (TCB). Read more on enclave aware containers and samples [here](enclave-aware-containers.md)
-
-
 ### Confidential Containers
 
 Confidential containers run existing programs and most **common programming language** runtime (Python, Node, Java etc.), along with their existing library dependencies, without any source-code modification or recompilation. This model is the fastest model to confidentiality enabled through Open Source Projects & Azure Partners. The container images that are made ready created to run in the secure enclaves are termed as confidential containers. [Read more](confidential-containers.md)
+
+### Enclave aware containers
+
+AKS supports applications that are programmed to run on confidential nodes and utilize **special instruction set** made available through the SDKs and frameworks. This application model provides most control to your applications with a lowest Trusted Computing Base (TCB). Read more on enclave aware containers and samples [here](enclave-aware-containers.md)
 
 ## Getting Started
 
 [Deploy AKS Cluster with confidential computing nodes](./confidential-nodes-aks-getstarted.md)
 
-[Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
+[Quick starter confidential container samples](https://github.com/Azure-Samples/confidential-container-samples)
 
 [DCsv2 SKU List](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
 
