@@ -33,12 +33,12 @@ This topic is the home for information on federation-related functionalities for
 | [Configure an AD FS farm](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Install a new AD FS farm by using Azure AD Connect. |
 | [Federate with Azure AD using alternate login ID](how-to-connect-fed-management.md#alternateid) | Configure federation using alternate login ID  |
 | **Modify the AD FS configuration** | |
-| [Repair the trust](how-to-connect-fed-management.md#repairthetrust) |Repair the current trust between on-premises AD FS and Office 365/Azure. |
+| [Repair the trust](how-to-connect-fed-management.md#repairthetrust) |Repair the current trust between on-premises AD FS and Microsoft 365/Azure. |
 | [Add a new AD FS server](how-to-connect-fed-management.md#addadfsserver) |Expand an AD FS farm with an additional AD FS server after initial installation. |
 | [Add a new AD FS WAP server](how-to-connect-fed-management.md#addwapserver) |Expand an AD FS farm with an additional Web Application Proxy (WAP) server after initial installation. |
 | [Add a new federated domain](how-to-connect-fed-management.md#addfeddomain) |Add another domain to be federated with Azure AD. |
 | [Update the TLS/SSL certificate](how-to-connect-fed-ssl-update.md)| Update the TLS/SSL certificate for an AD FS farm. |
-| [Renew federation certificates for Office 365 and Azure AD](how-to-connect-fed-o365-certs.md)|Renew your O365 certificate with Azure AD.|
+| [Renew federation certificates for Microsoft 365 and Azure AD](how-to-connect-fed-o365-certs.md)|Renew your O365 certificate with Azure AD.|
 | **Other federation configuration** | |
 | [Federate multiple instances of Azure AD with single instance of AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md) | Federate multiple Azure AD with single AD FS farm| 
 | [Add a custom company logo/illustration](how-to-connect-fed-management.md#customlogo) |Modify the sign-in experience by specifying the custom logo that is shown on the AD FS sign-in page. |
@@ -48,5 +48,5 @@ This topic is the home for information on federation-related functionalities for
 
 ## Additional resources
 * [Federating two Azure AD with single AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
-* [AD FS deployment in Azure](how-to-connect-fed-azure-adfs.md)
-* [High-availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+* [AD FS deployment in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [High-availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)

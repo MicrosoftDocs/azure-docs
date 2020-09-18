@@ -149,7 +149,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 Run the project with a web server by using [Node.js](https://nodejs.org/en/download/):
 
 1. To start the server, run the following command from the project directory:
-    ```batch
+    ```cmd
     npm install
     npm start
     ```
@@ -177,7 +177,7 @@ The MSAL library signs in users and requests the tokens that are used to access 
 
 Alternatively, if you have Node.js installed, you can download the latest version through Node.js Package Manager (npm):
 
-```batch
+```cmd
 npm install msal
 ```
 

@@ -32,7 +32,7 @@ Once you've configured an Azure resource with a managed identity, you can give t
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
 
-## Use RBAC to assign a managed identity access to another resource
+## Use Azure RBAC to assign a managed identity access to another resource
 
 After you've enabled managed identity on an Azure resource, [such as an Azure VM](qs-configure-powershell-windows-vm.md):
 

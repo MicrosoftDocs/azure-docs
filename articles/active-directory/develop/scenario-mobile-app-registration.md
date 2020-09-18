@@ -27,7 +27,7 @@ The account types that your mobile applications support depend on the experience
 
 ### Audience for interactive token acquisition
 
-Most mobile applications use interactive authentication. If your app uses this form of authentication, you can sign in users from any [account type](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+Most mobile applications use interactive authentication. If your app uses this form of authentication, you can sign in users from any [account type](quickstart-register-app.md).
 
 ### Audience for Integrated Windows authentication, username-password, and B2C
 

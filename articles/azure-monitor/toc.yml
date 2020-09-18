@@ -105,9 +105,6 @@
     href: samples/cli-samples.md
   - name: Azure PowerShell
     href: samples/powershell-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: samples/policy-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -163,6 +160,8 @@
     href: platform/partners.md
   - name: Security
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./platform/security-controls-policy.md
@@ -225,12 +224,10 @@
         href: log-query/get-started-queries.md
     - name: Log data
       items:
-      - name: Log data structure
-        href: log-query/logs-structure.md
       - name: Query scope
         href: log-query/scope.md
-      - name: Standard properties
-        href: platform/log-standard-properties.md
+      - name: Standard columns
+        href: platform/log-standard-columns.md
       - name: Computer groups
         href: platform/computer-groups.md
     - name: Query language
@@ -567,6 +564,8 @@
         href: platform/itsmc-overview.md
       - name: IT Service Management connections
         href: platform/itsmc-connections.md
+      - name: Integrate with Secure Export
+        href: platform/it-service-management-connector-secure-webhook-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
       - name: Fix ServiceNow ITSM sync problems
@@ -721,6 +720,10 @@
               href: app/monitor-performance-live-website-now.md
         - name: Java
           href: app/java-on-premises.md
+    - name: OpenTelemetry
+      items: 
+      - name: FAQ
+        href: faq.md#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -1011,6 +1014,8 @@
       href: insights/container-insights-health.md
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
+    - name: Monitor Deployments & HPAs
+      href: insights/container-insights-deployment-hpa-metrics.md
     - name: View live data
       items:
       - name: Live Data (preview) overview
@@ -1129,7 +1134,21 @@
       displayname: Workbooks
       href: platform/workbooks-overview.md
     - name: Visualizations
-      href: platform/workbooks-visualizations.md
+      items:
+      - name: Text
+        href: platform/workbooks-text-visualizations.md
+      - name: Chart 
+        href: platform/workbooks-chart-visualizations.md
+      - name: Grid
+        href: platform/workbooks-grid-visualizations.md
+      - name: Tile
+        href: platform/workbooks-tile-visualizations.md
+      - name: Tree
+        href: platform/workbooks-tree-visualizations.md
+      - name: Graph
+        href: platform/workbooks-graph-visualizations.md
+      - name: Composite bar
+        href: platform/workbooks-composite-bar.md
     - name: Data sources
       href: platform/workbooks-data-sources.md
     - name: Parameters
@@ -1298,6 +1317,9 @@
       href: /azure/templates/microsoft.insights/allversions
     - name: Azure Monitor Logs
       href: /azure/templates/microsoft.operationalinsights/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: samples/policy-reference.md
   - name: Feature and API Retirement 
     items:
     - name: Classic autoscale & metrics API

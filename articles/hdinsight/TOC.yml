@@ -392,14 +392,20 @@
           href: ./spark/apache-spark-analyze-application-insight-logs.md
     - name: Manage
       items:
+      - name: Manage dependencies
+        items:
+        - name: Manage Spark application dependencies
+          href: ./spark/apache-spark-manage-dependencies.md
+        - name: Safely manage jar dependencies
+          href: ./spark/safely-manage-jar-dependency.md
+        - name: Safely manage Python environment
+          href: ./spark/apache-spark-python-package-installation.md
       - name: Manage cluster resources
         href: ./spark/apache-spark-resource-manager.md
       - name: Manage Apache Spark applications using extended History Server
         href: ./spark/apache-azure-spark-history-server.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
-      - name: Manage Jar dependencies
-        href: ./spark/manage-jar-dependency.md
       - name: Use notebooks with Apache Spark
         items: 
         - name: Use a local Jupyter notebook
@@ -408,8 +414,6 @@
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Safely manage Python environment on Azure HDInsight using Script Action
-          href: ./spark/apache-spark-python-package-installation.md
         - name: Use Apache Zeppelin notebooks
           href: ./spark/apache-spark-zeppelin-notebook.md
       - name: Use with other Azure services
@@ -949,6 +953,8 @@
       href: ./disk-encryption.md
     - name: LDAP sync in Ranger and Apache Ambari
       href: ./domain-joined/ldap-sync.md
+    - name: Double encryption in transit 
+      href: ./domain-joined/encryption-in-transit.md
   - name: How-to guides
     items:
     - name: Use ID Broker for credential management

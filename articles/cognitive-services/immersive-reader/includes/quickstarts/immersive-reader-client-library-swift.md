@@ -3,12 +3,12 @@ title: Immersive Reader Swift client library quickstart
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you build a iOS app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
-ms.author: pasta
+ms.author: nitinme
 ---
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.

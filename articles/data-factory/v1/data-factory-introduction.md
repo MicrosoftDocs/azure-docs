@@ -30,7 +30,7 @@ For example, a gaming company collects logs that are produced by games in the cl
 
 To analyze these logs, the company needs to use the reference data such as customer information, game information, and marketing campaign information that is in an on-premises data store. Therefore, the company wants to ingest log data from the cloud data store and reference data from the on-premises data store. 
 
-Next they want to process the data by using Hadoop in the cloud (Azure HDInsight). They want to publish the result data into a cloud data warehouse such as Azure SQL Data Warehouse or an on-premises data store such as SQL Server. The company wants this workflow to run once a week. 
+Next they want to process the data by using Hadoop in the cloud (Azure HDInsight). They want to publish the result data into a cloud data warehouse such as Azure Synapse Analytics (formerly SQL Data Warehouse) or an on-premises data store such as SQL Server. The company wants this workflow to run once a week. 
 
 The company needs a platform where they can create a workflow that can ingest data from both on-premises and cloud data stores. The company also needs to be able to transform or process data by using existing compute services such as Hadoop, and publish the results to an on-premises or cloud data store for BI applications to consume. 
 
@@ -42,7 +42,7 @@ Azure Data Factory is the platform for these kinds of scenarios. It is a *cloud-
 
 - Process or transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
--  Publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.  
+-  Publish output data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications to consume.  
 
 It's more of an Extract-and-Load (EL) and Transform-and-Load (TL) platform rather than a traditional Extract-Transform-and-Load (ETL) platform. The transformations process data by using compute services rather than by adding derived columns, counting the number of rows, sorting data, and so on. 
 

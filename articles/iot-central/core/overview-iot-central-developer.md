@@ -7,7 +7,7 @@ ms.date: 05/05/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, device-developer]
 ---
 
 # IoT Central device development overview

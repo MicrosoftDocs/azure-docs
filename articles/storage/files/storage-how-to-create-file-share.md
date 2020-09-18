@@ -226,7 +226,7 @@ This command will fail if the storage account is contained within a virtual netw
 > The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### Create a hot or cool file share
-A file share in a **general purpose v2 (GPv2) storage account** can contain transaction optimized, hot, or cool file shares (or a mixture thereof). Transaction optimized shares are available in all Azure regions, but hot and cool file shares are only available [in a subset of regions](storage-files-planning.md#storage-tiers). You can create a hot or a cool file share using the Azure PowerShell preview module or the Azure CLI. 
+A **general purpose v2 (GPv2) storage account** can contain transaction optimized, hot, or cool file shares (or a mixture thereof). Transaction optimized shares are available in all Azure regions, but hot and cool file shares are only available [in a subset of regions](storage-files-planning.md#storage-tiers). You can create a hot or a cool file share using the Azure PowerShell preview module or the Azure CLI. 
 
 # [Portal](#tab/azure-portal)
 The Azure portal does not yet support creating hot and cool file shares, or moving existing transaction optimized file shares to hot or cool. Please view the instructions for creating a file share with PowerShell or the Azure CLI.

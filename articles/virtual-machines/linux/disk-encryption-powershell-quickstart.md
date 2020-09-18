@@ -6,7 +6,8 @@ ms.author: mbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 05/17/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create and encrypt a Linux VM in Azure with Azure PowerShell

@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: contperfq1
 ---
 # Introduction to Azure managed disks
 

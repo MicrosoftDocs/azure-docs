@@ -457,7 +457,7 @@ The following code snippet shows how you can create a new Azure HDInsight cluste
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
--p "HttpPassword1234!" \\
+-p "yourpass" \\
 --storage-account MyStorageAccount --encryption-at-host true
 ```
 

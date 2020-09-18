@@ -91,7 +91,7 @@ Follow these steps:
 
 ### Using Azure PowerShell
 
-If items were deleted before soft-delete was disabled, then they will be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
+If items were deleted before soft-delete was disabled, then they'll be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
 
 Identify the items that are in soft-deleted state.
 
@@ -128,7 +128,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### Using REST API
 
-If items were deleted before soft-delete was disabled, then they will be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
+If items were deleted before soft-delete was disabled, then they'll be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
 
 1. First, undo the delete operations with the steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Then disable the soft-delete functionality using REST API using the steps mentioned [here](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
