@@ -672,6 +672,8 @@ module.exports = function (context, req) {
 
 # [PowerShell](#tab/powershell)
 
+Route parameters declared in the *function.json* file are accessible as a property of the `$Request.Params` object.
+
 ```powershell
 $Category = $Request.Params.category
 $Id = $Request.Params.id
