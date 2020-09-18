@@ -12,7 +12,7 @@ ms.custom: seodec18, has-adal-ref
 
 You can use Azure Storage explorer to connect to Azure Cosmos DB. It lets you connect to Azure Cosmos DB accounts hosted on Azure and sovereign clouds from Windows, macOS, or Linux.
 
-Use the same tool to manage your different Azure entities in one place. You can manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
+Use the same tool to manage your different Azure entities in one place. You can manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like storage blobs and queues.
 
 Azure Storage Explorer supports Cosmos accounts configured for SQL, MongoDB, Graph, and Table APIs. Go to [Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) for more information.
 
@@ -26,9 +26,9 @@ To install the newest Azure Storage Explorer bits, see [Azure Storage Explorer](
 
 ## Connect to an Azure subscription
 
-1. After you install **Azure Storage Explorer**, select the **plug-in** icon on the left side pane.
+1. After you install **Azure Storage Explorer**, select the **plug-in** icon on the left pane.
 
-   :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Screenshot showing the plug-in icon on the left side pane.":::
+   :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Screenshot showing the plug-in icon on the left pane.":::
 
 1. Select **Add an Azure Account**, and then select **Sign-in**.
 
@@ -52,12 +52,12 @@ To install the newest Azure Storage Explorer bits, see [Azure Storage Explorer](
 
 You can use a connection string to connect to an Azure Cosmos DB. This method only supports SQL and Table APIs. Follow these steps to connect with a connection string:
 
-1. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, and then choose **Connect to Cosmos DB**.
+1. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, and then select **Connect to Cosmos DB**.
 
     :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Screenshot showing the drop-down menu after you right-click, with Connect to Azure Cosmos D B highlighted.":::
 
 2. In the **Connect to Cosmos DB** window:
-   1. Choose the API from the drop-down menu.
+   1. Select the API from the drop-down menu.
    1. Paste your connection string in the **Connection string** box. For how to retrieve the primary connection string, see [Get the connection string](manage-with-powershell.md#list-keys).
    1. Enter an **Account label**, and then select **Next** to check the summary.
    1. Select **Connect** to connect the Azure Cosmos DB account.
@@ -71,7 +71,7 @@ Use the following steps to connect to an Azure Cosmos DB with an emulator. This 
 1. Install Cosmos DB Emulator, and then open it. For how to install the emulator, see
  [Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
 
-1. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, and then choose **Connect to Cosmos DB Emulator**.
+1. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, and then select **Connect to Cosmos DB Emulator**.
 
     :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Screenshot showing the menu that displays after you right-click, with Connect to Azure Cosmos D B Emulator highlighted.":::
 
@@ -96,13 +96,13 @@ Use the following operations to manage an Azure Cosmos DB account:
 
 ### Quick access tasks
 
-You can right-click a subscription in the Explorer pane to perform many quick action tasks, for example:
+You can right-click a subscription on the Explorer pane to perform many quick action tasks, for example:
 
-* Right-click an Azure Cosmos DB account or database, and then choose **Open in Portal** to manage the resource in the browser on the Azure portal.
+* Right-click an Azure Cosmos DB account or database, and then select **Open in Portal** to manage the resource in the browser on the Azure portal.
 
   :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Screenshot showing the menu that displays after you right-click, with Open in Portal highlighted.":::
 
-* Right-click an Azure Cosmos DB account, database, or collection, and then choose **Add to Quick Access** to add it to the Quick Access menu.
+* Right-click an Azure Cosmos DB account, database, or collection, and then select **Add to Quick Access** to add it to the Quick Access menu.
 
 * Select **Search from Here** to enable keyword search under the selected path.
 
@@ -112,7 +112,7 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 #### Create a database
 
-1. Right-click the Azure Cosmos DB account, and then choose **Create Database**.
+1. Right-click the Azure Cosmos DB account, and then select **Create Database**.
 
    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Screenshot showing the menu that displays after you right-click, with Create Database highlighted.":::
 
@@ -130,7 +130,7 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 #### Create a collection
 
-1. Right-click your database, and then choose **Create Collection**.
+1. Right-click your database, and then select **Create Collection**.
 
    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Screenshot showing the menu that displays after you right-click, with Create Collection highlighted.":::
 
@@ -157,10 +157,10 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 #### Create and modify documents
 
-- Open **Documents** in the left side pane, select **New Document**, edit the contents in the right side pane, and then select **Save**.
+- Open **Documents** on the left pane, select **New Document**, edit the contents on the right pane, and then select **Save**.
 - You can also update an existing document, and then select **Save**. To discard changes, select **Discard**.
 
-  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Screenshot showing Documents highlighted in the left side pane. In the right side pane New Document, Save and Discard are highlighted.":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Screenshot showing Documents highlighted on the left pane. On the right pane, New Document, Save and Discard are highlighted.":::
 
 #### Delete a document
 
@@ -170,16 +170,16 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 * To edit the document filter, enter a [SQL query](how-to-sql-query.md), and then select **Apply**.
 
-  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Screenshot of the right side pane, showing Filter and Apply buttons, the ID number, and the query box highlighted.":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Screenshot of the right pane, showing Filter and Apply buttons, the ID number, and the query box highlighted.":::
 
 ### Graph management
 
 #### Create and modify a vertex
 
-* To create a new vertex, open **Graph** from the left side pane, select **New Vertex**, edit the contents, and then select **OK**.
-* To modify an existing vertex, select the pen icon in the right side pane.
+* To create a new vertex, open **Graph** from the left pane, select **New Vertex**, edit the contents, and then select **OK**.
+* To modify an existing vertex, select the pen icon on the right pane.
 
-   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Screenshot showing Graph selected in the left pane, and showing New Vertex and the pen icon highlighted in the right pane.":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Screenshot showing Graph selected on the left pane, and showing New Vertex and the pen icon highlighted on the right pane.":::
 
 #### Delete a graph
 
@@ -189,19 +189,19 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 * To edit the graph filter, enter a [gremlin query](gremlin-support.md), and then select **Apply Filter**.
 
-   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Screenshot showing Graph selected in the left pane, and showing Apply Filter and the query box highlighted in the right pane.":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Screenshot showing Graph selected on the left pane, and showing Apply Filter and the query box highlighted on the right pane.":::
 
 ### Table management
 
 #### Create and modify a table
 
 * To create a new table:
-   1. In the left side pane, open **Entities**, and then select **Add**.
+   1. On the left pane, open **Entities**, and then select **Add**.
    1. In the **Add Entity** dialog box, edit the content.
    1. Select the **Add Property** button to add a property.
    1. Select **Insert**.
 
-      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Screenshot showing Entities highlighted in the left side pane, and showing Add, Edit, Add Property, and Insert highlighted in the right pane.":::
+      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Screenshot showing Entities highlighted on the left pane, and showing Add, Edit, Add Property, and Insert highlighted on the right pane.":::
 
 * To modify a table, select **Edit**, modify the content, and then select **Update**.
 
@@ -212,28 +212,28 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 * To import, select the **Import** button, and then choose an existing table.
 * To export, select the **Export** button, and then choose a destination.
 
-   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Screenshot showing the Import and Export buttons highlighted in the right side pane.":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Screenshot showing the Import and Export buttons highlighted on the right pane.":::
 
 #### Delete entities
 
 * Select the entities, and then select the **Delete** button.
 
-  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Screenshot showing the Delete button highlighted in the right side pane, and a confirmation pop-up window with Yes highlighted.":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Screenshot showing the Delete button highlighted on the right pane, and a confirmation pop-up window with Yes highlighted.":::
 
 #### Query a table
 
 - Select the **Query** button, input a query condition, and then select the **Execute Query** button. To close the query pane, select the **Close Query** button.
 
-  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Screenshot of the right side pane, showing the Execute Query button and the Close Query button highlighted.":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Screenshot of the right pane, showing the Execute Query button and the Close Query button highlighted.":::
 
 ### Manage stored procedures, triggers, and UDFs
 
 * To create a stored procedure:
-  1. In the left tree, right-click **Stored Procedures**, and then choose **Create Stored Procedure**.
+  1. In the left tree, right-click **Stored Procedures**, and then select **Create Stored Procedure**.
   
-     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Screenshot of the left side pane, showing the menu that displays after you right-click, with Create Stored Procedure highlighted.":::
+     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Screenshot of the left pane, showing the menu that displays after you right-click, with Create Stored Procedure highlighted.":::
   
-  1. Enter a name in the left, enter the stored procedure scripts in the right side pane, and then select **Create**.
+  1. Enter a name in the left, enter the stored procedure scripts on the right side pane, and then select **Create**.
   
 * To edit an existing stored procedure, double-click the procedure, make the update, and then select **Update** to save. You can also select **Discard** to cancel the change.
 
@@ -253,7 +253,7 @@ There are a few reasons you might be seeing this error, the two most common ones
 
 * You're behind a *transparent proxy*. Someone, like your IT department, intercepts HTTPS traffic, decrypts it, and then encrypts it by using a self-signed certificate.
 
-* You're running software, such as anti-virus software. The software injects a self-signed TLS/SSL certificate into the HTTPS messages you receive.
+* You're running software, such as antivirus software. The software injects a self-signed TLS/SSL certificate into the HTTPS messages you receive.
 
 When Storage Explorer finds a self-signed certificate, it doesn't know if the HTTPS message it receives is tampered with. If you have a copy of the self-signed certificate, you can tell Storage Explorer to trust it. If you're unsure of who injected the certificate, then you can follow these steps to try to find out:
 
