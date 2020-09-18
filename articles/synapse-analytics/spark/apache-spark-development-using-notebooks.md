@@ -29,7 +29,7 @@ This article describes how to use notebooks in Azure Synapse Studio.
 
 There are two ways to create a notebook. You can create a new notebook or import an existing notebook to an Azure Synapse workspace from the **Object Explorer**. Azure Synapse Studio notebooks can recognize standard Jupyter Notebook IPYNB files.
 
-![synapse-create-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![Snapshot shows Azure Synapse Studio with New notebook and Import available in a contextual menu.](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## Develop notebooks
 
@@ -75,7 +75,7 @@ You can use multiple languages in one notebook by specifying the correct languag
 
 The following image is an example of how you can write a PySpark query using the **%%pyspark** magic command or a SparkSQL query with the **%%sql** magic command in a **Spark(Scala)** notebook. Notice that the primary language for the notebook is set to pySpark.
 
-   ![synapse-spark-magics](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![Snapshot shows a PySpark query for a Spark notebook.](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### Use temp tables to reference data across languages
 
@@ -120,12 +120,12 @@ The IntelliSense features are at different levels of maturity for different lang
 
 You can use the format buttons in the text cells toolbar to do common markdown actions. It includes bolding text, italicizing text, inserting code snippets, inserting unordered list, inserting ordered list and inserting image from URL.
 
-  ![synapse-text-cell-toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Snapshot shows format buttons for common markdown actions.](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 ### Undo cell operations
 Click the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
 
-   ![synapse-undo-cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![Snapshot shows an Undo menu with an action to undo.](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### Move a cell
 
@@ -359,7 +359,7 @@ Available cell magics:
 
 Click the **Add to pipeline** button on the upper right corner to add a notebook to an existing pipeline or create a new pipeline.
 
-![add-to-pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+![Snapshot shows the Add to pipeline button for Existing pipeline or New Pipeline.](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### Designate a parameters cell
 
@@ -373,7 +373,7 @@ Azure Data Factory looks for the parameters cell and treats this cell as default
 
 Once you've created a notebook with parameters, you can execute it from a pipeline with the Azure Synapse Notebook activity. After you add the activity to your pipeline canvas, you will be able to set the parameters values under **Base parameters** section on the **Settings** tab. 
 
-![assign-parameter](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+![Snapshot shows the Settings tab, which includes the Base parameters.](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
 When assigning parameter values, you can use the [pipeline expression language](../../data-factory/control-flow-expression-language-functions.md) or [system variables](../../data-factory/control-flow-system-variables.md).
 

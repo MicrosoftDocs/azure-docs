@@ -69,11 +69,11 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 1. Create an HTTPS outbound security rule for the NSG as shown in the following screenshot. This example uses the **Destination service tag**: _Storage.EastUS_ and **Destination port ranges**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Screenshot shows an Add outbound security rule pane for a security rule for Storage dot East U S.":::
 
 1. Create an HTTPS outbound security rule for the NSG as shown in the following screenshot. This example uses the **Destination service tag**: _AzureActiveDirectory_ and **Destination port ranges**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Screenshot shows an Add outbound security rule pane for a security rule for Azure Active Directory.":::
 
 1. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that correspond to the target location. This allows access to Site Recovery monitoring.
 1. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.

@@ -12,7 +12,7 @@ ms.date: 02/11/2019
 ---
 # Tutorial 1: Predict credit risk - Azure Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -114,7 +114,7 @@ Once the data has been converted to CSV format, you need to upload it into Machi
 
 1. Open the Machine Learning Studio (classic) home page ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Click the menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) in the upper-left corner of the window, click **Azure Machine Learning**, select **Studio**, and sign in.
+2. Click the menu ![Menu icon](./media/tutorial-part1-credit-risk/menu.png) in the upper-left corner of the window, click **Azure Machine Learning**, select **Studio**, and sign in.
 
 3. Click **+NEW** at the bottom of the window.
 
