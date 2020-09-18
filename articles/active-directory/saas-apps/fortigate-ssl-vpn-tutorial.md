@@ -250,15 +250,15 @@ In this section, you'll test your Azure AD single sign-on configuration by using
 
 When you select the FortiGate SSL VPN tile in Access Panel, you should be automatically signed in to the FortiGate SSL VPN for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-Microsoft and FortiGate recommend that you use the Fortinet VPN client, FortiClient for the best end user experience.
+Microsoft and FortiGate recommend that you use the Fortinet VPN client, FortiClient, for the best end user experience.
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try FortiGate SSL VPN with Azure AD](https://aad.portal.azure.com/)
 
