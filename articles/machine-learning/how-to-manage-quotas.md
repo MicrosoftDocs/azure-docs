@@ -153,7 +153,7 @@ To request an allowance for these scenarios, use the following steps:
     | Problem type | Workspace setup, SDK and CLI |
     | Problem subtype | Problem provisioning or managing workspace |
 
-2. From the __Details__ section, provide the scenario that you plan to use that may require a quota increase.
+2. From the __Details__ section, provide the Azure region you want to use and the scenario that you plan to use.
 
 3. Use __Create__ to create the request.
 
