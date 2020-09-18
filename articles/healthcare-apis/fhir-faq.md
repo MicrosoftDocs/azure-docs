@@ -50,9 +50,7 @@ We do not allow custom FHIR resources. If you need a custom FHIR resource, you c
 
 ### Are [extensions](https://www.hl7.org/fhir/extensibility.html) supported on Azure API for FHIR?
 
-We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you could save this as a structure definition resource. 
-
-Currently, you cannot search on extensions but we are working to enable searching for these in the future.
+We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you could save this as a structure definition resource. Currently, you cannot search on extensions.
 
 ### What is the limit on _count?
 
