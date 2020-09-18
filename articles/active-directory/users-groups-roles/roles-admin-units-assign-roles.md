@@ -1,5 +1,5 @@
 ---
-title: Assign and list roles with administrative unit scope (preview) - Azure Active Directory | Microsoft Docs
+title: Assign and list roles with administrative unit scope - Azure Active Directory | Microsoft Docs
 description: Using administrative units to restrict the scope of role assignments in Azure Active Directory
 services: active-directory
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Add, remove, and list users in an administrative unit (preview) - Azure Active Directory | Microsoft Docs
+title: Add, remove, and list users in an administrative unit - Azure Active Directory | Microsoft Docs
 description: Manage users and their role permissions in an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''
