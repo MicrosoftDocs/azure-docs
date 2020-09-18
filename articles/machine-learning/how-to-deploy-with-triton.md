@@ -158,13 +158,13 @@ Before adding any pre or post-processing, check that the web service is working.
 
 1. To get the service endpoint, use one of the following options:
 
-    #[Python](#tab/python)
+    # [Python](#tab/python)
 
     ```python
     print(local_service.scoring_url)
     ```
 
-    #[Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/azure-cli)
     
     ```bash
     az ml service show
