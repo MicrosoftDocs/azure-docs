@@ -119,9 +119,7 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 `--set`: This is where you update the `WebApplicationFirewallPolicyLink` attribute for the `frontendEndpoint` associated with your Azure Front Door resource with the new WAF policy. You should have the ID of the WAF policy from the response you got when you created the WAF profile earlier in this tutorial.
 
  > [!NOTE] 
-> The preceding example is applicable when you're not using a custom domain. If you are
-
-If you're not using any custom domains to access your web applications, you can skip the next section. In that case, you'll give your customers the `hostName` you obtained when you created the Azure Front Door resource. They'll use this `hostName` to go to your web application.
+> The preceding example is applicable when you're not using a custom domain. If you're not using any custom domains to access your web applications, you can skip the next section. In that case, you'll give your customers the `hostName` you obtained when you created the Azure Front Door resource. They'll use this `hostName` to go to your web application.
 
 ## Configure the custom domain for your web application
 
