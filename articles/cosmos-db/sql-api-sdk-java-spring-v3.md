@@ -114,8 +114,8 @@ cosmos.queryMetricsEnabled=true
 # [Query](#tab/queries)
 
 [Query](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java):
-[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
-
+   > [!Warning]  
+   > It looks like the sample you are looking for has moved! Rest assured we are working on resolving this.
 ---
 
 ## Resources
