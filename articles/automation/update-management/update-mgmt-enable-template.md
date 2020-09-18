@@ -30,8 +30,6 @@ After you complete these steps, you need to [configure diagnostic settings](auto
 
 ## API versions
 
-The following table lists the API versions for the resources used in this template.
-
 The following table lists the API version for the resources used in this example.
 
 | Resource | Resource type | API version |
@@ -46,10 +44,9 @@ The following table lists the API version for the resources used in this example
 The JSON template is configured to prompt you for:
 
 * The name of the workspace.
-* The region in which to create the workspace.
-* To enable resource or workspace permissions.
+* The region to create the workspace in.
 * The name of the Automation account.
-* The region in which to create the account.
+* The region to create the Automation account in.
 
 The following parameters in the template are set with a default value for the Log Analytics workspace:
 
