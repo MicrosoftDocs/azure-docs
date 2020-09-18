@@ -109,10 +109,10 @@ Next, execute these commands to create a Log Analytics Workspace and set the acc
 > Skip this step if you already have a workspace.
 
 ```console
-az monitor log-analytics workspace create --resource-group <resource group name> --name <some name you choose>
+az monitor log-analytics workspace create --resource-group <resource group name> --workspace-name <some name you choose>
 
 #Example:
-#az monitor log-analytics workspace create --resource-group MyResourceGroup --name MyLogsWorkpace
+#az monitor log-analytics workspace create --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Example output:
@@ -157,7 +157,7 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 This command will print the access keys required to connect to your log analytics workspace:
 
 ```console
-az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --name MyLogsWorkpace
+az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Example output:
