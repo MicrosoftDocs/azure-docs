@@ -37,7 +37,7 @@ azdata arc postgres server show -n <server group name>
 ### CLI with kubectl
 
 ```console
-kubectl describe postgresql-12/<server group name> 
+kubectl describe postgresql-12/<server group name> [-n <namespace name>]
 ```
 > [!NOTE]
 > If you deployed a server group of PostgreSQL version 11, run `kubectl describe postgresql-11/<server group name>` instead.
@@ -105,7 +105,7 @@ The command executes successfully when it shows:
 ### CLI with kubectl
 
 ```console
-kubectl edit postgresql-12/<server group name>
+kubectl edit postgresql-12/<server group name> [-n <namespace name>]
 ```
 
 This takes you in the vi editor where you can navigate and change the configuration. Use the following to map the desired setting to the name of the field in the specification:
@@ -135,7 +135,7 @@ azdata arc postgres server show -n <the name of your server group>
 ### CLI with kubectl
 
 ```console
-kubectl describe postgresql-12/<server group name>
+kubectl describe postgresql-12/<server group name>  [-n <namespace name>]
 ```
 > [!NOTE]
 > If you deployed a server group of PostgreSQL version 11, run `kubectl describe postgresql-11/<server group name>` instead.
