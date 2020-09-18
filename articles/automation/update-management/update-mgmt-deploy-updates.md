@@ -28,7 +28,7 @@ Scheduling an update deployment creates a [schedule](../shared-resources/schedul
 >[!NOTE]
 >If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, the deletion breaks the scheduled update deployment and presents an error when you attempt to reconfigure the schedule resource from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.  
 
-To schedule a new update deployment, perform the following steps. Depending on the resource selected, the steps below will call out any differences.
+To schedule a new update deployment, perform the following steps. Depending on the resource selected (that is, Automation account, Arc enabled server, Azure VM), the steps below apply to all with minor differences while configuring the deployment schedule.
 
 1. In the portal, to schedule a deployment for:
 
@@ -38,7 +38,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 2. Depending on the resource you selected, to navigate to Update Management:
 
-   * If you selected your Automation account, go to **Update management** under **Update management**, and then select **Schedule update deployment**. 
+   * If you selected your Automation account, go to **Update management** under **Update management**, and then select **Schedule update deployment**.
    * If you selected an Azure VM, go to **Guest + host updates**, and then select **Go to Update Management**.
    * If you selected an Arc enabled server, go to **Update Management**, and then select **Schedule update deployment**.
 
@@ -73,10 +73,13 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
-10. Use the **Recurrence** field to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
+    > [!NOTE]
+    > This option is different if you selected an Arc enabled server. You can select **Update now** or a start time 20 minutes into the future.
+
+10. Use the **Recurrence** to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
 
 11. In the **Pre-scripts + Post-scripts (Preview)** region, select the scripts to run before and after your deployment. To learn more, see [Manage pre-scripts and post-scripts](update-mgmt-pre-post-scripts.md).
-    
+
 12. Use the **Maintenance window (minutes)** field to specify the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window:
 
     * Maintenance windows control how many updates are installed.
@@ -99,6 +102,9 @@ To schedule a new update deployment, perform the following steps. Depending on t
 14. When you're finished configuring the deployment schedule, select **Create**.
 
     ![Update Schedule Settings pane](./media/update-mgmt-deploy-updates/manageupdates-schedule-win.png)
+
+    > [!NOTE]
+    > When you're finished configuring the deployment schedule for a selected Arc enabled server, select **Review + create**.
 
 15. You're returned to the status dashboard. Select **Deployment schedules** to show the deployment schedule that you've created.
 
