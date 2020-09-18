@@ -70,6 +70,8 @@ No. The score is designed to control for the size of a subscription and service 
 No, not for now, but you can dismiss recommendations on individual resources if those resources are used for development and test and the recommendation does not apply.
 * **Can I compare scores between a subscription with 100 resources and a subscription with 100,000 resources?**
 The scoring methodology is designed to control for number of resources on a subscription and service mix, so subscriptions with fewer resources can have higher or lower scores than subscriptions with more resources. 
+* **What does it mean when I see "Coming soon" in the Score impact column?**
+This means that this is a new recommendation and we are still working on bringing it in our Advisor score model. Once this new recommendation is considered in score calculation, you will see the score impact value for your recommendation.  
 
 ## How to access Advisor
 Advisor score is in public preview in Azure portal. You have to go to Advisor section and you will find Advisor score as the 2nd menu item in the left nav. 
