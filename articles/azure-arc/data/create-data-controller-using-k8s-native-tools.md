@@ -30,7 +30,7 @@ Azure Arc data services provides custom resource definitions - one for the data 
 
 ## Notebook scenarios
 
-The Azure Arc samples repository in [GitHub]((https://github.com/microsoft/azure_arc) provides notebooks to guide you through the experience of deploying the data controller, then a SQL Managed Instance using nothing but some .yaml files and `kubectl`.
+The Azure Arc extension for Azure Data Studio provides notebooks to guide you through the experience of deploying the data controller, then a SQL Managed Instance using nothing but some .yaml files and `kubectl`.
 
 If you want to connect your Kubernetes cluster to Azure using Azure Arc enabled Kubernetes, you can also deploy a data controller or SQL Managed Instance/PostgreSQL instance using the 'GitOps' pattern.  In this pattern, you create a configuration policy for your Kubernetes cluster that configures a Flux operator to monitor a git repository. When yaml files or helm charts are added or updated on that git repository, they will be picked up by the Flux operator and applied to the Kubernetes cluster.  By deploying Azure Arc enabled Kubernetes and these policies across many Kubernetes clusters, you can enforce desired configuration and deploy applications and updates at scale using policy and git.
 
@@ -38,4 +38,4 @@ Another notebook has been created to walk you through the experience of how to s
 
 ## Next steps
 
-See the **Deploy a SQL Managed Instance using Azure Arc enabled Kubernetes and Flux** notebook in the .
+See the **Deploy a SQL Managed Instance using Azure Arc enabled Kubernetes and Flux** notebook in the Azure Arc extension for Azure Data Studio.
