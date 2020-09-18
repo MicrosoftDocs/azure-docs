@@ -17,18 +17,17 @@ This article covers information about Azure Automanage for virtual machines, whi
 
 - Intelligently onboards virtual machines to select best practices Azure services
 - Automatically configures each service per Azure best practices
-- Configures the guest operating system per Microsoft baseline configuration
 - Monitors for drift and corrects for it when detected
 - Provides a simple experience (point, click, set, forget)
 
 
 ## Overview
 
-Azure Automanage for virtual machines is a service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. These services help enhance reliability, security, and management for virtual machines and are considered to be Azure best practices services, such as [Azure Update Management](../automation/update-management/update-mgmt-overview.md) and [Azure Backup](../backup/backup-overview.md) - just to name a few. 
+Azure Automanage for virtual machines is a service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. These services help enhance reliability, security, and management for virtual machines and are considered to be Azure best practices services, such as [Azure Update Management](../automation/update-management/update-mgmt-overview.md) and [Azure Backup](../backup/backup-overview.md) - just to name a few.
 
-After onboarding your virtual machines to Azure Automanage, it automatically configures each best practice service to its recommended settings. Best practices are different for each of the services. An example might be Azure Backup, where the best practice might be to back up the virtual machine once a day and have a retention period of six months. 
+After onboarding your virtual machines to Azure Automanage, it automatically configures each best practice service to its recommended settings. Best practices are different for each of the services. An example might be Azure Backup, where the best practice might be to back up the virtual machine once a day and have a retention period of six months.
 
-Azure Automanage also configures the guest operating system per Microsoft’s own [baseline configurations](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). Additionally, it automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine is onboarded to Azure Automanage, we’ll not only configure it per Azure best practices, but we’ll monitor your machine to ensure that it continues to comply with those best practices across its entire lifecycle. If your virtual machine does drift or deviate from those practices, we will correct it and pull your machine back into the desired state. 
+Azure Automanage also automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine is onboarded to Azure Automanage, we'll not only configure it per Azure best practices, but we'll monitor your machine to ensure that it continues to comply with those best practices across its entire lifecycle. If your virtual machine does drift or deviate from those practices, we will correct it and pull your machine back into the desired state.
 
 Lastly, the experience is incredibly simple.
 
@@ -42,6 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - Non-scale set VMs only
 - VMs must be in a supported region
 - User must have correct permissions
+- VMs must not link to a log analytics workspace in a different subscription
 
 The following RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
@@ -49,7 +49,7 @@ It is also important to note that Automanage only supports Windows VMs located i
 
 ## Participating services
 
-![Intelligently onboard services](media\automanage-virtual-machines\intelligently-onboard-services.png)
+:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Intelligently onboard services.":::
 
 See [Azure Automanage for Virtual Machines Best Practices](virtual-machines-best-practices.md) for the complete list of participating Azure services, as well as their supported configuration profiles.
 
@@ -69,20 +69,20 @@ The only time you might need to interact with this VM to manage these services i
 
 ## Configuration profiles
 
-When you are enabling Automanage for your virtual machine, a configuration profile is required. Configuration profiles are the foundation of this service. They define exactly which services we onboard your machines to and to some extent what the configuration of those services would be. 
+When you are enabling Automanage for your virtual machine, a configuration profile is required. Configuration profiles are the foundation of this service. They define exactly which services we onboard your machines to and to some extent what the configuration of those services would be.
 
 ### Default configuration profiles
 
-There are two configuration profiles currently available. 
+There are two configuration profiles currently available.
 
-- **Azure virtual machine best practices - Dev/Test** configuration profile is designed for Dev/Test machines. 
+- **Azure virtual machine best practices - Dev/Test** configuration profile is designed for Dev/Test machines.
 - **Azure virtual machine best practices - Production** configuration profile is for production.
 
-The reason for this differentiator is because certain services are recommended based on the workload running. For instance, in a Production machine we will automatically onboard you to Azure Backup. However, for a Dev/Test machine, a backup service would be an unnecessary cost, since Dev/Test machines are typically lower business impact.  
+The reason for this differentiator is because certain services are recommended based on the workload running. For instance, in a Production machine we will automatically onboard you to Azure Backup. However, for a Dev/Test machine, a backup service would be an unnecessary cost, since Dev/Test machines are typically lower business impact.
 
 ### Customizing a configuration profile using preferences
 
-In addition to the standard services we onboard you to, we allow you to configure a certain subset of preferences. These preferences are allowed within a range of configuration options that do not breach our best practices. For example, in the case of Azure Backup we will allow you to define the frequency of the backup and which day of the week it occurs on. However, we will *not* allow you to switch off Azure Backup completely. 
+In addition to the standard services we onboard you to, we allow you to configure a certain subset of preferences. These preferences are allowed within a range of configuration options that do not breach our best practices. For example, in the case of Azure Backup we will allow you to define the frequency of the backup and which day of the week it occurs on. However, we will *not* allow you to switch off Azure Backup completely.
 
 > [!NOTE]
 > In the Dev/Test configuration profile, we will not backup the VM at all.
@@ -95,9 +95,9 @@ You can adjust the settings of a default configuration profile through preferenc
 
 ## Automanage Account
 
-The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management (perhaps between two system administrators), this option allows you to define an Azure identity for each of those administrators. 
+The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management (perhaps between two system administrators), this option allows you to define an Azure identity for each of those administrators.
 
-In the Azure portal experience, when you are enabling Automanage on your VMs, there is an Advanced dropdown on the **Enable Azure VM best practice** blade that allows you to assign or manually create the Automanage Account. 
+In the Azure portal experience, when you are enabling Automanage on your VMs, there is an Advanced dropdown on the **Enable Azure VM best practice** blade that allows you to assign or manually create the Automanage Account.
 
 > [!NOTE]
 > The following RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
@@ -116,31 +116,31 @@ The **Status** column can display the following states:
 - *Configured* - the VM is configured and no drift is detected
 - *Failed* - the VM has drifted and we were unable to remediate
 
-If you see the **Status** as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details. 
+If you see the **Status** as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
 
 
 ## Disabling Automanage for VMs
 
-You may decide one day to disable Automanage on certain VMs. For instance, your machine is running some super sensitive secure workload and you need to lock it down even further than Azure would have done naturally, so you need to configure the machine outside of Azure best practices. 
+You may decide one day to disable Automanage on certain VMs. For instance, your machine is running some super sensitive secure workload and you need to lock it down even further than Azure would have done naturally, so you need to configure the machine outside of Azure best practices.
 
-To do that in the Azure portal, go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs. Select the checkbox next to the virtual machine you want to disable from Automanage, then click on the **Disable automanagent** button. 
+To do that in the Azure portal, go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs. Select the checkbox next to the virtual machine you want to disable from Automanage, then click on the **Disable automanagment** button.
 
 :::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Disabling Automanage on a virtual machine.":::
 
-Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**. 
+Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**.
 
 ```
 Disabling automanagement in a VM results in the following behavior:
 
-1.	The configuration of the VM and the services it’s onboarded to will not be changed
-2.	Any changes incurred by those services will remain billable and will continue to be incurred
-3.	Any Automanage behaviors will stop immediately
+1.    The configuration of the VM and the services it's onboarded to will not be changed
+2.    Any changes incurred by those services will remain billable and will continue to be incurred
+3.    Any Automanage behaviors will stop immediately
 ```
 
-First and foremost, we will not off-board the virtual machine from any of the services that we onboarded it to and configured. So any charges incurred by those services will continue to remain billable. You will need to off-board if necessary. Any Automanage behavior will stop immediately. For example, we will no longer monitor the VM for drift. 
+First and foremost, we will not off-board the virtual machine from any of the services that we onboarded it to and configured. So any charges incurred by those services will continue to remain billable. You will need to off-board if necessary. Any Automanage behavior will stop immediately. For example, we will no longer monitor the VM for drift.
 
 
-## Next steps 
+## Next steps
 
 In this article, you learned that Automanage for virtual machines provides a means for which you can eliminate the need for you to know of, onboard to, and configure best practices Azure services. In addition, if a machine you onboarded to Automanage for Virtual Machines drifts from the configuration profiles set up, we will automatically bring it back into compliance.
 
