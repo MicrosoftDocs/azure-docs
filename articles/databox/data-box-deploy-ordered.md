@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -264,6 +264,8 @@ Do the following steps in the Azure portal to order a device.
     ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
     Select **Next: Security** to continue.
 
