@@ -117,11 +117,11 @@ Logic App Designer.
 
    **Insert log entry**
 
-   ![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Screenshot from Logic App Designer showing the configuration settings for InsertLogEntry.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Insert error entry**
 
-   ![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Screenshot from Logic App Designer showing the configuration settings for CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Check for create record failure**
 
