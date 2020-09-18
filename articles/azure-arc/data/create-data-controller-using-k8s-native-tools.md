@@ -45,7 +45,7 @@ kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/master/a
 
 ## Create a namespace in which the data controller will be created
 
-Run a command similar to the following to create a new, dedicated namespace in which the data controller will be created.  In this example and the remainder of the examples in this article, a namespace name of 'arc' will be used. If you choose to use a different name, then use the same name throughout.
+Run a command similar to the following to create a new, dedicated namespace in which the data controller will be created.  In this example and the remainder of the examples in this article, a namespace name of `arc` will be used. If you choose to use a different name, then use the same name throughout.
 
 ```console
 kubectl create namespace arc
@@ -63,7 +63,7 @@ Run the following command to create a bootstrapper service, a service account fo
 kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/bootstrapper.yaml
 ```
 
-Verify that the bootstrapper pod is running using the following command.  You may need to run it a few times until the status changes to 'Running'.
+Verify that the bootstrapper pod is running using the following command.  You may need to run it a few times until the status changes to `Running`.
 
 ```console
 kubectl get pod --namespace arc
@@ -75,7 +75,7 @@ The bootstrapper.yaml template file defaults to pulling the bootstrapper contain
 - Add an image pull secret to the bootstrapper container. See example below.
 - Change the image location for the bootstrapper image. See example below.
 
-The example below assumes that you created a image pull secret name 'regcred' as indicated in the Kubernetes documentation.
+The example below assumes that you created a image pull secret name `regcred` as indicated in the Kubernetes documentation.
 
 ```yaml
 #just showing only the relevant part of the bootstrapper.yaml template file here
@@ -156,15 +156,15 @@ Edit the following as needed:
 - **subscription**: the Azure subscription GUID for the subscription that you want to create the Azure resources in.
 
 **RECOMMENDED TO REVIEW AND POSSIBLY CHANGE DEFAULTS**
-- **storage..className**: the storage class to use for the data controller data and log files.  If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`.  The default is 'default' which assumes there is a storage class that exists and is named 'default' not that there is a storage class that _is_ the default.  Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
-- **serviceType**: Change the service type to 'NodePort' if you are not using a LoadBalancer.  Note: There are two serviceType settings that need to be changed.
+- **storage..className**: the storage class to use for the data controller data and log files.  If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`.  The default is `default` which assumes there is a storage class that exists and is named `default` not that there is a storage class that _is_ the default.  Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
+- **serviceType**: Change the service type to `NodePort` if you are not using a LoadBalancer.  Note: There are two serviceType settings that need to be changed.
 
 **OPTIONAL**
-- **name**: The default name of the data controller is 'arc', but you can change it if you want.
+- **name**: The default name of the data controller is `arc`, but you can change it if you want.
 - **displayName**: Set this to the same value as the name attribute at the top of the file.
 - **registry**: The Microsoft Container Registry is the default.  If you are pulling the images from the Microsoft Container Registry and [pushing them to a private container registry](offline-deployment.md), enter the IP address or DNS name of your registry here.
 - **dockerRegistry**: The image pull secret to use to pull the images from a private container registry if required.
-- **repository**: The default repository on the Microsoft Container Registry is 'arcdata'.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arr enabled data services container images.
+- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arr enabled data services container images.
 - **imageTag**: the current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
 
 Example of a completed data controller yaml file:
@@ -234,7 +234,7 @@ kubectl create --namespace arc -f C:\arc-data-services\data-controller.yaml
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 > [!NOTE]
->  The example commands below assume that you created a data controller and Kubernetes namespace with the name 'arc'.  If you used a different namespace/data controller name, you can replace 'arc' with your name.
+>  The example commands below assume that you created a data controller and Kubernetes namespace with the name `arc`.  If you used a different namespace/data controller name, you can replace `arc` with your name.
 
 ```console
 kubectl get datacontroller/arc --namespace arc
