@@ -6,14 +6,14 @@ ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 09/10/2020
 ---
 
 # What is Azure Babylon?
 
 Azure Babylon is a new cloud service for use by data users. You use Azure Babylon to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
 
-Technical users can view metadata and the lineage of data assets in a central catalog with the UI or Apache Atlas API.
+Technical users can view metadata and the lineage of data assets in a central catalog by using the UI or Apache Atlas API.
 
 Subject-matter experts and owners can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification, based on metadata and content inspection.
 
@@ -42,7 +42,7 @@ We released the first version of Babylon under a private preview in April to a h
 
 Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. For companies that want the most value from their information assets, this approach presents many challenges:
 
-* Because there isn't a central location to register data sources, users might not know that a data source exists unless they come into contact with it as part of another process.
+* Because a central location to register data sources doesn't exist, users might not know about a data source unless they come into contact with it as part of another process.
 * Unless users know the location of a data source, they can't connect to the data by using a client application. Data-consumption experiences require users to know the connection string or path.
 * The intended use of the data is hidden to users unless they know the location of a data source's documentation. Data sources and documentation might live in several places and be consumed through different kinds of experiences.
 * If users have questions about an information asset, they must locate the expert or team that's responsible for the data and engage them offline. There's no explicit connection between data and the experts that have perspectives on its use.
@@ -67,7 +67,7 @@ Azure Babylon provides a cloud-based service into which a data source can be reg
 
 After you register a data source, you can then enrich its metadata. The metadata can be added either by the user who registered it or by other users in the enterprise. Any user can annotate a data source by providing descriptions, tags, or other metadata, such as documentation and processes, for requesting data source access. This descriptive metadata supplements the structural metadata, such as column names and data types, that's registered from the data source.
 
-Discovering and understanding data sources and their use is the primary purpose of registering the sources. Enterprise users might need data for business intelligence, application development, data science, or any other task where the right data is required. They use the Data Catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for the purpose, and consume the data by opening the data source in their tool of choice.
+Discovering and understanding data sources and their use is the primary purpose of registering the sources. Enterprise users might need data for business intelligence, application development, data science, or any other task where the right data is required. They use the data catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for the purpose, and consume the data by opening the data source in their tool of choice.
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 

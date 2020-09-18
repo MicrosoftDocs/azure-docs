@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: jasonwhowell
   ms.author: jasonh
-  ms.date: 08/26/2020
+  ms.date: 09/17/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -30,20 +30,23 @@ landingContent:
             url: create-catalog-portal.md
           - text: Add Babylon admins
             url: catalog-permissions.md
-
+          - text: Scan data into the catalog
+            url: scan-data-into-the-catalog.md
   # Card
-  - title: Top scenarios
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Scan data
-            url: starter-kit-tutorial-1.md
-          - text: Home page and search
-            url: starter-kit-tutorial-2.md
-          - text: Browse and lineage
-            url: starter-kit-tutorial-3.md
-          - text: Resource set, asset details, schema, and classification
-            url: starter-kit-tutorial-4.md
-          - text: Glossary, terms, and import
-            url: starter-kit-tutorial-5.md
+# - title: Top scenarios
+#   linkLists:
+#     - linkListType: tutorial
+#       links:
+#         - text: Scan data
+#         - url: starter-kit-tutorial-1.md   
+#         - text: Home page and search
+#           url: starter-kit-tutorial-2.md
+#         - text: Home page and search
+#           url: starter-kit-tutorial-3.md
+#         - text: Browse and lineage
+#           url: starter-kit-tutorial-4.md
+#         - text: Resource set, asset details, schema, and classification
+#           url: starter-kit-tutorial-5.md
+#         - text: Glossary, terms, and import
+#           url: starter-kit-tutorial-6.md
 
