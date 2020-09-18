@@ -317,7 +317,7 @@ To create a run configuration in the extension:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Compute clusters** node inside your workspace.
-1. Right-click the compute target you want create the run configuration under and select **Create Run Configuration**.
+1. Right-click the compute target you want to create the run configuration under and select **Create Run Configuration**.
 1. In the prompt:
     1. Provide a name for your compute target
     1. Choose or create a new environment.
