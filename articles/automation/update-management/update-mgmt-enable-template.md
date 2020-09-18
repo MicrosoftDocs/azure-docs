@@ -322,7 +322,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, open the Automation account you just created.
+2. In the Azure portal, open the Automation account you created.
 
 3. From the left-pane, select **Runbooks**. On the **Runbooks** page, listed are three tutorial runbooks created with the Automation account.
 
@@ -332,7 +332,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
     ![Automation account linked to the Log Analytics workspace](../media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
-5. From the left-pane, select **Update management**. On the **Update management** page, it shows the assessment page without any information as a result of just being enabled and no machines are configured to be managed yet.
+5. From the left-pane, select **Update management**. On the **Update management** page, it shows the assessment page without any information as a result of just being enabled, and machines aren't configured for management.
 
     ![Update Management feature assessment view](./media/update-mgmt-enable-template/update-management-assessment-view.png)
 
