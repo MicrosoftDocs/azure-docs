@@ -13,16 +13,7 @@ ms.author: normesta
 
 You can control access to the data in your account by using Azure role-based access control (RBAC) and access control lists (ACLs).
 
-
-If you assign security principals with an RBAC role, you can use ACLs to grant that security principal elevated access to specific files and directories. You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the Storage Blob Data Contributor role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
-
-
-You can use RBAC to grant permission to a top-level resource such as a storage account or a container and use ACLs to restrict access to specific directories and files. If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
-
-
 Some sort of main point here about how RBAC is evaluated first and then ACLs.
-
-
 
 ## RBAC roles: Access control scoped access to directories and files
 
@@ -119,6 +110,25 @@ This evaluation order excludes Shared Key and SAS authentication methods in whic
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
+
+If access is granted based on role assignment, then the ACL is ignored. Therefore, you can't use an ACL to grant a level of access that is lower than a level granted by a role assignment. 
+
+If access is denied based on role assignment, then the ACL is evaluated. Therefore, you can use an ACL to grant elevated access to an item.
+
+The ACL is also evaluated in cases where there are no relevant roles assigned to the security principal. This means that you don't have to use RBAC at all. If you don't use RBAC as part of your permission model, you'll have to set your ACLs up a certain way to ensure that users can traverse the directories in your containers and see the contents of those directories. See the example scenarios in the next section.
+
+### Listing operations
+
+Image goes here
+
+### Read operation
+
+Image goes here
+
+### Write operation
+
+Image goes here
+
 
 ## Example scenarios
 
