@@ -256,3 +256,8 @@ kubectl describe po/<pod name> --namespace arc
 ## Troubleshooting creation problems
 
 If you encounter any troubles with creation, please see the [troubleshooting guide](troubleshoot-guide.md).
+
+## Next Steps
+
+- [Create a SQL managed instance using Kubernetes-native tools](./create-sql-managed-instance-using-k8s-native-tools.md)
+- [Create a PostgreSQL Hyperscale server group using Kubernetes-native tools](./create-postgresql-hyperscale-server-group-k8s-native-tools.md)
