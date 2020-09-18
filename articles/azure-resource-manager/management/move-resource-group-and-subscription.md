@@ -30,6 +30,8 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
 
+1. If you move a resource that has an Azure role assigned directly to the resource, the role assignment is not moved. After the move, you must re-create the role assignment. For information about how to list role assignments, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope).
+
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
 1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
