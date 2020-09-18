@@ -25,6 +25,10 @@ To doubly encrypt your data, you must first create a storage account that is con
 
 To create a storage account that has infrastructure encryption enabled, you must first register to use this feature with Azure by using PowerShell or Azure CLI.
 
+# [Azure portal](#tab/portal)
+
+N/A
+
 # [PowerShell](#tab/powershell)
 
 To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
@@ -77,9 +81,20 @@ N/A
 
 ## Create an account with infrastructure encryption enabled
 
-You must configure a storage account to use infrastructure encryption at the time that you create the account. Infrastructure encryption cannot be enabled or disabled after the account has been created.
+You must configure a storage account to use infrastructure encryption at the time that you create the account. The storage account must be of type general-purpose v2.
 
-The storage account must be of type general-purpose v2. You can create the storage account and configure it to enable infrastructure encryption by using either PowerShell, Azure CLI or an Azure Resource Manager template.
+Infrastructure encryption cannot be enabled or disabled after the account has been created.
+
+# [Azure portal](#tab/portal)
+
+To use PowerShell to create a storage account with infrastructure encryption enabled, follow these steps:
+
+1. In the Azure portal, navigate to the **Storage accounts** page.
+1. Choose the **Add** button to add a new general-purpose v2 storage account.
+1. On the **Advanced** tab, locate **Infrastructure** encryption, and select **Enabled**.
+1. Select **Review + create** to finish creating the storage account.
+
+    :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Screenshot showing how to enable infrastructure encryption when creating account":::
 
 # [PowerShell](#tab/powershell)
 
@@ -154,9 +169,18 @@ The following JSON example creates a general-purpose v2 storage account that is 
 
 ## Verify that infrastructure encryption is enabled
 
+# [Azure portal](#tab/portal)
+
+To verify that infrastructure encryption is enabled for a storage account with the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Under **Settings**, choose **Encryption**.
+
+    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Screenshot showing how to verify that infrastructure encryption is enabled for account":::
+
 # [PowerShell](#tab/powershell)
 
-To verify that infrastructure encryption is enabled for a storage account, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Retrieve the `RequireInfrastructureEncryption` field within the `Encryption` property and verify that it is set to `True`.
+To verify that infrastructure encryption is enabled for a storage account with PowerShell, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Retrieve the `RequireInfrastructureEncryption` field within the `Encryption` property and verify that it is set to `True`.
 
 The following example retrieves the value of the `RequireInfrastructureEncryption` property. Remember to replace the placeholder values in angle brackets with your own values:
 
@@ -168,7 +192,7 @@ $account.Encryption.RequireInfrastructureEncryption
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify that infrastructure encryption is enabled for a storage account, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `requireInfrastructureEncryption` field within the `encryption` property and verify that it is set to `true`.
+To verify that infrastructure encryption is enabled for a storage account with Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `requireInfrastructureEncryption` field within the `encryption` property and verify that it is set to `true`.
 
 The following example retrieves the value of the `requireInfrastructureEncryption` property. Remember to replace the placeholder values in angle brackets with your own values:
 
