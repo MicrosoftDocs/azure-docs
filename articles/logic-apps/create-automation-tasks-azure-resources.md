@@ -179,7 +179,7 @@ To change a task, you have these options:
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
 
-1. On the resource's menu, under **Settings**, select **Automation tasks**.
+1. On the resource's menu, under **Automation**, select **Tasks**.
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Edit in-line**.
 
@@ -187,7 +187,7 @@ To change a task, you have these options:
 
    By default, the **Authentication** tab appears and shows the existing connections.
 
-1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add a connection** or if available, different authentication credentials.
+1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
 
    ![Screenshot that shows the Authentication tab, existing connections, and the selected ellipses menu](./media/create-automation-tasks-azure-resources/edit-connections.png)
 
@@ -215,7 +215,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
 
-1. On the resource's menu, under **Settings**, select **Automation tasks**.
+1. On the resource's menu, under **Automation**, select **Tasks**.
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Open in Logic Apps**.
 
