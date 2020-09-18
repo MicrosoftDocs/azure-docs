@@ -32,7 +32,7 @@ To learn more about SMB Multichannel, refer to the [Windows documentation](https
 
 This feature provides greater performance benefits to multi-threaded applications but typically does not help single-threaded applications. See the [Performance comparison]( storage-files-smb-multichannel-performance.md#performance-comparison) section for more details.
 
-## Restrictions
+## Limitations
 
 [!INCLUDE [storage-files-smb-multi-channel-restrictions](../../../includes/storage-files-smb-multi-channel-restrictions.md)]
 
