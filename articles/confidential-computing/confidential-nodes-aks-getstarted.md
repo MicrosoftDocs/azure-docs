@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster by using Azure CLI with confidential computing nodes'
-description: Learn to create an AKS cluster with confidential nodes and deploy a simple hello world app using the Azure CLI.
+description: Learn to create an AKS cluster with confidential nodes and deploy a hello world app using the Azure CLI.
 author: agowdamsft
-ms.service: container-compute
+ms.service: virtual-machines
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
@@ -10,21 +10,23 @@ ms.author: amgowda
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using Azure CLI (preview)
 
-Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
+This quickstart is intended for developers or cluster operators who want to quickly create an AKS cluster and deploy an application to monitor applications using the managed Kubernetes service in Azure.
 
-In this quickstart, you will learn how to deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using the Azure CLI and run an hello world application in an enclave. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. Read more about AKS [here](https://docs.microsoft.com/azure/aks/intro-kubernetes).
+## Overview
+
+In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using the Azure CLI and run an hello world application in an enclave. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. Read more about AKS [here](https://docs.microsoft.com/azure/aks/intro-kubernetes).
 
 > [!NOTE]
 > Confidential computing DCsv2 VMs leverage specialized hardware that is subject to higher pricing and region availability. For more information, see the virtual machines page for [available SKUs and supported regions](virtual-machine-solutions.md).
 
-# Deployment pre-requisites
+### Deployment pre-requisites
 
 1. Have an active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin
-1. Have the Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli)
+1. Have the Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
 1. [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) minimum version 0.4.62 
-1. Have a minimum of six DCSv2 cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores then please follow [these](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instructions to raise a quota increase ticket
+1. Have a minimum of six DCSv2 cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instructions to raise a quota increase ticket
 
-## Confidential computing node features
+### Confidential computing node features
 
 1. Linux Worker Nodes supporting Linux Containers Only
 1. Ubuntu Generation 2 18.04 Virtual Machines
@@ -87,7 +89,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-The above command should provision a new AKS cluster with DCSv2 node pools and automatically install two daemon sets - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](#confidential-nodes-aks-overview.md#sgx-quote))
+The above command should provision a new AKS cluster with DCSv2 node pools and automatically install two daemon sets - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
 
 Get the credentials for your AKS cluster using the az aks get-credentials command:
 
@@ -104,7 +106,7 @@ kube-system     sgx-device-plugin-xxxx     1/1     Running
 ```
 If the output matches to the above, then your AKS cluster is now ready to run confidential applications.
 
-Go to [Hello World from Enclave](#hello-world) deployment section to test an app in an enclave. Alternatively, follow the below instructions to add additional node pools on AKS (AKS supports mixing SGX node pools and non-SGX node pools)
+Go to [Hello World from Enclave](#hello-world) deployment section to test an app in an enclave. Or, follow the below instructions to add additional node pools on AKS (AKS supports mixing SGX node pools and non-SGX node pools)
 
 >If the SGX related daemon sets are not installed on your DCSv2 node pools then run the below.
 
@@ -145,7 +147,7 @@ output (you may also see other daemonsets along SGX daemonsets as below)
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 kube-system     sgx-quote-helper-xxxx      1/1     Running
 ```
-If the output matches to the above matches then your AKS cluster is now ready to run confidential applications.
+If the output matches to the above, then your AKS cluster is now ready to run confidential applications.
 
 ## Hello World from isolated enclave application <a id="hello-world"></a>
 Create a file named *hello-world-enclave.yaml* and paste the following YAML manifest. This Open Enclave based sample application code can be found in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld).
