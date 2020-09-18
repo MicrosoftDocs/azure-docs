@@ -3,7 +3,7 @@ title: Create automation tasks to manage and monitor Azure resources
 description: Set up automated tasks that help you manage Azure resources and monitor costs by creating workflows that run on Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
 ---
