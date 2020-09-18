@@ -103,7 +103,7 @@ For information about how to move resources, see [Move resources to a new resour
 
 In the list of role assignments for the Azure portal, you might notice that the security principal (user, group, service principal, or managed identity) is listed as **Identity not found** with an **Unknown** type.
 
-![Web app resource group](./media/troubleshooting/unknown-security-principal.png)
+![Identity not found listed in Azure role assignments](./media/troubleshooting/unknown-security-principal.png)
 
 The identity might not be found for two reasons:
 
