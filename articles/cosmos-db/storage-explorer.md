@@ -233,7 +233,7 @@ You can right-click a subscription on the Explorer pane to perform many quick ac
   
      :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Screenshot of the left pane, showing the menu that displays after you right-click, with Create Stored Procedure highlighted.":::
   
-  1. Enter a name in the left, enter the stored procedure scripts on the right side pane, and then select **Create**.
+  1. Enter a name in the left, enter the stored procedure scripts on the right pane, and then select **Create**.
   
 * To edit an existing stored procedure, double-click the procedure, make the update, and then select **Update** to save. You can also select **Discard** to cancel the change.
 
