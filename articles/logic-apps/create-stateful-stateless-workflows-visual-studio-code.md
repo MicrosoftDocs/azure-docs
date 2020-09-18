@@ -720,15 +720,13 @@ To find logic apps that have the **Logic App (Preview)** resource type, follow t
 
    The **Workflows** pane shows all the workflows in the current logic app.
 
-   ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and a selected workflow](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
+   ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and the deployed workflow](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
 
 1. To view an individual workflow, on the **Workflows** plane, select a workflow.
 
-   The workflow pane opens and shows more information and tasks that you can perform on that workflow.
+   The workflow pane opens and shows more information and tasks that you can perform on that workflow. For example, to view the steps in the workflow, select **Designer**.
 
-   ![Screenshot that shows the selected workflow's "Overview" pane](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
-
-   For example, to view the steps in the workflow, select **Designer**.
+   ![Screenshot that shows the selected workflow's "Overview" pane, while the workflow menu shows the selected "Designer" command.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
 <a name="deploy-to-docker"></a>
 
@@ -924,7 +922,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
   * On the individual workflow's **Overview** pane:
 
-    ![Screenshot that shows the selected workflow's "Overview" pane](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-disable-delay-issue.png)
+    ![Screenshot that shows the selected workflow's "Overview" pane with delayed disabled workflow](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-disable-delay-issue.png)
 
 * In Visual Studio Code, no scrollbar appears when you try to zoom in or zoom out, which prevents you from viewing content that appears off the screen.
 
