@@ -194,7 +194,7 @@ Currently the Azure Cosmos emulator can only be run on Windows. If you are using
    1. [Import the emulator CA certificate into the Linux or Mac environment](#import-certificate) or
    2. [Disable the SSL validation in the application](#disable-ssl-validation)
 
-### <a id="import-certificate"></a>1. Import the emulator CA certificate
+### <a id="import-certificate"></a>Option 1: Import the emulator CA certificate
 
 The following sections show how to import the emulator CA certificate into Linux and macOS environments.
 
@@ -242,7 +242,7 @@ Use the following steps if you are working on Mac:
 
 After following these steps, your environment will trust the certificate used by the emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
   
-### <a id="disable-ssl-validation"></a>2. Disable the SSL validation in the application
+### <a id="disable-ssl-validation"></a>Option 2: Disable the SSL validation in the application
 
 Disabling SSL validation is only recommended for development purposes and should not be done when running in a production environment. The following examples show how to disable SSL validation for .NET and Node.js applications.
 
