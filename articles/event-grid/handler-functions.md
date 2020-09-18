@@ -61,10 +61,10 @@ You can update these values for an existing subscription on the **Features** tab
 You can set **maxEventsPerBatch** and **preferredBatchSizeInKilobytes** in an Azure Resource Manager template. For more information, see [Microsoft.EventGrid eventSubscriptions template reference](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions).
 
 ### Azure CLI
-You can use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) or [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) command to configure batch-related settings using the following parameters: `--max-events-per-batch` or `--preferred-batch-size-in-kilobytes`.
+You can use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) or [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) command to configure batch-related settings using the following parameters: `--max-events-per-batch` or `--preferred-batch-size-in-kilobytes`.
 
 ### Azure PowerShell
-You can use the [New-AzEventGridSubscription](https://docs.microsoft.com/en-us/powershell/module/az.eventgrid/new-azeventgridsubscription?view=azps-4.6.1) or [Update-AzEventGridSubscription](https://docs.microsoft.com/en-us/powershell/module/az.eventgrid/update-azeventgridsubscription?view=azps-4.6.1) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
+You can use the [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
 
 ###
 ## Next steps
