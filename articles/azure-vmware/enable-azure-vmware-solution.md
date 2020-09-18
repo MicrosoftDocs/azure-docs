@@ -44,7 +44,7 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
    >[!IMPORTANT] 
    >If you already have an existing Azure VMware Solution, and you are requesting additional nodes, please note that we need five business days to allocate the nodes. 
 
-1. Before you can request nodes, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
+1. Before you can provision your nodes, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
