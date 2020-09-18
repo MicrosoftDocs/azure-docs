@@ -106,8 +106,7 @@ You can right-click a subscription in the Explorer pane to perform many quick ac
 
 * Select **Search from Here** to enable keyword search under the selected path.
 
-    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Screenshot showing the search box highlighted.
-":::
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Screenshot showing the search box highlighted.":::
 
 ### Database and collection management
 
