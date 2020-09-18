@@ -841,6 +841,6 @@ The first time a user signs into your app, they will be prompted by Microsoft id
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
 
-## Next step
+## Next steps
 
 If you need to support Firstline Workers that share devices between shifts, see [Shared device mode for iOS devices](msal-ios-shared-devices.md).
