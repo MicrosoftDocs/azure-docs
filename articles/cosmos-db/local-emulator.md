@@ -29,7 +29,7 @@ Because the Azure Cosmos emulator provides an emulated environment that runs on 
 
 * Currently the **Data Explorer** pane in the emulator fully supports SQL API clients only. The **Data Explorer** view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
 
-* The emulator supports only a single fixed account and a well-known master key. You can't regenerate key when using the Azure Cosmos emulator, however you can change the default key by using the [command-line](emulator-command-line-parameters.md) option.
+* The emulator supports only a single fixed account and a well-known primary key. You can't regenerate key when using the Azure Cosmos emulator, however you can change the default key by using the [command-line](emulator-command-line-parameters.md) option.
 
 * With the emulator, you can create an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
@@ -61,7 +61,7 @@ Before you install the emulator, make sure you have the following hardware and s
 
 To get started, download and install the latest version of [Azure Cosmos emulator](https://aka.ms/cosmosdb-emulator) on your local computer. If you run into any issues when installing the emulator, see the [emulator troubleshooting](troubleshoot-local-emulator.md) article to debug.
 
-Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](run-on-windows-docker), [Linux, or [macOS](run-on-linux-macos) as described in next sections of this article.
+Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux, or [macOS](#run-on-linux-macos) as described in next sections of this article.
 
 ### Check for updates
 
@@ -148,7 +148,7 @@ You can run the Azure Cosmos emulator on the Windows Docker container. See the [
    > [!NOTE]
    > When executing the `docker run` command, if you see a port conflict error (that is if the specified port is already in use), pass a custom port by altering the port numbers. For example, you can change the "-p 8081:8081" parameter to "-p 443:8081"
 
-1. Now use the emulator endpoint and master key from the response and import the TLS/SSL certificate into your host. To import the TLS/SSL certificate, run the following steps from an admin command prompt:
+1. Now use the emulator endpoint and primary key from the response and import the TLS/SSL certificate into your host. To import the TLS/SSL certificate, run the following steps from an admin command prompt:
 
    # [Command line](#tab/cli)
 
@@ -273,9 +273,9 @@ You can run the emulator on a local network. To enable network access, specify t
 
 To enable network access for the first time, the user should shut down the emulator and delete the emulator's data directory *%LOCALAPPDATA%\CosmosDBEmulator*.
 
-## Authenticate connections when using emulator
+## <a id="authenticate-requests"></a>Authenticate connections when using emulator
 
-As with Azure Cosmos DB in the cloud, every request that you make against the Azure Cosmos emulator must be authenticated. The Azure Cosmos emulator supports only secure communication via TLS. The Azure Cosmos emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the Azure Cosmos Emulator. They are:
+As with Azure Cosmos DB in the cloud, every request that you make against the Azure Cosmos emulator must be authenticated. The Azure Cosmos emulator supports only secure communication via TLS. The Azure Cosmos emulator supports a single fixed account and a well-known authentication key for primary key authentication. This account and key are the only credentials permitted for use with the Azure Cosmos Emulator. They are:
 
 ```bash
 Account name: localhost:<port>
@@ -283,7 +283,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 ```
 
 > [!NOTE]
-> The master key supported by the Azure Cosmos emulator is intended for use only with the emulator. You cannot use your production Azure Cosmos DB account and key with the Azure Cosmos Emulator.
+> The primary key supported by the Azure Cosmos emulator is intended for use only with the emulator. You cannot use your production Azure Cosmos DB account and key with the Azure Cosmos Emulator.
 
 > [!NOTE]
 > If you have started the emulator with the /Key option, then use the generated key instead of the default key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. For more information about /Key option, see [Command-line tool reference.](emulator-command-line-parameters.md)

@@ -2,13 +2,13 @@
 title: Troubleshoot issues when using the Azure Cosmos emulator
 description: Learn how to troubleshot service unavailable, certificate, encryption, and versioning issues when using the Azure Cosmos emulator. 
 ms.service: cosmos-db
-ms.topic: how-to
+ms.topic: troubleshooting
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ---
 
-## Troubleshoot issues when using the Azure Cosmos emulator
+# Troubleshoot issues when using the Azure Cosmos emulator
 
 The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Use the following tips to help troubleshoot issues you encounter when installing or using the Azure Cosmos Emulator:
 
@@ -30,7 +30,7 @@ The Azure Cosmos emulator provides a local environment that emulates the Azure C
 
 * While the emulator is running, if your computer goes to sleep mode or runs any OS updates, you might see a **Service is currently unavailable** message. Reset the emulator's data, by right-clicking on the icon that appears on the windows notification tray and select **Reset Data**.
 
-### <a id="trace-files"></a>Collect trace files
+## <a id="trace-files"></a>Collect trace files
 
 To collect debugging traces, run the following commands from an administrative command prompt:
 
