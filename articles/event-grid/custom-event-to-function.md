@@ -76,8 +76,12 @@ You subscribe to an event grid topic to tell Event Grid which events you want to
     5. For the function endpoint, select the Azure Subscription and Resource Group your Function App is in and then select the Function App and function you created earlier. Select **Confirm Selection**.
 
        ![Provide endpoint URL](./media/custom-event-to-function/provide-endpoint.png)
-
-    6. Back on the **Create Event Subscription** page, select **Create**.
+    6. This step is optional, but recommended for production scenarios. On the **Create Event Subscription** page, switch to the **Advanced Features** tab, and set values for **Max events per batch** and **Preferred batch size in kilobytes**. 
+    
+        Batching can give you high-throughput. For **Max events per batch**, set maximum number of events that a subscription will include in a batch. Preferred batch size sets the preferred upper bound of batch size in kilo bytes, but can be exceeded if a single event is larger than this threshold.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Enable batching":::
+    6. On the **Create Event Subscription** page, select **Create**.
 
 ## Send an event to your topic
 
