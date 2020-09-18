@@ -74,20 +74,11 @@ To use Azure PowerShell locally for this article (rather than using Cloud Shell)
     Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
     ```
 
-
-- [Install the latest version of the Azure PowerShell module](/powershell/azure/install-az-ps). 
-- Run `Connect-AzAccount` to create a connection with Azure.
-- Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
-- Run `Install-Module -Name PowerShellGet -AllowPrerelease` to get the pre-release version of the `PowerShellGet` module (you may need to `Exit` out of the current PowerShell session after you run this command to install the `Az.ManagedServiceIdentity` module).
-- Run `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` to install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned identity operations in this article.
-
-
 ## Enable
 
 For a scenario that is based on a user-assigned identity, you need to perform the following steps:
 
 - Create an identity
- 
 - Assign the newly created identity
 
 ### Create identity

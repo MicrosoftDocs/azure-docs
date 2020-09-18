@@ -63,12 +63,11 @@ To create a virtual machine scale set with the system-assigned managed identity 
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-## Enable system-assigned managed identity on an existing Azure virtual machine scale set
+### Enable system-assigned managed identity on an existing Azure virtual machine scale set
 
 If you need to enable a system-assigned managed identity on an existing Azure virtual machine scale set:
 
 1. Make sure the Azure account you're using belongs to a role that gives you write permissions on the virtual machine scale set, such as "Virtual Machine Contributor".
-
    
 1. Retrieve the virtual machine scale set properties using the [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) cmdlet. Then to enable a system-assigned managed identity, use the `-IdentityType` switch on the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet:
 
@@ -88,12 +87,12 @@ If you have a virtual machine scale set that no longer needs the system-assigned
    Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
    ```
 
-If you have a virtual machine scale set that no longer needs system-assigned managed identity and it has no user-assigned managed identities, use the following commands:
+1. If you have a virtual machine scale set that no longer needs system-assigned managed identity and it has no user-assigned managed identities, use the following command:
 
-```azurepowershell-interactive
-Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
-```
-
+    ```azurepowershell-interactive
+    Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+    ```
+    
 ## User-assigned managed identity
 
 In this section, you learn how to add and remove a user-assigned managed identity from a virtual machine scale set using Azure PowerShell.
@@ -108,7 +107,7 @@ To assign a user-assigned managed identity to an existing Azure virtual machine 
 
 1. Make sure your account belongs to a role that gives you write permissions on the virtual machine scale set, such as "Virtual Machine Contributor".
 
-1/ Retrieve the virtual machine scale set properties using the `Get-AzVM` cmdlet. Then to assign a user-assigned managed identity to the virtual machine scale set, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet. Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` with your own values.
+1. Retrieve the virtual machine scale set properties using the `Get-AzVM` cmdlet. Then to assign a user-assigned managed identity to the virtual machine scale set, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet. Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` with your own values.
 
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
