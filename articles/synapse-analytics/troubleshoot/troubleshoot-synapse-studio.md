@@ -59,7 +59,7 @@ Where [*A*] is your workspace name, and "-ondemand" could be "-sqlod" and where 
 
 If either one of them has something other than "20x" and:
 
-- status starts with "(failed)", either widen the "Status" column or hover your pointer over the status text to see the complete text. Include the text and/or screenshot when opening the support ticket.
+- Status starts with "(failed)", either widen the "Status" column or hover your pointer over the status text to see the complete text. Include the text and/or screenshot when opening the support ticket.
 
     ![status-text](media/troubleshooting-synapse-studio/status-text.png)
 
@@ -69,7 +69,7 @@ If either one of them has something other than "20x" and:
     - If you see ERR_NETWORK_ACCESS_DENIED, you may need to check with the administrator on whether your local firewall policy has blocked access to either *.database.windows.net domain, or remote port 1443.
     - Optionally, try the same operation immediately on a different machine and/or network environment to rule out a network configuration issue on your PC.
 
-- status is "40x", "50x", or other numbers, select on the item(s) to see the details. You should see the item details to the right. Find the "Response Header" section; then check whether an item named "access-control-allow-origin" exists. If so, check whether it has one of the following values:
+- Status is "40x", "50x", or other numbers, select on the item(s) to see the details. You should see the item details to the right. Find the "Response Header" section; then check whether an item named "access-control-allow-origin" exists. If so, check whether it has one of the following values:
 
     - `*` (single asterisk)
     - https://web.azuresynapse.net/ (or other value that the text in your browser address bar starts with)
