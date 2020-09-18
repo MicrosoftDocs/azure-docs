@@ -14,7 +14,7 @@ ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ---
 
-# Cancelling Azure SQL Managed Instance management operations
+# Canceling Azure SQL Managed Instance management operations
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance provides the ability to cancel some [management operations](management-operations-overview.md), such as when you deploy a new managed instance, update instance properties, or delete instances when no longer needed. 
