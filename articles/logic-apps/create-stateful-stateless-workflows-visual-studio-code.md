@@ -128,7 +128,7 @@ For information about how nested workflows behave differently between stateful a
 
 Based on the operating system where you are running Visual Studio Code, set up the corresponding storage requirement.
 
-#### **Mac OS**
+#### Mac OS
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and [create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for Azure Functions](../azure-functions/storage-considerations.md).
 
@@ -148,12 +148,12 @@ When you later try to open the Logic App Designer for your workflow, you get a m
 
 1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
-> [!IMPORTANT]
-> Before you open the Logic App Designer to create your workflow, make sure that you start the emulator. 
-> Otherwise, you get a message that the `Workflow design time could not be started`. For more information, 
-> review [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
->
-> ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
+   > [!IMPORTANT]
+   > Before you open the Logic App Designer to create your workflow, make sure that you start the emulator. 
+   > Otherwise, you get a message that the `Workflow design time could not be started`. For more information, 
+   > review [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
+   >
+   > ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 ## Set up Visual Studio Code
 
@@ -253,7 +253,7 @@ Next, open the `workflow.json` file in the Logic App Designer.
 
 ### Open the workflow definition file in Logic App Designer
 
-Before you try opening your workflow definition file in the designer, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites).
+Before you try opening your workflow definition file in the designer, if Visual Studio Code is running on a non-Mac OS, such as Windows or Linux, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites).
 
 1. Expand the project folder for your workflow. Open the `workflow.json` file's shortcut menu, and select **Open in Designer**.
 
