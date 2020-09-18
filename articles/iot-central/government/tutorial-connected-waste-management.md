@@ -128,13 +128,13 @@ To view the device template:
 
 1. Click on **Device templates** from the left pane of your application in IoT Central. 
 
-    ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Screenshot showing the list of device templates in the application](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. In the Device templates list, you will see **Connected Waste Bin**. Open by clicking on the name.
 
 3. Familiarize with the device template capabilities. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location*, and others.
 
-   ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Screenshot showing the details of the connected waste bin device template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
