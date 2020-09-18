@@ -50,7 +50,7 @@ To reclaim the PVCs, take the following steps:
 ### 1. List the PVCs for the server group you deleted
 To list the PVCs, run this command:
 ```console
-kubectl get pvc
+kubectl get pvc [-n <namespace name>]
 ```
 
 It returns the list of PVSs, in particular the PVCs for the server group you deleted. For example:
@@ -72,7 +72,7 @@ There are 8 PVCs for this server group.
 Delete the data and log PVCs for each of the PostgreSQL Hyperscale nodes (Coordinator and Workers) of the server group you deleted.
 The general format of this command is: 
 ```console
-kubectl delete pvc <name of pvc>
+kubectl delete pvc <name of pvc>  [-n <namespace name>]
 ```
 
 For example:
