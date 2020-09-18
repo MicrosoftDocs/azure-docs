@@ -114,7 +114,7 @@ In order to authenticate, you need three pieces of information:
 >[!TIP]
 > If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):
 > 
-> ```azurecli-interactive
+> ```azurecli
 > az account show --query tenantId
 > ```
 
