@@ -56,6 +56,11 @@ We allow you to load any valid FHIR JSON data into the server. If you want to st
 
 The current limit on count is 100.
 
+### Are there any limitations on the Group Export functionality?
+
+For Group Export we only export the included references from the group, not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
+
+
 ## Azure IoT Connector for FHIR (preview)
 
 ### What is IoMT?
