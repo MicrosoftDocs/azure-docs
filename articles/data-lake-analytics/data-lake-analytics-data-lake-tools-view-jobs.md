@@ -34,7 +34,7 @@ Job View contains:
     
       Job Status outlines the job phases:
     
-      ![Azure Data Lake Analytics job phases status](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Screenshot that shows the Azure Data Lake Analytics job phases.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Preparing: Upload your script to the cloud, compiling and optimizing the script using the compile service.
     * Queued: Jobs are queued when they are waiting for enough resources, or the jobs exceed the max concurrent jobs per account limitation. The priority setting determines the sequence of queued jobs - the lower the number, the higher the priority.
@@ -46,7 +46,7 @@ Job View contains:
     
       The basic job information shows in the lower part of the Job Summary panel.
     
-      ![Azure Data Lake Analytics job phases status](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Screenshot that shows the Job Summary with descriptions in text boxes.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * Job Result: Succeeded or failed. The job may fail in every phase.
     * Total Duration: Wall clock time (duration) between submitting time and ending time.

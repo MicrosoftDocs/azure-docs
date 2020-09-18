@@ -86,7 +86,7 @@ The following steps walk you through uploading a VHD file to DevTest Labs using 
 
 	1. In the Storage Explorer right pane, you should see a listing of the blobs in the **uploads** blob container of the lab's storage account. On the blob editor toolbar, select **Upload** 
 		
-		![Upload button][6]
+		![Screenshot that shows the Storage Explorer right pane with the "Upload" button selected.][6]
 	
 	1. From the **Upload** drop-down menu, select **Upload files...**.
 	

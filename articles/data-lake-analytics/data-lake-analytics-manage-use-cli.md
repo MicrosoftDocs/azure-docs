@@ -138,7 +138,7 @@ To list the Blob storage account:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Screenshot that shows Azure C L I with the "dataLakeStoreAccounts:" information highlighted.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### Delete data sources:
 
