@@ -27,7 +27,9 @@ You can migrate SQL Server running on-premises or on:
 For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
 
 ## Overview
+[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a recommended target option for SQL Server workloads that require a fully managed Platform as a Service (PaaS) that handles most of the database management functions with capabilities built in to provide high availability, intelligent query processing, scalability and performance to suit different types of applications. Azure SQL Database provides flexibility and choice with multiple [deployment models](/azure/azure-sql/database/sql-database-paas-overview#deployment-models) and [service tiers](/azure/azure-sql/database/service-tiers-vcore?tabs=azure-portal#service-tiers) that caters to different types of applications or workloads.
 
+You can also leverage cost optimization and savings by migrating your SQL Server on-premises licenses to Azure SQL Database using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server should you choose the [vCore-based purchasing model](https://docs.microsoft.com/azure/azure-sql/database/service-tiers-vcore?tabs=azure-portal).
 
 ## Considerations 
 
@@ -38,15 +40,30 @@ The key factors to consider when evaluating migration options depend on:
 
 Based on these factors, choose between an online and offline migration. During an offline migration, your application incurs downtime the entirety of the migration whereas for an online migration, application downtime is limited to the time required to cut over to SQL Database during the final step of the migration process. 
 
-One of the key benefits of migrating your SQL Servers to SQL Database is that you can choose to migrate the entire instance, or just a subset of individual databases. Carefully plan to include the following in your migration process: 
-- All databases that need to be colocated to the same instance 
-- Instance-level objects required for your application, including logins, credentials, SQL Agent jobs and operators, and server-level triggers. 
+One of the key benefits of migrating your SQL Servers to SQL Database is that you can modernize your application by leveraging the capabilities of the PaaS Azure SQL Database and eliminate any dependency on technical components that are scoped at the instance level such as SQL Agent jobs.
 
 
 
 
 ### Choose an appropriate database
+Some general guidelines to help you choose the right deployment model and service tier of Azure SQL Database are listed below.
 
+Deployment models: Understand your application workload and the usage pattern to decide between a Single database and Elastic pool. 
+- A [single database](/azure/azure-sql/database/single-database-overview) represents a fully managed database suitable for most modern cloud applications and microservices.
+- An [Elastic pool](/azure/azure-sql/database/elastic-pool-overview) is a collection of single databases with a shared set of resources such as CPU or memory and suitable for combining databases in a pool with predictable usage patterns that can effectively share the same set of resources.
+
+Purchasing models: Choose between the vCore-based purchasing model, the DTU-based purchasing model and Hyperscale. 
+- The [vCore-based purchasing model](/azure/azure-sql/database/service-tiers-vcore?tabs=azure-portal) is the easiest to translate from on-premises SQL Server as it lets you choose the number of vCores for your Azure SQL database along with the option to apply Azure Hybrid Benefit for cost savings. 
+- The [DTU model](/azure/azure-sql/database/service-tiers-dtu) is designed to abstract the underlying compute, memory and IO resources in order to provide a blended DTU. The DTU model automatically includes SQL Server license in its pricing and hence Azure Hybrid Benefit cannot be applied in this model.
+- The [serverless model](/azure/azure-sql/database/serverless-tier-overview) is purpose built for workloads that require automatic scaling on-demand with compute resources billed per second of usage. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed, and automatically resumes databases when activity returns.
+
+Service tiers: Choose between the three service tiers that are designed for different types of applications.
+- [General Purpose / Standard service tier](/azure/azure-sql/database/service-tier-general-purpose) is designed for most database workloads that offers a balanced budget-oriented option with compute and storage suitable to deliver mid-lower tier applications. It has redundancy built in at the storage layer to recover from failures.
+- [Business Critical / Premium service tier](/azure/azure-sql/database/service-tier-business-critical) is designed for high tier applications that require mission critical performance to handle high transaction rates and low latency IO, high level of resiliency with secondary replicas to failover during issues.
+- [Hyperscale](/azure/azure-sql/database/service-tier-hyperscale) service tier is designed for very large databases that have growing data volumes and need the capabilities to automatically scale upto 100 TB database size.
+
+
+You can choose compute and storage resources during deployment and then change them after using the  [Azure portal](https://review.docs.microsoft.com/en-us/azure/azure-sql/database/scale-resources)  without incurring downtime for your application.
 
 
 ## Migration options
