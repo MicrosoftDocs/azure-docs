@@ -1,7 +1,7 @@
 ---
 title: Use Computer Vision container with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
-description: Deploy the Computer Vision container to an Azure Container Instance, and test it in a web browser.
+description: Deploy the Computer Vision container on-premises with Kubernetes and Helm, and test it in a web browser.
 services: cognitive-services
 author: aahill
 manager: nitinme
