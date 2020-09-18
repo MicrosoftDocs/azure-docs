@@ -13,28 +13,13 @@ ms.author: normesta
 
 You can control access to the data in your account by using Azure role-based access control (RBAC) and access control lists (ACLs). This article describes both mechanisms, and how the system evaluates them together to make authorization decisions.  
 
-## Role based access control (RBAC)
+## Role-based access control (RBAC)
 
 RBAC uses role assignments to apply sets of permissions to [security principals](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container. 
 
-### RBAC roles: Management vs data
+Image goes here.
 
-Azure Storage has two layers of access: management and data. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
-
-RBAC roles can contain permissions for management or data layer access. The **Reader** role, for example, grants read-only access to management layer resources.
-
-Only roles explicitly defined for data access permit a security principal to access blob or queue data. Roles such as **Owner**, **Contributor**, **Reader** and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the blob or queue data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys which can be used in various client tools to access the data.
-
-### Built-in management roles
-
-|Role|Description|
-|--|--|
-| [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) | Manage everything, including access to management layer resources. |
-| [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) | Manage everything, excluding access to management layer resources. |
-| [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) | Read and list management layer resources. |
-| [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) | Full management of storage accounts. |
-
-### Built-in data roles
+The following roles permit a security principal to access data in a storage account. 
 
 |Role|Description|
 |--|--|
@@ -42,15 +27,17 @@ Only roles explicitly defined for data access permit a security principal to acc
 | [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Read, write, and delete access to Blob storage containers and blobs. This access does not permit the security principal to set the ownership of an item, but it can modify the ACL of items that are owned by the security principal. |
 | [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Read and list Blob storage containers and blobs. |
 
-### Assigning the least privileged RBAC role
-
-For each security principal, choose an RBAC role that provides a basic minimal level of access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you cannot use an ACL to restrict access that has already been granted by a role assignment. The system evaluates RBAC role assignments before it evaluates ACLs. If the assignment grants sufficient access permission, ACLs are ignored. 
+Roles such as [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) and [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permit a security principal to manage a storage account, but do not provide access to the data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys which can be used in various client tools to access the data.
 
 ## Access control lists (ACLs)
 
-You can use ACLs to restrict access to specific directories and files. All directories and files have an ACL. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates security principal with an access level. To restrict access to an item (directory or file), you can add an entry to the ACL of that time which associates a security principal with a permission set. For a detailed explanation of ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+ACLs give you the ability to apply "finer grain" level of access to directories and files. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates security principal with an access level. 
 
-## How RBAC role assignments and ACLs are evaluated
+ACL image goes here.
+
+To learn more about the anatomy of an ACL, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+
+## How permission is evaluated
 
 During security principal-based authorization, permissions are evaluated in the following order.
 
@@ -64,6 +51,8 @@ This evaluation order excludes Shared Key and SAS authentication methods in whic
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
+
+Based on this model, choose RBAC roles that provide a basic minimal level of access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you cannot use an ACL to restrict access that has already been granted by a role assignment. The system evaluates RBAC role assignments before it evaluates ACLs. If the assignment grants sufficient access permission, ACLs are ignored. 
 
 ### Listing operations
 
