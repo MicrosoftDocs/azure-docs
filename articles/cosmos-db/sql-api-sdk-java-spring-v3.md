@@ -94,13 +94,19 @@ cosmos.queryMetricsEnabled=true
 Create:
 [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
 
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Create":::
+
 Delete:
 [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
+
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Delete":::
 
 # [Query](#tab/queries)
 
 Query:
 [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
+
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Query":::
 
 ---
 
@@ -115,7 +121,9 @@ Query:
 ### 3.0.0-beta.2 (unreleased)
 
 ### 3.0.0-beta.1 (August 17, 2020)
+
 #### New features
+
 * Updates group ID to `com.azure`.
 * Updates artifact ID to `azure-spring-data-2-3-cosmos`.
 * Updates azure-cosmos SDK dependency to `4.3.2-beta.2`.
@@ -127,7 +135,9 @@ Query:
 * Exposes `CosmosClientBuilder` from the Azure Cosmos DB SDK as Spring bean to the `@Configuration` class.
 * Updates `CosmosConfig` to contain query metrics and response diagnostics processor implementation.
 * Adds support for returning the `Optional` data type for single result queries.
+
 #### Renames
+
 * `CosmosDbFactory` to `CosmosFactory`.
 * `CosmosDBConfig` to `CosmosConfig`.
 * `CosmosDBAccessException` to `CosmosAccessException`.
@@ -135,7 +145,9 @@ Query:
 * `DocumentIndexingPolicy` annotation to `CosmosIndexingPolicy` annotation.
 * `DocumentQuery` to `CosmosQuery`.
 * application.properties flag `populateQueryMetrics` to `queryMetricsEnabled`.
+
 #### Key bug fixes
+
 * Scheduling of diagnostics logging task to `Parallel` threads to avoid blocking Netty I/O threads.
 * Fixes optimistic locking on delete operation.
 * Fixes issue with escaping queries for `IN` clause.
@@ -145,9 +157,11 @@ Query:
 * Removes default request unit value of 4,000 when containers are created automatically.
 
 ## FAQ
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## Next steps
+
 Learn more about [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Learn more about the [Spring Framework](https://spring.io/projects/spring-framework).
