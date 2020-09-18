@@ -35,7 +35,7 @@ The remainder of this article discusses Resource Manager templates that use Micr
 ## View and save a virtual machine's Resource Manager template
 1. Follow the steps at [Create your first VM in a lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) to begin creating a virtual machine.
 1. Enter the required information for your virtual machine and add any artifacts you want for this VM.
-1. Swtich to the **Advanced Settings** tab. 
+1. Switch to the **Advanced Settings** tab. 
 1. At the bottom of the Configure settings window, choose **View ARM template**.
 1. Copy and save the Resource Manager template to use later to create another virtual machine.
 

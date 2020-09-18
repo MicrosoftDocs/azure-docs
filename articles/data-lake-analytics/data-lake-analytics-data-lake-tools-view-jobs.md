@@ -56,10 +56,10 @@ Job View contains:
     * Account: The Data Lake Analytics account used for running the job.
     * Author: The user who submitted the job, it can be a real person’s account or a system account.
     * Priority: The priority of the job. The lower the number, the higher the priority. It only affects the sequence of the jobs in the queue. Setting a higher priority does not preempt running jobs.
-    * Parallelism: The requested maximum number of concurrent Azure Data Lake Analytics Units (ADLAUs), aka vertices. Currently, one vertex is equal to one VM with two virtual core and six GB RAM, though this could be upgraded in future Data Lake Analytics updates.
+    * Parallelism: The requested maximum number of concurrent Azure Data Lake Analytics Units (ADLAUs), also known as vertices. Currently, one vertex is equal to one VM with two virtual core and six GB RAM, though this could be upgraded in future Data Lake Analytics updates.
     * Bytes Left: Bytes that need to be processed until the job completes.
     * Bytes read/written: Bytes that have been read/written since the job started running.
-    * Total vertices: The job is broken up into many pieces of work, each piece of work is called a vertex. This value describes how many pieces of work the job consists of. You can consider a vertex as a basic process unit, aka Azure Data Lake Analytics Unit (ADLAU), and vertices can be run in parallelism. 
+    * Total vertices: The job is broken up into many pieces of work, each piece of work is called a vertex. This value describes how many pieces of work the job consists of. You can consider a vertex as a basic process unit, also known as Azure Data Lake Analytics Unit (ADLAU), and vertices can be run in parallelism. 
     * Completed/Running/Failed: The count of completed/running/failed vertices. Vertices can fail due to both user code and system failures, but the system retries failed vertices automatically a few times. If the vertex is still failed after retrying, the whole job will fail.
 * Job Graph
   
@@ -67,7 +67,7 @@ Job View contains:
   
     ![Azure Data Lake Analytics job phases status](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    A job is broken up into many pieces of work. Each piece of work is called a Vertex. The vertices are grouped as Super Vertex (aka stage), and visualized as Job Graph. The green stage placards in the job graph show the stages.
+    A job is broken up into many pieces of work. Each piece of work is called a Vertex. The vertices are grouped as Super Vertex (also known as stage), and visualized as Job Graph. The green stage placards in the job graph show the stages.
   
     Every vertex in a stage is doing the same kind of work with different pieces of the same data. For example, if you have a file with one TB data, and there are hundreds of vertices reading from it, each of them is reading a chunk. Those vertices are grouped in the same stage and doing same work on different pieces of same input file.
   

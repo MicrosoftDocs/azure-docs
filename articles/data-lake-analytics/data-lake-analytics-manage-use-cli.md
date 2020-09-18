@@ -182,7 +182,7 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 >    ```
 
 ### Cancel jobs
-Use the list command to find the job id, and then use cancel to cancel the job.
+Use the list command to find the job ID, and then use cancel to cancel the job.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"

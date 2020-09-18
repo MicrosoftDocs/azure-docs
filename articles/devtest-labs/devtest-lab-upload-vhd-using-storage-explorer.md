@@ -92,7 +92,7 @@ The following steps walk you through uploading a VHD file to DevTest Labs using 
 	
 	1. On the **Upload files** dialog, select the ellipsis.
 		
-		![Select file][8]  
+		![Screenshot that shows the "Upload files" dialog with the ellipsis selected.][8]  
 
 	1. On the **Select files to upload** dialog, browse to the desired VHD file, select it, and then select **Open**.
 	
