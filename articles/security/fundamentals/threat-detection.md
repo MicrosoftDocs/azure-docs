@@ -81,7 +81,7 @@ In addition to providing valuable services on its own, Azure Monitor logs can in
 
 ### Holistic security and compliance posture
 
-The [Log Analytics Security and Audit dashboard](../../security-center/security-center-introduction.md) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in Azure Monitor logs. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom timeframe.
+The [Log Analytics Security and Audit dashboard](../../security-center/security-center-intro.md) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in Azure Monitor logs. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom timeframe.
 
 Azure Monitor logs help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 

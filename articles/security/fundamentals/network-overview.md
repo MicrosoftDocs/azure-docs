@@ -78,7 +78,7 @@ Learn more:
 
 #### ASC just in time VM access
 
-[Azure security center](../../security-center/security-center-introduction.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](/azure/role-based-access-control/overview) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+[Azure security center](../../security-center/security-center-intro.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](/azure/role-based-access-control/overview) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
 
 Learn more:
 
@@ -378,7 +378,7 @@ Security Center helps you optimize and monitor network security by:
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
+* [Introduction to Azure Security Center](../../security-center/security-center-intro.md)
 
 ### Virtual Network TAP
 
