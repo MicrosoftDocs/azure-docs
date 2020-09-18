@@ -52,8 +52,6 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 > [!NOTE]
 > Alternatively, you can use the NVIDIA Tesla K80, NVIDIA 1070 Ti, or the NVIDIA 2080 Ti GPU. If you use one of these GPUs, you will need to set the `ARCHON_GRAPH_READY_TIMEOUT` and `ORT_TENSORRT_ENGINE_CACHE_ENABLE` environment variables in the [IoT deployment manifest](#iot-deployment-manifest).
 
-. See the [Enable NVIDIA MPS on the host computer](#enable-nvidia-mps-on-the-host-computer) section in the **Desktop machine** tab for more information.
-
 In this article, you will download and install the following software packages. The host computer must be able to run the following (see below for instructions):
 
 * [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) and [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
