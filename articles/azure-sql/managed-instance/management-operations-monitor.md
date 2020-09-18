@@ -42,7 +42,7 @@ The following table compares management operation monitoring options:
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Resource group deployments | Infinite<sup>1</sup> | No<sup>2</sup> | Visible | Visible | Not visible | Visible | Not visible |
 | Activity log | 90 days | No | Visible | Visible | Visible | Visible |  Not visible |
-| Managed instance operations API | 24 hours | [Yes](management-operations-canceling.md) | Visible | Visible | Visible | Visible | Visible |
+| Managed instance operations API | 24 hours | [Yes](management-operations-cancel.md) | Visible | Visible | Visible | Visible | Visible |
 |  |  |  |  |  |  |  | |
 
 <sup>1</sup The deployment history for a resource group is limited to 800 deployments.
@@ -74,7 +74,7 @@ For example, the **Create operation** is visible at the start of the creation pr
 
 ![Managed instance create progress](./media/management-operations-monitor/monitoring-create-operation.png)
 
-Select **Ongoing operation** to open the **Ongoing operation** page and view **Create** or **Update** operations. You can also [Cancel]((management-operations-cancelling.md operations from this page as well.  
+Select **Ongoing operation** to open the **Ongoing operation** page and view **Create** or **Update** operations. You can also [Cancel]((management-operations-cancel.md operations from this page as well.  
 
 ![Managed instance operation details](./media/management-operations-monitor/monitoring-operation-details.png)
 
