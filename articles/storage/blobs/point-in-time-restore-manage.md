@@ -137,13 +137,30 @@ To restore all containers and blobs in the storage account with the Azure portal
 
 # [PowerShell](#tab/powershell)
 
-To restore all containers and blobs in the storage account with PowerShell, call the **Restore-AzStorageBlobRange** command, omitting the `-BlobRestoreRange` parameter. The following example restores containers in the storage account to their state 12 hours before the present moment:
+To restore all containers and blobs in the storage account with PowerShell, call the **Restore-AzStorageBlobRange** command, omitting the `-BlobRestoreRange` parameter. By default, the **Restore-AzStorageBlobRange** command runs asynchronously, and returns an object of type **PSBlobRestoreStatus** that you can use to check the status of the restore operation.
+
+The following example asynchronously restores containers in the storage account to their state 12 hours before the present moment, and checks some of the properties of the restore operation:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
-Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+$restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12)
+
+# Get the status of the restore operation.
+$restoreOperation.Status
+# Get the ID for the restore operation.
+$restoreOperation.RestoreId
+# Get the restore point in UTC time.
+$restoreOperation.Parameters.TimeToRestore
+```
+
+To run the restore operation synchronously, include the **-WaitForComplete** parameter on the command. When the **-WaitForComplete** parameter is present, PowerShell displays a message that includes the restore ID for the operation and then blocks on execution until the restore operation is complete. Keep in mind that the length of time required by a restore operation depends on the amount of data to be restored, and a large restore operation may take up to an hour to complete.
+
+```powershell
+Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -TimeToRestore (Get-Date).AddHours(-12) -WaitForComplete
 ```
 
 ---
