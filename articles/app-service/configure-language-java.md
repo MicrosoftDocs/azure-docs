@@ -233,7 +233,7 @@ Set up app authentication in the Azure portal with the **Authentication and Auth
 
 #### Java SE
 
-Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your *application.properties* file. We suggest a value of `16384`.
+Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your *application.properties* file. We suggest a value of `16384`.
 
 #### Tomcat
 
@@ -298,7 +298,7 @@ By default, any public or private certificates [uploaded to App Service Linux](c
 Additional configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Please refer to the documentation for your chosen JDBC driver.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
-- [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
