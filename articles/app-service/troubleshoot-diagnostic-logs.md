@@ -181,7 +181,7 @@ With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you c
 The following table shows the supported log types and descriptions: 
 
 | Log type | Windows support | Windows Container support | Linux (Docker) support | Linux Container support | Description |
-|-|-|-|
+|-|-|-|-|-|
 | AppServiceConsoleLogs | TBA | TBA | Yes | Yes | Standard output and standard error |
 | AppServiceHTTPLogs | Yes | TBA | Yes | Yes | Web server logs |
 | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
