@@ -292,18 +292,18 @@ Use these settings:
 Wait until the cluster is running before proceeding further.
 
 ### Install the correct SDK into a Databricks library
-Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster.
+Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster. Skip to the [next section](#SDK_for_Databricks_**_with_**_automated_machine_learning) to setup the SDK for Databricks with Automated Machine learning.
 
 1. Right-click the current Workspace folder where you want to store the library. Select **Create** > **Library**.
 
-1. Choose **only one** option (no other SDK installation are supported)
+1. Choose the following option (no other SDK installation are supported)
 
    |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
 
    > [!Warning]
-   > No other SDK extras can be installed. Choose only one of the preceding options [`databricks`] or [`automl`].
+   > No other SDK extras can be installed. Choose only the [`databricks`] option .
 
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.
@@ -323,17 +323,17 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
 
 If install was successful, the imported library should look like one of these:
 
-SDK for Databricks **_without_** automated machine learning
+#### SDK for Databricks **_without_** automated machine learning
 ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK for Databricks **WITH** automated machine learning
-
+#### SDK for Databricks **_with_** automated machine learning
 If the cluster was created with Databricks non ML runtime 7.1 or above, run the following command in the first cell of your notebook to install the AML SDK.
 
 ```
 %pip install -r https://aka.ms/automl_linux_requirements.txt
 ```
 For Databricks non ML runtime 7.0 and love, install the AML SDK using the [init script](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
+
 
 ### Start exploring
 
