@@ -27914,7 +27914,7 @@
     },
     {
       "source_path": "articles/storage/common/storage-advanced-threat-protection.md",
-      "redirect_url": "/azure/storage/common/azure-defender-storage-overview",
+      "redirect_url": "/azure/storage/common/azure-defender-storage-configure",
       "redirect_document_id": true
     },
     {
