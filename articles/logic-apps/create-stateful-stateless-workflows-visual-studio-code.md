@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
 
 > [!IMPORTANT]
 > This capability is in public preview, is provided without a service level agreement, and 
-> isn't recommended for production workloads. Certain features might not be supported or might 
+> is not recommended for production workloads. Certain features might not be supported or might 
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
