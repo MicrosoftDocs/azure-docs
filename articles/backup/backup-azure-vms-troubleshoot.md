@@ -315,10 +315,11 @@ If you have an Azure Policy that [governs tags within your environment](../gover
 
 #### Disks appear offline after File Restore
 
-Post restore if you notice the disks are offline then, <br>
+Post restore if you notice the disks are offline then, 
 - Verify if the machine where the script is executed meets these OS requirements. [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
 - Ensure you are not restoring to same source, [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
 
+#### Common error codes
 
 | Error details | Workaround |
 | --- | --- |
