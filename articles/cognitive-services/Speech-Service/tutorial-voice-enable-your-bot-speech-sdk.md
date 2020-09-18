@@ -154,7 +154,7 @@ Now that you've created some resources, let's build a bot. We're going to start 
 4. After the project is loaded, press <kbd>F5</kbd> to build and run the project.
 5. A browser will launch and you'll see a screen similar to this.
     > [!div class="mx-imgBorder"]
-    > [![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
+    > [![Screenshot shows the EchoBot page with the message Your bot is ready!](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### Test the bot sample with the Bot Framework Emulator
 
@@ -171,7 +171,7 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
    and press "Connect".
 4. The bot should greet you with "Hello and welcome!" message. Type in any text message and confirm you get a response from the bot.
 5. This is what an exchange of communication with an Echo Bot instance might look like:
-    [![bot-framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
+    [![Screenshot shows the Bot Framework Emulator.](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## Deploy your bot to an Azure App Service
 
