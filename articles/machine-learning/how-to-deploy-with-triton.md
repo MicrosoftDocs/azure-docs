@@ -170,6 +170,8 @@ Before adding any pre or post-processing, check that the web service is working.
     az ml service show
     ```
 
+    ---
+
 2. Use a utility such as curl to access the health endpoint. Replace `<service_endpoint>` with the value returned in the previous step:
 
     ```bash
