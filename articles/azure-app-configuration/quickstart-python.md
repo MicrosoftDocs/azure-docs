@@ -13,7 +13,7 @@ ms.author: drewbat
 ---
 # Quickstart: Use Azure App Configuration with Python
 
-In this quickstart, you access the Azure App Configuration service from Python in order to centralize storage and management of application settings separate from your code. For more information, see [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration)
+In this quickstart, you access the Azure App Configuration service from Python in order to centralize storage and management of application settings separate from your code. For more information, see [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this quickstart, you access the Azure App Configuration service from Python i
 
 ## Install the Azure App Configuration client library
 
-Use pip to install the Azure App Configuration client library for Python with pip:
+Use pip to install the Azure App Configuration client library for Python:
 
 ```python
 pip install azure-appconfiguration
@@ -66,25 +66,25 @@ Restart the command prompt to allow the change to take effect. Print out the val
 
 ## Connect to an App Configuration store
 
-1. Import the environment variable dictionary from the **os** namespace:
+1. Import the environment variable dictionary from the **os** namespace.
 
     ```python
     from os import environ
     ```
 
-2. Import the Azure App Configuration client object into the current namespace:
+2. Import the Azure App Configuration client object into the current namespace.
 
     ```python
     from azure.appconfiguration import AzureAppConfigurationClient
     ```
 
-3. Get the connection string from the environment variable:
+3. Get the connection string from the environment variable.
 
     ```python
     connection_string = os.environ['ConnectionString']
     ```
 
-4. Create the client object using the connection string
+4. Create the client object using the connection string.
 
     ```python
     client = AzureAppConfigurationClient.from_connection_string(connection_string)
