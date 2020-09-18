@@ -20,7 +20,7 @@ PostgreSQL is at its best when you use it with extensions. In fact, a key elemen
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## List of extensions
-In addition of the extensions in [`contrib`](https://www.postgresql.org/docs/12/contrib.html), the list of extensions present in the containers of your Azure Arc enabled Postgres Hyperscale server group is:
+In addition of the extensions in [`contrib`](https://www.postgresql.org/docs/12/contrib.html), the list of extensions present in the containers of your Azure Arc enabled PostgreSQL Hyperscale server group is:
 - `citus`, v: 9.4
 - `pg_cron`, v: 1.2
 - `plpgsql`, v: 1.0

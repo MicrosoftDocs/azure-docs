@@ -29,7 +29,7 @@ This article explains how to display the configuration of your server group(s). 
 List the Kubernetes resources of type Postgres. Run the command:
 
 ```console
-kubectl get postgresqls
+kubectl get postgresqls [-n <namespace name>]
 ```
 
 The output of this command shows the list of server groups created. For each, it indicates the number of pods. For example:
@@ -47,7 +47,7 @@ This example shows that 2 server groups are created and each runs on 3 pods (1 c
 Run:
 
 ```console
-kubectl get pods
+kubectl get pods [-n <namespace name>]
 ```
 
 This returns the list of pods. You will see the pods used by your server groups based on the names you gave to those server groups. For example:
@@ -95,7 +95,7 @@ Run `kubectl get pods` and look at the column `STATUS`
 To understand what PVCs are used, as well as which are used for data, logs and backups, run: 
 
 ```console
-kubectl get pvc
+kubectl get pvc [-n <namespace name>]
 ```
 
 By default, the prefix of the name of a PVC indicates its usage:
@@ -134,7 +134,7 @@ Use either of the following commands.
 - **With kubectl:**
 
    ```console
-   kubectl get postgresqls
+   kubectl get postgresqls [-n <namespace name>]
    ``` 
 
    For example it produces the below output where each line is a `servergroup`. The structure of the name in the below display is formed as:
@@ -176,7 +176,7 @@ Use kubectl to describe a Postgres resources. To do so, you need its kind (name 
 The general format of this command is:
 
 ```console
-kubectl describe <CRD name>/<server group name>
+kubectl describe <CRD name>/<server group name> [-n <namespace name>]
 ```
 
 For example:
