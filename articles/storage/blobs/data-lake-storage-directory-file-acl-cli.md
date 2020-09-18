@@ -211,7 +211,7 @@ This example deletes a file named `my-file.txt`
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## Manage permissions
+## Manage access control lists (ACLs)
 
 You can get, set, and update access permissions of directories and files.
 

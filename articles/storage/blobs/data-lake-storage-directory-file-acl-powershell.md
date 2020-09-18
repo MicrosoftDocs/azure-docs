@@ -261,9 +261,9 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 
 You can use the `-Force` parameter to remove the file without a prompt.
 
-## Manage access permissions
+## Manage access control lists (ACLs)
 
-You can get, set, and update access permissions of directories and files. These permissions are captured in access control lists (ACLs).
+You can get, set, and update access permissions of directories and files.
 
 > [!NOTE]
 > If you're using Azure Active Directory (Azure AD) to authorize commands, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).

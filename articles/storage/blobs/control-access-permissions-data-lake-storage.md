@@ -1,5 +1,5 @@
 ---
-title: Managing access permissions in Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Controlling access to data in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace. 
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,13 +9,13 @@ ms.date: 09/16/2020
 ms.author: normesta
 ---
 
-# Managing access permissions in Azure Data Lake Storage Gen2
+# Controlling access to data in Azure Data Lake Storage Gen2
 
-You can control access to the data in your account by using Azure role-based access control (RBAC) and access control lists (ACLs).
+You can control access to the data in your account by using Azure role-based access control and access control lists. 
 
-Some sort of main point here about how RBAC is evaluated first and then ACLs.
+Role-based access control lets you grant access to top-level resources such as a storage or a container. Access control lists give you the ability to control access to specific directories and files. This article describes both mechanisms and how you can use them together to secure data in your account.  
 
-## RBAC roles: Access control scoped access to directories and files
+## Role based access control (RBAC)
 
 RBAC lets you control access to top-level resources such as a storage account or a containers. You can assign roles [security principals](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). These roles define which operations the security principal can perform such as reading or writing data.  
 
@@ -49,30 +49,23 @@ The following table lists the built-in data roles. These roles are explicitly de
 
 You can use the [Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Azure CLI](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-cli?toc=/azure/storage/blobs/toc.json), or [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-powershell?toc=/azure/storage/blobs/toc.json) to assign a role to a security principal.
 
-## ACLs: Access control scoped access to directories and files
+## Access control lists (ACLs)
 
 You can use ACLs to restrict access to specific directories and files. All directories and files have an ACL. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates user with an access level. To restrict access to an item (directory or file), you can add an entry to the ACL of that time which associates a security principal with a permission set. To learn more about the anatomy of an ACL and how to apply them, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-## How to set ACLs
-
-To set ACLs, you'll need either the account key or a security principal that has been assigned the appropriate RBAC role. See the built-in data role table earlier in this article. You can set ACLs by using Azure Storage Explorer, Azure CLI, PowerShell, or a supported API. 
+To set ACLs, you'll need either the account key or a security principal that has been assigned the appropriate RBAC role. See the built-in data role table earlier in this article. 
 
 ### Modify the ACL of a single item
 
-These links show examples of how to modify the ACL of individual items. 
+Modify the ACL of an individual directory or file by using any of these tools or SDKs:
 
-| Tool / SDK | Articles |
-|--------|-----------|
-|Azure Storage Explorer |[Manage directory and file ACLs](data-lake-storage-explorer.md#managing-access)|
-|PowerShell|[Manage directory and file ACLs](data-lake-storage-directory-file-acl-powershell.md#manage-access-permissions)|
-|Azure CLI|[Manage directory and file ACLs](data-lake-storage-directory-file-acl-cli.md#manage-permissions)|
-|.NET |[Manage a directory ACL](data-lake-storage-directory-file-acl-dotnet.md#manage-a-directory-acl)<br>[Manage a file ACL](data-lake-storage-directory-file-acl-dotnet.md#manage-a-file-acl)|
-|Java|[Manage a directory ACL](data-lake-storage-directory-file-acl-java.md#manage-a-directory-acl)<br>[Manage a file ACL](data-lake-storage-directory-file-acl-java.md#manage-a-file-acl)|
-|Python|[Manage a directory ACL](data-lake-storage-directory-file-acl-python.md#manage-directory-permissions)<br>[Manage a file ACL](data-lake-storage-directory-file-acl-python.md#manage-directory-permissions#manage-file-permissions)|
-|JavaScript|[Manage a directory ACL](data-lake-storage-directory-file-acl-javascript.md#manage-a-directory-acl)<br>[Manage a file ACL](data-lake-storage-directory-file-acl-javascript.md#manage-a-file-acl)|
-|REST API |[Path - Update](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
-
-A change to a directory ACL doesn't propagate to child items in that directory unless you apply the ACL recursively (see next section). 
+|Tools|SDKs|
+|---|---|
+|[Azure Storage Explorer](data-lake-storage-explorer.md#managing-access)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#manage-a-directory-acl)|
+|[PowerShell](data-lake-storage-directory-file-acl-powershell.md#manage-access-permissions)|[Java](data-lake-storage-directory-file-acl-java.md#manage-a-directory-acl)|
+|[Azure CLI](data-lake-storage-directory-file-acl-cli.md#manage-permissions)|[Python](data-lake-storage-directory-file-acl-python.md#manage-directory-permissions)|
+||[JavaScript](data-lake-storage-directory-file-acl-javascript.md#manage-a-directory-acl)|
+||[REST](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 ### Modify ACLs recursively (preview)
 
@@ -86,7 +79,7 @@ If the security principal is a [service principal](https://docs.microsoft.com/az
 
 To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <your-app-id> --query objectId`. Make sure to replace the `<your-app-id>` placeholder with the App ID of your app registration.
 
-## Using Groups to manage permissions
+## Assigning permissions to groups
 
 In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. There's a few reasons for this:
 
