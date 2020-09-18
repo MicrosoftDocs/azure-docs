@@ -1,22 +1,22 @@
 ---
-title: Enable and manage point-in-time restore for block blobs (preview)
+title: Enable and manage point-in-time restore for block blobs
 titleSuffix: Azure Storage
-description: Learn how to use point-in-time restore (preview) to restore a set of block blobs to a previous state.
+description: Learn how to use point-in-time restore to restore a set of block blobs to a previous state.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Enable and manage point-in-time restore for block blobs (preview)
+# Enable and manage point-in-time restore for block blobs
 
-You can use point-in-time restore (preview) to restore a set of block blobs to a previous state. This article describes how to enable point-in-time restore for a storage account with PowerShell. It also shows how to perform a restore operation with PowerShell.
+You can use point-in-time restore to restore a set of block blobs to a previous state. This article describes how to enable point-in-time restore for a storage account with PowerShell. It also shows how to perform a restore operation with PowerShell.
 
-For more information and to learn how to register for the preview, see [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md).
+For more information and to learn how to register for the preview, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!CAUTION]
 > Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation. During the preview, instead of deleting a container, delete individual blobs if you may want to restore them.
@@ -256,13 +256,9 @@ To run the restore operation synchronously, include the **-WaitForComplete** par
 
 ---
 
-## Known issues
-
-For a subset of restore operations where append blobs are present, the restore operation will fail. Microsoft recommends that you do not perform a point-in-time restore during the preview if append blobs are present in the account.
-
 ## Next steps
 
-- [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md)
+- [Point-in-time restore for block blobs](point-in-time-restore-overview.md)
 - [Soft delete](soft-delete-overview.md)
-- [Change feed (preview)](storage-blob-change-feed.md)
+- [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)
