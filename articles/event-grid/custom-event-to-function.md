@@ -12,14 +12,17 @@ Azure Event Grid is an eventing service for the cloud. Azure Functions is one of
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create Azure Function
+Before subscribing to the custom topic, create a function to handle the events. 
 
-Before subscribing to the custom topic, let's create a function to handle the events. In the Azure portal, click 'Create a resource' and type 'function' then choose 'Function App' and click create. Select 'Create new' under resource group and give it a name. You'll use this for the rest of the tutorial. Give the Function App a name, leave the 'Publish' toggle on 'Code', select any runtime and region, then hit create.
+1. Create a function app using instructions from [Create a function app](../azure-functions/functions-create-first-azure-function#create-a-function-app.md).
+2. Create a function using the **Event Grid Trigger**. Select If this is your first time using this trigger, you may have to click 'Install' to install the extension.
+    1. On the **Function App** page, select **Functions** on the left menu, search for **Event Grid** in templates, and then select **Azure Event Grid trigger**. 
 
-Once your Function App is ready, navigate to it and click '+ New Function'. Select 'In-portal' for development environment and hit continue. Under create a function, choose 'More templates' to view more templates and then search for 'Azure Event Grid Trigger' and select it. If this is your first time using this trigger, you may have to click 'Install' to install the extension.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Select Event Grid trigger":::
+3. On the **New Function** page, enter a name for the function, and select **Create Function**.
 
-![Function Event Grid Trigger](./media/custom-event-to-function/grid-trigger.png)
-
-Once you've installed the extension, click continue, give your function a name, and then hit create.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="New Function page":::
+4. Use the **Code + Test** page to see the existing code for the function and update it. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
