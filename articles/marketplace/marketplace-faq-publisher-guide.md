@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
+ms.date: 09/11/2020
 ---
 
 # Common questions about the Microsoft commercial marketplace
@@ -17,7 +17,7 @@ This article answers commonly asked questions about the commercial marketplace.
 
 ### What is the Microsoft commercial marketplace?
 
-The commercial marketplace connects business and government agencies with solutions built by our partners. Our partners create and manage offers in Partner Center, and customers can discover and buy solutions through in-product experiences, such as Microsoft AppSource, Azure Marketplace, resellers in the Cloud Solution Provider program, and our sales teams via the co-sell program.
+The commercial marketplace connects business and government agencies with solutions built by our partners. Our partners create and manage offers in Partner Center, and customers can discover and buy solutions through in-product experiences, such as Microsoft AppSource, Azure Marketplace, resellers in the Cloud Solution Provider program, and our sales teams through the co-sell program.
 
 To learn more, go to the [Microsoft commercial marketplace hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/).
 
@@ -37,7 +37,7 @@ The commercial marketplace is available in 141 regions, on a per-plan basis.
 
 We manage tax payment in many countries/regions, and we provide access to our global channel network of resellers. You can use a customer's Microsoft Customer Agreement or Enterprise Agreement to sell to organizations without having to create a new buying relationship.
 
-To learn more, view the video at [Why sell through marketplace](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace).
+To learn more, see the [Microsoft commercial marketplace hub](https://aka.ms/commercialmarketplacehub).
 
 ### Is there a listing fee for the Microsoft commercial marketplace?
 
