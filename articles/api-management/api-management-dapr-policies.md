@@ -13,7 +13,7 @@ ms.service: api-management
 This topic provides a reference for Dapr integration API Management policies. Dapr is a portable runtime for building stateless and stateful microservices-based applications with any language or framework. It codifies the common microservice patterns, like service discovery and invocation with build-in retry logic, publish-and-subscribe with at-least-once delivery semantics, or pluggable binding resources to ease composition using external services. Go to [dapr.io](https://dapr.io) for detailed information and instruction on how to get started with Dapr. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).
 
 > [!CAUTION]
-> Policies referenced in this topic are in Public Preview and are subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+> Policies referenced in this topic are in Public Preview and are subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
 > Policies referenced in this topic work only in the [self-hosted version of the API Management gateway](self-hosted-gateway-overview.md) with Dapr support enabled.
@@ -112,7 +112,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 #### Example
 
-The following example demonstrates sending the body of the current request to the "new" [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) of the "orders" Pub/Sub [component](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters). Response received from the Dapr runtime is stored in the "dapr-response" entry of the Variables collection in the [context](https://docs.microsoft.com/en-us/azure/api-management/api-management-policy-expressions#ContextVariables) object.
+The following example demonstrates sending the body of the current request to the "new" [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) of the "orders" Pub/Sub [component](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters). Response received from the Dapr runtime is stored in the "dapr-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
 
 If, Dapr runtime can't locate the target topic for example and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is be returned.
 
@@ -152,7 +152,7 @@ Note that "backend" section is empty and request is not forwarded to the backend
 |------------------|---------------------------------|----------|---------|
 | topic            | Target topic name               | Yes      | N/A     |
 | ignore-error     | If set to `true` instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime | No | `false` |
-| response-variable-name | Name of the [Variables](https://docs.microsoft.com/en-us/azure/api-management/api-management-policy-expressions#ContextVariables) collection entry to use for storing response from Dapr runtime | No | None |
+| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime | No | None |
 | timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |
 | template | Templating engine to use for transforming the message content. "Liquid" is the only supported value. | No | None |
 | content-type | Type of the message content. "application/json" is the only supported value. | No | None |
@@ -187,7 +187,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 #### Example
 
-The following example demonstrates triggering of outbound binding named "external-systems" with operation name "create", metadata consisting of two key/value items names "source" and "client-ip", and the body coming from the original request. Response received from the Dapr runtime is captured in the "bind-response" entry of the Variables collection in the [context](https://docs.microsoft.com/en-us/azure/api-management/api-management-policy-expressions#ContextVariables) object.
+The following example demonstrates triggering of outbound binding named "external-systems" with operation name "create", metadata consisting of two key/value items names "source" and "client-ip", and the body coming from the original request. Response received from the Dapr runtime is captured in the "bind-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
 
 If, Dapr runtime fails for some reason and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is be returned.
 
@@ -238,7 +238,7 @@ Note that "backend" section is empty and request is not forwarded to the backend
 | name            | Target binding name. Must match the name of the bindings [defined](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) in Dapr.           | Yes      | N/A     |
 | operation       | Target operation name (binding specific). Maps to the [operation](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No | None |
 | ignore-error     | If set to `true` instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime | No | `false` |
-| response-variable-name | Name of the [Variables](https://docs.microsoft.com/en-us/azure/api-management/api-management-policy-expressions#ContextVariables) collection entry to use for storing response from Dapr runtime | No | None |
+| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime | No | None |
 | timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |
 | template | Templating engine to use for transforming the message content. "Liquid" is the only supported value. | No | None |
 | content-type | Type of the message content. "application/json" is the only supported value. | No | None |
