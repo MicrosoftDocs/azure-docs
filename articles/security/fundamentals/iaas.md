@@ -115,7 +115,7 @@ Software-update best practices for a traditional datacenter and Azure IaaS have 
 ## Manage your VM security posture
 Cyberthreats are evolving. Safeguarding your VMs requires a monitoring capability that can quickly detect threats, prevent unauthorized access to your resources, trigger alerts, and reduce false positives.
 
-To monitor the security posture of your [Windows](../../security-center/security-center-virtual-machine.md) and [Linux VMs](../../security-center/security-center-linux-virtual-machine.md), use [Azure Security Center](../../security-center/security-center-introduction.md). In Security Center, safeguard your VMs by taking advantage of the following capabilities:
+To monitor the security posture of your [Windows](../../security-center/security-center-virtual-machine.md) and [Linux VMs](../../security-center/security-center-linux-virtual-machine.md), use [Azure Security Center](../../security-center/security-center-intro.md). In Security Center, safeguard your VMs by taking advantage of the following capabilities:
 
 - Apply OS security settings with recommended configuration rules.
 - Identify and download system security and critical updates that might be missing.

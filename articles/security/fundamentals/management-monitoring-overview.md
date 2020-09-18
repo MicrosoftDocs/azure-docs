@@ -125,7 +125,7 @@ Security Center helps you optimize and monitor the security of your Azure resour
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
+* [Introduction to Azure Security Center](../../security-center/security-center-intro.md)
 * [Improve your secure score in Azure Security Center](../../security-center/security-center-secure-score.md)
 
 ## Intelligent Security Graph
