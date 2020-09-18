@@ -44,7 +44,7 @@ To collect debugging traces, run the following commands from an administrative c
    cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"
    ```
 
-1. Shutdown the emulator and watch the system tray to make sure the program has shut down. It may take a minute to complete. You can also select **Exit** in the Azure Cosmos emulator user interface.
+1. Shut down the emulator and watch the system tray to make sure the program has shut down. It may take a minute to complete. You can also select **Exit** in the Azure Cosmos emulator user interface.
 
    ```bash
    Microsoft.Azure.Cosmos.Emulator.exe /shutdown

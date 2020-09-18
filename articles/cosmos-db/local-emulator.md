@@ -260,7 +260,7 @@ For Node.js applications, you can modify your `package.json` file to set the `NO
 
 ## Enable access to emulator on a local network
 
-If you have multiple machines using a single network, and if you setup the emulator on one machine and want to access it from other machine. In such case, you need to enable access to the emulator on a local network.
+If you have multiple machines using a single network, and if you set up the emulator on one machine and want to access it from other machine. In such case, you need to enable access to the emulator on a local network.
 
 You can run the emulator on a local network. To enable network access, specify the `/AllowNetworkAccess` option at the [command-line](emulator-command-line-parameters.md), which also requires that you specify `/Key=key_string` or `/KeyFile=file_name`. You can use `/GenKeyFile=file_name` to generate a file with a random key upfront. Then you can pass that to `/KeyFile=file_name` or `/Key=contents_of_file`.
 
