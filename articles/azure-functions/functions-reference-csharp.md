@@ -246,6 +246,16 @@ public static void Run(string myBlob, ILogger log)
 > [!NOTE]
 > For information about a newer logging framework that you can use instead of `TraceWriter`, see [Write logs in C# functions](functions-monitoring.md#write-logs-in-c-functions) in the **Monitor Azure Functions** article.
 
+### Custom metrics logging
+
+You can use the `LogMetric` extension method on `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
+
+```csharp
+logger.LogMetric("TestMetric", 1234);
+```
+
+This code is an alternative to calling `TrackMetric` by using the Application Insights API for .NET.
+
 ## Async
 
 To make a function [asynchronous](/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
