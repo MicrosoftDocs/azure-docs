@@ -1,7 +1,7 @@
 ---
 title: Connect to data in storage services on Azure
 titleSuffix: Azure Machine Learning
-description: Create datastores and datasets to securely connect to data in storage services in Azure with the studio.
+description: Create datastores and datasets to securely connect to data in storage services in Azure with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,21 +12,19 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
 
-# Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my machine learning models.
+# Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my ML models.
 ---
 
 # Connect to data with the Azure Machine Learning studio
 
-In this article, learn how to access your data with the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). Connect to your data in storage services on Azure with [Azure Machine Learning datastores](how-to-access-data.md), and then package that data for tasks in your machine learning workflows with [Azure Machine Learning datasets](how-to-create-register-datasets.md).
+In this article, learn how to access your data with the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). Connect to your data in storage services on Azure with [Azure Machine Learning datastores](how-to-access-data.md), and then package that data for tasks in your ML workflows with [Azure Machine Learning datasets](how-to-create-register-datasets.md).
 
-|What to use| Description| 
-|---|---|
-|Azure Machine Learning datastores| Securely connect to your storage service on Azure <li> Don't put authentication credentials or original data sources at risk. <li> Store connection information, so you don't hard code them in your scripts.
-|Azure Machine Learning datasets| Make it easier to access and work with your data. By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily-evaluated, and the data remains in its existing location, you
+The following table defines and summarizes the benefits of datastores and datasets. 
 
-* Incur no extra storage cost
-* Don't risk unintentionally changing your original data sources.
-* Improve ML workflow performance speeds
+||Description| Benefits|   
+|---|---|---|
+|Datastores| Securely connect to your storage service on Azure, by storing your connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace | Because your information is securely stored, you <br><br> <li> Don't&nbsp;put&nbsp;authentication&nbsp;credentials or original data sources at risk. <li> No longer need to hard code them in your scripts.
+|Datasets| By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. With datasets you can, <br><br><li> Access data during model training.<li> Share data and collaborate with other users.<li> Leverage open-source libraries, like pandas, for data exploration. | Because datasets are lazily evaluated, and the data remains in its existing location, you <br><br><li>Keep a single copy of data in your storage.<li> Incur no extra storage cost <li> Don't risk unintentionally changing your original data sources.<li>Improve ML workflow performance speeds. 
 
 To understand where datastores and datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
@@ -38,52 +36,18 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-- An Azure storage account with a [supported storage type](how-to-access-data.md#matrix).
-
 - Access to [Azure Machine Learning studio](https://ml.azure.com/).
 
 - An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-## Default datastore
-
-The Azure Mahcine Learning workspace comes with a default blob datastore that is easy to use
-
-## Storage access and permissions
-
-To ensure you securely connect to your Azure storage service, Azure Machine Learning  requires that you  have permission to access the corresponding data storage container. This access depends on the authentication credentials used to register the datastore.
-
-### Virtual network
-
-If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Network isolation & privacy](how-to-enable-virtual-network.md#machine-learning-studio) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
-
-### Access validation
-
-**As part of the initial datastore creation and registration process**, Azure Machine Learning automatically validates that the underlying storage service exists and the user provided principal (username, service principal, or SAS token) has access to the specified storage.
-
-**After datastore creation**, this validation is only performed for methods that require access to the underlying storage container, **not** each time datastore objects are retrieved. For example, validation happens if you want to download files from your datastore; but if you just want to change your default datastore, then validation does not happen.
-
-To authenticate your access to the underlying storage service, you can provide either your account key, shared access signatures (SAS) tokens, or service principal according to the datastore type you want to create. The [storage type matrix](how-to-access-data.md#matrix) lists the supported authentication types that correspond to each datastore type.
-
-You can find account key, SAS token, and service principal information on your [Azure portal](https://portal.azure.com).
-
-* If you plan to use an account key or SAS token for authentication, select **Storage Accounts** on the left pane, and choose the storage account that you want to register.
-  * The **Overview** page provides information such as the account name, container, and file share name.
-      1. For account keys, go to **Access keys** on the **Settings** pane.
-      1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
-
-* If you plan to use a service principal for authentication, go to your **App registrations** and select which app you want to use.
-    * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
-
-> [!IMPORTANT]
-> For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so, be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md).
-
-### Permissions
-
-For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+    -  When you create a workspace, an Azure blob container and an Azure file share are automatically registered as datastores to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. If blob storage is sufficient for your needs, the `workspaceblobstore` is set as the default datastore, and already configured for use. Otherwise, you need a storage account on Azure with a [supported storage type](how-to-access-data.md#matrix).
+    
 
 ## Create datastores
 
 You can create datastores from [these Azure storage solutions](how-to-access-data.md#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, you must [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
+
+
 
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
@@ -101,18 +65,11 @@ The following example demonstrates what the form looks like when you create an *
 
 ## Create datasets
 
-After you create a datastore, create a dataset to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. [Learn more about datasets](how-to-create-register-datasets.md). 
+After you create a datastore, create a dataset to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. [Learn more about datasets](how-to-create-register-datasets.md).
 
-With datasets you can,
-
-* Keep a single copy of data in your storage.
-* Share data and collaborate with other users.
-* Seamlessly access data during model training without worrying about connection strings or data paths. Learn more about [training ML models with datasets](#train-with-datasets).
-* Leverage open-source libraries for data exploration like pandas.
-* Create references to single or multiple files or public URLs with [FileDatasets](how-to-create-register-datasets.md#filedataset).
-
-* Represent your data in a tabular format with [TabularDatasets](how-to-create-register-datasets.md#tabulardataset).
-
+There are two types of datasets, FileDataset and TabularDataset. 
+[FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas,
+[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. 
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -124,7 +81,7 @@ The following steps and animation show how to create a dataset in [Azure Machine
 To create a dataset in the studio:
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datasets** in the **Assets** section of the left pane.
-1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, public URLs or [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
+1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, public URLs, or [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 1. Select **Tabular** or **File** for Dataset type.
 1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset.
     1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio).
@@ -159,7 +116,7 @@ Feature| Name of the column that is being summarized.
 Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
 Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
 Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
-Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
+Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (like, booleans).
 Max| Maximum value of the column. 
 Count| Total number of missing and non-missing entries in the column.
 Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
@@ -169,6 +126,39 @@ Standard deviation| Measure of the amount of dispersion or variation of this col
 Variance| Measure of how far spread out this column's data is from its average value. 
 Skewness| Measure of how different this column's data is from a normal distribution.
 Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
+
+## Storage access and permissions
+
+To ensure you securely connect to your Azure storage service, Azure Machine Learning  requires that you  have permission to access the corresponding data storage. This access depends on the authentication credentials used to register the datastore.
+
+### Virtual network
+
+If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Network isolation & privacy](how-to-enable-virtual-network.md#machine-learning-studio) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
+
+### Access validation
+
+**As part of the initial datastore creation and registration process**, Azure Machine Learning automatically validates that the underlying storage service exists and the user provided principal (username, service principal, or SAS token) has access to the specified storage.
+
+**After datastore creation**, this validation is only performed for methods that require access to the underlying storage container, **not** each time datastore objects are retrieved. For example, validation happens if you want to download files from your datastore; but if you just want to change your default datastore, then validation does not happen.
+
+To authenticate your access to the underlying storage service, you can provide either your account key, shared access signatures (SAS) tokens, or service principal according to the datastore type you want to create. The [storage type matrix](how-to-access-data.md#matrix) lists the supported authentication types that correspond to each datastore type.
+
+You can find account key, SAS token, and service principal information on your [Azure portal](https://portal.azure.com).
+
+* If you plan to use an account key or SAS token for authentication, select **Storage Accounts** on the left pane, and choose the storage account that you want to register.
+  * The **Overview** page provides information such as the account name, container, and file share name.
+      1. For account keys, go to **Access keys** on the **Settings** pane.
+      1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
+
+* If you plan to use a [service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) for authentication, go to your **App registrations** and select which app you want to use.
+    * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
+
+> [!IMPORTANT]
+> For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so, be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md).
+
+### Permissions
+
+For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
 
 ## Train with datasets
 
