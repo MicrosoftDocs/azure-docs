@@ -9,7 +9,7 @@ ms.date: 09/22/2020
 
 A key principle of Azure VMware Solution is to enable you to continue to use your investments and your favorite VMware solutions running on Azure. Independent software vendor (ISV) technology support, validated with Azure VMware Solution, is an important part of this strategy. 
 
-Commvault, Veritas, and Veeam have leading back up and restore solutions in VMware-based environments. These solutions have been widely adopted by customers for their on-premises deployments. Now these partners have extended their solutions to Azure VMware Solution, using Azure to provide a back-up repository and a storage target for long-term retention and archival.
+Commvault, Veritas, and Veeam have leading back up and restore solutions in VMware-based environments. Customers have widely adopted these solutions for their on-premises deployments. Now these partners have extended their solutions to Azure VMware Solution, using Azure to provide a back-up repository and a storage target for long-term retention and archival.
 
 Back-up network traffic between Azure VMware Solution VMs and the back-up repository in Azure travels over a high-bandwidth, low-latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
 
