@@ -79,6 +79,8 @@ To help support agents troubleshoot your issue, consider attaching an HTTP Archi
 > [!WARNING]
 > HAR files may record sensitive data about your Partner Center account.
 
+### Microsoft Edge and Google Chrome
+
 To generate a HAR file using **Microsoft Edge** or **Google Chrome**:
 
 1. Go to the web page where you’re experiencing the issue.
@@ -86,17 +88,19 @@ To generate a HAR file using **Microsoft Edge** or **Google Chrome**:
 3. In the Developer tools pane, select the **Network** tab.
 4. Select **Stop recording network log** and **Clear** to remove existing logs. The record icon will turn grey.
 
-![How to remove existing logs in Microsoft Edge or Google Chrome](media/support/chromium-stop-clear-session.png)
+    ![How to remove existing logs in Microsoft Edge or Google Chrome](media/support/chromium-stop-clear-session.png)
 
-1. Select **Record network log** to start recording. When you start recording, the record icon will turn red.
+5. Select **Record network log** to start recording. When you start recording, the record icon will turn red.
  
-![How to start recording in Microsoft Edge or Google Chrome](media/support/chromium-start-session.png)
+    ![How to start recording in Microsoft Edge or Google Chrome](media/support/chromium-start-session.png)
 
-1. Reproduce the issue you want to troubleshoot.
-1. After you’ve reproduced the issue, select **Stop recording network log**.
-1. Select **Export HAR**, marked with a downward-arrow icon, and save the file.
+6. Reproduce the issue you want to troubleshoot.
+7. After you’ve reproduced the issue, select **Stop recording network log**.
+8. Select **Export HAR**, marked with a downward-arrow icon, and save the file.
 
-![How to export a HAR file in Microsoft Edge or Google Chrome](media/support/chromium-network-export-har.png)
+    ![How to export a HAR file in Microsoft Edge or Google Chrome](media/support/chromium-network-export-har.png)
+
+### Mozilla Firefox
 
 To generate a HAR file using **Mozilla Firefox**:
 
@@ -104,12 +108,14 @@ To generate a HAR file using **Mozilla Firefox**:
 1. In the top right corner of the window, select the ellipsis icon, then **Web Developer** > **Toggle Tools**. You can press F12 as a shortcut.
 1. Select the **Network** tab, then select **Clear** to remove existing logs.
  
-![How to remove existing logs in Mozilla Firefox](media/support/firefox-clear-session.png)
+    ![How to remove existing logs in Mozilla Firefox](media/support/firefox-clear-session.png)
  
 1. Reproduce the issue you want to troubleshoot.
 1. After you’ve reproduced the issue, select **HAR Export/Import** > **Save All As HAR**.
  
-![How to export a HAR file in Mozilla Firefox](media/support/firefox-network-export-har.png)
+    ![How to export a HAR file in Mozilla Firefox](media/support/firefox-network-export-har.png)
+
+### Apple Safari
 
 To generate a HAR file using **Safari**:
 
@@ -118,12 +124,12 @@ To generate a HAR file using **Safari**:
 1. Select **Develop**, then select **Show Web Inspector**.
 1. Select the **Network** tab, then select **Clear Network Items** to remove existing logs.
  
-![How to remove existing logs in Safari](media/support/safari-clear-session.png)
+    ![How to remove existing logs in Safari](media/support/safari-clear-session.png)
  
 1. Reproduce the issue you want to troubleshoot.
 1. After you’ve reproduced the issue, select **Export** and save the file.
  
-![How to export a HAR file in Safari](media/support/safari-network-export-har.png)
+    ![How to export a HAR file in Safari](media/support/safari-network-export-har.png)
 
 ## Next steps
 
