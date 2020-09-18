@@ -20,7 +20,7 @@ ms.author: duau
 
 Get started with Azure Front Door by using Azure PowerShell to create a highly available and high-performance global web application.
 
-The Front Door directs web traffic to specific resources in a backend pool. You defined the frontend domain, add resources to a backend pool, and create a routing rule. This article uses a simple configuration of one backend pool with two web app resources and a single routing rule with the default path matching "/*".
+The Front Door directs web traffic to specific resources in a backend pool. You defined the frontend domain, add resources to a backend pool, and create a routing rule. This article uses a simple configuration of one backend pool with two web app resources and a single routing rule using default path matching "/*".
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ $FrontendEndObject = New-AzFrontDoorFrontendEndpointObject `
 
 ### Create the backend pool
 
-The backend pool comprises of the two web app created at the beginning of this quickstart. The health probe and load balancing settings defined in this step uses default values.
+The backend pool consists of the two web app created at the beginning of this quickstart. The health probe and load balancing settings defined in this step uses default values.
 
 ```azurepowershell-interactive
 # Create backend objects that points to the hostname of the web apps
@@ -139,7 +139,7 @@ New-AzFrontDoor `
 -HealthProbeSetting $HealthProbeObject
 ```
 
-Once the deployment is completed test the Front Door.
+Once the deployment is successful, you can test it by following the steps in the next section.
 
 ## Test the Front Door
 
