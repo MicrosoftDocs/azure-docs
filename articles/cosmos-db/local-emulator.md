@@ -175,26 +175,26 @@ If you have a .NET client application running on a Linux docker container and if
 
 Currently the Azure Cosmos emulator can only be run on Windows. If you are using Linux or macOS, you can run the emulator in a Windows virtual machine hosted in a hypervisor such as Parallels or VirtualBox. Use the following steps to enable this.
 
-* Run the following command from the Windows virtual machine and make a note of the IPv4 address:
+1. Run the following command from the Windows virtual machine and make a note of the IPv4 address:
 
-  ```cmd
-  ipconfig.exe
-  ```
+   ```cmd
+   ipconfig.exe
+   ```
 
-* Within your application, change the endpoint URL to use the IPv4 address returned by `ipconfig.exe` instead of `localhost`.
+1. Within your application, change the endpoint URL to use the IPv4 address returned by `ipconfig.exe` instead of `localhost`.
 
-* From the Windows VM, launch the Azure Cosmos emulator from the command line using the following options. For details on the parameters supported by the command line, see the [emulator command-line tool reference](emulator-command-line-parameters.md):
+1. From the Windows VM, launch the Azure Cosmos emulator from the command line using the following options. For details on the parameters supported by the command line, see the [emulator command-line tool reference](emulator-command-line-parameters.md):
 
   ```cmd
   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
   ```
 
-* Finally, you need to resolve the certificate trust process between the application running on the Linux or Mac environment and the emulator. You can use one of the following two options to resolve the certificate:
+1. Finally, you need to resolve the certificate trust process between the application running on the Linux or Mac environment and the emulator. You can use one of the following two options to resolve the certificate:
 
    1. [Import the emulator CA certificate into the Linux or Mac environment](#import-certificate) or
    2. [Disable the SSL validation in the application](#disable-ssl-validation)
 
-### <a id="import-certificate"></a>1. Import the emulator CA certificate
+### <a id="import-certificate"></a>Option 1: Import the emulator CA certificate
 
 The following sections show how to import the emulator CA certificate into Linux and macOS environments.
 
@@ -242,7 +242,7 @@ Use the following steps if you are working on Mac:
 
 After following these steps, your environment will trust the certificate used by the emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
   
-### <a id="disable-ssl-validation"></a>2. Disable the SSL validation in the application
+### <a id="disable-ssl-validation"></a>Option 2: Disable the SSL validation in the application
 
 Disabling SSL validation is only recommended for development purposes and should not be done when running in a production environment. The following examples show how to disable SSL validation for .NET and Node.js applications.
 
@@ -333,69 +333,69 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 Start emulator from an administrator [command prompt](emulator-command-line-parameters.md) with "/EnableCassandraEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
-* [Install Python 2.7](https://www.python.org/downloads/release/python-2716/)
+1. [Install Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
-* [Install Cassandra CLI/CQLSH](https://cassandra.apache.org/download/)
+1. [Install Cassandra CLI/CQLSH](https://cassandra.apache.org/download/)
 
-* Run the following commands in a regular command prompt window:
+1. Run the following commands in a regular command prompt window:
 
-  ```bash
-  set Path=c:\Python27;%Path%
-  cd /d C:\sdk\apache-cassandra-3.11.3\bin
-  set SSL_VERSION=TLSv1_2
-  set SSL_VALIDATE=false
-  cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
-  ```
+   ```bash
+   set Path=c:\Python27;%Path%
+   cd /d C:\sdk\apache-cassandra-3.11.3\bin
+   set SSL_VERSION=TLSv1_2
+   set SSL_VALIDATE=false
+   cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
+   ```
 
-* In the CQLSH shell, run the following commands to connect to the Cassandra endpoint:
+1. In the CQLSH shell, run the following commands to connect to the Cassandra endpoint:
 
-  ```bash
-  CREATE KEYSPACE MyKeySpace WITH replication = {'class':'MyClass', 'replication_factor': 1};
-  DESCRIBE keyspaces;
-  USE mykeyspace;
-  CREATE table table1(my_id int PRIMARY KEY, my_name text, my_desc text);
-  INSERT into table1 (my_id, my_name, my_desc) values( 1, 'name1', 'description 1');
-  SELECT * from table1;
-  EXIT
-  ```
+   ```bash
+   CREATE KEYSPACE MyKeySpace WITH replication = {'class':'MyClass', 'replication_factor': 1};
+   DESCRIBE keyspaces;
+   USE mykeyspace;
+   CREATE table table1(my_id int PRIMARY KEY, my_name text, my_desc text);
+   INSERT into table1 (my_id, my_name, my_desc) values( 1, 'name1', 'description 1');
+   SELECT * from table1;
+   EXIT
+   ```
 
 ### Gremlin API
 
 Start emulator from an administrator [command prompt](emulator-command-line-parameters.md)with "/EnableGremlinEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Install apache-tinkerpop-gremlin-console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
+1. [Install apache-tinkerpop-gremlin-console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
-* From the emulator's data explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
+1. From the emulator's data explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
 
-* Run the following commands in a regular command prompt window:
+1. Run the following commands in a regular command prompt window:
 
-  ```bash
-  cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
+   ```bash
+   cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
   
-  copy /y conf\remote.yaml conf\remote-localcompute.yaml
-  notepad.exe conf\remote-localcompute.yaml
-    hosts: [localhost]
-    port: 8901
-    username: /dbs/db1/colls/coll1
-    password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-    connectionPool: {
-    enableSsl: false}
-    serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
-    config: { serializeResultToString: true  }}
+   copy /y conf\remote.yaml conf\remote-localcompute.yaml
+   notepad.exe conf\remote-localcompute.yaml
+     hosts: [localhost]
+     port: 8901
+     username: /dbs/db1/colls/coll1
+     password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+     connectionPool: {
+     enableSsl: false}
+     serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
+     config: { serializeResultToString: true  }}
 
-  bin\gremlin.bat
-  ```
+   bin\gremlin.bat
+   ```
 
-* In the Gremlin shell, run the following commands to connect to the Gremlin endpoint:
+1. In the Gremlin shell, run the following commands to connect to the Gremlin endpoint:
 
-  ```bash
-  :remote connect tinkerpop.server conf/remote-localcompute.yaml
-  :remote console
-  :> g.V()
-  :> g.addV('person1').property(id, '1').property('name', 'somename1')
-  :> g.addV('person2').property(id, '2').property('name', 'somename2')
-  :> g.V()
-  ```
+   ```bash
+   :remote connect tinkerpop.server conf/remote-localcompute.yaml
+   :remote console
+   :> g.V()
+   :> g.addV('person1').property(id, '1').property('name', 'somename1')
+   :> g.addV('person2').property(id, '2').property('name', 'somename2')
+   :> g.V()
+   ```
 
 ## Next steps
 

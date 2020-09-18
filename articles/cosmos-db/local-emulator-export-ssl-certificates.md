@@ -99,8 +99,6 @@ When connecting to the emulator from Python and Node.js SDKs, TLS verification i
 
 ## Next steps
 
-Next you can learn 
+* [Use command line parameters and PowerShell commands to control the emulator](emulator-command-line-parameters.md)
+* [Debug issues with the emulator](troubleshoot-local-emulator.md)
 
-You can now proceed to the concepts section for more information about Azure Cosmos DB. 
-
-[Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

@@ -34,19 +34,39 @@ The Azure Cosmos emulator provides a local environment that emulates the Azure C
 
 To collect debugging traces, run the following commands from an administrative command prompt:
 
-1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
+1. Navigate to the path where the emulator is installed:
 
-1. `Microsoft.Azure.Cosmos.Emulator.exe /shutdown`. Watch the system tray to make sure the program has shut down, it may take a minute. You can also select **Exit** in the Azure Cosmos emulator user interface.
+   ```bash
+   cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"
+   ```
 
-1. `Microsoft.Azure.Cosmos.Emulator.exe /startwprtraces`
+1. Shutdown the emulator and watch the system tray to make sure the program has shut down. It may take a minute to complete. You can also select **Exit** in the Azure Cosmos emulator user interface.
 
-1. `Microsoft.Azure.Cosmos.Emulator.exe`
+   ```bash
+   Microsoft.Azure.Cosmos.Emulator.exe /shutdown
+   ```
 
-1. Reproduce the problem. If Data Explorer is not working, you only need to wait for the browser to open for a few seconds to catch the error.
+1. Start logging with the following command:
 
-1. `Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces`
+   ```bash
+   Microsoft.Azure.Cosmos.Emulator.exe /startwprtraces
+   ```
 
-1. Navigate to `%ProgramFiles%\Azure Cosmos DB Emulator` and find the docdbemulator_000001.etl file.
+1. Launch the emulator
+
+   ```bash
+   Microsoft.Azure.Cosmos.Emulator.exe
+   ```
+
+1. Reproduce the problem. If the data explorer is not working, you only need to wait for the browser to open for a few seconds to catch the error.
+
+1. Stop logging with the following command:
+
+   ```bash
+   Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces
+   ```
+   
+1. Navigate to `%ProgramFiles%\Azure Cosmos DB Emulator` path and find the *docdbemulator_000001.etl* file.
 
 1. Open a support ticket in the [Azure portal](https://portal.azure.com) and include the .etl file along with repro steps.
 
