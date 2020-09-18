@@ -98,7 +98,7 @@ See the following articles for examples of connecting to SQL Managed Instance:
     GO
     ```
 
-    ![Screenshot of the Results tab in the S S M S Object Explorer showing the name, principal_id, sid, type, and type_desc of the newly added login. ](./media/aad-security-configure-tutorial/native-login.png)
+    ![Screenshot of the Results tab in the S S M S Object Explorer showing the name, principal_id, sid, type, and type_desc of the newly added login.](./media/aad-security-configure-tutorial/native-login.png)
 
 For more information, see [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 

@@ -84,7 +84,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 3. Navigate to the SQL Managed Instance you want to use for Azure AD integration.
 
-   ![Screenshot showing the Active Directory admin page open for the selected instance on the SQL managed instances page in the Azure portal.](./media/authentication-aad-configure/aad.png)
+   ![Screenshot of the Azure portal showing the Active Directory admin page open for the selected SQL managed instance.](./media/authentication-aad-configure/aad.png)
 
 4. Select the banner on top of the Active Directory admin page and grant permission to the current user.
 
@@ -96,7 +96,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 6. Now you can choose your Azure AD admin for your SQL Managed Instance. For that, on the Active Directory admin page, select **Set admin** command.
 
-    ![Screenshot showing the Set admin command highlighted on the Active Directory admin page for the selected instance on the SQL managed instances page.](./media/authentication-aad-configure/set-admin.png)
+    ![Screenshot showing the Set admin command highlighted on the Active Directory admin page for the selected SQL managed instance.](./media/authentication-aad-configure/set-admin.png)
 
 7. On the Azure AD admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
 
@@ -106,7 +106,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 8. At the top of the Active Directory admin page, select **Save**.
 
-    ![Screenshot showing the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin butons.](./media/authentication-aad-configure/save.png)
+    ![Screenshot of the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin buttons.](./media/authentication-aad-configure/save.png)
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 

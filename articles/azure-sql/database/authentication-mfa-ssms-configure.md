@@ -57,14 +57,14 @@ The following steps show how to connect using the latest SSMS.
 
 6. Two MFA setup dialog boxes might appear. This one time operation depends on the MFA administrator setting, and therefore may be optional. For an MFA enabled domain this step is sometimes pre-defined (for example, the domain requires users to use a smartcard and pin).
 
-   ![Screenshot of the Sign in to your account dialog for Azure SQL Database and Data Warehouse with a prompt to set up multifactor authentication.](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
+   ![Screenshot of the Sign in to your account dialog for Azure SQL Database and Data Warehouse with a prompt to set up additional security verification.](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
   
 7. The second possible one time dialog box allows you to select the details of your authentication method. The possible options are configured by your administrator.
 
    ![Screenshot of the Additional security verification dialog with options for selecting and configuring an authentication method.](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
 8. The Azure Active Directory sends the confirming information to you. When you receive the verification code, enter it into the **Enter verification code** box, and click **Sign in**.
 
-   ![Screenshot of the Sign in to your account dialog for Azure SQL Database and Data Warehouse with a prompt to Enter verification code.](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
+   ![Screenshot of the Sign in to your account dialog for Azure SQL Database and Data Warehouse with a prompt to Enter a verification code.](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
 
 When verification is complete, SSMS connects normally presuming valid credentials and firewall access.
 

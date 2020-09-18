@@ -24,7 +24,7 @@ Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics supp
 
 For all the features discussed in this article, use at least July 2017, version 17.2. The most recent connection dialog box, should look similar to the following image:
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Completes the User name box.")  
+  !["Screenshot of the Connect to Server dialog in SQL Server Management Studio, showing settings for Server type, Server name, and Authentication."](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## Authentication options
 

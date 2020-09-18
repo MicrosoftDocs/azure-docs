@@ -11,7 +11,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 1. Sign in to the [Azure portal][Azure portal].
 2. In the Azure portal menu or the home page, select **Create a resource**.
 
-    ![Screenshot of the Azure portal menu with the "Create a resource" option selected.][command-bar-new]
+    ![Screenshot of the Azure portal menu with the Create a resource option selected.][command-bar-new]
 3. Search for and select **SendGrid**.
 
     ![Screenshot of the Azure portal Marketplace screen showing "SendGr" in the search box and SendGrid selected in the search results.][sendgrid-store]
@@ -40,7 +40,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
     To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
 
-    ![Screenshot showing that the Settings page for the ContosoSendGrid account is opened by selecting "All settings" from the ContosoSendGrid account page.][settings]
+    ![Screenshot showing that the Settings page for the ContosoSendGrid account is opened by selecting All settings from the ContosoSendGrid account page.][settings]
 
     To send an email using SendGrid, you must supply your API Key.
 
@@ -50,14 +50,14 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
     ![Screenshot of the ContosoSendGrid account page with the Manage button highlighted.][manage]
 2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
 
-    ![Screenshot of the SendGrid dashboard with the Settings doprdown opened and API Keys selected.][api-keys]
+    ![Screenshot of the SendGrid dashboard with the Settings dropdown opened and API Keys selected.][api-keys]
 
 3. Click the **Create API Key**.
 
     ![Screenshot of the API Keys screen with the Create API Key button selected.][general-api-key]
 4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
 
-    ![Screenshot of the Add New General API Key screen with Mail Send set to Full Access, Scheduled Sends set to No Access and the Save button highlighted.][access]
+    ![Screenshot of the Add New General API Key screen with Mail Send set to Full Access, Scheduled Sends set to No Access, and the Save button highlighted.][access]
 5. Your API will be displayed at this point one time. Please be sure to store it safely.
 
 ### To find your SendGrid credentials

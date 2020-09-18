@@ -18,7 +18,7 @@ ms.date: 05/14/2019
 
 This article outlines the basics of securing the data tier of an application using [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The security strategy described follows the layered defense-in-depth approach as shown in the picture below, and moves from the outside in:
 
-![Diagram of layered defense-in-depth. Customer data encased in layers of network security, access management, and threat and information protections.](./media/security-overview/sql-security-layer.png)
+![Diagram of layered defense-in-depth. Customer data is encased in layers of network security, access management and threat and information protections.](./media/security-overview/sql-security-layer.png)
 
 ## Network security
 
@@ -71,7 +71,7 @@ As a best practice, create custom roles when needed. Add users to the role with 
 
 Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (for example, group membership or execution context). Row-Level Security can also be used to implement custom Label-based security concepts. For more information, see [Row-Level security](/sql/relational-databases/security/row-level-security).
 
-![Diagram showing that Row-Level Security shields individual rows of a SQL database from access by users via a Client app.](./media/security-overview/azure-database-rls.png)
+![Diagram showing that Row-Level Security shields individual rows of a SQL database from access by users via a client app.](./media/security-overview/azure-database-rls.png)
 
 ## Threat protection
 
