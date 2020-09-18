@@ -133,7 +133,7 @@ Then Add the following code to `ViewController.swift` prior to `viewDidLoad()`:
 // Update the below to your client ID you received in the portal. The below is for running the demo only
 let kClientID = "Your_Application_Id_Here"
 let kGraphEndpoint = "https://graph.microsoft.com/" // the Microsoft Graph endpoint
-let kAuthority = "https://login.microsoftonline.com/common" // this authority allows a personal Microsoft account and a work or school account in any organization’s Azure AD tenant to sign in
+let kAuthority = "https://login.microsoftonline.com/common" // this authority allows a personal Microsoft account and a work or school account in any organization's Azure AD tenant to sign in
 
 let kScopes: [String] = ["user.read"] // request permission to read the profile of the signed-in user
 
@@ -179,7 +179,7 @@ In Xcode, open `Info.plist` as a source code file, and add the following inside 
 1. Go to your Xcode Project Settings > **Capabilities tab** > **App Sandbox**
 2. Select **Outgoing Connections (Client)** checkbox.
 
-## Create your app’s UI
+## Create your app's UI
 
 Now create a UI that includes a button to call the Microsoft Graph API, another to sign out,  and a text view to see some output by adding the following code to the `ViewController`class:
 
@@ -551,10 +551,10 @@ func acquireTokenInteractively() {
 
 The `promptType` property of `MSALInteractiveTokenParameters` configures the authentication and consent prompt behavior. The following values are supported:
 
-- `.selectAccount` - If no user is specified, the authentication webview presents a list of users currently signed-in accounts for the user to select from.
-- `.login` - Requires the user to authenticate in the webview. Only one account may be signed-in at a time if you specify `.login`.
+- `.promptIfNecessary` (default) - The user is prompted only if necessary. The SSO experience is determined by the presence of cookies in the webview, and the account type. If multiple users are signed in, account selection experience is presented. *This is the default behavior*.
+- `.selectAccount` - If no user is specified, the authentication webview presents a list of currently signed-in accounts for the user to select from.
+- `.login` - Requires the user to authenticate in the webview. Only one account may be signed-in at a time if you specify this value.
 - `.consent` - Requires the user to consent to the current set of scopes for the request.
-- `.promptIfNecessary` (default) - The user is prompted only if necessary. The SSO experience is determined by the presence of cookies in the webview, and the account type. If multiple users are signed in, account selection experience is presented.
 
 #### Get a token silently
 
