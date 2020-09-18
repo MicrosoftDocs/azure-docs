@@ -78,9 +78,9 @@ az acr import \
 --image servercore:ltsc2019
 ```
 
-## Import from another Azure container registry in the same AD tenant
+## Import from an Azure container registry in the same AD tenant
 
-You can import an image from another Azure container registry in the same AD tenant using integrated Azure Active Directory permissions.
+You can import an image from an Azure container registry in the same AD tenant using integrated Azure Active Directory permissions.
 
 * Your identity must have Azure Active Directory permissions to read from the source registry (Reader role) and to import to the target registry (Contributor role, or a [custom role](container-registry-roles.md#custom-roles) that allows the importImage action).
 
@@ -145,7 +145,6 @@ az acr import \
 ## Import from an Azure container registry in a different AD tenant
 
 To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide username and password credentials that enable pull access to the registry. For example, use a [repository-scoped token](container-registry-repository-scoped-permissions.md) and password, or the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry. 
-
 
 ```azurecli
 az acr import \
