@@ -312,6 +312,8 @@
         href: storage-blob-properties-metadata.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
+      - name: Utilize blob index
+        href: storage-blob-index-how-to.md
     - name: Authorize access to blob data
       items:
       - name: Authorization options for users
@@ -460,8 +462,6 @@
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
-    - name: Utilize Blob Index
-      href: storage-blob-index-how-to.md
     - name: Transfer data
       items:
       - name: AzCopy
