@@ -701,8 +701,12 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
    ```text
    FROM mcr.microsoft.com/azure-functions/dotnet:3.0.13614-appservice
+
    ENV AzureWebJobsStorage <storage-account-connection-string>
+   ENV AZURE_FUNCTIONS_ENVIRONMENT Development
    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \ AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+   ENV WEBSITE_HOSTNAME=localhost
+
    COPY ./bin/Release/netcoreapp3.1/publish/ /home/site/wwwroot
    ```
 
@@ -710,7 +714,7 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
 1. Run the container locally by using this command:
 
-   `docker run -p 8080:80 local/workflowcontainer`
+   `docker run -e WEBSITE_HOSTNAME=localhost -p 8080:80 local/workflowcontainer`
 
    For more information, see [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
@@ -718,7 +722,7 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
    `POST /runtime/webhooks/flow/api/management/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   The <*master-key*> value is defined in the storage account that you set for `AzureWebJobsStorage` in the file, `azure-webjobs-secrets/<deployment-name>/host.json`, where you can find the value in this section:
+   The <*master-key*> value is defined in the Azure storage account that you set for `AzureWebJobsStorage` in the file, `azure-webjobs-secrets/<deployment-name>/host.json`, where you can find the value in this section:
 
    ```json
    {
@@ -732,7 +736,13 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
    }
    ```
 
-   For more information about the master key value, see [Using Docker Compose - GitHub Issue #84](https://github.com/Azure/azure-functions-docker/issues/84).
+   For more information, see these GitHub issues:
+
+   * [Deploy to a Docker container - GitHub Issue #151](https://github.com/Azure/logicapps/issues/151)
+   * [Getting CallbackUrl for container throws nullreference exception - GitHub Issue #129](https://github.com/Azure/logicapps/issues/129)
+   * [How to determine master key for workflow in container - GitHub Issue #121](https://github.com/Azure/logicapps/issues/121)
+   * [Using Docker Compose - GitHub Issue #84](https://github.com/Azure/azure-functions-docker/issues/84)
+   * [Function host is not running when running as a container - GitHub Issue #123](https://github.com/Azure/logicapps/issues/123)
 
 <a name="run-history"></a>
 
