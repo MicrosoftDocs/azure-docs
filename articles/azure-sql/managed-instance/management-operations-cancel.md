@@ -27,7 +27,7 @@ Azure SQL Managed Instance provides the ability to cancel some [management opera
 - Instance update (changing instance properties, such as vCores or reserved storage).
 - Instance deletion.
 
-You can [monitor progress and status of management operations](management-operations-monitoring.md) and cancel some of them if necessary. 
+You can [monitor progress and status of management operations](management-operations-monitor.md) and cancel some of them if necessary. 
 
 The following table summarizes management operations, whether or not you can cancel them, and their typical overall duration:
 
@@ -56,7 +56,7 @@ To cancel management operations using the Azure portal, follow these steps:
 
 1. Select **Cancel the operation** at the bottom of the page. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Select the ongoing operation box to open the ongoing operation page.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Select cancel to cancel the operation.":::
 
 1. Confirm that you want to cancel the operation. 
 
