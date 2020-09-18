@@ -79,7 +79,7 @@ Select **Ongoing operation** to open the **Ongoing operation** page and view **C
 ![Managed instance operation details](./media/management-operations-monitor/monitoring-operation-details.png)
 
 > [!NOTE]
-> Create operations submitted through Azure portal, PowerShell, Azure CLI or other tooling using REST API version 2020-02-02 [can be canceled](management-operations-cancelling.md). REST API versions older than 2020-02-02 used to submit a create operation will start the instance deployment, but the deployment won't be listed in the Operations API and can't be cancelled.
+> Create operations submitted through Azure portal, PowerShell, Azure CLI or other tooling using REST API version 2020-02-02 [can be canceled](management-operations-cancel.md). REST API versions older than 2020-02-02 used to submit a create operation will start the instance deployment, but the deployment won't be listed in the Operations API and can't be cancelled.
 
 # [PowerShell](#tab/azure-powershell)
 
