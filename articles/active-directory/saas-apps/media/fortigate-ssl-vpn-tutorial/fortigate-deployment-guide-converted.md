@@ -29,7 +29,7 @@ Fortinet might provide members of the Azure AD "Get to Production Secure Hybrid 
 
 If a license has been issued, Fortinet provides a registration code that must be redeemed online.
 
-![Screenshot of Fortigate SSL VPN registration code.](registration-code.png)
+![Screenshot of FortiGate SSL VPN registration code.](registration-code.png)
 
 1. Register at https://support.fortinet.com/.
 2. After registration, sign-in at https://support.fortinet.com/.
@@ -74,9 +74,9 @@ needed for SAML authentication. The latest version must be obtained from Fortine
 9. Wait for the VM deployment to complete.
 
 
-### Set a static Public IP address and assign a fully qualified domain name
+### Set a static public IP address and assign a fully qualified domain name
 
-For a consistent user experience, set the Public IP address assigned to the FortiGate VM to be statically assigned. In addition, map it to a fully qualified domain name.
+For a consistent user experience, set the public IP address assigned to the FortiGate VM to be statically assigned. In addition, map it to a fully qualified domain name (FQDN).
 
 1. Go to https://portal.azure.com, and open the settings for the FortiGate VM.
 2. On the **Overview** screen, select the public IP address.
@@ -86,7 +86,7 @@ For a consistent user experience, set the Public IP address assigned to the Fort
 3. Select **Static** > **Save**.
 
 If you own a publicly routable domain name for the environment into which the FortiGate VM is
-being deployed, create a Host (A) record for the VM. This record maps to the preceding Public IP address that is statically assigned.
+being deployed, create a Host (A) record for the VM. This record maps to the preceding public IP address that is statically assigned.
 
 ### Create a new inbound network security group rule for TCP port
 
@@ -153,7 +153,7 @@ FortiGate allows for different user portal experiences after sign-in, based on g
 
 ## Configure the FortiGate VM
 
-The following sections walk you through how to set up the Fortigate VM.
+The following sections walk you through how to set up the FortiGate VM.
 
 ### Install the license
 
@@ -163,7 +163,7 @@ The following sections walk you through how to set up the Fortigate VM.
 3. Sign in by using the administrator credentials provided during the FortiGate VM deployment.
 4. If the deployment uses the bring-your-own-license model, you'll see a prompt to upload a license. Select the license file created earlier, and upload it. Select **OK** and restart the FortiGate VM.
 
-    ![Screenshot of Fortigate VM License.](license.png)
+    ![Screenshot of FortiGate VM License.](license.png)
 
 5. After the reboot, sign in again with the administrator credentials to validate the license.
 
@@ -323,13 +323,13 @@ The following sections provide steps for various configurations by using the com
 3. In the left menu, select **VPN** > **SSL-VPN Portals** > **Create New**.
 6. Provide a name (usually matching it to the Azure Group used to provide the custom portal
     experience).
-7. Select the plus sign ( **+** ) next to **Source IP Pools**, select the default pool, and then select **Close**.
+7. Select the plus sign (**+**) next to **Source IP Pools**, select the default pool, and then select **Close**.
 8. Customize the experience for this group. For testing, this can be customization of the portal message and the theme. This is also where you can create custom bookmarks that direct
     users to internal resources.
 9. Select **OK**.
 10. Repeat steps 5-9 for each Azure Group that will have a custom portal experience.
 11. Under VPN, select **SSL-VPN Settings**.
-12. Select the plus sign ( **+** ) next to **Listen on Interfaces**, select **Port1**, and then select **Close**.
+12. Select the plus sign (**+**) next to **Listen on Interfaces**, select **Port1**, and then select **Close**.
 14. If you previously installed a custom SSL certificate, change **Server Certificate** to use the custom SSL certificate in the drop-down menu.
 15. Under **Authentication/Portal Mapping**, select **Create New**. Choose the first Azure Group and match it with the portal of the same name. Then select **OK**.
 18. Repeat steps 15-17 for each pairing of an Azure Group and a portal.
@@ -343,7 +343,7 @@ The following sections provide steps for various configurations by using the com
 32. Select **Close** > **Service** > **All**. Then select **Close** > **OK**.
 37. In the left menu, select **Policy & Objects** > **Firewall Policy**.
 39. Expand **SSL-VPN tunnel interface (ssl.root)** > **port**.
-40. Right-click the VPN policy created earlier ( **VPN Grp 1** ), and select **Copy**.
+40. Right-click the VPN policy created earlier (**VPN Grp 1**), and select **Copy**.
 41. Right-click under the VPN policy, and select **Paste** > **Below**.
 42. Edit the new policy, providing it with a different name (for example, **VPN Grp2**). Also change the group it applies to (to another Azure Group).
 43. Right-click the new policy and set the status to **Enabled**.
@@ -356,4 +356,4 @@ The following sections provide steps for various configurations by using the com
 3. After providing credentials for a user who has been assigned to the FortiGate App in the
     Azure tenant, the appropriate user portal should appear.
 
-    ![Screenshot of Fortigate SSL VPN](test-sign-in.png)
+    ![Screenshot of FortiGate SSL VPN](test-sign-in.png)
