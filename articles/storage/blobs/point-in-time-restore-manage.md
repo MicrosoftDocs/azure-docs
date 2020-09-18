@@ -137,7 +137,7 @@ To restore all containers and blobs in the storage account with the Azure portal
 
 # [PowerShell](#tab/powershell)
 
-To restore all containers and blobs in the storage account with PowerShell, call the **Restore-AzStorageBlobRange** command, omitting the `-BlobRestoreRange` parameter. By default, the **Restore-AzStorageBlobRange** command runs asynchronously, and returns an object of type **PSBlobRestoreStatus** that you can use to check the status of the restore operation.
+To restore all containers and blobs in the storage account with PowerShell, call the **Restore-AzStorageBlobRange** command. By default, the **Restore-AzStorageBlobRange** command runs asynchronously, and returns an object of type **PSBlobRestoreStatus** that you can use to check the status of the restore operation.
 
 The following example asynchronously restores containers in the storage account to their state 12 hours before the present moment, and checks some of the properties of the restore operation:
 
@@ -197,18 +197,18 @@ The restore operation shown in the image performs the following actions:
 
 # [PowerShell](#tab/powershell)
 
-To restore a single range of blobs, call the **Restore-AzStorageBlobRange** command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. For example, to restore the blobs in a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored:
+To restore a single range of blobs, call the **Restore-AzStorageBlobRange** command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. For example, to restore the blobs in a single container named *container1*, you can specify a range that starts with *container1* and ends with *container2*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *container2*, only the container named *container1* will be restored:
 
 ```powershell
-$range = New-AzStorageBlobRangeToRestore -StartRange sample-container `
-    -EndRange sample-container1
+$range = New-AzStorageBlobRangeToRestore -StartRange container1 `
+    -EndRange container2
 ```
 
 To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob prefix pattern. For example, the following range selects blobs in a single container whose names begin with the letters *d* through *f*:
 
 ```powershell
-$range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d `
-    -EndRange sample-container/g
+$range = New-AzStorageBlobRangeToRestore -StartRange container1/d `
+    -EndRange container1/g
 ```
 
 Next, provide the range to the **Restore-AzStorageBlobRange** command. Specify the restore point by providing a UTC **DateTime** value for the `-TimeToRestore` parameter. The following example restores blobs in the specified range to their state 3 days before the present moment:
@@ -221,7 +221,15 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter. The following example specifies two ranges to restore the complete contents of *container1* and *container4*:
+By default, the **Restore-AzStorageBlobRange** command runs asynchronously. When you initiate a restore operation asynchronously, PowerShell immediately displays a table of properties for the operation:  
+
+```powershell
+Status     RestoreId                            FailureReason Parameters.TimeToRestore     Parameters.BlobRanges
+------     ---------                            ------------- ------------------------     ---------------------
+InProgress 459c2305-d14a-4394-b02c-48300b368c63               2020-09-15T23:23:07.1490859Z ["container1/d" -> "container1/g"]
+```
+
+To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter. The following example specifies two ranges to restore the complete contents of *container1* and *container4* to their state 24 hours ago, and saves the result to a variable:
 
 ```powershell
 # Specify a range that includes the complete contents of container1.
@@ -231,35 +239,22 @@ $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 `
 $range2 = New-AzStorageBlobRangeToRestore -StartRange container4 `
     -EndRange container5
 
-Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+$restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddMinutes(-30) `
+    -TimeToRestore (Get-Date).AddHours(-24) `
     -BlobRestoreRange @($range1, $range2)
+
+# Get the status of the restore operation.
+$restoreOperation.Status
+# Get the ID for the restore operation.
+$restoreOperation.RestoreId
+# Get the blob ranges specified for the operation.
+$restoreOperation.Parameters.BlobRanges
 ```
+
+To run the restore operation synchronously, include the **-WaitForComplete** parameter on the command. When the **-WaitForComplete** parameter is present, PowerShell displays a message that includes the restore ID for the operation and then blocks on execution until the restore operation is complete. Keep in mind that the length of time required by a restore operation depends on the amount of data to be restored, and a large restore operation may take up to an hour to complete.
 
 ---
-
-### Restore block blobs asynchronously with PowerShell
-
-To run a restore operation asynchronously, add the `-AsJob` parameter to the call to **Restore-AzStorageBlobRange** and store the result of the call in a variable. The **Restore-AzStorageBlobRange** command returns an object of type **AzureLongRunningJob**. You can check the **State** property of this object to determine whether the restore operation has completed. The value of the **State** property may be **Running** or **Completed**.
-
-The following example shows how to call a restore operation asynchronously:
-
-```powershell
-$job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddMinutes(-5) `
-    -AsJob
-
-# Check the state of the job.
-$job.State
-```
-
-To wait on the completion of the restore operation after it is running, call the [Wait-Job](/powershell/module/microsoft.powershell.core/wait-job) command, as shown in the following example:
-
-```powershell
-$job | Wait-Job
-```
 
 ## Known issues
 
