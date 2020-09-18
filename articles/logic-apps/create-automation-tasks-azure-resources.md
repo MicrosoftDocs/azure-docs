@@ -58,11 +58,15 @@ Currently, you can create an automation task only at the resource level, view th
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that you want to manage.
 
-1. On the resource's menu, under **Settings**, select **Automation tasks** > **Add** so that you can select a task template.
+1. On the resource menu, scroll to the **Automation** section, and select **Tasks**
 
-   ![Screenshot that shows the selections, "Automation tasks" and "Add"](./media/create-automation-tasks-azure-resources/add-automation-task.png)
+   ![Screenshot that shows the Azure portal and a storage account resource menu where the "Automation" section has the "Tasks" menu item selected.](./media/create-automation-tasks-azure-resources/storage-account-menu-automation-section.png)
 
-1. On the **Add a Task** pane, under **Select a template**, select the template for the task that you want to create, and then select **Next: Authentication**.
+1. On the **Tasks** pane, select **Add** so that you can select a task template.
+
+   ![Screenshot that shows the storage account "Tasks" pane where the toolbar has "Add" selected](./media/create-automation-tasks-azure-resources/add-automation-task.png)
+
+1. On the **Add a Task** pane, under **Select a template**, select the template for the task that you want to create, and select **Next: Authentication**.
 
    This example continues by selecting the **Send monthly cost for resource** task template.
 
