@@ -18,7 +18,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
-- Obtain a `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
+- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client.
 
 ## Setting up
 
@@ -60,8 +60,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ChatClient](../../../references/overview.md) | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| [ChatThreadClient](../../../references/overview.md) | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts, subscribe chat events. |
+| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
+| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts, subscribe chat events. |
 
 ## Create a chat client
 
@@ -70,23 +70,13 @@ To create a chat client in your web app, you'll use the Communications Service e
 ```JavaScript
 
 import { ChatClient } from '@azure/communication-chat';
-import { CommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationUserCredential } from '@azure/communication-common';
 
 // Your unique Azure Communication service endpoint
 let endpointUrl = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
 let userAccessToken = //Retrieve value from your trusted service
 
-let chatClient = new ChatClient(endpointUrl, new CommunicationUserCredential(userAccessToken));
-
-```
-
-## Get a chat thread client
-
-The `getChatThreadClient` method returns a `chatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. threadId is the unique ID of the existing chat thread.
-
-```JavaScript
-
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+let chatClient = new ChatClient(endpointUrl, new AzureCommunicationUserCredential(userAccessToken));
 
 ```
 
@@ -123,7 +113,17 @@ let threadId = chatThreadClient.threadId;
 
 ```
 
-## Send message to a chat thread
+## Get a chat thread client
+
+The `getChatThreadClient` method returns a `chatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. threadId is the unique ID of the existing chat thread.
+
+```JavaScript
+
+let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+
+```
+
+## Send a message to a chat thread
 
 Use `sendMessage` method to send a chat message to the thread you just created, identified by threadId.
 
@@ -154,9 +154,9 @@ let messageId = sendChatMessageResult.id;
 
 ```
 
-## Receive messages from a chat thread
+## Receive chat messages from a chat thread
 
-With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. For complete list of events you can subscribe to, see event details [here](../../../concepts/chat/concepts.md#real-time-signaling-events).
+With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-signaling).
 
 ```JavaScript
 
@@ -186,13 +186,13 @@ For deleted messages `chatMessage.deletedOn` returns a datetime value indicating
 
 `listMessages` returns different types of messages which can be identified by `chatMessage.type`. These types are:
 
--`Text`: Regular chat message sent by a thread member.
+- `Text`: Regular chat message sent by a thread member.
 
--`ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
 
--`ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
 
--`ThreadActivity/RemoveMember`: System message that indicates a member has been removed from the chat thread.
+- `ThreadActivity/RemoveMember`: System message that indicates a member has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -226,7 +226,7 @@ await chatThreadClient.addMembers(addMembersRequest);
 
 ```
 
-## Remove User from a chat thread
+## Remove user from a chat thread
 
 Similar to adding a member, you can remove members from a chat thread. In order to remove, you'll need to track the ids of the members you have added.
 

@@ -1,5 +1,6 @@
 ---
 title: Client and server architecture
+titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' architecture.
 author: mikben
 manager: mikben
@@ -29,21 +30,21 @@ Every Azure Communication Services application will have **client applications**
 
 Azure Communication Services client libraries require `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources. It is highly recommended to make use of a trusted service for user management. The trusted service will generate the tokens and pass them back to the client using proper encryption. A sample architecture flow can be found below:
 
-![Diagram showing user access token architecture.](../media/scenarios/archdiagram-access.png)
+:::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagram showing user access token architecture.":::
 
-For additional information on best identity management practices see [here](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+For additional information review [best identity management practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 
 ## Browser communication
 
 Azure Communications JavaScript client libraries can enable browser applications with rich text, voice, and video interaction. The application directly interacts with Azure Communication Services through the client library to access the data plane and deliver real-time text, voice, and video communication. A sample architecture flow can be found below:
 
-![Diagram showing the browser to browser Architecture for Communication Services.](../media/scenarios/archdiagram-browser.png)
+:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagram showing the browser to browser Architecture for Communication Services.":::
 
 ## Native app communication
 
 Many scenarios are best served with native applications. Azure Communication Services supports both browser-to-app and app-to-app communication.  When building a native application experience you'll probably push notifications enabled, so users can receive calls even when the application is not running. Azure Communication Services makes this easy with integrated push notifications to Google Firebase, Apple Push Notification Service, and Windows Push Notifications. A sample architecture flow can be found below:
 
-![Diagram showing Communication Services Architecture for native app communication.](../media/scenarios/archdiagram-app.png)
+:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagram showing Communication Services Architecture for native app communication.":::
 
 ## Voice and SMS over the public switched telephony network (PSTN)
 
@@ -52,7 +53,7 @@ Communicating over the phone system can dramatically increase the reach of your 
 > [!Note]
 > During public preview, the provisioning of US phone numbers is available to customers with billing addresses located within the US and Canada. 
 
-![Diagram showing Communication Services PSTN architecture.](../media/scenarios/archdiagram-pstn.png)
+:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram showing Communication Services PSTN architecture.":::
 
 For more information on PSTN and SMS solutions, see [Plan your PSTN and SMS solution](../concepts/telephony-sms/plan-solution.md)
 
@@ -60,16 +61,14 @@ For more information on PSTN and SMS solutions, see [Plan your PSTN and SMS solu
 
 Azure Communication Services supports human-to-system communication though text and voice channels, with services that directly access the Azure Communication Services data plane. For example, you can have a bot answer incoming phone calls or participate in a web chat. Azure Communication Services provides client libraries that enable these scenarios for calling and chat. A sample architecture flow can be found below:
 
-![Diagram showing Communication Services Bot architecture.](../media/scenarios/archdiagram-bot.png)
+:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram showing Communication Services Bot architecture.":::
 
 ## Networking
 
 You may want to exchange arbitrary data between users, for example to synchronize a shared mixed reality or gaming experience. The real-time data plane used for text, voice, and video communication is available to you directly in two ways:
 
 - **Calling client library** - Devices in a call have access to APIs for sending and receiving data over the call channel. This is the easiest way to add data communication to an existing interaction.
-- **STUN/TURN** - Azure Communication Services makes standards-compliant STUN and TURN services available to you. This allows you to build a heavily customized transport layer on top of these standardized primitives. You can author your own standards-compliant client or use open-source libraries such as [WinRTC](https://github.com/microsoft/winrtc)
-
-For more information on STUN and TURN solutions, see [STUN and TURN Concepts](../concepts/networking/ice-stun-nat-turn-sdp.md)
+- **STUN/TURN** - Azure Communication Services makes standards-compliant STUN and TURN services available to you. This allows you to build a heavily customized transport layer on top of these standardized primitives. You can author your own standards-compliant client or use open-source libraries such as [WinRTC](https://github.com/microsoft/winrtc).
 
 ## Next steps
 
@@ -80,6 +79,6 @@ For more information, see the following articles:
 
 - Learn about [authentication](../concepts/authentication.md)
 - Learn about [PSTN and SMS solutions](../concepts/telephony-sms/plan-solution.md)
-- Learn about [STUN and TURN solutions](../concepts/networking/ice-stun-nat-turn-sdp.md)
+
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)

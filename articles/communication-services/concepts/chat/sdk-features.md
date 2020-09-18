@@ -1,5 +1,6 @@
 ---
 title: Chat client library overview for Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services chat client library.
 author: mikben
 manager: jken
@@ -9,19 +10,16 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-
 ---
-
 # Chat client library overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 Azure Communication Services Chat client libraries can be used to add rich, real-time chat to your applications with an easy to use, a low maintenance interface.
 
 ## Chat client library capabilities
 
-The following list presents the set of features which are currently available in the Communication Services chat client libraries. To take a look at upcoming features, check out the [product roadmap](../../roadmap.md). 
+The following list presents the set of features which are currently available in the Communication Services chat client libraries.
 
 | Group of features | Capability                                                                                                          | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ----- | ---- | -----  |

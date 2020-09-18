@@ -5,8 +5,6 @@
   items:
   - name: What is Azure Communication Services?
     href: overview.md
-  - name: Compare related services
-    href: compare.md
 - name: Quickstarts
   expanded: true
   items:
@@ -24,8 +22,6 @@
         href: quickstarts/telephony-sms/get-phone-number.md
       - name: Send an SMS message
         href: quickstarts/telephony-sms/send.md
-      - name: Send an SMS message with an Azure Logic App
-        href: quickstarts/telephony-sms/logic-app.md
       - name: Handle SMS events
         href: quickstarts/telephony-sms/handle-sms-events.md
   - name: Voice and video calling
@@ -37,7 +33,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Build a trusted token provisioning service
+  - name: Build a trusted authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
 - name: Concepts
   expanded: false
@@ -56,7 +52,7 @@
         href: concepts/telephony-sms/concepts.md
       - name: Plan your telephony and SMS solution 
         href: concepts/telephony-sms/plan-solution.md
-  - name: Voice and video Calling
+  - name: Voice and video calling
     items:
       - name: Calling client library overview
         href: concepts/voice-video-calling/calling-sdk-features.md
@@ -64,14 +60,10 @@
         href: concepts/voice-video-calling/about-call-types.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
-  - name: Metric definitions
-    href: concepts/azure-communication-metric-definitions.md
-  - name: Logging and diagnostics
-    href: concepts/logging-diagnostics.md
   - name: Call flows
     href: concepts/call-flows.md
   - name: Client libraries and REST APIs
-    href: concepts/sdk-options.md
+    href: concepts/sdk-options.md 
   - name: Pricing model
     href: concepts/pricing.md
   - name: Identity model
@@ -90,9 +82,5 @@
     href: samples/chat-hero-sample.md
 - name: References
   items:
-  - name: REST API Documentation
-    href: https://docs.microsoft.com/en-us/rest/api/azure/
-- name: Resources
-  items:
-  - name: Roadmap
-    href: roadmap.md
+  - name: REST API documentation
+    href: https://docs.microsoft.com/rest/api/azure/

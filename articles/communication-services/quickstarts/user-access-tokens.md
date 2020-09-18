@@ -1,6 +1,7 @@
 ---
-title: Quickstart - Create and manage user access tokens
-description: Learn how to manage users and access tokens using the Azure Communication Services Administration client library.
+title: Quickstart - Create and manage access tokens
+titleSuffix: An Azure Communication Services quickstart
+description: Learn how to manage identities and access tokens using the Azure Communication Services Administration client library.
 author: matthewrobertson
 manager: jken
 services: azure-communication-services
@@ -11,11 +12,11 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Create and manage user access tokens
+# Quickstart: Create and manage access tokens
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by using the Communication Services Administration client library to provision and manage your user access tokens. User access tokens let your client applications authenticate directly against Azure Communication Services. These tokens are generated on a server-side token provisioning service that you implement. They're then used to initialize the Communication Services client libraries on client devices.
+Get started with Azure Communication Services by using the Communication Services Administration client library to provision and manage your access tokens. Access tokens let your client applications authenticate directly against Azure Communication Services. These tokens are generated on a server-side token provisioning service that you implement. They're then used to initialize the Communication Services client libraries on client devices.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]
@@ -36,23 +37,23 @@ Get started with Azure Communication Services by using the Communication Service
 The output of the app describes each action that is completed:
 <!---cSpell:disable --->
 ```console
-Azure Communication Services - User Access Tokens Quickstart
+Azure Communication Services - Access Tokens Quickstart
 
-Issued a token with 'voip' scope for user with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Issued a access token with 'voip' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
 <token signature here>
 
-Issued a token with 'chat' scope for user with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Issued a access token with 'chat' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
 <token signature here>
 
-Successfully deleted the user with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Successfully deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
 
-Deleted the user with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
 ```
 <!---cSpell:enable --->
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about cleaning up resources [here](./create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
 
 
 ## Next Steps
@@ -60,8 +61,8 @@ If you want to clean up and remove a Communication Services subscription, you ca
 In this quickstart, you learned how to:
 
 > [!div class="checklist"]
-> * Manage user identities
-> * Issue user access tokens
+> * Manage identities
+> * Issue access tokens
 > * Use the Communication Services Administration client library
 
 

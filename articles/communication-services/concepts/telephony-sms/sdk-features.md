@@ -1,5 +1,6 @@
 ---
 title: SMS client library overview for Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the SMS client library and its offerings.
 author: mikben
 manager: jken
@@ -12,25 +13,25 @@ ms.service: azure-communication-services
 ---
 # SMS client library Overview
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 
 ## SMS client library Capabilities
 
 The following list presents the set of features which are currently available in our client libraries.
 
-| Group of features | Capability                                                                                                          | JS  | Java | .NET | Python|
-| ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | -----| ---- | ----- |
-| Core Capabilities | Send and receive SMS messages </br> *Unicode emojis supported*                                                      | ✔️   | ✔️  | ✔️  | ✔️   |
-|                   | Receive Delivery Reports for messages sent                                                                          | ✔️   | ✔️  | ✔️  | ✔️   |
-|                   | All character sets (language/unicode support)                                                                       | ✔️   | ✔️  | ✔️  | ✔️   |
-|                   | Support for long messages (up to 2048 char)                                                                         | ✔️   | ✔️  | ✔️  | ✔️   |
-|                   | Auto-concatenation of long messages                                                                                 | ✔️   | ✔️  | ✔️  | ✔️   |
-| Events            | Use Event Grid to configure webhooks to receive inbound messages and delivery reports                               | ✔️   | ✔️  | ✔️  | ✔️   |
-| Phone Number      | Toll-Free numbers                                                                                                   | ✔️   | ✔️  | ✔️  | ✔️   |
-| Regulatory        | Opt-Out Handling                                                                                                    | ✔️   | ✔️  | ✔️  | ✔️   |
-| Monitoring        | Monitor usage for messages sent and received                                                                | ✔️   | ✔️  | ✔️  | ✔️   |
-| PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled telephone number                                                             | ✔️   | ✔️  | ✔️  | ✔️   |
+| Group of features | Capability                                                                            | JS  | Java | .NET | Python |
+| ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
+| Core Capabilities | Send and receive SMS messages </br> *Unicode emojis supported*                        | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Receive Delivery Reports for messages sent                                            | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | All character sets (language/unicode support)                                         | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Support for long messages (up to 2048 char)                                           | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Auto-concatenation of long messages                                                   | ✔️   | ✔️    | ✔️    | ✔️      |
+| Events            | Use Event Grid to configure webhooks to receive inbound messages and delivery reports | ✔️   | ✔️    | ✔️    | ✔️      |
+| Phone Number      | Toll-Free numbers                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
+| Regulatory        | Opt-Out Handling                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
+| Monitoring        | Monitor usage for messages sent and received                                          | ✔️   | ✔️    | ✔️    | ✔️      |
+| PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled telephone number                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## Next steps
 

@@ -1,11 +1,18 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on how to get a `User Access Token` see [here](../../user-access-tokens.md)
-- Optional: Complete the quickstart for getting started with adding calling to your application [here](../getting-started-with-calling.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-access-tokens.md)
+- Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
-## Setting Up
+## Setting up
 
 ### Install the client library
 
@@ -23,52 +30,51 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                              | Description                                                                                                                                      |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallingFactory](../../../references/overview.md) | This class is needed for all calling functionality. You instantiate it with your subscription information, and use it to start and manage calls. |
+| CallClient | The CallClient is used to create the CallAgent and to get the DeviceManager. |
 
 ## Initialize the CallClient
 
-To create a `CallAgent` you have to use `CallClient.createCallAgent` method that asynchronously returns a `CallAgent` object.
-
-You have to pass a `CommunicationUserCredential` object to the `CallClient.createCallAgent` method.
+To create a `CallAgent` instance you have to use `CallClient.createCallAgent()` method that asynchronously returns a `CallAgent` object.
+`CallClient.createCallAgent` method takes a `CommunicationUserCredential` object.
+`CommunicationUserCredential` takes an auth token which should be obtained from a trusted service.
+To access the `DeviceManager`, a callAgent instance must be created first, and then use the `CallClient.getDeviceManager` method to get the DeviceManager.
 
 ```js
-
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new CommunicationUserCredential(userToken);
-callAgent = await callClient.createCallAgent(tokenCredential);
-
+const callAgent = await callClient.createCallAgent(tokenCredential);
+const deviceManager = await callClient.getDeviceManager()
 ```
 
-## Place an outgoing call
+## Place an outgoing call and join a group call
 
-To create and start a call you need to call one of the APIs on `CallClient` and provide Communication Services Identity of a user that you've provisioned using the Communication Services Management client library.
+To create and start a call you need to call the `CallClient.call()` method and provide the `Identifier` of the callee(s).
+To join a group call you need to call the `CallClient.join()` method and provide the groupId. Group Ids must be in GUID format.
 
-Call creation and start is synchronous and ou'll receive call instance, allowing you to subscribe to all events on the call.
+Call creation and start is synchronous and you'll receive a call instance, allowing you to subscribe to all events on the call.
 
 ### Place a 1:1 call to a user or a 1:n call with users and PSTN
 
 ```js
 
-const placeCallOptions = {};
-const acsUserId = CommunicationUser('8:acsUserId');
+const acsUserId = { communicationUserId: <ACS_USER_ID> }
 const oneToOneCall = callAgent.call([acsUserId], placeCallOptions);
 
 ```
 
 ### Place a 1:n call with users and PSTN
-[!IMPORTANT] To place the call to PSTN you have to specify phone number you own with "4:" prefix
+To place the call to PSTN you have to specify phone number acquired with Communication Services
 ```js
 
-const placeCallOptions = {alternateCallerId: '4:+1234567890'};
-const acsUser1 = CommunicationUser('8:acsUserId');
-const acsUser2 = PhoneNumber('+1234567890');
+const acsUser1 = { communicationUserId: <ACS_USER_ID> }
+const acsUser2 = { phoneNumber: <PHONE_NUMBER>};
 const groupCall = callClient.call([acsUser1, acsUser2], placeCallOptions);
 
 ```
 
 ### Place a 1:1 call with with video camera
-
+Currently only one outgoing local video stream is supported
 ```js
 
 const videoDeviceInfo = await callClient.getDeviceManager().getCameraList()[0];
@@ -78,9 +84,80 @@ const call = callClient.call(['acsUserId'], placeCallOptions);
 
 ```
 
-## Mid-call operations
+### Join a group call
 
-You can perform various operations during a call to manage settings related to video and audio.
+```js
+
+const context = { groupId: <GUID>}
+const call = callClient.call(context, placeCallOptions);
+
+```
+
+## Call Management
+
+You can access various call properties and perform various operations during a call to manage settings related to video and audio.
+
+### Call properties
+* Get the unique Id for this Call.
+```js
+
+const callId: string = call.id;
+
+```
+
+* Collection of remote participants participating in this call.
+```js
+const remoteParticipants: RemoteParticipants = call.remoteParticipants;
+```
+
+* The identity of caller if the call is incoming.
+```js
+
+const callerIdentity = call.callerIdentity;
+
+```
+
+* Get the state of this Call. One of 'None' | 'Incoming' | 'Connecting' | 'Ringing' | 'Connected' | 'Hold' | 'Disconnecting' | 'Disconnected' | 'EarlyMedia';
+```js
+
+const callState: CallState = call.state;
+
+```
+
+* Containing code/subcode indicating how call ended
+```js
+
+const callEndReason: CallEndReason = call.callEndReason;
+
+```
+
+* Whether this Call is incoming
+```js
+
+const isIncoming: boolean = call.isIncoming;
+
+```
+
+*  Whether this local microphone is muted
+```js
+
+const muted: boolean = call.isMicrophoneMuted;
+
+```
+
+* Whether screen sharing is on
+```js
+
+const isScreenSharingOn: boolean = call.isScreenSharingOn;
+
+```
+
+* Collection of video streams sent to other participants in a call.
+```js
+
+const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
+
+```
 
 ### Mute and unmute
 
@@ -98,7 +175,7 @@ await call.unmute();
 
 ### Start and stop sending local video
 
-To start sending local video to other participants in the call, invoke `startVideo` and pass a `videoDevice` from the `deviceManager.getCameraList()` enumeration.
+To start a video, one has to enumerate cameras via `DeviceManager`, create local video stream, and pass it in startVideo as an argument
 
 ```js
 const localVideoStream = new SDK.LocalVideoStream(videoDeviceInfo);
@@ -143,32 +220,56 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 ```
 
 ### Remote participant properties
-
+* Get the identifier for this remote participant.
 ```js
 
 const identity: CommunicationUser | PhoneNumber | CallingApplication | UnknownIdentifier = remoteParticipant.identifier;
 
-const state: string = remoteParticipant.state; // one of 'Idle' | 'Connecting' | 'Connected' | 'Hold' | 'InLobby' | 'EarlyMedia' | 'Disconnected';
+```
 
-const callEndReason: CallEndReason = remoteParticipant.callEndReason; // reason why participant left the call, contains code/subcode/message
+* Get state of this remote participant. One of 'Idle' | 'Connecting' | 'Connected' | 'Hold' | 'EarlyMedia' | 'Disconnected'
+```js
 
-const isMuted: boolean = remoteParticipant.isMuted; // indicates if participant is muted
-
-const isSpeaking: boolean = remoteParticipant.isSpeaking; // indicates if participant is speaking
-
-const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // collection of video streams this participants has [RemoteVideoStream, RemoteVideoStream, ...]
-
-const screenSharingStreams: RemoteVideoStream[] = remoteParticipant.screenSharingStreams; // collection of screen sharing streams this participants has, [RemoteVideoStream, RemoteVideoStream, ...]
+const state: string = remoteParticipant.state;
 
 ```
+
+* Reason why participant left the call, contains code/subcode/message.
+```js
+
+const callEndReason: CallEndReason = remoteParticipant.callEndReason;
+
+```
+
+* Whether this remote participant is muted or not
+```js
+
+const isMuted: boolean = remoteParticipant.isMuted;
+
+```
+
+* Whether this remote participant is speaking or not. 
+```js
+
+const isSpeaking: boolean = remoteParticipant.isSpeaking;
+
+```
+
+* Collection of video streams this participants has. 
+```js
+
+const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // [RemoteVideoStream, RemoteVideoStream, ...]
+
+```
+
 
 ### Add a participant to a call
 
 To add a participant to a call (either a user or a phone number) you can invoke `addParticipant`. This will synchronously return the remote participant instance.
 
 ```js
-const acsUser = new CommunicationUser('8:acsId')
-const acsPhone = new PhoneNumber('+123456789');
+const acsUser = { communicationUserId: <ACS_USER_ID> };
+const acsPhone = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(acsUser);
 const remoteParticipant = call.addParticipant(acsPhone);
 
@@ -187,23 +288,22 @@ await call.removeParticipant(acsPhone);
 
 ## Render remote participant video streams
 
-To list the streams of remote participants, inspect the `videoStreams` or `screenSharingStreams` collections:
+To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
 
 ```js
 
-const remoteParticipantStream = call.remoteParticipants[0].videoStreams[0];
-const remoteParticipantStream = call.remoteParticipants[0].screenSharingStreams[0];
-
+const remoteVideoStream = call.remoteParticipants[0].videoStreams[0];
+const streamType = remoteVideoStream.type;
 ```
  
-To render a `remoteParticipantStream`:
+To render a `remoteParticipantStream` use `Renderer`:
 
 ```js
 let renderer: Renderer;
 const displayVideo = () => {
 	renderer = new Renderer(remoteParticipantStream);
 	const view = await renderer.createView();
-	someVideoHtmlDiv.appendChild(view.target);
+	htmlElement.appendChild(view.target);
 }
 remoteParticipantStream.on('availabilityChanged', async () => {
 	if (remoteParticipantStream.isAvailable) {
@@ -217,16 +317,18 @@ if (remoteParticipantStream.isAvailable) {
 }
 ```
 
-### Remote Video Stream properties
+### Remote video stream properties
 
 ```js
+// The type of video stream. Can be 'Video' or 'ScreenSharing'
+const type: string = remoteParticipantStream.type;
 
-const type: string = remoteParticipantStream.type; // 'Video' | 'ScreenSharing';
-const type: boolean = remoteParticipantStream.isAvailable; // indicates if remote stream is available
+// Whether the stream is available or not.
+const type: boolean = remoteParticipantStream.isAvailable;
 
 ```
 
-### Renderer Methods and Properties
+### Renderer methods and properties
 
 ```js
 
@@ -245,7 +347,7 @@ renderer.dispose()
 ### RendererView methods and properties
 
 ```js
-// The current scale mode for the video. "Stretch" | "Crop" | "Fit"
+// The current scale mode for the video. 'Stretch' | 'Crop' | 'Fit'
 view.scalingMode
 
 // Weather to display the video stream mirrored.
@@ -261,16 +363,15 @@ view.updateScalingMode('crop')
 ```
 
 
-## Device Management
+## Device management
 
 `DeviceManager` lets you enumerate local devices that can be used in a call to transmit your audio/video streams. It also allows you to request permission from a user to access their microphone and camera using the native browser API.
 
-You can access `deviceManager` on a `callClient` or `callAgent` object:
+You can access `deviceManager` by calling `callClient.getDeviceManager()` method. A `callAgent` object must be instantiated first in order to call this method.
 
 ```js
 
-const deviceManager = callClient.getDeviceManager();
-const deviceManager = callAgent.deviceManager;
+const deviceManager = await callClient.getDeviceManager();
 
 ```
 
@@ -280,11 +381,13 @@ To access local devices, you can use enumeration methods on the Device Manager. 
 
 ```js
 
-// enumerate local cameras
+//  Get a list of available video devices for use.
 const localCameras = deviceManager.getCameraList(); // [VideoDeviceInfo, VideoDeviceInfo...]
-// enumerate local cameras
+
+// Get a list of available microphone devices for use.
 const localMicrophones = deviceManager.getMicrophoneList(); // [AudioDeviceInfo, AudioDeviceInfo...]
-// enumerate local cameras
+
+// Get a list of available speaker devices for use.
 const localSpeakers = deviceManager.getSpeakerList(); // [AudioDeviceInfo, AudioDeviceInfo...]
 
 ```
@@ -295,20 +398,23 @@ Device manager allows you to set a default device that will be used when startin
 
 ```js
 
-// get default microphone
+// Get the microphone device that is being used.
 const defaultMicrophone = deviceManager.getMicrophone();
-// [asynchronous] set default microphone
+
+// Set the microphone device to use.
 await deviceMicrophone.setMicrophone(AudioDeviceInfo);
-// get default speaker
+
+// Get the speaker device that is being used.
 const defaultSpeaker = deviceManager.getSpeaker();
-// [asynchronous] set default speaker
+
+// Set the speaker device to use.
 await deviceManager.setSpeaker(AudioDeviceInfo);
 
 ```
 
 ### Local camera preview
 
-You can use `deviceManager` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed. This is an asynchronous action.
+You can use `DeviceManager` and `Renderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed. This is an asynchronous action.
 
 ```js
 const localVideoDevice = deviceManager().getCameraList()[0];
@@ -319,7 +425,7 @@ someVideoHtmlDiv.appendChild(view.target);
 
 ```
 
-### Request permission to camera/microphone (JavaScript only)
+### Request permission to camera/microphone
 
 To prompt a user to grant permission to his camera/microphone call:
 

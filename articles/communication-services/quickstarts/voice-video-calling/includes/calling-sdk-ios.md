@@ -1,17 +1,29 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/1/2020
+ms.author: mikben
+---
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on how to get a `User Access Token` see [here](../../user-access-tokens.md)
-- Optional: Complete the quickstart for getting started with adding calling to your application [here](../getting-started-with-calling.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-access-tokens.md)
+- Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
-## Setting Up
+## Setting up
+### Build AzureCommunication and AzureCore package
+
+With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
+The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step.
 
 ### Add the client library to your app
 
-In Xcode, create a new iOS project and select the **Single View Application** template. This tutorial uses the [SwiftUI framework][swift_ui], so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**
+In Xcode, create a new iOS project and select the **Single View Application** template. This tutorial uses the SwiftUI framework, so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**
 
-![Create a New Project in XCode](../../../media/xcode-new-ios-project.png)
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the create new project window in XCode":::
 
 Add the request for microphone access. Right-click the `Info.plist` entry of the project tree, and select **Open As** > **Source Code**. Add the following lines into the `<dict>` section, and then save the file.
 
@@ -22,52 +34,74 @@ Add the request for microphone access. Right-click the `Info.plist` entry of the
 
 Add the Azure Communication Services Calling client library to your project. 
 
-- Download the [Azure Communication Services Calling client library][TODO] framework provided as a zip file, and unzip it. **TODO this link still references SPOOL**
 - In Xcode, click on your project file to and select the build target to open the project settings editor.
 - Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
-- In the bottom left of the dialog, chose **Add Files**, navigate to the **SpoolCallingSDK.framework** directory of the un-zipped client library package.
+- In the bottom left of the dialog, chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the client library package.
+- Also import the Azure framework packages **AzureCommunication.framework** and **AzureCore.framework** generated with the bash script in the above step.
 
-[!NOTE]
-Currently the client library includes multiple binaries, each targeting different architectures. To build an app that runs on the simulator you should select the **SpoolCallingSDK.framework**  included under the **x86_64** directory
+    > [!NOTE]
+    > Currently the AzureCommunicationCalling library includes both x86_64 and arm64 ABI's.
 
-Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **SpoolCallingSDK.framework**
+Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **AzureCommunicationCalling.framework** , **AzureCommunication.framework** and **AzureCore.framework**
 
-![Update Framework Search Paths](../../../media/xcode-framework-search-paths.png)
-
+![Screenshot showing the framework search paths for the communication services libraries.](../media/ios/xcode-framework-search-paths.png)
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for JavaScript.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for iOS.
 
 | Name                                              | Description                                                                                                                                      |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallingFactory](../../../references/overview.md) | This class is needed for all calling functionality. You instantiate it with your subscription information, and use it to start and manage calls. |
+| ACSCallClient | This class is needed for all calling functionality. You instantiate an ACSCallAgent instance with CommunicationUserCredential object, and use it to start and manage calls. |
 
-## Initialize the CallClient
+## Initialize the ACSCallAgent
 
-To create a `CallClient` you have to use `CallClientFactory.create` method that asynchronously returns a `CallClient` object once it's initialized
+To create a `ACSCallAgent` instance from `ACSCallClient` you have to use `callClient.createCallAgent` method that asynchronously returns a `ACSCallAgent` object once it's initialized
 
 To create call client you have to pass a `CommunicationUserCredential` object.
 
 ```swift
 
-let userToken = "<user token>";
-let callClientInstance: CallClient? = nil;
-CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> Void in
-    if(error != nil)
-    {
-        // handle error
-        return;
-    }
-    
-    callClientInstance = callClient;
-}));
+import AzureCommunication
+
+let tokenString = "token_string"
+var userCredential: CommunicationUserCredential?
+do {
+    userCredential = try CommunicationUserCredential(
+        initialToken: tokenString, refreshProactively: true,
+        tokenRefresher: self.fetchTokenSync
+    )
+} catch {
+    print("Failed to create CommunicationCredential object")
+}
+
+// tokenProvider needs to be implemented by contoso which fetches new token
+public func fetchTokenSync(then onCompletion: TokenRefreshOnCompletion) {
+    let newToken = self.tokenProvider!.fetchNewToken()
+    onCompletion(newToken, nil)
+}
+```
+
+Pass CommnicationUserCredential object created above to ACSCallClient
+
+```swift
+
+callClient = ACSCallClient()
+callClient?.createCallAgent(userCredential!,
+    withCompletionHandler: { (callAgent, error) in
+        if error != nil {
+            print("Create agent succeeded")
+            self.callAgent = callAgent
+        } else {
+            print("Create agent failed")
+        }
+})
 
 ```
 
 ## Place an outgoing call
 
-To create and start a call you need to call one of the APIs on `CallClient` and provide the Communication Services Identity of a user that you've provisioned using the Communication Services Management client library.
+To create and start a call you need to call one of the APIs on `ACSCallAgent` and provide the Communication Services Identity of a user that you've provisioned using the Communication Services Management client library.
 
 Call creation and start is synchronous. You'll receive call instance that allows you to subscribe to all events on the call.
 
@@ -75,49 +109,98 @@ Call creation and start is synchronous. You'll receive call instance that allows
 
 ```swift
 
-let placeCallOptions = ACSPlaceCallOptions();
-let oneToOneCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId'], options: placeCallOptions);
+let callees = [CommunicationUser(identifier: 'acsUserId')]
+let oneToOneCall = self.CallingApp.callAgent.call(participants: callees, options: ACSStartCallOptions())
 
 ```
 
 ### Place a 1:n call with users and PSTN
-[!IMPORTANT] To place the call to PSTN you have to specify phone number you own with "4:" prefix
+To place the call to PSTN you have to specify phone number acquired with Communication Services
 ```swift
 
-let placeCallOptions = ACSPlaceCallOptions(alternateCallerId: '4:+1234567890');
-let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId', '+1234567890'], options: placeCallOptions);
+let pstnCallee = PhoneNumber('+1999999999')
+let callee = CommunicationUser(identifier: 'acsUserId')
+let groupCall = self.CallingApp.callAgent.call(participants: [pstnCallee, callee], options: ACSStartCallOptions())
 
 ```
 
 ### Place a 1:1 call with with video
+To get a device manager instance please refer [here](#device-management)
 
 ```swift
 
-let placeCallOptions = ACSPlaceCallOptions();
-let videoOptions = ACSVideoOptions()
-let cameras = callClient.deviceManager.getCameraList();
-videoOptions.camera = (cameras.first ?? nil)!;
-placeCallOptions.videoOptions = videoOptions
-let call = callClient.callWithParticipants(participants: [names], options: placeCallOptions);
+let camera = self.deviceManager!.getCameraList()![0]
+let localVideoStream = ACSLocalVideoStream(camera)
+let videoOptions = ACSVideoOptions(localVideoStream)
+
+let startCallOptions = ACSStartCallOptions()
+startCallOptions?.videoOptions = videoOptions
+
+let callee = CommunicationUser(identifier: 'acsUserId')
+let call = self.callAgent?.call([callee], options: startCallOptions)
 
 ```
 
-## Handle incoming push notification
+## Push notification
+
+Mobile push notification is the pop up notification you get in the mobile device. For calling, we will be focusing on VoIP (Voice over Internet Protocol) push notifications. We will be offering you the capabilities to register for push notifcation, to handle push notification, and to unregister push notification.
+
+### Prerequisite
+
+- Step 1: Xcode -> Signing & Capabilities -> Add Capability -> "Push Notifications"
+- Step 2: Xcode -> Signing & Capabilities -> Add Capability -> "Background Modes"
+- Step 3: "Background Modes" -> Select "Voice over IP" and "Remote notifications"
+![Screenshot showing how to add capabilities in Xcode.](../media/ios/xcode-push-notification.png)
+
+#### Register for Push Notifications
+
+In order to register for push notification, call registerPushNotification() on a *CallAgent* instance with a device registration token.
+
+Register for push notification needs to be called after successful initialization. When the `callAgent` object is destroyed, `logout` will be called which will automatically unregister push notifications.
+
 
 ```swift
 
-call.handlePushNotificationWithCompletionHandler(jsonPayload, 
-    completionHandler: (call: ACSCall, error: Error?) -> Void) { 
-    if (error != nil)
-    {
-        print("Failed to handle the incoming call notification")
+let deviceToken: Data = pushRegistry?.pushToken(for: PKPushType.voIP)
+callAgent.registerPushNotifications(deviceToken,
+                withCompletionHandler: { (error) in
+    if(error == nil) {
+        print("Successfully registered to push notification.")
+    } else {
+        print("Failed to register push notification.")
     }
-    else
-    {
-        self.call = call
-        self.call.delegate = self; // To get notified about call state changes
+})
+
+```
+
+#### Push Notification Handling
+In order to receive incoming calls push notifications, call *handlePushNotification()* on a *CallAgent* instance with a dictionary payload.
+
+```swift
+
+let dictionaryPayload = pushPayload?.dictionaryPayload
+callAgent.handlePushNotification(dictionaryPayload, withCompletionHandler: { (error) in
+    if (error != nil) {
+        print("Handling of push notification failed")
+    } else {
+        print("Handling of push notification was successful")
     }
-});
+})
+
+```
+#### Unregister Push Notification
+
+Applications can unregister push notification at any time. Simply call the `unRegisterPushNotification` method on *CallAgent*.
+
+```swift
+
+callAgent.unRegisterPushNotifications(completionHandler: { (error) in
+    if (error != nil) {
+        print("Unregister of push notification failed, please try again")
+    } else {
+        print("Unregister of push notification was successful")
+    }
+})
 
 ```
 
@@ -130,36 +213,49 @@ You can perform various operations during a call to manage settings related to v
 To mute or unmute the local endpoint you can use the `mute` and `unmute` asynchronous APIs:
 
 ```swift
+call.mute(completionHandler: { (error) in
+    if error == nil {
+        print("Successfully muted")
+    } else {
+        print("Failed to mute")
+    }
+})
 
-//mute local device 
-call.mute(completionHandler: nil);
+```
 
-//unmute local device 
-call.unmute(completionHandler: nil);
+[Asynchronous] Local unmute
 
+```swift
+call.unmute(completionHandler:{ (error) in
+    if error == nil {
+        print("Successfully unmuted")
+    } else {
+        print("Failed to unmute")
+    }
+})
 ```
 
 ### Start and stop sending local video
 
-To start sending local video to other participants in the call, use `startVideo` api and pass `videoDevice` from `deviceManager.getCameraList()` API enumeration call:
+To start sending local video to other participants in the call, use `startVideo` API and pass `localVideoStream` with `camera`
 
 ```swift
 
-call.startVideo(device: ACSVideoDeviceInfo(),
-                completionHandler: ((error: Error?) -> Void) { 
-    if(error == nil)
-    {
-        print("Video was started successfully.");
+let firstCamera: ACSVideoDeviceInfo? = self.deviceManager?.getCameraList()![0]
+let localVideoStream = ACSLocalVideoStream(firstCamera)
+
+call.startVideo(localVideoStream) { (error) in
+    if (error == nil) {
+        print("Local video started successfully")
     }
-    else
-    {
-        print("Video failed to start.");
-    }   
-});
+    else {
+        print("Local video failed to start")
+    }
+}
 
 ```
 
-Once you start sending video, the `LocalVideoStream` instance is added the `localVideoStreams` collection on a call instance:
+Once you start sending video, the `ACSLocalVideoStream` instance is added the `localVideoStreams` collection on a call instance:
 
 ```swift
 
@@ -167,26 +263,24 @@ call.localVideoStreams[0]
 
 ```
 
-[Asynchronous] To stop local video, pass the `localVideoStream` returned from the invocation of `call.startVideo()`:
+[Asynchronous] To stop local video, pass the `localVideoStream` returned from the invocation of `call.startVideo`:
 
 ```swift
 
-call.stopVideo(completionHandler: ((error: Error?) -> Void) { 
-    if(error == nil)
-    {
-        print("Video was stopped successfully.");
+call.stopVideo(localVideoStream,{ (error) in
+    if (error == nil) {
+        print("Local video stopped successfully")
     }
-    else
-    {
-        print("Video failed to stop.");
-    }   
-});
+    else {
+        print("Local video failed to stop")
+    }
+}
 
 ```
 
 ## Remote participants management
 
-All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance:
+All remote participants are represented by the `ACSRemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance:
 
 ### List participants in a call
 
@@ -200,26 +294,26 @@ call.remoteParticipants
 
 ```swift
 
-// [String] userId - same as the one used to provision token for another user
-var userId = remoteParticipant.identity;
+// [ACSRemoteParticipantDelegate] delegate - an object you provide to receive events from this ACSRemoteParticipant instance
+var remoteParticipantDelegate = remoteParticipant.delegate
+
+// [CommunicationIdentifier] identity - same as the one used to provision token for another user
+var identity = remoteParticipant.identity
 
 // ACSParticipantStateIdle = 0, ACSParticipantStateEarlyMedia = 1, ACSParticipantStateConnecting = 2, ACSParticipantStateConnected = 3, ACSParticipantStateOnHold = 4, ACSParticipantStateInLobby = 5, ACSParticipantStateDisconnected = 6
-var state = remoteParticipant.state;
+var state = remoteParticipant.state
 
-// [AcsEndReason] callEndReason - reason why participant left the call, contains code/subcode/message
+// [ACSError] callEndReason - reason why participant left the call, contains code/subcode/message
 var callEndReason = remoteParticipant.callEndReason
 
 // [Bool] isMuted - indicating if participant is muted
-var isMuted = remoteParticipant.isMuted;
+var isMuted = remoteParticipant.isMuted
 
 // [Bool] isSpeaking - indicating if participant is currently speaking
-var isSpeaking = remoteParticipant.isSpeaking;
+var isSpeaking = remoteParticipant.isSpeaking
 
 // ACSRemoteVideoStream[] - collection of video streams this participants has
-var videoStreams = remoteParticipant.videoStreams; // [ACSRemoteVideoStream, ACSRemoteVideoStream, ...]
-
-// ACSRemoteVideoStream[] - collection of screen sharing streams this participants has
-var screenSharingStreams = remoteParticipant.screenSharingStreams; // [ACSRemoteVideoStream, Communication ServicesRemoteVideoStream, ...]
+var videoStreams = remoteParticipant.videoStreams // [ACSRemoteVideoStream, ACSRemoteVideoStream, ...]
 
 ```
 
@@ -230,7 +324,7 @@ This will synchronously return a remote participant instance.
 
 ```swift
 
-ACSRemoteParticipant* remoteParticipant = self.call.addParticipant("userId");
+let remoteParticipantAdded: ACSRemoteParticipant = call.addParticipant(CommunicationUser(identifier: "userId"))
 
 ```
 
@@ -239,8 +333,13 @@ To remove a participant from a call (either a user or a phone number) you can in
 
 ```swift
 
-call.removeParticipant(participant: remoteParticipant,
-                       completionHandler: ((error: Error?) -> Void))
+call!.remove(remoteParticipantAdded) { (error) in
+    if (error == nil) {
+        print("Successfully removed participant")
+    } else {
+        print("Failed to remove participant")
+    }
+}
 
 ```
 
@@ -250,76 +349,61 @@ Remote participants may initiate video or screen sharing during a call.
 
 ### Handle remote participant video/screen sharing streams
 
-To list the streams of remote participants, inspect the `videoStreams` or `screenSharingStreams` collections:
+To list the streams of remote participants, inspect the `videoStreams` collections:
 
 ```swift
-var remoteParticipantStream = call.remoteParticipants[0].videoStreams[0];
-var remoteParticipantStream = call.remoteParticipants[0].screenSharingStreams[0];
+
+var remoteParticipantVideoStream = call.remoteParticipants[0].videoStreams[0]
+
 ```
 
 ### Remote video stream properties
 
 ```swift
-// [ACSMediaStreamType] type one of 'Video' | 'ScreenSharing';
-var type = remoteParticipantStream.type;
 
-// [Bool] if remote stream is available
-var isAvailable = remoteParticipantStream.isAvailable;
+var type: ACSMediaStreamType = remoteParticipantVideoStream.type // 'ACSMediaStreamTypeVideo'
 
-// RemoteVideoRenderer[] collection of active renderers rendering given stream
-var activeRenders = remoteParticipantStream.activeRenderers;
+var isAvailable: Bool = remoteParticipantVideoStream.isAvailable // indicates if remote stream is available
+
+var id: Int = remoteParticipantVideoStream.id // id of remoteParticipantStream
+
 ```
-
-You can subscribe to `availabilityChanged` and `activeRenderersChanged` events 
 
 ### Render remote participant stream
 
 To start rendering remote participant streams:
 
 ```swift
-let renderer: ASARemoteVideoRenderer = remoteVideoStream.render(ScalingMode.Stretch);
-let targetSurface: UIView = renderer.target;
-```
 
-Where:
-
-* [HTMLNode] target - an HTML node that should be used as a placeholder for stream to render in
-* [string] scalingMode - one of 'Stretch' | 'Crop' | 'Fit'
-
-As a result of this call, `remoteVideoRenderer` is added to the `activeRenderers` collection:
-
-```swift
-
-remoteParticipantStream.activeRenderers[0] == remoteVideoRenderer
+let renderer: ACSRenderer? = ACSRenderer(remoteVideoStream: remoteParticipantVideoStream)
+let targetRemoteParicipantView: ACSRendererView? = renderer?.createView(ACSRenderingOptions(ACSScalingMode.crop))
+// To update the scaling mode later
+targetRemoteParicipantView.update(ACSScalingMode.fit)
 
 ```
 
-### Remote Video Renderer MEthods and Properties
+### Remote video renderer methods and properties
 
 ```swift
 // [Bool] isRendering - indicating if stream is being rendered
-remoteVideoRenderer.isRendering; 
-// [ACSScalingMode] ACSScalingModeStretch = 0, ACSScalingModeCrop = 1, ACSScalingModeFit = 2
-remoteVideoRenderer.scalingMode
-// [UIView] target an HTML node that should be used as a placeholder for stream to render in
-remoteVideoRenderer.target
+remoteVideoRenderer.isRendering()
 ```
 
-The `RemoteVideoRenderer` instance has following methods:
+## Device management
+
+`DeviceManager` lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera. You can access `deviceManager` on the `callClient` object:
 
 ```swift
-// [ScalingMode] ASAScalingModeStretch = 0, ASAScalingModeCrop = 1, ASAScalingModeFit = 2
-remoteVideoRenderer.scalingMode
-await remoteVideoRenderer.pauseWithCompletionHandler(completionHandler: nil); // pause rendering
-await remoteVideoRenderer.resumeWithCompletionHandler(completionHandler: nil); // resume rendering
-```
 
-## Device Management
-
-`DeviceManager` lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera using native browser APIs. You can access `deviceManager` on the `callClient` object:
-
-```swift
-var deviceManager = callClient.deviceManager;
+self.callClient!.getDeviceManager(
+    completionHandler: { (deviceManager, error) in
+        if (error == nil) {
+            print("Got device manager instance")
+            self.deviceManager = deviceManager
+        } else {
+            print("Failed to get device manager instance")
+        }
+    })
 ```
 
 ### Enumerate local devices
@@ -328,11 +412,11 @@ To access local devices, you can use enumeration methods on the Device Manager. 
 
 ```swift
 // enumerate local cameras
-var localCameras = deviceManager.getCameraList(); // [ACSVideoDeviceInfo, ACSVideoDeviceInfo...]
+var localCameras = deviceManager.getCameraList() // [ACSVideoDeviceInfo, ACSVideoDeviceInfo...]
 // enumerate local cameras
-var localMicrophones = deviceManager.getMicrophoneList(); // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
+var localMicrophones = deviceManager.getMicrophoneList() // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
 // enumerate local cameras
-var localSpeakers = deviceManager.getSpeakerList(); // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
+var localSpeakers = deviceManager.getSpeakerList() // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
 ``` 
 
 ### Set default microphone/speaker
@@ -340,48 +424,50 @@ var localSpeakers = deviceManager.getSpeakerList(); // [ACSAudioDeviceInfo, ACSA
 Device manager allows you to set a default device that will be used when starting a call. If stack defaults are not set, Communication Services will fall back to OS defaults.
 
 ```swift
-// [Synchronous] set default camera
-var deviceManager.setCamera(VideoDeviceInfo);
-// get default microphone
-var defaultMicrophone = deviceManager.getMicrophone();
-// [Synchronous] set default microphone
-defaultMicrophone.setDefaultMicrophone(AudioDeviceInfo);
-// get default speaker
-var defaultSpeaker = deviceManager.getSpeaker();
-// [Synchronous] set default speaker
-deviceManager.setDefaultSpeakers(AudioDeviceInfo);
+// get first microphone
+var firstMicrophone = self.deviceManager!.getMicrophoneList()![0]
+// [Synchronous] set microphone
+deviceManager.setMicrophone(ACSAudioDeviceInfo())
+// get first speaker
+var firstSpeaker = self.deviceManager!.getSpeakerList()![0]
+// [Synchronous] set speaker
+deviceManager.setSpeakers(ACSAudioDeviceInfo())
 ```
 
 ### Local camera preview
 
-You can use `deviceManager` to begin rendering a stream from your local camera. This stream won't be send to other participants; it's a local preview feed. This is an asynchronous action.
+You can use `ACSRenderer` to begin rendering a stream from your local camera. This stream won't be send to other participants; it's a local preview feed. This is an asynchronous action.
 
 ```swift
-var previewRenderer = deviceManager.renderPreviewVideoWithCameraDevice(defaultCamera, target, remoteVideoRenderer.scalingMode);
-previewRenderer.start();
+
+let camera: ACSVideoDeviceInfo = self.deviceManager!.getCameraList()![0]
+let localVideoStream: ACSLocalVideoStream = ACSLocalVideoStream(camera)
+let renderer: ACSRenderer = ACSRenderer(localVideoStream: localVideoStream)
+self.view = renderer!.createView(ACSRenderingOptions())
+
 ```
 
 ### Local camera preview properties
 
-The preview renderer has set of properties and methods that allow you to control the rendering:
+The renderer has set of properties and methods that allow you to control the rendering:
 
 ```swift
-// [Bool] isRendering
-previewRenderer.isRendering
-// [UIView] target
-previewRenderer.target
-// [ACSScalingMode] scalingMode
-previewRenderer.scalingMode
-// [ACSVideoDeviceInfo] videoDeviceInfo
-previewRenderer.videoDeviceInfo
-// [Synchronous] start
-previewRenderer.start();
-// [Synchronous] stop
-previewRenderer.stop();
-// [Synchronous] switchDevice
-previewRenderer.switchDevice(ACSVideoDeviceInfo);
-// setScalingMode
-previewRenderer.setScalingMode(ACSScalingMode);
+
+// Constructor can take in ACSLocalVideoStream or ACSRemoteVideoStream
+let localRenderer = ACSRenderer(localVideoStream:localVideoStream)
+let remoteRenderer = ACSRenderer(remoteVideoStream:remoteVideoStream)
+
+// [ACSStreamSize] size of the rendering view
+localRenderer.size
+
+// [ACSRendererDelegate] an object you provide to receive events from this ACSRenderer instance
+localRenderer.delegate
+
+// [Synchronous] create view with rendering options
+localRenderer.createView(options:ACSRenderingOptions())
+// [Synchronous] dispose rendering view
+localRenderer.dispose()
+
 ```
 --- 
 
@@ -393,15 +479,16 @@ You can subscribe to most of the properties and collections to be notified when 
 To subscribe to `property changed` events:
 
 ```swift
-self.adHocCallClient.delegate = self
-    // Get the property of the call state by doing get on the call's state member
-    public func onCallStateChanged(_ call: ACSCall!,
-                            _ args: ACSPropertyChangedEventArgs!)
-    {
-        print("Callback from client library when the call state changes, current state: " + call.state.rawValue);
-    }
+call.delegate = self
+// Get the property of the call state by doing get on the call's state member
+public func onCallStateChanged(_ call: ACSCall!,
+                               _ args: ACSPropertyChangedEventArgs!)
+{
+    print("Callback from SDK when the call state changes, current state: " + call.state.rawValue)
+}
+
  // to unsubscribe
- self.adHocCallClient.delegate = nil
+ self.call.delegate = nil
 
 ```
 
@@ -409,14 +496,14 @@ self.adHocCallClient.delegate = self
 To subscribe to `collection updated` events:
 
 ```swift
-self.adHocCallClient.delegate = self
-    // Collection contains the streams that were added or removed only
-    public func onLocalVideoStreamsChanged(_ call: ACSCall!,
-                                    _ args: ACSLocalVideoStreamsUpdatedEventArgs!)
-    {
-        print(args.addedStreams.count);
-        print(args.removeStreams.count);
-    }
-     // to unsubscribe
- self.adHocCallClient.delegate = nil
+call.delegate = self
+// Collection contains the streams that were added or removed only
+public func onLocalVideoStreamsChanged(_ call: ACSCall!,
+                                       _ args: ACSLocalVideoStreamsUpdatedEventArgs!)
+{
+    print(args.addedStreams.count)
+    print(args.removedStreams.count)
+}
+// to unsubscribe
+self.call.delegate = nil
 ```

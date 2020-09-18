@@ -12,6 +12,7 @@ ms.custom: include file
 ms.author: marobert
 ---
 
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -95,9 +96,8 @@ const identityClient = new CommunicationIdentityClient(connectionString);
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. You should maintain a mapping between your application's users and Communication Services generated identities (e.g. by storing them in your application server's database).
 
 ```javascript
-let response = await identityClient.createUser();
-const { user } = response;
-console.log(`\nCreated a user with ID: ${user.id}`);
+let userResponse = await identityClient.createUser();
+console.log(`\nCreated a user with ID: ${userResponse.communicationUserId}`);
 ```
 
 Read the [Identity Model concept page to learn more](../../concepts/identity-model.md).
@@ -108,8 +108,8 @@ Use the `issueToken` method to issue an access token for a Communication Service
 
 ```javascript
 // Issue an access token with the "voip" scope for a new user
-let response = await identityClient.issueToken(user, ["voip"]);
-const { token, expiresOn } = response;
+let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+const { token, expiresOn } = tokenResponse;
 console.log(`\nIssued a token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```
@@ -121,8 +121,8 @@ User access tokens are short-lived credentials that need to be reissued in order
 In some cases, you may need to explicitly revoke user access tokens, for example, when a user changes the password they use to authenticate to your service. This use the `revokeTokens` method to invalidate all of a user's access tokens.
 
 ```javascript  
-await identityClient.revokeTokens(user);
-console.log(`\nSuccessfully revoked all tokens for user with Id: ${user.id}`);
+await identityClient.revokeTokens(userResponse);
+console.log(`\nSuccessfully revoked all tokens for user with Id: ${userResponse.communicationUserId}`);
 ```
 
 ## Delete a user
@@ -130,8 +130,8 @@ console.log(`\nSuccessfully revoked all tokens for user with Id: ${user.id}`);
 Deleting a user revokes all active tokens and prevents you from issuing subsequent tokens for the identities. It also removes all the persisted content associated with the user.
 
 ```javascript
-await identityClient.deleteUser(user);
-console.log(`\nDeleted the user with Id: ${user.id}`);
+await identityClient.deleteUser(userResponse);
+console.log(`\nDeleted the user with Id: ${userResponse.communicationUserId}`);
 ```
 
 ## Run the code

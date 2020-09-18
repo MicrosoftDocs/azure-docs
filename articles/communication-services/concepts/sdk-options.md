@@ -1,5 +1,6 @@
 ---
-title: Client libraries and REST APIs
+title: Client libraries and REST APIs for Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
 description: Learn more about Azure Communication Services client libraries and REST APIs.
 author: mikben
 manager: jken
@@ -22,7 +23,7 @@ The Calling client library uses proprietary network interfaces and is currently 
 
 | Assembly               | Protocols             | Namespaces                          | Capabilities                                                      |
 | ---------------------- | --------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Azure Resource Manager (ARM)| REST             | Azure.ResourceManager.Communication | Provision and manage Communication Services resources             |
+| Azure Resource Manager | REST             | Azure.ResourceManager.Communication | Provision and manage Communication Services resources             |
 | Common                 | REST                  | Azure.Communication.Common          | Provides base types for other client libraries |
 | Administration         | REST                  | Azure.Communication.Administration  | Manage users, access tokens, and phone numbers, allocate standards-compliant STUN and TURN servers |
 | Chat                   | REST                  | Azure.Communication.Chat            | Add real-time text based chat to your applications  |
@@ -31,14 +32,14 @@ The Calling client library uses proprietary network interfaces and is currently 
 
 ### Client library language support
 
-Availability guidance and timelines for individual client library packages are detailed below. The [Communication Services roadmap](../roadmap.md) provides additional information on upcoming features.
+Availability guidance and timelines for individual client library packages are detailed below.
 
 | Area           | JavaScript | .NET | Python | Java | Swift or Obj-C | Java (Android) | Other                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
-| ARM            | ✔️         | ✔️    | ✔️      | -    | -              | *Coming Soon*  | GO and Azure CLI *Coming Soon* |
+| Azure Resource Manager | ✔️         | ✔️    | ✔️      | -    | -              | *Not yet supported*  | GO and Azure CLI *Not yet supported* |
 | Common         | ✔️         | ✔️    | ✔️      | ✔️   | ✔️            | ✔️             | -                              |
 | Administration | ✔️         | ✔️    | ✔️      | ✔️   | -              | -              | CLI                            |
-| Chat           | ✔️         | ✔️    | ✔️      | ✔️   | *Coming Soon*  | *Coming Soon*  | -                              |
+| Chat           | ✔️         | ✔️    | ✔️      | ✔️   | *Not yet supported*  | *Not yet supported*  | -                              |
 | SMS            | ✔️         | ✔️    | ✔️      | ✔️   | -              | -              | -                              |
 | Calling        | ✔️         | -      | -      | -     | (Obj-C) ✔️     | ✔️            | -                              |
 
@@ -96,11 +97,11 @@ In the future we may retire versions of the Communication Services client librar
 
 ### API and client library decommissioning examples
 
-#### You've integrated the v24 version of the SMS REST API into your application. Azure Communications releases v25 .
+**You've integrated the v24 version of the SMS REST API into your application. Azure Communications releases v25.**
 
 You'll get 3 years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
 
-#### You've integrated the v2.02 version of the Calling client library into your application. Azure Communication releases v2.05 .
+**You've integrated the v2.02 version of the Calling client library into your application. Azure Communication releases v2.05.**
 
 You may be required to update to the v2.05 version of the Calling client library within 12 months of the release of v2.05. This should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
 
@@ -116,4 +117,3 @@ To get started with Azure Communication Services:
 
 - [Create Azure Communication Resources](../quickstarts/create-communication-resource.md)
 - Generate [User Access Tokens](../quickstarts/user-access-tokens.md)
-  

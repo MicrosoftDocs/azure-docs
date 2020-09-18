@@ -41,8 +41,6 @@ landingContent:
             url: concepts/event-handling.md
           - text: Notifications
             url: concepts/notifications.md
-          - text: Logging and diagnostics
-            url: concepts/logging-diagnostics.md
   - title: Voice and video calling
     linkLists:
       - linkListType: quickstart

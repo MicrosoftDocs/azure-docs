@@ -24,7 +24,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 
@@ -33,7 +33,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - In a terminal or command window, run `mvn -v` to check that maven is installed.
 - To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
 
-## Setting Up
+## Setting up
 
 ### Create a new Java application
 
@@ -55,11 +55,6 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
     <artifactId>azure-communication-sms</artifactId>
     <version>1.0.0-beta.1</version>
 </dependency>
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-core-http-netty</artifactId>
-    <version>1.3.0</version>
-</dependency>
 ```
 
 ### Set up the app framework
@@ -77,13 +72,16 @@ Add the `azure-core-http-netty` dependency to your **pom.xml** file.
 Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, add import directives and remove the `System.out.println("Hello world!");` statement:
 
 ```java
+package com.communication.quickstart;
 
+import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.azure.communication.common.CommunicationClientCredential;
+import com.azure.communication.common.PhoneNumber;
 import com.azure.communication.sms.SmsClient;
 import com.azure.communication.sms.SmsClientBuilder;
 import com.azure.communication.sms.models.SendSmsOptions;
@@ -107,41 +105,41 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                                             | Description                                                                                     |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [SmsClientBuilder](../../../references/overview.md)              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
-| [SmsClient](../../../references/overview.md)                     | This class is needed for all SMS functionality. You use it to send SMS messages.                |
-| [SendSmsResponse](../../../references/overview.md)               | This class contains the response from the SMS service.                                          |
-| [CommunicationClientCredential](../../../references/overview.md) | This class handles signing requests.                                                            |
+| SmsClientBuilder              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
+| SmsClient                    | This class is needed for all SMS functionality. You use it to send SMS messages.                |
+| SendSmsResponse               | This class contains the response from the SMS service.                                          |
+| CommunicationClientCredential | This class handles signing requests.                                                            |
+| PhoneNumber                   | This class holds phone number information
 
 ## Authenticate the client
 
-Instantiate an `SmsClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an `SmsClient` with your connection string. The code below retrieves the endpoint and credential strings for the resource from environment variables named `COMMUNICATION_SERVICES_ENDPOINT_STRING` and `COMMUNICATION_SERVICES_CREDENTIAL_STRING` (Credential is the `Key` from the Azure portal. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `main` method:
 
 ```java
-// This code demonstrates how to fetch your connection string
-// from an environment variable.
-String connectionString = System.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING");
-
 // Create an HttpClient builder of your choice and customize it
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
+CommunicationClientCredential credential = new CommunicationClientCredential(accessKey);
+
 // Configure and build a new SmsClient
 SmsClient client = new SmsClientBuilder()
-    .connectionString(connectionString)
-    .httpClient(httpClient);
+    .endpoint(endpoint)
+    .credential(credential)
+    .httpClient(httpClient)
     .buildClient();
 ```
 
-You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable) that is provided by `azure-core`.
+You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) that is provided by `azure-core`.
 
 ## Send an SMS message
 
-Send an SMS message by calling the [sendMessage](../../../references/overview.md) method. Add this code to the end of `main` method:
+Send an SMS message by calling the sendMessage method. Add this code to the end of `main` method:
 
 ```java
-List<String> to = new ArrayList<String>();
-to.add("<to-phone-number>");
+List<PhoneNumber> to = new ArrayList<PhoneNumber>();
+to.add(new PhoneNumber("<to-phone-number>"));
 
 // SendSmsOptions is an optional field. It can be used
 // to enable a delivery report to the Azure Event Grid
@@ -149,10 +147,10 @@ SendSmsOptions options = new SendSmsOptions();
 options.setEnableDeliveryReport(true);
 
 // Send the message and check the response for a message id
-SendSmsResponse response = smsClient.sendMessage(
-    "<leased-phone-number>",
+SendSmsResponse response = client.sendMessage(
+    new PhoneNumber("<leased-phone-number>"),
     to,
-    "your message",
+    "<message-text>",
     options);
 
 System.out.println("MessageId: " + response.getMessageId());

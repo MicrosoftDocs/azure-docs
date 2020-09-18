@@ -1,5 +1,6 @@
 ---
 title: Identity model in Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
 description: Learn how entities are represented in Azure Communication Services
 author: arturk
 manager: mariusu
@@ -17,18 +18,13 @@ zone_pivot_groups: acs-js-csharp
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
-> - When do we need to create users? Can we initiate conversations without ever creating users?
-> - Can we add a bit of clarity around user access tokens and access keys, per [auth docs](./authentication.md)?
-
 Azure Communication Services models identity around conversation identifiers. Identifiers are how you can address entities that can participate in conversations. Users, phone numbers, and applications are examples of identifiers. Any entity can initiate a voice, video, or chat conversation with any other entities as long as they're able to discover each other's identifier and have the necessary permission to do so.
 
 | Identity Type         | ID Description                                                 |
 | --------------------- | -------------------------------------------------------------- |
 | `Communication User`  | Azure Communication Services User                              |
 | `Phone Number`        | Phone number of a call participant, sender or recipient of SMS |
-| `Calling Application` | Azure Communication Services Application                       |
+| `Calling Application` (private preview) | Azure Communication Services Application                       |
 
 ## Users
 
@@ -130,25 +126,18 @@ await threadClient.sendMessage({
 
 It's possible to enumerate the full list of a thread's participants using the `members` API. The `userId` field corresponds to the unique identity of the Azure Communication Services user.
 
+::: zone pivot="programming-language-javascript" 
 ### Calling
 
-Azure Communication Services users can call one another by passing the ID of the user they wish to call to the client calling client library.
+Azure Communication Services users can call one another by passing the ID of the user they wish to call to the calling client library.
 
-::: zone pivot="programming-language-csharp" 
-```csharp
-// TODO
-```
-::: zone-end
-
-::: zone pivot="programming-language-javascript" 
 ```javascript
 const callClient = await CallClientFactory.create(userToken);
 const call = await callClient.call([user]);
 ```
-::: zone-end
 
 The `Call` interface exposes a `remoteParticipants` property that enables you to enumerate all participants in a call and exposes their identifiers.
-
+::: zone-end
 
 ## Communication Services identity to real identity resolution
 
@@ -176,4 +165,6 @@ const user = await client.deleteUser();
 
 ## Next steps
 
- - [Learn about authentication and authorization](./authentication.md)
+- Get started with [generating user access tokens](../quickstarts/user-access-tokens.md)
+- [Learn about authentication and authorization](./authentication.md)
+- [Learn about client and server architecture](../concepts/client-and-server-architecture.md)

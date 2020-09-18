@@ -1,5 +1,6 @@
 ---
 title: Plan your Azure Communication Services telephony and SMS solution
+titleSuffix: An Azure Communication Services concept document
 description: Learn how to effectively plan your use of phone numbers and telephony.
 author: stkozak
 manager: rampras
@@ -9,11 +10,10 @@ ms.author: stkozak
 ms.date: 06/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-
 ---
 # Plan your telephony and SMS solution
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 This document describes the various telephony plans and number types that Azure Communication Services has to offer. We'll walk through the decision flows to help you select a voice service provider, phone number types, plans, and capabilities made available through Communication Services.
 
@@ -23,11 +23,11 @@ Azure Communication Services allows you to use phone numbers to place and receiv
   
 If you don't have an existing phone number to import into your Communication Services solution, the simplest way to begin is to get a new phone number from Azure Communication Services in a matter of minutes.
 
-If you have an existing telephone number that you want to continue using in your solution (for example, 1-800–COMPANY), you can port the phone number from the existing provider to Communication Services. See our [roadmap](../../roadmap.md) for details.
+If you have an existing telephone number that you want to continue using in your solution (for example, 1-800–COMPANY), you can port the phone number from the existing provider to Communication Services.
 
 The following diagram helps you to navigate through the available options:
 
-![How to select an offer](../../media/decision-tree-basic.png)
+:::image type="content" source="../media/plan-solution/decision-tree-basic.png" alt-text="Diagram showing how to make a decision regarding your phone numbers.":::
 
 Now, let's review the phone number types and capabilities available through Communication Services. 
 
@@ -62,19 +62,19 @@ Here are some examples that will help you better understand the numbering plan:
 
 A regional phone number in the US:
 
-![Example of a regional phone number in the US](../../media/regional-us.png)
+:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Example of a regional phone number in the US":::
 
 A regional phone number in Canada:
 
-![Example of a regional phone number in Canada](../../media/regional-canada.png)
+:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Example of a regional phone number in Canada":::
 
 A toll-free number in North America region:
 
-![Example of a toll free number in North America](../../media/tollfree-us.png)
+:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Example of a toll free number in North America":::
 
 A mobile phone number in the UK:
 
-![Example of a mobile number in the UK](../../media/mobile-uk.png)
+:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Example of a mobile number in the UK":::
 
 Next, let's review specific phone number types available in Azure Communication Services.
 
@@ -84,21 +84,18 @@ Microsoft offers regional and toll-Free plans for short codes and mobile numbers
 
 The table below summarizes these phone number types: 
 
-| Phone number type | Example                             | Country availability    | Common use case                                                                                                     |
-| ----------------- | ----------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Regional          | +1 (geographic area code) XXX XX XX | US, Canada, Puerto Rico | Assigning phone numbers to users in your applications or assigning to Interactive Voice Response (IVR) systems/Bots |
-| Toll-Free         | +1 (toll-free area code) XXX XX XX  | US, Canada, Puerto Rico | Assigning to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
+| Phone number type | Example                              | Country availability    | Common use case                                                                                                     |
+| ----------------- | ------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Regional          | +1 (geographic area code) XXX XX XX  | US, Canada, Puerto Rico | Assigning phone numbers to users in your applications or assigning to Interactive Voice Response (IVR) systems/Bots |
+| Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US, Canada, Puerto Rico | Assigning to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
 ## Plans 
 
 Let’s look at the capabilities you can enable for your phone numbers. These capabilities vary by country due to regulatory requirements. Azure Communication Services offers the following capabilities:
 
-|  |
-| ------------ |
-| **One-way outbound SMS**, useful for notification and two-factor authentication scenarios |
-| **Two-way inbound and outbound SMS**, a predefined package which allows the SMS to be sent and received as part of one plan |
-| **PSTN calling**, you can select an inbound calling and use the Caller ID to place outbound calls |
-|  |
+- **One-way outbound SMS**, useful for notification and two-factor authentication scenarios.
+- **Two-way inbound and outbound SMS**, a predefined package which allows the SMS to be sent and received as part of one plan.
+- **PSTN calling**, you can select an inbound calling and use the Caller ID to place outbound calls.
 
 ## Next steps
 

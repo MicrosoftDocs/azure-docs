@@ -15,15 +15,15 @@ ms.author: mikben
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
-- A `User Access Token` to enable the chat client. For details, see [here](../../user-access-tokens.md)
+- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client. Be sure to set the scope to "chat", and print out the token string as well as the userId string.
 
 
-## Setting Up
+## Setting up
 
-### Create a new java application
+### Create a new Java application
 
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
 
@@ -31,12 +31,21 @@ Open your terminal or command window and navigate to the directory where you wou
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, the src/main/java directory contains the project source code, the src/test/java directory contains the test source, and the pom.xml file is the project's Project Object Model, or POM.
+You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, the `src/main/java directory` contains the project source code, the `src/test/java` directory contains the test source, and the pom.xml file is the project's Project Object Model, or [POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
+
+Update your application's POM file to use Java 8 or higher:
+
+```xml
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+```
 
 ### Add the package references for the chat client library
-Add the project [POM file](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) to your Maven application.
 
-Reference the `azure-communication-chat` package, which contains the Chat APIs:
+In your POM file, reference the `azure-communication-chat` package with the Chat APIs:
 
 ```xml
 <dependency>
@@ -46,7 +55,7 @@ Reference the `azure-communication-chat` package, which contains the Chat APIs:
 </dependency>
 ```
 
-For authentication, your client needs to use the `azure-communication-common` package:
+For authentication, your client needs to reference the `azure-communication-common` package:
 
 ```xml
 <dependency>
@@ -63,13 +72,13 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| [ChatClient](../../../references/overview.md) | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| [ChatAsyncClient](../../../references/overview.md) | This class is needed for the asynchronous Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| [ChatThreadClient](../../../references/overview.md) | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
-| [ChatThreadAsyncClient](../../../references/overview.md) | This class is needed for the asynchronous Chat Thread functionality. You obtain an instance via the ChatAsyncClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
+| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
+| ChatAsyncClient | This class is needed for the asynchronous Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
+| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
+| ChatThreadAsyncClient | This class is needed for the asynchronous Chat Thread functionality. You obtain an instance via the ChatAsyncClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 ## Create a chat client
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client.
+To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client. When adding the import statements, be sure to only add imports from the com.azure.communication.chat namespace and not the com.azure.communication.chat.implementation namespace. 
 
 ```Java
 // Your unique Azure Communication service endpoint
@@ -89,7 +98,7 @@ CommunicationUserCredential userCredential = new CommunicationUserCredential(use
 // Initialize the chat client
 final ChatClientBuilder builder = new ChatClientBuilder();
 builder.endpoint(endpoint)
-    .credential(credential)
+    .credential(userCredential)
     .httpClient(httpClient);
 ChatClient chatClient = builder.buildClient();
 ```
@@ -108,33 +117,20 @@ It contains a `chatThreadId` property which is the unique ID of the chat thread.
 
 ```Java
 List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+String userId = "<UserId from Token creation>";
 
+CommunicationUser user1 = new CommunicationUser(userId);
 ChatThreadMember firstThreadMember = new ChatThreadMember()
     .setUser(user1)
     .setDisplayName("Member Display Name 1");
 
-ChatThreadMember secondThreadMember = new ChatThreadMember()
-    .setUser(user2)
-    .setDisplayName("Member Display Name 2");
-
 members.add(firstThreadMember);
-members.add(secondThreadMember);
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
     .setTopic("Topic")
     .setMembers(members);
 ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
 String chatThreadId = chatThreadClient.getChatThreadId();
-```
-
-## Get a chat thread client
-
-The `getChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc.
-`chatThreadId` is the unique ID of the existing chat thread.
-
-```Java
-String chatThreadId = "Id";
-ChatThread chatThread = chatClient.getChatThread(chatThreadId);
 ```
 
 ## Send a message to a chat thread
@@ -158,13 +154,23 @@ SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendC
 String chatMessageId = sendChatMessageResult.getId();
 ```
 
+
+## Get a chat thread client
+
+The `getChatThreadClient` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc.
+`chatThreadId` is the unique ID of the existing chat thread.
+
+```Java
+String chatThreadId = "Id";
+ChatThread chatThread = chatClient.getChatThread(chatThreadId);
+```
+
 ## Receive chat messages from a chat thread
 
 You can retrieve chat messages by polling the `listMessages` method on the chat thread client at specified intervals.
 
 ```Java
-PagedIterable<ChatMessage> chatMessagesResponse = chatThreadClient.listMessages();
-chatMessagesResponse.iterableByPage().forEach(resp -> {
+chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
     System.out.printf("Response headers are %s. Url %s  and status code %d %n", resp.getHeaders(),
         resp.getRequest().getUrl(), resp.getStatusCode());
     resp.getItems().forEach(message -> {
@@ -177,17 +183,17 @@ chatMessagesResponse.iterableByPage().forEach(resp -> {
 
 `listMessages` returns different types of messages which can be identified by `chatMessage.getType()`. These types are:
 
--`Text`: Regular chat message sent by a thread member.
+- `Text`: Regular chat message sent by a thread member.
 
--`ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
 
--`ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
 
--`ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
+- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
-## Add users as members to the chat thread
+## Add a user as member to the chat thread
 
 Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other members. You'll need to start by getting a new access token and identity for that user. Before calling addMembers method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
@@ -217,7 +223,7 @@ AddChatThreadMembersOptions addChatThreadMembersOptions = new AddChatThreadMembe
 chatThreadClient.addMembers(addChatThreadMembersOptions);
 ```
 
-## Remove User from a chat thread
+## Remove user from a chat thread
 
 Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the user identities of the members you have added.
 
