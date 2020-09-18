@@ -45,9 +45,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA                   | YES*               | YES*        |
 | View pipeline run details in studio                                        | GA                   | YES                | YES         |
-| Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview       | YES                | YES         |
+| Create, run, visualize, and publish pipelines in Azure ML designer          | GA      | YES                | YES         |
 | Azure Databricks Integration with ML Pipeline                             | GA                   | NO                 | NO          |
-| Create pipeline endpoints in Azure ML designer                             | Public Preview       | YES                | YES         |
+| Create pipeline endpoints in Azure ML designer                             | GA      | YES                | YES         |
 | **Integrated notebooks** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
@@ -158,9 +158,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA               | YES       | N/A        |
 | View pipeline run details in studio                                        | GA               | YES       | N/A        |
-| Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview   | YES       | N/A        |
+| Create, run, visualize, and publish pipelines in Azure ML designer          | GA  | YES       | N/A        |
 | Azure Databricks Integration with ML Pipeline                             | GA               | NO        | N/A        |
-| Create pipeline endpoints in Azure ML designer                             | Public Preview   | YES       | N/A        |
+| Create pipeline endpoints in Azure ML designer                             | GA   | YES       | N/A        |
 | **Integrated notebooks** |   | | |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |

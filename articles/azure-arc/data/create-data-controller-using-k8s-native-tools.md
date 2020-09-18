@@ -256,3 +256,9 @@ kubectl describe po/<pod name> --namespace arc
 ## Troubleshooting creation problems
 
 If you encounter any troubles with creation, please see the [troubleshooting guide](troubleshoot-guide.md).
+
+## Next steps
+
+Azure Arc extension for Azure Data Studio provides a notebook to walk you through the experience of how to set up Azure Arc enabled Kubernetes and configure it to monitor a git repository that contains a sample SQL Managed Instance yaml file. When everything is connected, a new SQL Managed Instance will be deployed to your Kubernetes cluster.
+
+See the **Deploy a SQL Managed Instance using Azure Arc enabled Kubernetes and Flux** notebook in the Azure Arc extension for Azure Data Studio.

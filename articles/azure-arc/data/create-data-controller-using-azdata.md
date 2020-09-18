@@ -149,10 +149,7 @@ To create a data controller on Azure Red Hat OpenShift, you will need to execute
 > [!NOTE]
 >   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.
 
-```console
-oc adm policy add-scc-to-user privileged -z default -n arc
-oc adm policy add-scc-to-user anyuid     -z default -n arc
-```
+First, download the custom security context constraint (SCC) from [GitHub](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) and apply it to your cluster.
 
 You can run the following command to create the data controller:
 > [!NOTE]
@@ -178,8 +175,7 @@ To create a data controller on Red Hat OpenShift Container Platform, you will ne
 >   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.
 
 ```console
-oc adm policy add-scc-to-user privileged --serviceaccount default --namespace arc
-oc adm policy add-scc-to-user anyuid     --serviceaccount default --namespace arc
+oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
 ```
 
 You will also need to determine which storage class to use by running the following command.
@@ -190,8 +186,15 @@ kubectl get storageclass
 
 First, start by creating a new custom deployment profile file based on the azure-arc-openshift deployment profile by running the following command.  This command will create a directory 'custom' in your current working directory and a custom deployment profile file 'control.json' in that directory.
 
+Use the profile 'azure-arc-openshift' for OpenShift Container Platform.
+
 ```console
 azdata arc dc config init --source azure-arc-openshift --path ./custom
+```
+Use the profile 'azure-arc-azure-openshift' for Azure RedHat Open Shift.
+
+```console
+azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
 ```
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
@@ -216,18 +219,18 @@ Oftentimes, when using OpenShift you might want to run with the default security
 This command disables metrics collections about pods.  You will not be able to see metrics about pods in the Grafana dashboards if you disable this feature.  Default is true.
 
 ```console
-azdata arc dc config replace -p ./custom2/control.json --json-values spec.security.allowPodMetricsCollection=false
+azdata arc dc config replace -p ./custom/control.json --json-values spec.security.allowPodMetricsCollection=false
 ```
 
 This command disables metrics collections about nodes.  You will not be able to see metrics about nodes in the Grafana dashboards if you disable this feature.  Default is true.
 
 ```console
-azdata arc dc config replace --path ./custom2/control.json --json-values spec.security.allowNodeMetricsCollection=false
+azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowNodeMetricsCollection=false
 ```
 
 This command disables the ability to take memory dumps for troubleshooting purposes.
 ```console
-azdata arc dc config replace --path ./custom2/control.json --json-values spec.security.allowDumps=false
+azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowDumps=false
 ```
 
 Now you are ready to create the data controller using the following command.

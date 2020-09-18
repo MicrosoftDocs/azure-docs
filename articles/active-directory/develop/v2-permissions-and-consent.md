@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform scopes, permissions, and consent
-description: A description of authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
+description: Learn about authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -24,11 +24,11 @@ Applications that integrate with Microsoft identity platform follow an authoriza
 The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *Application ID URI*. For example, some of Microsoft's web-hosted resources include:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* Office 365 Mail API: `https://outlook.office.com`
+* Microsoft 365 Mail API: `https://outlook.office.com`
 * Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> We strongly recommend that you use Microsoft Graph instead of Office 365 Mail API, etc.
+> We strongly recommend that you use Microsoft Graph instead of Microsoft 365 Mail API, etc.
 
 The same is true for any third-party resources that have integrated with the Microsoft identity platform. Any of these resources also can define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.com) has defined permissions to do the following tasks, among others:
 
