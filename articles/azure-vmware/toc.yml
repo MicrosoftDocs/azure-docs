@@ -69,7 +69,11 @@
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations
-      href: vrealize-operations-for-avs.md  
+      href: vrealize-operations-for-avs.md
+  - name: VMware ecosystem
+    items:
+    - name: Backup solutions for VMs
+      href: ecosystem-backup-vms
 - name: Reference
   items:
 - name: Resources
