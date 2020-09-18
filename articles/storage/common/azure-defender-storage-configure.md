@@ -57,7 +57,7 @@ When you subscribe to the Standard tier in Azure Security Center, Azure Defender
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Azure Defender for Azure Storage in Security Center":::
 
-Azure Defender is now be enabled for all storage accounts in this subscription.
+Azure Defender is now enabled for all storage accounts in this subscription.
 
 ### [Portal](#tab/azure-portal)
 
@@ -66,6 +66,8 @@ Azure Defender is now be enabled for all storage accounts in this subscription.
 1. Select **Enable Azure Defender for Storage**.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot showing how to enable Azure Defender for an Azure Storage account":::
+
+Azure Defender is now enabled for this storage account.
 
 ### [Template](#tab/template)
 
