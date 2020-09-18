@@ -12,7 +12,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 06/06/2019
 ms.author: memildin
 
 ---
@@ -49,7 +49,7 @@ In addition, Security Center protects non-Azure servers and virtual machines in 
 
 The events collected from the agents and from Azure are correlated in the security analytics engine to provide you tailored recommendations (hardening tasks), that you should follow to make sure your workloads are secure, and security alerts. You should investigate such alerts as soon as possible to make sure malicious attacks aren't taking place on your workloads.
 
-When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built in initiative under Security Center category. The built-in initiative is automatically assigned to all Security Center registered subscriptions. The built-in initiative contains only Audit policies. For more information about Security Center policies in Azure Policy, see [Working with security policies](tutorial-security-policy.md).
+When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built in initiative under Security Center category. The built-in initiative is automatically assigned to all Security Center registered subscriptions (free or standard pricing tiers). The built-in initiative contains only Audit policies. For more information about Security Center policies in Azure Policy, see [Working with security policies](tutorial-security-policy.md).
 
 ## Strengthen security posture
 
@@ -129,17 +129,10 @@ Azure Security Center for IoT (Internet of Things) simplifies hybrid workload pr
 
 ## Get secure faster
 
-Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Microsoft Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
+Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
 onboard and roll out.
 
-In addition, you can extend the full solution beyond Azure to workloads running:
-
-- On other clouds:
-    - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
-    - [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
-- In on-premises data centers:
-    - [Protect Windows Admin Center resources with Security Center](windows-admin-center-integration.md)
-    - [Connect your non-Azure machines to Azure Security Center](quickstart-onboard-machines.md))
+In addition, you can extend the full solution beyond Azure to workloads running on other clouds and in on-premises data centers.
 
 ### Automatically discover and onboard Azure resources
 
@@ -152,6 +145,6 @@ Extensive log collection - logs from Windows and Linux are all leveraged in the 
 
 - To get started with Security Center, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 
-- Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, enable Azure Defender. 
+- Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, you must upgrade to the standard pricing tier. The standard tier can be tried for free for 30 days. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 
-- If you're ready to enable Azure Defender now, the [Quickstart: Onboard your Azure subscription to Security Center](security-center-get-started.md) walks you through the steps.
+- If you're ready to enable Security Center standard now, the [Quickstart: Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through the steps.
