@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
+ms.custom: devx-track-csharp
 ---
 
 # Migrate non-partitioned containers to partitioned containers

@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Develop .NET Standard user-defined functions for Azure Stream Analytics jobs (Preview)

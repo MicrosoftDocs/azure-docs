@@ -11,6 +11,7 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Upload and index your videos  
@@ -54,6 +55,13 @@ The article shows how to upload and index your videos with these options:
 
 See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
 
+## Video files storage
+
+- With a paid Video Indexer account, you create a Video Indexer account that's connected to your Azure subscription and an Azure Media Services account. For more information, see [Create a Video Indexer account connected to Azure](connect-to-azure.md).
+- Video files are stored in Azure storage by Azure Media Services. There is no time limitation.
+- You can always delete your video and audio files as well as any metadata and insights extracted from them by Video Indexer. Once you delete a file from Video Indexer, the file and its metadata and insights are permanently removed from Video Indexer. However, if you have implemented your own backup solution in Azure storage, the file remains in your Azure storage.
+- The persistency of a video is identical, regardless if the upload is done form the Video Indexer website or using the Upload API.
+   
 ## <a name="website"></a>Upload and index a video using the Video Indexer website
 
 > [!NOTE]
@@ -138,6 +146,9 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video. 
 
 When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
+For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Indexer encodes it as 1280x720. Otherwise, as 640x468.
+The Default setting is [content aware encoding](../latest/content-aware-encoding.md).
+
 In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 
 If you only want to index your video but not encode it, set `streamingPreset`to `NoStreaming`.
@@ -152,7 +163,7 @@ If the `videoUrl` is not specified, the Video Indexer expects you to pass the fi
 
 The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
-#### Instructions for running this code sample
+**Instructions for running the following code sample**
 
 After copying this code into your development platform you will need to provide two parameters: API Management authentication key and video URL.
 

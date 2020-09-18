@@ -41,7 +41,7 @@ In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, A
 Additional standards will be supported in the dashboard as they become available. 
 
 
-## Adding a regulatory standard to your dashboard
+## Add a regulatory standard to your dashboard
 
 The following steps explain how to add a package to monitor your compliance with one of the supported regulatory standards.
 
@@ -68,6 +68,8 @@ The following steps explain how to add a package to monitor your compliance with
     - **Canada PBMM**
     
     ![Adding regulatory packages to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+
+1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
 1. From Security Center's sidebar, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
     * Your new standard appears in your list of Industry & regulatory standards. 

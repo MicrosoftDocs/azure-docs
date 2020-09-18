@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
@@ -25,7 +25,7 @@ Azure Storage supports three types of shared access signatures:
 
     For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
-- **Service SAS.** A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files. 
+- **Service SAS.** A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files.
 
     For more information about the service SAS, see [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas).
 
@@ -34,7 +34,7 @@ Azure Storage supports three types of shared access signatures:
     For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
-> Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation SAS when possible for superior security.
+> Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation SAS when possible for superior security. For more information, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
 A shared access signature can take one of two forms:
 
@@ -48,15 +48,27 @@ A shared access signature can take one of two forms:
 
 A shared access signature is a signed URI that points to one or more storage resources and includes a token that contains a special set of query parameters. The token indicates how the resources may be accessed by the client. One of the query parameters, the signature, is constructed from the SAS parameters and signed with the key that was used to create the SAS. This signature is used by Azure Storage to authorize access to the storage resource.
 
-### SAS signature
+### SAS signature and authorization
 
-You can sign a SAS in one of two ways:
+You can sign a SAS token in one of two ways:
 
 - With a *user delegation key* that was created using Azure Active Directory (Azure AD) credentials. A user delegation SAS is signed with the user delegation key.
 
     To get the user delegation key and create the SAS, an Azure AD security principal must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For detailed information about Azure roles with permissions to get the user delegation key, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
-- With the storage account key. Both a service SAS and an account SAS are signed with the storage account key. To create a SAS that is signed with the account key, an application must have access to the account key.
+- With the storage account key (Shared Key). Both a service SAS and an account SAS are signed with the storage account key. To create a SAS that is signed with the account key, an application must have access to the account key.
+
+When a request includes a SAS token, that request is authorized based on how that SAS token is signed. The access key or credentials that you use to create a SAS token are also used by Azure Storage to grant access to a client that possesses the SAS.
+
+The following table summarizes how each type of SAS token is authorized when it is included on a request to Azure Storage:
+
+| Type of SAS | Type of authorization |
+|-|-|
+| User delegation SAS (Blob storage only) | Azure AD |
+| Service SAS | Shared Key |
+| Account SAS | Shared Key |
+
+Microsoft recommends using a user delegation SAS when possible for superior security.
 
 ### SAS token
 

@@ -3,7 +3,7 @@ title: Access data in Jupyter notebooks - Azure Notebooks Preview
 description: Learn how to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter notebook.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Access cloud data in a notebook
 

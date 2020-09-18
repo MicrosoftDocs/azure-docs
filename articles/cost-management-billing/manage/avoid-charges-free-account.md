@@ -4,10 +4,12 @@ description: Understand why you see charges for your Azure free account. Learn w
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
+
 # Avoid charges with your Azure free account
 
 You get $200 in Azure credits for the first 30 days and a limited quantity of free services for 12 months with your [Azure free account](https://azure.microsoft.com/free/). To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). As long as you have unexpired credit or you use only free services within the limits, you're not charged.
@@ -17,7 +19,6 @@ Let's look at some of the reasons you can incur charges on your Azure free accou
 ## Your credit runs out or is expired
 
 Your subscription and services are disabled when your credit runs out or expires at the end of 30 days. To continue using Azure services, you must upgrade your account. For more information, see [Upgrade your Azure free account](upgrade-azure-subscription.md). After you upgrade, you still have access to free services for 12 month and you get charged only for usage beyond the free services and quantities.
-
 
 ## Usage exceeds the limits of free services
 

@@ -2,17 +2,17 @@
 title: Default user permissions - Azure Active Directory | Microsoft Docs
 description: Learn about the different user permissions available in Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 08/17/2020
 ms.author: ajburnle
 ms.reviewer: vincesm
-ms.custom: "it-pro, seodec18"
+ms.custom: "it-pro, seodec18, contperfq1"
 ms.collection: M365-identity-device-management
 ---
 
@@ -20,37 +20,50 @@ ms.collection: M365-identity-device-management
 In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists of the type of user, their [role assignments](active-directory-users-assign-role-azure-portal.md), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults. The default user permissions can be changed only in user settings in Azure AD.
 
 ## Member and guest users
-The set of default permissions received depends on whether the user is a native member of the tenant (member user) or if the user is brought over from another directory as a B2B collaboration guest (guest user). See [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md) for more information about adding guest users.
+The set of default permissions received depends on whether the user is a native member of the tenant (member user) or if the user is brought over from another directory as a B2B collaboration guest (guest user). See [What is Azure AD B2B collaboration?](../external-identities/what-is-b2b.md) for more information about adding guest users.
 * Member users can register applications, manage their own profile photo and mobile phone number, change their own password, and invite B2B guests. In addition, users can read all directory information (with a few exceptions). 
-* Guest users have restricted directory permissions. For example, guest users cannot browse information from the tenant beyond their own profile information. However, a guest user can retrieve information about another user by providing the User Principal Name or objectId. A guest user can read properties of groups they belong to, including group membership, regardless of the **Guest users permissions are limited** setting. A guest cannot view information about any other tenant objects.
-
-Default permissions for guests are restrictive by default. Guests can be added to administrator roles, which grant them full read and write permissions contained in the role. There is one additional restriction available, the ability for guests to invite other guests. Setting **Guests can invite** to **No** prevents guests from inviting other guests. See [Delegate invitations for B2B collaboration](../b2b/delegate-invitations.md) to learn how. To grant guest users the same permissions as member users by default, set **Guest users permissions are limited** to **No**. This setting grants all member user permissions to guest users by default, as well as to allow guests to be added to administrative roles.
+* Guest users have restricted directory permissions. They can manage their own profile, change their own password and retrieve some information about other users, groups and apps, however, they cannot read all directory information. For example, guest users cannot enumerate users, groups and other directory objects. Guests can be added to administrator roles, which grant them full read and write permissions contained in the role. Guests can also invite other guests.
 
 ## Compare member and guest default permissions
 
-**Area** | **Member user permissions** | **Guest user permissions**
------------- | --------- | ----------
-Users and contacts | Read all public properties of users and contacts<br>Invite guests<br>Change own password<br>Manage own mobile phone number<br>Manage own photo<br>Invalidate own refresh tokens | Read own properties<br>Read display name, email, sign in name, photo, user principal name, and user type properties of other users and contacts<br>Change own password
-Groups | Create security groups<br>Create Office 365 groups<br>Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined group<br>Manage properties, ownership, and membership of groups the user owns<br>Add guests to owned groups<br>Manage dynamic membership settings<br>Delete owned groups<br>Restore owned Office 365 groups | Read all properties of groups<br>Read non-hidden group memberships<br>Read hidden Office 365 group memberships for joined groups<br>Manage owned groups<br>Add guests to owned groups (if allowed)<br>Delete owned groups<br>Restore owned Office 365 groups<br>Read properties of groups they belong to, including membership.
-Applications | Register (create) new application<br>Read properties of registered and enterprise applications<br>Manage application properties, assignments, and credentials for owned applications<br>Create or delete application password for user<br>Delete owned applications<br>Restore owned applications | Read properties of registered and enterprise applications<br>Manage application properties, assignments, and credentials for owned applications<br>Delete owned applications<br>Restore owned applications
-Devices | Read all properties of devices<br>Manage all properties of owned devices<br> | No permissions<br>Delete owned devices<br>
-Directory | Read all company information<br>Read all domains<br>Read all partner contracts | Read display name and verified domains
-Roles and Scopes | Read all administrative roles and memberships<br>Read all properties and membership of administrative units | No permissions 
-Subscriptions | Read all subscriptions<br>Enable Service Plan Member | No permissions
-Policies | Read all properties of policies<br>Manage all properties of owned policy | No permissions
+**Area** | **Member user permissions** | **Default guest user permissions** | **Restricted guest user permissions (Preview)**
+------------ | --------- | ---------- | ----------
+Users and contacts | <ul><li>Read all public properties of users and contacts</li><li>Invite guests<li>Change own password<li>Manage own mobile phone number<li>Manage own photo<li>Invalidate own refresh tokens</li></ul> | <ul><li>Read own properties<li>Read display name, email, sign in name, photo, user principal name, and user type properties of other users and contacts<li>Change own password<li>Search for another user by Display Name, User Principal Name or ObjectId (if allowed)<li>Read manager and direct report information of other users</li></ul> | <ul><li>Read own properties<li>Change own password</li></ul>
+Groups | <ul><li>Create security groups<li>Create Microsoft 365 groups<li>Read all properties of groups<li>Read non-hidden group memberships<li>Read hidden Microsoft 365 group memberships for joined group<li>Manage properties, ownership, and membership of groups the user owns<li>Add guests to owned groups<li>Manage dynamic membership settings<li>Delete owned groups<li>Restore owned Microsoft 365 groups</li></ul> | <ul><li>Read properties of all non-hidden groups, including membership and ownership (even non-joined groups)<li>Read hidden Microsoft 365 group memberships for joined groups<li>Search for groups by Display Name or ObjectId (if allowed)</li></ul> | No permissions
+Applications | <ul><li>Register (create) new application<li>Read properties of registered and enterprise applications<li>Manage application properties, assignments, and credentials for owned applications<li>Create or delete application password for user<li>Delete owned applications<li>Restore owned applications</li></ul> | <ul><li>Read properties of registered and enterprise applications</li></ul> | <ul><li>Read properties of registered and enterprise applications
+Devices</li></ul> | <ul><li>Read all properties of devices<li>Manage all properties of owned devices</li></ul> | No permissions | No permissions
+Directory | <ul><li>Read all company information<li>Read all domains<li>Read all partner contracts</li></ul> | <ul><li>Read company display name<li>Read all domains</li></ul> | <ul><li>Read company display name<li>Read all domains</li></ul>
+Roles and Scopes | <ul><li>Read all administrative roles and memberships<li>Read all properties and membership of administrative units</li></ul> | No permissions | No permissions
+Subscriptions | <ul><li>Read all subscriptions<li>Enable Service Plan Member</li></ul> | No permissions | No permissions
+Policies | <ul><li>Read all properties of policies<li>Manage all properties of owned policy</li></ul> | No permissions | No permissions
 
 ## To restrict the default permissions for member users
 
-Default permissions for member users can be restricted in the following ways.
+Default permissions for member users can be restricted in the following ways:
 
 Permission | Setting explanation
 ---------- | ------------
 Users can register application | Setting this option to No prevents users from creating application registrations. The ability can then be granted back to specific individuals by adding them to the Application Developer role.
-Allow users to connect work or school account with LinkedIn | Setting this option to No prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent).
+Allow users to connect work or school account with LinkedIn | Setting this option to No prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](../users-groups-roles/linkedin-user-consent.md).
 Ability to create security groups | Setting this option to No prevents users from creating security groups. Global administrators and User administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
-Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global administrators and User administrators will still be able to create Office 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
-Restrict access to Azure AD administration portal | Setting this option to No lets non-administrators use the Azure AD administration portal to read and manage Azure AD resources. Yes restricts all non-administrators from accessing any Azure AD data in the administration portal. Important to note: this setting does not restrict access to Azure AD data using PowerShell or other clients such as Visual Studio. When set to Yes, to grant a specific non-admin user the ability to use the Azure AD administration portal assign any administrative role such as the Directory Readers role. This role allows reading basic directory information, which member users have by default (guests and service principals do not).
+Ability to create Microsoft 365 groups | Setting this option to No prevents users from creating Microsoft 365 groups. Setting this option to Some allows a select set of users to create Microsoft 365 groups. Global administrators and User administrators will still be able to create Microsoft 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
+Restrict access to Azure AD administration portal | Setting this option to No lets non-administrators use the Azure AD administration portal to read and manage Azure AD resources. Yes restricts all non-administrators from accessing any Azure AD data in the administration portal.<p>**Note**: this setting does not restrict access to Azure AD data using PowerShell or other clients such as Visual Studio.When set to Yes, to grant a specific non-admin user the ability to use the Azure AD administration portal assign any administrative role such as the Directory Readers role.<p>This role allows reading basic directory information, which member users have by default (guests and service principals do not).
 Ability to read other users | This setting is available in PowerShell only. Setting this flag to $false prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this flag to $false is not recommended.
+
+
+## To restrict the default permissions for guest users
+
+Default permissions for guest users can be restricted in the following ways:
+
+>[!NOTE] 
+>The guests user access restrictions setting replaced the **Guest users permissions are limited** setting. For guidance on using this feature, see [Restrict guest access permissions (preview) in Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+
+Permission | Setting explanation
+---------- | ------------
+Guests user access restrictions (Preview) | Setting this option to Guest users have the same access as members grants all member user permissions to guest users by default.<p>Setting this option to Guest user access is restricted to properties and memberships of their own directory objects restricts guest access to only their own user profile by default. Access to other users are no longer allowed even when searching by User Principal Name or objectId. Access to groups including groups memberships is also no longer allowed. This setting does not prevent access to groups in other Microsoft services like Microsoft Teams. See [Microsoft Teams Guest access]() to learn more.<p>Guest users can still be added to administrator roles regardless of this permission settings.
+Guests can invite | Setting this option to Yes allows guests to invite other guests. See [Delegate invitations for B2B collaboration](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) to learn more.
+Members can invite | Members can invite	Setting this option to Yes allows non-admin members of your directory to invite guests. See [Delegate invitations for B2B collaboration](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) to learn more.
+Admins and users in the guest inviter role can invite | Setting this option to Yes allows admins and users in the "Guest Inviter" role to invite guests. When set to Yes, users in the Guest inviter role will still be able to invite guests, regardless of the Members can invite setting. See [Delegate invitations for B2B collaboration](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user) to learn more.
 
 ## Object ownership
 
@@ -126,6 +139,7 @@ Users can perform the following actions on owned groups.
 
 ## Next steps
 
+* To learn more about the guests user access restrictions setting, see [Restrict guest access permissions (preview) in Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
 * To learn more about how to assign Azure AD administrator roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

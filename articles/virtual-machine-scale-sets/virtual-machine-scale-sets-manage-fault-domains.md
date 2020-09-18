@@ -36,4 +36,4 @@ az vmss create \
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 ## Next steps
-- Learn more about [availability and redundancy features](../virtual-machines/windows/availability.md) for Azure environments.
+- Learn more about [availability and redundancy features](../virtual-machines/availability.md) for Azure environments.

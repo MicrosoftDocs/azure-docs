@@ -56,8 +56,13 @@ When you're debugging application crashes, start by checking the running status 
     * A memory explosion at the very beginning.
     * The surge memory allocation for a specific logic path.
     * Gradual memory leaks.
-
   For more information, see [Metrics](spring-cloud-concept-metrics.md).
+  
+* If the application fails to start, verify that the application has valid jvm parameters. If jvm memory is set too high, the following error message might appear in your logs:
+
+  >"required memory 2728741K is greater than 2000M available for allocation"
+
+
 
 To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
@@ -136,7 +141,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-However, note that one Azure Spring Cloud service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](spring-cloud-quickstart-launch-app-portal.md) and [Set up a staging environment in Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+However, note that one Azure Spring Cloud service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](spring-cloud-quickstart.md) and [Set up a staging environment in Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
 
 ### My application can't be registered
 

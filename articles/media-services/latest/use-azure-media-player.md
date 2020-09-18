@@ -4,7 +4,7 @@ title: Playback with Azure Media Player - Azure | Microsoft Docs
 description: Azure Media Player is a web video player built to play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.date: 07/17/2019
-ms.author: juliako
+ms.author: inhenkel
 
 ---
 
@@ -45,7 +45,7 @@ You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) 
 
 ## Set up Azure Media Player in your HTML
 
-Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) for details on how to set up and configure Azure Media Player.
+Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](../azure-media-player/azure-media-player-overview.md) for details on how to set up and configure Azure Media Player.
 
 ## Additional notes
 
@@ -53,5 +53,5 @@ Azure Media Player is easy to set up. It only takes a few moments to get basic p
 
 ## Next steps
 
-* [Azure Media Player documentation](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview)
+* [Azure Media Player documentation](../azure-media-player/azure-media-player-overview.md)
 * [Azure Media Player samples](https://github.com/Azure-Samples/azure-media-player-samples)

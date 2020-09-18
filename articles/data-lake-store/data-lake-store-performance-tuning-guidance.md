@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen1 - performance tuning
-description: Describes how to tune Azure Data Lake Storage Gen1 for performance.
+description: Learn how using all available throughput in Azure Data Lake Storage Gen1 is important to get the best performance by performing as many reads and writes in parallel as possible.
 
 author: stewu
 ms.service: data-lake-store

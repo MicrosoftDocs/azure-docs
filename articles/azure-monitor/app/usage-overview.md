@@ -10,6 +10,8 @@ ms.date: 03/25/2019
 
 Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](./app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
+
 ## Send telemetry from your app
 
 The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.
@@ -48,7 +50,7 @@ Find out when people use your app, what pages they're most interested in, where 
 
 The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment, and page. You can also add your own filters.
 
-![Users](./media/usage-overview/users.png)  
+![Screen capture shows the Users Overview page for a fictitious company.](./media/usage-overview/users.png)  
 
 Insights on the right point out interesting patterns in the set of data.  
 
@@ -65,7 +67,7 @@ Retention helps you understand how often your users return to use their app, bas
 - Form hypotheses based on real user data 
 - Determine whether retention is a problem in your product 
 
-![Retention](./media/usage-overview/retention.png) 
+![Screen capture shows the Retention Overview page which displays information about how often users return to use their app.](./media/usage-overview/retention.png) 
 
 The retention controls on top allow you to define specific events and time range to calculate retention. The graph in the middle gives a visual representation of the overall retention percentage by the time range specified. The graph on the bottom represents individual retention in a given time period. This level of detail allows you to understand what your users are doing and what might affect returning users on a more detailed granularity.  
 
@@ -104,7 +106,7 @@ Learn more about [custom events](./api-custom-events-metrics.md#trackevent) and 
 ### Slice and dice events
 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
-![Users](./media/usage-overview/users.png)  
+![Screen capture shows the Users Overview page for a fictitious company.](./media/usage-overview/users.png)  
   
 ## Design the telemetry with the app
 

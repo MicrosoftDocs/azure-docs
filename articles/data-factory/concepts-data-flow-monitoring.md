@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/03/2020
+ms.date: 08/19/2020
 ---
 
 # Monitor Data Flows
@@ -71,6 +71,10 @@ You can also see detailed timing for each partition transformation step if you o
          ]
 }
 ```
+
+### Post processing time
+
+When you select a sink transformation icon in your map, the slide-in panel on the right will show an additional data point called "post processing time" at the bottom. This is the amount time spent executing your job on the Spark cluster *after* your data has been loaded, transformed, and written. This time can include closing connection pools, driver shutdown, deleting files, coalescing files, etc. When you perform actions in your flow like "move files" and "output to single file", you will likely see an increase in the post processing time value.
   
 ## Monitor Icons
 

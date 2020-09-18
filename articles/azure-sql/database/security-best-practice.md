@@ -1,7 +1,7 @@
 ---
 title: Playbook for addressing common security requirements 
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance
+description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -28,7 +28,7 @@ This document provides guidance on how to solve common security requirements for
 
 ### Deployment offers not covered in this guide
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (formerly SQL Data Warehouse)
 - Azure SQL VMs (IaaS)
 - SQL Server
 

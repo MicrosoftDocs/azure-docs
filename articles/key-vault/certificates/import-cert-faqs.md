@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions - Azure Key Vault certificate import
-description: Frequently asked questions - Azure Key Vault certificate import
+description: Get answers to frequently asked questions about importing Azure Key Vault certificates.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -8,63 +8,75 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
 ---
 
-# Frequently asked questions - Azure Key Vault Certificate import
+# Importing Azure Key Vault certificates FAQ
+
+This article answers frequently asked questions about importing Azure Key Vault certificates.
 
 ## Frequently asked questions
 
 ### How can I import a certificate in Azure Key Vault?
 
-Import certificate – For import operation, Azure key vault accepts two certificate formats PEM and PFX. Although there are PEM files with only the public portion, Azure key vault requires and only accepts a PEM or PFX on file folder and with a private key. Follow [tutorial to import certificate](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault)
+For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault).
 
-### After importing password protected certificate into the key vault and then downloading it, I am not able to see the password associated with the certificate?
+### After I import a password-protected certificate to Key Vault and then download it, why can't I see the password that's associated with it?
  	
-The uploaded protected certificate after storage into key vault would not save password associated with it. It is only required once during the import operation. Although this is a by-design concept, you can always get the certificate as a secret and convert from Base64 to PFX adding the previous password through [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
+After a certificate is imported and protected in Key Vault, its associated password isn't saved. The password is required only once during the import operation. This is by design, but you can always get the certificate as a secret and convert it from Base64 to PFX by adding the password through [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 
-### How can I resolve 'Bad parameter error'? What are the supported certificate formats for importing in Key vault?
+### How can I resolve a "Bad parameter" error? What are the supported certificate formats for importing to Key Vault?
 
-When you are importing the certificate, you need to ensure that the key is included in the file itself. If you have the private key separately in a different format, you would need to combine the key with the certificate. Some certificate authorities provide certificates in different formats, therefore before importing the certificate, make sure that they are either in .pem or .pfx format and that the key used is either RSA or ECC. Refer these for reviewing [certificate requirements](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) and [certificate key requirements](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+When you import a certificate, you need to ensure that the key is included in the file. If you have a private key stored separately in a different format, you need to combine the key with the certificate. Some certificate authorities (CAs) provide certificates in other formats. Therefore, before you import the certificate, make sure that it's in either PEM or PFX file format and that the key uses either Rivest–Shamir–Adleman (RSA) or elliptic-curve cryptography (ECC) encryption. 
 
-### Error when importing certificate via Portal "Something went wrong". How can I investigate further?
+For more information, see [certificate requirements](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) and [certificate key requirements](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+
+###  Can I import a certificate by using an ARM template?
+
+No, it isn't possible to perform certificate operations by using an Azure Resource Manager (ARM) template. A recommended workaround would be to use the certificate import methods in the Azure API, the Azure CLI, or PowerShell. If you have an existing certificate, you can import it as a secret.
+
+### When I import a certificate via the Azure portal, I get a "Something went wrong" error. How can I investigate further?
  	
-To view more descriptive error, import the certificate file via [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) or [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+To view a more descriptive error, import the certificate file by using [the Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) or [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
-### How can I resolve 'Error type: Access denied or user is unauthorized to import certificate'?
+### How can I resolve "Error type: Access denied or user is unauthorized to import certificate"?
 	
-This operation requires the certificates/import permission. Navigate to where the Key Vault is located, you will need to grant the user appropriate permissions under access policies. Navigate to the Key Vault> Access policies > Add Access Policy > Select Certificate Permissions (or as you want the permissions) > Principal > search for and then add user's email. [Read more about certificate related access policies](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control)
+The import operation requires that you grant the user permissions to import the certificate under the access policies. To do so, go to your key vault, select **Access policies** > **Add Access Policy** > **Select Certificate Permissions** > **Principal**, search for the user, and then add the user's email address. 
+
+For more information about certificate-related access policies, see [About Azure Key Vault certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control).
 
 
-### How can I resolve 'Error type: Conflict when creating a certificate'?
+### How can I resolve "Error type: Conflict when creating a certificate"?
 	
-Certificate name should be unique. Certificate with the same name might be in soft-deleted state, also, as per the [composition of a certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) in Azure key vault, if there is another Key or Secret in the Key Vault with the same name you are trying to specify for your certificate, it will fail and you will need to either remove that key or secret or use a different name for your certificate. [view deleted certificate](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)
+Each certificate name must be unique. A certificate with the same name might be in a soft-deleted state. Also, according to the [composition of a certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), when new certificate is created, it creates an addressable secret with the same name so if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
 
-### Why am I getting the 'Error type: char length is too long'?
+For more information, see [Get Deleted Certificate operation](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
+
+### Why am I getting "Error type: char length is too long"?
+This error could be caused by either of two reasons:	
+* The certificate subject name is limited to 200 characters.
+* The certificate password is limited to 200 characters.
+
+### Can I import an expired certificate to Azure Key Vault?
 	
-* Certificate Subject name length has a character limit of 200 char
-* Certificate password length has a character limit of 200 char
+No, expired PFX certificates can't be imported to Key Vault.
 
-### Can I import an expired certificate in Azure Key vault?
-	
-No, the expired PFX certificates won't get imported to Azure Key Vault.
+### How can I convert my certificate to the proper format?
 
-### How can I convert my certificate to proper format?
-
-You can ask to your Certificate Authority to provide the certificate in the needed format, also there are third party tools that can help you to convert to the proper format, however, Microsoft will not be able to advise further on how to get the certificate in the desired format.
+You can ask your CA to provide the certificate in the required format. There are also third-party tools that can help you convert the certificate to the proper format.
 
 ### Can I import certificates from non-partner CAs?
-Yes, you can import certificates from any CA but key vault will not be able to automatically renew those certificates. You would be able to set email notifications to get notified about the certificate expiry.
+Yes, you can import certificates from any CA, but your key vault won't be able to renew them automatically. You can set reminders to be notified about the certificate expiration.
 
-### If I import a certificate from a partner CA, will the auto renew feature still work?
-Yes, you need to make sure that once uploaded you specify the autorotation in the certificate’s issuance policy. Also, the changes will be reflected until the next cycle or certificate version.
+### If I import a certificate from a partner CA, will the autorenewal feature still work?
+Yes. After you've uploaded the certificate, be sure to specify the autorotation in the certificate’s issuance policy. Your settings will remain in effect until the next cycle or certificate version is released.
 
-### Unable to see the App Service Certificate imported to Key Vault? 
-If the certificate was successfully imported, please review in under secrets blade.
+### Why can't I see the App Service certificate that I imported to Key Vault? 
+If you've imported the certificate successfully, you should be able to confirm it by going to the **Secrets** pane.
 
 
 ## Next steps
 
-- [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates)
+- [Azure Key Vault certificates](/azure/key-vault/certificates/about-certificates)

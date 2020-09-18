@@ -1,6 +1,6 @@
 ---
 title: Set up self-service group management - Azure Active Directory | Microsoft Docs
-description: Create and manage security groups or Office 365 groups in Azure Active Directory and request security group or Office 365 group memberships
+description: Create and manage security groups or Microsoft 365 groups in Azure Active Directory and request security group or Microsoft 365 group memberships
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 08/13/2020
 ms.author: curtand
 
 ms.reviewer: krbain
@@ -21,13 +21,13 @@ ms.collection: M365-identity-device-management
 ---
 # Set up self-service group management in Azure Active Directory 
 
-You can enable users to create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists.
+You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists.
 
 ## Self-service group membership defaults
 
-When security groups are created in the Azure portal or using Azure AD PowerShell, only the group's owners can update membership. Security groups created by self-service in the [Access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) and all Office 365 groups are available to join for all users, whether owner-approved or auto-approved. In the Access panel, you can change membership options when you create the group.
+When security groups are created in the Azure portal or using Azure AD PowerShell, only the group's owners can update membership. Security groups created by self-service in the [Access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) and all Microsoft 365 groups are available to join for all users, whether owner-approved or auto-approved. In the Access panel, you can change membership options when you create the group.
 
-Groups created in | Security group default behavior | Office 365 group default behavior
+Groups created in | Security group default behavior | Microsoft 365 group default behavior
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Only owners can add members<br>Visible but not available to join in Access panel | Open to join for all users
 [Azure portal](https://portal.azure.com) | Only owners can add members<br>Visible but not available to join in Access panel<br>Owner is not assigned automatically at group creation | Open to join for all users
@@ -46,7 +46,7 @@ Groups created in | Security group default behavior | Office 365 group default b
 1. Select **Groups**, and then select **General** settings.
 1. Set **Owners can manage group membership requests in the Access Panel** to **Yes**.
 1. Set **Restrict access to Groups in the Access Panel** to **No**.
-1. If you set **Users can create security groups in Azure portals** or **Users can create Office 365 groups in Azure portals** to
+1. If you set **Users can create security groups in Azure portals** or **Users can create Microsoft 365 groups in Azure portals** to
 
     - **Yes**: All users in your Azure AD organization are allowed to create new security groups and add members to these groups. These new groups would also show up in the Access Panel for all other users. If the policy setting on the group allows it, other users can create requests to join these groups
     - **No**: Users can't create groups and can't change existing groups for which they are an owner. However, they can still manage the memberships of those groups and approve requests from other users to join their groups.
@@ -56,7 +56,7 @@ You can also use **Owners who can assign members as group owners in Azure portal
 When users can create groups, all users in your organization are allowed to create new groups and then can, as the default owner, add members to these groups. You can't specify individuals who can create their own groups. You can specify individuals only for making another group member a group owner.
 
 > [!NOTE]
-> An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a security group or Office 365 group and for owners to approve or deny membership requests. Without an Azure Active Directory Premium license, users can still manage their groups in the Access Panel, but they can't create a group that requires owner approval in the Access Panel, and they can't request to join a group. 
+> An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a security group or Microsoft 365 group and for owners to approve or deny membership requests. Without an Azure Active Directory Premium license, users can still manage their groups in the Access Panel, but they can't create a group that requires owner approval in the Access Panel, and they can't request to join a group.
 
 ## Next steps
 

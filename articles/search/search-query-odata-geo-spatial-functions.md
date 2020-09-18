@@ -79,7 +79,7 @@ The geography point constant is of the form `geography'POINT(<longitude> <latitu
 
 The `geo.intersects` function takes a variable of type `Edm.GeographyPoint` and a constant `Edm.GeographyPolygon` and returns an `Edm.Boolean` -- `true` if the point is within the bounds of the polygon, `false` otherwise.
 
-The polygon is a two-dimensional surface stored as a sequence of points defining a bounding ring (see the [examples](#examples) below). The polygon needs to be closed, meaning the first and last point sets must be the same. [Points in a polygon must be in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+The polygon is a two-dimensional surface stored as a sequence of points defining a bounding ring (see the [examples](#examples) below). The polygon needs to be closed, meaning the first and last point sets must be the same. [Points in a polygon must be in counterclockwise order](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ### Geo-spatial queries and polygons spanning the 180th meridian
 
@@ -104,7 +104,7 @@ Find all hotels within 10 kilometers of a given reference point (where location 
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
 ```
 
-Find all hotels within a given viewport described as a polygon (where location is a field of type `Edm.GeographyPoint`). Note that the polygon is closed (the first and last point sets must be the same) and [the points must be listed in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Find all hotels within a given viewport described as a polygon (where location is a field of type `Edm.GeographyPoint`). Note that the polygon is closed (the first and last point sets must be the same) and [the points must be listed in counterclockwise order](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
@@ -129,4 +129,4 @@ Sort hotels in descending order by `search.score` and `rating`, and then in asce
 - [Filters in Azure Cognitive Search](search-filters.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

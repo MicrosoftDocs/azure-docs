@@ -27,6 +27,7 @@ The result is a private and isolated relationship between the workloads bound to
 > The below Microsoft services are required to be on a virtual network
 > - Azure App Service
 > - Azure Functions
+> - Azure Monitor (diagnostic setting)
 
 > [!IMPORTANT]
 > Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces.

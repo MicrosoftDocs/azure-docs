@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Modify a circuit: PowerShell'
 description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/08/2020
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Create and modify an ExpressRoute circuit using PowerShell
@@ -69,7 +69,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*.
+* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*. You cannot change the SKU from *Standard/Premium* to *Local*.
 * SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is always *Unlimiteddata*.
 
 > [!IMPORTANT]
@@ -302,7 +302,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 
 You can do the following tasks with no downtime:
 
-* Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
+* Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit. Changing the SKU from *Standard/Premium* to *Local* is not supported.
 * Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported.
 * Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.

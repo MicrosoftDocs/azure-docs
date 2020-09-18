@@ -3,7 +3,7 @@ title: Best practices for Azure Maps Search Service | Microsoft Azure Maps
 description: Learn how to apply the best practices when using the Search Service from Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -15,24 +15,22 @@ manager: philmea
 Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) includes APIs that offer various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example,[Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) allows users to search for an address or Point of Interest (POI).
 
 This article explains how to apply sound practices when you call data from Azure Maps Search Service. You'll learn how to:
-
-* Build queries to return relevant matches
-* Limit search results
-* Learn the differences between result types
-* Read the address search-response structure
+> [!div class="checklist"]
+> * Build queries to return relevant matches
+> * Limit search results
+> * Learn the differences between result types
+> * Read the address search-response structure
 
 ## Prerequisites
 
-To make calls to the Azure Maps service APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-For information about authentication in Azure Maps, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
-
-> [!TIP]
-> To query Search Service, you can use the [Postman app](https://www.getpostman.com/apps) to build REST API calls. Or you can use any API development environment that you prefer.
+This article uses the [Postman app](https://www.postman.com/downloads/) to build REST calls, but you can choose any API development environment.
 
 ## Best practices to geocode addresses
 
-When you search for a full or partial address by using Azure Maps Search Service, the API reads keywords from your search query. Then it returns the longitude and latitude coordinates of the address. This process is called *geocoding*. 
+When you search for a full or partial address by using Azure Maps Search Service, the API reads keywords from your search query. Then it returns the longitude and latitude coordinates of the address. This process is called *geocoding*.
 
 The ability to geocode in a country/region depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country or region, see [Geocoding coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
@@ -423,7 +421,7 @@ query=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 You can use the following methods.
 
 JavaScript or TypeScript:
-```Javascript
+```javascript
 encodeURIComponent(query)
 ```
 

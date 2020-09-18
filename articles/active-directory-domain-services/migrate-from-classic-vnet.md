@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 08/10/2020
 ms.author: iainfou
 
 ---
@@ -194,6 +194,12 @@ To prepare the managed domain for migration, complete the following steps:
     ```powershell
     $creds = Get-Credential
     ```
+    
+1. Define a variable for your Azure subscription ID. If needed, you can use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet to list and view your subscription IDs. Provide your own subscription ID in the following command:
+
+   ```powershell
+   $subscriptionId = 'yourSubscriptionId'
+   ```
 
 1. Now run the `Migrate-Aadds` cmdlet using the *-Prepare* parameter. Provide the *-ManagedDomainFqdn* for your own managed domain, such as *aaddscontoso.com*:
 
@@ -201,7 +207,8 @@ To prepare the managed domain for migration, complete the following steps:
     Migrate-Aadds `
         -Prepare `
         -ManagedDomainFqdn aaddscontoso.com `
-        -Credentials $creds​
+        -Credentials $creds `
+        -SubscriptionId $subscriptionId
     ```
 
 ## Migrate the managed domain
@@ -221,7 +228,8 @@ Migrate-Aadds `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
-    -Credentials $creds​
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 After the script validates the managed domain is prepared for migration, enter *Y* to start the migration process.
@@ -307,7 +315,8 @@ Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 ### Restore

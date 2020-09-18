@@ -53,6 +53,12 @@ Triggers determine when a pipeline run should be kicked off. Currently triggers 
 
 ![Manage custom params](media/author-management-hub/management-hub-triggers.png)
 
+### Global parameters
+
+Global parameters are constants across a data factory that can be consumed by a pipeline in any expression. For more information, learn about [global parameters](author-global-parameters.md).
+
+![Create global parameters](media/author-global-parameters/create-global-parameter-3.png)
+
 ## Next steps
 
 Learn how to [configure a git repository](source-control.md) to your ADF
