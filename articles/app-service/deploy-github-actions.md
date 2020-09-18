@@ -12,11 +12,23 @@ ms.custom: devx-track-python, github-actions-azure
 
 # Deploy to App Service using GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the Azure App Service Actions for GitHub, you can automate your workflow to deploy to [Azure App Service](overview.md) using GitHub Actions.
+Get started with [GitHub Actions](https://help.github.com/en/articles/about-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md). Use GitHub Actions to quickly deploy your app to Azure App Service from GitHub. 
+
+## Prerequisites 
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
+- A working Azure App Service app. 
+    - .NET: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md)
+    - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md)  
+    - Java: [Create a Java app on Azure App Service](quickstart-java.md)
+    - Python: [Create a Python app in Azure App Service](quickstart-python.md)
+
+## Workflow file overview
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
-For an Azure App Service workflow, the file has three sections:
+Azure App Service workflow files have three sections:
 
 |Section  |Tasks  |
 |---------|---------|
@@ -26,21 +38,21 @@ For an Azure App Service workflow, the file has three sections:
 
 ## Generate deployment credentials
 
-The recommended way to authenticate with Azure App Services for GitHub Actions is by using a publish profile. 
+The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. Authenticate with Azure by saving your service principal or publish profile credential as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets). You'll access the secret within your workflow. 
 
 # [Publish profile](#tab/applevel)
 
-You can use app-level credentials by using publish profile for your app. 
+A publish profile is an app-level credential. Set up your publish profile as a GitHub secret. 
 
 1. Go to your app service in the Azure portal. 
 
 1. On the **Overview** page, select **Get Publish profile**.
 
-1. Save the downloaded file. You will use the contents of the file to create a GitHub secret.
+1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
 
 # [Service principal](#tab/userlevel)
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -105,6 +117,7 @@ Setting up the environment can be done using one of the setup actions.
 |**Language**  |**Setup Action**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
+|**ASP.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
 |**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
@@ -118,6 +131,15 @@ The following examples show how to set up the environment for the different supp
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '3.3.x'
+```
+
+**ASP.NET**
+
+```yaml
+    - name: Install Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: ${{ env.NUGET_VERSION}}
 ```
 
 **Java**
@@ -165,6 +187,39 @@ The following examples show the part of the workflow that builds the web app, in
 
 For all languages, you can set the web app root directory with `working-directory`. 
 
+**.NET**
+
+This example includes an environment variable `AZURE_WEBAPP_PACKAGE_PATH` that sets the path to your web app project. 
+
+```yaml
+- name: dotnet build and publish
+  run: |
+    dotnet restore
+    dotnet build --configuration Release
+    dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+```
+**ASP.NET**
+
+Restore NuGet dependencies and run msbuild. 
+
+```yaml
+- name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+  run: nuget restore
+
+- name: Add msbuild to PATH
+  uses: microsoft/setup-msbuild@v1.0.0
+
+- name: Run msbuild
+  run: msbuild .\SampleWebApplication.sln
+```
+
+**Java**
+
+```yaml
+- name: Build with Maven
+  run: mvn package --file pom.xml
+```
+
 **JavaScript**
 
 For Node.js, you can set `working-directory` or change for npm directory in `pushd`. 
@@ -187,24 +242,6 @@ For Node.js, you can set `working-directory` or change for npm directory in `pus
     pip install -r requirements.txt
 ```
 
-**.NET**
-
-This example includes an environment variable `AZURE_WEBAPP_PACKAGE_PATH` that sets the path to your web app project. 
-
-```yaml
-- name: dotnet build and publish
-  run: |
-    dotnet restore
-    dotnet build --configuration Release
-    dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
-```
-
-**Java**
-
-```yaml
-- name: Build with Maven
-  run: mvn package --file pom.xml
-```
 
 ## Deploy to App Service
 
@@ -221,6 +258,131 @@ To deploy your code to an App Service app, use the `azure/webapps-deploy@v2` act
 # [Publish profile](#tab/applevel)
 
 Below is the sample workflow to build and deploy a Node.js app to Azure using the app's publish profile. Note how the `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+
+Below is the sample workflow to build and deploy a .NET Core app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+
+```yaml
+name: .NET Core CI
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app-name    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@master
+      
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }} 
+      
+      # Run dotnet build and publish
+      - name: dotnet build and publish
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          
+      # Deploy to Azure Web apps
+      - name: 'Run Azure webapp deploy action using publish profile credentials'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+```
+
+Below is the sample workflow to build and deploy an ASP.NET MVC app that uses NuGet and `publish-profile` for authentication. 
+
+
+```yaml
+name: Deploy ASP.NET MVC App deploy to Azure Web App
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NUGET_VERSION: '5.3.x'           # set this to the dot net version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+
+    - uses: actions/checkout@master  
+    
+    - name: Install Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: ${{ env.NUGET_VERSION}}
+    - name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+      run: nuget restore
+  
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.0
+
+    - name: Run MSBuild
+      run: msbuild .\SampleWebApplication.sln
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication/'
+```
+
+
+Below is the sample workflow to build and deploy a Java Spring app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+
+```yaml
+name: Java CI with Maven
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      working-directory: my-app-path
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: my/target/*.jar
+```
+
+To deploy a `war` instead of a `jar`, change the `package` value. 
+
+
+```yaml
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: my/target/*.war
+```
 
 ### JavaScript 
 
@@ -270,7 +432,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: my-web-app # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'# set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
 
 jobs:
   build:
@@ -293,90 +455,6 @@ jobs:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-```
-
-Below is the sample workflow to build and deploy a .NET Core app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
-
-```yaml
-name: .NET Core CI
-
-on: [push]
-
-env:
-  AZURE_WEBAPP_NAME: my-app-name    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checkout the repo
-      - uses: actions/checkout@master
-      
-      # Setup .NET Core SDK
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }} 
-      
-      # Run dotnet build and publish
-      - name: dotnet build and publish
-        run: |
-          dotnet restore
-          dotnet build --configuration Release
-          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
-          
-      # Deploy to Azure Web apps
-      - name: 'Run Azure webapp deploy action using publish profile credentials'
-        uses: azure/webapps-deploy@v2
-        with: 
-          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
-          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
-
-```
-
-Below is the sample workflow to build and deploy a Java Spring app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
-
-```yaml
-name: Java CI with Maven
-
-on: [push]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-      working-directory: my-app-path
-    - name: Azure WebApp
-      uses: Azure/webapps-deploy@v2
-      with:
-        app-name: my-app-name
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: my/target/*.jar
-```
-
-To deploy a `war` instead of a `jar`, change the `package` value. 
-
-
-```yaml
-    - name: Azure WebApp
-      uses: Azure/webapps-deploy@v2
-      with:
-        app-name: my-app-name
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: my/target/*.war
 ```
 
 # [Service principal](#tab/userlevel)
@@ -522,6 +600,56 @@ jobs:
         run: |
           az logout
 ```
+
+Below is the sample workflow to build and deploy a ASP.NET MVC app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+
+```yaml
+name: Deploy ASP.NET MVC App deploy to Azure Web App
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NUGET_VERSION: '5.3.x'           # set this to the dot net version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+
+    # checkout the repo
+    - uses: actions/checkout@master  
+    
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Install Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: ${{ env.NUGET_VERSION}}
+    - name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+      run: nuget restore
+  
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.0
+
+    - name: Run MSBuild
+      run: msbuild .\SampleWebApplication.sln
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication/'
+  
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
+```
+
 
 Below is the sample workflow to build and deploy a Java Spring app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
