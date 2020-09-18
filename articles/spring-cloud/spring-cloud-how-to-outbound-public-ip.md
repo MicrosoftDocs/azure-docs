@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # How to identify outbound public IP addresses in Azure Spring Cloud
 
-This page will show you how to view the static outbound public IP addresses of your Application, which are used to communicate with external resources, such as Database, Storage, Key Vault, etc.
+This page will show you how to view the static outbound public IP addresses of your Application, which are used to communicate with external resources, such as database, storage, key vault, etc.
 
 
 
@@ -43,3 +43,6 @@ az spring-cloud show --resource-group <group_name> --name <service_name> --query
 ```
 
 ## Next steps
+> [!div class="nextstepaction"]
+* [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Learn more about key vault in Azure Spring Cloud](articles\spring-cloud\spring-cloud-tutorial-managed-identities-key-vault.md)
