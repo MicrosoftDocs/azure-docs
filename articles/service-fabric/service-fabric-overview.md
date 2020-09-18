@@ -8,7 +8,7 @@ ms.custom: contentperfq1
 
 # Overview of Azure Service Fabric
 
-Azure Service Fabric is a [distributed systems platform](#container-deployment-and-orchestration) that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. Service Fabric also addresses the significant challenges in [developing and managing](#application-lifecycle-management) cloud native applications.
+Azure Service Fabric is a [distributed systems platform](#container-orchestration) that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. Service Fabric also addresses the significant challenges in [developing and managing](#application-lifecycle-management) cloud native applications.
 
 A key differentiator of Service Fabric is its strong focus on building stateful services. You can use the Service Fabric [programming model](#stateless-and-stateful-microservices) or run containerized stateful services written in any language or code. You can create [Service Fabric clusters anywhere](#any-os-any-cloud), including Windows Server and Linux on premises and other public clouds, in addition to Azure.
 
