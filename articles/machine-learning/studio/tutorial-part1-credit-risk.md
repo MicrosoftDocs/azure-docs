@@ -114,7 +114,7 @@ Once the data has been converted to CSV format, you need to upload it into Machi
 
 1. Open the Machine Learning Studio (classic) home page ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Click the menu ![Menu icon](./media/tutorial-part1-credit-risk/menu.png) in the upper-left corner of the window, click **Azure Machine Learning**, select **Studio**, and sign in.
+2. Click the menu ![Menu icon.](./media/tutorial-part1-credit-risk/menu.png) in the upper-left corner of the window, click **Azure Machine Learning**, select **Studio**, and sign in.
 
 3. Click **+NEW** at the bottom of the window.
 
