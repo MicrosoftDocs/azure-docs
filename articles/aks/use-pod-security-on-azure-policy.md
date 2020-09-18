@@ -41,12 +41,47 @@ By using the Azure Policy Add-on, an AKS cluster can use built-in Azure policies
 
 This document details how to use Azure Policy to secure pods in an AKS cluster and instruct how to migrate from pod security policies (preview).
 
-## Limitations 
-TODO
+## Limitations
 
-[!INCLUDE [Limitations](../governance/policy/concepts/policy-for-kubernetes.md?branch=pr-en-us-127480#limitations)]
+The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
 
-## Recommendations
+- Azure Policy Add-on for Kubernetes is supported on Kubernertes version **1.14** or higher.
+- Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools
+- Only built-in policy definitions are supported
+- Maximum number of Non-compliant records per policy per cluster: **500**
+- Maximum number of Non-compliant records per subscription: **1 million**
+- Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any
+  components installed by a previous Gatekeeper installation before enabling the Azure Policy
+  Add-on.
+- [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't
+  available for this [Resource Provider mode](./definition-structure.md#resource-provider-modes)
+
+The following limitations apply only to the Azure Policy Add-on for AKS:
+
+- [AKS Pod security policy (preview)](use-pod-security-policies.md) and the Azure Policy Add-on
+  for AKS can't both be enabled. For more information, see
+  [AKS pod security limitation](use-pod-security-on-azure-policy.md#limitations).
+- Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_,
+  _gatekeeper-system_, and _aks-periscope_.
+
+### Recommendations
+
+The following are general recommendations for using the Azure Policy Add-on:
+
+- The Azure Policy Add-on requires 3 Gatekeeper components to run: 1 audit pod and 2 webhook pod
+  replicas. These components consume more resources as the count of Kubernetes resources and policy
+  assignments increases in the cluster which requires audit and enforcement operations.
+
+  - For less than 1000 pods in a single cluster with a max of 20 constraints: 2 vCPUs and 200 MB
+    memory per component.
+  - For more than 1000 pods in a single cluster with a max of 40 constraints: 2 vCPUs and 300 MB
+    memory per component.
+
+The following recommendation applies only to AKS and the Azure Policy Add-on:
+
+- Use system node pool with `CriticalAddonsOnly` taint to schedule Gatekeeper pods. For more
+  information, see
+  [Using system node pools](use-system-pools.md#system-and-user-node-pools).
 
 The Azure Policy add-on requires CPU and memory resources to operate. These requirements increase as the size of a cluster increases. See [Azure Policy recommendations][policy-recommendations] for general guidance for using the Azure Policy add-on.
 
