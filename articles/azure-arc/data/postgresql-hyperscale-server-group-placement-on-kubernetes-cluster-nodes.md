@@ -107,9 +107,9 @@ Each pod that is part of the Azure Arc enabled PostgreSQL Hyperscale server grou
 
 |Containers|Description
 |----|----|
-Fluentbit |Data/logs collector: https://fluentbit.io/
-|Postgres|Postgres instance part of the Azure Arc enabled PosgreSQL Hyperscale server group
-|Telegraf |Metrics collector: https://www.influxdata.com/time-series-platform/telegraf/
+|`Fluentbit` |Data * log collector: https://fluentbit.io/
+|`Postgres`|PostgreSQL instance part of the Azure Arc enabled PosgreSQL Hyperscale server group
+|`Telegraf` |Metrics collector: https://www.influxdata.com/time-series-platform/telegraf/
 
 
 The architecture looks like:
@@ -200,9 +200,9 @@ Using the same commands as above; we see what each physical node is hosting:
 |control-gwmbs|aks-agentpool-42715708-vmss000002
 |controldb-0|aks-agentpool-42715708-vmss000001
 |controlwd-zzjp7|aks-agentpool-42715708-vmss000000
-|logsdb-0|Elasticsearch, receives data from Fluentbit container of each pod|aks-agentpool-42715708-vmss000003
+|logsdb-0|Elasticsearch, receives data from `Fluentbit` container of each pod|aks-agentpool-42715708-vmss000003
 |logsui-5fzv5|aks-agentpool-42715708-vmss000003
-|metricsdb-0|InfluxDB, receives data from the Telegraf container of each pod|aks-agentpool-42715708-vmss000000
+|metricsdb-0|InfluxDB, receives data from the `Telegraf` container of each pod|aks-agentpool-42715708-vmss000000
 |metricsdc-47d47|aks-agentpool-42715708-vmss000002
 |metricsdc-864kj|aks-agentpool-42715708-vmss000001
 |metricsdc-l8jkf|aks-agentpool-42715708-vmss000003
