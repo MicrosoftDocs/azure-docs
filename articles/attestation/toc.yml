@@ -46,5 +46,5 @@
     href: https://www.nuget.org/packages/Microsoft.Azure.DCAP/
   - name: Azure DCAP library for Linux
     href: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/
-
-  
+  - name: VBS protocol documentation
+    href: protocol-documentation.md
