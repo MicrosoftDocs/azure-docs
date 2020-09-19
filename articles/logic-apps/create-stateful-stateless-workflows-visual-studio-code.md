@@ -223,6 +223,15 @@ When you later try to open the Logic App Designer for your logic app, you get a 
 > For various reasons, Visual Studio Code signs you out from your Azure account. 
 > When necessary, Visual Studio Code prompts you to sign back in, or you can manually sign back in.
 
+## Region support
+
+To create connections using the managed connectors, create your workflows and Logic App (Preview) resources in these regions:
+
+* Brazil South
+* East Asia
+* West Central US
+* West US 2
+
 <a name="create-project"></a>
 
 ## Create a local project
@@ -424,9 +433,7 @@ The logic app workflow in this example uses this trigger and these actions:
 
    ![Screenshot that shows Logic App Designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-send-email-action.png)
 
-1. On the designer, if the Office 365 Outlook action doesn't appear selected, select that action.
-
-1. On the action's details pane that appears, select **Sign in** so that you can create a connection to your email account.
+1. In the action's details pane, select **Sign in** so that you can create a connection to your email account.
 
    ![Screenshot that shows Logic App Designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
 
@@ -563,7 +570,7 @@ To return a response back to the caller that sent a request to your logic app, y
 
    ![Screenshot that shows Logic App Designer with the Response action selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-response-action.png)
 
-1. On the designer, select the **Response** action so that the action's details pane appears.
+   When the **Response** action appears on the designer, the action's details pane automatically opens.
 
    ![Screenshot that shows Logic App Designer with the "Response" action's details pane open and the "Body" property set to the "Send an email" action's "Body" property value.](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details.png)
 
@@ -614,20 +621,6 @@ From Visual Studio Code, you can deploy your project directly to Azure, which pu
 
 You can publish your logic app as a new resource, which automatically creates any additional necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Preview)** resource, which the deployment process overwrites in Azure.
 
-### Enable run history for publishing to deployed Logic App (Preview) resources
-
-If you choose to publish to an already deployed **Logic App (Preview)** resource, follow these steps to enable the run history for a stateful workflow.
-
-1. In the [Azure portal](https://portal.azure.com), find and select the deployed **Logic App (Preview)** resource.
-
-1. On that resource's menu, under **API**, select **CORS**.
-
-1. On the **CORS** pane, under **Allowed Origins**, add the wildcard character (*).
-
-1. When you're done, on the **CORS** toolbar, select **Save**.
-
-   ![Screenshot that shows the Azure portal with a deployed Logic Apps (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
-
 ### Publish as a new Logic App (Preview) resource
 
 1. On the Visual Studio Code toolbar, select the Azure icon.
@@ -675,6 +668,20 @@ If you choose to publish to an already deployed **Logic App (Preview)** resource
    When Visual Studio Code finishes deploying your logic app workflow to Azure, this message appears:
 
    ![Screenshot that shows a message that deployment to Azure successfully completed.](./media/create-stateful-stateless-workflows-visual-studio-code/deployment-to-azure-completed.png)
+
+### Enable monitoring for deployed Logic App (Preview) resources
+
+To enable run history and monitoring on a deployed **Logic App (Preview)** resource, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), find and select the deployed **Logic App (Preview)** resource.
+
+1. On that resource's menu, under **API**, select **CORS**.
+
+1. On the **CORS** pane, under **Allowed Origins**, add the wildcard character (*).
+
+1. When you're done, on the **CORS** toolbar, select **Save**.
+
+   ![Screenshot that shows the Azure portal with a deployed Logic Apps (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
 <a name="manage-deployed-workflows"></a>
 
@@ -918,6 +925,10 @@ When you work with the Logic App Designer in Visual Studio Code, and you make ch
 
 The [**Inline Code** action](../logic-apps/logic-apps-add-run-inline-code.md), which you can use for running JavaScript code, currently isn't supported on Linux operating systems or on the Azure Functions runtime version 2. If you want to use this action on a non-Linux OS, make sure that you install [Azure Functions Core Tools 3.0.14492](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools), which includes a version of the same runtime that powers the Azure Functions runtime that runs in Visual Studio Code. For more information, see [Prerequisites](#prerequisites).
 
+### Added workflows experience delays appearing in your project or deployed logic app
+
+If you add a workflow to your project in Visual Studio Code or to your deployed Logic App (Preview) resource, the workflow might experience a delay before appearing because your project or logic app needs to restart. If the workflow still doesn't appear after some time, try refreshing the project pane by pressing Shift + F5 or by clearing the last hour from your browser's cache by pressing Ctrl + Shift + Delete.
+
 ### Delays when you disable a logic app or workflow in the Azure portal
 
 If you select **Disable** for a workflow in a **Logic App (Preview)** resource, you might experience a delay, usually around 30 seconds, before the workflow's **Status** changes from **Enabled** to **Disabled**. This delay happens because the function host, which powers the workflow, has to restart. However, the **Status** column shows the correct state after the function host finishes restarting. The delay happens in these locations:
@@ -946,4 +957,7 @@ No scrollbar appears when you zoom in or zoom out in Visual Studio Code, which p
 
 ## Next steps
 
-We'd like to hear from you! To report bugs, provide feedback or suggestions, and ask questions about the public preview extension, please visit our [feedback site](https://aka.ms/lafeedback).
+We'd like to hear from you about your experiences with this public preview extension!
+
+* For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
+* For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
