@@ -16,26 +16,30 @@ ms.date: 09/23/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and run [*stateful* and *stateless* logic app workflows](#stateful-stateless). These logic apps are created with the new **Logic App (Preview)** resource type in Azure and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This resource type can contain multiple workflows and is similar to the function app resource type, which can include multiple functions.
+To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and run [*stateful* and *stateless* logic app workflows](#stateful-stateless).
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-This article provides a high-level overview about stateful and stateless logic apps, how to create these logic apps by using the public preview extension, and how to publish or deploy these logic apps directly from Visual Studio Code to Azure or a [Docker container that you can run anywhere](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
+The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions. The pricing model for the new **Logic App (Preview)** resource type also uses [hosting plans and pricing tiers](../app-service/overview-hosting-plans.md), which you can select or specify during deployment. For more information about hosting plans and pricing, review these topics:
 
-> [!NOTE]
-> The pricing model for the **Logic App (Preview)** resource type uses 
-> [hosting plans and pricing tiers](../app-service/overview-hosting-plans.md), 
-> which you can set up during deployment. For more information about hosting 
-> plans and pricing, review these topics:
->
-> * [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
-> * [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
+* [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
+* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
+
+Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code and in the Azure portal. However, the experiences for the original resource type are separate from the new resource type. At this time, both **Logic Apps** and **Logic App (Preview)** resource types can exist at the same time in Visual Studio Code and in the Azure portal. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections.
+
+This article provides a high-level overview about this public preview and helps you learn more about the following:
+
+* How stateful and stateless logic apps differ from each other.
+
+* How to create new **Logic App (Preview)** workflows by using the public preview extension.
+
+* How to publish or deploy these new logic apps directly from Visual Studio Code to Azure or to a [Docker container that you can run anywhere](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 <a name="whats-new"></a>
 
 ## What's in this public preview?
 
-This public preview extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
+The Azure Logic Apps (Preview) extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
 
 * Build logic apps for integration and automation workflows from [300+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors.md) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
@@ -103,26 +107,31 @@ For information about how nested logic apps behave differently between stateful 
     > for running JavaScript code, you need to use the Azure Functions runtime version 3x because the 
     > action doesn't support version 2x. Also, this action currently isn't supported on Linux operating systems.
 
-  * [Azure Logic Apps (Preview) extension for Visual Studio Code 0.0.1](https://go.microsoft.com/fwlink/p/?linkid=2143167). This public preview extension provides the capability for you to create stateful and stateless logic apps and to test them locally in Visual Studio Code.
+  * [Azure Logic Apps (Preview) extension 0.0.1 for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). This public preview extension provides the capability for you to create stateful and stateless logic apps and to test them locally in Visual Studio Code.
+
+    Currently, you can have both the original **Azure Logic Apps** extension and the new **Azure Logic Apps (Preview)** extension installed at the same time in Visual Studio Code. By selecting the Azure icon on the Visual Studio Code toolbar, you can view all the logic apps deployed in Azure, but each resource type appears in their own extension sections, **Logic Apps** and **Azure Logic Apps (Preview)**.
 
     > [!IMPORTANT]
-    > If you created logic apps with the private preview extension, these logic apps won't work with 
-    > the public preview extension. However, you can migrate these logic apps by uninstalling the 
-    > private preview extension, performing the required cleanup, and installing the public preview 
-    > extension. You can then create your new project in Visual Studio Code, and copy your previously 
-    > created logic app's definition into your new project.
+    > If you created logic apps by using the **Azure Logic Apps (Private Preview)** extension, 
+    > these logic apps won't work with the public preview extension. However, you can migrate these 
+    > logic apps by uninstalling the private preview extension, performing the required cleanup, and 
+    > installing the public preview extension. You can then create your new project in Visual Studio Code, 
+    > and copy your previously created logic app's `workflow.definition` file into your new project.
     >
-    > So, before you install the public preview extension, make sure that you uninstall any earlier versions, and delete these artifacts:
+    > So, before you install the public preview extension, make sure that you uninstall any 
+    > earlier versions, and delete these artifacts:
     >
-    > * The `Microsoft.Azure.Functions.ExtensionBundle.Workflows` folder, which contains previous extension bundles and is located along this path:
+    > * The `Microsoft.Azure.Functions.ExtensionBundle.Workflows` folder, which contains 
+    > previous extension bundles and is located along this path:
     >
     >   `C:\Users\<username>\AppData\Local\Temp\Functions\ExtensionBundles`
     >
-    > * The `microsoft.azure.workflows.webjobs.extension` folder, which is the [NuGet](/nuget/what-is-nuget) cache for the private preview extension and is located along this path:
+    > * The `microsoft.azure.workflows.webjobs.extension` folder, which is the [NuGet](/nuget/what-is-nuget) 
+    > cache for the private preview extension and is located along this path:
     >
     >   `C:\Users\<username>\.nuget\packages`
 
-    To install the public preview extension, follow these steps:
+    To install the **Azure Logic Apps (Preview)** extension, follow these steps:
 
     1. In Visual Studio Code, on the left toolbar, select **Extensions**.
 
@@ -687,7 +696,12 @@ To enable run history and monitoring on a deployed **Logic App (Preview)** resou
 
 ## Find and manage deployed logic apps in Visual Studio Code
 
-In Visual Studio Code, you can view all the deployed logic apps in Azure, whether they have the original **Logic App** or the **Logic App (Preview)** resource type, that are in your Azure subscription, and select tasks that help you manage those logic apps.
+In Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** or the **Logic App (Preview)** resource type. However, to access both resource types, you need both the **Azure Logic Apps** and the **Azure Logic Apps (Preview)** extensions for Visual Studio Code.
+
+ , and select tasks that help you manage those logic apps.
+
+In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. However, the logic apps for each type are organized in their own individual and separate resource category. To find logic apps for each type, search for either *Logic App (consumption)** or  either type and select tasks that help you manage that logic apps. However, each Logic App resource type appears on their own individual resource pages.
+
 
 1. On the left toolbar, select the Azure icon. In the **Azure: Logic Apps (Preview)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
 
@@ -709,7 +723,7 @@ In Visual Studio Code, you can view all the deployed logic apps in Azure, whethe
 
 ## Find and manage deployed logic apps in the portal
 
-In the Azure portal, you can view all the deployed logic apps, whether they have the original **Logic App** or the **Logic App (Preview)** resource type, that are in your Azure subscription, and select tasks that help you manage that logic apps. However, each Logic App resource type appears on their own individual resource pages.
+In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. However, the logic apps for each type are organized in their own individual and separate resource category. To find logic apps for each type, search for either *Logic App (consumption)** or  either type and select tasks that help you manage that logic apps. However, each Logic App resource type appears on their own individual resource pages.
 
 To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
 
