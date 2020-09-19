@@ -252,7 +252,7 @@ $restoreOperation.RestoreId
 $restoreOperation.Parameters.BlobRanges
 ```
 
-To run the restore operation synchronously, include the **-WaitForComplete** parameter on the command. When the **-WaitForComplete** parameter is present, PowerShell displays a message that includes the restore ID for the operation and then blocks on execution until the restore operation is complete. Keep in mind that the length of time required by a restore operation depends on the amount of data to be restored, and a large restore operation may take up to an hour to complete.
+To run the restore operation synchronously and block on execution until it is complete, include the **-WaitForComplete** parameter on the command.
 
 ---
 
