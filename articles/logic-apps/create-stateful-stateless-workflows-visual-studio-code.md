@@ -346,7 +346,7 @@ Before you try opening your workflow definition file in the designer, if Visual 
 
    ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected](./media/create-stateful-stateless-workflows-visual-studio-code/create-select-resource-group.png)
 
-1. Provide a name for the resource group, and press Enter. This example uses `example-workflow-rg`.
+1. Provide a name for the resource group, and press Enter. This example uses `example-logic-app-preview-rg`.
 
    ![Screenshot that shows Explorer pane and resource group name box.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
@@ -646,7 +646,7 @@ If you choose to publish to an already deployed **Logic App (Preview)** resource
 
 1. If you choose to create a **Logic App (Preview)** resource, follow these steps:
 
-   1. Provide a globally unique name for your new logic app.
+   1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Preview)** resource.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
