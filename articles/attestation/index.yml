@@ -70,6 +70,4 @@ landingContent:
             url: /rest/api/attestation/ 
           - text: Azure PowerShell
             url: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
-          - text: VBS protocol documentation
-            url:protocol-documentation.md
 
