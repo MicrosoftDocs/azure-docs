@@ -1147,6 +1147,8 @@
         href: platform/workbooks-tree-visualizations.md
       - name: Graph
         href: platform/workbooks-graph-visualizations.md
+      - name: Honey comb
+        href: platform/workbooks-honey-comb.md
       - name: Composite bar
         href: platform/workbooks-composite-bar.md
     - name: Data sources
