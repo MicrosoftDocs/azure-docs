@@ -66,6 +66,7 @@ The following list includes the SQL Server 2019 on Linux features that aren't cu
 | &nbsp; | Polybase. Note that you can configure Azure SQL Edge as a target for external tables in Polybase. |
 | &nbsp; | Language extensibility through Java and Spark. |
 | &nbsp; | Active Directory integration. |
+| &nbsp; | Database Auto Shrink. The Auto shrink property for a database can be set using the `ALTER DATABASE <database_name> SET AUTO_SHRINK ON` command, however that change has no effect. The automatic shrink task will not run against the database. Users can still shrink the database files using the 'DBCC' commands. |
 | &nbsp; | Database snapshots. |
 | &nbsp; | Support for persistent memory. |
 | &nbsp; | Microsoft Distributed Transaction Coordinator. |

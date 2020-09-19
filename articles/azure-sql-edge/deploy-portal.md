@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ---
 
 # Deploy Azure SQL Edge 
@@ -23,7 +23,7 @@ Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT E
 * Register an [IoT Edge Device from the Azure portal](../iot-edge/how-to-register-device-portal.md).
 * Prepare the IoT Edge device to [deploy IoT Edge module from the Azure portal](../iot-edge/how-to-deploy-modules-portal.md).
 
-> [!NOTE]
+> [!NOTE]   
 > To deploy an Azure Linux VM as an IoT Edge device, see this [quickstart guide](../iot-edge/quickstart-linux.md).
 
 ## Deploy SQL Edge Module from Azure Marketplace
@@ -46,75 +46,73 @@ Azure Marketplace is an online applications and services marketplace where you c
    |IoT Hub   |  Name of the IoT Hub where the IoT Edge device is registered and then select "Deploy to a device" option|
    |IoT Edge Device Name  |  Name of the IoT Edge device where SQL Edge would be deployed |
 
-4. On the **Set Modules** page, navigate to the section on deployment modules, and click **Configure** against the SQL Edge module. 
+4. On the **Set Modules on device:** page, click on the Azure SQL Edge module under **IoT Edge Modules**. The default module name is set to *AzureSQLEdge*. 
 
-5. On the **IoT Edge Custom Modules** pane, specify the desired values for the environment variables and/or customize the create options and desired properties for the module. For, a complete list of supported environment variables refer [SQL Server Container Environment Variables](/sql/linux/sql-server-linux-configure-environment-variables/).
+5. On the *Module Settings* section of the **Update IoT Edge Module** blade, specify the desired values for the *IoT Edge Module Name*, *Restart Policy* and *Desired Status*. 
+
+   > [!IMPORTANT]    
+   > Do not change or update the **Image URI** settings on the module.
+
+6. On the *Environment Variables* section of the **Update IoT Edge Module** blade, specify the desired values for the environment variables. For a complete list of Azure SQL Edge environment variables refer [Configure using environment variables](configure.md#configure-by-using-environment-variables). The following default environment variables are defined for the module. 
 
    |**Parameter**  |**Description**|
    |---------|---------|
    | Name | Name for the module. |
-   |SA_PASSWORD  | Specify a strong password for the SQL Edge admin account. |
-   |MSSQL_LCID   | Sets the language ID to use for SQL Server. For example, 1036 is French. |
-   |MSSQL_COLLATION | Sets the default collation for SQL Server. This setting overrides the default mapping of language ID (LCID) to collation. |
+   | MSSQL_SA_PASSWORD  | Change the default value to specify a strong password for the SQL Edge admin account. |
+   | MSSQL_LCID   | Change the default value to set the desired language ID to use for SQL Edge. For example, 1036 is French. |
+   | MSSQL_COLLATION | Change the default value to set the default collation for SQL Edge. This setting overrides the default mapping of language ID (LCID) to collation. |
 
-   > [!NOTE]
-   > Please do not change or update the **Image URI** or the **ACCEPT_EULA** settings on the module.
+   > [!IMPORTANT]    
+   > Do not change or update the **ACCEPT_EULA** environment variable for the module.
 
-6. On the **IoT Edge Custom Modules** pane, update the container create options desired value for the **Host Port**. If you need to deploy more than one SQL DB Edge module, ensure that you update the mounts option to create a new source & target pair for the persistent volume. For more information on mounts and volume, refer [Use volumes](https://docs.docker.com/storage/volumes/) on docker documentation. 
-
-   ```json
-       {
-         "HostConfig": {
-           "Binds": [
-             "sqlvolume:/sqlvolume"
-           ],
-           "PortBindings": {
-             "1433/tcp": [
-               {
-                 "HostPort": "1433"
-               }
-             ]
-           },
-           "Mounts": [
-             {
-               "Type": "volume",
-               "Source": "sqlvolume",
-               "Target": "/var/opt/mssql"
-             }
-           ]
-         },
-         "Env": [
-           "MSSQL_AGENT_ENABLED=TRUE",
-           "MSSQL_PID=Developer"
-         ]
-       }
-   ```
-
-7. On the **IoT Edge Custom Modules** pane, update the *Set module twin's desired properties* to include the location of the SQL package and the stream analytics job info. These two fields are optional and should be used if you want to deploy the SQL Edge module with a database and a streaming job.
+7. On the *Container Create Options* section of the **Update IoT Edge Module** blade, update the following options as per requirement. 
+   - **Host Port :** Map the specified host port to port 1433 (default SQL port) in the container.
+   - **Binds** and **Mounts :** If you need to deploy more than one SQL Edge module, ensure that you update the mounts option to create a new source & target pair for the persistent volume. For more information on mounts and volume, refer [Use volumes](https://docs.docker.com/storage/volumes/) on docker documentation. 
 
    ```json
-       {
-         "properties.desired":
-         {
-           "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-           "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-         }
-       }
+   {
+    "HostConfig": {
+        "CapAdd": [
+            "SYS_PTRACE"
+        ],
+        "Binds": [
+            "sqlvolume:/sqlvolume"
+        ],
+        "PortBindings": {
+            "1433/tcp": [
+                {
+                    "HostPort": "1433"
+                }
+            ]
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Source": "sqlvolume",
+                "Target": "/var/opt/mssql"
+            }
+        ]
+    },
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "PlanId=asde-developer-on-iot-edge"
+    ]
+   }
    ```
-
-8. On the **IoT Edge Custom Modules** pane, set *Restart Policy* to always and *Desired Status* to running.
-9. On the **IoT Edge Custom Modules** pane, click **Save**.
-10. On the **Set modules** page click **Next**.
-11. On the **Specify Route (optional)** section of the **Set Modules** page, specify the routes for module to module, or module to IoT Edge Hub communication. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
-12. Click **Next**.
-13. Click **Submit**.
+   > [!IMPORTANT]    
+   > Do not change the `PlanId` enviroment variable defined in the create config setting. If this value is changed, the Azure SQL Edge container will fail to start. 
+   
+8. On the **Update IoT Edge Module** pane, click **Update**.
+9. On the **Set modules on device** page click **Next: Routes >** if you need to define routes for your deployment. Otherwise click **Review + Create**. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
+11. On the **Update IoT Edge Module** pane, click **Create**.
 
 ## Connect to Azure SQL Edge
 
 The following steps use the Azure SQL Edge command-line tool, **sqlcmd**, inside the container to connect to Azure SQL Edge.
 
-> [!NOTE]
-> sqlcmd tool is not available inside the ARM64 version of SQL Edge containers.
+> [!NOTE]      
+> SQL Command line tools (sqlcmd) are not available inside the ARM64 version of Azure SQL Edge containers.
 
 1. Use the `docker exec -it` command to start an interactive bash shell inside your running container. In the following example `azuresqledge` is name specified by the `Name` parameter of your IoT Edge Module.
 
@@ -128,7 +126,7 @@ The following steps use the Azure SQL Edge command-line tool, **sqlcmd**, inside
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
    ```
 
-   > [!TIP]
+   > [!TIP]    
    > You can omit the password on the command-line to be prompted to enter it.
 
 3. If successful, you should get to a **sqlcmd** command prompt: `1>`.
