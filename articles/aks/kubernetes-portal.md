@@ -76,6 +76,9 @@ For existing clusters, you may need to enable the Kubernetes resource view. To e
 
 :::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure portal message to enable the Kubernetes resource view." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
+> [!TIP]
+> For clusters with `--api-server-authorized-ip-ranges`, add access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address by searching "what is my IP address" in an internet browser.
+
 ## Next steps
 
 This article showed you how to access Kubernetes resources for your AKS cluster. See [Deployments and YAML manifests][deployments] for a deeper understanding of cluster resources and the YAML files that are accessed with the Kubernetes resource viewer.
