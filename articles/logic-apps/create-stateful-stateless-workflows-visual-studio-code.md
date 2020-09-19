@@ -23,8 +23,10 @@ To create logic app workflows that integrate across apps, data, cloud services, 
 This article provides a high-level overview about stateful and stateless logic apps, how to create these logic apps by using the public preview extension, and how to publish or deploy these logic apps directly from Visual Studio Code to Azure or a [Docker container that you can run anywhere](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 > [!NOTE]
-> The pricing model for the **Logic App (Preview)** resource type uses [hosting plans and pricing tiers](../app-service/overview-hosting-plans.md), 
-> which you can set up during deployment. For more information about hosting plans and pricing, review these topics:
+> The pricing model for the **Logic App (Preview)** resource type uses 
+> [hosting plans and pricing tiers](../app-service/overview-hosting-plans.md), 
+> which you can set up during deployment. For more information about hosting 
+> plans and pricing, review these topics:
 >
 > * [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
 > * [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
@@ -904,37 +906,43 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 ## Known issues
 
-* Stateless logic app workflows currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+### Trigger support for managed connectors in stateless workflows
 
-* In Visual Studio Code, when you are working in the Logic App Designer, and you have the details pane open for a trigger or action, any changes that you make in the **Settings**, **Run After**, or **Static Result** tab don't persist if you don't select **Done** before you switch tabs or select another item on the designer.
+Stateless logic app workflows currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
-  Make sure that you commit your changes before you switch tabs or change focus to the designer. Otherwise, Visual Studio Code won't keep your changes.
+### Data persistence in trigger and action details pane
 
-* The [**Inline Code** action](../logic-apps/logic-apps-add-run-inline-code.md), which you can use for running JavaScript code, currently isn't supported on Linux operating systems or on the Azure Functions runtime version 2. If you want to use this action on a non-Linux OS, make sure that you install [Azure Functions Core Tools 3.0.14492](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools), which includes a version of the same runtime that powers the Azure Functions runtime that runs in Visual Studio Code. For more information, see [Prerequisites](#prerequisites).
+When you work with the Logic App Designer in Visual Studio Code, and you make changes for a trigger or action in the details pane on the **Settings**, **Run After**, or **Static Result** tab, make sure that you select **Done** and commit your changes before you switch tabs or change focus to the designer. Otherwise, your changes won't persist.
 
-* In the Azure portal, if you select **Disable** for a workflow in a **Logic App (Preview)** resource, you might experience a delay, usually around 30 seconds, before the workflow's **Status** changes from **Enabled** to **Disabled**.
+### Support for Inline Code action
 
-  This delay happens because the function host, which powers the workflow, has to restart. However, the **Status** column shows the correct state after the function host finishes restarting. The delay happens in these locations:
+The [**Inline Code** action](../logic-apps/logic-apps-add-run-inline-code.md), which you can use for running JavaScript code, currently isn't supported on Linux operating systems or on the Azure Functions runtime version 2. If you want to use this action on a non-Linux OS, make sure that you install [Azure Functions Core Tools 3.0.14492](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools), which includes a version of the same runtime that powers the Azure Functions runtime that runs in Visual Studio Code. For more information, see [Prerequisites](#prerequisites).
 
-  * On the logic app resource's **Workflows** pane:
+### Delays when you disable a logic app or workflow in the Azure portal
 
-    ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and a selected workflow](./media/create-stateful-stateless-workflows-visual-studio-code/workflows-pane-disable-delay-issue.png)
+If you select **Disable** for a workflow in a **Logic App (Preview)** resource, you might experience a delay, usually around 30 seconds, before the workflow's **Status** changes from **Enabled** to **Disabled**. This delay happens because the function host, which powers the workflow, has to restart. However, the **Status** column shows the correct state after the function host finishes restarting. The delay happens in these locations:
 
-  * On the individual workflow's **Overview** pane:
+* On the logic app resource's **Workflows** pane:
 
-    ![Screenshot that shows the selected workflow's "Overview" pane with delayed disabled workflow](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-disable-delay-issue.png)
+  ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and a selected workflow](./media/create-stateful-stateless-workflows-visual-studio-code/workflows-pane-disable-delay-issue.png)
 
-* In Visual Studio Code, no scrollbar appears when you try to zoom in or zoom out, which prevents you from viewing content that appears off the screen.
+* On the individual workflow's **Overview** pane:
 
-  * To restore the original view, reset the zoom level with either option:
+  ![Screenshot that shows the selected workflow's "Overview" pane with delayed disabled workflow](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-disable-delay-issue.png)
 
-    * Press **Ctrl** + **NumPad0**.
+### Zoom levels and off-screen content in Visual Studio Code
 
-    * From the **View** menu, select **Appearance** **>** **Reset Zoom**.
+No scrollbar appears when you zoom in or zoom out in Visual Studio Code, which prevents you from viewing content that appears off the screen.
 
-  * To change the zoom level on only the Logic App Designer canvas, use the Logic App Designer's zoom controls, which appear at the bottom of the canvas.
+* To restore the original view, reset the zoom level with either option:
 
-    ![Screenshot that shows the Logic App Designer canvas and the zoom controls at the canvas bottom](./media/create-stateful-stateless-workflows-visual-studio-code/zoom-levels-designer-canvas.png)
+  * Press **Ctrl** + **NumPad0**.
+
+  * From the **View** menu, select **Appearance** **>** **Reset Zoom**.
+
+* To change the zoom level on only the Logic App Designer canvas, use the Logic App Designer's zoom controls, which appear at the bottom of the canvas.
+
+  ![Screenshot that shows the Logic App Designer canvas and the zoom controls at the canvas bottom](./media/create-stateful-stateless-workflows-visual-studio-code/zoom-levels-designer-canvas.png)
 
 ## Next steps
 
