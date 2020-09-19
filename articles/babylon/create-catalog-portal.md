@@ -55,10 +55,12 @@ If necessary, follow these steps to configure your subscription to enable Babylo
    > [!IMPORTANT]
    > Don't name your catalog with your company name or use sensitive information during the private preview. DNS names are not private, and your company's participation in the private preview might be disclosed via the DNS name.
 1. Make a choice for **Location**, and then select **Next**.
-1. The Azure portal will give you an opportunity to add tags. These tags are for use only in the Azure portal, not the catalog. They don't affect the catalog for the purposes of the preview.
+1. Optionally, add one or more tags.
+
+   These tags are for use only in the Azure portal, not the catalog. They don't affect the catalog for the purposes of the preview.
 1. Select **Review & Create**, and then select **Create**.
 
-   It will take a few minutes to complete catalog creation. The newly created Babylon instance appears in the list on your **Babylon accounts** page.
+   It takes a few minutes to complete catalog creation. The newly created Babylon instance appears in the list on your **Babylon accounts** page.
 1. When Babylon creation is finished, select **Go to resource**.
 
 1. Select **Launch babylon account**.

@@ -57,11 +57,11 @@ To add a security principal to a Catalog administrator security role:
 
 To scan content into the catalog, you must be an Owner or Contributor in the Azure portal as well as a Catalog administrator or Data source administrator in the Azure Data Catalog portal.
 
-The previous section described how to add a security principal to the Catalog administrator role in the Azure Babylon portal. This section describes how to assign a security principal to the Contributor role on the catalog in the Azure portal. This procedure is the final step to enable a security principal to scan content.
+The previous section described how to add a security principal to the Catalog administrator role in the Azure Babylon portal. This section describes how to assign a security principal to the Contributor role on the catalog in the Azure portal. It's the final step to enable a security principal to scan content.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and find your catalog resource.
 
-1. From the left pane, select **Access control (IAM)**
+1. From the left pane, select **Access control (IAM)**.
 
    :::image type="content" source="./media/add-security-principal/select-access-control.png" alt-text="Screenshot showing how to select Access control (IAM).":::
 

@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Babylon
+title: Introduction to Azure Babylon (preview)
 description: This article provides an overview of Azure Babylon, including its features and the problems it addresses. Azure Babylon enables any user to register, discover, understand, and consume data sources.
 author: hophan
 ms.author: hophan
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 09/10/2020
 ---
 
-# What is Azure Babylon?
+# What is Azure Babylon (preview)?
 
 Azure Babylon is a new cloud service for use by data users. You use Azure Babylon to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
 
@@ -21,7 +21,7 @@ The Azure Babylon preview provides customers early access to preview releases in
 
 ## Transition from ADC Gen 2 to Babylon
 
-The service ADC Gen 2 is being rolled into a broader data governance offering code named Babylon.
+The service ADC Gen 2 is being rolled into a broader data governance offering named Azure Babylon.
 
 Based on the feedback from our customers who used the ADC Gen 2 private preview, we're making the following changes.
 
@@ -33,7 +33,7 @@ Based on the feedback from our customers who used the ADC Gen 2 private preview,
 ### Enhancements to the data map platform powering the catalog UX
 
 * Powered additional data governance scenarios for data officers and consumers.
-* Made the catalog more ambient by seamless integration with Azure data sources such as Synapse.
+* Made the catalog more ambient by integrating with Azure data sources such as Synapse.
 * Added classifications and increased the coverage of data sources that can be scanned.
 
 We released the first version of Babylon under a private preview in April to a handful of customers. These customers successfully provisioned Babylon and used its cataloging capability. The Babylon April release is at functional parity with the latest release of ADC Gen 2.
@@ -61,11 +61,11 @@ When such challenges are combined, they present a significant barrier for compan
 
 ## Azure Babylon advantages
 
-Azure Babylon is designed to address the issues mentioned in the previous section and to help enterprises get the most value from their existing information assets. The catalog makes data sources easily discoverable and understandable by the users who manage the data.
+Azure Babylon is designed to address the issues mentioned in the previous sections and to help enterprises get the most value from their existing information assets. The catalog makes data sources easily discoverable and understandable by the users who manage the data.
 
-Azure Babylon provides a cloud-based service into which a data source can be registered. The data remains in its existing location, but a copy of its metadata is added to Azure Babylon, along with a reference to the data-source location. The metadata is also indexed to make each data source easily discoverable via search and understandable to the users who discover it.
+Azure Babylon provides a cloud-based service into which you can register data sources. During registration, the data remains in its existing location, but a copy of its metadata is added to Azure Babylon, along with a reference to the data source location. The metadata is also indexed to make each data source easily discoverable via search and understandable to the users who discover it.
 
-After you register a data source, you can then enrich its metadata. The metadata can be added either by the user who registered it or by other users in the enterprise. Any user can annotate a data source by providing descriptions, tags, or other metadata, such as documentation and processes, for requesting data source access. This descriptive metadata supplements the structural metadata, such as column names and data types, that's registered from the data source.
+After you register a data source, you can then enrich its metadata. Either the user who registered the data source or another user in the enterprise adds the metadata. Any user can annotate a data source by providing descriptions, tags, or other metadata, such as documentation and processes, for requesting data source access. This descriptive metadata supplements the structural metadata, such as column names and data types, that's registered from the data source.
 
 Discovering and understanding data sources and their use is the primary purpose of registering the sources. Enterprise users might need data for business intelligence, application development, data science, or any other task where the right data is required. They use the data catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for the purpose, and consume the data by opening the data source in their tool of choice.
 
@@ -73,5 +73,5 @@ At the same time, users can contribute to the catalog by tagging, documenting, a
 
 ## Next steps
 
-To get started with Azure Babylon:
-[Create a Babylon account](create-catalog-portal.md)
+For information about Azure Babylon warnings that you might receive, see [Product limitations](product-limitations.md).
+To get started with Azure Babylon, see [Create a Babylon account](create-catalog-portal.md).

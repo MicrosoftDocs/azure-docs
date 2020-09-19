@@ -28,10 +28,10 @@ landingContent:
         links:
           - text: Create a Babylon account
             url: create-catalog-portal.md
-          - text: Add Babylon admins
-            url: catalog-permissions.md
-          - text: Scan data into the catalog
-            url: scan-data-into-the-catalog.md
+          - text: Add a security principal
+            url: add-security-principal.md
+#         - text: Scan data into the catalog
+#           url: scan-data-into-the-catalog.md
   # Card
 # - title: Top scenarios
 #   linkLists:
