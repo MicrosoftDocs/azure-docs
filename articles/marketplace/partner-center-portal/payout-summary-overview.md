@@ -1,30 +1,30 @@
 ---
-title: Payout summary overview - Azure Marketplace
+title: Payout summary overview, Azure Marketplace
 description: The Payout summary shows you details about the money you've earned with your offer. It also lets you know when you'll receive payments and how much you'll be paid.
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace 
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
+ms.date: 09/09/2020
 ---
 
 # Payout summary overview
 
 The [Payout summary](./payout-summary.md) shows you details about the money you've earned with Microsoft. It also lets you know when you'll receive payments and how much you'll be paid.
 
-If you sell offerings in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For more information about Azure Marketplace payment, see [Azure Marketplace participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) and [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+If you sell offerings in the Azure Marketplace, you'll also see information on successful payouts in the Payout summary. For more information about Azure Marketplace payment, see [Getting paid in the commercial marketplace](./get-paid.md) and the [Microsoft Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> To be eligible for payout, your proceeds must reach the [payment threshold](./payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold, see the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+> To be eligible for payout, your proceeds must reach the payment threshold of $50. For details, see the [Microsoft Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
-All reporting and insights for the transact publishing option are available in the Analytics section of Partner Center, accessed using this icon in the upper-right corner of the portal:
+To view payout details, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) and select the payout icon in the upper-right corner of the screen:
 
 ![Illustrates the Payout icon in the upper right corner of the Partner Center portal.](./media/payout-overview.png)
 
 ## Roles and permissions
 
-These are roles and permissions to access the payout report:
+These are the roles and permissions to access the payout report:
 
 | Reports/Pages | Account owner | Manager | Developer | Business contributor | Finance contributor | Marketer |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -40,7 +40,7 @@ These are roles and permissions to access the payout report:
 
 ## Payment schedules
 
-For a discussion of payment schedules, including holding periods, partner visibility, and when the customer uses a credit card or invoice, refer to the [Payment schedules](./payout-policy-details.md#payment-schedules) section of the **Payout details** topic.
+For a discussion of payment schedules, including holding periods, partner visibility, and when the customer uses a credit card or invoice, refer to the [Payment schedules](./payout-policy-details.md#payment-schedules) section of the **Payout details** article.
 
 ## Transaction history download export
 
@@ -124,6 +124,6 @@ This option provides a download of each earning line item you see on the Transac
 ## Billing questions and support
 For billing support, contact commercial marketplace [publisher support](https://partner.microsoft.com/support/v2/?stage=1).
 
-## Next Step
+## Next step
 
 - [Payout summaries](./payout-summary.md)

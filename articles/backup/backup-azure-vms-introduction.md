@@ -46,8 +46,8 @@ When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Sto
 
 **Encryption** | **Details** | **Support**
 --- | --- | ---
+**SSE** | With SSE, Azure Storage provides encryption at rest by automatically encrypting data before storing it. Azure Storage also decrypts data before retrieving it. Azure Backup supports backups of VMs with two types of Storage Service Encryption:<li> **SSE with platform-managed keys**: This encryption is by default for all disks in your VMs. See more [here](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SSE with customer-managed keys**. With CMK, you manage the keys used to encrypt the disks. See more [here](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | Azure Backup uses SSE for at-rest encryption of Azure VMs.
 **Azure Disk Encryption** | Azure Disk Encryption encrypts both OS and data disks for Azure VMs.<br/><br/> Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). | Azure Backup supports backup of managed and unmanaged Azure VMs encrypted with BEKs only, or with BEKs together with KEKs.<br/><br/> Both BEKs and KEKs are backed up and encrypted.<br/><br/> Because KEKs and BEKs are backed up, users with the necessary permissions can restore keys and secrets back to the key vault if needed. These users can also recover the encrypted VM.<br/><br/> Encrypted keys and secrets can't be read by unauthorized users or by Azure.
-**SSE** | With SSE, Azure Storage provides encryption at rest by automatically encrypting data before storing it. Azure Storage also decrypts data before retrieving it. | Azure Backup uses SSE for at-rest encryption of Azure VMs.
 
 For managed and unmanaged Azure VMs, Backup supports both VMs encrypted with BEKs only or VMs encrypted with BEKs together with KEKs.
 
@@ -78,7 +78,7 @@ The following table explains the different types of snapshot consistency:
 **Crash-consistent** | Crash-consistent snapshots typically occur if an Azure VM shuts down at the time of backup. Only the data that already exists on the disk at the time of backup is captured and backed up. | Starts with the VM boot process followed by a disk check to fix corruption errors. Any in-memory data or write operations that weren't transferred to disk before the crash are lost. Apps implement their own data verification. For example, a database app can use its transaction log for verification. If the transaction log has entries that aren't in the database, the database software rolls transactions back until the data is consistent. | VM is in shutdown (stopped/ deallocated) state.
 
 >[!NOTE]
-> If the provisioning state is **succeeded**, Azure Backup takes file-system consistent backups. If the provisioning state is **unavailable** or **failed**, crash-consistent backups are taken. If the provisioning state is **creating** or **deleting**, that means Azure backup is retrying the operations.
+> If the provisioning state is **succeeded**, Azure Backup takes file-system consistent backups. If the provisioning state is **unavailable** or **failed**, crash-consistent backups are taken. If the provisioning state is **creating** or **deleting**, that means Azure Backup is retrying the operations.
 
 ## Backup and restore considerations
 
@@ -135,4 +135,4 @@ The actual size of the VM in this case is 17 GB + 30 GB + 0 GB = 47 GB. This pro
 
 ## Next steps
 
-Now, [prepare for Azure VM backup](backup-azure-arm-vms-prepare.md).
+- [Prepare for Azure VM backup](backup-azure-arm-vms-prepare.md).

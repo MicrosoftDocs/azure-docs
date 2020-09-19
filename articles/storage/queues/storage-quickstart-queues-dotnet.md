@@ -8,6 +8,7 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Azure Queue storage client library v12 for .NET

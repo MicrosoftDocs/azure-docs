@@ -1,6 +1,6 @@
 ---
-title: Migrate Windows Server 2008 servers to Azure with Azure Site Recovery 
-description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, using Azure Site Recovery.
+title: Migrate Windows Server 2008 servers to Azure with Azure Migrate/Site Recovery
+description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, and recommends Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -27,9 +27,11 @@ In this tutorial, you learn how to:
 
 ## Migrate with Azure Migrate
 
-We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate provides a centralized hub for assessment and migration of on-premises machines to Azure, using Azure Migrate, other Azure services, and third-party tools. Azure Site Recovery should be used for disaster recovery only, and not migration.
+We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. 
 
-Azure Migrate supports migration of servers running Windows Server 2008.
+- Azure Migrate is purpose-built for server migration.
+- Azure Migrate provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure. Azure Site Recovery should be used for disaster recovery only, and not migration.
+- Azure Migrate supports migration of servers running Windows Server 2008.
 
 
 ## Migrate with Site Recovery
@@ -101,7 +103,7 @@ Perform the following tasks to prepare the Azure subscription and on-premises VM
 5. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. To quickly access the vault from the dashboard, click **Pin to dashboard** and then click **Create**.
 
-   ![New vault](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![Screenshot showing new vault creation options.](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
 
@@ -133,15 +135,15 @@ The policy is automatically associated with the configuration server.
 > [!WARNING]
 > Ensure that you specify **OFF** in the App-consistent snapshot frequency setting of the replication policy. Only crash-consistent recovery points are supported while replicating servers running Windows Server 2008. Specifying any other value for the App-consistent snapshot frequency will result in false alerts by turning replication health of the server critical due to lack of App-consistent recovery points.
 
-   ![Create replication policy](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![Screenshot showing replication policy creation options.](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### Enable replication
 
 [Enable replication](physical-azure-disaster-recovery.md#enable-replication) for the Windows Server 2008 SP2 / Windows Server 2008 R2 SP1 server to be migrated.
    
-   ![Add physical server](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Screenshot showing options to add physical machines.](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Enable replication](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Screenshot showing options to enable replication.](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### Run a test migration
 
@@ -149,7 +151,7 @@ You can perform a test failover of replicating servers after initial replication
 
 Run a [test failover](tutorial-dr-drill-azure.md) to Azure, to make sure everything's working as expected.
 
-   ![Test failover](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Screenshot showing the Test failover command.](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### Migrate to Azure
@@ -165,7 +167,7 @@ Run a failover for the machines you want to migrate.
     - Finishes the migration process, stops replication for the server, and stops Site Recovery billing for the serve.
     - This step cleans up the replication data. It doesn't delete the migrated VMs.
 
-   ![Complete migration](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Screenshot showing the Complete migration command.](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

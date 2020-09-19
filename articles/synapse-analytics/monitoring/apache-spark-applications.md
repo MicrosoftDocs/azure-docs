@@ -32,9 +32,9 @@ Before you start with this tutorial, make sure to meet the following requirement
 
 - An Apache Spark pool.
 
-## Monitor running Apache Spark Application
+## Monitor running Apache Spark application
 
-Open **Monitor**, then select **Apache Spark applications**. To view the details about the running Apache Spark applications, select the submitting Apache Spark application and view the details. If the Apache Spark application is still running, you can monitor the progress.
+Open **Monitor**, then select **Apache Spark applications**. To view the details about the Apache Spark applications that are running, select the submitting Apache Spark application and view the details. If the Apache Spark application is still running, you can monitor the progress.
 
   ![select running job](./media/how-to-monitor-spark-applications/select-running-job.png)
 
@@ -52,7 +52,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
     ![view running job](./media/how-to-monitor-spark-applications/view-running-job.png)
 
-## View completed Apache Spark Application
+## View completed Apache Spark application
 
 Open **Monitor**, then select **Apache Spark applications**. To view the details about the completed Apache Spark applications, select the Apache Spark application and view the details.
 
@@ -100,7 +100,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![details for stage](./media/how-to-monitor-spark-applications/details-for-stage.png)
 
-## View canceled Apache Spark Application
+## View canceled Apache Spark application
 
 Open **Monitor**, then select **Apache Spark applications**. To view the details about the canceled Apache Spark applications, select the Apache Spark application and view the details.
 
@@ -120,7 +120,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![view cancelled job](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
-## Debug failed Apache Spark Application
+## Debug failed Apache Spark application
 
 Open **Monitor**, then select **Apache Spark applications**. To view the details about the failed Apache Spark applications, select the Apache Spark application and view the details.
 

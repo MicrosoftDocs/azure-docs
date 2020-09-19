@@ -3,7 +3,7 @@ title: Use CLI to scale Media Reserved Units - Azure | Microsoft Docs
 description: This topic shows how to use CLI to scale media processing with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,13 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/09/2020
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
 # Scaling media processing
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services enables you to scale media processing in your account by managing Media Reserved Units (MRUs). MRUs determine the speed with which your media processing tasks are processed. You can pick between the following reserved unit types: **S1**, **S2**, or **S3**. For example, the same encoding job runs faster when you use the **S2** reserved unit type compare to the **S1** type. 
 

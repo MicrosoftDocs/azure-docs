@@ -2,11 +2,11 @@
 title: 'Remote work with P2S: Azure VPN Gateway'
 description: This page describes how you can leverage VPN Gateway to enable working remotely due to the COVID-19 pandemic.
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/03/2020
 ms.author: alzam
 
 ---

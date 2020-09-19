@@ -20,7 +20,7 @@ Import/Export enables you to migrate between different Azure Cache for Redis ins
 This article provides a guide for importing and exporting data with Azure Cache for Redis and provides the answers to commonly asked questions.
 
 > [!IMPORTANT]
-> Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches.
+> Import/Export is only available for [Premium tier](cache-overview.md#service-tiers) caches.
 >
 >
 
@@ -148,6 +148,6 @@ To resolve this, initiate the import or export operation before 15 minutes has e
 Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 
 ## Next steps
-Learn how to use more premium cache features.
+Learn more about Azure Cache for Redis features.
 
-* [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md)
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)

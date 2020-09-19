@@ -24,6 +24,7 @@ Before you restore a database, note the following:
 - You can restore the database to an instance of a SQL Server in the same Azure region.
 - The destination server must be registered to the same vault as the source.
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
 - Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
   - The value for **-m** is the name of the client.
   - Only the specified client name can open the connection.
@@ -91,7 +92,7 @@ Restore as follows:
 
         ![Enter target paths](./media/backup-azure-sql-database/target-paths.png)
 
-1. Click **OK** to trigger the restore. Track the restore progress in the **Notifications** area, or track it under the **Backup Jobs** view in the vault.
+1. Select **OK** to trigger the restore. Track the restore progress in the **Notifications** area, or track it under the **Backup Jobs** view in the vault.
 
     > [!NOTE]
     > The point-in-time restore is available only for log backups for databases that are in full and bulk-logged recovery mode.
@@ -154,11 +155,11 @@ If you've selected **Full & Differential** as the restore type, do the following
     ![Choose a full recovery point](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > By default, recovery points from the last 30 days are displayed. You can display recovery points older than 30 days by clicking **Filter** and selecting a custom range.
+    > By default, recovery points from the last 30 days are displayed. You can display recovery points older than 30 days by selecting **Filter** and selecting a custom range.
 
 ### Restore databases with large number of files
 
-If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component such that you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
+If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component so you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
 

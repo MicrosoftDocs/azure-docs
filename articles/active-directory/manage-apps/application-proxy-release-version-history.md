@@ -1,22 +1,18 @@
 ---
-title: 'Azure AD Application Proxy: Version release history | Microsoft Docs'
+title: 'Azure AD Application Proxy: Version release history'
 description: This article lists all releases of Azure AD Application Proxy and describes new features and fixed issues
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-editor: ''
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.collection: M365-identity-device-management
 ---
+
 # Azure AD Application Proxy: Version release history
 This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure AD team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are updated automatically when a new version is released. 
 
@@ -64,7 +60,7 @@ This version is only available for install via the download page. An auto-upgrad
 April 07, 2020: Released for download
 
 ### New features and improvements
--	Connectors only use TLS 1.2 for all connections. See [Connector pre-requisites](application-proxy-add-on-premises-application.md#before-you-begin) for more details.
+-	Connectors only use TLS 1.2 for all connections. See [Connector pre-requisites](application-proxy-add-on-premises-application.md#prerequisites) for more details.
 - Improved signaling between the Connector and Azure services. This includes supporting reliable sessions for WCF communication between the Connector and Azure services and DNS caching improvements for WebSocket communications.
 - Support for configuring a proxy between the Connector and the backend application. For more information see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 09/08/2020
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -37,6 +37,7 @@ The features below are currently unsupported for Azure NetApp Files:
 * Azure Virtual WAN 
 * Zone redundant Virtual Network gateways (Gateway SKUs with Az) 
 * Active/Active Virtual Network GWs 
+* Dual stack (IPv4 and IPv6) VNet
 
 The following network restrictions apply to Azure NetApp Files:
 

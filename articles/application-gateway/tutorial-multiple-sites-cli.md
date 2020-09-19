@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
 
@@ -18,13 +18,12 @@ You can use the Azure CLI to [configure the hosting of multiple web sites](multi
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create backend listeners
-> * Create routing rules
-> * Create virtual machine scale sets with the backend pools
-> * Create a CNAME record in your domain
+* Set up the network
+* Create an application gateway
+* Create backend listeners
+* Create routing rules
+* Create virtual machine scale sets with the backend pools
+* Create a CNAME record in your domain
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Multi-site Application Gateway":::
 

@@ -1,6 +1,6 @@
 ---
 title: Azure production network
-description: This article provides a general description of the Azure production network.
+description: Learn about the Azure production network. See security access methods and protection mechanisms for establishing a connection to the network.
 services: security
 documentationcenter: na
 author: TerryLanfear

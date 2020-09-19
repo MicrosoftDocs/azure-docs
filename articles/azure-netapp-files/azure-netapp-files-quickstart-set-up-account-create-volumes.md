@@ -6,7 +6,8 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart 
-ms.date: 06/09/2020
+ms.date: 06/09/2020 
+ms.custom: devx-track-azurecli, subject-armqs
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
 # Quickstart: Set up Azure NetApp Files and create an NFS volume 
@@ -60,6 +61,14 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 # [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+
+# [Template](#tab/template)
+
+None.  
+
+Use the Azure portal, PowerShell, or the Azure CLI to register for Azure NetApp Files and the NetApp Resource Provider.  
+
+See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more information. 
 
 ---
 
@@ -126,7 +135,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
     > [!NOTE]
     > Please refer to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
-    > To obtain the region name that is supported by our command line tools, please use `az account list-locations -query "[].{Region:name}" --out table`
+    > To obtain the region name that is supported by our command line tools, please use `az account list-locations --query "[].{Region:name}" --out table`
     >
 
 2. Create a new resource group by using the [az group create](/cli/azure/group#az-group-create) command:
@@ -145,6 +154,17 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --location $LOCATION \
         --account-name $ANF_ACCOUNT_NAME
     ```
+
+# [Template](#tab/template)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+The following code snippet shows how to create a NetApp account in an Azure Resource Manager template (ARM template), using the [Microsoft.NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
+
+<!-- Block begins with "type": "Microsoft.NetApp/netAppAccounts", -->
+
 ---
 
 ## Set up a capacity pool
@@ -207,6 +227,16 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --size $POOL_SIZE_TiB \
         --service-level $SERVICE_LEVEL
     ```
+
+# [Template](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
+
+The following code snippet shows how to create a capacity pool in an Azure Resource Manager template (ARM template), using the [Microsoft.NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
+
+<!-- LN 185, block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
 ---
 
@@ -347,6 +377,20 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --protocol-types "NFSv3"
     ```
 
+# [Template](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
+
+The following code snippets show how to set up a VNet and create an Azure NetApp Files volume in an Azure Resource Manager template (ARM template). VNet setup uses the [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks) resource. Volume creation uses the [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
+
+<!-- Block begins with  "type": "Microsoft.Network/virtualNetworks", -->
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="197-229":::
+
+<!-- Block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
+
 ---
 
 ## Clean up resources
@@ -373,7 +417,7 @@ When you are done and if you want to, you can delete the resource group. The act
 
 4. Enter the name of the resource group (myRG1) to confirm that you want to permanently delete the resource group and all resources in it, and then click **Delete**.
 
-    ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![Confirm deleting resource group](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -401,9 +445,18 @@ When you are done and if you want to, you can delete the resource group. The act
     az group delete \
         --name $RESOURCE_GROUP
     ```
+
+# [Template](#tab/template)
+
+None.
+
+Use the Azure portal, PowerShell, or the Azure CLI to delete the resource group.   
+
 ---
 
 ## Next steps  
 
 > [!div class="nextstepaction"]
-> [Manage volumes by using Azure NetApp Files](azure-netapp-files-manage-volumes.md)  
+> [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
+> [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)   
+> [Create an NFS volume](azure-netapp-files-create-volumes.md)   

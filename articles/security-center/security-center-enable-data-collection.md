@@ -209,15 +209,17 @@ Security center will install the Log Analytics agent extension side by side to t
     - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Azure Security Center](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
  
 ### Turn off automatic provisioning <a name="offprovisioning"></a>
-You can turn off automatic provisioning from resources at any time by turning off this setting in the security policy. 
+To turn off automatic provisioning of the Log Analytics agent:
 
+1. From Security Center's menu in the portal, select **Pricing & settings**.
+2. Select the relevant subscription.
 
-1. Return to the Security Center main menu and select the Security policy.
-2. Click **Edit settings** in the row of the subscription for which you want to disable automatic provisioning.
-3. On the **Security policy – Data Collection** page, under **Auto provisioning** select **Off**.
-4. Select **Save**.
+   ![Select subscription][7]
 
-   ![Disable auto provisioning][6]
+3. Select **Data Collection**.
+4. Under **Auto Provisioning**, select **Off** to disable automatic provisioning.
+5. Select **Save**. 
+
 
 When auto provisioning is disabled (turned off), the default workspace configuration section is not displayed.
 

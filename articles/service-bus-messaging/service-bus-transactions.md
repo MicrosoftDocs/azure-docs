@@ -3,6 +3,7 @@ title: Overview of transaction processing in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Overview of Service Bus transaction processing

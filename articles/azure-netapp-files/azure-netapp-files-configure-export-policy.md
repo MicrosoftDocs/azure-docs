@@ -7,7 +7,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ---
 # Configure export policy for an NFS volume
 
@@ -37,14 +37,18 @@ You can create up to five export policy rules.
         * Read & Write
         * Read Only
 
+    * **Read-only** and **Read/Write**  
+        If you use Kerberos encryption with NFSv4.1, follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).  For performance impact of Kerberos, see [Performance impact of Kerberos on NFSv4.1](configure-kerberos-encryption.md#kerberos_performance). 
+
+        ![Kerberos security options](../media/azure-netapp-files/kerberos-security-options.png) 
+
     * **Root Access**  
         Specify whether the `root` account can access the volume.  By default, Root Access is set to **On**, and the `root` account has access to the volume.
 
-        ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 
 
 ## Next steps 
-* [Manage volumes](azure-netapp-files-manage-volumes.md)
 * [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Manage snapshots](azure-netapp-files-manage-snapshots.md)

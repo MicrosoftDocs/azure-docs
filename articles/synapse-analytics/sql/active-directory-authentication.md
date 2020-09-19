@@ -94,7 +94,7 @@ Any Azure AD authentication is only possible if the Azure AD admin was created f
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-## Connecting using Azure AD identities
+## Connect using Azure AD identities
 
 Azure Active Directory authentication supports the following methods of connecting to a database using Azure AD identities:
 

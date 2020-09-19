@@ -6,8 +6,9 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/16/2017
-ms.author: cherylmc
+ms.date: 09/02/2020
+ms.author: cherylmc 
+ms.custom: devx-track-azurecli
 
 ---
 # Verify a VPN Gateway connection

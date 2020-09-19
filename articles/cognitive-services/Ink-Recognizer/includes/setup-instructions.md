@@ -15,6 +15,6 @@ After creating a resource, get your endpoint and key by opening your resource on
 
 Create two [environment variables](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource):
 
-* `INK_RECOGNITION_SUBSCRIPTION_KEY` - The endpoint for your resource. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `INK_RECOGNITION_SUBSCRIPTION_KEY` - The subscription key for authenticating your requests. 
 
-* `INK_RECOGNITION_ENDPOINT` - The subscription key for authenticating your requests.   
+* `INK_RECOGNITION_ENDPOINT` - The endpoint for your resource. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com`   

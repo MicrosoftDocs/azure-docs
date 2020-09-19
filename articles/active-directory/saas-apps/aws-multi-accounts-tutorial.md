@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Amazon Web Services (AWS) to connect multiple accounts | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure AD and Amazon Web Services (AWS) (Legacy Tutorial).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 08/07/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Amazon Web Services (AWS) (Legacy Tutorial)
 
@@ -65,7 +59,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Amazon Web Services (AWS) supports **SP and IDP** initiated SSO
-* Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Amazon Web Services (AWS) from the gallery
 
@@ -82,7 +76,7 @@ To configure the integration of Amazon Web Services (AWS) into Azure AD, you nee
 
 	![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with Amazon Web Services (AWS) based on a test user called "Britta Simon".
 
@@ -274,7 +268,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Microsoft Graph Explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-	f. From the list of Service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. You can use following query by using the **Object ID** which you have copied from Azure AD Properties page to get to the respective Service Principal.
+	f. From the list of Service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. You can use following query by using the **Service Principal Object ID** which you have copied from Azure AD Properties page to get to the respective Service Principal.
 
 	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 

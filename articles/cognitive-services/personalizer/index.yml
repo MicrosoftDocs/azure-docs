@@ -47,7 +47,7 @@ landingContent:
         links:
           - text: Use Personalizer in a .NET web app
             url: tutorial-use-personalizer-web-app.md
-          - text: Use Personalizer with an Azure notebook
+          - text: Use Personalizer with an Azure Notebooks file
             url: tutorial-use-azure-notebook-generate-loop-data.md
       - linkListType: how-to-guide
         links:

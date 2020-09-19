@@ -103,7 +103,7 @@ Applications and systems that support customization of the attribute list includ
 - Salesforce
 - ServiceNow
 - Workday
-- Azure Active Directory ([Azure AD Graph API default attributes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported)
+- Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported)
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643), where attributes defined in the [core schema](https://tools.ietf.org/html/rfc7643) need to be added
 
 > [!NOTE]

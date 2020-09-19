@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
+ms.custom: devx-track-csharp
 ---
 
 # Specify a face detection model

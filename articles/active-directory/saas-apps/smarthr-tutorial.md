@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartHR | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SmartHR.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 340d2a77-2278-449a-a154-01673ba91cc8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartHR
@@ -90,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.smarthr.jp/external_saml/acs`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [SmartHR Client support team](mailto:info@smarhr.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [SmartHR Client support team](mailto:info@smarthr.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -132,11 +126,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SmartHR SSO
 
-To configure single sign-on on **SmartHR** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SmartHR support team](mailto:info@smarhr.jp). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SmartHR** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SmartHR support team](mailto:info@smarthr.jp). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create SmartHR test user
 
-In this section, you create a user called B.Simon in SmartHR. Work with [SmartHR support team](mailto:info@smarhr.jp) to add the users in the SmartHR platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in SmartHR. Work with [SmartHR support team](mailto:info@smarthr.jp) to add the users in the SmartHR platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

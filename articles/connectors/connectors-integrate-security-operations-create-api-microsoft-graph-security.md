@@ -126,7 +126,7 @@ Microsoft Graph supports [*subscriptions*](/graph/api/resources/subscription), o
 `security/alerts` followed by the ODATA query. *Don't include* the base URL, for example, `https://graph.microsoft.com/v1.0`. Instead, 
 use the format in this example:
 
-`security/alerts?$filter=status eq 'New'`
+`security/alerts?$filter=status eq 'NewAlert'`
 
 | Action | Description |
 |--------|-------------|

@@ -3,7 +3,7 @@ title: Migrate from Azure Media Services v2 to v3
 description: This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions. 
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -11,14 +11,16 @@ keywords: azure media services, stream, broadcast, live, offline
 
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Media Services v2 vs. v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions.
 
@@ -79,7 +81,8 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
     * Inserting a silent audio track when input has no audio
     * Inserting a video track when input has no video
 * Live Events with transcoding currently do not support Slate insertion mid-stream and ad marker insertion via API call. 
- 
+* Refer to `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` sample code for best practices and patterns regarding using V2 REST API on .NETCore SDK.
+
 ## Asset specific changes
 
 ### Map v3 asset properties to v2

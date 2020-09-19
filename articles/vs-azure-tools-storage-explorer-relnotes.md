@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Storage Explorer release notes
-description: Release notes for Microsoft Azure Storage Explorer
+description: Read the release notes for the latest version of Microsoft Azure Storage Explorer. The release notes for previous versions are also shown.
 services: storage
 documentationcenter: na
 author: cawaMS

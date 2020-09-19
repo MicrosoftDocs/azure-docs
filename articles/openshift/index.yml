@@ -42,7 +42,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a private Azure Red Hat OpenShift 4 cluster
-            url: howto-create-private-cluster.md
+            url: ./howto-create-private-cluster-3x.md
           - text: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
             url: dns-forwarding.md
 

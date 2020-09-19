@@ -6,17 +6,15 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-
-
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-
 ---
+
 # Copy data from Teradata Vantage by using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 >
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
@@ -69,6 +67,7 @@ More connection properties you can set in connection string per your case:
 
 | Property | Description | Default value |
 |:--- |:--- |:--- |
+| UseDataEncryption | Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1.<br><br/>- **0 (disabled, default)**: Encrypts authentication information only.<br/>- **1 (enabled)**: Encrypts all data that is passed between the driver and the database. | No |
 | CharacterSet | The character set to use for the session. E.g., `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following pre-defined character sets: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)<br/>- EUC (Unix compatible, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | Default value is `ASCII`. |
 | MaxRespSize |The maximum size of the response buffer for SQL requests, in kilobytes (KBs). E.g., `MaxRespSize=‭10485760‬`.<br/><br/>For Teradata Database version 16.00 or later, the maximum value is 7361536. For connections that use earlier versions, the maximum value is 1048576. | Default value is `65536`. |
 
@@ -204,7 +203,7 @@ To copy data from Teradata, the following properties are supported in the copy a
 | query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No (if table in dataset is specified) |
 | partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from Teradata is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option isn't `None`. | No |
-| partitionColumnName | Specify the name of the source column that will be used by range partition or Hash partition for parallel copy. If not specified, the primary index of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `Hash` or `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfHashPartitionCondition` or  `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
+| partitionColumnName | Specify the name of the source column that will be used by range partition or Hash partition for parallel copy. If not specified, the primary index of the table is autodetected and used as the partition column. <br>Apply when the partition option is `Hash` or `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfHashPartitionCondition` or  `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
 | partitionLowerBound | The minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
 

@@ -13,13 +13,16 @@ Azure Private Endpoint is a network interface that connects you privately and se
 
 In this article, you'll learn how to create an Azure Cache, an Azure virtual network, and a Private Endpoint using the Azure portal.  
 
+> [!IMPORTANT]
+> This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
+> 
+
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > This feature is currently in preview - [contact us](mailto:azurecache@microsoft.com) if you're interested.
-  >
-
+> This feature is currently in preview - [contact us](mailto:azurecache@microsoft.com) if you're interested.
+>
 
 ## Create a cache
 1. To create a cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. 

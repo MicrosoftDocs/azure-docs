@@ -1,6 +1,6 @@
 ---
 title: store-sendgrid-java-how-to-send-email-example
-description: How to send email using SendGrid from Java in an Azure Deployment
+description: Send email using SendGrid from Java in an Azure Deployment. The resulting application prompts the user for email values.
 services: ''
 documentationcenter: java
 author: thinkingserious

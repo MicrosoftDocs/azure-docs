@@ -50,6 +50,10 @@ A connection string encapsulates the information required to connect to an endpo
 - Device connection strings enable [IoT Plug and Play devices](#iot-plug-and-play-device) to connect to the device-facing endpoints on an IoT hub. Client code on a device uses the connection string to establish a secure connection with an IoT hub.
 - IoT Hub connection strings enable back-end solutions and tools to connect securely to the service-facing endpoints on an IoT hub. These solutions and tools manage the IoT hub and the devices connected to it.
 
+## Device certification
+
+The IoT Plug and Play device certification program verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
+
 ## Device model
 
 A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the [components](#component) that make up the device. A simple device model has no separate components and contains a definition for a single root-level interface. A more complex device model includes multiple components. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twins Definition Language version 2](#digital-twins-definition-language) to define a device model.
@@ -93,10 +97,6 @@ An IoT Plug and Play device is typically a small-scale, standalone computing dev
 ## IoT Plug and Play conventions
 
 IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a set of [conventions](concepts-convention.md) when they exchange data with a solution.
-
-## Model discovery
-
-When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an IoT solution, the solution can discover the capabilities of the device by finding the [device model](#device-model). The solution can find a device model in a [model repository](#model-repository) or other location.
 
 ## Model ID
 

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 01/23/2019
+ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
 ---
@@ -18,13 +18,20 @@ To push an image to an Azure Container registry, you must first have an image. I
 docker pull hello-world
 ```
 
-Before you can push an image to your registry, you must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (all lowercase), for example, *mycontainerregistry007.azurecr.io*.
+Before you can push an image to your registry, you must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (all lowercase), for example, *mycontainerregistry.azurecr.io*.
 
 Tag the image using the [docker tag][docker-tag] command. Replace `<login-server>` with the login server name of your ACR instance.
 
 ```
 docker tag hello-world <login-server>/hello-world:v1
 ```
+
+Example:
+
+```
+docker tag hello-world mycontainerregistry.azurecr.io/hello-world:v1
+```
+
 
 Finally, use [docker push][docker-push] to push the image to the registry instance. Replace `<login-server>` with the login server name of your registry instance. This example creates the **hello-world** repository, containing the `hello-world:v1` image.
 

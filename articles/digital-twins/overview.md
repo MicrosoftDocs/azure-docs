@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # What is Azure Digital Twins?
 
-**Azure Digital Twins** is a platform as a service (PaaS) offering that enables the creation of comprehensive digital models of entire environments. These environments could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. These digital models can be used to gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences.
+**Azure Digital Twins** is a platform as a service (PaaS) offering that enables the creation of knowledge graphs based on digital models of entire environments. These environments could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. These digital models can be used to gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences.
 
 Leverage your domain expertise on top of Azure Digital Twins to build customized, connected solutions that:
 * Model any environment, and bring digital twins to life in a scalable and secure manner
@@ -107,5 +107,4 @@ If you have worked with the previous preview release of Azure Digital Twins, lea
 
 Or, go ahead and dive into working with Azure Digital Twins with the first tutorial:
 
-> [!div class="nextstepaction"]
-> [*Tutorial: Code a client app*](tutorial-code.md)
+[*Tutorial: Code a client app*](tutorial-code.md)

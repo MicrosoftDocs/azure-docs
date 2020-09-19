@@ -68,4 +68,4 @@ Learn about the new Microsoft identity platform and how to migrate to it from th
 
 ## Next steps
 
-Learn about the new [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop)
+Learn about the new [Microsoft identity platform](../develop/index.yml)

@@ -75,6 +75,6 @@ landingContent:
           - text: Rest APIs Overview
             url: https://docs.microsoft.com/rest/api/time-series-insights/
           - text: Data Access Concepts Gen2
-            url: https://docs.microsoft.com/rest/api/time-series-insights/preview
+            url: https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview
           - text: JavaScript Client SDK
             url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

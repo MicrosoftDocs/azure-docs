@@ -108,7 +108,10 @@ The Azure resource that receives your app's telemetry is identified by an *instr
 
 
 ## Upgrade to future SDK versions
-To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
+
+* [Release Notes](./release-notes.md)
+
+To upgrade to a new release of the SDK, open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade. Then, merge your changes into the new version.
 
