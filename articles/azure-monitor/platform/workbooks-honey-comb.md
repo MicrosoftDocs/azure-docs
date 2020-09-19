@@ -11,7 +11,7 @@ ms.date: 09/18/2020
 ms.author: lagayhar
 ---
 
-# Honey comb visualization
+# Honey comb visualizations
 
 Honey combs allow high density views of metrics or categories that can optionally be grouped as clusters. They are useful in visually identifying hotspots and drilling in further.
 
@@ -23,7 +23,7 @@ The image below shows the CPU utilization of  virtual machines across two subscr
 
 1. Switch the workbook to edit mode by clicking on the Edit toolbar item.
 2. Use **Add**  at the bottom then *Add query* to add a log query control to the workbook.
-3. Select the "Logs" as the *Data source*,"Log Analytics" as the *Resource type*, and for *Resource* point to a workspace that has virtual machine performance log.
+3. Select the "Logs" as the *Data source*, "Log Analytics" as the *Resource type*, and for *Resource* point to a workspace that has virtual machine performance log.
 4. Use the query editor to enter the KQL for your analysis.
 
 ```kusto
