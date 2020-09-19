@@ -49,10 +49,18 @@ If you don't already have a web app, use the following script to set up two exam
 
 ```azurepowershell-interactive
 # Create first web app in Central US region.
-$webapp1 = New-AzWebApp -Name "WebAppContoso-$(Get-Random)" -Location centralus -ResourceGroupName myResourceGroupFD -AppServicePlan myAppServicePlanCentralUS
+$webapp1 = New-AzWebApp `
+-Name "WebAppContoso-$(Get-Random)" `
+-Location centralus `
+-ResourceGroupName myResourceGroupFD `
+-AppServicePlan myAppServicePlanCentralUS
 
 # Create second web app in South Central US region.
-$webapp2 = New-AzWebApp -Name "WebAppContoso-$(Get-Random)" -Location southcentralus -ResourceGroupName myResourceGroupFD -AppServicePlan myAppServicePlanSouthCentralUS
+$webapp2 = New-AzWebApp `
+-Name "WebAppContoso-$(Get-Random)" `
+-Location southcentralus `
+-ResourceGroupName myResourceGroupFD `
+-AppServicePlan myAppServicePlanSouthCentralUS
 ```
 
 ## Create a Front Door
