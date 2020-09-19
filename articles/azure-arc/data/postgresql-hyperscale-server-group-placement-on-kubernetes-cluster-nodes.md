@@ -194,21 +194,21 @@ The reason is that the last physical node of the Kubernetes cluster is actually 
 Kubernetes assessed that the best candidate – at the time of scheduling – to host the additional worker is the aks-agentpool-42715708-vmss000000 physical node. 
 Using the same commands as above; we see what each physical node is hosting:
 
-|Other pods names\* Usage|Kubernetes physical node hosting the pods
-|----|----
-|bootstrapper-jh48b|aks-agentpool-42715708-vmss000003
-|control-gwmbs|aks-agentpool-42715708-vmss000002
-|controldb-0|aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7|aks-agentpool-42715708-vmss000000
+|Other pods names\* |Usage|Kubernetes physical node hosting the pods
+|----|----|----
+|bootstrapper-jh48b||aks-agentpool-42715708-vmss000003
+|control-gwmbs||aks-agentpool-42715708-vmss000002
+|controldb-0||aks-agentpool-42715708-vmss000001
+|controlwd-zzjp7||aks-agentpool-42715708-vmss000000
 |logsdb-0|Elasticsearch, receives data from `Fluentbit` container of each pod|aks-agentpool-42715708-vmss000003
-|logsui-5fzv5|aks-agentpool-42715708-vmss000003
+|logsui-5fzv5||aks-agentpool-42715708-vmss000003
 |metricsdb-0|InfluxDB, receives data from the `Telegraf` container of each pod|aks-agentpool-42715708-vmss000000
-|metricsdc-47d47|aks-agentpool-42715708-vmss000002
-|metricsdc-864kj|aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf|aks-agentpool-42715708-vmss000003
-|metricsdc-nxm4l|aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l|aks-agentpool-42715708-vmss000003
-|mgmtproxy-4qppp|aks-agentpool-42715708-vmss000002
+|metricsdc-47d47||aks-agentpool-42715708-vmss000002
+|metricsdc-864kj||aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf||aks-agentpool-42715708-vmss000003
+|metricsdc-nxm4l||aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l||aks-agentpool-42715708-vmss000003
+|mgmtproxy-4qppp||aks-agentpool-42715708-vmss000002
 
 > \* The suffix on pod names will vary on other deployments. Also, we are listing here only the pods hosted inside the Kubernetes namespace of the Azure Arc Data Controller.
 
