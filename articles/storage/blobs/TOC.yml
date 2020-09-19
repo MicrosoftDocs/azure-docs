@@ -741,6 +741,10 @@
         href: data-lake-storage-explorer.md
       - name: Hadoop File System CLI
         href: data-lake-storage-use-hdfs-data-lake-storage.md
+    - name: Secure
+      items:
+      - name: Secure Data Lake Storage
+        href: configure-data-lake-storage-security.md
       - name: Set ACLs recursively
         href: recursive-access-control-lists.md
     - name: Query
