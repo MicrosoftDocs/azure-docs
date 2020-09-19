@@ -25,7 +25,7 @@ For Microsoft Azure Attestation to provide strong security guarantees that the d
     
     b.	Retrieves the Boot/Resume logs and quote from the TPM using the challenge received from the service (notice that the enclave itself cannot call the TPM functions so it           calls back to VTL-0 to retrieve those values but this does not affect security as invalid/replayed logs or quotes will be detected)
     
-    c.	Requests a signed report from VSM (EnclaveGetAttestationReport()) with the hash of the fields in the request
+    c.	Requests a signed report from VSM  [(EnclaveGetAttestationReport())](/windows/win32/api/winenclaveapi/nf-winenclaveapi-enclavegetattestationreport?redirectedfrom=MSDN)           with the hash of the fields in the request
     
     d.	VSM Report is signed by Kpriv-IDKS (VSM Signing IDK) in the secure kernel
     
