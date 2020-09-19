@@ -70,7 +70,7 @@ kubectl get sc
 azdata arc postgres server create -n <name> --workers 2 --storage-class-backups <storage class name> [--storage-class-data <storage class name>] [--storage-class-logs <storage class name>]
 ```
 
-For example if you have deployed a simple environment based on kubeadm:
+For example if you have created a simple environment based on kubeadm:
 ```console
 azdata arc postgres server create -n postgres01 --workers 2 --storage-class-backups local-storage
 ```

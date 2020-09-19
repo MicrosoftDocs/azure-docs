@@ -41,7 +41,7 @@ azdata arc sql mi show -n <NAME_OF_SQL_MI>
 
 ## Configure Server options
 
-You can configure server configuration settings for Azure Arc enabled SQL managed instance after deployment time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
+You can configure server configuration settings for Azure Arc enabled SQL managed instance after creation time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
 
 To change any of these settings, follow these steps:
 

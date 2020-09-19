@@ -29,7 +29,7 @@ If you are already familiar with the scaling model of Azure Arc enabled PostgreS
 > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled PostgreSQL Hyperscale.
 
 ## Scenario
-This scenario refers to the PostgreSQL Hyperscale server group that was deployed as an example in the [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md) documentation.
+This scenario refers to the PostgreSQL Hyperscale server group that was created as an example in the [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md) documentation.
 
 ### Load test data
 The scenario uses a sample of publicly available GitHub data, available from the [Citus Data website](https://www.citusdata.com/) (Citus Data is part of Microsoft).
@@ -174,7 +174,7 @@ Run the command:
 azdata arc postgres server list
 ```
 
-It returns the list of server groups deployed in your namespace and indicates their number of worker nodes. For example:
+It returns the list of server groups created in your namespace and indicates their number of worker nodes. For example:
 ```console
 Name        State    Workers
 ----------  -------  ---------
@@ -187,12 +187,12 @@ Run the command:
 kubectl get postgresql-12
 ```
 
-It returns the list of server groups deployed in your namespace and indicates their number of worker nodes. For example:
+It returns the list of server groups created in your namespace and indicates their number of worker nodes. For example:
 ```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Note:** If you deployed a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
+> **Note:** If you created a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
 
 #### With a SQL query:
 Connect to your server group with the client tool of your choice and run the following query:
@@ -213,7 +213,7 @@ SELECT * FROM pg_dist_node;
 
 ## Return to the scenario
 
-If you would like to compare the execution time of the select count query against the samepl data set, use the same count query. It can be used across the four worker nodes, without any changes in the SQL statement.
+If you would like to compare the execution time of the select count query against the sample data set, use the same count query. It can be used across the four worker nodes, without any changes in the SQL statement.
 
 ```sql
 SELECT COUNT(*) FROM github_events;

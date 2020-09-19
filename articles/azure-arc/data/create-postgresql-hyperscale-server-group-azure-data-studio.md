@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Arc enabled PostgreSQL Hyperscale using Azure Data Studio
-description: Deploy Azure Arc enabled PostgreSQL Hyperscale using Azure Data Studio
+title: Create Azure Arc enabled PostgreSQL Hyperscale using Azure Data Studio
+description: Create Azure Arc enabled PostgreSQL Hyperscale using Azure Data Studio
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Deploy Azure Arc enabled PostgreSQL Hyperscale using Azure Data Studio
+# Create Azure Arc enabled PostgreSQL Hyperscale using Azure Data Studio
 
 This document walks you through the steps for using Azure Data Studio to provision Azure Arc enabled PostgreSQL Hyperscale server groups.
 
@@ -27,7 +27,7 @@ Before you can create an instance, log in to the Azure Arc data controller if yo
 azdata login
 ```
 
-You will then be prompted for the namespace where the data controller is deployed, the username, and password to log in to the controller.
+You will then be prompted for the namespace where the data controller is created, the username, and password to log in to the controller.
 
 > If you need to validate the namespace, you can run ```kubectl get pods -A``` to get a list of all the namespaces on the cluster.
 
@@ -38,7 +38,7 @@ Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
-## Deploy an Azure Arc enabled PostgreSQL Hyperscale server group
+## Create an Azure Arc enabled PostgreSQL Hyperscale server group
 
 1. Launch Azure Data Studio
 1. On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
@@ -55,9 +55,9 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
    - Select the number of worker nodes to provision
 1. Click the **Deploy** button
 
-This starts the deployment of the Azure Arc enabled PostgreSQL Hyperscale server group on the data controller.
+This starts the creation of the Azure Arc enabled PostgreSQL Hyperscale server group on the data controller.
 
-In a few minutes, your deployment should successfully complete.
+In a few minutes, your creation should successfully complete.
 
 ## Next steps
 - [Manage your server group using Azure Data Studio](manage-postgresql-hyperscale-server-group-with-azure-data-studio.md)

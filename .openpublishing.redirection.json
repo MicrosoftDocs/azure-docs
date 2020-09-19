@@ -1016,6 +1016,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/concept-editions.md",
+      "redirect_url": "/azure/machine-learning/concept-workspace#wheres-enterprise",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -29588,11 +29593,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sentinel/connect-logstash.md",
-      "redirect_url": "/azure/sentinel/connect-data-sources",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/sentinel/connect-microsoft-waf.md",
       "redirect_url": "/azure/sentinel/connect-azure-waf",
       "redirect_document_id": false
@@ -31925,6 +31925,16 @@
     {
       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md",
       "redirect_url": "/azure/active-directory/license-users-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/stream-analytics/quick-create-vs-code.md",
+      "redirect_url": "/azure/stream-analytics/quick-create-visual-studio-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/stream-analytics/setup-cicd-vs-code.md",
+      "redirect_url": "/azure/stream-analytics/cicd-overview",
       "redirect_document_id": false
     },
     {
@@ -57086,6 +57096,21 @@
     "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
     "redirect_url": "/azure/iot-dps/concepts-roles-operations",
     "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/alter-external-stream-transact-sql.md",
+      "redirect_url": "/azure/azure-sql-edge/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/stream-analytics.md",
+      "redirect_url": "/azure/azure-sql-edge/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/database/advanced-data-security.md",
+      "redirect_url": "/azure/azure-sql/database/azure-defender-for-sql",
+      "redirect_document_id": false
     }
   ]
 }

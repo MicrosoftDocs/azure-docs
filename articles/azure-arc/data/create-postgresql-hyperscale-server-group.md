@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Create an Azure Arc enabled PostgreSQL Hyperscale server group
 
-This document describes the steps to deploy a PostgreSQL Hyperscale server group on Azure Arc.
+This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -21,13 +21,13 @@ This document describes the steps to deploy a PostgreSQL Hyperscale server group
 
 ## Getting started
 If you are already familiar with the topics below you may skip this paragraph.
-There are important topics you may want read before you proceed with deployment:
+There are important topics you may want read before you proceed with creation:
 - [Overview of Azure Arc enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-If you prefer to try things out without provisioning an full environment yourself, get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+If you prefer to try things out without provisioning an full environment yourself, get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 
 ## Login to the Azure Arc data controller
@@ -40,7 +40,7 @@ azdata login
 
 You will then be prompted for the username, password and the system namespace.  
 
-> If you used the script to install the data controller then your namespace should be **arc**
+> If you used the script to create the data controller then your namespace should be **arc**
 
 ```console
 Namespace: arc
@@ -57,7 +57,7 @@ Implement this step before moving to the next step. To deploy PostgreSQL Hypersc
 oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
-_**Server-group-name** is the name of the server group you will deploy during the next step._
+_**Server-group-name** is the name of the server group you will create during the next step._
    
 For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
 You may now implement the next step.
@@ -96,7 +96,7 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 >   ```
 
 
-## List your Azure Database for PostgreSQL server groups deployed in your Arc setup
+## List your Azure Database for PostgreSQL server groups created in your Arc setup
 
 To view the PostgreSQL Hyperscale server groups on Azure Arc, use the following command:
 

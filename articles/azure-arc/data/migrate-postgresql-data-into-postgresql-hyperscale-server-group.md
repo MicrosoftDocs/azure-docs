@@ -175,7 +175,7 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 > [!NOTE]
 > - You will not see so much performance benefits of running on Azure Arc enabled PostgreSQL Hyperscale until you scale out and you shard/distribute the data across the worker nodes of your PostgreSQL Hyperscale server group. See [Next steps](#next-steps).
 >
-> - It is not possible today to "onboard into Azure Arc" an existing Postgres instance that would running on premises or in any other cloud. In other words, it is not possible to install some sort of "Azure Arc agent" on your existing Postgres instance to make it a Postgres setup enabled by Azure Arc. Instead, you need to deploy a new Postgres instance and transfer data into it. You may use the technique shown above to do this or you may use any ETL tool of your choice.
+> - It is not possible today to "onboard into Azure Arc" an existing Postgres instance that would running on premises or in any other cloud. In other words, it is not possible to install some sort of "Azure Arc agent" on your existing Postgres instance to make it a Postgres setup enabled by Azure Arc. Instead, you need to create a new Postgres instance and transfer data into it. You may use the technique shown above to do this or you may use any ETL tool of your choice.
 
 ## Next steps
 

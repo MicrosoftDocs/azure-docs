@@ -107,10 +107,13 @@ conceptualContent:
       links:
         - url: ./anomaly-detector/index.yml
           itemType: overview
-          text: Anomaly Detector (Preview)
+          text: Anomaly Detector
         - url: ./content-moderator/index.yml
           itemType: overview
           text: Content Moderator
+        - url: ./metrics-advisor/index.yml
+          itemType: overview
+          text: Metrics Advisor (preview)
         - url: ./personalizer/index.yml
           itemType: overview
           text: Personalizer
