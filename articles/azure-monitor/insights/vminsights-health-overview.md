@@ -13,7 +13,7 @@ ms.date: 09/08/2020
 Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article provides a general overview of the feature and shows you how you can view the health of your virtual machines and receive alerts when a virtual machine becomes unhealthy.
 
 ## Viewing VM health
-When the Health feature is enabled for a subscription, a new **Guest VM Health** column is added to the **Get Started** page. This gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.
+A **Guest VM Health** column in the **Get Started** page gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.
 
 [![Get started page with guest VM health](media/vminsights-health-overview/get-started-page.png)](media/vminsights-health-overview/get-started-page.png#lightbox)
 
@@ -23,14 +23,25 @@ Click on a virtual machine's health status to view its detailed health. The over
 
 ![Monitors example](media/vminsights-health-overview/monitors.png)
 
-Monitors each have three potential health states and will be in one and only one at any given time. When a monitor is initialized, it starts in a healthy state. The state changes only if the specified conditions for another state are detected.
+Monitors each have the potential health states in the following table and will be in one and only one at any given time. When a monitor is initialized, it starts in a healthy state.
+
+| Health State | Description |
+|:---|:---|
+| Healthy  | The monitor doesn't currently exceed the Warning or Critical threshold. |
+| Warning  | The monitor exceeded the Warning threshold (if defined). |
+| Critical | The monitor exceeded the Critical threshold (if defined). |
+| Unknown  | Not enough data has been collected to determine the health state. |
+| Disabled | The monitor is currently disabled. |
+| None     | Monitor is just started and not yet been evaluated or monitored object no longer exists. |
+
+
 
 There are two types of monitors as shown in the following table.
 
 | Monitor | Description |
 |:---|:---|
 | Unit monitor | Measures some aspect of a resource or application. This might be checking a performance counter to determine the performance of the resource, or its availability. |
-| Aggregate Monitor | Groups multiple monitors to provide a single health aggregated health state. An aggregate monitor can contain one or more unit monitors and other aggregate monitors. |
+| Aggregate Monitor | Groups multiple monitors to provide a single aggregated health state. An aggregate monitor can contain one or more unit monitors and other aggregate monitors. |
 
 
   
@@ -48,8 +59,8 @@ The following table lists the aggregate and unit monitors currently available fo
 | Monitor | Type | Description |
 |:---|:---|:---|
 | CPU utilization | Unit | Percentage utilization of the processor. |
-| File systems | Aggregate | Aggregate health of all file systems on the VM. |
-| File system  | Aggregate | Health of each individual file system on the VM. The name of the monitor is the name of the file system. |
+| File systems | Aggregate | Aggregate health of all file systems on Linux VM. |
+| File system  | Aggregate | Health of each individual file system on Linux VM. The name of the monitor is the name of the file system. |
 | Free space | Unit | Percentage free space on the file system. |
 | Memory | Aggregate | Aggregate health of the memory on the VM. |
 | Available memory | Unit | Available megabytes on the VM.
@@ -59,11 +70,11 @@ The following table lists the aggregate and unit monitors currently available fo
 ## Monitor details
 Select a monitor to view its detail which includes the following tabs.
 
-**Overview** provides a description of the monitor, the last time it was evaluated, and the last time that the state changed. Also lists the last three unique sample values.
+**Overview** provides a description of the monitor, the last time it was evaluated, and values sampled to determine the current health state. The number of samples may vary based on the definition of the monitor and the volatility of the values.
 
 [![Monitor details overview](media/vminsights-health-overview/monitor-details-overview.png)](media/vminsights-health-overview/monitor-details-overview.png#lightbox)
 
-**History** lists the history of state changes for the monitor. You can expand any of the state changes to view values evaluated to determine the health state. Click **View configuration applied** to view the configuration of the monitor at the time that the health state was performed. 
+**History** lists the history of state changes for the monitor. You can expand any of the state changes to view values evaluated to determine the health state. Click **View configuration applied** to view the configuration of the monitor at the time that the health state was changed.
 
 Each monitor samples values on the agent every minute and compares sampled values to the criteria for each health state. If the criteria for particular state is true, then the monitor is set to that state. If none of the criteria are true, then the monitor is set to a healthy state. Data is sent from the agent to Azure Monitor every three minutes or immediately if there is a state change.
 

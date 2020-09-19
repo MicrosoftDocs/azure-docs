@@ -15,7 +15,6 @@ Azure Monitor for VMs guest health allows you to view the health of a virtual ma
 ## Current limitations
 Azure Monitor for VMs guest health has the following limitations in public preview:
 
-- The virtual machine must not be also participating in Azure Security Center public preview since the agents are currently incompatible.
 - Only Azure virtual machines are currently supported. Azure Arc for servers is not currently supported.
 - Virtual Machine must run one of the following operating systems: 
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS

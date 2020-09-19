@@ -22,7 +22,7 @@ Overrides are defined in a [Data Collection Rule (DCR)](../platform/data-collect
 
 
 ## Scope
-Each overrides has one or more scopes the define which VMs the override should be applied to. The scope can be a subscription, resource group, or a single VM. Even if the override is in a DCR associated to a particular VM, it's only applied to that VM if the VM is within one of the scopes of the override. This allows you to broadly associate a smaller number of DCRs to a set of VMs but provide granular control over the assignment over the assignment of each override within the DCR itself.
+Each overrides has one or more scopes the define which VMs the override should be applied to. The scope can be a subscription, resource group, or a single VM. Even if the override is in a DCR associated to a particular VM, it's only applied to that VM if the VM is within one of the scopes of the override. This allows you to broadly associate a smaller number of DCRs to a set of VMs but provide granular control over the assignment of each override within the DCR itself.
 
 ## How overrides are applied
 A single monitor on a single virtual machine might have multiple overrides. Overrides will be applied from the most general to the most specific. This means that subscription level overrides are applied first, then resource group, then virtual machine. This means that the most specific overrides will have the greatest chance of being applied. If multiple overrides are applied at the same level, then they are applied in alphabetical order of their resource ID.
