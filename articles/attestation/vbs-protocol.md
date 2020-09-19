@@ -13,6 +13,8 @@ ms.author: mbaldwin
 
 # VBS attestation protocol 
 
+![VBS attestation protocol](./media/vbs-protocol.png)
+
 1. Enclave starts the protocol by requesting a challenge from the service (shown as the Init message)
 2. Microsoft Azure Attestation generates a random challenge and creates a session context which contains such challenge and a timestamp. The session context is encrypted and       signed using K-Context **ENC_SIGN(K-Context)[Timestamp || Challenge]**.  Context is opaque to the client
 3. The enclave then:
