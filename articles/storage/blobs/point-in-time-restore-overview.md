@@ -19,7 +19,7 @@ Point-in-time restore provides protection against accidental deletion or corrupt
 
 Point-in-time restore is supported for general-purpose v2 storage accounts only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
 
-To learn how to enable point-in-time restore for a storage account, see [Enable and manage point-in-time restore for block blobs](point-in-time-restore-manage.md).
+To learn how to enable point-in-time restore for a storage account, see [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md).
 
 ## How point-in-time restore works
 
@@ -88,7 +88,7 @@ For more information about pricing for point-in-time restore, see [Block blob pr
 
 ## Next steps
 
-- [Enable and manage point-in-time restore for block blobs](point-in-time-restore-manage.md)
+- [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
 - [Enable soft delete for blobs](soft-delete-enable.md)
 - [Enable and manage blob versioning](versioning-enable.md)

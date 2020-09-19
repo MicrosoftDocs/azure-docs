@@ -1,7 +1,7 @@
 ---
-title: Enable and manage point-in-time restore for block blobs
+title: Perform a point-in-time restore on block blob data
 titleSuffix: Azure Storage
-description: Learn how to use point-in-time restore to restore a set of block blobs to a previous state.
+description: Learn how to use point-in-time restore to restore a set of block blobs to their previous state at a given point in time.
 services: storage
 author: tamram
 
@@ -12,17 +12,14 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Enable and manage point-in-time restore for block blobs
+# Perform a point-in-time restore on block blob data
 
-You can use point-in-time restore to restore a set of block blobs to a previous state. This article describes how to enable point-in-time restore for a storage account with PowerShell. It also shows how to perform a restore operation with PowerShell.
+You can use point-in-time restore to restore one or more sets of block blobs to a previous state. This article describes how to enable point-in-time restore for a storage account and how to perform a restore operation.
 
-For more information and to learn how to register for the preview, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
+To learn more about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation. During the preview, instead of deleting a container, delete individual blobs if you may want to restore them.
-
-> [!IMPORTANT]
-> The point-in-time restore preview is intended for non-production use only.
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Instead of deleting a container, delete individual blobs if you may want to restore them.
 
 ## Enable and configure point-in-time restore
 
@@ -48,23 +45,9 @@ The following image shows a storage account configured for point-in-time restore
 
 # [PowerShell](#tab/powershell)
 
-To configure point-in-time restore with PowerShell, first install the Az.Storage preview module version 1.14.1-preview or a later version of the preview module. Remove any other versions of the Az.Storage module.
+To configure point-in-time restore with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module version 2.6.0 or later. Then call the Enable-AzStorageBlobRestorePolicy command to enable point-in-time restore for the storage account.
 
-Verify that you have installed version 2.2.4.1 or later of PowerShellGet. To determine what version you currently have installed, run the following command:
-
-```powershell
-Get-InstalledModule PowerShellGet
-```
-
-Next, install the Az.Storage preview module. The following command installs version [2.5.2-preview](https://www.powershellgallery.com/packages/Az.Storage/2.5.2-preview) of the Az.Storage module:
-
-```powershell
-Install-Module -Name Az.Storage -RequiredVersion 2.5.2-preview -AllowPrerelease
-```
-
-For more information about installing Azure PowerShell, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget) and [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
-
-To configure Azure point-in-time restore with PowerShell, call the Enable-AzStorageBlobRestorePolicy command. The following example enables soft delete and sets the soft-delete retention period, enables change feed, and then enables point-in-time restore. Before running the example, use the Azure portal or an Azure Resource Manager template to also enable blob versioning.
+The following example enables soft delete and sets the soft-delete retention period, enables change feed, and then enables point-in-time restore. Before running the example, use the Azure portal or an Azure Resource Manager template to also enable blob versioning.
 
 When running the example, remember to replace the values in angle brackets with your own values:
 
