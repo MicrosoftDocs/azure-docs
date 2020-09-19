@@ -56,11 +56,11 @@ For a complete reference on ACLs in Data Lake Storage Gen2, see [Access control 
 
 During security principal-based authorization, permissions are evaluated in the following order.
 
-1. RBAC role assignments are evaluated first and take priority over any ACL assignments.
+:one: RBAC role assignments are evaluated first and take priority over any ACL assignments.
 
-2. If the operation is fully authorized based on RBAC role assignment, then ACLs are not evaluated at all.
+:two: If the operation is fully authorized based on RBAC role assignment, then ACLs are not evaluated at all.
 
-3. If the operation is not fully authorized, then ACLs are evaluated.
+:three: If the operation is not fully authorized, then ACLs are evaluated.
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
