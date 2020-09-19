@@ -17,7 +17,10 @@ This topic provides a reference for Dapr integration API Management policies. Da
 
 > [!IMPORTANT]
 > Policies referenced in this topic work only in the [self-hosted version of the API Management gateway](self-hosted-gateway-overview.md) with Dapr support enabled.
-> To turn on Dapr support in the self-hosted gateway add the [Dapr annotations](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) below to the [Kubernetes deployment template](how-to-deploy-self-hosted-gateway-kubernetes.md) replacing "app-name" with a desired name. Complete walkthrough of setting up and using API Management with Dapr is available [here](https://aka.ms/apim/dapr/walkthru).
+
+## Enable Dapr support in the self-hosted gateway
+
+To turn on Dapr support in the self-hosted gateway add the [Dapr annotations](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) below to the [Kubernetes deployment template](how-to-deploy-self-hosted-gateway-kubernetes.md) replacing "app-name" with a desired name. Complete walkthrough of setting up and using API Management with Dapr is available [here](https://aka.ms/apim/dapr/walkthru).
 ```yml
 template:
     metadata:
@@ -29,7 +32,7 @@ template:
 ```
 
 
-## <a name="DaprPolicies"></a> Dapr integration policies
+## Dapr integration policies
 
 -  [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice. Click [here](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) to learn more about service invocation in Dapr.
 -  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic. Click [here](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) to learn more about Publish/Subscribe messaging in Dapr.
@@ -114,7 +117,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 The following example demonstrates sending the body of the current request to the "new" [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) of the "orders" Pub/Sub [component](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters). Response received from the Dapr runtime is stored in the "dapr-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
 
-If, Dapr runtime can't locate the target topic for example and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is be returned.
+If Dapr runtime can't locate the target topic for example and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is be returned.
 
 Note that "backend" section is empty and request is not forwarded to the backend.
 
@@ -187,9 +190,9 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 #### Example
 
-The following example demonstrates triggering of outbound binding named "external-systems" with operation name "create", metadata consisting of two key/value items names "source" and "client-ip", and the body coming from the original request. Response received from the Dapr runtime is captured in the "bind-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
+The following example demonstrates triggering of outbound binding named "external-systems" with operation name "create", metadata consisting of two key/value items named "source" and "client-ip", and the body coming from the original request. Response received from the Dapr runtime is captured in the "bind-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
 
-If, Dapr runtime fails for some reason and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is be returned.
+If Dapr runtime fails for some reason and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is be returned.
 
 Note that "backend" section is empty and request is not forwarded to the backend.
 
