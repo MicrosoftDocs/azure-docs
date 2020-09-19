@@ -52,9 +52,9 @@ ms.author: mbaldwin
     
     h.	Applies the policy:
     
-     	- Uses the authorization rules to make sure the client platform is trusted, e.g. expected enclave ID and SVN, enclave does not permit debugging, secure boot is                     enabled, test signing is disabled, etc.;
+     	i. Uses the authorization rules to make sure the client platform is trusted, e.g. expected enclave ID and SVN, enclave does not permit debugging, secure boot is                     enabled, test signing is disabled, etc.;
         
-        - Uses the issuance rules to add claims to the final report
+        ii. Uses the issuance rules to add claims to the final report
         
     i.	Issues an attestation report signed by Kpriv-Attestation, the attestation Service key
 
