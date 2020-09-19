@@ -18,9 +18,13 @@ ms.author: mbaldwin
 3. The enclave then:
 
     a.	Generates a key pair Kpriv/pub-Enclave
+    
     b.	Retrieves the Boot/Resume logs and quote from the TPM using the challenge received from the service (notice that the enclave itself cannot call the TPM functions so it           calls back to VTL-0 to retrieve those values but this does not affect security as invalid/replayed logs or quotes will be detected)
+    
     c.	Requests a signed report from VSM (EnclaveGetAttestationReport()) with the hash of the fields in the request
+    
     d.	VSM Report is signed by Kpriv-IDKS (VSM Signing IDK) in the secure kernel
+    
     e.	A message to be sent to the service is created with the following format:
 
     ```
@@ -54,6 +58,6 @@ ms.author: mbaldwin
         
     i.	Issues an attestation report signed by Kpriv-Attestation, the attestation Service key
 
-    5.Client application can now request the attestation report from the enclave. The report can then be parsed and trusted by relying parties as it is signed by Azure                 Attestation       
+5. Client application can now request the attestation report from the enclave. The report can then be parsed and trusted by relying parties as it is signed by Azure                Attestation       
 
 The reason for sending the encrypted context to the client is to relieve the service from having to keep state (context) about an attestation session. Security in this case is therefore tied to the strength of K-Context. For increased security or other reasons, it is possible to change the protocol not to send the context to the client and instead keep state in the service on a memory cache, if the connection between the client and the service node is persistent. If the connection is not persistent, the state can be stored in a database shared by all nodes, however in this case, a session identifier must be sent to the client. In this case, special care has to be taken with the session identifier to prevent an attacker from using another session’s identifier.
