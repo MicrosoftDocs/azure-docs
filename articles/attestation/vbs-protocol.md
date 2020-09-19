@@ -58,9 +58,9 @@ For Microsoft Azure Attestation to provide strong security guarantees that the d
     
     h.	Applies the policy:
     
-     	i. Uses the authorization rules to make sure the client platform is trusted, e.g. expected enclave ID and SVN, enclave does not permit debugging, secure boot is                     enabled, test signing is disabled, etc.;
+    - Uses the authorization rules to make sure the client platform is trusted, e.g. expected enclave ID and SVN, enclave does not permit debugging, secure boot is                     enabled, test signing is disabled, etc.;
         
-        ii. Uses the issuance rules to add claims to the final report
+    - Uses the issuance rules to add claims to the final report
         
     i.	Issues an attestation report signed by Kpriv-Attestation, the attestation Service key
 
