@@ -22,6 +22,8 @@
       href: confidential-nodes-aks-overview.md
     - name: Confidential nodes with Azure CLI
       href: confidential-nodes-aks-getstarted.md
+    - name: Confidential nodes on AKS FAQ
+      href: confidential-nodes-aks-faq.md
   
 - name: Concepts
   expanded: true
@@ -37,6 +39,7 @@
 
   
   - name: Container Compute
+    expanded: true
     items:  
   - name: Confidential containers (lift & shift)
     items:

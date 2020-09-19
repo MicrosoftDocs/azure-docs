@@ -50,7 +50,7 @@ The [CCF](https://github.com/Microsoft/CCF) is a distributed network of nodes, e
 
 ![CCF Nodes](media/application-development/ccf.png)
 
-This open-source framework enables high throughout (~ 150 tkps), fine-grained confidentiality, and consortium governance for blockchain. With each node using TEEs, you can ensure secure consensus and transaction processing.
+This open-source framework enables high throughout, fine-grained confidentiality, and consortium governance for blockchain. With each node using TEEs, you can ensure secure consensus and transaction processing.
 
 
 ## Next Steps 

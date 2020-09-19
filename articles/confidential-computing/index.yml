@@ -101,7 +101,7 @@ landingContent:
           - text: Confidential nodes on AKS FAQ 
             url: confidential-nodes-aks-overview.md
           - text: About Azure Kubernetes Service (AKS) 
-            url: ../aks/
+            url: ../aks/intro-kubernetes.md
 
 ##ROW 2
   # Card
@@ -110,8 +110,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Microsoft Azure Attestation (MAA)
-            url: ../attestation/
+          - text: Microsoft Azure Attestation
+            url: ../attestation/overview.md
           - text: Confidential Inferencing ONNX Runtime
             url: https://aka.ms/confidentialinference
   

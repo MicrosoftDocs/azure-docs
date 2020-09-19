@@ -1,9 +1,9 @@
 ---
  title: Enclave aware containers
  description: enclave ready application containers support on Azure Kubernetes Service (AKS)
- services: container-service
  author: agowdamsft
  ms.service: container-service
+ ms.subservice: confidential-computing
  ms.topic: overview
  ms.date: 9/22/2020
  ms.author: amgowda
@@ -25,7 +25,7 @@ Enclave aware containers application architecture give you the most control on t
 ## Enablers
 
 ### Open Enclave SDK
-Open Enclave SDK is a hardware-agnostic open-source library for developing C, C++ applications that utilize Hardware-based Trusted Execution Environments. The current implementation provides support for Intel SGX as well as preview support for [OP-TEE OS on ARM TrustZone](https://optee.readthedocs.io/en/latest/general/about.html).
+Open Enclave SDK is a hardware-agnostic open-source library for developing C, C++ applications that utilize Hardware-based Trusted Execution Environments. The current implementation provides support for Intel SGX as well as preview support for [OP-TEE OS on Arm TrustZone](https://optee.readthedocs.io/en/latest/general/about.html).
 
 Get started with Open Enclave based container application [here](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs)
 
