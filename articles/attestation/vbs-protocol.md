@@ -33,17 +33,27 @@ ms.author: mbaldwin
 4. Azure Attestation receives the message from the client and:
 
     a.	Verifies the signature and decrypts the session context. If the context has expired, the service fails the request
+    
     b.	Verifies that the AIK X.509 Certificate is valid and trusted, i.e., issued by a trusted CA
+    
     c.	Verifies the TPM quote was signed properly by a “known” TPM key (“known” in this context means that the TPM key used to sign the quote is indirectly trusted given that           the client uses AIK to sign the quote and the AIK Cert has already been verified). The quote must also include the same challenge as present in the context
+    
     d.	Verifies the Boot/Resume logs against the PCRs in the TPM quote
+    
     e.	Gets Kpub-IDKS from the now trusted Boot/Resume logs and verifies that the VSM Report was signed with it **(VERIFY(Kpub-IDKS)[VSM Report])**
+    
     f.	Computes hash of the fields in the request and compares such hash against the hash present in the VSM Report, which is now trusted
+    
     g.	Using the Kpub-Enclave received, confirm the client has possession of Kpriv-Enclave by verifying that the request was signed by such key **(VERIFY(Kpub-Enclave)                   [Request])**
+    
     h.	Applies the policy:
+    
         i.	Uses the authorization rules to make sure the client platform is trusted, e.g. expected enclave ID and SVN, enclave does not permit debugging, secure boot is                     enabled, test signing is disabled, etc.;
+        
         ii.	Uses the issuance rules to add claims to the final report
+        
     i.	Issues an attestation report signed by Kpriv-Attestation, the attestation Service key
 
-5.Client application can now request the attestation report from the enclave. The report can then be parsed and trusted by relying parties as it is signed by Azure Attestation       
+    5.Client application can now request the attestation report from the enclave. The report can then be parsed and trusted by relying parties as it is signed by Azure                 Attestation       
 
 The reason for sending the encrypted context to the client is to relieve the service from having to keep state (context) about an attestation session. Security in this case is therefore tied to the strength of K-Context. For increased security or other reasons, it is possible to change the protocol not to send the context to the client and instead keep state in the service on a memory cache, if the connection between the client and the service node is persistent. If the connection is not persistent, the state can be stored in a database shared by all nodes, however in this case, a session identifier must be sent to the client. In this case, special care has to be taken with the session identifier to prevent an attacker from using another session’s identifier.
