@@ -1,3 +1,4 @@
+---
 title: SAP HANA Azure virtual machine ANF configuration | Microsoft Docs
 description: Azure NetApp Files Storage recommendations for SAP HANA.
 services: virtual-machines-linux,virtual-machines-windows
@@ -13,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/011/2020
+ms.date: 09/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
