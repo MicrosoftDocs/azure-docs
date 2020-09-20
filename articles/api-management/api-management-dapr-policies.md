@@ -34,9 +34,9 @@ template:
 
 ## Distributed Application Runtime (Dapr) integration policies
 
--  [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice. Click [here](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) to learn more about service invocation in Dapr.
--  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic. Click [here](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) to learn more about Publish/Subscribe messaging in Dapr.
--  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding. Click [here](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md) to learn more about bindings in Dapr.
+-  [Send request to a service](api-management-dapr-policies.md#invoke): Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) file.
+-  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub): Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) file.
+-  [Trigger output binding](api-management-dapr-policies.md#bind): Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md) file.
 
 ## <a name="invoke"></a> Send request to a service
 
@@ -54,9 +54,9 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 
 #### Example
 
-The following example demonstrates invoking the method named "back" on the microservice called "echo". The `set-backend-service` policy sets the destination URL. The `forward-request` policy dispatches the request to the Dapr runtime which delivers it to the microservice.
+The following example demonstrates invoking the method named "back" on the microservice called "echo". The `set-backend-service` policy sets the destination URL. The `forward-request` policy dispatches the request to the Dapr runtime, which delivers it to the microservice.
 
-Note that `forward-request` is shown here for clarity but is typically "inherited" from the global scope via the `base` keyword.
+The `forward-request` policy is shown here for clarity. The policy is typically "inherited" from the global scope via the `base` keyword.
 
 ```xml
 <policies>
@@ -117,7 +117,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 The following example demonstrates sending the body of the current request to the "new" [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) of the "orders" Pub/Sub [component](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters). Response received from the Dapr runtime is stored in the "dapr-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
 
-If Dapr runtime can't locate the target topic for example and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is be returned.
+If Dapr runtime can't locate the target topic, for example, and responds with an error, the "on-error" section is triggered. The response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is returned.
 
 Note that "backend" section is empty and request is not forwarded to the backend.
 
@@ -192,7 +192,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 The following example demonstrates triggering of outbound binding named "external-systems" with operation name "create", metadata consisting of two key/value items named "source" and "client-ip", and the body coming from the original request. Response received from the Dapr runtime is captured in the "bind-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
 
-If Dapr runtime fails for some reason and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is be returned.
+If Dapr runtime fails for some reason and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is returned.
 
 Note that "backend" section is empty and request is not forwarded to the backend.
 
