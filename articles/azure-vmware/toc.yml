@@ -66,6 +66,8 @@
       href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: NetApp Files
       href: net-app-files.md
+  - name: GitHub Enterprise Server
+    href: github-enterprise-server.md
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations
