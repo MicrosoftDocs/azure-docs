@@ -32,16 +32,16 @@ Currently, the supported list of Kubernetes services and distributions are the f
 
 > **Important:** The minimum supported version of Kubernetes is v1.14.
 
-> **Important:** See the [connectivity requirements](/connectivity.md) to understand what connectivity is required between your environment and Azure.
+> **Important:** See the [connectivity requirements](./connectivity.md) to understand what connectivity is required between your environment and Azure.
 
-> **Important:** See the [storage configuration guidance](/storage-configuration.md) to understand the details of how to configure your persistent storage.
+> **Important:** See the [storage configuration guidance](./storage-configuration.md) to understand the details of how to configure your persistent storage.
 
 > **Important:** If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.**   If you are using another Kubernetes distribution or service, you should ensure that you have a minimum node size of 8 GB RAM and 4 cores and a sum total capacity of 16 GB RAM available across all of your Kubernetes nodes.  For example, you could have 1 node at 16 GB RAM and 4 cores or you could have 2 nodes with 8GB RAM and 4 cores each.
 
 > [!NOTE]
 > If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
 
-Depending on the option you choose, certain tools will be _required_, but it is recommended to [install all the client tools](install-client-tools.md) before you begin to create the Azure Arc data controller.
+Depending on the option you choose, certain tools will be _required_, but it is recommended to [install all the client tools](./install-client-tools.md) before you begin to create the Azure Arc data controller.
 
 Regardless of the option you choose, during the creation process you will need to provide the following information:
 
@@ -49,7 +49,7 @@ Regardless of the option you choose, during the creation process you will need t
 - **Data controller username** - Any username for the data controller administrator user.
 - **Data controller password** - A password for the data controller administrator user.
 - **Name of your Kubernetes namespace** - the name of the Kubernetes namespace that you want to create the data controller in.
-- **Connectivity mode** - The [connectivity mode](connectivity.md) of your cluster. Currently only "indirect" is supported.
+- **Connectivity mode** - The [connectivity mode](./connectivity.md) of your cluster. Currently only "indirect" is supported.
 - **Azure subscription ID** - The Azure subscription GUID for where you want the data controller resource in Azure to be created.
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
 - **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. Choose one of the following: 
