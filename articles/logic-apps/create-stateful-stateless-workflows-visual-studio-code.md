@@ -229,17 +229,8 @@ When you later try to open the Logic App Designer for your logic app, you get a 
    1. When another subscriptions list appears, select the subscriptions that you want, and then make sure that you select **OK**.
 
 > [!NOTE]
-> For various reasons, Visual Studio Code signs you out from your Azure account. 
-> When necessary, Visual Studio Code prompts you to sign back in, or you can manually sign back in.
-
-## Region support
-
-To create connections using the managed connectors, create your workflows and Logic App (Preview) resources in these regions:
-
-* Brazil South
-* East Asia
-* West Central US
-* West US 2
+> If Visual Studio Code signs you out from your Azure account for some reason, 
+> you're prompted to sign back in, or you can manually sign back in.
 
 <a name="create-project"></a>
 
@@ -247,7 +238,7 @@ To create connections using the managed connectors, create your workflows and Lo
 
 Before you can create your logic app, create a local project so that you can manage and deploy your logic app from Visual Studio Code. The underlying project is very similar to an Azure Functions project, also known as a function app project.
 
-1. On your computer, create a local folder to use for the project that you'll later create in Visual Studio Code.
+1. On your computer, create an *empty* local folder to use for the project that you'll later create in Visual Studio Code.
 
 1. In Visual Studio Code, close any and all open folders.
 
