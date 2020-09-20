@@ -110,6 +110,8 @@ landingContent:
             url: ../../container-registry/security-baseline.md
           - text: Service Fabric
             url: ../../service-fabric/security-baseline.md
+          - text: Azure Storage 
+            url: ../../storage/common/security-baseline.md
           - text: Virtual Machine Scale Sets 
             url: ../../virtual-machine-scale-sets/security-baseline.md
           - text: Virtual Machines Linux 
@@ -137,18 +139,6 @@ landingContent:
             url: ../../sql-database/security-baseline.md
           - text: Cosmos DB
             url: ../../cosmos-db/security-baseline.md
-          - text: XXX
-            url: XXX
-          - text: XXX
-            url: XXX
-
-  # Card  
-  - title: Developer Tools security baselines
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure DevTest Labs 
-            url: ../../devtest-labs/security-baseline.md
 
   # Card  
   - title: Integration security baselines
@@ -161,16 +151,6 @@ landingContent:
             url: ../../event-grid/security-baseline.md
           - text: Logic Apps 
             url: ../../logic-apps/security-baseline.md
-
-
-  # Card  
-  - title: Internet of Things security baselines
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure IoT Hub
-            url: ../../iot-hub/security-baseline.md
-
 
   # Card  
   - title: Management and Governance security baselines
@@ -187,14 +167,6 @@ landingContent:
             url: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
           - text: Azure Resource Graph 
             url: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
-
-  # Card  
-  - title: Migration security baselines
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure Data Box 
-            url: ../../databox/security-baseline.md
 
   # Card  
   - title: Networking security baselines
@@ -233,9 +205,13 @@ landingContent:
             url: ../../security-center/security-baseline.md
 
   # Card  
-  - title: Storage security baselines
+  - title: Miscellaneous security baselines
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Storage 
-            url: ../../storage/common/security-baseline.md
+          - text: Azure Data Box 
+            url: ../../databox/security-baseline.md
+          - text: Azure DevTest Labs 
+            url: ../../devtest-labs/security-baseline.md
+          - text: Azure IoT Hub
+            url: ../../iot-hub/security-baseline.md
