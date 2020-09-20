@@ -151,66 +151,67 @@ In this step, create a manifest to describe the container based on the Azure SQL
 
 1. Create a manifest (a YAML file) to describe the deployment. The following example describes a deployment, including a container based on the Azure SQL Edge container image.
 
-   ```yaml
-    apiVersion: apps/v1
-    kind: Deployment
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqledge-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqledge
+  template:
     metadata:
-    name: sqledge-deployment
-    spec:
-    replicas: 1
-    selector:
-        matchLabels:
+      labels:
         app: sqledge
-    template:
-        metadata:
-        labels:
-            app: sqledge
-        spec:
-        terminationGracePeriodSeconds: 30
-        securityContext:
-          fsGroup: 10001
-        containers:
-        - name: azuresqledge
-            image: mcr.microsoft.com/azure-sql-edge-developer:latest
-            ports:
-            - containerPort: 1433
-            env:
-            - name: MSSQL_PID
-            value: "Developer"
-            - name: ACCEPT_EULA
-            value: "Y"
-            - name: SA_PASSWORD
-            valueFrom:
-                secretKeyRef:
-                name: mssql
-                key: SA_PASSWORD
-            - name: MSSQL_AGENT_ENABLED
-            value: "TRUE"        
-            - name: MSSQL_COLLATION
-            value: "SQL_Latin1_General_CP1_CI_AS"
-            - name: MSSQL_LCID
-            value: "1033"
-            volumeMounts:
-            - name: sqldata
-            mountPath: /var/opt/mssql
-        volumes:
+    spec:
+      volumes:
         - name: sqldata
-            persistentVolumeClaim:
+          persistentVolumeClaim:
             claimName: mssql-data
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-    name: sqledge-deployment
-    spec:
-    selector:
-        app: sqledge
-    ports:
-        - protocol: TCP
-        port: 1433
-        targetPort: 1433
-    type: LoadBalancer
-   ```
+      containers:
+        - name: azuresqledge
+          image: mcr.microsoft.com/azure-sql-edge:latest
+          ports:
+            - containerPort: 1433
+          volumeMounts:
+            - name: sqldata
+              mountPath: /var/opt/mssql
+          env:
+            - name: MSSQL_PID
+              value: "Developer"
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mssql
+                  key: SA_PASSWORD
+            - name: MSSQL_AGENT_ENABLED
+              value: "TRUE"
+            - name: MSSQL_COLLATION
+              value: "SQL_Latin1_General_CP1_CI_AS"
+            - name: MSSQL_LCID
+              value: "1033"
+      terminationGracePeriodSeconds: 30
+      securityContext:
+        fsGroup: 10001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqledge-deployment
+spec:
+  selector:
+    app: sqledge
+  ports:
+    - protocol: TCP
+      port: 1433
+      targetPort: 1433
+      name: sql
+  type: LoadBalancer
+```
 
    Copy the preceding code into a new file, named `sqldeployment.yaml`. Update the following values: 
 
@@ -297,7 +298,7 @@ To verify failure and recovery, you can delete the pod. Do the following steps:
    ```
    `sqledge-deployment-7df66c9999-rc9xl` is the value returned from the previous step for pod name. 
 
-Kubernetes automatically re-creates the pod to recover a Azure SQL Edge instance, and connect to the persistent storage. Use `kubectl get pods` to verify that a new pod is deployed. Use `kubectl get services` to verify that the IP address for the new container is the same. 
+Kubernetes automatically re-creates the pod to recover an Azure SQL Edge instance, and connect to the persistent storage. Use `kubectl get pods` to verify that a new pod is deployed. Use `kubectl get services` to verify that the IP address for the new container is the same. 
 
 ## Summary
 
