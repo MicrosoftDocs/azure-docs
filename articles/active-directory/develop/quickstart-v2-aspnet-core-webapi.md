@@ -1,7 +1,7 @@
 ---
-title: "Protect an ASP.NET Core web API with the Microsoft identity platform | Azure"
+title: "Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform | Azure"
 titleSuffix: Microsoft identity platform
-description: Download and modify a code sample that demonstrates how to protect an ASP.NET Core web API by using the Microsoft identity platform for authorization.
+description: In this quickstart, you download and modify a code sample that demonstrates how to protect an ASP.NET Core web API by using the Microsoft identity platform for authorization.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -21,7 +21,15 @@ ms.custom: "devx-track-csharp, scenarios:getting-started, languages:aspnet-core"
 In this quickstart, you use a code sample to learn how to protect an ASP.NET Core web API so than it can be accessed only by authorized accounts. Accounts can be personal accounts (hotmail.com, outlook.com, and others) and work and school accounts in any Azure Active Directory (Azure AD) instance.
 
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> - [Azure Active Directory tenant](quickstart-create-new-tenant.md)
+> - [.NET Core SDK 3.1+](https://dotnet.microsoft.com/)
+> - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+>
 > ## Step 1: Register the application
+>
 > To register the web API in your Azure AD tenant, follow these steps:
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -45,13 +53,13 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 ## Step 2: Download the ASP.NET Core project
 
 > [!div renderon="docs"]
-> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip)
+> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
 > [!div renderon="docs"]
-> ## Step 3: Configure ASP.NET Core project
+> ## Step 3: Configure the ASP.NET Core project
 >
-> 1. Extract the .zip archive into a local folder near the root of your drive. For example, into *C:\Azure-Samples*.
-> 1. Open the solution in *active-directory-dotnet-native-aspnetcore-v2-aspnetcore3-1\webapi* in your code editor.
+> 1. Extract the .zip archive into a folder near the root of your drive. For example, into *C:\Azure-Samples*.
+> 1. Open the solution in the *webapi* folder in your code editor.
 > 1. Open the *appsettings.json* file and modify the following:
 >
 >    ```json
@@ -69,7 +77,7 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 
 ## How the sample works
 
-The web API receives a token from a client, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](scenario-protected-web-api-overview.md).
+The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](scenario-protected-web-api-overview.md).
 
 ### Startup class
 
@@ -84,16 +92,19 @@ The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that
     }
 ```
 
-The `AddAuthentication()` configures the service to add JwtBearer-based authentication.
+The `AddAuthentication()` method configures the service to add JwtBearer-based authentication.
 
-The line containing `.AddMicrosoftIdentityWebApi` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
+The line containing `.AddMicrosoftIdentityWebApi` adds Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 
-> |Where | Description |
-> |---------|---------|
-> | ClientId  | Application (client) ID from the application registered in the Azure portal. |
-> | Instance | The STS endpoint for the user to authenticate. Usually, this is `https://login.microsoftonline.com/` for public cloud, where {tenant} is the name of your tenant or your tenant ID, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
+The line containing `.AddMicrosoftIdentityWebApp` adds Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 
-> Also note the `Configure` method which contains two important methods: `app.UseAuthentication()` and `app.UseAuthorization()`
+| *appsettings.json* key | Description                                                                                                                                                          |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ClientId`             | **Application (client) ID** of the application registered in the Azure portal.                                                                                       |
+| `Instance`             | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
+| `TenantId`             | Name of your tenant or its tenant ID (a GUID), or *common* to sign in users with work or school accounts or Microsoft personal accounts.                             |
+
+The `Configure()` method contains two important methods, `app.UseAuthentication()` and `app.UseAuthorization()`, that enable their named functionality:
 
 ```csharp
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
