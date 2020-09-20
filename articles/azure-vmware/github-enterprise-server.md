@@ -7,11 +7,11 @@ ms.date: 09/22/2020
 
 # Set up GitHub Enterprise Server on your Azure VMware Solution private cloud
 
-In this article, we walk through the steps to setup GitHub Enterprise Server, the "on-premises" version of [GitHub.com](https://github.com/), on your Azure VMware Solution private cloud. The scenario covered in this walk-through is for a GitHub Enterprise Server instance capable of serving up to 3,000 developers, running up to 25 jobs per minute on GitHub Actions. It includes the setup of (at time of writing) *preview* features, such as GitHub Actions. To customize the setup for your particular needs, review the requirements listed in [Installing GitHub Enterprise Server on VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
+In this article, we walk through the steps to setup GitHub Enterprise Server, the "on-premises" version of [GitHub.com](https://github.com/), on your Azure VMware Solution private cloud. The scenario covered in this walk-through is for a GitHub Enterprise Server instance capable of serving up to 3,000 developers running up to 25 jobs per minute on GitHub Actions. It includes the setup of (at time of writing) *preview* features, such as GitHub Actions. To customize the setup for your particular needs, review the requirements listed in [Installing GitHub Enterprise Server on VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
 
 ## Before you begin
 
-GitHub Enterprise Server requires a valid license key. You may sign up for a trial license [here](https://enterprise.github.com/trial). If you are looking to extend the capabilities of GitHub Enterprise Server via an integration, you may qualify for a free five-seat developer license, which may be applied for through [GitHub's Partner Program](https://partner.github.com/).
+GitHub Enterprise Server requires a valid license key. You may sign up for a trial license [here](https://enterprise.github.com/trial). If you are looking to extend the capabilities of GitHub Enterprise Server via an integration, you may qualify for a free five-seat developer license. Apply for this license through [GitHub's Partner Program](https://partner.github.com/).
 
 ## Installing GitHub Enterprise Server on VMware
 
@@ -23,7 +23,7 @@ Download [the current release of GitHub Enterprise Server](https://enterprise.gi
 
 Provide a recognizable name for your new virtual machine, such as GitHubEnterpriseServer. It is not recommended to include the release details in the VM name, as these details will become stale when the instance is upgraded. Click through the defaults for now (we'll edit these details shortly) and wait for the OVA to be imported.
 
-Once imported, [adjust the hardware configuration](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) based on your needs. In our example scenario catering to 3,000 developers running 25 jobs per minute on GitHub Actions, we'll need the following configuration.
+Once imported, [adjust the hardware configuration](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) based on your needs. In our example scenario, we'll need the following configuration.
 
 |  | Standard Setup | Standard Setup + "Beta Features" (Actions) |
 | --- | --- | --- |
@@ -42,11 +42,15 @@ After the newly provisioned virtual machine (VM) has powered on, [configure it v
 
 :::image type="content" source="media/github-enterprise-server/ssh-access.png" alt-text="Access the admin shell via SSH.":::	
 
-We recommend to at least: 1) upload a public SSH key to the management console, so that you can [access the administrative shell via SSH](https://docs.github.com/en/enterprise/admin/configuration/accessing-the-administrative-shell-ssh), and  2) [configure TLS on your instance](https://docs.github.com/en/enterprise/admin/configuration/configuring-tls) so that you can use a certificate that is signed by a trusted certificate authority.
+We recommend to at least take the following steps:
+
+1. Upload a public SSH key to the management console, so that you can [access the administrative shell via SSH](https://docs.github.com/en/enterprise/admin/configuration/accessing-the-administrative-shell-ssh). 
+
+2. [Configure TLS on your instance](https://docs.github.com/en/enterprise/admin/configuration/configuring-tls) so that you can use a certificate that is signed by a trusted certificate authority.
 
 :::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="Configuring your instance.":::
 
-Apply your settings and wait while the instance restarts. While migrations are applied and the instance comes back up, you may continue with the next step, **Configuring Blob Storage for GitHub Actions**.
+Apply your settings and wait while the instance restarts. In the meantime, you may continue with the next step, **Configuring Blob Storage for GitHub Actions**.
 
 :::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Create your admin account.":::
 
@@ -71,7 +75,7 @@ To "harden" your instance for production use, the following additional but optio
 > [!NOTE]
 > GitHub Actions is [currently available as a limited beta on GitHub Enterprise Server release 2.22](https://docs.github.com/en/enterprise/admin/github-actions).
 
-External blob storage is necessary to enable GitHub Actions on GitHub Enterprise Server (currently available as a "beta" feature). This external blob storage will be used by Actions to store artifacts and logs. Actions on GitHub Enterprise Server [supports Azure Blob Storage as a storage provider](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (and some others), so we'll provision a new Azure storage account with a [storage account type](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) of BlobStorage:
+External blob storage is necessary to enable GitHub Actions on GitHub Enterprise Server (currently available as a "beta" feature). This external blob storage will be used by Actions to store artifacts and logs. Actions on GitHub Enterprise Server [supports Azure Blob Storage as a storage provider](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (and some others). So we'll provision a new Azure storage account with a [storage account type](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) of BlobStorage:
 
 :::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Provision Azure Blob Storage account.":::
 
@@ -82,7 +86,7 @@ Once the deployment of the new BlobStorage resource has completed, copy and make
 > [!NOTE]
 > GitHub Actions is [currently available as a limited beta on GitHub Enterprise Server release 2.22](https://docs.github.com/en/enterprise/admin/github-actions).
 
-At this point, you should have an instance of GitHub Enterprise Server running, with an administrator account created, as well as external blob storage that will be used by GitHub Actions for persistence.
+At this point, you should have an instance of GitHub Enterprise Server running, with an administrator account created. You should also have external blob storage that GitHub Actions will use for persistence.
 
 Now let's create somewhere for GitHub Actions to run; again, we'll use Azure VMware Solution.
 
@@ -94,7 +98,7 @@ First, let's provision a new VM on the cluster. We'll base our VM on [a recent r
 
 Once the VM is created, power it up and connect to it via SSH.
 
-Next, we need to install [the Actions runner](https://github.com/actions/runner). This application runs a job from a GitHub Actions workflow. Identify and download the most current Linux x64 release of the Actions runner, either from [the releases page](https://github.com/actions/runner/releases), or by running the following quick script (which requires both curl and [jq](https://stedolan.github.io/jq/) to be present on your VM).
+Next, we need to install [the Actions runner](https://github.com/actions/runner). This application runs a job from a GitHub Actions workflow. Identify and download the most current Linux x64 release of the Actions runner, either from [the releases page](https://github.com/actions/runner/releases) or by running the following quick script. This script requires both curl and [jq](https://stedolan.github.io/jq/) to be present on your VM.
 
 `LATEST\_RELEASE\_ASSET\_URL=$( curl https://api.github.com/repos/actions/runner/releases/latest | \`
 
@@ -173,9 +177,9 @@ Here we will make it available to all organizations, but you can also limit acce
 
 ## Configuring GitHub Connect
 
-This step is optional, but recommended if you would like to consume open source actions that are available on GitHub.com. This allows you to build on the work of others by referencing these reusable actions in your workflows.
+This step is optional. We recommend it, however, if you plan on consuming open source actions available on GitHub.com. This allows you to build on the work of others by referencing these reusable actions in your workflows.
 
-GitHub Connect can be enabled by following the steps in [Enabling automatic access to GitHub.com actions using GitHub Connect](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
+To enable GitHub Connect, follow the steps in [Enabling automatic access to GitHub.com actions using GitHub Connect](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
 Once GitHub Connect is enabled, make sure the option for **Server to use actions from GitHub.com in workflow runs** is selected.
 
@@ -189,7 +193,7 @@ In this basic workflow, we'll use `octokit/request-action` to just open an issue
 
 :::image type="content" source="media/github-enterprise-server/example-workflow.png" alt-text="Example workflow.":::
 
-Note, even though the action is hosted on _GitHub.com_, when it runs on _GitHub Enterprise Server_ it will _automatically_ use the GitHub Enterprise Server API.
+Note, GitHub.com hosts the action, but when it runs on GitHub Enterprise Server, it will *automatically* use the GitHub Enterprise Server API.
 
 If you chose to not enable GitHub Connect, you can use the following alternative workflow.
 
@@ -217,7 +221,7 @@ We are just scratching the surface of what you can do with GitHub Actions. For m
 
 ## Review
 
-In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, with support for GitHub Actions, on top of your Azure VMware Solution private cloud, using Azure Blob Storage for persistence of logs and artifacts. This is a great combination for a modern, collaborative, and secure software development experience, building on a solid foundation of Azure VMware Solution, allowing you to leverage cloud resources in a familiar setting.
+In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. This is a great combination for a modern, collaborative, and secure software development experience. It builds on a solid foundation of Azure VMware Solution, allowing you to leverage cloud resources in a familiar setting.
 
 For further information, see the following resources:
 
