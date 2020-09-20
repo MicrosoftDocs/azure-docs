@@ -10,7 +10,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Security Control: Data Protection
+# Security Control V2: Data Protection
 
 Data Protection covers control of data protection at rest, in transit, and via authorized access mechanisms. This includes discover, classify, protect, and monitor sensitive data assets using access control, encryption, and logging in Azure.
 

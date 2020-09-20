@@ -10,7 +10,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Security Control: Governance and Strategy
+# Security Control V2: Governance and Strategy
 
 Governance and Strategy provides guidance for ensuring a coherent security strategy and documented governance approach to guide and sustain security assurance, including establishing roles and responsibilities for the different cloud security functions, unified technical strategy, and supporting policies and standards.
 

@@ -10,7 +10,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Security Control: Network Security
+# Security Control V2: Network Security
 
 Network Security covers controls to secure and protect Azure networks. This includes securing virtual networks, establishing private connections, preventing and mitigating external attacks, and securing DNS.
 

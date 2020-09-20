@@ -10,7 +10,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Security Control: Asset Management
+# Security Control V2: Asset Management
 
 Asset Management covers controls to ensure security visibility and governance over Azure resources. This includes recommendations on permissions for security personnel, security access to asset inventory, and managing approvals for services and resources (inventory, track, and correct).
 

@@ -10,7 +10,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Security Control: Backup and Recovery
+# Security Control V2: Backup and Recovery
 
 Backup and Recovery covers controls to ensure that data and configuration backups at the different service tiers are performed, validated, and protected.
 
