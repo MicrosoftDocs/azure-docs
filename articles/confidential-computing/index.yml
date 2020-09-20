@@ -42,7 +42,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Intel SGX virtual machines
-            url: ../virtual-machines/dcv2-series
+            url: ../virtual-machines/dcv2-series.md
 
 
   # Card (optional)
@@ -85,7 +85,7 @@ landingContent:
          -  text: Enclave-aware containers
             url: enclave-aware-containers.md
          -  text: Out of proc attestation
-            url: confidential-nodes-outofproc-attestation.md
+            url: confidential-nodes-out-of-proc-attestation.md
       - linkListType: quickstart
         links:
           - text: A simple enclave container app on AKS

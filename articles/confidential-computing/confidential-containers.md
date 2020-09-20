@@ -7,7 +7,6 @@
  ms.date: 9/22/2020
  ms.author: amgowda
  ms.service: container-service
- ms.subservice: confidential-computing
 ---
 
 # Confidential Containers
@@ -98,8 +97,8 @@ Have questions with your implementation or want to become an enabler? please rea
 
 ## Reference Links
 
-[Microsoft Azure Attestation](../security/attestation/overview.md)
+[Microsoft Azure Attestation](../attestation/overview.md)
 
-[DC Virtual Machines](./virtual-machine-solutions.md)
+[DCsv2 Virtual Machines](../virtual-machine-solutions.md)
 
 [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)

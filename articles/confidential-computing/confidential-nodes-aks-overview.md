@@ -4,11 +4,9 @@
  services: virtual-machines
  author: agowdamsft
  ms.service: container-service
- ms.subservice: confidential-computing
  ms.topic: overview
  ms.date: 9/22/2020
  ms.author: amgowda
-
 ---
 
 # Confidential Computing nodes on Azure Kubernetes Service (public preview)
@@ -43,7 +41,7 @@ The SGX Device Plugin implements the Kubernetes device plugin interface for EPC 
 
 #### SGX Quote Helper Service <a id="sgx-quote"></a>
 
-Enclave applications that perform remote attestation need to generate a QUOTE. The QUOTE provides cryptographic proof of the identity and the state of the application, and the environment the enclave is running in. QUOTE generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. It can leveraged when requesting attestation QUOTE from enclave apps. Using the AKS provided service will help better maintain the compatibility between the PSW and other SW components in the host. [Read more](confidential-nodes-outofproc-attestation.md) on its usage and feature details.
+Enclave applications that perform remote attestation need to generate a QUOTE. The QUOTE provides cryptographic proof of the identity and the state of the application, and the environment the enclave is running in. QUOTE generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. It can leveraged when requesting attestation QUOTE from enclave apps. Using the AKS provided service will help better maintain the compatibility between the PSW and other SW components in the host. [Read more](confidential-nodes-out-of-proc-attestation.md) on its usage and feature details.
 
 ## Programming & application models
 

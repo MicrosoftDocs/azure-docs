@@ -1,9 +1,8 @@
 ---
 title: Frequently asked questions for Confidential Nodes Support on Azure Kubernetes Service(AKS)
-description: Find answers to some of the common questions about AKS & Azure Confidential Computing (ACC) Nodes Support.
+description: Find answers to some of the common questions about Azure Kubernetes Service (AKS) & Azure Confidential Computing (ACC) Nodes Support.
 author: agowdamsft
 ms.service: container-service
-ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
@@ -11,47 +10,47 @@ ms.author: amgowda
 
 # Frequently asked questions about Confidential Computing Nodes on Azure Kubernetes Service (AKS)
 
-This article addresses frequent questions about Intel SGX based confidential computing nodes on (AKS). If you have any further questions email us at acconaks@microsoft.com 
+This article addresses frequent questions about Intel SGX based confidential computing nodes on Azure Kubernetes Service (AKS). If you have any further questions, email acconaks@microsoft.com.
 
 ## What Service Level Agreement (SLA) and Azure Support is provided during the preview? 
 
-SLA is not provided during the product preview as defined [here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). However, Product support is provided through Azure Support.
+SLA is not provided during the product preview as defined [here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). However, product support is provided through Azure support.
 
 ## What is attestation and how can we do attestation of apps running in enclaves? 
 
-Attestation is the process of demonstrating and validating that a piece of software has been properly instantiated on the specific hardware platform and its evidence is verifiable to provide assurances that it is running in a secure platform and has not been tampered with. Read more here on how attestation is done for enclave apps here [here](/faq.md)
+Attestation is the process of demonstrating and validating that a piece of software has been properly instantiated on the specific hardware platform. It also ensures its evidence is verifiable to provide assurances that it is running in a secure platform and has not been tampered with. [Read more](attestation.md) on how attestation is done for enclave apps.
 
 ## Can I bring my existing containerized applications and run it on AKS with Azure Confidential Computing? 
 
-Yes review the [confidential containers page](confidential-containers.md) for more details on platform enablers.
+Yes, review the [confidential containers page](confidential-containers.md) for more details on platform enablers.
 
 ## What Intel SGX Driver version is installed in the AKS Image? 
 
-Currently Azure Confidential Computing(ACC) DCSv2 VMs are installed with Intel SGX DCAP 1.33. We also work closely with Intel to keep our patches updated. 
+Currently, Azure confidential computing DCSv2 VMs are installed with Intel SGX DCAP 1.33. 
 
 ## Can I open an Azure Support ticket if I run into issues? 
 
-Yes. Azure support is provided during the preview. However, there is no SLA attached because the product is in preview stage as stated in the previous FAQ. 
+Yes. Azure support is provided during the preview. There is no SLA attached because the product is in preview stage.
 
 ## Can I inject post install scripts/customize drivers to the Nodes provisioned by AKS? 
 
-No. [AKS-Engine based confidential computing nodes](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) supports confidential computing nodes that allows custom installations.
+No. [AKS-Engine based confidential computing nodes](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) support confidential computing nodes that allow custom installations.
 
-## Is there is a Docker base image I should be using to get started on enclave applications? 
+## Should I be using a Docker base image to get started on enclave applications? 
 
-Various enablers both ISVs and OSS projects have different ways to enable confidential containers. Review the [confidential containers page](confidential-containers.md) for more details and individual references to implementations.
+Various enablers (ISVs and OSS projects) provide ways to enable confidential containers. Review the [confidential containers page](confidential-containers.md) for more details and individual references to implementations.
 
 ## Can I run ACC Nodes with other standard AKS SKUs (build a heterogenous node pool cluster)? 
 
-Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool consider adding node selectors or by applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-nodes-aks-getstarted.md) 
+Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-nodes-aks-getstarted.md).
 
 ## Can I run Windows Nodes and windows containers with ACC? 
 
-Not at this time. Reach out to us if you have windows nodes/container needs. 
+Not at this time. Contact us if you have Windows nodes or container needs. 
 
 ## What if my container size is more than available EPC memory? 
 
-The EPC memory applies to the part of your application that is programmed to be executed in the enclave. The total size of your container is not the right way to compare it with the max available EPC memory. In fact, DCSv2 machines where SGX is made available allow maximum VM memory of 32 GB where your untrusted part of the application would utilize. However, if your container consumes more than available EPC memory then the performance of the part of program running in the enclave might be impacted.
+The EPC memory applies to the part of your application that is programmed to execute in the enclave. The total size of your container is not the right way to compare it with the max available EPC memory. In fact, DCSv2 machines with SGX, allow maximum VM memory of 32 GB where your untrusted part of the application would utilize. However, if your container consumes more than available EPC memory, then the performance of the portion of the  program running in the enclave might be impacted.
 
 To better manage the EPC memory in the worker nodes, consider the EPC memory-based limits management through Kubernetes. Follow the example below as reference
 
@@ -84,7 +83,7 @@ Total available EPC memory is shared between the enclave applications in the sam
 
 ## Why can't I do forks () and exec to run multiple processes in my enclave application? 
 
-Currently Intel SGX powering the Azure Confidential Computing (ACC) DC SKU VMs supports a single address space for the program executing in an enclave. Single process is a current limitation designed around high security. However, confidential container enablers may have alternate implementations to overcome this limitation.
+Currently,  Azure confidential computing DCsv2 SKU VMs support a single address space for the program executing in an enclave. Single process is a current limitation designed around high security. However, confidential container enablers may have alternate implementations to overcome this limitation.
 
 ## Do you automatically install any additional daemonsets to expose the SGX drivers? 
 
@@ -92,7 +91,7 @@ Yes. The name of the daemonset is sgx-device-plugin and sgx-quote-helper. Read m
 
 ## What is the VM SKU I should be choosing for confidential computing nodes? 
 
-DCSv2 SKUs. Here is the list of [DCSv2 SKUs](../virtual-machines/dcv2-series.md) in the [supported regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines&regions=all) (all GA regions are supported on AKS). 
+DCSv2 SKUs. The [DCSv2 SKUs](../virtual-machines/dcv2-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all) (all GA regions are supported on AKS). 
 
 ## Can I still schedule and run non-enclave containers on confidential computing nodes? 
 
@@ -108,7 +107,7 @@ Yes. Azure CLI could also be used as an alternative as documented [here](confide
 
 ## Can we change the current Intel SGX DCAP diver version on AKS? 
 
-No. To perform any custom installations we recommend you choose [AKS-Engine Confidential Computing Worker Nodes](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) deployments. 
+No. To perform any custom installations, we recommend you choose [AKS-Engine Confidential Computing Worker Nodes](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) deployments. 
 
 ## What version of Kubernetes do you support and recommend? 
 
@@ -120,3 +119,6 @@ We support and recommend Kubernetes version 1.16 and above
 2. No Windows Nodes Support or Windows Containers Support
 3. EPC Memory based Horizontal Pod Autoscaling is not supported. CPU and regular memory-based scaling is supported.
 4. Dev Spaces on AKS for confidential apps is not currently supported
+
+## Next Steps
+Review the [confidential containers page](confidential-containers.md) for more details around confidential containers.

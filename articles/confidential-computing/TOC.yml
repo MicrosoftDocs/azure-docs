@@ -41,12 +41,12 @@
   - name: Container Compute
     expanded: true
     items:  
-  - name: Confidential containers (lift & shift)
-    items:
+    - name: Confidential containers (lift & shift)
+      items:
       - name: Getting started
         href: confidential-containers.md
-  - name: Enclave-aware containers
-    items:
+    - name: Enclave-aware containers
+      items:
         - name: Getting started 
           href: enclave-aware-containers.md
   - name: Attestation
@@ -57,6 +57,10 @@
   items:
   - name: Fortanix Enclave Manager
     href: how-to-fortanix-enclave-manager.md
+- name: References
+  items:
+  - name: SGX Quote Helper Feature
+    href: confidential-nodes-out-of-proc-attestation.md
 - name: Resources
   items:
   - name: Confidential computing feedback

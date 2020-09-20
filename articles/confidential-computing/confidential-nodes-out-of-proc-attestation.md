@@ -2,7 +2,6 @@
  title: Out-of-proc attestation support with SGX quote helper DaemonSet
  description: DaemonSet for generating the quote outside of the SGX application process. This article explains how the out-of-proc attestation facility is provided for confidential workloads running inside a container.
  ms.service: container-service
- ms.subservice: confidential-computing
  author: agowdamsft
  ms.topic: overview
  ms.date: 9/22/2020
