@@ -156,7 +156,7 @@ BACKUP DATA FOR FULL SYSTEM CREATE SNAPSHOT COMMENT 'SNAPSHOT-2019-03-18:11:00';
 snap create volume SNAPSHOT-2019-03-18:11:00 
 ```
 
-![ANF snapshot backup for SAP HANA](media/hana-vm-operations-anf/storage-snapshot-backup2.PNG)
+![ANF snapshot backup for SAP HANA part2](media/hana-vm-operations-anf/storage-snapshot-backup2.PNG)
 
 ```
 BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
