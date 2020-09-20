@@ -119,7 +119,7 @@ The following example demonstrates sending the body of the current request to th
 
 If Dapr runtime can't locate the target topic, for example, and responds with an error, the "on-error" section is triggered. The response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is returned.
 
-Note that "backend" section is empty and request is not forwarded to the backend.
+The "backend" section is empty and the request is not forwarded to the backend.
 
 ```xml
 <policies>
@@ -194,7 +194,7 @@ The following example demonstrates triggering of outbound binding named "externa
 
 If Dapr runtime fails for some reason and responds with an error, the "on-error" section is triggered and response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is returned.
 
-Note that "backend" section is empty and request is not forwarded to the backend.
+The "backend" section is empty and the request is not forwarded to the backend.
 
 ```xml
 <policies>
