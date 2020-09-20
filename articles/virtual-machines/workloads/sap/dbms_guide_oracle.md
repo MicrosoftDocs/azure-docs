@@ -344,11 +344,11 @@ Even if you're running your Oracle DBMS and SAP application instances on Oracle 
 
 In accordance with the SAP installation manual, Oracle-related files shouldn't be installed or located in the OS disk of the VM (drive c:). Virtual machines of varying sizes can support a varying number of attached disks. Smaller virtual machine types can support a smaller number of attached disks. 
 
-If you have smaller VMs and would hit the limit of the number of disks you can attach to the VM, you can install/locate Oracle home, stage, "saptrace", "saparch", "sapbackup", "sapcheck", or "sapreorg" into the OS disk. These parts of Oracle DBMS components aren't too intense on I/O and I/O throughput. This means that the OS disk can handle the I/O requirements. The default size of the OS disk should be 127 GB. 
+If you have smaller VMs and would hit the limit of the number of disks you can attach to the VM, you can install/locate Oracle home, stage, `saptrace`, `saparch`, `sapbackup`, `sapcheck`, or `sapreorg` into the OS disk. These parts of Oracle DBMS components aren't too intense on I/O and I/O throughput. This means that the OS disk can handle the I/O requirements. The default size of the OS disk should be 127 GB. 
 
-Oracle Database and redo log files need to be stored on separate data disks. There's an exception for the Oracle temporary tablespace. Tempfiles can be created on D:/ (non-persistent drive). The non-persistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). 
+Oracle Database and redo log files need to be stored on separate data disks. There's an exception for the Oracle temporary tablespace. `Tempfiles` can be created on D:/ (non-persistent drive). The non-persistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). 
 
-To determine the right amount of space for the tempfiles, you can check the sizes of the tempfiles on existing systems.
+To determine the right amount of space for the `tempfiles`, you can check the sizes of the `tempfiles` on existing systems.
 
 ### Storage configuration
 Only single-instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system on Managed Disks (recommended) or on VHDs. These disks are mounted to the Azure VM and are based on [Azure page blob storage](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) or [Azure Managed Disks](../../managed-disks-overview.md). 
@@ -378,7 +378,7 @@ The minimum configuration is as follows:
 | \oracle\<SID>\origlogaB & mirrlogA | Premium or Ultra disk | None | Not needed |
 | \oracle\<SID>\sapdata1...n | Premium or Ultra disk | Read-only | Can be used for Premium |
 | \oracle\<SID>\oraarch | Standard | None | Not needed |
-| Oracle Home, saptrace, ... | OS disk (Premium) | | Not needed |
+| Oracle Home, `saptrace`, ... | OS disk (Premium) | | Not needed |
 
 
 Disks selection for hosting online redo logs should be driven by IOPs requirements. It's possible to store all sapdata1...n (tablespaces) on one single mounted disk as long as the size, IOPS, and throughput satisfy the requirements. 
@@ -394,7 +394,7 @@ The performance configuration is as follows:
 | \oracle\<SID>\sapdata1...n | Premium or Ultra disk | Read-only | Recommended for premium  |
 | \oracle\SID\sapdata(n+1)* | Premium or Ultra disk | None | Can be used for Premium |
 | \oracle\<SID>\oraarch* | Premium or Ultra disk | None | Not needed |
-| Oracle Home, saptrace, ... | OS disk (Premium) | Not needed |
+| Oracle Home, `saptrace`, ... | OS disk (Premium) | Not needed |
 
 *(n+1): hosting SYSTEM, TEMP, and UNDO tablespaces. The I/O pattern of System and Undo tablespaces are different from other tablespaces hosting application data. No caching is the best option for performance of the System and Undo tablespaces.
 
@@ -437,7 +437,7 @@ General information about running SAP Business Suite on Oracle can be found in t
 
 In accordance with SAP installation manuals, Oracle-related files shouldn't be installed or located into system drivers for a VM's boot disk. Varying sizes of virtual machines support a varying number of attached disks. Smaller virtual machine types can support a smaller number of attached disks. 
 
-In this case, we recommend installing/locating Oracle home, stage, saptrace, saparch, sapbackup, sapcheck, or sapreorg to boot disk. These parts of Oracle DBMS components aren't intense on I/O and I/O throughput. This means that the OS disk can handle the I/O requirements. The default size of the OS disk is 30 GB. You can expand the boot disk by using the Azure portal, PowerShell, or CLI. After the boot disk has been expanded, you can add an additional partition for Oracle binaries.
+In this case, we recommend installing/locating Oracle home, stage, `saptrace`, `saparch`, `sapbackup`, `sapcheck`, or `sapreorg` to boot disk. These parts of Oracle DBMS components aren't intense on I/O and I/O throughput. This means that the OS disk can handle the I/O requirements. The default size of the OS disk is 30 GB. You can expand the boot disk by using the Azure portal, PowerShell, or CLI. After the boot disk has been expanded, you can add an additional partition for Oracle binaries.
 
 
 ### Storage configuration
@@ -470,7 +470,7 @@ Minimum configuration:
 | /oracle/\<SID>/origlogaB & mirrlogA | Premium or Ultra disk | None | Not needed |
 | /oracle/\<SID>/sapdata1...n | Premium or Ultra disk | Read-only | Can be used for Premium |
 | /oracle/\<SID>/oraarch | Standard | None | Not needed |
-| Oracle Home, saptrace, ... | OS disk (Premium) | | Not needed |
+| Oracle Home, `saptrace`, ... | OS disk (Premium) | | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
 
@@ -487,7 +487,7 @@ Performance configuration:
 | /oracle/\<SID>/sapdata1...n | Premium or Ultra disk | Read-only | Recommended for Premium  |
 | /oracle/\<SID>/sapdata(n+1)* | Premium or Ultra disk | None | Can be used for Premium |
 | /oracle/\<SID>/oraarch* | Premium or Ultra disk | None | Not needed |
-| Oracle Home, saptrace, ... | OS disk (Premium) | Not needed |
+| Oracle Home, `saptrace`, ... | OS disk (Premium) | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
 

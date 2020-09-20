@@ -77,7 +77,7 @@ For Azure M-Series VM, the latency writing into the transaction logs can be redu
 
 IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP support note [1928533].  Recommended VM families for running IBM Db2 database are Esd_v4/Eas_v4/Es_v3 and M/M_v2-series for large multi-terabyte databases. The IBM Db2 transaction log disk write performance can be improved by enabling the M-series Write Accelerator. 
 
-Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to very large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Simply use the values for capacity, burst throughput and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/<SID>/log_dir at around 5000 IOPS. 
+Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Simply use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/<SID>/log_dir at around 5000 IOPS. 
 
 #### Extra small SAP system: database size 50 - 200 GB: example Solution Manager
 | VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
@@ -115,7 +115,7 @@ Following is a baseline configuration for various sizes and uses of SAP on Db2 d
 | |/db2/<SID>/log_dir |P20 |4 |9.200  |600  |2.048  |14.000  |680  |64 KB ||
 | |/db2/<SID>/offline_log_dir |P20 |1 |2.300  |150  |512  |3.500  |170  || |
 
-#### Large multi-terabyte SAP system: database size 2TB+: Global Business Suite system
+#### Large multi-terabyte SAP system: database size 2 TB+: Global Business Suite system
 | VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3.500  |170  || |
@@ -128,7 +128,7 @@ Following is a baseline configuration for various sizes and uses of SAP on Db2 d
 ### Backup/Restore
 The backup/restore functionality for IBM Db2 for LUW is supported in the same way as on standard Windows Server Operating Systems and Hyper-V.
 
-You must make sure that you have a valid database backup strategy in place. 
+Make sure that you have a valid database backup strategy in place. 
 
 As in bare-metal deployments, backup/restore performance depends on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with up to eight CPU threads. Therefore, one can assume:
 
@@ -158,7 +158,7 @@ Microsoft Cluster Server (MSCS) is not supported.
 
 Db2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure does not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
 
-Do not use Geo-Replication for the storage accounts that store the database disks. For more information, refer to the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
+Do not use Geo-Replication for the storage accounts that store the database disks. For more information, see the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
 
 ### Accelerated Networking
 For Db2 deployments on Windows, it is highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
@@ -223,6 +223,12 @@ All other general areas like Azure Availability Sets or SAP monitoring apply as 
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
+
+
+## Next steps
+Read the article 
+
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
