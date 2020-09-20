@@ -32,7 +32,7 @@ template:
 ```
 
 
-## Dapr integration policies
+## Distributed Application Runtime (Dapr) integration policies
 
 -  [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice. Click [here](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) to learn more about service invocation in Dapr.
 -  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic. Click [here](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) to learn more about Publish/Subscribe messaging in Dapr.
