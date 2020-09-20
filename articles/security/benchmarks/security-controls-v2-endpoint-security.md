@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Endpoint Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

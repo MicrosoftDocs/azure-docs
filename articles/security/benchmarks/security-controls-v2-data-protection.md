@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Data Protection
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -18,7 +18,7 @@ Data Protection covers control of data protection at rest, in transit, and via a
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| DP-1 | 14.5, 14.7 | SI-4, SC-28 |
+| DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
 Discover, classify, and label your sensitive data so that you can design the appropriate controls to ensure sensitive information is stored, processed, and transmitted securely by the organization's technology systems. 
 
@@ -76,7 +76,7 @@ Monitor for unauthorized transfer of data to locations outside of enterprise vis
 
 Azure Storage Advanced Threat Protection (ATP) and Azure SQL ATP can alert on anomalous transfer of information that might indicate unauthorized transfers of sensitive information. 
 
-Azure Information protection (AIP) provides monitoring capabilities for information that has been classified and labeled. 
+Azure Information protection (AIP) provides monitoring capabilities for information that has been classified and labelled. 
 
 If required for compliance of data loss prevention (DLP), you can use a host-based DLP solution to enforce detective and/or preventative controls to prevent data exfiltration.
 
@@ -88,9 +88,9 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 
 **Customer Security Stakeholders**:
 
-- [Security operations center (SOC)](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security) 
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Application security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

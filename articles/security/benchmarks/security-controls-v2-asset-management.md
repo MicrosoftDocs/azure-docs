@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Asset Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -18,7 +18,7 @@ Asset Management covers controls to ensure security visibility and governance ov
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | CM-7, CM-8, CM-11, PM-5 |
+| AM-1 | 1.1, 1.2 | CM-8, PM-5 |
 
 Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -44,7 +44,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-2 | 1.5 | CM-8, PM-5 |
+| AM-2 | 1.1, 1.2,  1.4, 1.5,  9.1, 12.1 | CM-8, PM-5 |
 
 Ensure that security teams have access to a continuously updated inventory of assets on Azure. Security teams often need this inventory to evaluate their organization's potential exposure to emerging risks, and as an input to continuously security improvements. 
 
@@ -132,13 +132,13 @@ Use Azure AD Conditional Access to limit users' ability to interact with Azure R
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-6 | 2.6 | AC-3, CM-7, CM-8, CM-10, CM-11 |
+| AM-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
 Ensure that only authorized software executes, and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
 Use Azure Security Center (ASC) adaptive application controls to discover and generate an application allow list. You can also use ASC adaptive application controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-Use Azure Automation Change Tracking and Inventory to automate the collection of inventory information from your Windows and Linux VMs. Software name, version, publisher, and refresh time are available from the Azure portal. To get the software installation date and other information, enable guest-level diagnostics and direct the Windows Event Logs to Log Analytics workspace.
+Use Azure Automation Change Tracking and Inventory to automate the collection of inventory information from your Windows and Linux VMs. Software name, version, publisher, and refresh time are available from the Azure Portal. To get the software installation date and other information, enable guest-level diagnostics and direct the Windows Event Logs to Log Analytics workspace.
 
 Depending on the type of scripts, you can use operating system-specific configurations or third-party resources to limit users' ability to execute scripts in Azure compute resources. 
 

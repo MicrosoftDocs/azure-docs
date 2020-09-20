@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Network Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -26,11 +26,15 @@ Based on your applications and enterprise segmentation strategy, restrict or all
 
 Use Azure Security Center Adaptive Network Hardening to recommend network security group configurations that limit ports and source IPs based with the reference to external network traffic rules.
 
+Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, Unsigned LDAP Binds, and weak ciphers in Kerberos.
+
 - [How to create a network security group with security rules](../../virtual-network/tutorial-filter-network-traffic.md)
 
 - [How to deploy and configure Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
 - [Adaptive Network Hardening in Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md)
+
+- [Azure Sentinel insecure protocols workbook](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
 **Responsibility**: Customer
 
@@ -50,13 +54,15 @@ Use Azure Security Center Adaptive Network Hardening to recommend network securi
 
 Use Azure ExpressRoute or Azure virtual private network (VPN)  to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet , and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute.
 
-To connect two or more virtual networks in Azure together, use virtual network peering. Network traffic between peered virtual networks is private and is kept on the Azure backbone network. 
+To connect two or more virtual networks in Azure together, use virtual network peering or Private Link. Network traffic between peered virtual networks is private and is kept on the Azure backbone network. 
 
 - [What are the ExpressRoute connectivity models](../../expressroute/expressroute-connectivity-models.md) 
 
 - [Azure VPN overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 - [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
+
+- [Azure Private Link](../../private-link/private-link-service-overview.md)
 
 **Responsibility**: Customer
 
@@ -104,6 +110,7 @@ Protect Azure resources against attacks from external networks, including distri
 -	Use Web Application Firewall (WAF) capabilities in Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN) to protect your applications, services, and APIs against application layer attacks. 
 
 -	Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. 
+-	Use Azure Security Center to detect misconfiguration risks related to the above. 
 
 - [Azure Firewall Documentation](/azure/firewall/)
 

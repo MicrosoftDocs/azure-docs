@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Identity Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -43,7 +43,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 
 **Customer Security Stakeholders**:
 
-- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
+- [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -75,7 +75,7 @@ Use Azure Key Vault for security principal registration: authentication#authoriz
 
 **Customer Security Stakeholders**:
 
-- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -97,7 +97,7 @@ Use Azure AD single sign-on (SSO) to manage and secure access to your organizati
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -132,7 +132,7 @@ Note: Authentication based on password credentials alone is susceptible to popul
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -199,7 +199,7 @@ Use Azure AD conditional access for more granular access control based on user-d
 
 **Customer Security Stakeholders**:
 
-- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -213,9 +213,13 @@ Use Azure AD conditional access for more granular access control based on user-d
 |--|--|--|--|
 | ID-7 | 18.1, 18.7 | IA-5 |
 
-Implement Credential Scanner to identify credentials within code. Credential Scanner also encourages moving discovered credentials to more secure locations such as Azure Key Vault.
+Implement Azure DevOps Credential Scanner to identify credentials within the code. Credential Scanner also encourages moving discovered credentials to more secure locations such as Azure Key Vault.
+
+For GitHub, you can use native secret scanning feature to identify credentials or other form of secrets within the code.
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+
+- [GitHub secret scanning](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
 **Responsibility**: Customer
 
