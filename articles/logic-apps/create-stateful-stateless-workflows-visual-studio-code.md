@@ -47,7 +47,7 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
 
-* Create stateless logic apps, which run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
+* Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
 
 * Test your logic apps locally in the Visual Studio Code development environment.
 
@@ -59,11 +59,11 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
 * *Stateful*
 
-  Create stateful logic apps when you need to keep, review, or reference data from previous events. These logic apps save the input and output for each action in external storage, which makes run details and history review possible after each run finishes, and they can continue to run up for as a long as a year. Stateful logic apps provide high resiliency if or when outages happen. After services and systems are restored, you can reconstruct interrupted logic app runs from the saved state and rerun the logic apps to completion. 
+  Create stateful logic apps when you need to keep, review, or reference data from previous events. These logic apps keep the input and output for each action and their workflow states in external storage, which makes reviewing the run details and history possible after each run finishes. Stateful logic apps provide high resiliency if or when outages happen. After services and systems are restored, you can reconstruct interrupted logic app runs from the saved state and rerun the logic apps to completion. Stateful workflows can continue running for up to a year.
 
 * *Stateless*
 
-  Create stateless logic apps when you don't need to save, review, or reference data from previous events. These logic apps keep the input and output for each action only in memory, rather than in external storage. Stateless logic apps provide shorter runs that are typically no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because run details and history don't persist. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#run-history) for stateless logic apps.
+  Create stateless logic apps when you don't need to save, review, or reference data from previous events. These logic apps keep the input and output for each action and their workflow states only in memory, rather than transfer this information to external storage. As a result, stateless logic apps have shorter runs that are usually no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#run-history) for stateless logic apps.
 
   > [!NOTE]
   > Stateless logic apps currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). 
