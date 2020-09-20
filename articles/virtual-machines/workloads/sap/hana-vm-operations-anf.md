@@ -39,7 +39,7 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files
 - Make sure the latency from the database server to the ANF volume is measured and below 1 millisecond
 - The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements
-- Try to “consolidate” volumes to achieve more performance in a larger Volume e.g., use one volume for /sapmnt, /usr/sap/trans, … if possible  
+- Try to “consolidate” volumes to achieve more performance in a larger Volume for example, use one volume for /sapmnt, /usr/sap/trans, … if possible  
 - Azure NetApp Files offers [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.   
 - The User ID for <b>sid</b>adm and the Group ID for `sapsys` on the virtual machines must match the configuration in Azure NetApp Files. 
@@ -72,7 +72,7 @@ The maximum throughput for a LIF and a single Linux session is between 1.2 and 1
 | 40 TB | 640 MB/sec | 1.400 MB/sec | 1.400 MB/sec |
 
 It is important to understand that the data is written to the same SSDs in the storage backend. The performance quota from the capacity pool was created to be able to manage the environment.
-The Storage KPI’s are equal for all HANA database sizes. In almost all cases, this does not reflect the reality and the customer expectation. The size of  HANA Systems does not necessarily mean that a small system requires low storage throughput – and a large system requires high storage throughput. But generally we can expect higher throughput requirements for larger HANA database instances. As a result of SAP's sizing rules for the underlying hardware such larger HANA instances also provide more CPU resources and higher parallelism in tasks like loading data after an instances restart. As a result the volume sizes should be adopted to the customer expectations and requirements. And not only driven by pure capacity requirements.
+The Storage KPIs are equal for all HANA database sizes. In almost all cases, this assumption does not reflect the reality and the customer expectation. The size of  HANA Systems does not necessarily mean that a small system requires low storage throughput – and a large system requires high storage throughput. But generally we can expect higher throughput requirements for larger HANA database instances. As a result of SAP's sizing rules for the underlying hardware such larger HANA instances also provide more CPU resources and higher parallelism in tasks like loading data after an instances restart. As a result the volume sizes should be adopted to the customer expectations and requirements. And not only driven by pure capacity requirements.
 
 As you design the infrastructure for SAP in Azure you should be aware of some minimum storage throughput requirements (for productions Systems) by SAP, which translate into minimum throughput characteristics of:
 
@@ -84,7 +84,7 @@ As you design the infrastructure for SAP in Azure you should be aware of some mi
 
 Since all three KPIs are demanded, the **/hana/data** volume needs to be sized toward the larger capacity to fulfill the minimum read requirements.
 
-For HANA systems, which are not requiring high bandwidth, the  ANF volume sizes can be smaller. And in case a HANA system requires more throughput the volume could adapted by resizing the capacity online. No KPIs are defined for backup volumes. However the backup volume throughput is essential for a well performing environment. Log – and Data volume performance must be designed to the customer expectations.
+For HANA systems, which are not requiring high bandwidth, the  ANF volume sizes can be smaller. And in case a HANA system requires more throughput the volume could be adapted by resizing the capacity online. No KPIs are defined for backup volumes. However the backup volume throughput is essential for a well performing environment. Log – and Data volume performance must be designed to the customer expectations.
 
 > [!IMPORTANT]
 > Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth leveraged by a consumer in a virtual machine. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. Hosted on ANF.
@@ -133,7 +133,7 @@ Besides streaming backups and Azure Back service backing up SAP HANA databases a
 
 SAP HANA supports:
 
-- Storage-based snapshot based backups from SAP HANA 1.0 SPS7 on
+- Storage-based snapshot backups from SAP HANA 1.0 SPS7 on
 - Storage-based snapshot backup support for Multi Database Container (MDC) HANA environments from SAP HANA 2.0 SPS4 on
 
 
@@ -146,17 +146,21 @@ Creating storage-based snapshot backups is a simple four-step procedure,
 > [!WARNING]
 > Missing the last step or failing to perform the last step has severe impact on SAP HANA's memory demand and can lead to a halt of SAP HANA
 
-
-    BACKUP DATA FOR FULL SYSTEM CREATE SNAPSHOT COMMENT 'SNAPSHOT-2019-03-18:11:00';
+```
+BACKUP DATA FOR FULL SYSTEM CREATE SNAPSHOT COMMENT 'SNAPSHOT-2019-03-18:11:00';
+```
 
 ![ANF snapshot backup for SAP HANA](media/hana-vm-operations-anf/storage-snapshot-backup1.PNG)
 
-    snap create volume SNAPSHOT-2019-03-18:11:00 
+```
+snap create volume SNAPSHOT-2019-03-18:11:00 
+```
 
 ![ANF snapshot backup for SAP HANA](media/hana-vm-operations-anf/storage-snapshot-backup2.PNG)
 
-    BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
-
+```
+BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
+```
 
 This Snapshot backup procedure can be managed in a variety of ways, using various tools. One example is the python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
 This is sample code, provided “as-is” without any maintenance or support.
@@ -171,20 +175,21 @@ For users of Commvault backup products, a second option is Commvault IntelliSnap
 
 
 ### Back up the snapshot using Azure Blob storage
-Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the azcopy tool is preferred. Download the latest version of this tool and install it e.g., in the bin directory where the python script from GitHub is installed.
+Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the azcopy tool is preferred. Download the latest version of this tool and install it, for example, in the bin directory where the python script from GitHub is installed.
 Download the latest azcopy tool:
 
-    root # wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1
-    Saving to: ‘azcopy_v10.tar.gz’
+```
+root # wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1
+Saving to: ‘azcopy_v10.tar.gz’
+```
 
-    100%[==========================================================>] 8,754,718   --.-K/s   in 0.02s
+The most advanced feature is the SYNC option. If you use the SYNC option, azcopy keeps the source and the destination directory synchronized. The usage of the parameter **--delete-destination** is important. Without this parameter, azcopy is not deleting files at the destination site and the space utilization on the destination side would grow. Create a Block Blob container in your Azure storage account. Then create the SAS key for the blob container and synchronize the snapshot folder to the Azure Blob container.
 
-The most advanced feature is the SYNC option. If you use the SYNC option, azcopy keeps the source and the destination directory synchronized. The usage of the parameter **--delete-destination** is important. Without this parameter, azcopy is not deleting files at the destination site and the space utilization on the destination side would grow. Create a Block Blob container in your Azure storage account. Then create the SAS key for the blob container and simply sync the snapshot folder to the Azure Blob container.
+For example, if a daily snapshot should be synchronized to the Azure blob container to protect the data. And only that one snapshot should be kept, the command below can be used.
 
-If e.g., a daily snapshot was created this snapshot should be synchronized to the Azure blob container to protect the data. And only that one snapshot should be kept, the command below can be used.
-
-    root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytestblob01.blob.core.windows.net/abc?sv=2021-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2021-02-04T08:25:26Z&st=2021-02-04T00:25:26Z&spr=https&sig=abcdefghijklmnopqrstuvwxyz' --recursive=true --delete-destination=true
-
+```
+root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytestblob01.blob.core.windows.net/abc?sv=2021-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2021-02-04T08:25:26Z&st=2021-02-04T00:25:26Z&spr=https&sig=abcdefghijklmnopqrstuvwxyz' --recursive=true --delete-destination=true
+```
 
 ## Next Steps
 Read the article:
