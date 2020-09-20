@@ -2,7 +2,8 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster by using Azure CLI with confidential computing nodes'
 description: Learn to create an AKS cluster with confidential nodes and deploy a hello world app using the Azure CLI.
 author: agowdamsft
-ms.service: virtual-machines
+ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda

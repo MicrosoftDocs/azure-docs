@@ -2,7 +2,8 @@
 title: Frequently asked questions for Confidential Nodes Support on Azure Kubernetes Service(AKS)
 description: Find answers to some of the common questions about AKS & Azure Confidential Computing (ACC) Nodes Support.
 author: agowdamsft
-ms.service: container-compute
+ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
@@ -91,7 +92,7 @@ Yes. The name of the daemonset is sgx-device-plugin and sgx-quote-helper. Read m
 
 ## What is the VM SKU I should be choosing for confidential computing nodes? 
 
-DCSv2 SKUs. Here is the list of [DCSv2 SKUs](https://docs.microsoft.com/en-us/azure/virtual-machines/dcv2-series) in the [supported regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines&regions=all) (all GA regions are supported on AKS). 
+DCSv2 SKUs. Here is the list of [DCSv2 SKUs](../virtual-machines/dcv2-series.md) in the [supported regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines&regions=all) (all GA regions are supported on AKS). 
 
 ## Can I still schedule and run non-enclave containers on confidential computing nodes? 
 

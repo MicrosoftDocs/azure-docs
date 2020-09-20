@@ -1,7 +1,8 @@
 ---
  title: Out-of-proc attestation support with SGX quote helper DaemonSet
  description: DaemonSet for generating the quote outside of the SGX application process. This article explains how the out-of-proc attestation facility is provided for confidential workloads running inside a container.
- ms.service: virtual-machines
+ ms.service: container-service
+ ms.subservice: confidential-computing
  author: agowdamsft
  ms.topic: overview
  ms.date: 9/22/2020
@@ -55,7 +56,7 @@ An application can still use the in-proc attestation as before, but both in-proc
 
 The below docker file is a sample for an Open Enclave-based application. Set the SGX_AESM_ADDR=1 environment variable in the docker file or by set it on the deployment file. Follow the below sample for docker file and deployment yaml details. 
 
->Note: The **libsgx-quote-ex** from Intel needs to be packaged in the application container for out of proc attestation to work properly.
+>Note: The **libsgx-quote-ex** from Intel needs to be packaged in the application container for out-of-proc attestation to work properly.
 
 ```yaml
 # Refer to Intel_SGX_Installation_Guide_Linux for detail

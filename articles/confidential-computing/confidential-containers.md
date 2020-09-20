@@ -6,6 +6,8 @@
  ms.topic: article
  ms.date: 9/22/2020
  ms.author: amgowda
+ ms.service: container-service
+ ms.subservice: confidential-computing
 ---
 
 # Confidential Containers
@@ -41,21 +43,13 @@ Confidential containers are fully supported on AKS and enabled through Azure Par
 
 ## Partner Enablers
 > [!NOTE]
->The below solutions are offered through Azure Partners and may incur licensing fees. Please verify the partner software terms independently. 
+> The below solutions are offered through Azure Partners and may incur licensing fees. Please verify the partner software terms independently. 
 
 ### Fortanix
 
-[Fortanix](https://www.fortanix.com/) offers developers a choice of a portal and CLI based expereince to bring their containerized applications and covert them to SGX capable confidential containers without any need to modify or recompile the application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications. Users can start with [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/) to create confidential containers by following the [Quick Start](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) guide for Azure Kubernetes Service.
+[Fortanix](https://www.fortanix.com/) offers developers a choice of a portal and CLI based experience to bring their containerized applications and covert them to SGX capable confidential containers without any need to modify or recompile the application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications. Users can start with [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/) to create confidential containers by following the [Quick Start](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) guide for Azure Kubernetes Service.
 
 ![Fortanix Deployment Process](./media/confidential-containers/fortanixconfidentialcontainersflow.png)
-
-### Anjuna
-
-[Anjuna](https://www.anjuna.io/) provides SGX platform software that enables you to run unmodified containers on AKS. Read more on the functionality and the user flow [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
-
-Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
-
-![Anjuna Process](./media/confidential-containers/anjunaprocessflow.png)
 
 ### Scone (Scontain)
 
@@ -67,6 +61,14 @@ SCONE can convert existing most binaries into applications that run inside of en
 ![Scontain Flow](./media/confidential-containers/sconeworkflow.png)
 
 Scone deployments on confidential computing nodes with AKS are fully supported and integrated. Get started with a sample application here https://sconedocs.github.io/aks/
+
+### Anjuna
+
+[Anjuna](https://www.anjuna.io/) provides SGX platform software that enables you to run unmodified containers on AKS. Read more on the **upcoming** functionality and the user flow [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
+
+Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
+
+![Anjuna Process](./media/confidential-containers/anjunaprocessflow.png)
 
 ## OSS Enablers 
 > [!NOTE]
@@ -91,11 +93,13 @@ View the confidential healthcare demo with confidential containers. Sample is av
 
 
 ## Get In Touch
-> Have questions with your implementation or want to become an enabler? please reach out to acconaks@microsoft.com
 
-<!-- LINKS - external -->
-[Azure Attestation Service]: https://docs.microsoft.com/en-us/azure/attestation/
+Have questions with your implementation or want to become an enabler? please reach out to acconaks@microsoft.com
 
+## Reference Links
 
-<!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[Microsoft Azure Attestation](../security/attestation/overview.md)
+
+[DC Virtual Machines](./virtual-machine-solutions.md)
+
+[Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
