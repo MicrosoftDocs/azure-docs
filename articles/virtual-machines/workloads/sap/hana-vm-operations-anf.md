@@ -1,12 +1,12 @@
 title: SAP HANA Azure virtual machine ANF configuration | Microsoft Docs
-description: ANF Storage recommendations for VM that have SAP HANA deployed.
+description: Azure NetApp Files Storage recommendations for SAP HANA.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
 
 ms.service: virtual-machines-linux
 
@@ -88,7 +88,7 @@ For HANA systems which are not requiring a lot of storage resources the ANF volu
 > [!IMPORTANT]
 > Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth leveraged by a consumer in a virtual machine. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. Hosted on ANF.
 
-To meet the SAP minimum throughput requirements for data and log, and according to the guidelines for /hana/shared, the recommended sizes would look like:
+To meet the SAP minimum throughput requirements for data and log, and according to the guidelines for **/hana/shared**, the recommended sizes would look like:
 
 | Volume | Size<br /> Premium Storage tier | Size<br /> Ultra Storage tier | Supported NFS protocol |
 | --- | --- | --- |
@@ -120,4 +120,72 @@ ANF system updates and upgrades will be applied without impacting the customer e
 
 ## Volumes and IP addresses and Capacity pools
 With ANF it is important to understand how the underlying infrastructure is built. A capacity pool is only a structure which makes it simpler to create a billing model for ANF. A capacity pool has no physical relationship to the underlying infrastructure. If you create a capacity pool only a shell is created which can be charged, not more. When you create a volume, the first SVM (Storage Virtual Machine) will be created on a cluster of several HA NetApp systems. A single IP will be created for this SVM to access the volume. If you create several volumes, all the volumes will be distributed in this SVM over this multi-controller NetApp cluster. Even if you get only one IP the data will be distributed over several controller. ANF has a logic that automatically distributes customer workloads once the volumes or/and capacity of the configured storage reaches an internal pre-defined level. You might notice such cases because a new IP address gets assigned to access the volumes.
+
+##Log Volume and Log Backup Volume
+The “log volume” (**/hana/log**) is used to write the online redo log. Thus, there are open files located in this volume and it makes no sense to snapshot this volume. Online redo logfiles are archived or backed up to the log backup volume once the online redo log file is full or a redo log backup is executed. To provide reasonable backup performance, the log backup volume requires a good throughput. To optimize storage costs it can make sense to consolidate the log-backup-volume of multiple HANA instances. So that multiple HANA instances leverage the same volume and write their backups into different directories. Using such a consolidation, you can get more throughput with since you need to make the volume a bit larger. 
+
+The same applies for the volume you use write full HANA database backups to.  
  
+
+## Backup
+Besides streaming backups and Azure Back service backing up SAP HANA databases as described in the article [Backup guide for SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide), Azure NetApp Files opens the possibility to perform storage based snapshot backups. 
+
+SAP HANA supports:
+
+- Storage based snapshot based backups from SAP HANA 1.0 SPS7 on
+- Storage based snapshot backup support for Multi Database Container (MDC) HANA environments from SAP HANA 2.0 SPS4 on
+
+
+Creating storage-based snapshot backups is a simple four-step procedure, 
+1. Creating a HANA (internal) database snapshot - an activity you or tools need to perform 
+1. SAP HANA writes data to the datafiles to create a consistent state on the storage - HANA performs this as a result of creating a HANA snapshot
+1. Create a snapshot on the **/hana/data** volume on the storage - a step you or tools need to perform. There is no need to perform a snapshot on the **/hana/log** volume
+1. Delete the HANA (internal) database snapshot and resume normal operation - a step you or tools need to perform
+
+> [!WARNING]
+> Missing the last step or failing to perform the last step has severe impact on SAP HANA's memory demand and can lead to a halt of SAP HANA
+
+
+    BACKUP DATA FOR FULL SYSTEM CREATE SNAPSHOT COMMENT 'SNAPSHOT-2019-03-18:11:00';
+
+![ANF snapshot backup for SAP HANA](media/hana-vm-operations-anf/storage-snapshot-backup1.PNG)
+
+    snap create volume SNAPSHOT-2019-03-18:11:00 
+
+![ANF snapshot backup for SAP HANA](media/hana-vm-operations-anf/storage-snapshot-backup2.PNG)
+
+    BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
+
+
+This Snapshot backup procedure can be managed in a variety of ways, using various tools. One example is the python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
+This is sample code, provided “as-is” without any maintenance or support.
+
+
+
+> [!CAUTION]
+> A snapshot in itself is not a protected backup since it is located on the same physical storage as the volume you just took a snapshot of. It is mandatory to “protect” at least one snapshot per day to a different location. This can be done in the same environment, in a remote Azure region or on Azure Blob storage.
+
+
+For users of Commvault backup products, a second option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files Support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
+
+
+## Backup the snapshot using Azure Blob storage
+Backup to Azure blob storage is a cost effective and fast method to save ANF based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage the azcopy tool is preferred. Download the latest version of this tool and install it e.g., in the bin directory where the python script from GitHub is installed.
+Download the latest azcopy tool:
+
+    root # wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1
+    Saving to: ‘azcopy_v10.tar.gz’
+
+    100%[==========================================================>] 8,754,718   --.-K/s   in 0.02s
+
+The most advanced feature is the SYNC option. In the case of SYNC, azcopy will keep the source and the destination directory synchronized. The usage of the parameter **--delete-destination** is important. Without it azcopy is not deleting files at the destination site and the space utilization on the destination side will grow. Create a Block Blob container in your Azure storage account. Then create the SAS key for the blob container and simply sync the snapshot folder to the Azure Blob container.
+
+If e.g. a daily snapshot was created this snapshot should by synced to the Azure blob container to protect the data. Ans only that one snapshot should be kept, the command below can be used.
+
+    root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytestblob01.blob.core.windows.net/abc?sv=2021-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2021-02-04T08:25:26Z&st=2021-02-04T00:25:26Z&spr=https&sig=abcdefghijklmnopqrstuvwxyz' --recursive=true --delete-destination=true
+
+
+## Next Steps
+Read the article:
+
+- [SAP HANA high availability for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
