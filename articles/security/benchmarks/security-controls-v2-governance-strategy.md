@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 # Security Control: Governance and Strategy
 
-Backup and Recovery covers controls to ensure that data and configuration backups at the different service tiers are performed, validated, and protected.
+Governance and Strategy provides guidance for ensuring a coherent security strategy and documented governance approach to guide and sustain security assurance, including establishing roles and responsibilities for the different cloud security functions, unified technical strategy, and supporting policies and standards.
 
 ## GS-1: Define asset management and data protection strategy
 
