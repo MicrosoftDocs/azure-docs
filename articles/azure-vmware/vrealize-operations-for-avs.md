@@ -63,11 +63,11 @@ After deploying the Azure VMware Solution instance of vRealize Operations you ca
 
 When connecting the Azure VMware Solution vCenter to vRealize Operations Manager using a vCenter Server Cloud Account, you'll encounter the following warning:
 
-:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="warning-adapter-instance-creation-succeeded":::
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Warning adapter instance creation succeeded":::
 
 The warning occurs because the **cloudadmin@vsphere.local** user in Azure VMware Solution doesn't have sufficient privileges to do all vCenter Server actions required for registration. However, the privileges are sufficient for the adapter instance to do data collection, as seen below:
 
-:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="adapter-instance-to-perform-data-collection":::
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Adapter instance to perform data collection":::
 
 For more information, see [Privileges Required for Configuring a vCenter Adapter Instance](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 
