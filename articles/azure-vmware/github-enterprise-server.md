@@ -19,13 +19,13 @@ Download [the current release of GitHub Enterprise Server](https://enterprise.gi
 
 :::image type="content" source="media/github-enterprise-server/github-options.png" alt-text="Choose to run GitHub on premises or in the cloud.":::	
 
-:::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="Choose to run GitHub on premises or in the cloud.":::	
+:::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="Deploy the OVA template.":::	
 
 Provide a recognizable name for your new virtual machine, such as GitHubEnterpriseServer. It is not recommended to include the release details in the VM name, as these details will become stale when the instance is upgraded. Click through the defaults for now (we'll edit these details shortly) and wait for the OVA to be imported.
 
 Once imported, [adjust the hardware configuration](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) based on your needs. In our example scenario, we'll need the following configuration.
 
-|  | Standard Setup | Standard Setup + "Beta Features" (Actions) |
+| Resource | Standard Setup | Standard Setup + "Beta Features" (Actions) |
 | --- | --- | --- |
 | vCPUs | 4 | 8 |
 | Memory | 32 GB | 61 GB |
@@ -36,7 +36,7 @@ However, your needs may vary. Refer to the guidance on hardware considerations i
 
 ## Configuring the GitHub Enterprise Server instance
 
-:::image type="content" source="media/github-enterprise-server/install-github-enterprise.png" alt-text="Choose to run GitHub on premises or in the cloud.":::	
+:::image type="content" source="media/github-enterprise-server/install-github-enterprise.png" alt-text="Install GitHub Enterprise.":::	
 
 After the newly provisioned virtual machine (VM) has powered on, [configure it via your browser](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#configuring-the-github-enterprise-server-instance). You'll be required to upload your license file and set a management console password. Be sure to write down this password somewhere safe.
 
