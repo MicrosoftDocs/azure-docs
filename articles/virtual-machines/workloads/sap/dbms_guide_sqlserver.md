@@ -4,17 +4,17 @@ description: SQL Server Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: 'Azure, SQL Server, SAP, AlwaysOn'
 
 ms.service: virtual-machines-linux
 
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2018
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -307,18 +307,18 @@ ms.custom: H1Hack27Feb2017
 
 
 
-This document covers several different areas to consider when deploying SQL Server for SAP workload in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](./get-started.md). 
+This document covers several different areas to consider when deploying SQL Server for SAP workload in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 
 
 > [!IMPORTANT]
-> The scope of this document is the Windows version on SQL Server. SAP is not supporting the Linux version of SQL Server with any of the SAP software. The document is not discussing Microsoft Azure SQL Database, which is a Platform as a Service offer of the Microsoft Azure Platform. The discussion in this paper is about running the SQL Server product as it is known for on-premises deployments in Azure Virtual Machines, leveraging the Infrastructure as a Service capability of Azure. Database capabilities and functionalities between these two offers are different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
+> The scope of this document is the Windows version on SQL Server. SAP is not supporting the Linux version of SQL Server with any of the SAP software. The document is not discussing Microsoft Azure SQL Database, which is a Platform as a Service offer of the Microsoft Azure Platform. The discussion in this paper is about running the SQL Server product as it is known for on-premises deployments in Azure Virtual Machines, leveraging the Infrastructure as a Service capability of Azure. Database capabilities and functionality between these two offers are different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
 > 
 >
 
 In general, you should consider using the most recent SQL Server releases to run SAP workload in Azure IaaS. The latest SQL Server releases offer better integration into some of the Azure services and functionality. Or have changes that optimize operations in an Azure IaaS infrastructure.
 
-It is recommended to review [this][virtual-machines-sql-server-infrastructure-services] documentation before continuing.
+It is recommended to review the article [What is SQL Server on Azure Virtual Machines (Windows)][https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview] before continuing.
 
 In the following sections, pieces of parts of the documentation under the link above are aggregated and mentioned. Specifics around SAP are mentioned as well and some concepts are described in more detail. However, it is highly recommended to work through the documentation above first before reading the SQL Server-specific documentation.
 
@@ -330,13 +330,13 @@ There is some SQL Server in IaaS specific information you should know before con
 
 
 ## Recommendations on VM/VHD structure for SAP-related SQL Server deployments
-In accordance with the general description, SQL Server executables should be located or installed into the system drive of the VM's OS disk (drive C:\).  Typically, most of the SQL Server system databases are not utilized at a high level by SAP NetWeaver workload. As a result the system databases of SQL Server (master, msdb, and model) can remain on the C:\ drive as well. An exception should be tempdb, which in the case of SAP workloads, might require either higher data volume or I/O operations volume. I/O workload, which should not be applied to the OS VHD. For such systems, the following steps should be performed:
+In accordance with the general description, Operating system, SQL Server executables, and in case of SAP 2-Tier systems, the SAP executables should be located or installed separate Azure disks. Typically, most of the SQL Server system databases are not utilized at a high level by SAP NetWeaver workload. Nevertheless the system databases of SQL Server (master, msdb, and model) should be, together with the other SQL Server directories on a separate Azure disk. SQL Server tempdb should be either located on the nonperisisted D:\ drive or on a separate disk.
 
 
 * With all SAP certified VM types (see SAP Note [1928533]), except A-Series VMs, tempdb data, and log files can be placed on the non-persisted D:\ drive. 
-* Nevertheless, it is recommended to use multiple tempdb data files. Be aware D:\ drive volumes are different based on the VM type. For exact sizes of the D:\ drive of the different VMs, check the article [Sizes for Windows virtual machines in Azure](../../sizes.md).
+* For older SQL Server releases, where SQL Server installs tempdb with one data file by default, it is recommended to use multiple tempdb data files. Be aware D:\ drive volumes are different based on the VM type. For exact sizes of the D:\ drive of the different VMs, check the article [Sizes for Windows virtual machines in Azure](../../sizes.md).
 
-These configurations enable tempdb to consume more space than the system drive is able to provide. The non-persistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). In order to determine the proper tempdb size, you can check the tempdb sizes on existing systems. 
+These configurations enable tempdb to consume more space and more important more IOPS and storage bandwidth than the system drive is able to provide. The nonpersistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). In order to determine the proper tempdb size, you can check the tempdb sizes on existing systems. 
 
 >[!NOTE]
 > in case you place tempdb data files and log file into a folder on D:\ drive that you created, you need to make sure that the folder does exist after a VM reboot. Since the D:\ drive is freshly initialized after a VM reboot all file and directory structures are wiped out. A possibility to recreate eventual directory structures on D:\ drive before the start of the SQL Server service is documented in [this article](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
@@ -345,11 +345,10 @@ A VM configuration, which runs SQL Server with an SAP database and where tempdb 
 
 ![Diagram of simple VM disk configuration for SQL Server](./media/dbms_sqlserver_deployment_guide/Simple_disk_structure.PNG)
 
-The diagram above displays a simple case. As eluded to in the article [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md), number, and size of Premium Storage disks is dependent from different factors. But in general we recommend:
+The diagram above displays a simple case. As eluded to in the article [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md), Azure storage type, number, and size of disks is dependent from different factors. But in general we recommend:
 
-- Using storage spaces to form one or a small number of volumes, which contain the SQL Server data files. Reason behind this configuration is that in real life there are numerous SAP databases with different sized database files with different I/O workload.
-- Using Storage spaces to supply enough IOPS and for the SQL Server transaction log file. Potential IOPS workload often is the guiding line for the sizing of the transaction log volume and not the potential volume of the SQL Server transaction volume
-- Use the D:\drive for tempdb as long as performance is good enough. If the overall workload is limited in performance by tmepdb being located on the D:\ drive you might need to consider to move tempdb to separate Premium Storage disks as recommended in [this article](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
+- Using one large volume, which contain the SQL Server data files. Reason behind this configuration is that in real life there are numerous SAP databases with different sized database files with different I/O workload.
+- Use the D:\drive for tempdb as long as performance is good enough. If the overall workload is limited in performance by tempdb being located on the D:\ drive you might need to consider to move tempdb to separate Azure premium storage or Ultra disk disks as recommended in [this article](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 
 
 ### Special for M-Series VMs

@@ -3,13 +3,14 @@ title: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload |Microsof
 description: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
-manager: patfilot
+manager: bburns
 tags: azure-resource-manager
+keywords: 'Azure, Db2, SAP, IBM'
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2020
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -76,7 +77,7 @@ For Azure M-Series VM, the latency writing into the transaction logs can be redu
 
 IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP support note [1928533].  Recommended VM families for running IBM Db2 database are Esd_v4/Eas_v4/Es_v3 and M/M_v2-series for large multi-terabyte databases. The IBM Db2 transaction log disk write performance can be improved by enabling the M-series Write Accelerator. 
 
-Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to very large:
+Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to very large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Simply use the values for capacity, burst throughput and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/<SID>/log_dir at around 5000 IOPS. 
 
 #### Extra small SAP system: database size 50 - 200 GB: example Solution Manager
 | VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
