@@ -29,28 +29,7 @@ Roles such as [Owner](https://docs.microsoft.com/azure/role-based-access-control
 
 ## Access control lists (ACLs)
 
-ACLs give you the ability to apply "finer grain" level of access to directories and files. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates security principal with an access level. 
-
-In general, these conditions are true.
-
-- To traverse through directories, the security principal must have execute permissions on each directory.
-- To list the contents of a directory, the security principal must have read and execute permissions on teh directory and execute permissions on all directories leading to that directory.
-- To read a file, execute on all folders leading to the file and read access on the file.
-
-The following table lists some common scenarios to help you understand which permissions are needed to perform certain operations on a storage account.
-
-|    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   Execute   |   Execute    |  Execute      | Read          |
-| Append to Data.txt       |   Execute   |   Execute    |  Execute      | Read and Write          |
-| Delete Data.txt          |   Execute   |   Execute    |  Write and Execute      | None          |
-| Create Data.txt          |   Execute   |   Execute    |  Write and Execute      | None          |
-| List /                   |   Read and Execute   |   None    |  None      | None          |
-| List /Oregon/           |   Execute   |   Read and Execute    |  None      | None          |
-| List /Oregon/Portland/  |   Execute   |   Execute    |  Read and Execute      | None          |
-
-
-For a complete reference on ACLs in Data Lake Storage Gen2, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+ACLs give you the ability to apply "finer grain" level of access to directories and files. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates security principal with an access level.  To learn more, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## How permissions are evaluated
 
@@ -92,6 +71,21 @@ If the security principal doesn't have any of these roles assigned to it, the sy
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow-create-delete-file.png)
 
+## Scenario table
+
+The following table lists some common scenarios to help you understand which permissions are needed to perform certain operations on a storage account.
+
+|    Operation             | Assigned RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
+|--------------------------|----------------------------------|-------------|-------------|-----------|----------|
+| Read Data.txt            |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |  
+|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
+|                          |   None                           |   --x       |   --x       |  --x      | r--      |
+| Append to Data.txt       |   Storage Blob Data Owner        |   ---       |  ---        | ---       | ---      |
+|                          |   Storage Blob Data Contributor  |   ---       |  ---        | ---       | ---      |
+|                          |   Storage Blob Data Reader       |   --x       |  --x        | --x       | rw-      |
+|                          |   None                           |   ---       |  ---        | ---       | ---      |
+
 ## Best practice: set permissions on groups not individual users
 
 In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. There's a few reasons for this:
@@ -100,11 +94,12 @@ The number of RBAC role assignments permitted in a subscription is limited. For 
 
 Changes to an ACL take time to propagate through the system if the number of affected files is large. Also, there's a limit of **32** ACL entries for each directory and file. 
 
-If group security principals together, you can change the access level of multiple security principals by changing only one ACL entry. 
+If group security principals together, you can change the access level of multiple security principals by changing only one ACL entry.
+
 
 ## Example scenarios
 
-Here's a few scenarios
+Here's a few scenarios  - just add these to the scenario table.
 
 •	See containers in ASE
 •	List containers in a storage account
