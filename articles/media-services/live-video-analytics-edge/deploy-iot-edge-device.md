@@ -33,7 +33,7 @@ If you intend to use Live Video Analytics to record video continuously to the cl
 
 This is an optional step. You can use this Azure CLI command to do so:
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1
 ```
 
@@ -42,7 +42,7 @@ You can use this command to start the streaming endpoint
 > [!IMPORTANT]
 > Your subscription will start getting billed at this point.
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
@@ -102,7 +102,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * **IoT Edge Module Name**: lvaEdge
     * **Image URI**: mcr.microsoft.com/media/live-video-analytics:1.0	 
     
-    ![Add](./media/deploy-iot-edge-device/add.png)
+    ![Screenshot shows the Module Settings tab.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
@@ -213,7 +213,7 @@ After you create the deployment, you return to the IoT Edge page of your IoT hub
 It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
 
-![Status](./media/deploy-iot-edge-device/status.png)
+![Screenshot shows a status value for an IoT Edge runtime.](./media/deploy-iot-edge-device/status.png)
 
 #### Invoke a direct method
 
@@ -221,7 +221,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 
 1. Clicking on the edge module you created, will take you to its configuration page.  
 
-    ![Modules](./media/deploy-iot-edge-device/modules.png)
+    ![Screenshot shows the configuration page of an edge module.](./media/deploy-iot-edge-device/modules.png)
 1. Click on the Direct Method menu option.
 
     > [!NOTE] 

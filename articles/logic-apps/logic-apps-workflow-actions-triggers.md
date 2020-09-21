@@ -155,7 +155,7 @@ This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs](../
 
 *Example*
 
-This trigger definition checks for email every day inside the inbox for an Office 365 Outlook account:
+This trigger definition checks for email every day inside the inbox for a work or school account:
 
 ```json
 "When_a_new_email_arrives": {
@@ -1106,7 +1106,7 @@ This action runs code that gets your logic app's name and returns the text "Hell
 
 *Example 2*
 
-This action runs code in a logic app that triggers when a new email arrives in an Office 365 Outlook account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
+This action runs code in a logic app that triggers when a new email arrives in a work or school account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
 
 The code extracts the email addresses from the trigger's `Body` property and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the send approval email action as a dependency in the `explicitDependencies` > `actions` attribute.
 

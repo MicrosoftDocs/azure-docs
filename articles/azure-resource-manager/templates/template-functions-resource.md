@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/03/2020
 ---
 # Resource functions for ARM templates
 
@@ -10,6 +10,7 @@ Resource Manager provides the following functions for getting resource values in
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
+* [pickZones](#pickzones)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -94,6 +95,12 @@ The following example returns the resource ID for a resource group lock.
     }
 }
 ```
+
+A custom policy definition deployed to a management group is implemented as an extension resource. To create and assign a policy, deploy the following template to a management group.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+Built-in policy definitions are tenant level resources. For an example of deploying a built-in policy definition, see [tenantResourceId](#tenantresourceid).
 
 <a id="listkeys"></a>
 <a id="list"></a>
@@ -325,6 +332,94 @@ The next example shows a list function that takes a parameter. In this case, the
 ```
 
 For a listKeyValue example, see [Quickstart: Automated VM deployment with App Configuration and Resource Manager template](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
+
+## pickZones
+
+`pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
+
+Determines whether a resource type supports zones for a region.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| providerNamespace | Yes | string | The resource provider namespace for the resource type to check for zone support. |
+| resourceType | Yes | string | The resource type to check for zone support. |
+| location | Yes | string | The region to check for zone support. |
+| numberOfZones | No | integer | The number of logical zones to return. The default is 1. The number must a positive integer from 1 to 3.  Use 1 for single-zoned resources. For multi-zoned resources, the value must be less than or equal to the number of supported zones. |
+| offset | No | integer | The offset from the starting logical zone. The function returns an error if offset plus numberOfZones exceeds the number of supported zones. |
+
+### Return value
+
+An array with the supported zones. When using the default values for offset and numberOfZones, a resource type and region that supports zones returns the following array:
+
+```json
+[
+    "1"
+]
+```
+
+When the `numberOfZones` parameter is set to 3, it returns:
+
+```json
+[
+    "1",
+    "2",
+    "3"
+]
+```
+
+When the resource type or region doesn't support zones, an empty array is returned.
+
+```json
+[
+]
+```
+
+### pickZones example
+
+The following template shows three results for using the pickZones function.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "supported": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+        },
+        "notSupportedRegion": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+        },
+        "notSupportedType": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
+        }
+    }
+}
+```
+
+The output from the preceding examples returns three arrays.
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| supported | array | [ "1" ] |
+| notSupportedRegion | array | [] |
+| notSupportedType | array | [] |
+
+You can use the response from pickZones to determine whether to provide null for zones or assign virtual machines to different zones. The following example sets a value for the zone based on the availability of zones.
+
+```json
+"zones": {
+    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+},
+```
 
 ## providers
 
@@ -751,23 +846,27 @@ When the template is deployed at the scope of a resource group, the resource ID 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-When used in a [subscription-level deployment](deploy-to-subscription.md), the resource ID is returned in the following format:
+You can use the resourceId function for other deployment scopes, but the format of the ID changes.
+
+If you use resourceId while deploying to a subscription, the resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-When used in a [management group-level deployment](deploy-to-management-group.md) or tenant-level deployment, the resource ID is returned in the following format:
+If you use resourceId while deploying to a management group or tenant, the resource ID is returned in the following format:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-To get the ID in other formats, see:
+To avoid confusion, we recommend that you not use resourceId when working with resources deployed to the subscription, management group, or tenant. Instead, use the ID function that is designed for the scope.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
+
+For [management group-level resources](deploy-to-management-group.md), use the [extensionResourceId](#extensionresourceid) function to reference a resource that is implemented as an extension of a management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, built-in policy definitions are implemented as tenant level resources.
+
+For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use tenantResourceId for built-in policy definitions because they are implemented at the tenant level.
 
 ### Remarks
 
@@ -1030,6 +1129,44 @@ The identifier is returned in the following format:
 ### Remarks
 
 You use this function to get the resource ID for a resource that is deployed to the tenant. The returned ID differs from the values returned by other resource ID functions by not including resource group or subscription values.
+
+### tenantResourceId example
+
+Built-in policy definitions are tenant level resources. To deploy a policy assignment that references a built-in policy definition, use the tenantResourceId function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## Next steps
 

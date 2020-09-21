@@ -1176,7 +1176,7 @@ Released: December 2014
 **New features:**
 
 * Password synchronization with attribute-based filtering is now supported. For more information, see [Password synchronization with filtering](how-to-connect-sync-configure-filtering.md).
-* The ms-DS-ExternalDirectoryObjectID attribute is written back to Active Directory. This feature adds support for Office 365 applications. It uses OAuth2 to access online and on-premises mailboxes in a Hybrid Exchange Deployment.
+* The ms-DS-ExternalDirectoryObjectID attribute is written back to Active Directory. This feature adds support for Microsoft 365 applications. It uses OAuth2 to access online and on-premises mailboxes in a Hybrid Exchange Deployment.
 
 **Fixed upgrade issues:**
 

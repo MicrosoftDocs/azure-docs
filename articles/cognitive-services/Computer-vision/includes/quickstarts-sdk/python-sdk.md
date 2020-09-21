@@ -189,5 +189,5 @@ In this quickstart, you learned how to use the Computer Vision library for Pytho
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [What is Computer Vision?](../../Home.md)
+* [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

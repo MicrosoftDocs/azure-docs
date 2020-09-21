@@ -21,14 +21,14 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
 ## Create a VM with Backup configured
 
-1. In Azure portal, click **Create a resource**.
+1. In the Azure portal, select **Create a resource**.
 
-2. In Azure Marketplace, click **Compute**, and then select a VM image.
+2. In Azure Marketplace, select **Compute**, and then select a VM image.
 
 3. Set up the VM in accordance with the [Windows](../virtual-machines/windows/quick-create-portal.md) or [Linux](../virtual-machines/linux/quick-create-portal.md) instructions.
 
-4. On the **Management** tab, in **Enable backup**, click **On**.
-5. Azure Backup backups to a Recovery Services vault. Click **Create New** if you don't have an existing vault.
+4. On the **Management** tab, in **Enable backup**, select **On**.
+5. Azure Backup backups to a Recovery Services vault. Select **Create New** if you don't have an existing vault.
 6. Accept the suggested vault name or specify your own.
 7. Specify or create a resource group in which the vault will be located. The resource group vault can be different from the VM resource group.
 
@@ -72,8 +72,8 @@ Your VM backup will run in accordance with your backup policy. However, we recom
 
 After the VM is created, do the following:
 
-1. In the VM properties, click **Backup**. The VM status is Initial Backup Pending until the initial backup runs
-2. Click **Back up now** to run an on-demand backup.
+1. In the VM properties, select **Backup**. The VM status is Initial Backup Pending until the initial backup runs.
+2. Select **Back up now** to run an on-demand backup.
 
     ![Run an on-demand backup](./media/backup-during-vm-creation/run-backup.png)
 

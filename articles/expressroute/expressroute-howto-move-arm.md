@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Move classic circuits to Resource Manager'
 description: This page describes how to move a classic circuit to the Resource Manager deployment model using PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: charwen 
+ms.author: duau 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -91,14 +91,14 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
 In classic mode, an ExpressRoute circuit does not have the concept of being tied to a region. However, in Resource Manager, every resource needs to be mapped to an Azure region. The region specified in the Move-AzExpressRouteCircuit cmdlet can technically be any region. For organizational purposes, you may want to choose a region that closely represents your peering location.
 
 > [!NOTE]
-> After the move has finished, the new name that is listed in the previous cmdlet will be used to address the resource. The circuit will essentially be renamed.
-> 
+> * After moving your classic ExpressRoute circuit to the Resource Manager deployment model, it will have access to both the classic and Resource Manager deployment models by default.
+> * The new name that is listed in the previous cmdlet will be used to address the resource. The circuit will essentially be renamed.
 
 ## Modify circuit access
 
 ### To enable ExpressRoute circuit access for both deployment models
 
-After moving your classic ExpressRoute circuit to the Resource Manager deployment model, you can enable access to both deployment models. Run the following cmdlets to enable access to both deployment models:
+You can enable access to the classic deployment model for ExpressRoute circuits that were created in the Resource Manager deployment model. Run the following cmdlets to enable access to both deployment models:
 
 1. Get the circuit details.
 

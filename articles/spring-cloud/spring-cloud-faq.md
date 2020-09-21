@@ -31,7 +31,8 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 ### In which regions is Azure Spring Cloud available?
 
-East US, West US 2, West Europe, and Southeast Asia.
+East US, East US 2, Central US, South Central US, West US 2, West Europe, North Europe, UK South, Southeast Asia and Australia East.
+
 
 ### What are the known limitations of Azure Spring Cloud?
 

@@ -11,14 +11,14 @@ editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ---
 
 # Analyze video and audio files with Azure Media Services
 
-![Regulation](../video-indexer/media/banner/banner.png)
+[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 

@@ -155,7 +155,7 @@ TagsTable:
 
 Attestation providers can be deleted using the Remove-AzAttestation cmdlet.  
 
-``azurepowershell
+```powershell
 Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 

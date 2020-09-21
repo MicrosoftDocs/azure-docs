@@ -7,7 +7,7 @@ author: johndeu
 manager: johndeu
 ms.author: johndeu
 ms.date: 08/31/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: media-services
 ---
  
