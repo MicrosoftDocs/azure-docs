@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2020
+ms.date: 09/21/2020
 ms.author: duau
 ---
 
@@ -165,7 +165,7 @@ Open a web browser and enter the hostname obtain from the commands. The Front Do
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the application gateway, delete the resource group. When you delete the resource group, you also delete the application gateway and all its related resources. 
+When you no longer need the resources that you created with the Front Door, delete the resource group. When you delete the resource group, you also delete the Front Door and all its related resources. 
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
