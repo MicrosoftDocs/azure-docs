@@ -32,15 +32,15 @@ Azure RTOS includes a lightweight layer that adds native connectivity to Azure I
 For complete tutorials on how to get started on different devices with Azure RTOS and IoT Plug and Play, see the following samples:
 
 ### Microchip ATSAME54-XPRO
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/Microchip/ATSAME54-XPRO) (Git)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/Microchip/ATSAME54-XPRO) (Github)
 - [IAR](https://aks.ms/azrtos-sample/e54-iar) (zip)
 - [MPLAB](https://aks.ms/azrtos-sample/e54-mplab) (zip)
 
 ### MXCHIP AZ3166
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166) (Git)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166) (Github)
 
 ### NXP MIMXRT1060-EVK
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK) (Git)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK) (Github)
 - [IAR](https://aks.ms/azrtos-sample/rt1060-iar) (zip)
 - [MCUXpresso](https://aks.ms/azrtos-sample/rt1060-mcuxpresso) (zip)
 
@@ -49,7 +49,7 @@ For complete tutorials on how to get started on different devices with Azure RTO
 - [STM32Cube](https://aks.ms/azrtos-sample/f746g-cubeide) (zip)
 
 ### STMicrelectronics B-L475E-IOT01
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) (Git)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) (Github)
 - [IAR](https://aks.ms/azrtos-sample/l475-iar) (zip)
 - [STM32Cube](https://aks.ms/azrtos-sample/l475-cubeide) (zip)
 
