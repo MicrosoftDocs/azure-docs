@@ -139,7 +139,7 @@ To use service principal-based Azure AD application token authentication, follow
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). If you want to use PolyBase to load the data, learn the [required database permission](#required-database-permission).
+4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). If you want to use PolyBase to load the data, learn the [required database permission](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -185,7 +185,7 @@ To use managed identity authentication, follow these steps:
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). If you want to use PolyBase to load the data, learn the [required database permission](#required-database-permission).
+3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). If you want to use PolyBase to load the data, learn the [required database permission](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -367,7 +367,7 @@ Azure Data Factory supports three ways to load data into Azure Synapse Analytics
 - [Use COPY statement (preview)](#use-copy-statement)
 - Use bulk insert
 
-The fastest and most scalable way to load data is through [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) or the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview).
+The fastest and most scalable way to load data is through [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) or the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (preview).
 
 To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section:
 
@@ -376,7 +376,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | type              | The **type** property of the Copy Activity sink must be set to **SqlDWSink**. | Yes                                           |
 | allowPolyBase     | Indicates whether to use PolyBase to load data into Azure Synapse Analytics. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br/>Apply when using PolyBase.     |
 | polyBaseSettings  | A group of properties that can be specified when the `allowPolybase` property is set to **true**. | No.<br/>Apply  when using PolyBase. |
-| allowCopyCommand | Indicates whether to use [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview) to load data into Azure Synapse Analytics. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br>Apply  when using COPY. |
+| allowCopyCommand | Indicates whether to use [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (preview) to load data into Azure Synapse Analytics. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br>Apply  when using COPY. |
 | copyCommandSettings | A group of properties that can be specified when `allowCopyCommand` property is set to TRUE. | No.<br/>Apply  when using COPY. |
 | writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: "00:30:00" (30 minutes). | No.<br/>Apply  when using bulk insert.        |
@@ -522,7 +522,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
 
 >[!NOTE]
->If your source is a folder, note PolyBase retrieves files from the folder and all of its subfolders, and it doesn't retrieve data from files for which the file name begins with an underline (_) or a period (.), as documented [here - LOCATION argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
+>If your source is a folder, note PolyBase retrieves files from the folder and all of its subfolders, and it doesn't retrieve data from files for which the file name begins with an underline (_) or a period (.), as documented [here - LOCATION argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql#arguments-2).
 
 ```json
 "activities":[
@@ -634,8 +634,7 @@ If your source data is in text format or other non-PolyBase compatible stores (u
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase settings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)" is a PolyBase native configuration, which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.
+The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase settings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql#arguments)" is a PolyBase native configuration, which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.
 
 **`tableName` in Azure Synapse Analytics**
 
@@ -666,7 +665,7 @@ The NULL value is a special form of the default value. If the column is nullable
 
 ## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure Synapse Analytics (preview)
 
-Azure Synapse Analytics [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement in ADF to load data into Azure Synapse Analytics. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
+Azure Synapse Analytics [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (preview) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement in ADF to load data into Azure Synapse Analytics. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
 
 >[!NOTE]
 >Currently Data Factory only support copy from COPY statement compatible sources mentioned below.
@@ -706,7 +705,7 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Specifies the default values for each target column in Azure Synapse Analytics.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
-| additionalOptions | Additional options that will be passed to an Azure Synapse Analytics COPY statement directly in "With" clause in [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Quote the value as needed to align with the COPY statement requirements. | No |
+| additionalOptions | Additional options that will be passed to an Azure Synapse Analytics COPY statement directly in "With" clause in [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql). Quote the value as needed to align with the COPY statement requirements. | No |
 
 ```json
 "activities":[
@@ -795,7 +794,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 - Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.
 - Truncate: All rows from the target table will get removed.
 
-**Enable staging:** Determines whether or not to use [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15) when writing to Azure Synapse Analytics
+**Enable staging:** Determines whether or not to use [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) when writing to Azure Synapse Analytics
 
 **Batch size**: Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data.
 
