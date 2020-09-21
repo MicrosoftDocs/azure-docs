@@ -16,9 +16,9 @@ ms.topic: conceptual
 
 Learn how to use [NVIDIA Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server) to improve the performance of the web service used for model inference.
 
-One of the ways to deploy a model for inference is as a web service. For example, a deployment to Azure Kubernetes Service or Azure Container Instances. The default web framework used to host Azure Machine Learning model deployments is [Flask](https://flask.palletsprojects.com/en/1.1.x/). Flask is a *general purpose* web framework.
+One of the ways to deploy a model for inference is as a web service. For example, a deployment to Azure Kubernetes Service or Azure Container Instances. By default, Azure Machine Learning uses a single-threaded, *general purpose* web framework for web service deployments.
 
-Triton is a framework that is *optimized for inference*. It provides better utilization of GPUS and more cost-effective inference.
+Triton is a framework that is *optimized for inference*. It provides better utilization of GPUs and more cost-effective inference. It batches incoming requests and submits these batches for inference. This better utilizes GPU resources, and is a key part of it's performance.
 
 > [!IMPORTANT]
 > Using Triton for deployment from Azure Machine Learning is currently in __preview__. Preview functionality may not be covered by customer support. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
@@ -64,20 +64,26 @@ The model configuration file tells Triton how many inputs to expects and of what
 
 ## Directory structure
 
-When registering a model with Azure Machine Learning, you can register either individual files or a directory structure. To use Triton, the model registration must be for a directory structure that contains a top-level directory named `triton`. The general structure of this directory is:
+When registering a model with Azure Machine Learning, you can register either individual files or a directory structure. To use Triton, the model registration must be for a directory structure that contains a directory named `triton`. The general structure of this directory is:
 
 ```bash
-triton
-    - model_1
-        - model_version
-            - model_file
-            - config_file
-    - model_2
-        ...
+models
+    - triton
+        - model_1
+            - model_version
+                - model_file
+                - config_file
+        - model_2
+            ...
 ```
 
-> [!IMPORTANT]
+> [!TIP]
 > This directory structure is a Triton Model Repository and is required for your model(s) to work with Triton. For more information, see [Triton Model Repositories](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) in the NVIDIA documentation.
+
+> [!IMPORTANT]
+> If you are using **code-first** deployments, specify the top level `models` directory when registering the model.
+>
+> If you are are **not** using code-first, specify the `triton` directory when registering the model.
 
 ## Register your model
 
@@ -101,7 +107,7 @@ model = Model.register(
 # [Azure CLI](#tab/azure-cli)
 
 ```bash
-az ml model register --model-path='../models' \
+az ml model register --model-path='models' \
 --name='bidaf_onnx' \
 --model-framework='Multi' \
 --model-framework-version='20.07-py3' \
@@ -199,7 +205,7 @@ import tritonhttpclient
 
 def init():
     global triton_client
-    triton_client = tritonhttpclient.InferenceServerClient(url"localhost:8000")
+    triton_client = tritonhttpclient.InferenceServerClient(url="localhost:8000")
 ```
 
 ### Modify your scoring script to call into Triton
