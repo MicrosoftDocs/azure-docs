@@ -122,7 +122,9 @@ If you are unable to verify the success of any step, retry the step. You can per
 
 ### Verify instance
 
-To verify that your instance was created, go to the [Azure Digital Twins page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) in the Azure portal. This page lists all your Azure Digital Twins instances. Look for the name of your newly-created instance in the list.
+To verify that your instance was created, go to the [Azure Digital Twins page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) in the Azure portal. You can get to this page yourself by searching for *Azure Digital Twins* in the portal search bar.
+
+This page lists all your Azure Digital Twins instances. Look for the name of your newly-created instance in the list.
 
 If verification was unsuccessful, you can retry creating an instance using the [portal](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) or [CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
