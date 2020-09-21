@@ -53,6 +53,10 @@ Follow these steps to start defining a role.
    ![Add permissions start](media/spring-cloud-permissions/add-permissions.png)
 
 ### Select the permissions:
+1. In the search box, search for *Microsoft.app*.
+1. Select *Microsoft Azure Spring Cloud*.
+
+   ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
 From: **Microsoft.AppPlatform/Spring**, select:
 
@@ -81,11 +85,6 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
-1. In the search box, search for *Microsoft.app*.
-1. Select *Microsoft Azure Spring Cloud*.
-
-   ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
-
 1. Select the permissions:
 
 From **Microsoft.AppPlatform/Spring**, select:
