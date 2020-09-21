@@ -11,7 +11,7 @@ In this article, we walk through the steps to setup GitHub Enterprise Server, th
 
 ## Before you begin
 
-GitHub Enterprise Server requires a valid license key. You may sign up for a trial license [here](https://enterprise.github.com/trial). If you are looking to extend the capabilities of GitHub Enterprise Server via an integration, you may qualify for a free five-seat developer license. Apply for this license through [GitHub's Partner Program](https://partner.github.com/).
+GitHub Enterprise Server requires a valid license key. You may sign up for a [trial license](https://enterprise.github.com/trial). If you are looking to extend the capabilities of GitHub Enterprise Server via an integration, you may qualify for a free five-seat developer license. Apply for this license through [GitHub's Partner Program](https://partner.github.com/).
 
 ## Installing GitHub Enterprise Server on VMware
 
