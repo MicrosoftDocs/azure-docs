@@ -83,7 +83,7 @@ Through this unified experience, you will be able to:
 
 Sign up for the [Public Preview](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) of the new Datadog integration with Azure.  Public preview will be available on Azure Marketplace starting October 2020.
 
-[Go to the main documentation.][datadog-doc]
+If you are still using the previous less-integrated solution, see the [documentation on the DataDog website][datadog-doc]
 
 ## Dynatrace
 
