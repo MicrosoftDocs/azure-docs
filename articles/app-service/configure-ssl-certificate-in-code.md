@@ -132,14 +132,14 @@ var cert = new X509Certificate2(bytes);
 
 To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
 
-## Load certificate in Windows/Linux containers
+## Load certificate in Linux/Windows containers
 
 The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows or Linux container apps (including built-in Linux containers) as files. The files are found under the following directories:
 
 | Container platform | Public certificates | Private certificates |
 | - | - | - |
-| Windows | `C:\appservice\certificates\public` | `C:\appservice\certificates\private` |
-| Linux | `/var/ssl/certs` | `/var/ssl/private` |
+| Windows container | `C:\appservice\certificates\public` | `C:\appservice\certificates\private` |
+| Linux container | `/var/ssl/certs` | `/var/ssl/private` |
 
 The certificate file names are the certificate thumbprints. 
 
