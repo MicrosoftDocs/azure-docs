@@ -143,6 +143,10 @@ The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates ac
 
 The certificate file names are the certificate thumbprints. 
 
+> [!NOTE]
+> App Service inject the certificate paths into Windows containers as the following environment variables `WEBSITE_PRIVATE_CERTS_PATH`, `WEBSITE_INTERMEDIATE_CERTS_PATH`, `WEBSITE_PUBLIC_CERTS_PATH`, and `WEBSITE_ROOT_CERTS_PATH`. It's better to reference the certificate path with the environment variables instead of hardcoding the certificate path, in case the certificate paths change in the future.
+>
+
 In addition, [Windows Server Core containers](configure-custom-container.md#supported-parent-images) load the certificates into the certificate store automatically, in **LocalMachine\My**. To load the certificates, follow the same pattern as [Load certificate in Windows apps](#load-certificate-in-windows-apps). For Windows Nano based containers, use the file paths provided above to [Load the certificate directly from file](#load-certificate-from-file).
 
 The following C# code shows how to load a public certificate in a Linux app.
