@@ -6,6 +6,7 @@ If you are developing for **constrained devices**, then you can use IoT Plug and
 
 ## Using the Embedded C SDK
 
+
 [Fill in with overview]
 
 ### Use a real device
