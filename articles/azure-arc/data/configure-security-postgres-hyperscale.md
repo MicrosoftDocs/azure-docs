@@ -148,7 +148,7 @@ This small example demonstrates that you can encrypt data at rest (store encrypt
 You can use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. During preview, these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that in preview, the user definition is not replicated to the Worker nodes.
 
 ### Change the password of the _postgres_ administrative user
-Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you deploy your server group.
+Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
 The general format of the command to change its password is:
 ```console
 azdata arc postgres server edit --name <server group name> --admin-password <new password>

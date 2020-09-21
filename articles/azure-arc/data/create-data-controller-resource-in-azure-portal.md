@@ -17,7 +17,7 @@ ms.topic: how-to
 
 ## Introduction
 
-You can use the Azure portal to deploy an Azure Arc data controller.
+You can use the Azure portal to create an Azure Arc data controller.
 
 Many of the creation experiences for Azure Arc start in the Azure portal even though the resource to be created or managed is outside of Azure infrastructure. The user experience pattern in these cases, especially when there is no direct connectivity between Azure and your environment, is to use the Azure portal to generate a script which can then be downloaded and executed in your environment to establish a secure connection back to Azure. For example, Azure Arc enabled servers follows this pattern to [create Arc enabled servers](../servers/onboard-portal.md).
 
@@ -31,18 +31,18 @@ Follow the steps below to create an Azure Arc data controller using the Azure po
 2. If the first step has not entered the search criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
 3. Select the Azure Data Controller tile from the marketplace.
 4. Click on the **Create** button.
-5. Review the requirements to deploy an Azure Arc data controller and install any missing prerequisite software such as Azure Data Studio and kubectl.
+5. Review the requirements to create an Azure Arc data controller and install any missing prerequisite software such as Azure Data Studio and kubectl.
 6. Click on the **Data controller details** button.
-7. Choose a subscription, resource group and Azure location just like you would for any other resource that you would create in the Azure portal. In this case the Azure location that you select will be where the metadata about the resource will be stored.  The resource itself will be deployed on whatever infrastructure you choose. It doesn't need to be on Azure infrastructure.
+7. Choose a subscription, resource group and Azure location just like you would for any other resource that you would create in the Azure portal. In this case the Azure location that you select will be where the metadata about the resource will be stored.  The resource itself will be created on whatever infrastructure you choose. It doesn't need to be on Azure infrastructure.
 8. Enter a name for your data controller.
 9. Only the Indirectly Connected mode is supported currently in the preview.
 10. Select a deployment configuration profile.
 11. Click the **Open in Azure Studio** button.
 12. On the next screen, you will see a summary of your selections and a notebook that is generated.  You can click the **Download provisioning notebook** button to download the notebook.
 13. Open the notebook in Azure Data Studio and click the **Run All** button at the top.
-14. Follow the prompts and instructions in the notebook to complete the data controller deployment.
+14. Follow the prompts and instructions in the notebook to complete the data controller creation.
 
-## Monitoring the deployment status
+## Monitoring the creation status
 
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
@@ -57,7 +57,7 @@ kubectl get datacontroller/arc --namespace arc
 kubectl get pods --namespace arc
 ```
 
-You can also check on the deployment status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
+You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
 kubectl describe po/<pod name> --namespace arc
@@ -66,6 +66,6 @@ kubectl describe po/<pod name> --namespace arc
 #kubectl describe po/control-2g7bl --namespace arc
 ```
 
-## Troubleshooting deployment problems
+## Troubleshooting creation problems
 
-If you encounter any troubles with deployment, please see the [troubleshooting guide](troubleshoot-guide.md).
+If you encounter any troubles with creation, please see the [troubleshooting guide](troubleshoot-guide.md).
