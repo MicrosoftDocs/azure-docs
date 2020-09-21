@@ -13,7 +13,7 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-# [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1-preview](#tab/version-3-1)
 
 [v3.1 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
@@ -26,7 +26,7 @@ ms.author: aahi
 [v2 Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2 Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ---
-
+<!--
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
@@ -69,7 +69,7 @@ pip install --upgrade azure-cognitiveservices-language-textanalytics
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), which contains the code examples in this quickstart. 
 
 ---
-<!--
+
 ### Create a new python application
 
 Create a new Python file and create variables for your resource's Azure endpoint and subscription key.
