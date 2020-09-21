@@ -20,15 +20,15 @@ ROBOTS: NOINDEX
 This guide shows how to upgrade your existing container or cloud API code from Read v2.0 or v2.1 to Read v3.x operations.
 
 ## Determine your API path fix
-Use the following table to determine the version part in the API path based on whether you are using the cloud API or container, and the Read 3.x version you are migrating to.
+Use the following table to determine the **version string** in the API path based on whether you are using the cloud API or container, and the Read 3.x version you are migrating to.
 
-|Product type| Version | Version part in 3.x API path |
+|Product type| Version | Version string in 3.x API path |
 |:-----|:----|:----|
-|Cloud API | Read 3.0 | https://{endpoint}/vision/**v3.0**/read/...|
-|Container | Read 3.0 preview | https://{endpoint}/vision/**v3.0-preview.1**/read/...|
-|Container/Cloud| Read 3.1 preview | https://{endpoint}/vision/**v3.1-preview.2**/read/...|
+|Cloud API | Read 3.0 | **v3.0** |
+|Container | Read 3.0 preview | **v3.0-preview.1** |
+|Container/Cloud| Read 3.1 preview | **v3.1-preview.2** |
 
-Next, use the following sections to narrow your operations and their API path fixes and related code including the API response handling code.
+Next, use the following sections to narrow your operations and replace the "version string" with the value from the table in your API paths and related code including the API response handling code.
 
 ## Cloud API and Containers
 
@@ -36,7 +36,7 @@ Next, use the following sections to narrow your operations and their API path fi
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/**version part**/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/**version string**/read/analyze[?language]|
     
 A new optional _language_ parameter is available. If you do not know the language of your document, or it may be multilingual, don't include it. 
 
@@ -44,7 +44,7 @@ A new optional _language_ parameter is available. If you do not know the languag
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/**version part**/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/**version string**/read/analyzeResults/{operationId}|
 
 ### `Get Read Operation Result` status flag
 
@@ -174,7 +174,7 @@ When the call to `Get Read Operation Result` is successful, it returns a status 
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/**version part**/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/**version string**/read/analyze[?language]|
     
 The _mode_ parameter is not supported in `Read`. Both handwritten and printed text will automatically be supported.
     
@@ -184,7 +184,7 @@ A new optional _language_ parameter is available in v3.0. If you do not know the
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/**version part**/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/**version string**/read/analyzeResults/{operationId}|
 
 ### `Get Recognize Text Operation Result` status flags
 When the call to `Get Recognize Text Operation Result` is successful, it returns a status string field in the JSON body. 
@@ -307,4 +307,4 @@ When the call to `Get Recognize Text Operation Result` is successful, it returns
 
 |Read 2.0 |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/**version part**/read/syncAnalyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/**version string**/read/syncAnalyze[?language]|
