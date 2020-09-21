@@ -532,7 +532,7 @@
         - name: Create a VM from Image Version
           href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
       - name: Troubleshoot shared images
-        href: troubleshooting-shared-images.md
+        href: ../troubleshooting-shared-images.md
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: ../image-version-encryption.md
