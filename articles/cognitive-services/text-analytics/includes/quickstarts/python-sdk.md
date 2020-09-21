@@ -127,7 +127,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
-#### [Version 2.1 (preview)](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
@@ -468,7 +468,7 @@ Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ---
-
+<!--
 ## Named Entity recognition (NER)
 
 #### [Version 3.1 (preview)](#tab/version-3-1)
@@ -897,4 +897,4 @@ Document ID: 4
                 fútbol
 ```
 
----
+--- -->
