@@ -30,7 +30,7 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 >
 > ## Step 1: Register the application
 >
-> To register the web API in your Azure AD tenant, follow these steps:
+> First, register the web API in your Azure AD tenant and add a scope by following these steps:
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
@@ -53,10 +53,12 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 ## Step 2: Download the ASP.NET Core project
 
 > [!div renderon="docs"]
-> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
+> Next, [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
 > [!div renderon="docs"]
 > ## Step 3: Configure the ASP.NET Core project
+>
+> In this step, configure the sample code to work with the app registration you created earlier.
 >
 > 1. Extract the .zip archive into a folder near the root of your drive. For example, into *C:\Azure-Samples*.
 > 1. Open the solution in the *webapi* folder in your code editor.
@@ -81,22 +83,19 @@ The web API receives a token from a client application, and the code in the web 
 
 ### Startup class
 
-The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's executed when the hosting process initializes:
+The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's executed when the hosting process initializes. In its `ConfigureServices` method, the `AddMicrosoftIdentityWebApi` extension method provided by *Microsoft.Identity.Web* is called.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration, "AzureAd");
-        services.AddControllers();
     }
 ```
 
 The `AddAuthentication()` method configures the service to add JwtBearer-based authentication.
 
-The line containing `.AddMicrosoftIdentityWebApi` adds Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
-
-The line containing `.AddMicrosoftIdentityWebApp` adds Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
+The line containing `.AddMicrosoftIdentityWebApi` adds Microsoft identity platform authorization to your web API. It's then configured to validate access tokens issued by the Microsoft identity platform endpoint based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 
 | *appsettings.json* key | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -132,7 +131,7 @@ namespace webapi.Controllers
 
 ### Validate the scope from the controller action / Razor page method
 
-Your API needs to verify the scopes of the token using `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`
+The code in the API then validates the scopes of the token by using `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`
 
 ```csharp
 namespace webapi.Controllers
