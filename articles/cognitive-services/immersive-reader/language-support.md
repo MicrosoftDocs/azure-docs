@@ -234,7 +234,7 @@ This article lists supported human languages for Immersive Reader features.
 | Slovak | sk |
 | Slovak (Slovakia) | sk-SK |
 | Slovenian | sl |
-| Slovenian (Slovenia) | sl-SL |
+| Slovenian (Slovenia) | sl-SI |
 | Spanish | es |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
@@ -347,7 +347,7 @@ This article lists supported human languages for Immersive Reader features.
 | Slovak | sk |
 | Slovak (Slovakia) | sk-SK |
 | Slovenian | sl |
-| Slovenian (Slovenia) | sl-SL |
+| Slovenian (Slovenia) | sl-SI |
 | Spanish | es |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
@@ -433,7 +433,7 @@ This article lists supported human languages for Immersive Reader features.
 | Slovak | sk |
 | Slovak (Slovakia) | sk-SK |
 | Slovenian | sl |
-| Slovenian (Slovenia) | sl-SL |
+| Slovenian (Slovenia) | sl-SI |
 | Spanish | es |
 | Spanish (Latin America) | es-419 |
 | Spanish (Mexico) | es-MX |
