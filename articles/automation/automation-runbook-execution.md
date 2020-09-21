@@ -56,7 +56,7 @@ The following table lists some runbook execution tasks with the recommended exec
 
 ## Temporary storage in a sandbox
 
-If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you cannot use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows does checkpointing and the script could be retried in a different sandbox. 
+If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you cannot use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows use checkpoints and the script could be retried in a different sandbox.
 
 With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you should not use the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) on Windows or Linux for data that needs to be persisted.
 
@@ -81,7 +81,7 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 
 ## Azure Monitor
 
-Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and [Log Analytics agents](../azure-monitor/platform/log-analytics-agent.md).
+Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md).
 
 ### Log Analytics agent for Windows
 
@@ -92,7 +92,7 @@ The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with an **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password. 
+The [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with an **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
 
 The **nxautomation** account with the corresponding sudo permissions must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
