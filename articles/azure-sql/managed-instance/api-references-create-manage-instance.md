@@ -79,8 +79,8 @@ To create and configure instance databases after the managed instance is created
 
 | Command | Description |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Creates a new instance database in SQL Managed Instance. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifies an instance database in SQL Managed Instance.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-curren&preserve-view=truet)|Creates a new instance database in SQL Managed Instance. You must be connected to the master database to create a new database.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |Modifies an instance database in SQL Managed Instance.|
 
 ## REST API: Create and configure managed instances
 
