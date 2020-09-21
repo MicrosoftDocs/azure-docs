@@ -27,13 +27,13 @@ If you're using version 2 of the Computer Vision Read container, Use this articl
 
 The Read v3.x containers use version 3 of the Computer Vision API and have the following endpoints:
 
-#### [Version 3.1](#tab/version-3-1)
+#### [Version 3.1-preview](#tab/version-3-1)
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
 
-#### [Version 3.0](#tab/version-3)
+#### [Version 3.0-preview](#tab/version-3)
 
 * `/vision/v3.0-preview.1/read/analyzeResults/{operationId}`
 * `/vision/v3.0-preview.1/read/analyze`
@@ -49,8 +49,8 @@ The requirements and recommendations are based on benchmarks with a single reque
 
 |Container  |Minimum | Recommended  |
 |---------|---------|------|
-|Read 3.0     | 8 cores, 16-GB memory         | 8 cores, 24-GB memory
-|Read 3.1 | 8 cores, 16-GB memory         | 8 cores, 24-GB memory
+|Read 3.0-preview     | 8 cores, 16-GB memory         | 8 cores, 24-GB memory
+|Read 3.1-preview | 8 cores, 16-GB memory         | 8 cores, 24-GB memory
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 
