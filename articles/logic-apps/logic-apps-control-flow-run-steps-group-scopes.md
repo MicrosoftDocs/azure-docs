@@ -37,7 +37,7 @@ the scope is marked "Failed" or "Aborted" respectively,
 and the logic app sends a "Scope failed" message. 
 If all the scoped actions succeed, the logic app sends a "Scope succeeded" message.
 
-![Set up "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Diagram shows the logic app scope flow with examples of "Scope failed" and "Scope succeeded".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## Prerequisites
 
@@ -243,7 +243,7 @@ the scope's status is equal to "Failed" or "Aborted".
    
       `result('Scope')[0]['status']`
 
-      ![Add expression that checks the scope's status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Screenshot that shows the "Add expression" window with the result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. For both rows, select **is equal to** as the operator. 
    
