@@ -21,7 +21,7 @@ Download [the current release of GitHub Enterprise Server](https://enterprise.gi
 
 :::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="Deploy the OVA template.":::	
 
-Provide a recognizable name for your new virtual machine, such as GitHubEnterpriseServer. It is not recommended to include the release details in the VM name, as these details will become stale when the instance is upgraded. Click through the defaults for now (we'll edit these details shortly) and wait for the OVA to be imported.
+Provide a recognizable name for your new virtual machine, such as GitHubEnterpriseServer. You don't need to include the release details in the VM name, as these details become stale when the instance is upgraded. Select all the defaults for now (we'll edit these details shortly) and wait for the OVA to be imported.
 
 Once imported, [adjust the hardware configuration](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) based on your needs. In our example scenario, we'll need the following configuration.
 
