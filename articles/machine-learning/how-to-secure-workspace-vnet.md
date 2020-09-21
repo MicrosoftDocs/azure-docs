@@ -179,6 +179,8 @@ To use Azure Container Registry inside a virtual network, you must meet the foll
 
     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
+* Before using ACR with Azure Machine Learning in a virtual network, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
 Once those requirements are fulfilled, use the following steps to enable Azure Container Registry.
 
 1. Find the name of the Azure Container Registry for your workspace, using one of the following methods:
