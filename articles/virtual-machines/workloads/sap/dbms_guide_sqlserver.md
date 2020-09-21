@@ -568,4 +568,3 @@ There are many recommendations in this guide and we recommend you read it more t
 Read the article 
 
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
--  
