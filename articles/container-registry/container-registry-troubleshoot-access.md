@@ -17,7 +17,7 @@ May include one or more of the following:
 * Unable to push or pull images and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to pull images from registry to Azure Kubernetes Service or another Azure service
 * Unable to access a registry behind an HTTPS proxy and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden`
-* Unable to configure virtual network or firewall rules and your receive error `Failed to save firewall and virtual network settings for container registry`
+* Unable to configure virtual network or firewall rules and you receive error `Failed to save firewall and virtual network settings for container registry`
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 * Unable to add or modify virtual network settings or public access rules
 * ACR Tasks is unable to push or pull images
@@ -82,7 +82,7 @@ Review NSG rules and service tags used to limit traffic from other resources in 
 
 If a service endpoint to the registry is configured, confirm that a network rule is added to the registry that allows access from that network subnet. The service endpoint only supports access from virtual machines and AKS clusters in the network.
 
-If you want to restrict registry access using a virtual network in a different Azure subscription, ensure that you register the `Microsoft.ContainerRegistry` resource provider in that subscription.
+If you want to restrict registry access using a virtual network in a different Azure subscription, ensure that you register the `Microsoft.ContainerRegistry` resource provider in that subscription. Register a resource provider using the Azure portal or other Azure tools.
 
 If Azure Firewall or a similar solution is configured in the network, check that egress traffic from other resources such as an AKS cluster is enabled to reach the registry endpoints.
 
