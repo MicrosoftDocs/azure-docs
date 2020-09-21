@@ -304,7 +304,7 @@ jobs:
           package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
 ```
 
-### .ASP.NET
+### ASP.NET
 
 Build and deploy an ASP.NET MVC app that uses NuGet and `publish-profile` for authentication. 
 
