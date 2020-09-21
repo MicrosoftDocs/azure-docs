@@ -53,8 +53,8 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
 - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any
   components installed by a previous Gatekeeper installation before enabling the Azure Policy
   Add-on.
-- [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't
-  available for this [Resource Provider mode](./definition-structure.md#resource-provider-modes)
+- [Reasons for non-compliance](../governance/policy/how-to/determine-non-compliance.md#compliance-reasons) aren't
+  available for this [Resource Provider mode](../governance/concepts/definition-structure.md#resource-provider-modes)
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 
