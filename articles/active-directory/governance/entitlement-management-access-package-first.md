@@ -27,7 +27,7 @@ Managing access to all the resources employees need, such as groups, application
 
 In this tutorial, you work for Woodgrove Bank as an IT administrator. You've been asked to create a package of resources for a marketing campaign that internal users can self-service request. Requests do not require approval and user's access expires after 30 days. For this tutorial, the marketing campaign resources are just membership in a single group, but it could be a collection of groups, applications, or SharePoint Online sites.
 
-![Scenario overview](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Diagram that shows the scenario overview.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 In this tutorial, you learn how to:
 
@@ -108,7 +108,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
      By default, you see groups inside the General catalog. When you select a group outside of the General catalog, which you can see if you check the **See all** check box, it will be added to the General catalog.
 
-    ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Screenshot that shows the "New access package - Resource roles" tab and the "Select groups" window.](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 10. Click **Select** to add the group to the list.
 

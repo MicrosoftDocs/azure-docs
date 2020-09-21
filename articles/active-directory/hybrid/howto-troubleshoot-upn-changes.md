@@ -91,7 +91,7 @@ See the Known issues and workarounds in this document.
 
 When you're synchronizing user accounts from Active Directory to Azure AD, ensure that the UPNs in Active Directory map to verified domains in Azure AD.
 
-![Screenshot of verified domains](./media/howto-troubleshoot-upn-changes/verified-domains.png)
+![Screenshot that shows examples of UPNs mapped to verified Azure A D domains.](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
 If the value of the userPrincipalName attribute doesn't correspond to a verified domain in Azure AD, the synchronization process replaces the suffix with a default .onmicrosoft.com value.
 
