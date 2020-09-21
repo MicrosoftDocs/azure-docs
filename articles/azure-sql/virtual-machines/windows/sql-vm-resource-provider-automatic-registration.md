@@ -47,6 +47,29 @@ To enable automatic registration of your SQL Server VMs in the Azure portal, fol
 1. Read through the terms and if you agree, select **I accept**. 
 1. Select **Register** to enable the feature and automatically register all current and future SQL Server VMs with the SQL VM resource provider. This will not restart the SQL Server service on any of the VMs. 
 
+## Disable automatic registration 
+
+Use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-4.6.1) to disable the automatic registration feature. When the automatic registration feature is disabled, SQL Server VMs added to the subscription need to be manually registered with the SQL VM resource provider. This will not unregister existing SQL Server VMs that have already been registered.
+
+
+
+# [Azure CLI](#tab/azure-cli)
+
+To disable automatic registration using Azure CLI, run the following command: 
+
+```azurecli-interactive
+az feature unregister --namespace Microsoft.SqlVirtualMachine--name BulkRegistration
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+To disable automatic registration using Azure PowerShell, run the following command: 
+
+```powershell-interactive
+Unregister-AzProviderFeature -FeatureName BulkRegistration -ProviderNamespace Microsoft.SqlVirtualMachine
+```
+
+---
 
 
 ## Next steps
