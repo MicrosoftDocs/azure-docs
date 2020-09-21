@@ -72,7 +72,7 @@ When seeking a configuration value, Speech CLI looks in your current working dir
 Previously, you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each command line call.
 You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
 
-This section shows use of a configuration file in the local datastore to store and fetch command settings using `spx config`, and store and fetch output from Speech CLI using the `--output` option.
+This section shows use of a configuration file in the local datastore to store and fetch command settings using `spx config`, and store output from Speech CLI using the `--output` option.
 
 The following example clears the `@my.defaults` configuration file,
 adds key-value pairs for **key** and **region** in the file, and uses the configuration
