@@ -13,11 +13,11 @@ ms.custom: devx-track-csharp
 
 The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos emulator, you can switch to using an Azure Cosmos account in the cloud. To get started, download and install the latest version of [Azure Cosmos emulator](https://aka.ms/cosmosdb-emulator) on your local computer. This article describes how to install and use the emulator on Windows, Linux, macOS, and Windows docker environments.
 
-You can develop apps using Azure Cosmos emulator with the [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api), and [Table](local-emulator.md#table-api) API accounts. Currently the data explorer view in the emulator fully supports SQL API clients only.
+You can develop applications using Azure Cosmos emulator with the [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api), and [Table](local-emulator.md#table-api) API accounts. Currently the data explorer in the emulator fully supports viewing SQL data only; the data created using MongoDB, Gremlin/Graph and Cassandra client applications it is not viewable at this time. To learn more, see [how to connect to the emulator endpoint](#connect-with-emulator-apis) from different APIs.
 
 ## How does the emulator work?
 
-The Azure Cosmos emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as the Azure Cosmos DB, which includes creating data, querying data, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos emulator, and deploy them to Azure at global scale by updating the Azure Cosmos DB connection endpoint.
+The Azure Cosmos emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports equivalent functionality as the Azure Cosmos DB, which includes creating data, querying data, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos emulator, and deploy them to Azure at global scale by updating the Azure Cosmos DB connection endpoint.
 
 While emulation of the Azure Cosmos DB service is faithful, the emulator's implementation is different than the service. For example, the emulator uses standard OS components such as the local file system for persistence, and the HTTPS protocol stack for connectivity. Functionality that relies on the Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not applicable when you use the emulator.
 
@@ -33,15 +33,13 @@ Because the Azure Cosmos emulator provides an emulated environment that runs on 
 
 * With the emulator, you can create an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
-* The emulator is not a scalable service and it doesn't support a large number of containers.
+* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value]emulator-command-line-parameters.md#set-partitioncount) article.
 
 * The emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md) like the cloud service does.
 
 * The emulator does not offer [multi-region replication](distribute-data-globally.md).
 
 * Because the copy of your Azure Cosmos emulator might not always be up to date with the most recent changes in the Azure Cosmos DB service, you should always refer to the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to accurately estimate the throughput (RUs) needs of your application.
-
-* When using the Azure Cosmos emulator, by default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value]emulator-command-line-parameters.md#set-partitioncount) article.
 
 * The emulator supports a maximum ID property size of 254 characters.
 
@@ -50,7 +48,7 @@ Because the Azure Cosmos emulator provides an emulated environment that runs on 
 Before you install the emulator, make sure you have the following hardware and software requirements:
 
 * Software requirements:
-  * Windows Server 2012 R2, Windows Server 2016, or Windows 10
+  * Currently Windows Server 2012 R2, Windows Server 2016, 2019 or Windows 8, 10 host OS are supported. The host OS with Active Directory enabled is currently not supported.
   * 64-bit operating system
 
 * Minimum hardware requirements:
@@ -67,7 +65,7 @@ Depending upon your system requirements, you can run the emulator on [Windows](#
 
 Each version of emulator comes with a set of feature updates or bug fixes. To see the available versions, read the [emulator release notes](local-emulator-release-notes.md) article.
 
-After installation, the data corresponding to the emulator is saved at `%LOCALAPPDATA%\CosmosDBEmulator` location or data path optional settings. The data created in one version of the Azure Cosmos emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure Cosmos account, instead of the Azure Cosmos emulator.
+After installation, if you have used the default settings, the data corresponding to the emulator is saved at %LOCALAPPDATA%\CosmosDBEmulator location. You can configure a different location by using the optional data path settings; that is the `/DataPath=PREFERRED_LOCATION` as the [command-line parameter](emulator-command-line-parameters.md). The data created in one version of the Azure Cosmos emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure Cosmos account, instead of the Azure Cosmos emulator.
 
 ## <a id="run-on-windows"></a>Use the emulator on Windows
 
@@ -158,6 +156,56 @@ You can run the Azure Cosmos emulator on the Windows Docker container. See the [
    `https://<emulator endpoint provided in response>/_explorer/index.html`
 
 If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, use the instructions in the next section to import the certificate into the Linux docker container.
+
+### Regenerate the emulator certificates when running on a Docker container
+
+When running the emulator in a Docker container, the certificates associated with the emulator are regenerated every time you stop and restart the respective container. Because of that you have to re-import the certificates after each container start. To work around this limitation, you can use a Docker compose file to bind the Docker container to a particular IP address and a container image.
+
+For example, you can use the following configuration within the Docker compose file, make sure to format it per your requirement: 
+
+```yml
+version: '2.4' # Do not upgrade to 3.x yet, unless you plan to use swarm/docker stack: https://github.com/docker/compose/issues/4513
+
+networks:
+  default:
+    external: false
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"
+
+services:
+
+  # First create a directory that will hold the emulator traces and certificate to be imported
+  # set hostDirectory=C:\emulator\bind-mount
+  # mkdir %hostDirectory%
+
+  cosmosdb:
+    container_name: "azurecosmosemulator"
+    hostname: "azurecosmosemulator"
+    image: 'mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator'
+    platform: windows
+    tty: true
+    mem_limit: 3GB
+    ports:
+        - '8081:8081'
+        - '8900:8900'
+        - '8901:8901'
+        - '8902:8902'
+        - '10250:10250'
+        - '10251:10251'
+        - '10252:10252'
+        - '10253:10253'
+        - '10254:10254'
+        - '10255:10255'
+        - '10256:10256'
+        - '10350:10350'
+    networks:
+      default:
+        ipv4_address: 172.16.238.246
+    volumes:
+        - '${hostDirectory}:C:\CosmosDB.Emulator\bind-mount'
+```
 
 ## <a id="run-on-linux-macos"></a>Use the emulator on Linux or macOS
 
@@ -281,7 +329,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > [!NOTE]
 > If you have started the emulator with the /Key option, then use the generated key instead of the default key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. For more information about /Key option, see [Command-line tool reference.](emulator-command-line-parameters.md)
 
-## Connect to different APIs with the emulator
+## <a id="connect-with-emulator-apis"></a>Connect to different APIs with the emulator
 
 ### SQL API
 
