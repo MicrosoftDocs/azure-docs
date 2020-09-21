@@ -3,8 +3,8 @@ title: 'Model Synchronization Between ADT and TSI | Microsoft Docs'
 description: Best practices and tools used to translate asset model in ADT to asset model in Azure TSI
 ms.service: time-series-insights
 services: time-series-insights
-author: radhsrin
-ms.author: msrsrinivasan
+author: dpalled
+ms.author: deepakpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
@@ -55,9 +55,9 @@ Given the current limitation in TSI that one asset cannot be represented in mult
 
 It is the most common type of relationship among the twins. Modelling pure parent-child relationship is explained in the following illustration. Instance fields and TSID are derived from twin ids as shown below. While instance fields could be manually updated using TSI explorer, the section below named “Updating Instance Fields using APIs” explains listening to model changes in ADT and updating instance fields in TSI using Azure functions.
 
-[![Mapping twin IDs](media/tutorials-model-sync-adt-tsi/mapping-twin-ids.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids#lightbox)
+[![Mapping twin IDs](media/tutorials-model-sync-adt-tsi/mapping-twin-ids.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids.png#lightbox)
 
-[![Mapping twin IDs 2](media/tutorials-model-sync-adt-tsi/mapping-twin-ids2.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids2#lightbox)
+[![Mapping twin IDs 2](media/tutorials-model-sync-adt-tsi/mapping-twin-ids2.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids2.png#lightbox)
 
 ## Case 2: Circular relationship
 
@@ -67,13 +67,13 @@ Given that TSID must be unique and can only be represented in one hierarchy, thi
 
 The following screenshots shows manually mapping twin IDs in ADT to Instance field in TSM and the resulting hierarchy in TSI.
 
-[![Mapping twin IDs in ADT](media/tutorials-model-sync-adt-tsi/mapping-twin-ids-adt.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids-adt#lightbox)
+[![Mapping twin IDs in ADT](media/tutorials-model-sync-adt-tsi/mapping-twin-ids-adt.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids-adt.png#lightbox)
 
 ### Circular relationship in ADT to multiple hierarchies in TSI, using duplicates
 
 Part 1 of the tutorial explains how a client program (an Azure function) helps transferring telemetry data from IoT Hub or other event sources to ADT. This approach suggests using the same client program to make updates to relevant properties of the parent twins. In the given example, while reading the FlowMtr telemetry from IoT Hub and updating the property “Flow” in FlowMtr twin, the program can also update corresponding properties in all possible parent twins of the source. In our example it would be “outflowmea” (identified using the ‘outflow’ relationship) property of Room21 and “inflowmea” property of Room22.  Below screenshot shows the final user experience in TSI explorer. It must be noted that we have data duplicates by taking this approach.
 
-[![Time Series Insights Explorer](media/tutorials-model-sync-adt-tsi/tsi-explorer.png)](media/tutorials-model-sync-adt-tsi/tsi-explorer#lightbox)
+[![Time Series Insights Explorer](media/tutorials-model-sync-adt-tsi/tsi-explorer.png)](media/tutorials-model-sync-adt-tsi/tsi-explorer.png#lightbox)
 
 Code snippet below shows how the client application was able to navigate the twin relationship by using ADT APIs.
 
