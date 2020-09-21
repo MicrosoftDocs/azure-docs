@@ -25,7 +25,7 @@ The following roles permit a security principal to access data in a storage acco
 | [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Read, write, and delete access to Blob storage containers and blobs. This access does not permit the security principal to set the ownership of an item, but it can modify the ACL of items that are owned by the security principal. |
 | [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Read and list Blob storage containers and blobs. |
 
-Roles such as [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) and [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permit a security principal to manage a storage account, but do not provide access to the data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys which can be used in various client tools to access the data.
+Roles such as [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [Reader, and [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permit a security principal to manage a storage account, but do not provide access to the data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys, which can be used in various client tools to access the data.
 
 ## Access control lists (ACLs)
 
@@ -71,9 +71,10 @@ If the security principal doesn't have any of these roles assigned to it, the sy
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow-create-delete-file.png)
 
-## Scenario table
+## Combining RBAC role assignments with ACL entries
 
-The following table lists some common scenarios to help you understand which permissions are needed to perform certain operations on a storage account.
+The following table shows you how to combine RBAC roles and ACL entries so that a security principal can perform the operations listed in the `Operation` column. 
+This table features a column for each portion of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory of the root named `Oregon`, a subdirectory of the Oregon directory named `Portland`, and a text file in the Portland directory named `Data.txt`.
 
 |    Operation             | Assigned RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
@@ -81,10 +82,10 @@ The following table lists some common scenarios to help you understand which per
 |                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
 |                          |   None                           |   --X       |   --X       |  --X      | R--      |
-| Append to Data.txt       |   Storage Blob Data Owner        |   ---       |  ---        | ---       | ---      |
-|                          |   Storage Blob Data Contributor  |   ---       |  ---        | ---       | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |  ---        | ---       | -W-      |
-|                          |   None                           |   --X       |  --X        | --X       | RW-      |
+| Append to Data.txt       |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | -W-      |
+|                          |   None                           |   --X       |   --X       |  --X      | RW-      |
 | Delete Data.txt          |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Reader       |   ---       |   ---       |  -WX      | ---      |
@@ -93,29 +94,24 @@ The following table lists some common scenarios to help you understand which per
 |                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Reader       |   ---       |   ---       |  -W-      | ---      |
 |                          |   None                           |   --X       |   --X       |  -WX      | ---      |
-| List /                   |   Storage Blob Data Owner        |   ----      |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Contributor  |  ---        |   ---       |  ---      | ---      |
+| List /                   |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
 |                          |   None                           |   R-X       |   ---       |  ---      | ---      |
 | List /Oregon/            |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |   --        |  ---      | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
 |                          |   None                           |   --X       |   R-X       |  ---      | ---      |
 | List /Oregon/Portland/   |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
 |                          |   None                           |   --X       |   --X       |  R-X      | ---      |
 
-Key takeaways:
 
-- You need execute permissions (--X) on all directories leading to the desired content.
-- To list contents of a directory, that directory needs read and execute (R-X).
-- To read the contents of a file, the file needs read permission (R--.)
-- To use Azure Storage explorer to see container and files, you must give Read access to the root folder (R--).
-- To list all containers in the account, you need any of these:
-  - Super user access - Shared key or Storage Blob Data Owner.
-  - Reader role to see containers + appropriate ACL permissions to list directories or read files.
-  - Storage Blob Data Reader + appropriate ACL permissions to give write permissions if you want.
+
+## The minimum permissions required to use Azure Storage Explorer
+
+To view the contents of a container, security principals must (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give the security principal the ability to list the contents of the root folder. Alternatively, you can assign them [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role. With that role, the security principal can connect to the account by using Storage Explorer. They'll be able to see the containers in the account, but not their contents. You can then grant access to specific directories and files by using ACLs.   
 
 ## Next steps
 
