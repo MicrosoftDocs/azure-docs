@@ -52,8 +52,6 @@ Replication applications that must access Event Hubs bound to an Azure virtual n
 
 Replication tasks are deployed into the replication application through the same deployment methods as any other Azure Function. All tasks that you want to run in parallel inside the replication application need to bundled into the same project and deployed together.
 
-
-
 With Azure Functions Premium, multiple replication applications can share the same underlying resource pool, called an App Service Plan. That means you can easily collocate replication tasks written in .NET with replication tasks that are written in Java, for instance. That will matter if you want to take advantage of specific libraries such as Apache Camel that are only available for Java and if those are the best option for a particular integration path, even though you would commonly prefer a different language and runtime for you other replication tasks. 
 
 The Azure Functions runtime environment provides a set of standard tasks where you only need to focus on the configuration. 
