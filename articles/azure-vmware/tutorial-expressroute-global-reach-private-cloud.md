@@ -27,7 +27,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 
 1. Established connectivity to and from an Azure VMware Solution private cloud with its ExpressRoute circuit peered with an ExpressRoute gateway in an Azure virtual network (VNet) – which is _circuit 2_ from peering procedures.  
 1. A separate, functioning ExpressRoute circuit used to connect on-premises environments to Azure – which is _circuit 1_ from the peering procedures' perspective.
-1. A /29 non-overlapping [network address block](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) for the ExpressRoute Global Reach peering, which you should have [defined](avs-production-ready-deployment-steps.md#expressroute-global-reach-peering-network) as part of the planning phase.
+1. A /29 non-overlapping [network address block](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) for the ExpressRoute Global Reach peering.
 
 > [!TIP]
 > In the context of these prerequisites, your on-premises ExpressRoute circuit is _circuit 1_, and your private cloud ExpressRoute circuit is in a different subscription and labeled _circuit 2_. 
@@ -59,7 +59,7 @@ Now that you’ve created an authorization key for the private cloud ExpressRout
 
 1. From the private cloud **Overview**, under Manage, select **Connectivity > ExpressRoute Global Reach > Add**.
 
-   :::image type="content" source="media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="From the menu, select Connectivity, the ExpressRoute Global Reach tab, and then Add.":::
+   :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="From the menu, select Connectivity, the ExpressRoute Global Reach tab, and then Add.":::
 
 1. You can create an on-premises cloud connection by doing one of the following:
 
@@ -71,7 +71,7 @@ Now that you’ve created an authorization key for the private cloud ExpressRout
 >[!TIP]
 >You can delete or disconnect a connection from the list by selecting **More**.  
 >
-> :::image type="content" source="media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Disconnect or deleted an on-premises connection":::
+> :::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Disconnect or deleted an on-premises connection":::
 
 ### Azure CLI in a Cloud Shell method
 
@@ -104,7 +104,7 @@ In this tutorial, you learned how to create a second authorization key for the p
 Continue to the next tutorial to learn how to deploy and configure VMware HCX solution for your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure VMware HCX](tutorial-deploy-vmware-hcx.md)
+> [Deploy and configure VMware HCX](hybrid-cloud-extension-installation.md)
 
 
 <!-- LINKS - external-->
