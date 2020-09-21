@@ -85,7 +85,7 @@ my_environment = Environment.get(workspace=ws, name="AzureML-Minimal")
 
 For more information and details about environments, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md).
   
-### Local compute target
+### <a name="local"></a>Local compute target
 
 If your compute target is your **local machine**, you are responsible for ensuring that all the necessary packages are available in the Python environment where the script runs.  Use `python.user_managed_dependencies` to use your current Python environment (or the Python on the path you specify).
 
@@ -111,6 +111,7 @@ from azureml.core import ScriptRunConfig
 script_run_config = ScriptRunConfig(source_directory=project_folder, script='train.py')
 
 # Set compute target
+# Skip this if you are running on your local computer
 script_run_config.run_config.target = my_compute_target
 
 # Set environment.   If you don't do this, a default environment will be created.

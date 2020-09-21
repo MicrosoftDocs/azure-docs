@@ -24,8 +24,7 @@ In a typical model development lifecycle, you might:
 The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
 ## <a name="train"></a> Training compute targets
-
-Azure Machine Learning has varying support across different compute resources.  You can also attach your own compute resource, although support for various scenarios may vary.
+Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or perform distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -36,6 +35,24 @@ Learn more about [using a compute target for model training](how-to-set-up-train
 The following compute resources can be used to host your model deployment.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+
+
+## Compute targets for inference
+
+When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in one of the following deployment scenarios:
+
+* As a __web service__ that is used for real-time inference. Web service deployments use one of the following compute targets:
+
+    * [Local computer](how-to-manage-compute-targets.md#local)
+    * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
+    * [Azure Container Instances](how-to-manage-compute-targets.md#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (preview). Deployment to Azure Functions only relies on Azure Machine Learning to build the Docker container. From there, it is deployed using Azure Functions. For more information, see [Deploy a machine learning model to Azure Functions (preview)](how-to-deploy-functions.md).
+
+* As a __batch inference__ endpoint that is used to periodically process batches of data. Batch inferences uses [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
+
+* To an __IoT device__ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it is deployed using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 

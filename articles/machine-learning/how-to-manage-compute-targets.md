@@ -1,7 +1,7 @@
 ---
 title: Create training & deploy computes (Python)
 titleSuffix: Azure Machine Learning
-description: Use the Azure Machine Learning Python SDK to create training and deployment compute resources (compute targets) for machine learning
+description: Add  compute resources (compute targets) to your workspace to use for machine learning training and deployment
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -12,15 +12,25 @@ ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ---
-# Attach compute targets for model training and deployment with Python SDK
+# Create compute targets for model training and deployment
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+In this article,learn how to attach Azure compute resources you already have to your Azure Machine Learning workspace so you can use them for machine learning training and deployment [compute targets](concept-compute-target.md).  
 
-In this article, use the Azure Machine Learning Python SDK to create and manage compute targets. You can also create and manage compute targets with:
-* [Azure Machine Learning studio](how-to-create-attach-compute-studio.md), 
-* The [CLI extension](reference-azure-machine-learning-cli.md#resource-management) for Azure Machine Learning
-* The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
+In this article, learn how to set up your workspace to use these compute resources:
 
+* Your [local computer](#local)
+* [Remote virtual machines](#vm)
+* [Azure HDInsight ](#hdinsight)
+* [Azure Batch](#azbatch)
+* [Azure Databricks](#databricks)
+* [Azure Data Lake Analytics](#adla)
+
+To use compute targets managed by Azure Machine Learning, see:
+
+* [Azure Container Instance](#aci)
+* [zure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
+* [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
+* [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
 
 ## Prerequisites
 
@@ -34,48 +44,17 @@ In this article, use the Azure Machine Learning Python SDK to create and manage 
 
     If you want to re-attach a compute target, for example to change TLS or other cluster configuration setting, you must first remove the existing attachment.
 
-* Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What's a compute target?
 
-With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You also use compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
-## Compute targets for training
-
-Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or perform distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
-
-[!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
-
-## Compute targets for inference
-
-When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in one of the following deployment scenarios:
-
-* As a __web service__ that is used for real-time inference. Web service deployments use one of the following compute targets:
-
-    * [Local computer](#local)
-    * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
-    * [Azure Container Instances](#aci)
-    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
-    * Azure Functions (preview). Deployment to Azure Functions only relies on Azure Machine Learning to build the Docker container. From there, it is deployed using Azure Functions. For more information, see [Deploy a machine learning model to Azure Functions (preview)](how-to-deploy-functions.md).
-
-* As a __batch inference__ endpoint that is used to periodically process batches of data. Batch inferences uses [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
-
-* To an __IoT device__ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it is deployed using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a id="local"></a>Local computer
 
-When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
+When you use your local computer for **training**, there is no need to set up or specify a compute target.  Just [submit the training run](how-to-set-up-training-targets.md#local) from your local machine.
 
 When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-&preserve-view=true) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
-
-
-## <a id="aci"></a>Azure Container Instance
-
-Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
-
-## Azure Kubernetes Service
-
-Azure Kubernetes Service (AKS) allows for a variety of configuration options when used with Azure Machine Learning. For more information, see [How to create and attach Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
 ## <a id="vm"></a>Remote virtual machines
 
@@ -324,6 +303,15 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 > [!TIP]
 > Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) to copy the data before training.
+
+## <a id="aci"></a>Azure Container Instance
+
+Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
+
+## Azure Kubernetes Service
+
+Azure Kubernetes Service (AKS) allows for a variety of configuration options when used with Azure Machine Learning. For more information, see [How to create and attach Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
+
 
 ## Notebook examples
 
