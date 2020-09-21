@@ -20,20 +20,19 @@ To create logic app workflows that integrate across apps, data, cloud services, 
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions. The pricing model for the new **Logic App (Preview)** resource type also uses [hosting plans and pricing tiers](../app-service/overview-hosting-plans.md), which you can select or specify during deployment. For more information about hosting plans and pricing, review these topics:
-
-* [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
-* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
+The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
 
 Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code and in the Azure portal. However, the experiences for the original resource type are separate from the new resource type. At this time, both **Logic Apps** and **Logic App (Preview)** resource types can exist at the same time in Visual Studio Code and in the Azure portal. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections.
 
-This article provides a high-level overview about this public preview and helps you learn more about the following:
+This article provides a high-level [overview about this public preview](#whats-new), describes various aspects about the **Logic App (Preview)** resource type, and how to create this resource by using Visual Studio Code:
 
-* How stateful and stateless logic apps differ from each other.
+* How [stateful and stateless](#stateful-stateless) logic apps differ from each other.
 
-* How to create new **Logic App (Preview)** workflows by using the public preview extension.
+* How to meet the [setup requirements](#prerequisites) and [set up Visual Studio Code](#set-up) for the public preview extension.
 
-* How to publish or deploy these new logic apps directly from Visual Studio Code to Azure or to a [Docker container that you can run anywhere](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
+* How to build new **Logic App (Preview)** workflows by [creating a project and selecting a workflow template](#create-project).
+
+* How to publish these new logic apps directly from Visual Studio Code [to Azure](#publish-azure) or [to a Docker container](#deploy-docker) that you can run anywhere. For more information about Docker, see [What is Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
 
 <a name="whats-new"></a>
 
@@ -41,7 +40,7 @@ This article provides a high-level overview about this public preview and helps 
 
 The Azure Logic Apps (Preview) extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
 
-* Build logic apps for integration and automation workflows from [300+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors.md) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Build logic apps for integration and automation workflows from [300+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
   * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in native triggers and actions such as Azure Functions and Azure API Management.
 
@@ -51,7 +50,7 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
 * Test your logic apps locally in the Visual Studio Code development environment.
 
-* Publish and deploy your logic apps from Visual Studio Code directly to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and Docker containers.
+* Publish and deploy your logic apps from Visual Studio Code directly to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and [Docker containers](/dotnet/core/docker/introduction).
 
 <a name="stateful-stateless"></a>
 
@@ -65,11 +64,25 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
   Create stateless logic apps when you don't need to save, review, or reference data from previous events. These logic apps keep the input and output for each action and their workflow states only in memory, rather than transfer this information to external storage. As a result, stateless logic apps have shorter runs that are usually no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#run-history) for stateless logic apps.
 
-  > [!NOTE]
-  > Stateless logic apps currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). 
-  > For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+  Stateless workflows currently support only actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To start your workflow, you can use a [built-in trigger](../connectors/apis-list.md#built-ins) instead. For more information about unsupported triggers, actions, and connectors, see [Unsupported capabilities](#unsupported).
 
-For information about how nested logic apps behave differently between stateful and stateless logic apps, see [Nested behavior differences between stateful and stateless logic apps](#nested-behavior).
+For differences in how nested logic apps behave between stateful and stateless logic apps, see [Nested behavior differences between stateful and stateless logic apps](#nested-behavior).
+
+<a name="pricing-model"></a>
+
+## Pricing model
+
+When you deploy the new **Logic App (Preview)** resource type, you're prompted to select a hosting plan, specifically the [App Service plan or Premium plan](../azure-functions/functions-scale.md) to use as the pricing model. If you select the App Service plan, you're also prompted to select a [pricing tier](../app-service/overview-hosting-plans.md). During public preview, running logic apps on App Service doesn't incur *additional* charges on top of the selected plan.
+
+Stateful logic apps use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the Azure Storage pricing model applies to storage transactions that the Azure Logic Apps runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
+
+For more information about the pricing models that apply to this new resource type, review these topics:
+
+* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
+* [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
+* [Azure Functions pricing details](https://azure.microsoft.com/pricing/details/functions/)
+* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/windows/)
+* [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
 
 ## Prerequisites
 
@@ -82,12 +95,6 @@ For information about how nested logic apps behave differently between stateful 
 * To build the same example logic app in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
   If you choose to use a different [email connector that's supported by Azure Logic Apps](/connectors/), such as Outlook.com or [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), you can still follow the example, and the general overall steps are the same, but your user interface and options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
-
-* Before you can sign in and connect to services and systems that require authentication from your logic apps in Visual Studio Code, you have to first create these connections in a temporary logic app by using the [Azure portal](https://portal.azure.com). After you create these connections, you can delete the temporary logic app because connections are Azure resources that exist independently from the logic app.
-
-  > [!IMPORTANT]
-  > When you create the temporary logic app, make sure that you use the same Azure 
-  > subscription and region as the logic app that you want to build in Visual Studio Code.
 
 ### Tools
 
@@ -169,10 +176,11 @@ When you later try to open the Logic App Designer for your logic app, you get a 
 
    > [!IMPORTANT]
    > Before you open the Logic App Designer to create your logic app workflow, make sure that you start the emulator. 
-   > Otherwise, you get a message that the `Workflow design time could not be started`. For more information, 
-   > review [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
+   > Otherwise, you get a message that the `Workflow design time could not be started`.
    >
    > ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
+
+<a name="set-up"></a>
 
 ## Set up Visual Studio Code
 
@@ -316,8 +324,7 @@ Before you try opening your workflow definition file in the designer, if Visual 
 
    **Windows or another OS**
 
-   * Make sure that the Azure Storage Emulator is running. For more information, see 
-   [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
+   * Make sure that the Azure Storage Emulator is running.
 
    **Additional troubleshooting**
 
@@ -350,8 +357,7 @@ Before you try opening your workflow definition file in the designer, if Visual 
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Stateless logic app workflows currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). 
-   > For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+   > For stateless logic app workflows, you can only add actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To start your workflow, select a [built-in trigger](../connectors/apis-list.md#built-ins) instead. For more information about unsupported triggers, actions, and connectors, see [Unsupported capabilities](#unsupported).
 
 1. From the resource groups list, select **Create new resource group**.
 
@@ -388,13 +394,6 @@ The logic app workflow in this example uses this trigger and these actions:
 * The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When a HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
 
 * The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
-
-  > [!IMPORTANT]
-  > For connections that you want to use in logic app workflow built with Visual Studio Code, you have 
-  > to first create these connections by using the Logic App Designer in Azure portal. Make sure that 
-  > you create these connections in a logic app that uses the same Azure subscription and region as 
-  > the logic app workflow that you build in Visual Studio Code. After you create the connections, you can 
-  > delete the logic app. Connections are Azure resources that exist separately from the logic app.
 
 * The built-in [Response action](../connectors/connectors-native-reqres.md), which you use to send a reply and return data back to the caller.
 
@@ -481,7 +480,7 @@ The logic app workflow in this example uses this trigger and these actions:
 
 Next, debug and test your workflow locally in Visual Studio Code.
 
-<a name="debug-test-workflow-locally"></a>
+<a name="debug-test-locally"></a>
 
 ## Debug and test your logic app
 
@@ -610,7 +609,7 @@ After you make updates to your logic app, you can run another test by rerunning 
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
-<a name="publish-to-azure"></a>
+<a name="publish-azure"></a>
 
 ## Publish to Azure
 
@@ -645,7 +644,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Select a hosting plan for your new logic app. This example selects **App Service Plan**.
+   1. Select a hosting plan for your new logic app, either [**App Service Plan**](../azure-functions/functions-scale.md#app-service-plan) or [**Premium**](../azure-functions/functions-scale.md#premium-plan). This example selects **App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
@@ -653,7 +652,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
 
-   1. Provide a name for the new App Service plan, and then select an App Service [pricing tier](https://azure.microsoft.com/pricing/details/app-service/windows/) to use. This example selects the **F1 Free** plan.
+   1. Provide a name for your App Service plan, and then select a [pricing tier](../azure/app-service/overview-hosting-plans.md) for the plan. This example selects the **F1 Free** plan.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select a pricing tier.](./media/create-stateful-stateless-workflows-visual-studio-code/select-pricing-tier.png)
 
@@ -683,16 +682,11 @@ To enable run history and monitoring on a deployed **Logic App (Preview)** resou
 
    ![Screenshot that shows the Azure portal with a deployed Logic Apps (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
-<a name="manage-deployed-workflows"></a>
+<a name="find-manage-deployed-workflows-vs-code"></a>
 
 ## Find and manage deployed logic apps in Visual Studio Code
 
-In Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** or the **Logic App (Preview)** resource type. However, to access both resource types, you need both the **Azure Logic Apps** and the **Azure Logic Apps (Preview)** extensions for Visual Studio Code.
-
- , and select tasks that help you manage those logic apps.
-
-In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. However, the logic apps for each type are organized in their own individual and separate resource category. To find logic apps for each type, search for either *Logic App (consumption)** or  either type and select tasks that help you manage that logic apps. However, each Logic App resource type appears on their own individual resource pages.
-
+In Visual Studio Code, you can view all the deployed logic apps in your Azure subscription, whether they are the original **Logic Apps** or the **Logic App (Preview)** resource type, and select tasks that help you manage those logic apps. However, to access both resource types, you need both the **Azure Logic Apps** and the **Azure Logic Apps (Preview)** extensions for Visual Studio Code.
 
 1. On the left toolbar, select the Azure icon. In the **Azure: Logic Apps (Preview)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
 
@@ -712,9 +706,16 @@ In the Azure portal, you can view all the deployed logic apps that are in your A
 
    ![Screenshot that shows the Azure portal and the search bar with search results for deployed logic app, which appears selected.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
+<a name="find-manage-deployed-workflows-portal"></a>
+
 ## Find and manage deployed logic apps in the portal
 
-In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. However, the logic apps for each type are organized in their own individual and separate resource category. To find logic apps for each type, search for either *Logic App (consumption)** or  either type and select tasks that help you manage that logic apps. However, each Logic App resource type appears on their own individual resource pages.
+In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure.
+
+> [!NOTE]
+> For public preview, you can only view deployed **Logic App (Preview)** resources in the Azure portal, 
+> not create new **Logic App (Preview)** resources. You can create these logic apps only in Visual Studio Code. 
+> However, you can [add workflows](#add-workflows) to deployed logic apps with this resource type.
 
 To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
 
@@ -736,13 +737,29 @@ To find logic apps that have the **Logic App (Preview)** resource type, follow t
 
    ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and the deployed workflow](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
 
-1. To view an individual workflow, on the **Workflows** plane, select a workflow.
+1. To view an individual workflow, on the **Workflows** pane, select a workflow.
 
    The workflow pane opens and shows more information and tasks that you can perform on that workflow. For example, to view the steps in the workflow, select **Designer**.
 
    ![Screenshot that shows the selected workflow's "Overview" pane, while the workflow menu shows the selected "Designer" command.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
-<a name="deploy-to-docker"></a>
+<a name="add-workflow"></a>
+
+## Add a workflow to deployed logic apps
+
+Through the Azure portal, you can add workflows to a **Logic App (Preview)** resource that you deployed from Visual Studio Code. 
+
+1. In the [Azure portal](https://portal.azure.com), find and select your deployed **Logic App (Preview)** resource.
+
+1. On the resource menu, select **Workflows**.
+
+1. On the **Workflows** pane, select **Add**.
+
+1. In the **New workflow** pane, provide name for the workflow. Select either **Stateful** or **Stateless** **>** **Create**.
+
+1. 
+
+<a name="deploy-docker"></a>
 
 ## Deploy to Docker container
 
@@ -807,14 +824,6 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
      <...>
    }
    ```
-
-   For more information, see these GitHub issues:
-
-   * [Deploy to a Docker container - GitHub Issue #151](https://github.com/Azure/logicapps/issues/151)
-   * [Getting CallbackUrl for container throws nullreference exception - GitHub Issue #129](https://github.com/Azure/logicapps/issues/129)
-   * [How to determine master key for workflow in container - GitHub Issue #121](https://github.com/Azure/logicapps/issues/121)
-   * [Using Docker Compose - GitHub Issue #84](https://github.com/Azure/azure-functions-docker/issues/84)
-   * [Function host is not running when running as a container - GitHub Issue #123](https://github.com/Azure/logicapps/issues/123)
 
 <a name="run-history"></a>
 
@@ -914,51 +923,27 @@ This table specifies the child workflow's behavior based on whether the parent a
 | Stateless | Stateless | Trigger and wait |
 ||||
 
-<a name="known-issues"></a>
+## Limits
 
-## Known issues
+Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md) are the same for this resource type, here are the differences:
 
-### Trigger support for managed connectors in stateless workflows
+* Managed connectors: 50 requests per minute per connection
 
-Stateless logic app workflows currently support only actions and not triggers for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+* The [Inline Code action for JavaScript](../logic-apps/logic-apps-add-run-inline-code.md) limit on characters has increased from 1,024 characters to 100,000 characters.
 
-### Data persistence in trigger and action details pane
+<a name="unsupported"></a>
 
-When you work with the Logic App Designer in Visual Studio Code, and you make changes for a trigger or action in the details pane on the **Settings**, **Run After**, or **Static Result** tab, make sure that you select **Done** and commit your changes before you switch tabs or change focus to the designer. Otherwise, your changes won't persist.
+## Unsupported capabilities
 
-### Support for Inline Code action
+For this public preview, these capabilities are not supported:
 
-The [**Inline Code** action](../logic-apps/logic-apps-add-run-inline-code.md), which you can use for running JavaScript code, currently isn't supported on Linux operating systems or on the Azure Functions runtime version 2. If you want to use this action on a non-Linux OS, make sure that you install [Azure Functions Core Tools 3.0.14492](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools), which includes a version of the same runtime that powers the Azure Functions runtime that runs in Visual Studio Code. For more information, see [Prerequisites](#prerequisites).
+* Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview.
 
-### Added workflows experience delays appearing in your project or deployed logic app
+* For stateless logic app workflows, you can only add actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To build your workflow, use a [built-in trigger](../connectors/apis-list.md#built-ins).
 
-If you add a workflow to your project in Visual Studio Code or to your deployed Logic App (Preview) resource, the workflow might experience a delay before appearing because your project or logic app needs to restart. If the workflow still doesn't appear after some time, try refreshing the project pane by pressing Shift + F5 or by clearing the last hour from your browser's cache by pressing Ctrl + Shift + Delete.
+* In Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
 
-### Delays when you disable a logic app or workflow in the Azure portal
-
-If you select **Disable** for a workflow in a **Logic App (Preview)** resource, you might experience a delay, usually around 30 seconds, before the workflow's **Status** changes from **Enabled** to **Disabled**. This delay happens because the function host, which powers the workflow, has to restart. However, the **Status** column shows the correct state after the function host finishes restarting. The delay happens in these locations:
-
-* On the logic app resource's **Workflows** pane:
-
-  ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and a selected workflow](./media/create-stateful-stateless-workflows-visual-studio-code/workflows-pane-disable-delay-issue.png)
-
-* On the individual workflow's **Overview** pane:
-
-  ![Screenshot that shows the selected workflow's "Overview" pane with delayed disabled workflow](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-disable-delay-issue.png)
-
-### Zoom levels and off-screen content in Visual Studio Code
-
-No scrollbar appears when you zoom in or zoom out in Visual Studio Code, which prevents you from viewing content that appears off the screen.
-
-* To restore the original view, reset the zoom level with either option:
-
-  * Press **Ctrl** + **NumPad0**.
-
-  * From the **View** menu, select **Appearance** **>** **Reset Zoom**.
-
-* To change the zoom level on only the Logic App Designer canvas, use the Logic App Designer's zoom controls, which appear at the bottom of the canvas.
-
-  ![Screenshot that shows the Logic App Designer canvas and the zoom controls at the canvas bottom](./media/create-stateful-stateless-workflows-visual-studio-code/zoom-levels-designer-canvas.png)
+* **Consumption** hosting plans aren't supported for logic app deployment.
 
 ## Next steps
 
@@ -966,3 +951,4 @@ We'd like to hear from you about your experiences with this public preview exten
 
 * For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
 * For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
+* For the public preview extension's ReadMe file, see [Azure Logic Apps for Visual Studio Code (Preview)](https://github.com/microsoft/vscode-azurefunctions-clone/blob/master/README.md)
