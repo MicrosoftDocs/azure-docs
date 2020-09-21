@@ -7,7 +7,7 @@ ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial #Required
-ms.date: 05/01/2020
+ms.date: 09/21/2020
 ---
 
 # Tutorial: use Video Indexer with Logic App and Power Automate
@@ -49,7 +49,7 @@ To set up the first flow, you will need to provide yourâ€¯Video Indexer API Keyâ
 ![Connection name and API key](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
 > [!TIP]
-> If you previously connected a Video Indexer or Storage account in Logic Apps it remembers your details and connects you automatically. You can edit the connection by clicking on **Change connection** at the bottom of each action.
+> If you previously connected a Video Indexer or Storage account in Logic Apps your connection details are stored and you will be connected automatically. You can edit the connection by clicking on **Change connection** at the bottom of each action.
 
 Once you can connect to your Azure Storage and Video Indexer accounts, find and choose the "When a blob is added or modified" trigger in **Logic Apps Designer**.
 
