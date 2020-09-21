@@ -38,7 +38,7 @@ To migrate your SQL Server to Azure SQL Managed Instance, make sure:
 
 ## Pre-migration
 
-After you've verified that your source environment is supported, start with the pre-migration stage. Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your migration. 
+After you've verified that your source environment is supported, start with the pre-migration stage. Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your migration.  
 
 ### Discover
 
