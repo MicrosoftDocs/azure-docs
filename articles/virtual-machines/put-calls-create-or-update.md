@@ -12,9 +12,11 @@ ms.custom: avverma
 
 # PUT calls for creation or updates on compute resources
 
-`Microsoft.Compute` resources do not support the conventional definition of *PUT* semantics. Instead, these resources use PATCH semantics.
+`Microsoft.Compute` resources do not support the conventional definition of *HTTP PUT* semantics. Instead, these resources use PATCH semantics for both the PUT and PATCH verbs.
 
-**Create** operations following PATCH semantics and apply default values when appropriate. For example, the disk `caching` property of a virtual machine defaults to `ReadWrite` if the resource is an OS disk.
+**Create** operations apply default values when appropriate. However, resource updates, whether done through PUT or PATCH, do not default any properties. Thus, they apply strict PATCH semantics.
+
+For example, the disk `caching` property of a virtual machine defaults to `ReadWrite` if the resource is an OS disk.
 
 ```json
     "storageProfile": {
@@ -33,9 +35,12 @@ ms.custom: avverma
     },
 ```
 
-However, for **update** operations when a property is left out or a *null* value is passed, it will remain unchanged and there no defaulting values. 
+However, for **update** operations when a property is left out or a *null* value is passed, it will remain unchanged and there no defaulting values.
 
-This is important when sending update operations to a resource with the intention of removing an association. If that resource is a `Microsoft.Compute` resource, the corresponding property you want to remove needs to be explicitly called out and a value assigned. Such as **" "** (empty or blank). This will instruct the platform to remove that association.
+This is important when sending update operations to a resource with the intention of removing an association. If that resource is a `Microsoft.Compute` resource, the corresponding property you want to remove needs to be explicitly called out and a value assigned. To achieve this, users can pass an empty string such as **" "**. This will instruct the platform to remove that association.
+
+ [IMPORTANT]
+> There is no support for "patching" an array element. Instead, the client has to do a PUT or PATCH request with the entire contents of the updated array. For example, to detach a data disk from a VM, do a GET request to get the current VM model, remove the disk to be detached from `properties.storageProfile.dataDisks`, and do a PUT request with the updated VM entity.
 
 ## Examples
 
