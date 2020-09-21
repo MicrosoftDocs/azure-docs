@@ -50,7 +50,7 @@ We recommend to at least take the following steps:
 
 :::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="Configuring your instance.":::
 
-Apply your settings and wait while the instance restarts. In the meantime, you may continue with the next step, **Configuring Blob Storage for GitHub Actions**.
+Apply your settings.  While the instance restarts, you can continue with the next step, **Configuring Blob Storage for GitHub Actions**.
 
 :::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Create your admin account.":::
 
