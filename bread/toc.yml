@@ -102,6 +102,9 @@
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
+  - name: Azure Automanage
+    tocHref: /azure/automanage/
+    topicHref: /azure/automanage/
   - name: Static Web Apps
     tocHref: /azure/static-web-apps/
     topicHref: /azure/static-web-apps/
@@ -432,6 +435,9 @@
     - name: Immersive Reader
       tocHref: /azure/cognitive-services/immersive-reader/
       topicHref: /azure/cognitive-services/immersive-reader/
+  - name: Communication Services
+    tocHref: /azure/communication-services/
+    topicHref: /azure/communication-services/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
