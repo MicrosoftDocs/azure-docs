@@ -16,7 +16,10 @@ Microsoft offers a Standard Contract for Microsoft commercial marketplace. This 
 The terms and conditions for an offer are defined when creating the offer in Partner Center. You can select to use the Standard Contract for the Microsoft commercial marketplace instead of providing your own custom terms and conditions.
 
 >[!Note]
->Once you publish an offer using the Standard contract for the Microsoft commercial marketplace, you are not able to use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the Standard Contract *or* your own terms and conditions. If you would like to modify the terms of the Standard Contract you can do so through Standard Contract Amendments.
+>Once you publish an offer using the Standard contract for the Microsoft commercial marketplace, you won't be able to use your own custom terms and conditions. You either offer your solution under the Standard Contract *or* your own terms and conditions. If you'd like to modify the terms of the Standard Contract you can do so through Standard Contract Amendments.
+
+>[!Note]
+>Terms and conditions are defined at the offer level and apply to all plans. If your offer has a private plan that requires custom terms, you must define them in the **Plan description** field of the private plan listing.
 
 ## Standard Contract Amendments
 
