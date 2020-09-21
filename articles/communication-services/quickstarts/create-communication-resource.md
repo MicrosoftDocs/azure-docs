@@ -99,4 +99,4 @@ In this quickstart you learned how to:
 > * Delete the resource
 
 > [!div class="nextstepaction"]
-> [Create your first user access tokens](user-access-tokens.md)
+> [Create your first user access tokens](access-tokens.md)

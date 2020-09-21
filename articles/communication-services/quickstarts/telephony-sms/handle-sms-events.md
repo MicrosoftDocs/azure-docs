@@ -54,7 +54,7 @@ In the portal, navigate to your Azure Communication Services Resource that you c
 
 Press **Add Event Subscription** to enter the creation wizard.
 
-On the **Create Event Subscription** page, Enter a **name** for the event subscription. Then, enter a **name** for the **system topic**.
+On the **Create Event Subscription** page, Enter a **name** for the event subscription.
 
 You can subscribe to specific events to tell Event Grid which of the SMS events you want to track, and where to send the events. Select the events you'd like to subscribe to from the dropdown menu. For SMS you'll have the option to choose `SMS Received` and `SMS Delivery Report Received`. 
 

@@ -76,8 +76,6 @@ user = client.create_user()
 print("\nCreated a user with ID: " + user.identifier + ":")
 ```
 
-Read the [Identity Model concept page to learn more](../../concepts/identity-model.md).
-
 ## Issue user access tokens
 
 Use the `issue_token` method to issue an access token for a Communication Services user. If you do not provide the optional `user` parameter a new user will be created and returned with the token.
@@ -85,7 +83,7 @@ Use the `issue_token` method to issue an access token for a Communication Servic
 ```python
 # Issue an access token with the "voip" scope for a new user
 token_result = client.issue_token(user, ["voip"])
-expires_on = token_result.expires_on
+expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
 print("\nIssued a token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
 ```
@@ -98,7 +96,7 @@ In some cases, you may need to explicitly revoke user access tokens, for example
 
 ```python  
 client.revoke_tokens(user)
-print("\nSuccessfully revoked all tokens for user with ID: " + user.id)
+print("\nSuccessfully revoked all tokens for user with ID: " + user.identifier)
 ```
 
 ## Delete a user

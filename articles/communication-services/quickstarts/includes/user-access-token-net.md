@@ -97,8 +97,6 @@ var user = userResponse.Value;
 Console.WriteLine($"\nCreated a user with ID: {user.Id}");
 ```
 
-Read the [Identity Model concept page to learn more](../../concepts/identity-model.md).
-
 ## Issue user access tokens
 
 Use the `issueToken` method to issue an access token for a Communication Services user. If you do not provide the optional `user` parameter a new user will be created and returned with the token.

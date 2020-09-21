@@ -80,31 +80,19 @@ Instantiate a `CommunicationIdentityClient` with your resource's access key and 
 Add the following code to the `main` method:
 
 ```java
+// Your can find your endpoint and access token from your resource in the Azure Portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-// Your user access token retrieved from your trusted service
 String accessToken = "SECRET";
-CommunicationClientCredential credential = null;
-try {
-    credential = new CommunicationClientCredential(accessToken);
-} catch (InvalidKeyException e) {
-    System.out.println(e.getMessage());
-} catch (NoSuchAlgorithmException e) {
-    System.out.println(e.getMessage());
-}
-CommunicationIdentityClientBuilder builder = new CommunicationIdentityClientBuilder();
 
 // Create an HttpClient builder of your choice and customize it
 // Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
-// Set the endpoint, access key, and the HttpClient
-builder.endpoint(endpoint)
-    .credential(credential)
-    .httpClient(httpClient);
-
-// Initialize the CommunicationIdentityClient
-CommunicationIdentityClient communicationIdentityClient = builder.buildClient();
-
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+    .endpoint(endpoint)
+    .credential(new CommunicationClientCredential(accessToken))
+    .httpClient(httpClient)
+    .buildClient();
 ```
 
 You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) that is provided by `azure-core`.
@@ -117,8 +105,6 @@ Azure Communication Services maintains a lightweight identity directory. Use the
 CommunicationUser user = communicationIdentityClient.createUser();
 System.out.println("\nCreated a user with ID: " + user.getId());
 ```
-
-Read the [Identity Model concept page to learn more](../../concepts/identity-model.md).
 
 ## Issue user access tokens
 

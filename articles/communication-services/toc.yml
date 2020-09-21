@@ -10,8 +10,8 @@
   items:
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
-  - name: Create and manage user access tokens
-    href: quickstarts/user-access-tokens.md
+  - name: Create and manage access tokens
+    href: quickstarts/access-tokens.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -66,9 +66,7 @@
     href: concepts/sdk-options.md 
   - name: Pricing model
     href: concepts/pricing.md
-  - name: Identity model
-    href: concepts/identity-model.md
-  - name: Authentication and authorization
+  - name: Authentication
     href: concepts/authentication.md
   - name: Event handling
     href: concepts/event-handling.md
@@ -84,3 +82,7 @@
   items:
   - name: REST API documentation
     href: https://docs.microsoft.com/rest/api/azure/
+- name: Resources
+  items:
+  - name: Release notes
+    href: release-notes.md

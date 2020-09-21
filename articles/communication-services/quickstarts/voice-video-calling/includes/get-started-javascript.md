@@ -15,7 +15,7 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../user-access-tokens.md).
+- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../access-tokens.md).
 
 ## Setting up
 
@@ -38,8 +38,8 @@ npm init -y
 Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
 
 ```console
-npm install @azure/communication-calling --save
 npm install @azure/communication-common --save
+npm install @azure/communication-calling --save
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
@@ -72,7 +72,7 @@ Here is the code:
       style="margin-bottom:1em; width: 200px;"
     />
     <div>
-      <button id="call-button" type="button">
+      <button id="call-button" type="button" disabled="true">
         Start Call
       </button>
       &nbsp;
@@ -85,7 +85,7 @@ Here is the code:
 </html>
 ```
 
-Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic.
+Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic. 
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
@@ -95,9 +95,6 @@ let call;
 const calleeInput = document.getElementById("callee-id-input");
 const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
-let callClient;
-let tokenCredential;
-let callAgent;
 
 // quickstart code goes here
 ```
@@ -106,37 +103,43 @@ let callAgent;
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
 
-| Name                                                           | Description                                                                                   |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| CallClient                  | The CallClient is the main entry point to the Calling client library.                         |
-| CallAgent                   | The CallAgent is used to start and manage calls.                                              |
-| AzureCommunicationUserCredential | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent.
+| Name                             | Description                                                                                                                                 |
+| ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
+| CallClient                       | The CallClient is the main entry point to the Calling client library.                                                                       |
+| CallAgent                        | The CallAgent is used to start and manage calls.                                                                                            |
+| AzureCommunicationUserCredential | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent. |
+
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a `User Access Token` which will enable us to make and receive calls. Add the following code to **client.js**:
+You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
 
 ```javascript
-callClient = new CallClient();
-tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
-callClient.createCallAgent(tokenCredential).then(agent => callAgent = agent);
-```
+const callClient = new CallClient();
+const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+let callAgent;
 
-You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../user-access-tokens.md) documentation if you don't already have a token available.
+callClient.createCallAgent(tokenCredential).then(agent => {
+  callAgent = agent;
+  callButton.disabled = false;
+});
+```
 
 ## Start a call
 
-Add an event handler to initiate a call to our echo bot when the `callButton` is clicked:
+Add an event handler to initiate a call when the `callButton` is clicked:
 
 ```javascript
 callButton.addEventListener("click", () => {
-  // start a call
-  const acsUser = { communicationUserId: calleeInput.value };
-  call = callAgent.call([acsUser], {});
-
-  // toggle button states
-  hangUpButton.disabled = false;
-  callButton.disabled = true;
+    // start a call
+    const userToCall = calleeInput.value;
+    call = callAgent.call(
+        [{ communicationUserId: userToCall }],
+        {}
+    );
+    // toggle button states
+    hangUpButton.disabled = false;
+    callButton.disabled = true;
 });
 ```
 
@@ -162,7 +165,7 @@ The `forEveryone` property ends the call for all call participants.
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle application host in on a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:

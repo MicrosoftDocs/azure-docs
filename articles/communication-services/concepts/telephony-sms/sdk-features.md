@@ -11,12 +11,13 @@ ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
-# SMS client library Overview
+# SMS client library overview
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
+Azure Communication Services SMS client libraries can be used to add SMS messaging to your applications.
 
-## SMS client library Capabilities
+## SMS client library capabilities
 
 The following list presents the set of features which are currently available in our client libraries.
 

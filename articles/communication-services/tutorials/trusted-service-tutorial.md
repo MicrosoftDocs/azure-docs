@@ -10,7 +10,6 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp
 ---
 
 # Build a trusted authentication service using Azure Functions
@@ -31,6 +30,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 You may also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
-- [Creating user access tokens](../quickstarts/user-access-tokens.md)
+- [Creating user access tokens](../quickstarts/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)

@@ -24,7 +24,10 @@ ms.service: azure-communication-services
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web client library can be used to build a group calling experience.
 
-In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources. Finally, we'll update the sample's functionality.
+In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
+
+> [!IMPORTANT]
+> [Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples)
 
 ## Overview
 
@@ -38,7 +41,7 @@ When you press the "Start a call" button, the web application fetches a user acc
 
 :::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once your configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
+Once you configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
@@ -46,15 +49,15 @@ Components of the main calling screen:
 
 - **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
 - **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
-- **Side Bar**: This is where participants and setting information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
+- **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
 Below you'll find more information on prerequisites, steps to set up the sample, and step-by-step tutorials to help familiarize yourself with its various components.
 
 ## Prerequisites
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
-- [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
+- [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
+- [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
@@ -70,19 +73,19 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone`
-3. Go to **ClientApp Folder** and run `npm run setup`
+3. Go to **Calling/ClientApp Folder** and run `npm run setup`
    1. If you see an error 1, look above in the output for a URL where you'll need to go to to authorize your client. (URL will look like this: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...`)Once you visit the URL in a browser, copy the command from the browser window and run it.
    2. Run command `npm run setup-vsts-auth` again once you complete the previous step.
-4. Go to the ClientApp folder and run `npm install`.
-5. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
-6. Once you get the Connection String, Add the connection string to the **appsetting.json** file found under the Service .NET folder. Input your connection string in the variable: `ResourceConnectionString`.
+4. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
+5. Once you get the Connection String, Add the connection string to the **Calling/appsetting.json** file found under the Service .NET folder. Input your connection string in the variable: `ResourceConnectionString`.
 
 ### Local Run
 
-1. Open the `Calling.csproj` solution in Visual Studio
-2. Run the `Calling` project
+1. Go to Calling folder
+2. Open the `Calling.csproj` solution in Visual Studio
+2. Run the `Calling` project*
 
-The browser will open at `localhost:5000`. You should now be able to proceed with starting a group call that uses your Communication Services resources.
+*The browser will open at `localhost:5000` (where the node is deploying the client app). App is not supported on Internet Explorer.
 
 #### Troubleshooting
 

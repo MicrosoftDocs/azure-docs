@@ -14,14 +14,14 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- A [User Access Token](../../user-access-tokens.md) for your Azure Communication Service.
+- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 
 
 ## Setting up
 
 
-## Create an Android app with an empty activity
+### Create an Android app with an empty activity
 
 From Android Studio, select Start a new Android Studio project.
 
@@ -59,9 +59,20 @@ allprojects {
     }
 }
 ```
-Then, in your module level build.gradle add the the following lines to the dependencies section
+Then, in your module level build.gradle add the the following lines to the dependencies and android sections
 
 ```groovy
+android {
+    ...
+    packagingOptions {
+        pickFirst  'META-INF/*'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
 dependencies {
     ...
     implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
@@ -76,7 +87,7 @@ In order to request permissions required to make a call, they must first be decl
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.contoso.acsquickstart" xmlns:tools="http://schemas.android.com/tools">
+    package="com.contoso.acsquickstart">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -85,7 +96,6 @@ In order to request permissions required to make a call, they must first be decl
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" tools:ignore="ProtectedPermissions" />
 
     <application
         android:allowBackup="true"
@@ -167,18 +177,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.azure.android.communication.common.CommunicationUser;
+import com.azure.android.communication.common.CommunicationUserCredential;
 import com.azure.communication.calling.CallAgent;
 import com.azure.communication.calling.CallClient;
-import com.azure.android.communication.calling.CommunicationUser;
 import com.azure.communication.calling.StartCallOptions;
-import com.azure.communication.calling.VideoOptions;
-import com.azure.android.communication.common.CommunicationUserCredential;
+
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     
-    private CallAgent agent;
+    private CallAgent callAgent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -254,7 +264,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create an agent from the user access token
 
-With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user acces tokens check the [User Access Tokens](../../user-access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
+With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user acces tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
 
@@ -265,7 +275,7 @@ private void createAgent() {
     String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(UserToken);
+        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
         callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
@@ -287,7 +297,7 @@ private void startCall() {
     String calleeId = calleeIdView.getText().toString();
     
     StartCallOptions options = new StartCallOptions();
-    options.setVideoOptions(new VideoOptions(null));
+
     callAgent.call(
         getApplicationContext(),
         new CommunicationUser[] {new CommunicationUser(calleeId)},

@@ -45,33 +45,33 @@ The Azure Communication Services client libraries that use access key authentica
 
 If you're not using a client library to make HTTP requests to the Azure Communication Services REST APIs, you'll need to programmatically create HMACs for each HTTP request. The following steps describe how to construct the Authorization header:
 
-1. Specify the Coordinated Universal Time (UTC) timestamp for the request in either in the `x-ms-date` header, or in the standard HTTP `Date` header. The service validates this to guard against certain security attacks, including replay attacks.
-1. Hash the HTTP request body using the SHA256 algorithm and pass it with the request via a header `x-ms-content-sha256`.
-1. Construct the string to be signed by concatenating the HTTP Verb (e.g. `GET` or `PUT`), HTTP request path and values of the `Date`, `Host` and `x-ms-content-sha256` HTTP header values in the following format:
+1. Specify the Coordinated Universal Time (UTC) timestamp for the request in either the `x-ms-date` header, or in the standard HTTP `Date` header. The service validates this to guard against certain security attacks, including replay attacks.
+1. Hash the HTTP request body using the SHA256 algorithm then pass it, with the request, via the `x-ms-content-sha256` header.
+1. Construct the string to be signed by concatenating the HTTP Verb (e.g. `GET` or `PUT`), HTTP request path, and values of the `Date`, `Host` and `x-ms-content-sha256` HTTP headers in the following format:
     ```
     VERB + "\n"
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Encode the signature using the `HMAC-SHA256` algorithm on the UTF-8-encoded signature string and encode the result as Base64. Note that you also need to Base64-decode your storage account key. Use the following format (shown as pseudo code):
+1. Generate an HMAC-256 signature of the UTF-8 encoded string that you created in the previous step. Next, encode your results as Base64. Note that you also need to Base64-decode your storage account key. Use the following format (shown as pseudo code):
     ```
     Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
     ```
-1. Specify the Authorization header is as follows:
+1. Specify the Authorization header as follows:
     ```
     Authorization="HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"  
     ```
-    Where `<hmac-sha256-signature>` is the HMAC computed in the above step.
+    Where `<hmac-sha256-signature>` is the HMAC computed in the previous step.
 
 ## Authenticate with a user access token
 
 User access tokens let your client applications authenticate directly against Azure Communication Services. To achieve this you should set up a trusted service that authenticates your application users and issues user access tokens with the Administration client library. Visit the [client and server architecture](./client-and-server-architecture.md) conceptual documentation to learn more about our architectural considerations.
 
-The `CommunicationClientCredential` contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
+The `CommunicationClientCredential` class contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
 
 ### Initialize the client libraries
 
-To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationClientCredential` class and then use it to initialize an API client.
+To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationClientCredential` class, and then use it to initialize an API client.
 
 The following snippets show you how to initialize the chat client library with a user access token:
 
@@ -85,7 +85,7 @@ var token = "<valid-user-access-token>";
 var userCredential = new CommunicationUserCredential(token);
 
 // initialize the chat client library with the credential
-var chatClient = new ChatClient(ENDPOINT_URL, new CommunicationUserCredential(userAccessToken));
+var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 ```
 
 #### [JavaScript](#tab/javascript)
@@ -94,11 +94,11 @@ var chatClient = new ChatClient(ENDPOINT_URL, new CommunicationUserCredential(us
 // user access tokens should be created by a trusted service using the Administration client library
 const token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-const userCredential = new CommunicationUserCredential(token);
+// create a CommunicationUserCredential instance with the AzureCommunicationUserCredential class
+const userCredential = new AzureCommunicationUserCredential(token);
 
 // initialize the chat client library with the credential
-let chatClient = new ChatClient(ENDPOINT_URL, new CommunicationUserCredential(userAccessToken));
+let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 ```
 
 #### [Swift](#tab/swift)
@@ -126,8 +126,8 @@ CommunicationUserCredential userCredential = new CommunicationUserCredential(tok
 // Initialize the chat client
 final ChatClientBuilder builder = new ChatClientBuilder();
 builder.endpoint(ENDPOINT_URL)
-    .credential(credential)
-    .httpClient(httpClient);
+    .credential(userCredential)
+    .httpClient(HTTP_CLIENT);
 ChatClient chatClient = builder.buildClient();
 ```
 
@@ -135,7 +135,7 @@ ChatClient chatClient = builder.buildClient();
 
 ### Refreshing user access tokens
 
-User access tokens are short-lived credentials that need to be reissued in order to prevent your users from experiencing service disruptions. The `CommunicationUserCredential` constructor accepts a refresh callback function that enables you to update user access tokens before they expire. You should use this callback to fetch a new user access token from your trusted service.
+User access tokens are short-lived credentials that need to be reissued to prevent your users from experiencing service disruptions. The `CommunicationUserCredential` constructor accepts a refresh callback function that enables you to update user access tokens before they expire. You should use this callback to fetch a new user access token from your trusted service.
 
 #### [C#](#tab/csharp)
 
@@ -150,7 +150,7 @@ var userCredential = new CommunicationUserCredential(
 #### [JavaScript](#tab/javascript)
 
 ```javascript
-const userCredential = new CommunicationUserCredential({
+const userCredential = new AzureCommunicationUserCredential({
   tokenRefresher: async () => fetchNewTokenForCurrentUser(),
   refreshProactively: true,
   initialToken: token
@@ -176,17 +176,16 @@ TokenRefresher tokenRefresher = new TokenRefresher() {
     }
 }
 
-CommunicationUserCredential credential = new CommunicationUserCredential(token, tokenRefresher);
+CommunicationUserCredential credential = new CommunicationUserCredential(tokenRefresher, token, true);
 ```
 ---
 
-The `refreshProactively` option lets you decide how you'll manage the token lifecycle. By default, when a token is stale, the callback will block API an API request and attempt to refresh it. When `refreshProactively` is set to `true` the callback is scheduled and executed asynchronously before the token expires.
+The `refreshProactively` option lets you decide how you'll manage the token lifecycle. By default, when a token is stale, the callback will block API requests and attempt to refresh it. When `refreshProactively` is set to `true` the callback is scheduled and executed asynchronously before the token expires.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Creating user access tokens](../quickstarts/user-access-tokens.md)
+> [Creating user access tokens](../quickstarts/access-tokens.md)
 
 For more information, see the following articles:
-- Learn about user [identity models for Communication Services](../concepts/identity-model.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)

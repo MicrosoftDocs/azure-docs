@@ -20,9 +20,9 @@ The section below gives an overview of the call flows in Azure Communication Ser
 
 ## About signaling and media protocols
 
-When you establish a peer-to-peer or group call, two protocols used behind the scenes. HTTP REST is used for signaling and SRTP is used for media. 
+When you establish a peer-to-peer or group call, two protocols are used behind the scenes - HTTP (REST) for signaling and SRTP for media. 
 
-Signaling between the client libraries or between client libraries and Communication Services Signaling Controllers is handled with HTTP REST (TLS). For Real-Time Media Traffic (RTP), the Used Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the client library will use the Transmission Control Protocol (TCP) for media. 
+Signaling between the client libraries or between client libraries and Communication Services Signaling Controllers is handled with HTTP REST (TLS). For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the client library will use the Transmission Control Protocol (TCP) for media. 
 
 Let's review the signaling and media protocols in various scenarios. 
 
@@ -44,13 +44,13 @@ For Alice it will be the NAT of the coffee shop and for Bob it will be the NAT o
 
 ### Case 3: VoIP where neither a direct nor NAT connection is possible
 
-If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two client libraries is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. Approximately 20% of calls require use of TURN across all our clients. If you use the Communication Services client libraries, the request of the keys to use the TURN service happens automatically. Use of Microsoft's TURN service is charged separately. You can disable the use of TURN, but if your client libraries are behind a symmetric NAT, your calls are likely to fail.
+If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two client libraries is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. The Communication Services calling client library automatically uses TURN services based on detected network conditions. Use of Microsoft's TURN service is charged separately.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram showing a VOIP call which utilizes a TURN connection.":::
  
 ### Case 4: Group calls with PSTN
 
-Both signaling and media for PSTN Calls use the Azure Communication Services telephony resource. This resource is interconnected with other carriers (to elaborate).
+Both signaling and media for PSTN Calls use the Azure Communication Services telephony resource. This resource is interconnected with other carriers.
 
 PSTN media traffic flows through a component called Media Processor.
 

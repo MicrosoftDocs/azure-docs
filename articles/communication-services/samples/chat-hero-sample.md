@@ -24,6 +24,11 @@ ms.service: azure-communication-services
 
 The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web client library can be used to build a group calling experience.
 
+In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
+
+> [!IMPORTANT]
+> [Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples)
+
 ## Overview
 
 The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to an ASP.NET Core **server-side application** that helps the client-side application connect to Azure. 
@@ -68,20 +73,20 @@ You can test the sample locally by opening multiple browser sessions with the UR
 ### Before running the sample for the first time
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
-2. `git clone {Coming Soon}`
-3. Go to ClientApp and run `npm run setup`
+2. `git clone`
+3. Go to **Chat/ClientApp** folder and run `npm run setup`
    1. If you see an error 1, look above in the output for a URL where you'll need to go to to authorize your client. (URL will look like this: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...`)Once you visit the URL in a browser, copy the command from the browser window and run it.
    2. Run command `npm run setup` again once you complete the previous step.
 4. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
-5. Once you get the `Connection String`, Add the connection string to the **appsetting.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
+5. Once you get the `Connection String`, Add the connection string to the **Chat/appsettings.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
 
 ### Local run
 
 1. Go to the Chat folder
 2. Open the `Chat.csproj` solution in Visual Studio
-3. Run the project.*
+3. Run the `Chat` project.*
 
-*The browser will open at localhost:5000 (where the node is deploying the client app)
+*The browser will open at localhost:5000 (where the node is deploying the client app). App is not supported on Internet Explorer.
 
 #### Troubleshooting
 
@@ -91,7 +96,7 @@ Clean/rebuild the C# solution
 
 ## Publish the sample to Azure
 
-1. Right click on the `ServiceSampleDotNet` project and select Publish.
+1. Right click on the `Chat` project and select Publish.
 2. Create a new publish profile and select your Azure subscription.
 3. Before publishing, add your connection string with `Edit App Service Settings`, and fill in `ResourceConnectionString` as the key and provide your connection string (copied from appsettings.json) as the value.
 

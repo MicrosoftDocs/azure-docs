@@ -18,7 +18,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Python](https://www.python.org/downloads/)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart
-- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client.
+- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
 
 ## Setting up
 
@@ -62,22 +62,17 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create a chat client
 
-To create a chat client, you'll use Communications Service endpoint and the access token that was generated as part of pre-requisite steps. You need to use the `CommunicationIdentityClient` class from the `Administration client library` to create user and issue a token to pass to your chat client. Learn more about [User Access Tokens](../../user-access-tokens.md).
+To create a chat client, you'll use Communications Service endpoint and the `Access Token` that was generated as part of pre-requisite steps. Learn more about [User Access Tokens](../../access-tokens.md).
 
 ```console
 pip install azure-communication-administration
 ```
 
 ```python
-from azure.communication.administration import CommunicationIdentityClient
-identity_client = CommunicationIdentityClient.from_connection_string("<connection string of your Communication service>")
-user = identity_client.create_user()
-tokenresponse = identity_client.issue_token(user, scopes=["chat"])
-token = tokenresponse.token
-
 from azure.communication.chat import ChatClient, CommunicationUserCredential
-endpoint = "https://<RESOURCE_NAME>.communcationservices.azure.com"
-chat_client = ChatClient(endpoint, CommunicationUserCredential(token))
+
+endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
+chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 ```
 
 ## Start a chat thread
@@ -86,13 +81,14 @@ Use the `create_chat_thread` method to create a chat thread.
 
 - Use `topic` to give a thread topic; Topic can be updated after the chat thread is created using the `update_thread` function.
 - Use `members` to list the `ChatThreadMember` to be added to the chat thread, the `ChatThreadMember` takes `CommunicationUser` type as `user`, which is what you got after you
-created by [Create a user](../../user-access-tokens.md#create-a-user)
+created by [Create a user](../../access-tokens.md#create-a-user)
 
 The response `chat_thread_client` is used to perform operations on the newly created chat thread like adding members to the chat thread, send message, delete message, etc. It contains a `thread_id` property which is the unique ID of the chat thread.
 
 ```python
 from datetime import datetime
 from azure.communication.chat import ChatThreadMember
+
 topic="test topic"
 thread_members=[ChatThreadMember(
     user=user,
@@ -158,7 +154,7 @@ Once a chat thread is created, you can then add and remove users from it. By add
 Use `add_members` method to add thread members to the thread identified by threadId.
 
 - Use `members` to list the members to be added to the chat thread;
-- `user`, required, is the `CommunicationUser` you created by `CommunicationIdentityClient` at [create a user](../../user-access-tokens.md#create-a-user)
+- `user`, required, is the `CommunicationUser` you created by `CommunicationIdentityClient` at [create a user](../../access-tokens.md#create-a-user)
 - `display_name`, optional, is the display name for the thread member.
 - `share_history_time`, optional, is the time from which the chat history is shared with the member. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the member was added, set it to the current date. To share partial history, set it to an intermediary date.
 

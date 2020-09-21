@@ -16,22 +16,15 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
+Azure Communication Services integrates with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to deliver real-time event notifications in a reliable, scalable and secure manner. The purpose of this article is to help you configure your applications to listen to Communication Services events. For example, you may want to update a database, create a work item and deliver a push notification whenever an SMS message is received by a phone number associated with your Communication Services resource.
 
-Azure Communication Services allows applications to react to events such `SMSReceived` and `ChatMessageReceived` by sending notifications and triggering workflows when events using [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview). For example, you may want your application to update a database, create a work item, and deliver an email notification every time an SMS message is sent to a phone number that you've provisioned using Communication Services. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering.
+Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) and [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
-Communication Services events can be emitted to subscribers such as [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview), [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview), or even to your own HTTP listener. Event Grid can also deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
-
-## Event model
-
-Event Grid uses event subscriptions to route event messages to subscribers. This image illustrates the relationship between event publishers, event subscriptions, and event handlers.
-
-<!-- NEEDS TO BE UPDATED TO IMAGE SHOWING ACS ![Diagram showing Azure Event Grid's event model.](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png) -->
-
-Event handlers subscribe to events and the, when an event is triggered, the Event Grid service will send data about that event to the handler endpoint.
+:::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagram showing Azure Event Grid's event model.":::
 
 ## Events types
 
-This article provides the properties and schema for Azure Communication Services events. For an introduction to event schemas, see [Azure Event Grid event schema](https://docs.microsoft.com/azure/event-grid/event-schema).
+Event grid uses [event subscriptions](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) to route event messages to subscribers. 
 
 Azure Communication Services emits the following event types:
 
@@ -48,306 +41,306 @@ Azure Communication Services emits the following event types:
 | Microsoft.Communication.ChatMemberAddedToThreadWithUser     | Published when the user is added as member to a chat thread.                                   |
 | Microsoft.Communication.ChatMemberRemovedFromThreadWithUser | Published when the user is removed from a chat thread.                                         |
 
-Use either the Azure portal or Azure CLI to configure which events to publish from each Communication Service. Get started with handling events by looking at [How do handle SMS Events in Communication Services](../quickstarts/telephony-sms/handle-sms-events.md)
+You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. Get started with handling events by looking at [How to handle SMS Events in Communication Services](../quickstarts/telephony-sms/handle-sms-events.md)
 
-## Filtering events
+## Event subjects
 
-When an event is triggered, the Event Grid service sends the data about that event to any subscribing endpoints. Communication Services events contain the information you need to respond to events in your service. You can identify a Communication Services event by checking that the `eventType` property starts with `Microsoft.Communication`. For more information about how to use Event Grid event properties, see the [Azure Event Grid event schema](https://docs.microsoft.com/azure/event-grid/event-schema).
+The `subject` field of all Communication Services events identifies the user, phone number or entity that is targeted by the event. Common prefixes are used to allow simple [Event Grid Filtering](https://docs.microsoft.com/azure/event-grid/event-filtering).
 
-### Event subjects
-
-The `subject` field of all Communication Services events identifies the user, phone number or entity that is targeted by the event. The events are designed to allow simple [Event Grid Filtering](https://docs.microsoft.com/azure/event-grid/event-filtering).
-
-| Subject                                     | Communication Service Entity |
+| Subject Prefix                              | Communication Service Entity |
 | ------------------------------------------- | ---------------------------- |
-| `phonenumber/555-555-5555`                  | PSTN phone number            |
-| `user/831e1650-001e-001b-66ab-eeb76e069631` | Communication Services User  |
+| `phonenumber/`                              | PSTN phone number            |
+| `user/`                                     | Communication Services User  |
+| `thread/`                                   | Chat thread.                 |
 
-The following example shows a filter for all SMS messages and delivery reports sent to all 604 area code phone numbers owned by a Communication Services resource:
+The following example shows a filter for all SMS messages and delivery reports sent to all 555 area code phone numbers owned by a Communication Services resource:
 
 ```json
 "filter": {
   "includedEventTypes": [
     "Microsoft.Communication.SMSReceived",
-    " Microsoft.Communication.SMSDeliveryReportReceived"
+    "Microsoft.Communication.SMSDeliveryReportReceived"
   ],
-  "subjectBeginsWith": "phonenumber/604",
+  "subjectBeginsWith": "phonenumber/1555",
 }
 ```
 
 ## Sample event responses
 
-### Microsoft.Communication.SMSReceived event
+When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
 
-The following example shows the schema of an SMS arrived event:
+This section contains an example of what that data would look like for each event.
 
-```json
-[{
-    "id":"6a49a9bf-418f-44b6-81e7-e503686b4a74",
-    "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-    "subject":"SMS Event Test",
-    "data":
-    {
-        "from":"+19991234567",
-        "to":"+14259991234",
-        "messageId":"917c9ec0-a50a-4515-a626-16825d8318e1",
-        "message":"SMS Message",
-        "receivedTimestamp":"2020-07-16T22:10:00.048727Z"
-    },
-        "eventType":"Microsoft.Communication.SMSReceived",
-        "dataVersion":"1.0",
-        "metadataVersion":"1",
-        "eventTime":"2020-07-16T22:10:00.0490828Z"
-}]
-```
 ### Microsoft.Communication.SMSDeliveryReportReceived event
 
-The following example shows the schema of an SMS deliver report event:
+```json
+[{
+  "id": "Outgoing_202009180022138813a09b-0cbf-4304-9b03-1546683bb910",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "/phonenumber/15555555555",
+  "data": {
+    "MessageId": "Outgoing_202009180022138813a09b-0cbf-4304-9b03-1546683bb910",
+    "From": "15555555555",
+    "To": "+15555555555",
+    "DeliveryStatus": "Delivered",
+    "DeliveryStatusDetails": "No error.",
+    "ReceivedTimestamp": "2020-09-18T00:22:20.2855749Z",
+    "DeliveryAttempts": [
+      {
+        "Timestamp": "2020-09-18T00:22:14.9315918Z",
+        "SegmentsSucceeded": 1,
+        "SegmentsFailed": 0
+      }
+    ]
+  },
+  "eventType": "Microsoft.Communication.SMSDeliveryReportReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:22:20Z"
+}]
+```
+### Microsoft.Communication.SMSReceived event
 
 ```json
 [{
-    "id":"9b1768b4-1c90-4766-9491-c75a4592b34e",
-    "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-    "subject":"SMS Event Test",
-    "data":{
-        "messageId":"1021620f-7174-4ef7-b9b8-f55cd3a945b1",
-        "from":"+19991234567",
-        "to":"+14259991234",
-        "deliveryStatus":"Success",
-        "deliveryStatusDetails":"Message sent successfully",
-        "deliveryAttempts":[
-            {
-            "timestamp":"2020-07-16T22:10:22.224789Z",
-            "segmentsSucceeded":1,
-            "segmentsFailed":2
-            },
-            {
-                "timestamp":"2020-07-16T22:10:22.2250078Z",
-                "segmentsSucceeded":1,
-                "segmentsFailed":0
-            }
-        ]
-    },
-    "eventType":"Microsoft.Communication.SMSDeliveryReportReceived",
-    "dataVersion":"1.0",
-    "metadataVersion":"1",
-    "eventTime":"2020-07-16T22:10:22.2250704Z"
+  "id": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+  "topic": "/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "/phonenumber/15555555555",
+  "data": {
+    "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+    "From": "15555555555",
+    "To": "15555555555",
+    "Message": "Great to connect with ACS events ",
+    "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
+  },
+  "eventType": "Microsoft.Communication.SMSReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:27:47Z"
 }]
 ```
 
 ### Microsoft.Communication.ChatMessageReceived event
+
 ```json
 [{
-  "id": "bf9c95b1-8f9d-46ce-9363-384b9a99488a",
-   "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2/sender/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_82013a-97009dd0da/recipient/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_24013a-9400a2d0da",
+  "id": "c13afb5f-d975-4296-a8ef-348c8fc496ee",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/{thread-id}/sender/{id-of-message-sender}/recipient/{id-of-message-recipient}",
   "data": {
-    "messageBody": "Come on guys, lets go explore Azure Communication Services.",
-    "messageId": "1598995171765",
-    "senderId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_82013a-97009dd0da",
-    "senderDisplayName": "Bob(Admin)",
-    "composeTime": "2020-09-01T21:19:31.765Z",
+    "messageBody": "Welcome to Azure Communication Services",
+    "messageId": "1600389507167",
+    "senderId": "8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e0d-e5aa-0e04-343a0d00037c",
+    "senderDisplayName": "John",
+    "composeTime": "2020-09-18T00:38:27.167Z",
     "type": "Text",
-    "version": 1598995171765,
-    "recipientId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_24013a-9400a2d0da",
-    "transactionId": "0hEh1z4VsUqNLbMCBWOYAA.1.1.1.1.3166109874.1.2",
-    "threadId": "19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2"
+    "version": 1600389507167,
+    "recipientId": "8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e1a-3090-6a0b-343a0d000409",
+    "transactionId": "WGW1YmwRzkupk0UI0QA9ZA.1.1.1.1.1797783722.1.9",
+    "threadId": "19:46df844a4c064bfaa2b3b30e385d1018@thread.v2"
   },
   "eventType": "Microsoft.Communication.ChatMessageReceived",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-09-01T21:19:31.8343381Z"
+  "eventTime": "2020-09-18T00:38:28.0946757Z"
 }
 ]
 ```
 
 ### Microsoft.Communication.ChatMessageEdited event
+
 ```json
 [{
-  "id": "137764e1-d1cc-474b-83da-5baea96312aa",
-  "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2/sender/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_82013a-97009dd0da/recipient/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_24013a-9400a2d0da",
+  "id": "18247662-e94a-40cc-8d2f-f7357365309e",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/sender/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "editTime": "2020-09-01T21:25:14.34Z",
-    "messageBody": "Let's go for dinner together.",
-    "messageId": "1598995443109",
-    "senderId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_82013a-97009dd0da",
+    "editTime": "2020-09-18T00:48:47.361Z",
+    "messageBody": "Let's Chat about new communication services.",
+    "messageId": "1600390097873",
+    "senderId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe",
     "senderDisplayName": "Bob(Admin)",
-    "composeTime": "2020-09-01T21:24:03.109Z",
+    "composeTime": "2020-09-18T00:48:17.873Z",
     "type": "Text",
-    "version": 1598995514340,
-    "recipientId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_24013a-9400a2d0da",
-    "transactionId": "kOuVozupKEyirzWebFElTQ.1.1.2.1.3179544590.1.2",
-    "threadId": "19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2"
+    "version": 1600390127361,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "bbopOa1JZEW5NDDFLgH1ZQ.2.1.2.1.1822032097.1.5",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
   },
   "eventType": "Microsoft.Communication.ChatMessageEdited",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-09-01T21:25:14.4984406Z"
+  "eventTime": "2020-09-18T00:48:48.037823Z"
 }]
 ```
 
 ### Microsoft.Communication.ChatMessageDeleted event
 ```json
 [{
-  "id": "96a2e1e7-eed0-4f3d-8c6d-7e93cafc5f55",
-  "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2/sender/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_82013a-97009dd0da/recipient/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_24013a-9400a2d0da",
+  "id": "08034616-cf11-4fc2-b402-88963b93d083",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/sender/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "deleteTime": "2020-09-01T21:19:31.765Z",
-    "messageId": "1598995171765",
-    "senderId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_82013a-97009dd0da",
+    "deleteTime": "2020-09-18T00:48:47.361Z",
+    "messageId": "1600390099195",
+    "senderId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe",
     "senderDisplayName": "Bob(Admin)",
-    "composeTime": "2020-09-01T21:19:31.765Z",
+    "composeTime": "2020-09-18T00:48:19.195Z",
     "type": "Text",
-    "version": 1598995319667,
-    "recipientId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_24013a-9400a2d0da",
-    "transactionId": "0sOR3rGs7EGVlSHjXaMx4A.1.1.2.1.3171942426.1.2",
-    "threadId": "19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2"
+    "version": 1600390152154,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "mAxUjeTsG06NpObXkFcjVQ.1.1.2.1.1823015063.1.5",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
   },
   "eventType": "Microsoft.Communication.ChatMessageDeleted",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-09-01T21:21:59.8442061Z"
+  "eventTime": "2020-09-18T00:49:12.6698791Z"
 }]
 ```
 
 ### Microsoft.Communication.ChatThreadCreatedWithUser event 
+
 ```json
 [{
-  "id": "c185a2c8-8788-4f40-83a7-f2d63919765a",
-  "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/19:ddf2dec732b14eac86b48444edf2ce76@thread.v2/createdBy/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_fe0135-9c008910dc/recipient/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_230135-9d00bb50dd",
+  "id": "06c7c381-bb0a-4fff-aedd-919df1d52137",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:7bdf5504a23f41a79d1bd472dd40044a@thread.v2/createdBy/8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "createdBy": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_fe0135-9c008910dc",
+    "createdBy": "8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_06014f-6001fc107f",
     "properties": {
-      "topic": "Dinner Thread",
+      "topic": "Chat about new commuication services",
     },
     "members": [
       {
         "displayName": "Bob",
-        "memberId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_fe0135-9c008910dc"
+        "memberId": "8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003f0"
       },
       {
         "displayName": "John",
-        "memberId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_230135-9d00bb50dd"
+        "memberId": "8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003f1"
       }
     ],
-    "createTime": "2020-08-29T00:33:19.056Z",
-    "version": 1598661199056,
-    "recipientId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_230135-9d00bb50dd",
-    "transactionId": "NUddWfl5gUm97PEJabMoGg.1.1.1.1.3005218817.1.0",
-    "threadId": "19:ddf2dec732b14eac86b48444edf2ce76@thread.v2"
+    "createTime": "2020-09-17T22:06:09.988Z",
+    "version": 1600380369988,
+    "recipientId": "8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "9ZxrGXVXCkOTygd5iwsvAQ.1.1.1.1.1440874720.1.1",
+    "threadId": "19:7bdf5504a23f41a79d1bd472dd40044a@thread.v2"
   },
   "eventType": "Microsoft.Communication.ChatThreadCreatedWithUser",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-08-29T00:33:19.5701786Z"
+  "eventTime": "2020-09-17T22:06:10.3235137Z"
 }]
 ```
 
 ### Microsoft.Communication.ChatThreadWithUserDeleted event
+
 ```json
 [{
-  "id": "18aea9eb-6d87-4545-b6b2-5fb9f5e5a18d",
+  "id": "7f4fa31b-e95e-428b-a6e8-53e2553620ad",
   "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/19:ddf2dec732b14eac86b48444edf2ce76@thread.v2/deletedBy/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_fe0135-9c008910dc/recipient/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_230135-9d00bb50dd",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/deletedBy/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "deletedBy": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_fe0135-9c008910dc",
-    "deleteTime": "2020-08-29T00:41:05.2464857Z",
-    "createTime": "2020-08-29T00:33:19.056Z",
-    "version": 1598661506307,
-    "recipientId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_230135-9d00bb50dd",
-    "transactionId": "LmRWHAGfUkenZyG4lTu+tg.1.1.2.1.3023438077.1.0",
-    "threadId": "19:ddf2dec732b14eac86b48444edf2ce76@thread.v2"
+    "deletedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe",
+    "deleteTime": "2020-09-18T00:49:26.3694459Z",
+    "createTime": "2020-09-18T00:46:41.559Z",
+    "version": 1600390071625,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "MoZlSM2j7kSD2b5X8bjH7Q.1.1.2.1.1823539230.1.1",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
   },
   "eventType": "Microsoft.Communication.ChatThreadWithUserDeleted",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-08-29T00:41:05.3391087Z"
+  "eventTime": "2020-09-18T00:49:26.4269056Z"
 }]
 ```
 
 ### Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event 
+
 ```json
 [{
-  "id": "f602b159-e2b2-4a89-9aa8-5e3edd4803e8",
-  "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/19:ddf2dec732b14eac86b48444edf2ce76@thread.v2/editedBy/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_fe0135-9c008910dc/recipient/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_230135-9d00bb50dd",
+  "id": "47a66834-57d7-4f77-9c7d-676d45524982",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:a33a128babf04431b7fe8cbca82f4238@thread.v2/editedBy/8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e88-2b7f-ac00-343a0d0005a8/recipient/8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e88-15fa-ac00-343a0d0005a7",
   "data": {
-    "editedBy": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_fe0135-9c008910dc",
-    "editTime": "2020-08-29T00:38:26.3518623Z",
+    "editedBy": "8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e88-2b7f-ac00-343a0d0005a8",
+    "editTime": "2020-09-18T00:40:38.4914428Z",
     "properties": {
-      "topic": "Breakfast thread"
+      "topic": "Communication in Azure"
     },
-    "createTime": "2020-08-29T00:33:19.056Z",
-    "version": 1598661506306,
-    "recipientId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_230135-9d00bb50dd",
-    "transactionId": "i0OklCIFBUCVKxMS2KrSwg.1.1.1.1.3017212106.1.0",
-    "threadId": "19:ddf2dec732b14eac86b48444edf2ce76@thread.v2"
+    "createTime": "2020-09-18T00:39:02.541Z",
+    "version": 1600389638481,
+    "recipientId": "8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e88-15fa-ac00-343a0d0005a7",
+    "transactionId": "+ah9tVwqNkCT6nUGCKIvAg.1.1.1.1.1802895561.1.1",
+    "threadId": "19:a33a128babf04431b7fe8cbca82f4238@thread.v2"
   },
   "eventType": "Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-08-29T00:38:26.4354084Z"
+  "eventTime": "2020-09-18T00:40:38.5804349Z"
 }]
 ```
 
 ### Microsoft.Communication.ChatMemberAddedToThreadWithUser event
+
 ```json
 [{
-  "id": "3ada9422-1501-446d-add6-156fc0e789ee",
-  "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2/memberAdded/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_82013a-97009dd0da/recipient/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_24013a-9400a2d0da",
+  "id": "4abd2b49-d1a9-4fcc-9cd7-170fa5d96443",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/memberAdded/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "time": "2020-08-25T00:37:45.6854529Z",
-    "addedBy": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_7e013a-b6009050de",
+    "time": "2020-09-18T00:47:13.1867087Z",
+    "addedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
     "memberAdded": {
-      "displayName": "John",
-      "memberId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_82013a-97009dd0da"
+      "displayName": "John Smith",
+      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
     },
-    "createTime": "2020-08-25T00:37:45.6852914Z",
-    "version": 2,
-    "recipientId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_24013a-9400a2d0da",
-    "transactionId": "aOuWozupKEyirzWebFElTQ.1.1.2.1.3179544590.1.2",
-    "threadId": "19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2"
+    "createTime": "2020-09-18T00:46:41.559Z",
+    "version": 1600390033176,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "pVIjw/pHEEKUOUJ2DAAl5A.1.1.1.1.1818361951.1.1",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
   },
   "eventType": "Microsoft.Communication.ChatMemberAddedToThreadWithUser",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-08-25T00:37:45.685538Z"
+  "eventTime": "2020-09-18T00:47:13.2342692Z"
 }]
 ```
 
 ### Microsoft.Communication.ChatMemberRemovedFromThreadWithUser event
+
 ```json
 [{
-  "id": "3ada9422-1501-446d-add6-156fc0e789ee",
-  "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2/memberRemoved/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_3d013a-9900e310df/recipient/8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_55013a-9a00c790df",
+  "id": "b3701976-1ea2-4d66-be68-4ec4fc1b4b96",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/memberRemoved/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "time": "2020-09-16T00:37:45.6854529Z",
-    "removedBy": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_ae013a-ce00d290df",
+    "time": "2020-09-18T00:47:51.1461742Z",
+    "removedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
     "memberRemoved": {
       "displayName": "John",
-      "memberId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_3d013a-9900e310df"
+      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
     },
-    "createTime": "2020-07-29T00:37:45.6852914Z",
-    "version": 3,
-    "recipientId": "8:spool:d7cf594f-e21d-4c80-bcf1-c7dbeb40e226_55013a-9a00c790df",
-    "transactionId": "aOuWozupKEyirzWebFElTQ.1.1.2.1.3179544590.1.2",
-    "threadId": "19:2e76d94ee2e445cf922d4a75db9a4d07@thread.v2"
+    "createTime": "2020-09-18T00:46:41.559Z",
+    "version": 1600390071131,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "G9Y+UbjVmEuxAG3O4bEyvw.1.1.1.1.1819803816.1.1",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
   },
   "eventType": "Microsoft.Communication.ChatMemberRemovedFromThreadWithUser",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-08-25T00:37:45.685538Z"
+  "eventTime": "2020-09-18T00:47:51.2244511Z"
 }]
 ```
 
 ## Quickstarts and how-tos
-| Title                                                                                                       | Description                                                                   |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+
+| Title | Description |
+| --- | --- |
 | [How do handle SMS Events in Communication Services](../quickstarts/telephony-sms/handle-sms-events.md) | Handling all SMS events received by your Communication Service using WebHook. |
 
 

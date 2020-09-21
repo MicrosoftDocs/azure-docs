@@ -10,49 +10,69 @@ ms.author: mikben
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-access-tokens.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
 ## Setting up
-### Build AzureCommunication and AzureCore package
 
-With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
-The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step.
+### Creating the Xcode project
 
-### Add the client library to your app
+In Xcode, create a new iOS project and select the **Single View App** template. This quickstart uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**. You're not going to create unit tests or UI tests during this quickstart. Feel free to uncheck **Include Unit Tests** and also uncheck **Include UI Tests**.
 
-In Xcode, create a new iOS project and select the **Single View Application** template. This tutorial uses the SwiftUI framework, so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the create new New Project window within Xcode.":::
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the create new project window in XCode":::
+### Install the package
 
-Add the request for microphone access. Right-click the `Info.plist` entry of the project tree, and select **Open As** > **Source Code**. Add the following lines into the `<dict>` section, and then save the file.
+Add the Azure Communication Services Calling client library and its dependencies (AzureCore.framework and AzureCommunication.framework) to your project.
+
+> [!NOTE]
+> With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
+The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools.
+
+1. Download the Azure Communication Services Calling client library for iOS.
+2. In Xcode, click on your project file to and select the build target to open the project settings editor.
+3. Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
+4. In the bottom left of the dialog, chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the un-zipped client library package.
+    1. Repeat the last step for adding **AzureCore.framework** and **AzureCommunication.framework**.
+5. Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **AzureCommunicationCalling.framework**.
+    1. Add another Framework Search Paths entry pointing to the folder containing the dependencies.
+
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot showing updating the framework search paths within XCode.":::
+
+### Request access to the microphone
+
+In order to access the device's microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that will be included in the dialog the system uses to request request access from the user.
+
+Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines the top level `<dict>` section, and then save the file.
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
 <string>Need microphone access for VOIP calling.</string>
 ```
 
-Add the Azure Communication Services Calling client library to your project. 
+### Set up the app framework
 
-- In Xcode, click on your project file to and select the build target to open the project settings editor.
-- Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
-- In the bottom left of the dialog, chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the client library package.
-- Also import the Azure framework packages **AzureCommunication.framework** and **AzureCore.framework** generated with the bash script in the above step.
+Open your project's **ContentView.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunicationCalling library`. In addition, import `AVFoundation`, we'll need this for audio permission request in the code.
 
-    > [!NOTE]
-    > Currently the AzureCommunicationCalling library includes both x86_64 and arm64 ABI's.
-
-Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **AzureCommunicationCalling.framework** , **AzureCommunication.framework** and **AzureCore.framework**
-
-![Screenshot showing the framework search paths for the communication services libraries.](../media/ios/xcode-framework-search-paths.png)
+```swift
+import AzureCommunicationCalling
+import AVFoundation
+```
 
 ## Object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for iOS.
 
-| Name                                              | Description                                                                                                                                      |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ACSCallClient | This class is needed for all calling functionality. You instantiate an ACSCallAgent instance with CommunicationUserCredential object, and use it to start and manage calls. |
+
+| Name                                  | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| ACSCallClient | The ACSCallClient is the main entry point to the Calling client library.|
+| ACSCallAgent | The ACSCallAgent is used to start and manage calls. |
+| CommunicationUserCredential | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.| 
+| CommunicationIndentifier | The CommunicationIndentifier is used to represent the identity of the user which can be one of the following: CommunicationUser/PhoneNumber/CallingApplication. |
+
+> [!NOTE]
+> When implementing event delegates, the application has to hold a strong reference to the objects that require event subscriptions. For example, when a `ACSRemoteParticipant` object is returned on invoking the `call.addParticipant` method and the application sets the delegate to listen on `ACSRemoteParticipantDelegate`, the application must hold a strong reference to the `ACSRemoteParticipant` object. Otherwise, if this object gets collected, the delegate will throw a fatal exception when the calling SDK tries to invoke the object.
 
 ## Initialize the ACSCallAgent
 
@@ -82,7 +102,7 @@ public func fetchTokenSync(then onCompletion: TokenRefreshOnCompletion) {
 }
 ```
 
-Pass CommnicationUserCredential object created above to ACSCallClient
+Pass CommunicationUserCredential object created above to ACSCallClient
 
 ```swift
 
@@ -141,16 +161,28 @@ let call = self.callAgent?.call([callee], options: startCallOptions)
 
 ```
 
+### Join a group call
+To join a call you need to call one of the APIs on *CallAgent*
+
+```swift
+
+let groupCallContext = ACSGroupCallContext()
+groupCallContext?.groupId = UUID(uuidString: "uuid_string")!
+let call = self.callAgent?.join(with: groupCallContext, joinCallOptions: ACSJoinCallOptions())
+
+```
+
 ## Push notification
 
-Mobile push notification is the pop up notification you get in the mobile device. For calling, we will be focusing on VoIP (Voice over Internet Protocol) push notifications. We will be offering you the capabilities to register for push notifcation, to handle push notification, and to unregister push notification.
+Mobile push notification is the pop up notification you get in the mobile device. For calling, we will be focusing on VoIP (Voice over Internet Protocol) push notifications. We will be offering you the capabilities to register for push notification, to handle push notification, and to unregister push notification.
 
 ### Prerequisite
 
 - Step 1: Xcode -> Signing & Capabilities -> Add Capability -> "Push Notifications"
 - Step 2: Xcode -> Signing & Capabilities -> Add Capability -> "Background Modes"
 - Step 3: "Background Modes" -> Select "Voice over IP" and "Remote notifications"
-![Screenshot showing how to add capabilities in Xcode.](../media/ios/xcode-push-notification.png)
+
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Screenshot showing how to add capabilities in Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 #### Register for Push Notifications
 
@@ -191,6 +223,8 @@ callAgent.handlePushNotification(dictionaryPayload, withCompletionHandler: { (er
 #### Unregister Push Notification
 
 Applications can unregister push notification at any time. Simply call the `unRegisterPushNotification` method on *CallAgent*.
+> [!NOTE]
+> Applications are not automatically unregistered from push notification on logout.
 
 ```swift
 
@@ -228,7 +262,7 @@ call.mute(completionHandler: { (error) in
 ```swift
 call.unmute(completionHandler:{ (error) in
     if error == nil {
-        print("Successfully unmuted")
+        print("Successfully un-muted")
     } else {
         print("Failed to unmute")
     }
@@ -376,9 +410,9 @@ To start rendering remote participant streams:
 ```swift
 
 let renderer: ACSRenderer? = ACSRenderer(remoteVideoStream: remoteParticipantVideoStream)
-let targetRemoteParicipantView: ACSRendererView? = renderer?.createView(ACSRenderingOptions(ACSScalingMode.crop))
+let targetRemoteParticipantView: ACSRendererView? = renderer?.createView(ACSRenderingOptions(ACSScalingMode.crop))
 // To update the scaling mode later
-targetRemoteParicipantView.update(ACSScalingMode.fit)
+targetRemoteParticipantView.update(ACSScalingMode.fit)
 
 ```
 
@@ -469,7 +503,6 @@ localRenderer.createView(options:ACSRenderingOptions())
 localRenderer.dispose()
 
 ```
---- 
 
 ## Eventing model
 

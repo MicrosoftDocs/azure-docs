@@ -18,7 +18,7 @@ ms.author: mikben
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- Obtain a [User Access Token](../../user-access-tokens.md) to enable the chat client. Be sure to set the scope to "chat", and print out the token string as well as the userId string.
+- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
 
 
 ## Setting up
@@ -78,29 +78,46 @@ The following classes and interfaces handle some of the major features of the Az
 | ChatThreadAsyncClient | This class is needed for the asynchronous Chat Thread functionality. You obtain an instance via the ChatAsyncClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 ## Create a chat client
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client. When adding the import statements, be sure to only add imports from the com.azure.communication.chat namespace and not the com.azure.communication.chat.implementation namespace. 
+To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationUserCredential class from the Common client library to pass the token to your chat client. 
+
+When adding the import statements, be sure to only add imports from the com.azure.communication.chat and com.azure.communication.chat.models namespaces, and not from the com.azure.communication.chat.implementation namespace. In the App.java file that was generated via Maven, you can use the following code to begin with:
 
 ```Java
-// Your unique Azure Communication service endpoint
-String endpoint = "https://<RESOURCE_NAME>.communcationservices.azure.com";
+import com.azure.communication.chat.*;
+import com.azure.communication.chat.models.*;
+import com.azure.communication.common.*;
+import com.azure.core.http.HttpClient;
 
-// Create an HttpClient builder of your choice and customize it
-// Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
-CustomHttpClientBuilder yourHttpClientBuilder = new CustomHttpClientBuilder();
-HttpClient httpClient = yourHttpClientBuilder.build();
+import java.io.*;
 
-// User access token fetched from your trusted service
-String userAccessToken = "SECRET";
+public class App
+{
+    public static void main( String[] args ) throws IOException
+    {
+        System.out.println("Azure Communication Services - Chat Quickstart");
+        
+        // Your unique Azure Communication service endpoint
+        String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
-// Create a CommunicationUserCredential with the given access token, which is only valid until the token is valid
-CommunicationUserCredential userCredential = new CommunicationUserCredential(userAccessToken);
+        // Create an HttpClient builder of your choice and customize it
+        // Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
+        NettyAsyncHttpClientBuilder yourHttpClientBuilder = new NettyAsyncHttpClientBuilder();
+        HttpClient httpClient = yourHttpClientBuilder.build();
 
-// Initialize the chat client
-final ChatClientBuilder builder = new ChatClientBuilder();
-builder.endpoint(endpoint)
-    .credential(userCredential)
-    .httpClient(httpClient);
-ChatClient chatClient = builder.buildClient();
+        // User access token fetched from your trusted service
+        String userAccessToken = "<USER_ACCESS_TOKEN>";
+
+        // Create a CommunicationUserCredential with the given access token, which is only valid until the token is valid
+        CommunicationUserCredential userCredential = new CommunicationUserCredential(userAccessToken);
+
+        // Initialize the chat client
+        final ChatClientBuilder builder = new ChatClientBuilder();
+        builder.endpoint(endpoint)
+            .credential(userCredential)
+            .httpClient(httpClient);
+        ChatClient chatClient = builder.buildClient();
+    }
+}
 ```
 
 
@@ -110,21 +127,24 @@ Use the `createChatThread` method to create a chat thread.
 `createChatThreadOptions` is used to describe the thread request.
 
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
-- Use `members` to list the thread members to be added to the thread.
+- Use `members` to list the thread members to be added to the thread. `ChatThreadMember` takes the user you created in the [User Access Token](../../access-tokens.md) quickstart.
 
 The response `chatThreadClient` is used to perform operations on the created chat thread: adding members to the chat thread, sending a message, deleting a message, etc.
 It contains a `chatThreadId` property which is the unique ID of the chat thread. The property is accessible by the public method .getChatThreadId().
 
 ```Java
 List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
-String userId = "<UserId from Token creation>";
 
-CommunicationUser user1 = new CommunicationUser(userId);
 ChatThreadMember firstThreadMember = new ChatThreadMember()
-    .setUser(user1)
+    .setUser(firstUser)
     .setDisplayName("Member Display Name 1");
+    
+ChatThreadMember secondThreadMember = new ChatThreadMember()
+    .setUser(secondUser)
+    .setDisplayName("Member Display Name 2");
 
 members.add(firstThreadMember);
+members.add(secondThreadMember);
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
     .setTopic("Topic")
@@ -198,9 +218,9 @@ For more details, see [Message Types](../../../concepts/chat/concepts.md#message
 Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other members. You'll need to start by getting a new access token and identity for that user. Before calling addMembers method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
 Use `addMembers` method to add thread members to the thread identified by threadId.
-`addChatThreadMembersOptions` describes the request object containing the members to be added; Use `.setMembers()` to set the thread members to be added to the thread;
 
-- `user`, required, is the CommunicationUser you've created by the CommunicationIdentityClient at [create a user](https://github.com/mikben/azure-docs-pr/blob/release-project-spool/articles/project-spool/quickstarts/user-access-tokens.md#create-a-user)
+- Use `members` to list the members to be added to the chat thread.
+- `user`, required, is the CommunicationUser you've created by the CommunicationIdentityClient in the [User Access Token](../../access-tokens.md) quickstart.
 - `display_name`, optional, is the display name for the thread member.
 - `share_history_time`, optional, is the time from which the chat history is shared with the member. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the member was added, set it to the current date. To share partial history, set it to the required date.
 
