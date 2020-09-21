@@ -13,15 +13,15 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 [v3.1 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 [v3 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 [v2 Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2 Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
@@ -41,7 +41,7 @@ ms.author: aahi
 
 After installing Python, you can install the client library with:
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 ```console
 pip install azure-ai-textanalytics --pre
@@ -50,7 +50,7 @@ pip install azure-ai-textanalytics --pre
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 ```console
 pip install --upgrade azure-ai-textanalytics
@@ -59,7 +59,7 @@ pip install --upgrade azure-ai-textanalytics
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 ```console
 pip install --upgrade azure-cognitiveservices-language-textanalytics
