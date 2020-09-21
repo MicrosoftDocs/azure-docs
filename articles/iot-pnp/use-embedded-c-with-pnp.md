@@ -27,11 +27,7 @@ The Embedded C SDK repository contains [several samples](https://github.com/Azur
 
 ## Using Azure RTOS
 
-[Fill in with overview]
-
-### Get started with IoT Plug and Play for Azure RTOS
-
-- [Getting started with IoT Plug and Play for Azure RTOS](https://github.com/azure-rtos/getting-started/blob/master/docs/plugandplay.md)
+Azure RTOS includes a lightweight layer that adds native connectivity to Azure IoT Cloud services. This provides a simple mechanism to connect constrained devices to Azure IoT while also utilizing the advanced features of Azure RTOS.
 
 For complete tutorials on how to get started on different devices with Azure RTOS and IoT Plug and Play, see the following samples:
 
