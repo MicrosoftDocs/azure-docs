@@ -181,7 +181,7 @@ This step is optional. We recommend it, however, if you plan on consuming open s
 
 To enable GitHub Connect, follow the steps in [Enabling automatic access to GitHub.com actions using GitHub Connect](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
-Once GitHub Connect is enabled, make sure the option for **Server to use actions from GitHub.com in workflow runs** is selected.
+Once GitHub Connect is enabled, select the **Server to use actions from GitHub.com in workflow runs** option.
 
 :::image type="content" source="media/github-enterprise-server/enable-using-actions.png" alt-text="Enable using actions from GitHub.com in workflow runs.":::
 
