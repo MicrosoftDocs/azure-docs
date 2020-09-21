@@ -6,6 +6,11 @@ ms.date: 09/21/2020
 ms.author: aahi
 ---
 
+> [!IMPORTANT]
+> * The latest stable version of the Text Analytics API is `3.0`.
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below. 
+
 <a name="HOLTop"></a>
 
 #### [Version 3.1 (preview)](#tab/version-3-1)
@@ -64,7 +69,7 @@ pip install --upgrade azure-cognitiveservices-language-textanalytics
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), which contains the code examples in this quickstart. 
 
 ---
-
+<!--
 ### Create a new python application
 
 Create a new Python file and create variables for your resource's Azure endpoint and subscription key.
@@ -468,7 +473,7 @@ Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ---
-<!--
+
 ## Named Entity recognition (NER)
 
 #### [Version 3.1 (preview)](#tab/version-3-1)
