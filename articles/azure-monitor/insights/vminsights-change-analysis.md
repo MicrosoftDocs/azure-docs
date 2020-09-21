@@ -10,7 +10,7 @@ ms.date: 07/27/2020
 ---
 
 # Change analysis in Azure Monitor for VMs
-Azure Monitor for VMs integration with [Application Change Analysis](..app/change-analysis.md) integration allows you to view any changes made to a virtual machine that may have affected it performance.
+Azure Monitor for VMs integration with [Application Change Analysis](../app/change-analysis.md) integration allows you to view any changes made to a virtual machine that may have affected it performance.
 
 ## Overview
 Suppose you have a VM that beings running slow and want to investigate whether recent changes to its configuration could have affected its performance. You view the performance of the VM using Azure Monitor for VMs and find that there is an increase in memory usage in the past hour. Change analysis can help you determine whether any configuration changes made around this time were the cause of this increase.
@@ -23,7 +23,7 @@ To onboard change analysis in Azure Monitor for VMs, you must register the *Micr
 ## View change analysis
 Change analysis is available from the **Performance** tab of Azure Monitor for VMs by selecting the **Change** option. 
 
-[![Change details](media/vminsights-change-analysis/investigate-changes.png)](media/vminsights-change-analysis/investigate-changes-zoom.png#lightbox)
+[![Investigate changes](media/vminsights-change-analysis/investigate-changes.png)](media/vminsights-change-analysis/investigate-changes-zoom.png#lightbox)
 
 
 Click the **Investigate changes** button to launch the Application Change Analysis page filtered for the VM. You can review the listed changes to see if there are any that could have caused the issue. If you are unsure about a particular change, you can reference the **Change by** column to determine the person who made the change.
