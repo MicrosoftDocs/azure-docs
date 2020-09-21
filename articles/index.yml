@@ -165,6 +165,14 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
     # Card
+    - title: Communication Services
+      summary: Add real-time voice, video, and telephony to your apps
+      imageSrc: ./media/index/communication-services.svg
+      azureCategories:
+        - web
+        - mobile
+      url: communication-services/overview.md
+    # Card
     - title: Computer Vision
       summary: Distill actionable information from images
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
