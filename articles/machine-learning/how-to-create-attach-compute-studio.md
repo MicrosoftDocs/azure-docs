@@ -20,7 +20,7 @@ In this article, learn how to create and manage compute targets in Azure Machine
   * [Compute instance](how-to-create-manage-compute-instance.md)
   * [Compute cluster](how-to-create-attach-compute-cluster.md)
   * [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
-  * [Other compute resources](how-to-attach-compute.md)
+  * [Other compute resources](how-to-attach-compute-targets.md)
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
 
