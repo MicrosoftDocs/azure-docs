@@ -58,7 +58,7 @@ Once the instance restarts, create a new admin account on the instance. Be sure 
 
 ### Additional configuration steps
 
-To "harden" your instance for production use, the following additional but optional setup steps are highly recommended:
+To harden your instance for production use, the following optional setup steps are recommended:
 
 1. Configure [high availability](https://help.github.com/enterprise/admin/guides/installation/configuring-github-enterprise-for-high-availability/) for protection against:
 
