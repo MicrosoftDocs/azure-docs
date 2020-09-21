@@ -48,7 +48,7 @@ You'll also set up permissions for ADT Explorer to run on your computer and acce
 
 ### Set up Azure Digital Twins instance
 
-The simplest way to set up an instance and the required authentication is to run an automated deployment script sample. Follow the instructions in [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
+First, set up an Azure Digital Twins instance and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
 
 In this quickstart, you will need the following values from when you set up your instance. If you need to gather these values again, use the links below to the corresponding sections in the setup article for finding them in the [Azure portal](https://portal.azure.com).
 * Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
