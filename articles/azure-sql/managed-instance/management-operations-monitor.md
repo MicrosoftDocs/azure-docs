@@ -62,7 +62,7 @@ These are the APIs:
 |[Managed Instance Operations - List By Managed Instance](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Gets a list of operations performed on the managed instance.|
 
 > [!NOTE]
-> Use API version 2020-02-02 to see the managed instance create operation in the Azure portal. This is the default version used in the Azure portal and the latest PowerShell and Azure CLI packages.
+> Use API version 2020-02-02 to see the managed instance create operation in the list of operations. This is the default version used in the Azure portal and the latest PowerShell and Azure CLI packages.
 
 ## Monitor operations
 
