@@ -7,6 +7,8 @@
       href: compare-with-b2c.md
     - name: What is B2B guest user access?
       href: what-is-b2b.md
+    - name: What is Azure AD B2C (business-to-consumer) identity?
+      href: https://docs.microsoft.com/azure/active-directory-b2c/overview
   - name: Quickstarts
     items:
     - name: Add guest users in the portal
