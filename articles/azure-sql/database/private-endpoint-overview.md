@@ -17,7 +17,7 @@ ms.date: 03/09/2020
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation](../../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and subnet.
 
 > [!IMPORTANT]
-> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
+> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
 
 ## Data exfiltration prevention
 

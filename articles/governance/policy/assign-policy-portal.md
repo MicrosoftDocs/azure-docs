@@ -23,19 +23,19 @@ before you begin.
 In this quickstart, you create a policy assignment and assign the _Audit VMs that do not use managed
 disks_ policy definition.
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
+1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
    for and selecting **Policy**.
 
-   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="Screenshot of searching for Policy in All Services." border="false":::
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Select Assignments page from Policy Overview page" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Screenshot of selecting the Assignments page from Policy Overview page." border="false":::
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Assign a policy definition from Assignments page" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Screenshot of selecting 'Assign policy' from Assignments page." border="false":::
 
 1. On the **Assign Policy** page, set the **Scope** by selecting the ellipsis and then selecting
    either a management group or subscription. Optionally, select a resource group. A scope
@@ -59,7 +59,7 @@ disks_ policy definition.
 1. Search through the policy definitions list to find the _Audit VMs that do not use managed disks_
    definition. Select that policy and then use the **Select** button.
 
-   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Find the correct policy definition" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Screenshot of filtering the available definitions." border="false":::
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
    change it. For this example, leave _Audit VMs that do not use managed disks_. You can also add an
@@ -84,7 +84,7 @@ environment.
 Select **Compliance** in the left side of the page. Then locate the _Audit VMs that do not use
 managed disks_ policy assignment you created.
 
-:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Compliance details on the Policy Compliance page" border="false":::
+:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Screenshot of compliance details on the Policy Compliance page." border="false":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -116,7 +116,7 @@ To remove the assignment created, follow these steps:
 1. Right-click the _Audit VMs that do not use managed disks_ policy assignment and select **Delete
    assignment**.
 
-   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Delete an assignment from the Compliance page" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Screenshot of using the context menu to delete an assignment from the Compliance page." border="false":::
 
 ## Next steps
 

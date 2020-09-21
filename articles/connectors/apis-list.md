@@ -307,7 +307,7 @@ For logic apps that you create and run in a dedicated [integration service envir
         [![Azure Service Bus ISE connector][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Azure SQL Data Warehouse ISE connector][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
+        [![Azure Synapse Analytics ISE connector][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
         [![Azure Table Storage ISE connector][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc]
@@ -575,7 +575,7 @@ Although you create connections from within a logic app, connections are separat
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Run queries against Azure Monitor Logs across Log Analytics workspaces and Application Insights components"
 [azure-queues-doc]: /connectors/azurequeues/ "Connect to your Azure Storage account so that you can create and manage queues and messages"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
-[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connect to Azure SQL Data Warehouse so that you can view your data"
+[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connect to Azure Synapse Analytics so that you can view your data"
 [azure-table-storage-doc]: /connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
 [biztalk-server-doc]: /connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side by side with Azure Logic Apps"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connect to an on-premises file system"

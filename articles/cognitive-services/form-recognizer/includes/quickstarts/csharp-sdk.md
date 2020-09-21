@@ -534,7 +534,7 @@ To run this method, you'll need to call it from `Main`.
 ```csharp
 static void Main(string[] args)
 {
-    var trainCustomModel = TrainCustomModelNoLabels();
+    var trainCustomModel = TrainCustomModelWithLabels();
     Task.WaitAll(trainCustomModel);
 }
 ```
@@ -591,6 +591,7 @@ This section demonstrates how to extract key/value information and other content
 You'll use the `StartRecognizeCustomFormsFromUri` method. The returned value is a collection of `RecognizedForm` objects: one for each page in the submitted document. The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
 ```csharp
+static async Task RecognizeContentCustomModel()
 {
     // Use the custom model ID returned in the previous example.
     string modelId = "<modelId>";

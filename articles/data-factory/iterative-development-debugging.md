@@ -1,7 +1,7 @@
 ---
 title: Iterative development and debugging in Azure Data Factory 
 description: Learn how to develop and debug Data Factory pipelines iteratively in the ADF UX
-ms.date: 08/28/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory

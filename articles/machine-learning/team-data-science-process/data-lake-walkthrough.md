@@ -28,7 +28,7 @@ These technologies are used in this walkthrough.
 ### Azure Data Lake Analytics
 The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and user-defined functions (UDFs), and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-Data Lake Analytics is also a key part of Cortana Analytics Suite and works with Azure SQL Data Warehouse, Power BI, and Data Factory. This combination gives you a complete cloud big data and advanced analytics platform.
+Data Lake Analytics is also a key part of Cortana Analytics Suite and works with Azure Synapse Analytics, Power BI, and Data Factory. This combination gives you a complete cloud big data and advanced analytics platform.
 
 This walkthrough begins by describing how to install the prerequisites and resources that are needed to complete data science process tasks. Then it outlines the data processing steps using U-SQL and concludes by showing how to use Python and Hive with Azure Machine Learning Studio (classic) to build and deploy the predictive models.
 
@@ -751,7 +751,7 @@ By completing this walkthrough, you have created a data science environment for 
 The learning path for the
 [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
 
-* [The Team Data Science Process in action: using SQL Data Warehouse](sqldw-walkthrough.md)
+* [The Team Data Science Process in action: using Azure Synapse Analytics](sqldw-walkthrough.md)
 * [The Team Data Science Process in action: using HDInsight Hadoop clusters](hive-walkthrough.md)
 * [The Team Data Science Process: using SQL Server](sql-walkthrough.md)
 * [Overview of the Data Science Process using Spark on Azure HDInsight](spark-overview.md)

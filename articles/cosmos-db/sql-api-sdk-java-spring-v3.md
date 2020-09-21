@@ -62,10 +62,22 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 ### Configure dependencies
 
+Two Spring Data Azure Cosmos DB version 3 Maven artifacts are available.
+
+- Artifact that depends on Spring Data framework version 2.2:
   ```xml
   <dependency>
       <groupId>com.azure</groupId>
-      <artifactId>azure-spring-data-cosmos</artifactId>
+      <artifactId>azure-spring-data-2-2-cosmos</artifactId>
+      <version>latest</version>
+  </dependency>
+  ```
+
+- Artifact that depends on Spring Data framework version 2.3:
+  ```xml
+  <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-spring-data-2-3-cosmos</artifactId>
       <version>latest</version>
   </dependency>
   ```
@@ -128,9 +140,7 @@ Query:
 * Fixed nested partition key bug when used with `@GeneratedValue` annotation.
 
 ### 3.0.0-beta.1 (August 17, 2020)
-
 #### New features
-
 * Updates group ID to `com.azure`.
 * Updates artifact ID to `azure-spring-data-2-3-cosmos`.
 * Updates azure-cosmos SDK dependency to `4.3.2-beta.2`.
