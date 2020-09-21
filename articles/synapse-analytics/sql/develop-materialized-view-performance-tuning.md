@@ -138,13 +138,17 @@ The data warehouse optimizer can automatically use deployed materialized views t
 
 **Monitor materialized views**
 
-A materialized view is stored in the data warehouse just like a table with clustered columnstore index (CCI).  Reading data from a materialized view includes scanning the index and applying changes from the delta store.  When the number of rows in the delta store is too high, resolving a query from a materialized view can take longer than directly querying the base tables.  To avoid query performance degradation,  it's a good practice to run [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to monitor the view's overhead_ratio (total_rows / base_view_row).  If the overhead_ratio is too high, consider rebuilding the materialized view so all rows in the delta store are moved to the columnstore index.  
+A materialized view is stored in the data warehouse just like a table with clustered columnstore index (CCI).  Reading data from a materialized view includes scanning the index and applying changes from the delta store.  When the number of rows in the delta store is too high, resolving a query from a materialized view can take longer than directly querying the base tables.  
+
+To avoid query performance degradation,  it's a good practice to run [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to monitor the view's overhead_ratio (total_rows / base_view_row).  If the overhead_ratio is too high, consider rebuilding the materialized view so all rows in the delta store are moved to the columnstore index.  
 
 **Materialized view and result set caching**
 
 These two features are introduced in SQL pool around the same time for query performance tuning. Result set caching is used for achieving high concurrency and fast response times from repetitive queries against static data.  
 
-To use the cached result, the form of the cache requesting query must match with the query that produced the cache.  Additionally, the cached result must apply to the entire query.  Materialized views allow data changes in the base tables.  Data in materialized views can be applied to a piece of a query.  This support allows the same materialized views to be used by different queries that share some computation for faster performance.
+To use the cached result, the form of the cache requesting query must match with the query that produced the cache.  Additionally, the cached result must apply to the entire query.  
+
+Materialized views allow data changes in the base tables.  Data in materialized views can be applied to a piece of a query.  This support allows the same materialized views to be used by different queries that share some computation for faster performance.
 
 ## Example
 
@@ -347,7 +351,7 @@ GROUP BY c_customer_id
 
 ```
 
-Check the execution plan of the original query again.  Now the number of joins changes from 17 to 5 and there's no shuffle anymore.  Click the Filter operation icon in the plan. Its Output List shows the data is read from the materialized views instead of base tables.  
+Check the execution plan of the original query again.  Now the number of joins changes from 17 to 5 and there's no shuffle anymore.  Select the Filter operation icon in the plan. Its Output List shows the data is read from the materialized views instead of base tables.  
 
  ![Plan_Output_List_with_Materialized_Views](./media/develop-materialized-view-performance-tuning/output-list.png)
 
