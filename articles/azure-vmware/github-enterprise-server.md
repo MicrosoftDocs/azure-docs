@@ -114,7 +114,7 @@ You should now have a file locally on your VM, actions-runner-linux-arm64-\*.tar
 
 `tar xzf actions-runner-linux-arm64-\*.tar.gz`
 
-This extraction will unpack a few files locally, including a `config.sh` and `run.sh` script, which we'll come back to shortly.
+This extraction unpacks a few files locally, including a `config.sh` and `run.sh` script, which we'll come back to shortly.
 
 ## Enabling GitHub Actions
 
