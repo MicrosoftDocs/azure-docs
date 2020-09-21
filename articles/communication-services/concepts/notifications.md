@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 The Azure Communication Services chat and calling client libraries create a real-time messaging channel that allows signaling messages to be pushed to connected clients in an efficient, reliable manner. This enables you to build rich, real-time communication functionality into your applications without the need to implement complicated HTTP polling logic. However, on mobile applications, this signaling channel only remains connected when your application is active in the foreground. If you want your users to receive incoming calls or chat messages while your application is in the background, you should use push notifications.
 
-Push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) and [Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview) that enable you to add push notifications to your apps.
+Push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) and [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) that enable you to add push notifications to your apps.
 
 ## Trigger push notifications via Azure Event Grid
 
@@ -67,7 +67,7 @@ In the portal, navigate to your Azure Communication Services resource. Inside th
 
 #### Device registration 
 
-Refer to the [Register Push Notifications](../quickstarts/voice-video-calling/includes/calling-sdk-ios.md#push-notification) quickstart section to learn how to register your device handle with Communication Services. 
+Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn how to register your device handle with Communication Services. 
 
 ## Next steps
 
