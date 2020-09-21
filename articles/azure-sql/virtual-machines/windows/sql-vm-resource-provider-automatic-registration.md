@@ -15,7 +15,7 @@ ms.date: 09/21/2020
 
 Enable the automatic registration feature in the Azure portal to automatically register all current and future SQL Server on Azure VMs with the SQL VM resource provider in lightweight mode.
 
-This article teaches you to enable the automatic registration feature. Alternatively, you can [register a single VM](sql-vm-resource-provider.md), or [register your VMs in bulk](sql-vm-resource-provider-bulk-register.md) with the SQL VM resource provider. 
+This article teaches you to enable the automatic registration feature. Alternatively, you can [register a single VM](sql-vm-resource-provider-register.md), or [register your VMs in bulk](sql-vm-resource-provider-bulk-register.md) with the SQL VM resource provider. 
 
 ## Overview
 
@@ -37,7 +37,7 @@ To register your SQL Server VM with the resource provider, you'll need:
 
 To enable automatic registration of your SQL Server VMs in the Azure portal, follow the steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com)
+1. Sign into the [Azure portal](https://portal.azure.com).
 1. Navigate to the [**SQL virtual machines**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource page. 
 1. Select **Automatic SQL Server VM registration** to open the **Automatic registration** page. 
 
@@ -45,7 +45,7 @@ To enable automatic registration of your SQL Server VMs in the Azure portal, fol
 
 1. Choose your subscription from the drop-down. 
 1. Read through the terms and if you agree, select **I accept**. 
-1. Select **Register** to enable the feature and automatically register all current and future SQL Server VMs with the SQL VM resource provider. This will not restart the SQL Server service. 
+1. Select **Register** to enable the feature and automatically register all current and future SQL Server VMs with the SQL VM resource provider. This will not restart the SQL Server service on any of the VMs. 
 
 
 
