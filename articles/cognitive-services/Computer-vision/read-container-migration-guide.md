@@ -57,20 +57,15 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 |File level	| `Mounts:Shared` directory exists. |
 |Azure Blob	| `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
-## Queue
+## Queue implementations
 
-In v3 of the container, RabbitMQ is not currently not supported. The supported backing implementations are:
+In v3.x of the container, RabbitMQ is not currently not supported. The supported backing implementations are:
 
 | Implementation | Runtime Argument(s) | Intended use |
 |---------|---------|-------|
 | In Memory (default) | No runtime arguments required. | Development and testing |
 | Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Production |
 | RabbitMQ	| Not yet available | Production |
-
-
-
-
-
 
 For added redundancy the Read v3.x container uses a visibility timer to ensure requests can be successfully processed in the event of a crash, when running in a multi-container set-up. 
 
