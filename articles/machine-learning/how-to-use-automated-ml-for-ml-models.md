@@ -141,7 +141,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
-    ![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 <a name="profile"></a>
 
@@ -181,7 +181,7 @@ Included | Specifies which columns to include for training.
 Feature type| Change the value type for the selected column.
 Impute with| Select what value to impute missing values with in your data.
 
-![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Screenshot shows the Featurization pane with Enable featurization selected and several customizations.](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## Run experiment and view results
 
