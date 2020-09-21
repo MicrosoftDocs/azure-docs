@@ -204,7 +204,7 @@ Navigate to a repo on your instance, and add the above workflow as: `.github/wor
 
 :::image type="content" source="media/github-enterprise-server/example-workflow-3.png" alt-text="Another example workflow.":::
 
-In the Actions tab for your repo, wait for the workflow to execute.
+In the **Actions** tab for your repo, wait for the workflow to execute.
 
 :::image type="content" source="media/github-enterprise-server/executed-example-workflow.png" alt-text="Executed example workflow.":::
 
