@@ -53,7 +53,7 @@ In this quickstart, you use a code sample to learn how to protect an ASP.NET Cor
 ## Step 2: Download the ASP.NET Core project
 
 > [!div renderon="docs"]
-> Next, [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
+> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
 > [!div renderon="docs"]
 > ## Step 3: Configure the ASP.NET Core project
