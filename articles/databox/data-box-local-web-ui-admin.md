@@ -199,9 +199,9 @@ To enable SMB signing in your Azure Device:
 
 ## Enable Backup Operator privileges
 
-When Backup Operator privileges are enabled, all web UI users for your device can perform as Backup Operators for SMB shares.
+When Backup Operator privileges are enabled, all web UI users for your device can do Backup Operator tasks for SMB shares.
 
-For more information about backup operator privileges, see [Role-Based Access Control to Manage Azure Backup Recovery Points](../backup/backup-rbac-rs-vault.md).
+For more information about Backup Operators privileges, see Backup Operators in [Active Directory Security Groups](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
 To enable Backup Operator privileges in your Azure Device:
 
@@ -209,9 +209,9 @@ To enable Backup Operator privileges in your Azure Device:
 
    ![Open Data Box Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
-2. **Enable** Backup Operator privileges
+2. **Enable** Backup Operator privileges.
 
-   ![Enable Backup Operator Privileges](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+   ![Enable Backup Operator privileges](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
 
 3. **Select Apply**.
 4. In the local web UI, go to **Shut down or restart**.
@@ -219,11 +219,11 @@ To enable Backup Operator privileges in your Azure Device:
 
 ## Enable ACLs for Azure Files
 
-Access Control Lists (ACLs), timestamps, and attributes can be copied when users upload files to an Azure storage account. ACLs for Azure Files must be enabled, and the user copying the files to Azure must have Backup Operator privileges.
+A file's Access Control Lists (ACLs), attributes, and timestamps are copied along along with the files when files are uploaded to your Data Box. Use the ACLs for Azure files option to disable or enable this feature. 
 
-Types of metadata that are copied depend on the share type. For more information, see TOPIC IN DEVELOPMENT.
+Types of metadata that are copied depend on the share type. For more information, see [File ACLs preservation TOPIC IN DEVELOPMENT.
 
-To find out how to make users of the web UI Backup Operators, see Enable backup operator privileges INTERNAL LINK TO COME.
+To preserve metadata, the local user also must have Backup Operator privileges on the device.[Make local users of the web UI Backup Operators](Enable Backup Operator privileges).
 
 To enable transfer of ACLs for Azure files:
 
