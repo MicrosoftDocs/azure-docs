@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/21/2020
 ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
 
