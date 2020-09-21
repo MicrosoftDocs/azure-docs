@@ -25,7 +25,7 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
     You can also execute the GET request from a browser from the following URL:
 
-    <http://localhost:7071/api/HttpExample?name=PowerShell>
+    `http://localhost:7071/api/HttpExample?name=PowerShell`
 
     When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a `BadRequest` error. When you review the code in run.ps1, you see that this error occurs by design.
 

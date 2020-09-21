@@ -49,7 +49,7 @@ arc-helm-demo  eastus      k8s-clusters
 
 ```bash
 ├── charts
-│   └── azure-vote
+│   └── azure-arc-sample
 │       ├── Chart.yaml
 │       ├── templates
 │       │   ├── NOTES.txt
@@ -57,25 +57,25 @@ arc-helm-demo  eastus      k8s-clusters
 │       │   └── service.yaml
 │       └── values.yaml
 └── releases
-    └── vote-app.yaml
+    └── app.yaml
 ```
 
-In the git repo we have two directories, one containing a Helm chart and one containing the releases config. In the `releases` directory, the `vote-app.yaml` contains the HelmRelease config shown below:
+In the git repo we have two directories, one containing a Helm chart and one containing the releases config. In the `releases` directory, the `app.yaml` contains the HelmRelease config shown below:
 
-```bash
+```yaml
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: vote-app
+  name: azure-arc-sample
   namespace: arc-k8s-demo
 spec:
   releaseName: arc-k8s-demo
   chart:
     git: https://github.com/Azure/arc-helm-demo
     ref: master
-    path: charts/azure-vote
+    path: charts/azure-arc-sample
   values:
-    frontendServiceName: arc-k8s-demo-vote-front
+    serviceName: arc-k8s-demo
 ```
 
 The Helm release config contains the following fields:
@@ -92,10 +92,10 @@ You can learn more about the HelmRelease in the official [Helm Operator document
 
 ## Create a configuration
 
-Using the Azure CLI extension for `k8sconfiguration`, let's link our connected cluster to the example git repository. We will give this configuration a name `azure-voting-app` and deploy the Flux operator in the `arc-k8s-demo` namespace.
+Using the Azure CLI extension for `k8sconfiguration`, let's link our connected cluster to the example git repository. We will give this configuration a name `azure-arc-sample` and deploy the Flux operator in the `arc-k8s-demo` namespace.
 
 ```bash
-az k8sconfiguration create --name azure-voting-app \
+az k8sconfiguration create --name azure-arc-sample \
   --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME \
   --operator-instance-name flux --operator-namespace arc-k8s-demo \
   --operator-params='--git-readonly --git-path=releases' \
@@ -114,7 +114,7 @@ To customize the creation of configuration, [learn about additional parameters y
 Using the Azure CLI, validate that the `sourceControlConfiguration` was successfully created.
 
 ```console
-az k8sconfiguration show --resource-group $RESOURCE_GROUP --name azure-voting-app --cluster-name $CLUSTER_NAME --cluster-type connectedClusters
+az k8sconfiguration show --resource-group $RESOURCE_GROUP --name azure-arc-sample --cluster-name $CLUSTER_NAME --cluster-type connectedClusters
 ```
 
 The `sourceControlConfiguration` resource is updated with compliance status, messages, and debugging information.
@@ -135,8 +135,8 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
     "chartValues": "--set helm.versions=v3",
     "chartVersion": "0.6.0"
   },
-  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/azure-voting-app",
-  "name": "azure-voting-app",
+  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/azure-arc-sample",
+  "name": "azure-arc-sample",
   "operatorInstanceName": "flux",
   "operatorNamespace": "arc-k8s-demo",
   "operatorParams": "--git-readonly --git-path=releases",
@@ -152,10 +152,10 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## Validate Application
 
-Run the following command and navigate to `localhost:3000` on your browser to verify that application is running.
+Run the following command and navigate to `localhost:8080` on your browser to verify that application is running.
 
 ```bash
-kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo-vote-front 3000:80
+kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 ```
 
 ## Next steps

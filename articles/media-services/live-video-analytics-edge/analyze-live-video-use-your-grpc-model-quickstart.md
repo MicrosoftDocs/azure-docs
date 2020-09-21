@@ -51,11 +51,11 @@ This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze
 ## Create and deploy the media graph
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
 ::: zone-end
 
 ## Interpret results
@@ -74,4 +74,9 @@ If you intend to try other quickstarts, keep the resources you created. Otherwis
 
 ## Next steps
 
-Try running different media graph topologies using gRPC protocol.
+* Try running different media graph topologies using gRPC protocol.
+* **Build and run sample Live Video Analytics (LVA) extensions**
+<br/>Try our Jupyter sample notebooks that enable you to build and run [ONNX](http://onnx.ai/) based YOLO models as Live Video Analytics (LVA) extension.
+    * [Sample YOLOv3 model](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [Sample YOLOv4 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
+

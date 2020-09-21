@@ -6,7 +6,8 @@ ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/27/2020
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 manager: philmea
 ---
 

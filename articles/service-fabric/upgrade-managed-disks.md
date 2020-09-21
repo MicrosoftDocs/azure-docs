@@ -359,7 +359,7 @@ In this walkthrough, you learned how to upgrade the virtual machine scale sets o
 
 Learn how to:
 
-* [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-node-type.md)
+* [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-primary-node-type.md)
 
 * [Convert a scale set template to use managed disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

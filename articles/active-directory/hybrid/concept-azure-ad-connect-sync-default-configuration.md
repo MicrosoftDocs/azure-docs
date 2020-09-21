@@ -219,7 +219,7 @@ We now know enough about Synchronization Rules to be able to understand how the 
 | Name | Comment |
 |:--- |:--- |
 | In from AD – User Join |Rule for joining connector space objects with metaverse. |
-| In from AD – UserAccount Enabled |Attributes required for sign-in to Azure AD and Office 365. We want these attributes from the enabled account. |
+| In from AD – UserAccount Enabled |Attributes required for sign-in to Azure AD and Microsoft 365. We want these attributes from the enabled account. |
 | In from AD – User Common from Exchange |Attributes found in the Global Address List. We assume the data quality is best in the forest where we have found the user’s mailbox. |
 | In from AD – User Common |Attributes found in the Global Address List. In case we didn’t find a mailbox, any other joined object can contribute the attribute value. |
 | In from AD – User Exchange |Only exists if Exchange has been detected. It flows all infrastructure Exchange attributes. |

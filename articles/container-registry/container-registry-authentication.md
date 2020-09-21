@@ -48,7 +48,7 @@ In some cases, you might need to authenticate with `az acr login` when the Docke
 For this scenario, run `az acr login` first with the `--expose-token` parameter. This option exposes an access token instead of logging in through the Docker CLI.
 
 ```azurecli
-az acr login -name <acrName> --expose-token
+az acr login --name <acrName> --expose-token
 ```
 
 Output displays the access token, abbreviated here:

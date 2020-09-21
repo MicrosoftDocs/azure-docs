@@ -105,8 +105,10 @@ object result = await client.GetDigitalTwin(id);
 
 This call returns twin data as a JSON string. 
 
-> [!TIP]
-> Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
+Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
+
+>[!TIP]
+>The `displayName` for a twin is part of its model metadata, so it will not show when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
 
 To retrieve multiple twins using a single API call, see the query API examples in [*How-to: Query the twin graph*](how-to-query-graph.md).
 
@@ -380,6 +382,8 @@ For an example of how to delete all twins at once, download the sample app used 
 ## Manage twins with CLI
 
 Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## Next steps
 

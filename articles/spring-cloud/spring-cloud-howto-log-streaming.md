@@ -10,12 +10,15 @@ ms.custom: devx-track-java
 ---
 
 # Stream Azure Spring Cloud app logs in real-time
+
+**This article applies to:** ✔️ Java ✔️ C#
+
 Azure Spring Cloud enables log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 ## Prerequisites
 
 * Install [Azure CLI extension](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) for Spring Cloud, minimum version 0.2.0 .
-* An instance of **Azure Spring Cloud** with a running application, for example [Spring Cloud app](./spring-cloud-quickstart-launch-app-cli.md).
+* An instance of **Azure Spring Cloud** with a running application, for example [Spring Cloud app](./spring-cloud-quickstart.md).
 
 > [!NOTE]
 >  The ASC CLI extension is updated from version 0.2.0 to 0.2.1. This change affects the syntax of the command for log streaming: `az spring-cloud app log tail`, which is replaced by: `az spring-cloud app logs`. The command: `az spring-cloud app log tail` will be deprecated in a future release. If you have been using version 0.2.0, you can upgrade to 0.2.1. First, remove the old version with the command: `az extension remove -n spring-cloud`.  Then, install 0.2.1 by the command: `az extension add -n spring-cloud`.
@@ -82,7 +85,7 @@ az spring-cloud app logs -h
 ```
 
 ## Next steps
-
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 
  

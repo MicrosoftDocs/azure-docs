@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -95,22 +95,31 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. To specify what happens after a review completes, expand the **Upon completion settings** section.
 
-    ![Create an access review - Upon completion settings](./media/create-access-review/upon-completion-settings.png)
+    ![Create an access review - Upon completion settings](./media/create-access-review/upon-completion-settings-new.png)
 
-1. If you want to automatically remove access for denied users, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
+2. If you want to automatically remove access for denied users, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
 
-1. Use the **Should reviewer not respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
+3. Use the **If reviewers don't respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
 
     - **No change** - Leave user's access unchanged
     - **Remove access** - Remove user's access
     - **Approve access** - Approve user's access
     - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
 
+    ![Create an access review - Advanced settings](./media/create-access-review/advanced-settings-preview-new.png)
+
+4. (Preview) Use the Action to apply on denied users to specify what happens to guest users if they are denied.
+    - **Option 1** will remove denied user’s access to the group or application being reviewed, they will still be able to sign-in to the tenant. 
+    - **Option 2** will block the denied users from signing in to the tenant, regardless if they have access to other resources. If there was a mistake or if an admin decides to re-enable one’s access, they can do so within 30 days after the user has been disabled. If there is no action taken on the disabled users, they will be deleted from the tenant.
+
+To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md).
+
+>[!NOTE]
+> Action to apply on denied users only works if you previously scoped a review to Guest users only (See **Create one or more access reviews** section step 8)
+
 ### Advanced settings
 
 1. To specify additional settings, expand the **Advanced settings** section.
-
-    ![Create an access review - Advanced settings](./media/create-access-review/advanced-settings-preview.png)
 
 1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
 
@@ -153,7 +162,7 @@ If you have assigned guests as reviewers and they have not accepted the invite, 
 
 ## Create reviews via APIs
 
-You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. For more information, see the [Azure AD access reviews API reference](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). For a code sample, see [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. For more information, see the [Azure AD access reviews API reference](/graph/api/resources/accessreviews-root?view=graph-rest-beta). For a code sample, see [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## Next steps
 

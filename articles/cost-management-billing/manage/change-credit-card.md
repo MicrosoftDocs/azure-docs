@@ -5,10 +5,12 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
+
 # Add, update, or remove a credit card for Azure
 
 This document applies to customers who signed up for Azure online with a credit card.
@@ -183,7 +185,7 @@ If you're [paying by invoice](pay-by-invoice.md), send your payment to the locat
 
 ### How do I change the tax ID?
 
-To add or update tax ID, update your profile in the  [Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
+To add or update tax ID, update your profile in the  [Azure portal](https://portal.azure.com), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
 
 ## Check the type of your account
 

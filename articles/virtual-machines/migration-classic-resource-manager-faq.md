@@ -18,11 +18,11 @@ ms.author: tagore
 
 ## What is Azure Service Manager and what does it mean by classic?
 
-The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
 ## What is Azure Resource Manager?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) is the latest control plane of azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) is the latest control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
 ## What is the time required for migration?
 
@@ -68,7 +68,7 @@ You cannot abort migration if the commit operation fails. All migration operatio
 
 ## Do I have to buy another express route circuit if I have to use IaaS under Resource Manager? 
 
-No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](~/articles/expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
+No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
 
 ## What if I had configured Role-Based Access Control policies for my classic IaaS resources? 
 
@@ -91,7 +91,7 @@ To migrate the virtual machine to Resource Manager mode,
 1. Delete the backup/snapshot extension from the VM.
 2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
 
-Additionally, if you want to back up the migrated VM, go to Virtual Machine management blade to [enable backup](~/articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+Additionally, if you want to back up the migrated VM, go to Virtual Machine management blade to [enable backup](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## Can I validate my subscription or resources to see if they're capable of migration? 
 
@@ -111,7 +111,7 @@ All the resources that you explicitly provide names for in the classic deploymen
 
 ## Can I migrate ExpressRoute circuits used across subscriptions with authorization links? 
 
-ExpressRoute circuits which use cross-subscription authorization links cannot be migrated automatically without downtime. We have guidance on how these can be migrated using manual steps. See [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](~/articles/expressroute/expressroute-migration-classic-resource-manager.md) for steps and more information.
+ExpressRoute circuits which use cross-subscription authorization links cannot be migrated automatically without downtime. We have guidance on how these can be migrated using manual steps. See [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md) for steps and more information.
 
 ## I got the message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension whose Status is not being reported from the VM. Hence, this VM cannot be migrated."*
 

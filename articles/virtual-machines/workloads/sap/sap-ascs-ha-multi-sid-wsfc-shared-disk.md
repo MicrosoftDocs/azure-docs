@@ -15,21 +15,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
 # SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows OS][Logo_Windows] Windows
 >
-
-In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer. 
 
 If you have an SAP deployment, you must use an internal load balancer to create a Windows cluster configuration for SAP Central Services (ASCS/SCS) instances.
 
-This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with shared disk. When this process is completed, you have configured an SAP multi-SID cluster.
+This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with shared disk, using SIOS to simulate shared disk. When this process is completed, you have configured an SAP multi-SID cluster.
 
 > [!NOTE]
 > This feature is available only in the Azure Resource Manager deployment model.
@@ -51,9 +49,10 @@ You have already configured a WSFC cluster to use for one SAP ASCS/SCS instance 
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:
-> * The SAP ASCS/SCS instances must share the same WSFC cluster.
-> * Each database management system (DBMS) SID must have its own dedicated WSFC cluster.
-> * SAP application servers that belong to one SAP system SID must have their own dedicated VMs.
+> * The SAP ASCS/SCS instances must share the same WSFC cluster.  
+> * Each database management system (DBMS) SID must have its own dedicated WSFC cluster.  
+> * SAP application servers that belong to one SAP system SID must have their own dedicated VMs.  
+> * A mix of Enqueue Replication Server 1 and Enqueue Replication Server 2 in the same cluster is not supported.  
 
 ## SAP ASCS/SCS multi-SID architecture with shared disk
 
@@ -243,8 +242,6 @@ The high-level procedure is as follows:
 
     Also open the Azure internal load balancer probe port, which is 62350 in our scenario. It is described [in this article][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
-7. [Change the start type of the SAP evaluated receipt settlement (ERS) Windows service instance][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
-
 8. Install the SAP primary application server on the new dedicated VM, as described in the SAP installation guide.  
 
 9. Install the SAP additional application server on the new dedicated VM, as described in the SAP installation guide.
@@ -282,7 +279,7 @@ The high-level procedure is as follows:
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
-[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#0f3ee255-b31e-4b8a-a95a-d9ed6200468b
+[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 

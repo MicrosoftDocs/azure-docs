@@ -53,7 +53,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 ### 3 - Create the data source
 
-The [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) support the managed identity connection string. Below is an example of how to create a data source to index data from Cosmos DB using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) support the managed identity connection string. Below is an example of how to create a data source to index data from Cosmos DB using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 When using managed identities to authenticate, the **credentials** will not include an account key.
 
@@ -107,7 +107,7 @@ api-key: [admin key]
 }
 ```
 
-For more on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
 
 ### 5 - Create the indexer
 
@@ -132,7 +132,7 @@ Example indexer definition:
 
 This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
-For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 

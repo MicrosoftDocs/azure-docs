@@ -6,14 +6,15 @@ ms.reviewer: dhgandhi
 ms.author: banders
 ms.date: 07/24/2020
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
 ---
 
 # Link a partner ID to your Azure accounts
 
-Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link(PAL), partners can associate their partner network ID with the credentials used for service delivery.
+Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
-PAL enables Microsoft to identify and recognize partners who drive Azure customer success.Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ).
+PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ).
 
 ## Get access from your customer
 
@@ -127,10 +128,11 @@ Yes. A linked partner ID can be changed, added, or removed.
 
 The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
 
+However, if you are managing customer resources through Azure Lighthouse, you should create the link in your service provider tenant, using an account that has access to the customer resources. For more information, see [Link your partner ID to enable partner earned credit on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
+
 **Can other partners or customers edit or remove the link to the partner ID?**
 
 The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
-
 
 **Which MPN ID should I use if my company has multiple?**
 
@@ -152,10 +154,11 @@ You can't see the customer in the reports due to following reasons
 
 Yes, You can link your partner ID for Azure Stack.
 
-**How do I link my partner ID if my company uses [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) to access customer resources?**
+**How do I link my partner ID if my company uses [Azure Lighthouse](../../lighthouse/overview.md) to access customer resources?**
 
-If you onboard customers to Azure delegated resource management by [publishing a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), your MPN ID will automatically be associated. If you [onboard customers by deploying Azure Resource Manager templates](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), you'll need to associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant. For simplicity, we recommend creating a service principal account in your tenant that is associated your MPN ID and granting it Reader access to every customer you onboard. In this example, the RBAC Reader role is used and it is one of the roles that isn't eligible for Partner Earned Credit. For more information about roles, see [Roles and permissions for partner earned credit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+If you onboard customers to Azure delegated resource management by [publishing a managed services offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), your MPN ID will automatically be associated.
 
+If you [onboard customers by deploying Azure Resource Manager templates](../../lighthouse/how-to/onboard-customer.md), you'll need to associate your MPN ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your MPN ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to enable partner earned credit on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
 
 **How do I explain Partner Admin Link (PAL) to my Customer?**
 
@@ -167,4 +170,4 @@ The PAL association to existing credentials provides no new customer data to Mic
 
 **Does this impact the security of a customer’s Azure Environment?**
 
-PAL association only adds partner’s MPN ID to the credential already provisioned and it does not alter any permissions (Azure role) or provide additional Azure service data to partner or Microsoft. 
+PAL association only adds partner’s MPN ID to the credential already provisioned and it does not alter any permissions (Azure role) or provide additional Azure service data to partner or Microsoft.

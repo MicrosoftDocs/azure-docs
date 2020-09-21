@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 08/17/2020
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI
@@ -37,6 +37,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Palo Alto Networks - Admin UI supports **SP** initiated SSO
 * Palo Alto Networks - Admin UI supports **Just In Time** user provisioning
+* Once you configure Palo Alto Networks - Admin UI you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Palo Alto Networks - Admin UI from the gallery
 
@@ -49,8 +50,7 @@ To configure the integration of Palo Alto Networks - Admin UI into Azure AD, you
 1. In the **Add from the gallery** section, type **Palo Alto Networks - Admin UI** in the search box.
 1. Select **Palo Alto Networks - Admin UI** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
-
+## Configure and test Azure AD SSO
 In this section, you configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI based on a test user called **B.Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Palo Alto Networks - Admin UI needs to be established.
 
@@ -113,6 +113,9 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
     | username | user.userprincipalname |
     | adminrole | customadmin |
 	| | |
+
+    > [!NOTE]
+    > The _adminrole_ value should be same as the role name which is configured in the **Palo Alto Networks** as mentioned in step 9. 
 
 	> [!NOTE]
     > For more information about the attributes, see the following articles:
@@ -269,5 +272,3 @@ When you click the Palo Alto Networks - Admin UI tile in the Access Panel, you s
 - [Try Palo Alto Networks - Admin UI with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Palo Alto Networks - Admin UI with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

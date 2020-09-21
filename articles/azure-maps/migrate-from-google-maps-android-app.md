@@ -475,8 +475,10 @@ mapControl.onReady(map -> {
 
 Custom images can be used to represent points on a map. The map in examples below uses a custom image to display a point on the map. The point is at latitude: 51.5 and longitude: -0.2. The anchor offsets the position of the marker, so that the point of the pushpin icon aligns with the correct position on the map.
 
-![yellow pushpin image](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-ylw\_pushpin.png
+<center>
+
+![yellow pushpin image](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>
+yellow-pushpin.png</center>
 
 In both examples, the above image is added to the drawable folder of the apps resources.
 
@@ -490,7 +492,7 @@ public void onMapReady(GoogleMap googleMap) {
     mapView = googleMap;
 
     mapView.addMarker(new MarkerOptions().position(new LatLng(47.64, -122.33))
-    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ylw_pushpin))
+    .icon(BitmapDescriptorFactory.fromResource(R.drawable.yellow-pushpin))
     .anchor(0.2f, 1f));
 }
 ```
@@ -511,7 +513,7 @@ mapControl.onReady(map -> {
     dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
 
     //Load the custom image icon into the map resources.
-    map.images.add("my-yellow-pin", R.drawable.ylw_pushpin);
+    map.images.add("my-yellow-pin", R.drawable.yellow_pushpin);
 
     //Create a symbol that uses the custom image icon and add it to the map.
     map.layers.add(new SymbolLayer(dataSource,

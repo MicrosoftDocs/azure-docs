@@ -2,7 +2,7 @@
 author: ramonarguelles
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 1/29/2019
+ms.date: 08/14/2020
 ms.author: rgarcia
 ---
 Select **Build**. In the dialog box that opens, select a folder to export the Xcode project to.
@@ -14,23 +14,13 @@ When the export is complete, a folder that contains the exported Xcode project w
 > if you're changing assets in your scene. (For example, if you're adding, removing, or changing parent/child relationships, or if you're adding, removing, or changing properties.) If you're only
 > making source code changes, **Append** should be enough.
 
-### Convert the Xcode project to xcworkspace containing Azure Spatial Anchors references
+## Open the Xcode project
 
-In the exported Xcode project folder, run this command in the Terminal to install the necessary CocoaPods for the project:
-
-```bash
-pod install --repo-update
-```
-
-Now you can open `Unity-iPhone.xcworkspace` to open the project in Xcode:
+Now you can open `Unity-iPhone.xcodeproj` in Xcode. You can either launch Xcode and open the exported `Unity-iPhone.xcodeproj` project or launch the project in Xcode by running the following command from the location you exported the project:
 
 ```bash
-open ./Unity-iPhone.xcworkspace
+open ./Unity-iPhone.xcodeproj
 ```
-
-> [!NOTE]
-> See the troubleshooting steps [here](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015)
-> if you're having CocoaPod issues after upgrading to macOS Catalina (10.15).
 
 Select the root **Unity-iPhone** node to view the project settings, and then select the **General** tab.
 
@@ -38,7 +28,7 @@ Under **Signing**, make sure **Automatically manage signing** is enabled. If it'
 
 Under **Deployment Info**, make sure the **Deployment Target** is set to `11.0`.
 
-### Deploy the app to your iOS device
+## Deploy the app to your iOS device
 
 Connect the iOS device to the Mac and set the **active scheme** to your iOS device.
 
@@ -47,7 +37,3 @@ Connect the iOS device to the Mac and set the **active scheme** to your iOS devi
 Select **Build and then run the current scheme**.
 
 ![Deploy and run](./media/spatial-anchors-unity/deploy-run.png)
-
-> [!NOTE]
-> If you see a `library not found for -lPods-Unity-iPhone` error, you probably opened the `.xcodeproj` file instead of the
-> `.xcworkspace` file.

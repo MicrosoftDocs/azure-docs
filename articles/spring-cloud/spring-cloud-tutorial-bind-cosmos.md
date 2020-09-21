@@ -11,11 +11,13 @@ ms.custom: devx-track-java
 
 # Bind an Azure Cosmos DB database to your Azure Spring Cloud application
 
+**This article applies to:** ✔️ Java
+
 Instead of manually configuring your Spring Boot applications, you can automatically bind select Azure services to your applications by using Azure Spring Cloud. This article demonstrates how to bind your application to an Azure Cosmos DB database.
 
 Prerequisites:
 
-* A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to get started.
+* A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](spring-cloud-quickstart.md) to get started.
 * An Azure Cosmos DB account with a minimum permission level of Contributor.
 
 ## Bind Azure Cosmos DB
