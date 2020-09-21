@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/21/2020
 ms.author: aahi
 ---
 
@@ -27,7 +27,9 @@ Use this article to learn about
 
 The Read v3.x containers use version 3 of the Computer Vision API and have the following endpoints:
 
-:::image type="content" source="media/container-endpoints.png" alt-text="Read container endpoints.":::
+* `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
+* `/vision/v3.1-preview.2/read/analyze`
+* `/vision/v3.1-preview.2/read/syncAnalyze`
 
 See the [Computer Vision v3 API migration guide](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/upgrade-api-versions) for detailed information on updating your applications.
 
