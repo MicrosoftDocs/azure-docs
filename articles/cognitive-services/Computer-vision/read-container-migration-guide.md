@@ -65,7 +65,7 @@ In v3.x of the container, RabbitMQ is not currently not supported. The supported
 |---------|---------|-------|
 | In Memory (default) | No runtime arguments required. | Development and testing |
 | Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Production |
-| RabbitMQ	| Not yet available | Production |
+| RabbitMQ	| Unavailable | Production |
 
 For added redundancy the Read v3.x container uses a visibility timer to ensure requests can be successfully processed in the event of a crash, when running in a multi-container set-up. 
 
