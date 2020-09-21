@@ -46,6 +46,11 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
 
+    > [!NOTE]
+    > By default, a **Logic App (Preview)** resource has its [system-assigned identity](../logic-apps/create-managed-service-identity.md) automatically enabled to authenticate connections at runtime. 
+    > This identity differs from the authentication credentials or connection string that you use 
+    > when you create a connection. If you disable this identity, connections won't work at runtime.
+
 * Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
 
 * Test your logic apps locally in the Visual Studio Code development environment.
@@ -129,9 +134,11 @@ For more information about the pricing models that apply to this new resource ty
     > earlier versions, and delete these artifacts:
     >
     > * The `Microsoft.Azure.Functions.ExtensionBundle.Workflows` folder, which contains 
-    > previous extension bundles and is located along this path:
+    > previous extension bundles and is located along either path here:
     >
-    >   `C:\Users\<username>\AppData\Local\Temp\Functions\ExtensionBundles`
+    >   * `C:\Users\<username>\AppData\Local\Temp\Functions\ExtensionBundles`
+    >
+    >   * `C:\Users\<username>.azure-functions-core-tools\Functions\ExtensionBundles`
     >
     > * The `microsoft.azure.workflows.webjobs.extension` folder, which is the [NuGet](/nuget/what-is-nuget) 
     > cache for the private preview extension and is located along this path:
@@ -235,10 +242,6 @@ When you later try to open the Logic App Designer for your logic app, you get a 
       Or, in the Visual Studio Code status bar, select your Azure account. 
 
    1. When another subscriptions list appears, select the subscriptions that you want, and then make sure that you select **OK**.
-
-> [!NOTE]
-> If Visual Studio Code signs you out from your Azure account for some reason, 
-> you're prompted to sign back in, or you can manually sign back in.
 
 <a name="create-project"></a>
 
@@ -595,7 +598,7 @@ To return a response back to the caller that sent a request to your logic app, y
 
 ## Retest your logic app
 
-After you make updates to your logic app, you can run another test by rerunning the debugger in Visual Studio and sending another request to trigger your updated logic app, similar to the steps in [Debug and test your logic app](#debug-test-workflow-locally).
+After you make updates to your logic app, you can run another test by rerunning the debugger in Visual Studio and sending another request to trigger your updated logic app, similar to the steps in [Debug and test your logic app](#debug-test-locally).
 
 1. On the Visual Studio Code toolbar, open the **Run** menu, and select **Start Debugging** (F5).
 
@@ -652,11 +655,13 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
 
-   1. Provide a name for your App Service plan, and then select a [pricing tier](../azure/app-service/overview-hosting-plans.md) for the plan. This example selects the **F1 Free** plan.
+   1. Provide a name for your App Service plan, and then select a [pricing tier](../app-service/overview-hosting-plans.md) for the plan. This example selects the **F1 Free** plan.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select a pricing tier.](./media/create-stateful-stateless-workflows-visual-studio-code/select-pricing-tier.png)
 
-    1. Select either **Create new resource group** or an existing resource group to use for the new resources. If you create a new group, provide a name and the location or region to use for the new group.
+   1. For optimal performance, find and select the same resource group as your project for the deployment.
+
+      Although you can create or use a different resource group, doing so might affect performance.
 
    When you're done, Visual Studio Code starts creating and deploying the resources necessary for publishing your logic app.
 
@@ -743,7 +748,7 @@ To find logic apps that have the **Logic App (Preview)** resource type, follow t
 
    ![Screenshot that shows the selected workflow's "Overview" pane, while the workflow menu shows the selected "Designer" command.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
-<a name="add-workflow"></a>
+<a name="add-workflows"></a>
 
 ## Add a workflow to deployed logic apps
 
@@ -756,8 +761,6 @@ Through the Azure portal, you can add workflows to a **Logic App (Preview)** res
 1. On the **Workflows** pane, select **Add**.
 
 1. In the **New workflow** pane, provide name for the workflow. Select either **Stateful** or **Stateless** **>** **Create**.
-
-1. 
 
 <a name="deploy-docker"></a>
 
@@ -786,15 +789,18 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
    `docker build --tag local/workflowcontainer .`
 
-   For example, here's a sample Docker file for a .NET workflow, but replace the <*storage-account-connection-string*> value with your Azure Storage account's connection string:
+   For example, here's a sample Docker file for a .NET workflow, but replace the <*storage-account-connection-string*> value with your Azure Storage account's connection string that you saved earlier, which looks like this example:
+
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
 
    ```text
-   FROM mcr.microsoft.com/azure-functions/dotnet:3.0.13614-appservice
+   FROM mcr.microsoft.com/azure-functions/dotnet:3.0.14492-appservice
 
    ENV AzureWebJobsStorage <storage-account-connection-string>
    ENV AZURE_FUNCTIONS_ENVIRONMENT Development
-   ENV AzureWebJobsScriptRoot=/home/site/wwwroot \ AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-   ENV WEBSITE_HOSTNAME=localhost
+   ENV AzureWebJobsScriptRoot=/home/site/wwwroot
+   ENV AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+   ENV FUNCTIONS_V2_COMPATIBILITY_MODE=true
 
    COPY ./bin/Release/netcoreapp3.1/publish/ /home/site/wwwroot
    ```
@@ -929,7 +935,7 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
 
 * Managed connectors: 50 requests per minute per connection
 
-* The [Inline Code action for JavaScript](../logic-apps/logic-apps-add-run-inline-code.md) limit on characters has increased from 1,024 characters to 100,000 characters.
+* For the [Inline Code action for JavaScript](../logic-apps/logic-apps-add-run-inline-code.md) action, the limit on code characters increases from 1,024 characters to 100,000 characters.
 
 <a name="unsupported"></a>
 
