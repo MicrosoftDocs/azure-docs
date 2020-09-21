@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 08/18/2020
+ms.date: 09/21/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
@@ -12,7 +12,11 @@ ms.custom: subject-armqs
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure App Configuration store with two key-values.
+This quickstart describes how to:
+
+- Deploy an App Configuration store using ARM template
+- Create key-values in an App Configuration store using ARM template
+- Read key-values in an App Configuration store from ARM template
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -57,7 +61,7 @@ Select the following image to sign in to Azure and open a template. The template
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
-You can also deploy the template by using the following PowerShell cmdlet.
+You can also deploy the template by using the following PowerShell cmdlet. The key-values will be in the output of PowerShell console.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -91,8 +95,6 @@ Write-Host "Press [ENTER] to continue..."
 ```
 
 ## Next steps
-
-In this quickstart, you deployed a VM using an Azure Resource Manager template and key-values from Azure App Configuration.
 
 To learn about creating other applications with Azure App Configuration, continue to the following article:
 
