@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 # Security Control V2: Incident Response
 
-Incident Response covers controls in incident response life cycle - preparation, detection and analysis, containment, and post-incident activities. This includes using Azure services such as Azure Security Center and Sentinel to automate the incident response process.
+Incident Response covers controls in the incident response life cycle - preparation, detection and analysis, containment, and post-incident activities. This includes using Azure services such as Azure Security Center and Sentinel to automate the incident response process.
 
 ## IR-1: Preparation – update incident response process for Azure
 
