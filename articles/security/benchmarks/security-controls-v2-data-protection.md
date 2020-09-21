@@ -32,7 +32,7 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -58,7 +58,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -86,7 +86,7 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -114,7 +114,7 @@ By default, Azure provides encryption for data in transit between Azure data cen
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -144,7 +144,7 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

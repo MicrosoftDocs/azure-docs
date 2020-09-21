@@ -39,7 +39,7 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -70,7 +70,7 @@ Ensure to assign separate privileged accounts that are distinct from the standar
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -95,7 +95,7 @@ Note: Some Azure services support local users and roles that aren't managed thro
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -116,7 +116,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -139,7 +139,7 @@ Use Azure AD entitlement management features to automate access request workflow
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -161,7 +161,7 @@ Secured, isolated workstations are critically important for the security of sens
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -186,7 +186,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -208,7 +208,7 @@ In support scenarios where Microsoft needs to access customer data, Customer Loc
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 

@@ -34,7 +34,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -60,7 +60,7 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -82,7 +82,7 @@ Use Azure Policy to audit and restrict which services users can provision in you
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -102,7 +102,7 @@ Remove Azure resources when they are no longer needed.
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -122,7 +122,7 @@ Use Azure AD Conditional Access to limit users' ability to interact with Azure R
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -152,7 +152,7 @@ You can also use a third-party solution to discover and identify unapproved soft
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

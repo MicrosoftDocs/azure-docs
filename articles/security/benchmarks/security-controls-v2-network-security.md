@@ -38,7 +38,7 @@ Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -66,7 +66,7 @@ To connect two or more virtual networks in Azure together, use virtual network p
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -90,7 +90,7 @@ Private access is an additional defense in depth measure in addition to authenti
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -120,7 +120,7 @@ Protect Azure resources against attacks from external networks, including distri
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 None
 
@@ -142,7 +142,7 @@ Note: If you have a regulatory or other requirement for IDS/IPS use, ensure that
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -168,7 +168,7 @@ You can also use application security groups to help simplify complex security c
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -194,7 +194,7 @@ When Azure DNS is used as your authoritative DNS service, ensure DNS zones and r
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

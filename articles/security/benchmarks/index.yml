@@ -191,7 +191,7 @@ landingContent:
             url: ../../network-watcher/security-baseline.md
 
   # Card  
-  - title: Security security baselines
+  - title: Security service baselines
     linkLists:
       - linkListType: overview
         links:
@@ -205,7 +205,7 @@ landingContent:
             url: ../../security-center/security-baseline.md
 
   # Card  
-  - title: Miscellaneous security baselines
+  - title: Additional security baselines
     linkLists:
       - linkListType: overview
         links:

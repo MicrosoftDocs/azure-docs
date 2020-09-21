@@ -28,7 +28,7 @@ Ensure your organization has processes to respond to security incidents, has upd
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -48,7 +48,7 @@ Set up security incident contact information in Azure Security Center. This cont
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -74,7 +74,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -114,7 +114,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -140,7 +140,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -165,7 +165,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 

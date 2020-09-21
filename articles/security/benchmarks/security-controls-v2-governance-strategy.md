@@ -53,7 +53,7 @@ For more information, see the following references:
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -77,7 +77,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -93,7 +93,7 @@ Continuously measure and mitigate risks to your individual assets and the enviro
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -113,7 +113,7 @@ Ensure you document and communicate a clear strategy for roles and responsibilit
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -151,7 +151,7 @@ For more information, see the following references:
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -187,7 +187,7 @@ For more information, see the following references:
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -215,7 +215,8 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Processes for handling incidents and post-incident activities, such as lessons learned and evidence retention
 
-- [For more information, see the following references:Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+For more information, see the following references:
+- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
 - [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
@@ -227,7 +228,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -256,7 +257,7 @@ For more information, see the following references:
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [All stakeholders](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

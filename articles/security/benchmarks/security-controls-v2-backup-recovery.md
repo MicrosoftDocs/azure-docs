@@ -34,7 +34,7 @@ For a higher level of protection, you can enable geo-redundant storage option to
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Policy and standards](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -66,7 +66,7 @@ Use role-based access control in Azure Backup, Azure Key Vault, or other resourc
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -88,7 +88,7 @@ Periodically perform data restoration of your backup. Ensure that you can restor
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -106,7 +106,7 @@ Ensure you have measures in place to prevent and recover from loss of keys. Enab
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 

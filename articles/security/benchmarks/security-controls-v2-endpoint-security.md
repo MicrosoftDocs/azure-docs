@@ -32,7 +32,7 @@ Microsoft Defender Advanced Threat Protection provides EDR capability as part of
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -60,7 +60,7 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -84,7 +84,7 @@ Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure 
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
 

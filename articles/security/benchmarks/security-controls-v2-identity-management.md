@@ -41,7 +41,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
@@ -73,7 +73,7 @@ Use Azure Key Vault for security principal registration: authentication#authoriz
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -93,7 +93,7 @@ Use Azure AD single sign-on (SSO) to manage and secure access to your organizati
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -128,7 +128,7 @@ Note: Authentication based on password credentials alone is susceptible to popul
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -175,7 +175,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use on-pr
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -197,7 +197,7 @@ Use Azure AD conditional access for more granular access control based on user-d
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -223,7 +223,7 @@ For GitHub, you can use native secret scanning feature to identify credentials o
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -247,7 +247,7 @@ Alternatively, Microsoft Cloud App Security is a cloud access security broker (C
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
