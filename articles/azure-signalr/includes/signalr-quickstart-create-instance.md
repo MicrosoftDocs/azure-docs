@@ -30,7 +30,7 @@ Your application will connect to a SignalR Service instance in Azure.
     | **Unit count** |  Not applicable | Unit count specifies how many connections your SignalR Service instance can accept. It is only configurable in the Standard tier. |
     | **Service mode** |  Serverless | For use with Azure Functions or REST API. |
 
-    ![Create SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
+    ![Screenshot shows SignalR Basics tab with values.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Select **Create** to start deploying the SignalR Service instance.
 
