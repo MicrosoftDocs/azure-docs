@@ -177,7 +177,7 @@ Here we will make it available to all organizations, but you can also limit acce
 
 ## Configuring GitHub Connect
 
-This step is optional. We recommend it, however, if you plan on consuming open source actions available on GitHub.com. This allows you to build on the work of others by referencing these reusable actions in your workflows.
+Although this step is optional, we recommend it if you plan to consume open source actions available on GitHub.com. This allows you to build on the work of others by referencing these reusable actions in your workflows.
 
 To enable GitHub Connect, follow the steps in [Enabling automatic access to GitHub.com actions using GitHub Connect](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
