@@ -74,7 +74,7 @@ To scale a user pool to 0, you can use the [az aks nodepool scale][az-aks-nodepo
 az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
 ```
 
-You can also auto-scale `User` node pools to 0 nodes, by setting the `--min-count` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
+You can also autoscale `User` node pools to 0 nodes, by setting the `--min-count` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
 
 ## Next steps
 
