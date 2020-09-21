@@ -109,14 +109,6 @@ Select the Phone Numbers tab in the menu to manage your phone numbers.
 > [!NOTE]
 > It may take a few minutes for the provisioned numbers to be shown on this page.
 
-## Clean up resources
-
-You can release phone numbers from your account by selecting the phone number, then clicking the "Release" button above the list of numbers. 
-
->[!NOTE]
-> When a resource is deleted, the phone numbers associated with that resource will be automatically released at the same time.
-> For more information check out our quickstart on [Creating a Communication Resource](../create-communication-resource.md).
-
 ## Troubleshooting
 
 Common questions and issues:

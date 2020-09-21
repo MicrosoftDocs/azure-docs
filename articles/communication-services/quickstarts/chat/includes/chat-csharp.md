@@ -59,6 +59,7 @@ To create a chat client, you'll use your Communication Services endpoint and the
 
 ```csharp
 using Azure.Communication.Identity;
+using Azure.Communication.Chat;
 
 // Your unique Azure Communication service endpoint
 Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
@@ -91,7 +92,7 @@ The `GetChatThreadClient` method returns a thread client for a thread that alrea
 
 ```csharp
 string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = await chatClient.GetChatThreadClientAsync(threadId);
+ChatThreadClient chatThreadClient = await chatClient.GetChatThreadClient(threadId);
 ```
 
 ## Send a message to a chat thread

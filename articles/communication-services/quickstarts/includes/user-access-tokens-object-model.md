@@ -25,11 +25,11 @@ The CommunicationIdentityClient class provides all the user and access token rel
 
 Scopes allow you to specify the exact Azure Communications Services functionality that a user access token will be able to authorize. Scopes are applied to individual user access tokens. Azure Communication Services supports the following scopes for user access tokens:
 
-| Name                  | Description                                                  |
-| --------------------- | ------------------------------------------------------------ |
-| `Chat`                | Grants the ability to participate in a chat                  |
-| `VoIP`                | Grants the ability to make and receive VOIP calls using the calling client library* |
-| `Pstn`                | Grants the ability to make a PSTN calls using the calling client library* |
+| Name   | Description                                                                         |
+| ------ | ----------------------------------------------------------------------------------- |
+| `Chat` | Grants the ability to participate in a chat                                         |
+| `VoIP` | Grants the ability to make and receive VOIP calls using the calling client library* |
+| `Pstn` | Grants the ability to make a PSTN calls using the calling client library*           |
 
 \* Feature is not yet supported and will be available soon
 

@@ -10,7 +10,6 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp
 ---
 
 # Build a trusted authentication service using Azure Functions

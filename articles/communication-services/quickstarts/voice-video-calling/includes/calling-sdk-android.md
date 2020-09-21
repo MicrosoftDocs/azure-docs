@@ -380,7 +380,7 @@ List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants(); // [r
 Any given remote participant has a set of properties and collections associated with it:
 
 * Get the identifier for this remote participant.
-Identity is one is one of the ['Identifier' types](concepts/identity-model)
+Identity is one is one of the 'Identifier' types
 ```java
 CommunicationIdentifier participantIdentity = remoteParticipant.getId();
 ```

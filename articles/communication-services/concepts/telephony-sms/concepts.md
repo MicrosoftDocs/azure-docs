@@ -18,8 +18,6 @@ ms.service: azure-communication-services
 
 Azure Communication Services enables you to send and receive SMS text messages using the Communication Services SMS client libraries. These client libraries can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response rate insights surrounding your campaigns.
 
-## SMS client library capabilities
-
 Key features of Azure Communication Services SMS client libraries include:
 
 -  **Simple** setup experience for adding SMS capability to your applications.

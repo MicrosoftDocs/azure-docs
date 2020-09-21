@@ -10,7 +10,8 @@ ms.author: mikben
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Get the latest version of the .NET [Management client library](../../concepts/sdk-options.md).
+- Get the latest version of the [.NET Identity client library](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet).
+- Get the latest version of the [.NET Management client library](../../concepts/sdk-options.md).
 
 ## Installing the client library
 
@@ -40,15 +41,35 @@ To communicate with Azure Communication Services, you must first authenticate yo
 
 If your code is running as a service in Azure, the easiest way to authenticate is to acquire a managed identity from Azure. Learn more about [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-If you've enabled managed identity on your service, you can create a Communication Services management client like this:
+[Azure services that support Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+
+[How to use managed identities for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+
+#### [System-assigned Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 
 ```csharp
 using Azure.Identity;
 using Azure.ResourceManager.Communication;
+using Azure.ResourceManager.Communication.Models;
 using System;
 ...
-var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
+var subscriptionId = "AZURE_SUBSCRIPTION_ID";
 var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIdentityCredential());
+```
+
+#### [User-assigned Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity)
+
+ClientId of the managed identity that you created must be passed to the `ManagedIdentityCredential` explicitly.
+
+```csharp
+using Azure.Identity;
+using Azure.ResourceManager.Communication;
+using Azure.ResourceManager.Communication.Models;
+using System;
+...
+var subscriptionId = "AZURE_SUBSCRIPTION_ID";
+var managedIdentityCredential = new ManagedIdentityCredential("AZURE_CLIENT_ID");
+var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentityCredential);
 ```
 
 ### Option 2: Service Principal
@@ -66,10 +87,25 @@ Store these values in environment variables named `AZURE_CLIENT_ID`, `AZURE_CLIE
 ```csharp
 using Azure.Identity;
 using Azure.ResourceManager.Communication;
+using Azure.ResourceManager.Communication.Models;
 using System;
 ...
 var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
 var acsClient = new CommunicationManagementClient(subscriptionId, new EnvironmentCredential());
+```
+
+### Option 3: User Identity
+
+If you want to call Azure on behalf of an interactive user, rather than using a service identity, you can use the following code to create an Azure Communication Services Management client. This will open a browser window to prompt the user for their MSA or AAD credentials.
+
+```csharp
+using Azure.Identity;
+using Azure.ResourceManager.Communication;
+using Azure.ResourceManager.Communication.Models;
+using System;
+...
+var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
+var communicationServiceClient = new CommunicationManagementClient(subscriptionId, new InteractiveBrowserCredential());
 ```
 
 ## Managing Communication Services Resources
@@ -94,7 +130,8 @@ When creating a Communication Services resource, you'll specify the resource gro
 var resourceGroupName = "myResourceGroupName";
 var resourceName = "myResource";
 var resource = new CommunicationServiceResource { Location = "Global", DataLocation = "UnitedStates"  };
-await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
+var operation = await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
+await operation.WaitForCompletionAsync();
 ```
 
 #### Update a Communication Services resource
@@ -103,12 +140,12 @@ await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName,
 ...
 var resourceGroupName = "myResourceGroupName";
 var resourceName = "myResource";
-var tags = new Dictionary<string,string>();
-tags.Add("environment","test");
-tags.Add("department","tech");
-var resource = new CommunicationServiceResource { Tags = tags };
+var resource = new CommunicationServiceResource { Location = "Global", DataLocation = "UnitedStates" };
+resource.Tags.Add("environment","test");
+resource.Tags.Add("department","tech");
 // Use existing resource name and new resource object
-await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
+var operation = await acsClient.CommunicationService.StartCreateOrUpdateAsync(resourceGroupName, resourceName, resource);
+await operation.WaitForCompletionAsync();
 ```
 
 #### List all Communication Services resources
@@ -150,7 +187,7 @@ Console.WriteLine(keys.Value.SecondaryConnectionString);
 var resourceGroupName = "myResourceGroupName";
 var resourceName = "myResource";
 var keyParams = new RegenerateKeyParameters { KeyType = KeyType.Primary };
-var keys = acsClient.CommunicationService.RegenerateKeyAsync(resourceGroupName, resourceGroup, keyParams);
+var keys = await acsClient.CommunicationService.RegenerateKeyAsync(resourceGroupName, resourceName, keyParams);
 
 Console.WriteLine(keys.Value.PrimaryKey);
 ```

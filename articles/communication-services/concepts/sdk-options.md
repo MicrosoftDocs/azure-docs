@@ -15,9 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Azure Communication Services capabilities are conceptually organized into six areas. Some areas have fully open-sourced client libraries. These open-source client libraries can be found in the [Azure SDK GitHub](https://github.com/Azure/azure-sdk) repository.
-
-The Calling client library uses proprietary network interfaces and is currently closed-source.
+Azure Communication Services capabilities are conceptually organized into six areas. Some areas have fully open-sourced client libraries. The Calling client library uses proprietary network interfaces and is currently closed-source, and the Chat library includes a closed-source dependency. Links to all SDKs and samples are maintained in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
 
 ## Client libraries
 
@@ -90,7 +88,7 @@ Support via .NET Core 2.0:
 > [!IMPORTANT]
 > This section provides guidance on REST APIs and client libraries marked **stable**. APIs marked pre-release, preview, or beta may be changed or deprecated **without notice**. Currently Azure Communication Services is in a **public preview**, and APIs are marked as such.
 
-In the future we may retire versions of the Communication Services client libraries, and we may introduce breaking changes to our REST APIs and released client libraries. Azure Communication Services will generally follow two supportability policies for retiring service versions:
+In the future we may retire versions of the Communication Services client libraries, and we may introduce breaking changes to our REST APIs and released client libraries. Azure Communication Services will *generally* follow two supportability policies for retiring service versions:
 
 - You'll be notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and client library APIs generally enjoy at least three years warning before interfaces are decommissioned.
 - You'll be notified at least one year before having to update client library assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. This is especially true for the Calling and Chat libraries which have real-time components that frequently require security and performance updates. We highly encourage you to keep your Communication Services client libraries updated.
