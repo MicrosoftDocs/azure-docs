@@ -112,15 +112,15 @@ In the provided [TrustFrameworkExtensions policy](https://github.com/azure-ad-b2
 
 In the provided [TrustFrameworkExtensions policy](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml), do a find and replace to search for https://yourblobstorage/blobcontainer/ with the location the UI files are deployed to.
 
+>[!NOTE]
+> As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
+
 ### Part 7 - Configure the Azure AD B2C policy
 
 Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) to download [Local Accounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the [policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) for the Azure AD B2C tenant.
 
 >[!NOTE]
 >Update the provided policies to relate to your specific tenant.
-
->[!NOTE]
-> As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
 
 ## Test the user flow
 
