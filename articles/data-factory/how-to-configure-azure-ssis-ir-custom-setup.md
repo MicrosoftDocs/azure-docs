@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
+ms.date: 09/15/2020
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -35,7 +35,7 @@ You can install both free (unlicensed) and paid (licensed) components with stand
 
 The following limitations apply only to standard custom setups:
 
-- If you want to use *gacutil.exe* in your script to install assemblies in the global assembly cache (GAC), you need to provide *gacutil.exe* as part of your custom setup. Or you can use the copy that's provided in our *Public Preview* container, discussed later in the "Instructions" section.
+- If you want to use *gacutil.exe* in your script to install assemblies in the global assembly cache (GAC), you need to provide *gacutil.exe* as part of your custom setup. Or you can use the copy that's provided in the *Sample* folder of our *Public Preview* container, see the **Standard custom setup samples** section below.
 
 - If you want to reference a subfolder in your script, *msiexec.exe* doesn't support the `.\` notation to reference the root folder. Use a command such as `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` instead of `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
@@ -142,9 +142,9 @@ If you select the **Install licensed component** type for your express custom se
 
    * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **1.0.45**.
 
-   * If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **2019.2**.
+   * If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **2020.1**.
 
-   * If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **10.0**.
+   * If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **20.1**.
 
    * If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP systems (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR. To do so, drag & drop/upload the product license file that you purchased from them beforehand into the **License file** input box. The current integrated version is **6.1.1.3**.
 

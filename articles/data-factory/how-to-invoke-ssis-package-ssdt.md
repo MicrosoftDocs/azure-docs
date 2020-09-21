@@ -11,7 +11,7 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 08/10/2020
+ms.date: 09/06/2020
 ---
 
 # Execute SSIS packages in Azure from SSDT
@@ -52,7 +52,7 @@ For existing SSIS projects, you can Azure-enable them by following these steps:
 
    ![Select Visual Studio configuration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. Azure-enabling your existing SSIS projects requires you to set their target server version to be the latest one supported by Azure-SSIS IR. Currently, Azure-SSIS IR has a default compatibility level of 140, which is equal to **SQL Server 2017**. Please ensure that your packages don't contain additional components that are unsupported on SQL Server 2017. Please also ensure that all compatible additional components have also been installed on your Azure-SSIS IR via custom setups, see [Customizing your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Select the **Next** button to continue.
+3. Azure-enabling your existing SSIS projects requires you to set their target server version to be the latest one supported by Azure-SSIS IR. Azure-SSIS IR is currently based on **SQL Server 2017**. Please ensure that your packages don't contain additional components that are unsupported on SQL Server 2017. Please also ensure that all compatible additional components have also been installed on your Azure-SSIS IR via custom setups, see [Customizing your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Select the **Next** button to continue.
 
    ![Switch target server version](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 

@@ -30,7 +30,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 * Access to the computer that has the file system you want to use. For example, if you install the data gateway on the same computer as your file system, you need the account credentials for that computer.
 
-* An email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This logic app uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
+* An email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This logic app uses a work or school account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 

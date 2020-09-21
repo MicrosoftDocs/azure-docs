@@ -1,6 +1,6 @@
 ---
 title: Concepts of Azure IoT Hub X.509 security | Microsoft Docs
-description: Concept - understanding the value X.509 certificate authority certificates in IoT device manufacturing, and authentication . 
+description: Concept - understanding the value X.509 certificate authority certificates in IoT device manufacturing, and authentication. 
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -22,6 +22,8 @@ This article describes:
 * How to set up a manufacturing supply chain for X.509 CA-based authentication
 
 * How devices signed with X.509 CA connect to IoT Hub
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## Overview
 
@@ -57,13 +59,13 @@ Details on how to accomplish these steps differ with various service providers.
 
 ### Purchasing an X.509 CA certificate
 
-Purchasing a CA certificate has the benefit of having a well-known root CA act as a trusted third party to vouch for the legitimacy of IoT devices when the devices connect. Company-X would choose this option if they intend Smart-X-Widget to interact with third party products or services after initial connection to IoT Hub.
+Purchasing a CA certificate has the benefit of having a well-known root CA act as a trusted third party to vouch for the legitimacy of IoT devices when the devices connect. Company-X would choose this option if they intend Smart-X-Widget to interact with third-party products or services after initial connection to IoT Hub.
 
 To purchase an X.509 CA certificate, Company-X would choose a root certificates services provider. An internet search for the phrase 'Root CA' will yield good leads. The root CA will guide Company-X on how to create the public/private key pair and how to generate a Certificate Signing Request (CSR) for their services. A CSR is the formal process of applying for a certificate from a certificate authority. The outcome of this purchase is a certificate for use as an authority certificate. Given the ubiquity of X.509 certificates, the certificate is likely to have been properly formatted to IETF's RFC 5280 standard.
 
 ### Creating a Self-Signed X.509 CA certificate
 
-The process to create a Self-Signed X.509 CA certificate is similar to purchasing with the exception of involving a third party signer like the root certificate authority. In our example, Company-X will sign its authority certificate instead of a root certificate authority. Company-X may choose this option for testing until they're ready to purchase an authority certificate. Company-X may also use a self-signed X.509 CA certificate in production, if Smart-X-Widget is not intended to connect to any third party services outside of the IoT Hub.
+The process to create a Self-Signed X.509 CA certificate is similar to purchasing with the exception of involving a third-party signer like the root certificate authority. In our example, Company-X will sign its authority certificate instead of a root certificate authority. Company-X may choose this option for testing until they're ready to purchase an authority certificate. Company-X may also use a self-signed X.509 CA certificate in production, if Smart-X-Widget is not intended to connect to any third-party services outside of the IoT Hub.
 
 ## Register the X.509 certificate to IoT Hub
 
