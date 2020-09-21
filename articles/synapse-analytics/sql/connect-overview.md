@@ -32,8 +32,8 @@ The server name for SQL on-demand in the following example is: showdemoweu-ondem
 To find the fully qualified server name:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Click on **Synapse workspaces**.
-3. Click on the workspace you want to connect to.
+2. Select on **Synapse workspaces**.
+3. Select on the workspace you want to connect to.
 4. Go to overview.
 5. Locate the full server name.
 
@@ -46,7 +46,7 @@ To find the fully qualified server name:
 ![Full server name SQL on-demand](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## Supported drivers and connection strings
-Synapse SQL supports [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396), and [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
+Synapse SQL supports [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396), and [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). To find the latest version and documentation, select one of the preceding drivers. To automatically generate the connection string for the driver that you're using from the Azure portal, select **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
@@ -76,7 +76,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 ```
 
 ## Connection settings
-Synapse SQL standardizes some settings during connection and object creation. These settings cannot be overridden and include:
+Synapse SQL standardizes some settings during connection and object creation. These settings can't be overridden and include:
 
 | Database Setting | Value |
 |:--- |:--- |

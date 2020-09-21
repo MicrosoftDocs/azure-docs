@@ -29,7 +29,7 @@ For best query performance, the goal is to maximize the number of rows per rowgr
 
 ## Rowgroups can get trimmed during compression
 
-During a bulk load or columnstore index rebuild, sometimes there isn't enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed.
+During a bulk load or columnstore index rebuild, sometimes there's not enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed.
 
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, an error will be generated.
 
@@ -72,14 +72,15 @@ The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = N
 
 ## How to estimate memory requirements
 
-The maximum required memory to compress one rowgroup is approximately
+The maximum required memory to compress one rowgroup is, approximately, as follows:
 
 - 72 MB +
 - \#rows \* \#columns \* 8 bytes +
 - \#rows \* \#short-string-columns \* 32 bytes +
 - \#long-string-columns \* 16 MB for compression dictionary
 
-where short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes.
+> [!NOTE]
+> Where short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes.
 
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
@@ -117,7 +118,7 @@ Design the load query to focus only on loading the query. If you need to run tra
 
 ### Adjust MAXDOP
 
-Each distribution compresses rowgroups into the columnstore in parallel when there is more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming.
+Each distribution compresses rowgroups into the columnstore in parallel when there's more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming.
 
 To reduce memory pressure, you can use the MAXDOP query hint to force the load operation to run in serial mode within each distribution.
 
