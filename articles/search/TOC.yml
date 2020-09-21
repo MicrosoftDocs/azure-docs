@@ -536,6 +536,10 @@
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)
       href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
+  - name: Partners
+    items:
+    - name: Knowledge mining
+      href: resource-partners-knowledge-mining.md
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing
