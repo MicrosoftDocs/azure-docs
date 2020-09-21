@@ -14,17 +14,17 @@ ms.custom: devx-track-javascript
 
 <a name="HOLTop"></a>
 
-#### [Version 3.1](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 [v3 Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 [v3 Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 [v2 Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [v2 Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
@@ -57,7 +57,7 @@ npm init
 ```
 ### Install the client library
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 Install the `@azure/ai-text-analytics` NPM packages:
 
@@ -69,7 +69,7 @@ npm install --save @azure/ai-text-analytics@5.1.0-beta.1
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), which contains the code examples in this quickstart. 
 
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Install the `@azure/ai-text-analytics` NPM packages:
 
@@ -80,7 +80,7 @@ npm install --save @azure/ai-text-analytics@5.0.0
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), which contains the code examples in this quickstart. 
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Install the `@azure/cognitiveservices-textanalytics` NPM packages:
 
@@ -96,7 +96,7 @@ npm install --save @azure/cognitiveservices-textanalytics
 Your app's `package.json` file will be updated with the dependencies.
 Create a file named `index.js` and add the following:
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 ```javascript
 "use strict";
@@ -104,7 +104,7 @@ Create a file named `index.js` and add the following:
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 ```javascript
 "use strict";
@@ -112,7 +112,7 @@ const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-anal
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 ```javascript
 "use strict";
@@ -150,7 +150,7 @@ The response object is a list containing the analysis information for each docum
 
 ## Client Authentication
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
@@ -158,7 +158,7 @@ Create a new `TextAnalyticsClient` object with your key and endpoint as paramete
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
@@ -166,7 +166,7 @@ Create a new `TextAnalyticsClient` object with your key and endpoint as paramete
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object with `credentials` and `endpoint` as a parameter.
 
@@ -176,7 +176,7 @@ Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@az
 
 ## Sentiment analysis
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length, and confidence scores.
 
@@ -297,7 +297,7 @@ ID: 0
           // Sentiment: positive
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length, and confidence scores.
 
@@ -343,7 +343,7 @@ ID: 0
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Create a list of dictionary objects, containing the documents you want to analyze. Call the client's [sentiment()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) method and get the returned [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult). Iterate through the list of results, and print each document's ID and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
@@ -364,7 +364,7 @@ Run your code with `node index.js` in your console window.
 
 ## Language detection
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `detectLanguage()` method and get the returned `DetectLanguageResultCollection`. Then iterate through the results, and print each document's ID with respective primary language.
 
@@ -393,7 +393,7 @@ ID: 0
         Primary Language French
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create an array of strings containing the document you want to analyze. Call the client's `detectLanguage()` method and get the returned `DetectLanguageResultCollection`. Then iterate through the results, and print each document's ID with respective primary language.
 
@@ -422,7 +422,7 @@ ID: 0
         Primary Language French
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Create a list of dictionary objects containing your documents. Call the client's [detectLanguage()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) method and get the returned [LanguageBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Then iterate through the results, and print each document's ID, and language.
 
@@ -442,7 +442,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## Named Entity Recognition (NER)
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`:
@@ -584,7 +584,7 @@ Redacted Text:  The employee's phone number is **************.
 (555) 555-5555 : Phone Number (Score: 0.8 )
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 > [!NOTE]
 > In version `3.0`:
@@ -689,7 +689,7 @@ Document ID: 0
                 Text: BASIC     Score: 0.33
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 > [!NOTE]
 > In version 2.1, entity linking is included in the NER response.
@@ -734,7 +734,7 @@ Document ID: 2
 
 ## Key phrase extraction
 
-#### [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 (preview)](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `extractKeyPhrases()` method and get the returned `ExtractKeyPhrasesResult` object. Iterate through the results and print each document's ID, and any detected key phrases.
 
@@ -763,7 +763,7 @@ ID: 0
         Document Key Phrases: cat,veterinarian
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create an array of strings containing the document you want to analyze. Call the client's `extractKeyPhrases()` method and get the returned `ExtractKeyPhrasesResult` object. Iterate through the results and print each document's ID, and any detected key phrases.
 
@@ -792,7 +792,7 @@ ID: 0
         Document Key Phrases: cat,veterinarian
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Create a list of objects, containing your documents. Call the client's [keyPhrases()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) method and get the returned     [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) object. Iterate through the results and print each document's ID, and any detected key phrases.
 
