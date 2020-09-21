@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
@@ -274,7 +274,7 @@ except Exception as e:
 
 ## Set an ACL recursively
 
-You can set the ACLs recursively.  
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. Alternatively, you can **update** an ACL entry (for example, change the permission level of user or add a new user) without affecting other existing entries. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.    
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -362,13 +362,17 @@ def set_permission_recursively():
 
 ## Update an ACL recursively
 
-You can update an existing ACL recursively.
+You can update an ACL (for example, change the permission level of user or add a new user) without affecting existing ACL entries. 
+
+To update an ACL, create a new ACL object that identifies the security principal and the updated permission level, and then apply that object by using the appropriate command or API. An error will occur if your client gets the existing ACL object, adds entries to that object, and then attempts to apply that object. 
+
+This section contains examples for how to update an ACL correctly.
 
 ### [PowerShell](#tab/azure-powershell)
 
 Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursive** cmdlet. 
 
-This example updates an ACL entry with write permission.
+This example updates an ACL entry with write permission. 
 
 ```powershell
 $filesystemName = "my-container"
@@ -441,6 +445,10 @@ def update_permission_recursively():
 ## Remove ACL entries recursively
 
 You can remove one or more ACL entries recursively.
+
+To remove an ACL entry, create a new ACL object that identifies the security principal that you want to remove, and then apply that object by using the appropriate command or API. An error will occur if your client gets the existing ACL object, adds the security principal to that object, and then attempts to apply that object.
+
+This section contains examples for how to remove an ACL correctly.
 
 ### [PowerShell](#tab/azure-powershell)
 
