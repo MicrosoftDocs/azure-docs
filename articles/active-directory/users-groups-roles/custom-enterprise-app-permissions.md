@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Enterprise application permissions for custom roles in Azure Active Directory
 
-This article contains the currently available enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions.
+This article contains the currently available enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions. App proxy permissions are not currently rolled out in this release.
 
 ## Required license plan
 
@@ -94,7 +94,7 @@ To delegate updates to attribute mapping. Permissions required:
 
 - microsoft.directory/servicePrincipals/synchronizationSchema/manage  
 
-## Read provisioning settings associated with the application object
+### Read provisioning settings associated with the application object
 
 To delegate ability to read provisioning settings associated with the object. Permissions required:
 
