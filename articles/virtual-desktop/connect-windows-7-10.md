@@ -9,7 +9,7 @@ manager: lizross
 ---
 # Connect with the Windows Desktop client
 
-> Applies to: Windows 7, Windows 10, and Windows 10 IoT Enterprise
+> Applies to: Windows 10, Windows 10 IoT Enterprise, and Windows 7
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
