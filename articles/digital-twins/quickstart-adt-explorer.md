@@ -37,8 +37,8 @@ The sample graph you will be working with represents a building with two floors 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, **[create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** now.
 
 Before starting the quickstart, you will also need to download two samples:
-* The **ADT Explorer** sample application. This sample contains the main app you use in the quickstart to load and explore an Azure Digital Twins scenario. To get the app, navigate here: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**ADT_Explorer.zip**_.
-* The **example Azure Digital Twins scenario**. This includes a pre-built Azure Digital Twins graph that you will be loading into ADT Explorer to work with. To get the scenario, navigate here: [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**Azure_Digital_Twins_samples.zip**_.
+* The **ADT Explorer** sample application. This sample contains the main app you use in the quickstart to load and explore an Azure Digital Twins scenario. To get the app, navigate here: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**Azure_Digital_Twins__ADT__explorer.zip**_. Unzip the folder and extract the files.
+* The **example Azure Digital Twins scenario**. This includes a pre-built Azure Digital Twins graph that you will be loading into ADT Explorer to work with. To get the scenario, navigate here: [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as This will download a .ZIP folder to your machine as **Azure_Digital_Twins_samples.zip**. Unzip the folder and extract the files.
 
 ## Set up Azure Digital Twins and ADT Explorer
 
@@ -86,8 +86,8 @@ Now you have a web configuration configured that ADT Explorer will use. The Auth
 
 Next, run the ADT Explorer application and configure it for your Azure Digital Twins instance.
 
-Navigate to the downloaded _**ADT_Explorer.zip**_ folder and unzip it. 
-Open a command prompt at the folder location *ADT_explorer/client/src*.
+Navigate to the downloaded and unzipped _**Azure_Digital_Twins__ADT__explorer**_ folder. 
+Open a command prompt at the folder location *Azure_Digital_Twins__ADT__explorer/client/src*.
 
 Run `npm install` to download all the required dependencies.
 
@@ -118,7 +118,7 @@ If you see a *Permissions requested* pop-up window from Microsoft, grant consent
 
 Next, you will import the sample scenario and graph into ADT Explorer.
 
-The sample scenario is located in your downloaded  _**Azure_Digital_Twins_samples.zip**_ folder, so you should navigate to and unzip the folder now.
+The sample scenario is located in your downloaded and unzipped  _**Azure_Digital_Twins_samples**_ folder, so you should navigate to the folder now.
 
 ### Models
 
@@ -323,7 +323,7 @@ If you plan to continue to the Azure Digital Twins tutorials, the instance used 
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Finally, delete the project sample folders you downloaded to your local machine (_**ADT_Explorer.zip**_ and _**Azure_Digital_Twins_samples.zip**_).
+Finally, delete the project sample folders you downloaded to your local machine (_**Azure_Digital_Twins__ADT__explorer**_ and _**Azure_Digital_Twins_samples**_). You may have to delete both the zipped and unzipped versions.
 
 ## Next steps 
 
