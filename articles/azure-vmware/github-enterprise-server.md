@@ -191,17 +191,17 @@ Now that Actions and GitHub Connect is set up, let's put all this work to good u
 
 In this basic workflow, we'll use `octokit/request-action` to just open an issue on GitHub using the API.
 
-:::image type="content" source="media/github-enterprise-server/example-workflow.png" alt-text="Example workflow.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example.png" alt-text="Example workflow.":::
 
 Note, GitHub.com hosts the action, but when it runs on GitHub Enterprise Server, it will *automatically* use the GitHub Enterprise Server API.
 
 If you chose to not enable GitHub Connect, you can use the following alternative workflow.
 
-:::image type="content" source="media/github-enterprise-server/example-workflow-2.png" alt-text="Alternative example workflow.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="Alternative example workflow.":::
 
 Navigate to a repo on your instance, and add the above workflow as: `.github/workflows/hello-world.yml`
 
-:::image type="content" source="media/github-enterprise-server/example-workflow-3.png" alt-text="Another example workflow.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example-3.png" alt-text="Another example workflow.":::
 
 In the Actions tab for your repo, wait for the workflow to execute.
 
