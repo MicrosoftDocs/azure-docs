@@ -33,7 +33,7 @@ To register your SQL Server VM with the resource provider, you'll need:
 - An Azure Resource Model [Windows virtual machine](../../../virtual-machines/windows/quick-create-portal.md) with [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) deployed to the public or Azure Government cloud. 
 
 
-## Enable automatic registration 
+## Enable
 
 To enable automatic registration of your SQL Server VMs in the Azure portal, follow the steps:
 
@@ -47,7 +47,7 @@ To enable automatic registration of your SQL Server VMs in the Azure portal, fol
 1. Read through the terms and if you agree, select **I accept**. 
 1. Select **Register** to enable the feature and automatically register all current and future SQL Server VMs with the SQL VM resource provider. This will not restart the SQL Server service on any of the VMs. 
 
-## Disable automatic registration 
+## Disable
 
 Use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-4.6.1) to disable the automatic registration feature. When the automatic registration feature is disabled, SQL Server VMs added to the subscription need to be manually registered with the SQL VM resource provider. This will not unregister existing SQL Server VMs that have already been registered.
 
