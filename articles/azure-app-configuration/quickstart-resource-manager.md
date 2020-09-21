@@ -12,7 +12,7 @@ ms.custom: subject-armqs
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure App Configuration store with a key-value.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure App Configuration store with two key-values.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,12 +26,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). It creates a new App Configuration store with two key-values inside. It then uses the `reference` function to output the value of the key. Reading the key's value in this way allows it to be used in other places in the template.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). It creates a new App Configuration store with two key-values inside. It then uses the `reference` function to output the values of the two key-value resources. Reading the key's value in this way allows it to be used in other places in the template.
+
+The quickstart uses the `copy` element to create multiple instances of key-value resource. For more about `copy` syntax, see [Resource iteration in ARM templates](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
 > This template requires App Configuration resource provider version `2020-07-01-preview` or later. This version uses the `reference` function to read key-values. The `listKeyValue` function is not available starting in version `2020-07-01-preview`.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="61-75,80-81":::
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
 
 Two Azure resources are defined in the template:
 
@@ -39,7 +41,7 @@ Two Azure resources are defined in the template:
 - Microsoft.AppConfiguration/configurationStores/keyValues: create a key-value inside the App Configuration store.
 
 > [!NOTE]
-> The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional. In the above example, the `keyValues` resource name is `myKey$myLabel`. To create the same key-value without a label, use a key-value resource name of `myKey`.
+> The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional. In the above example, the `keyValues` resource with name `myKey` creates a key-value without a label.
 >
 > Percent-encoding, also known as URL encoding, allows keys or labels to include characters that are not allowed in ARM template resource names. `%` is not an allowed character either, so `~` is used in its place. To correctly encode a name, follow these steps:
 >
@@ -51,9 +53,9 @@ Two Azure resources are defined in the template:
 
 ## Deploy the template
 
-Select the following image to sign in to Azure and open a template. The template creates an App Configuration store with a single key-value inside.
+Select the following image to sign in to Azure and open a template. The template creates an App Configuration store with two key-values inside.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2F7543417ec6636f965d76aa457b421c8ff72ea4dc%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
 You can also deploy the template by using the following PowerShell cmdlet.
 
@@ -76,7 +78,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 1. In the Azure portal search box, type **App Configuration**. Select **App Configuration** from the list.
 1. Select the newly created App Configuration resource.
 1. Under **Operations**, click **Configuration explorer.**
-1. Verify that a single key-value exists.
+1. Verify that two key-values exist.
 
 ## Clean up resources
 
