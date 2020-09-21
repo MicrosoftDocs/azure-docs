@@ -161,7 +161,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
 > - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.SerialConsole](#microsoftserialconsole)
-> - [Microsoft.SerialConsole.PPE](#microsoftserialconsoleppe)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
@@ -173,7 +172,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
-> - [Microsoft.StoragePool](#microsoftstoragepool)
 > - [Microsoft.StorageReplication](#microsoftstoragereplication)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
 > - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
@@ -2084,14 +2082,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | consoleServices | No |
 
-## Microsoft.SerialConsole.PPE
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | consoleServices | No |
-> | serialPorts | No |
-
 ## Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
@@ -2235,14 +2225,6 @@ Jump to a resource provider namespace:
 > | caches | Yes |
 > | caches / storageTargets | No |
 > | usageModels | No |
-
-## Microsoft.StoragePool
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | diskPools | Yes |
-> | diskPools / iscsiTargets | Yes |
 
 ## Microsoft.StorageReplication
 
