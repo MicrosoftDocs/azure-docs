@@ -54,7 +54,7 @@ Apply your settings.  While the instance restarts, you can continue with the nex
 
 :::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Create your admin account.":::
 
-Once the instance restarts, you'll be prompted to create a new admin account on the instance. Be sure to make a note of this user's password as well.
+Once the instance restarts, create a new admin account on the instance. Be sure to make a note of this user's password as well.
 
 ### Additional configuration steps
 
