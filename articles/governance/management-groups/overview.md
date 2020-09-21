@@ -26,7 +26,9 @@ You can build a flexible structure of management groups and subscriptions to org
 into a hierarchy for unified policy and access management. The following diagram shows an example of
 creating a hierarchy for governance using management groups.
 
-:::image type="content" source="./media/tree.png" alt-text="Example of a management group hierarchy tree" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
+   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is 4 levels of management groups with the child level being all subscriptions.
+:::image-end:::
 
 You can create a hierarchy that applies a policy, for example, which limits VM locations to the US
 West Region in the group called "Production". This policy will inherit onto all the Enterprise
@@ -213,7 +215,9 @@ when trying to separate the assignment from its definition.
 
 For example, let's look at a small section of a hierarchy for a visual.
 
-:::image type="content" source="./media/subtree.png" alt-text="sub-tree" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagram of a subset of the sample management group hierarchy." border="false":::
+   The diagram focuses on the root management group with child I T and Marketing management groups. The I T management group has a single child management group named Production while the Marketing management group has two Free Trial child subscriptions.
+:::image-end:::
 
 Let's say there's a custom role defined on the Marketing management group. That custom role is then
 assigned on the two free trial subscriptions.  
@@ -284,7 +288,7 @@ events that happen to a management group in the same central location as other A
 example, you can see all Role Assignments or Policy Assignment changes made to a particular
 management group.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Activity Logs with Management Groups" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Screenshot of Activity Logs and operations related to the selected management group." border="false":::
 
 When looking to query on Management Groups outside of the Azure portal, the target scope for
 management groups looks like **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.

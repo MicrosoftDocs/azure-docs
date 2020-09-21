@@ -114,7 +114,7 @@ Creating a Fortanix Node Agent will deploy a virtual machine, network interface,
 1. On this page, you'll be entering information to deploy a virtual machine. Specifically, this VM is a DCsv2-Series Intel SGX-enabled virtual machine from Azure with Fortanix Node Agent software installed. The Node Agent will allow your converted image to run securely on Intel SGX nodes in Azure.  Select the **subscription** and **resource group** where you want to deploy the virtual machine and associated resources. 
  
     > [!NOTE]
-    > There are constraints when deploying DCsv2-Series virtual machines in Azure. You may need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solution) for more information. 
+    > There are constraints when deploying DCsv2-Series virtual machines in Azure. You may need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) for more information. 
 
 1. Select an available region.
 1. Enter a name for your virtual machine in the **Node Name** field. 

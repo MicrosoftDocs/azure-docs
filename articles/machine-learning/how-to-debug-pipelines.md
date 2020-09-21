@@ -15,7 +15,7 @@ ms.custom: troubleshooting, devx-track-python
 # Debug and troubleshoot machine learning pipelines
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to troubleshoot and debug [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+In this article, you learn how to troubleshoot and debug [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
 
 ## Troubleshooting tips
 
@@ -28,7 +28,7 @@ The following table contains common problems during pipeline development, with p
 | Ambiguous errors with compute targets | Try deleting and re-creating compute targets. Re-creating compute targets is quick and can solve some transient issues. |
 | Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your source-code directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
-
+| Step slowing down over training epochs or other looping behavior | Try switching any file writes, including logging, from `as_mount()` to `as_upload()`. The **mount** mode uses a remote virtualized filesystem and uploads the entire file each time it is appended to. |
 
 ## Debugging techniques
 
@@ -145,7 +145,7 @@ When you submit a pipeline run and stay in the authoring page, you can find the 
 1. In the right pane of the module, go to the  **Outputs + logs** tab.
 1. Expand the right pane, and select the **70_driver_log.txt** to view the file in browser. You can also download logs locally.
 
-    ![Expanded output pane in the designer](./media/how-to-debug-pipelines/designer-logs.png)
+    ![Expanded output pane in the designer](./media/how-to-debug-pipelines/designer-logs.png)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
 
 ### Get logs from pipeline runs
 
@@ -171,6 +171,6 @@ In some cases, you may need to interactively debug the Python code used in your 
 
 ## Next steps
 
-* See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
+* See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) package.
 
 * See the list of [designer exceptions and error codes](algorithm-module-reference/designer-error-codes.md).

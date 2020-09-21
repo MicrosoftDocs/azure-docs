@@ -18,9 +18,8 @@ Learn how to diagnose and resolve issues you might encounter when Azure App Serv
 
 In this article, you'll learn how to troubleshoot the following issues:
 
-> [!div class="checklist"]
-> * The app service URL is exposed in the browser when there's a redirection.
-> * The app service ARRAffinity cookie domain is set to the app service host name, example.azurewebsites.net, instead of the original host.
+* The app service URL is exposed in the browser when there's a redirection.
+* The app service ARRAffinity cookie domain is set to the app service host name, example.azurewebsites.net, instead of the original host.
 
 When a back-end application sends a redirection response, you might want to redirect the client to a different URL than the one specified by the back-end application. You might want to do this when an app service is hosted behind an application gateway and requires the client to do a redirection to its relative path. An example is a redirect from contoso.azurewebsites.net/path1 to contoso.azurewebsites.net/path2. 
 

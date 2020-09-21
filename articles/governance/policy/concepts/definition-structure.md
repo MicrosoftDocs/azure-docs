@@ -19,7 +19,7 @@ resources have a particular tag. Policy assignments are inherited by child resou
 assignment is applied to a resource group, it's applicable to all the resources in that resource
 group.
 
-The policy definition schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+The policy definition _policyRule_ schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -772,7 +772,7 @@ Policy, use one of the following methods:
   Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
   and discover aliases for resource properties.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension for Visual Studio Code" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot of the Azure Policy extension for Visual Studio Code hovering a property to display the alias names." border="false":::
 
 - Azure Resource Graph
 

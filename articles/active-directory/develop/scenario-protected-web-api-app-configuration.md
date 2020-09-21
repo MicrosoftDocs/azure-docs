@@ -153,9 +153,10 @@ you can also write the following (which is equivalent)
 public void ConfigureServices(IServiceCollection services)
 {
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+             .AddMicrosoftIdentityWebApi(Configuration, "AzureAd");
 
- services.AddControllers();
+services.AddControllers();
 }
 ```
 

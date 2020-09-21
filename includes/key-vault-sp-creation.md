@@ -16,7 +16,7 @@ For the sake of simplicity however, this quickstart creates a desktop applicatio
 Create a service principal using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://<my-unique-service-principal-name>" --sdk-auth
+az ad sp create-for-rbac --skip-assignment -n "http://<my-unique-service-principal-name>" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs.

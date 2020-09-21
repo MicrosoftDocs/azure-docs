@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -152,7 +152,7 @@ The Azure services that support each encryption model:
 | QnA Maker                        | Yes                | Yes                | -                  |
 | Speech Services                  | Yes                | Yes                | -                  |
 | Translator Text                  | Yes                | Yes                | -                  |
-| Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
+| Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | N/A\*              | -                  |
 | Event Hubs                       | Yes                | Yes                | -                  |

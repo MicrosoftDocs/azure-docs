@@ -63,7 +63,20 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 
 ## Release history
 
-### 4.4.0-beta.1 (Unreleased)
+### 4.5.0-beta.1 (Unreleased)
+
+### 4.4.0 (2020-09-12)
+#### Key Bug Fixes
+* Fixed RequestTimeoutException when enabling `netty-tcnative-boringssl` dependency.
+* Fixed memory leak issue on `Delete` operations in `GATEWAY` mode.
+* Fixed a leak in `CosmosClient` instantiation when endpoint uri is invalid.
+* Improved `CPU History` diagnostics.
+
+### 4.3.1 (2020-08-13)
+#### Key Bug Fixes
+* Fixed issue with `GROUP BY` query, where it was returning only one page.
+* Fixed user agent string format to comply with central SDK guidelines.
+* Enhanced diagnostics information to include query plan diagnostics.
 
 ### 4.3.0 (2020-07-29)
 #### New features

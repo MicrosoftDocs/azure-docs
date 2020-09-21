@@ -70,9 +70,14 @@ If you do not already have an existing cluster, create it by using the Azure por
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Provide credentials for the SQL Service account, cluster operator account and cluster bootstrap account":::
 
 1. Select the SQL Server VMs you want to add to the cluster. Note whether or not a restart is required, and proceed with caution. Only VMs that are registered with the SQL VM resource provider in full manageability mode, and are in the same location, domain, and on the same virtual network as the primary SQL Server VM will be visible. 
-1. Select **Apply** to create the cluster. 
+1. Select **Apply** to create the cluster. You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
+1. For a failover cluster to be supported by Microsoft, it must pass cluster validation. Connect to the VM using your preferred method (such as Remote Desktop Protocol (RDP)) and validate that your cluster passes validation before proceeding further. Failure to do so leaves your cluster in an unsupported state. You can validate the cluster using Failover Cluster Manager (FCM) or the following PowerShell command:
 
-You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+    ```
+    
+
 
 ### Onboard existing cluster
 
@@ -89,6 +94,8 @@ To do so, follow these steps:
 
 1. Review the settings for your cluster. 
 1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
+
+
 
 
 ## Create availability group

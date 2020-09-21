@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -35,8 +35,8 @@ The following limits are common across basic and standard tiers.
 | Number of consumer groups per event hub |Entity | &nbsp; |1 |20 |
 | Number of AMQP connections per namespace |Namespace |Subsequent requests for additional connections are rejected, and an exception is received by the calling code. |100 |5,000|
 | Maximum retention period of event data |Entity | &nbsp; |1 day |1-7 days |
-|Apache Kafka enabled namespace|Namespace |Event Hubs namespace streams applications using Kafka protocol |No | Yes |
-|Capture |Entity | When enabled, micro-batches on the same stream |No |Yes |
+|Apache Kafka enabled namespace|Namespace |Event Hubs namespace streams applications using Kafka protocol. For more information, see [Use Azure Event Hubs from Apache Kafka applications](../articles/event-hubs/event-hubs-for-kafka-ecosystem-overview.md). |No | Yes |
+|Capture |Entity | When enabled, micro-batches on the same stream. For more information, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](../articles/event-hubs/event-hubs-capture-overview.md). |No |Yes |
 
 
 ### Event Hubs Dedicated - quotas and limits
