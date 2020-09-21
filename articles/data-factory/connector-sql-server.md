@@ -431,7 +431,7 @@ Best practices to load data with partition option:
 ### Sample query to check physical partition
 
 ```sql
-SELECT DISTINCT s.name AS SchemaName, t.name AS TableName, pf.name AS PartitionFuntionName, c.name AS ColumnName, iif(pf.name is null, 'no', 'yes') AS HasPartition
+SELECT DISTINCT s.name AS SchemaName, t.name AS TableName, pf.name AS PartitionFunctionName, c.name AS ColumnName, iif(pf.name is null, 'no', 'yes') AS HasPartition
 FROM sys.tables AS t
 LEFT JOIN sys.objects AS o ON t.object_id = o.object_id
 LEFT JOIN sys.schemas AS s ON o.schema_id = s.schema_id
