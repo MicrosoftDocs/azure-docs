@@ -29,6 +29,10 @@
         href: quickstart-service-node.md
       - name: Python
         href: quickstart-service-python.md
+      - name: C#
+        href: quickstart-service-csharp.md
+      - name: Java
+        href: quickstart-service-java.md
 - name: Tutorials
   items:
   - name: Connect a multiple component device (C)

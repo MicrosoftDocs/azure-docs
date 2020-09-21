@@ -21,17 +21,16 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
-To complete this quickstart on Windows, install the following software on your local Windows environment:
+To complete this quickstart on Windows, you need the following software installed on your development machine:
 
 * [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
 * [Git](https://git-scm.com/download/).
-* [CMake](https://cmake.org/download/).
 
 ## Download the code
 
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C# SDK.
 
-Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
+Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
 ```cmd
 git clone https://github.com/Azure/azure-iot-sdk-csharp.git
