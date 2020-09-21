@@ -59,7 +59,7 @@ The following properties are exposed on a cut plane component:
 
 It is possible to configure individual cut planes so that they only affect specific geometry. The following picture illustrates how this setup may look in practice:
 
-![Selective cut planes](./media/selective-cutplanes.png)
+![Selective cut planes](./media/selective-cut-planes.png)
 
 The filtering works through **logical bit mask comparison** between a bit mask on the cut plane side and a second bit mask that is set on the geometry. If the result of a logical `AND` operation between the masks is not zero, the cut plane will affect the geometry.
 
