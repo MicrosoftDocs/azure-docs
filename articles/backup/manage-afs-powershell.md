@@ -82,7 +82,7 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-The Job ID attribute in the output corresponds to the Job ID of the job that is created by the backup service for your “stop protection” operation. To track the status of the job, use the [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet.
+The Job ID attribute in the output corresponds to the Job ID of the job that's created by the backup service for your “stop protection” operation. To track the status of the job, use the [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet.
 
 ## Stop protection without retaining recovery points
 

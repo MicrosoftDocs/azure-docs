@@ -38,7 +38,7 @@ To meet the certification requirements, your device must:
 - Describe the device interactions with a [DTDL v2](https://aka.ms/dtdl) model.
 - Publish the model, and all required interfaces, in the [Azure IoT Public Model Repository](https://devicemodels.azureiotsolutions.com/)
 - Send the model ID during [DPS registration](concepts-developer-guide.md#dps-payload) in the DPS provisioning payload.
-- Announce the model ID during the [MQTT connection](/concepts-developer-guide.md#model-id-announcement).
+- Announce the model ID during the [MQTT connection](concepts-developer-guide.md#model-id-announcement).
 
 ## Test with the Azure IoT Extension CLI
 

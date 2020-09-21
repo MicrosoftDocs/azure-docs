@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 ---
 # Prerequisites to access the Azure Active Directory reporting API
 
-The [Azure Active Directory (Azure AD) reporting APIs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from of programming languages and tools.
+The [Azure Active Directory (Azure AD) reporting APIs](./concept-reporting-api.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from of programming languages and tools.
 
-The reporting API uses [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) to authorize access to the web APIs.
+The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs.
 
 To prepare your access to the reporting API, you need to:
 
@@ -221,5 +221,5 @@ Follow the steps in the [Prerequisites to access the Azure Active Directory repo
 ## Next steps
 
 * [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
-* [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)

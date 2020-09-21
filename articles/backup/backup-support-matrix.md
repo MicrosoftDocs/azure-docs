@@ -140,7 +140,7 @@ Backup supports the compression of backup traffic, as summarized in the followin
 
 ## Cross Region Restore
 
-Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving customers full control to restore data to a secondary region. To configure this feature, visit [the Set Cross Region Restore article.](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
+Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving you full control to restore data to a secondary region. To configure this feature, visit [the Set Cross Region Restore article.](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

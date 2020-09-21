@@ -20,10 +20,11 @@ ms.service: digital-twins
 To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
 
 In this tutorial, you will...
-* Set up an Azure Digital Twins instance
-* Learn about the sample building scenario and instantiate the pre-written components
-* Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
-* Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
+> [!div class="checklist"]
+> * Set up an Azure Digital Twins instance
+> * Learn about the sample building scenario and instantiate the pre-written components
+> * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
+> * Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -163,13 +164,13 @@ To enable the function app to access Azure Digital Twins, the next step is to co
 
 In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 
-```azurecli-interactive
+```azurecli
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
@@ -204,7 +205,7 @@ Azure Digital Twins is designed to work alongside [IoT Hub](../iot-hub/about-iot
 
 In Azure Cloud Shell, use this command to create a new IoT hub:
 
-```azurecli-interactive
+```azurecli
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -244,7 +245,7 @@ This section creates a device representation in IoT Hub with the ID *thermostat6
 
 In Azure Cloud Shell, create a device in IoT Hub with the following command:
 
-```azurecli-interactive
+```azurecli
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -332,7 +333,7 @@ In this section, you create an event grid topic, and then create an endpoint wit
 
 In Azure Cloud Shell, run the following command to create an event grid topic:
 
-```azurecli-interactive
+```azurecli
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
@@ -367,6 +368,8 @@ Save the names that you gave to your event grid topic and your Azure Digital Twi
 ### Set up route
 
 Next, create an Azure Digital Twins route that sends events to the Azure Digital Twins endpoint you just created.
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
@@ -436,12 +439,12 @@ Here is a review of the scenario that you built out in this tutorial.
 
 If you no longer need the resources created in this tutorial, follow these steps to delete them. 
 
-Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and both Azure Functions apps, including associated resources like storage.
+Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and the Azure Functions app, including both functions and associated resources like storage.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 
@@ -451,12 +454,13 @@ Next, delete the Azure AD app registration you created for your client app with 
 az ad app delete --id <your-application-ID>
 ```
 
-Finally, delete the project sample folder you downloaded from your local machine.
+Finally, delete the project sample folder you downloaded to your local machine.
 
 ## Next steps
 
 In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
 
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
+
 > [!div class="nextstepaction"]
 > [*Concepts: Custom models*](concepts-models.md)

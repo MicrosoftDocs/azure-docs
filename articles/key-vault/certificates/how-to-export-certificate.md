@@ -32,10 +32,8 @@ After a Key Vault certificate is created, you can retrieve it from the addressab
 - **Exportable**: The policy used to create the certificate indicates the key is exportable.
 - **Non-exportable**: The policy used to create the certificate indicates the key is non-exportable. In this case, the private key isn't part of the value when it's retrieved as a secret.
 
-Key Vault supports two types of keys:
-
-- **RSA**: Exportable
-- **HSM RSA**: Non-exportable
+Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
 See [About Azure Key Vault certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key) for more information.
 
@@ -62,10 +60,10 @@ az keyvault certificate download --file
 
 View [examples and parameter definitions](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) for more information.
 
-If you want to download the whole certificate (both the public and private portions of its composition), download the certificate as a secret.
+Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
 ```azurecli
-az keyvault secret download –file {nameofcert.pfx}
+az keyvault secret download -–file {nameofcert.pfx}
                             [--encoding {ascii, base64, hex, utf-16be, utf-16le, utf-8}]
                             [--id]
                             [--name]

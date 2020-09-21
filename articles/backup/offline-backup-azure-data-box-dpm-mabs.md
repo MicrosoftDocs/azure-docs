@@ -8,7 +8,7 @@ ms.date: 08/12/2020
 
 > [!NOTE]
 > This feature is applicable for Data Protection Manager (DPM) 2019 UR2 and later.<br><br>
-> This feature is currently in preview for Microsoft Azure Backup Server (MABS). If you are interested in using Azure Data Box for offline seeding with MABS, reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> This feature is currently in preview for Microsoft Azure Backup Server (MABS). If you're interested in using Azure Data Box for offline seeding with MABS, reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
 
 This article explains how you can use Azure Data Box to seed initial backup data offline from DPM and MABS to an Azure Recovery Services vault.
 
@@ -67,14 +67,14 @@ Ensure that the required Data Box devices are in *Delivered* state before trigge
 
 ## Setup Azure Data Box devices
 
-Once you receive the Azure Data Box device, depending on the Azure Data Box SKU you have ordered, perform the steps in the appropriate sections below to set up and prepare the Data Box devices for the DPM/MABS Server to identify and transfer the initial backup data.
+Once you receive the Azure Data Box device, depending on the Azure Data Box SKU you've ordered, perform the steps in the appropriate sections below to set up and prepare the Data Box devices for the DPM/MABS Server to identify and transfer the initial backup data.
 
 ### Setup Azure Data Box disk
 
 If you ordered one or more Azure Data Box disks (up to 8 TB each), follow the steps mentioned [here](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up) to unpack, connect, and unlock your Data Box disk.
 
 > [!NOTE]
-> It is possible that the DPM/MABS server doesn't have a USB port. In such a scenario, you can connect your Azure Data Box disk to another server/client and expose the root of the device as a network share.
+> It's possible that the DPM/MABS server doesn't have a USB port. In such a scenario, you can connect your Azure Data Box disk to another server/client and expose the root of the device as a network share.
 
 ## Setup Azure Data Box
 
@@ -143,7 +143,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
           - Azure.Storage       *4.6.1*<br>
      >  - The Azure AD application is registered as *AzureOfflineBackup_\<object GUID of the user>*.
 
-13. Select the correct Data box order for which you have unpacked, connected, and unlocked your Data Box disk. Select **Next**.
+13. Select the correct Data box order for which you've unpacked, connected, and unlocked your Data Box disk. Select **Next**.
 
     ![Select the databox](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 
@@ -197,7 +197,7 @@ Follow these steps once the data backup to the Azure Data Box Disk is successful
 
 ## Troubleshooting
 
-The Microsoft Azure Backup (MAB) agent on the DPM server creates an Azure AD application for you, in your tenant. This application requires a certificate for authentication that is created and uploaded when configuring offline seeding policy.
+The Microsoft Azure Backup (MAB) agent on the DPM server creates an Azure AD application for you, in your tenant. This application requires a certificate for authentication that's created and uploaded when configuring offline seeding policy.
 
 We use Azure PowerShell for creating and uploading the certificate to the Azure AD Application.
 

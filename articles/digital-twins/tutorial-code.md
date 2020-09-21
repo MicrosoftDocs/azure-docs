@@ -56,7 +56,7 @@ Next, add two necessary dependencies for working with Azure Digital Twins:
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity
 ```
 
 The first dependency is the [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
@@ -114,7 +114,7 @@ In order to authenticate, you need three pieces of information:
 >[!TIP]
 > If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):
 > 
-> ```azurecli-interactive
+> ```azurecli
 > az account show --query tenantId
 > ```
 
@@ -325,12 +325,13 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, add a `using` statement for the relationship base type in the SDK:skip this if already added.
+To be able to create relationships, you'll need the `Azure.DigitalTwins.Core.Serialization` namespace. You added this to the project earlier with this `using` statement:
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-Next, add a new static method to the `Program` class, underneath the `Main` method:
+Add a new static method to the `Program` class, underneath the `Main` method:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -429,7 +430,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -542,24 +542,7 @@ namespace minimal
  
 The instance used in this tutorial can be reused in the next tutorial, [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
  
-If you no longer need the resources created in this tutorial, follow these steps to delete them.
-
-Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
-
-Open an Azure Cloud Shell and run the following command to delete the resource group and everything it contains.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Next, delete the Azure Active Directory app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Finally, delete the project folder you created on your local machine.
 

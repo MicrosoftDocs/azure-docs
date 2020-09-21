@@ -62,6 +62,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 To debug any PowerShell function, the function needs to stop for the debugger to be attached. The `Wait-Debugger` cmdlet stops execution and waits for the debugger.
 
+>[!NOTE]
+>When using PowerShell 7, you don't need to add the `Wait-Debugger` call in your code.
+
 All you need to do is add a call to the `Wait-Debugger` cmdlet just above the `if` statement, as follows:
 
 ```powershell

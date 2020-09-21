@@ -92,7 +92,7 @@ Redeploy your app with the updated *Web.config*. You should now see the same det
 
 ## Access diagnostic logs
 
-You can add diagnostic messages in your application code using [System.Diagnostics.Trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). For example: 
+You can add diagnostic messages in your application code using [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace). For example: 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace

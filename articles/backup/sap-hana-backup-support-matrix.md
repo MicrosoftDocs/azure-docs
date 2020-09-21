@@ -1,6 +1,6 @@
 ---
 title: SAP HANA Backup support matrix
-description: In this article, learn about the supported scenarios and limitations when you use Azure backup to back up SAP HANA databases on Azure VMs.
+description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions 

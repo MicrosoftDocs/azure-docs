@@ -28,7 +28,7 @@ This article shows how to download, install, and set up your on-premises data ga
   * Your Azure account needs to be either a work account or school account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
 
     > [!NOTE]
-    > If you signed up for an Office 365 offering and didn't provide your work email address, 
+    > If you signed up for a Microsoft 365 offering and didn't provide your work email address, 
     > your address might look like `username@domain.onmicrosoft.com`. Your account is stored 
     > in an Azure AD tenant. In most cases, the User Principal Name (UPN) for your Azure account 
     > is the same as your email address.

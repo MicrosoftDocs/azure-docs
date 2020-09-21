@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 
 ---
 
@@ -86,10 +87,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 Now we have a function app that has a system-assigned managed identity with the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, get the temperature of the aquarium, and then save this to Azure Cosmos DB.
 
-This sample uses the [List Keys API](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos DB account keys.
+This sample uses the [List Keys API](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) to access your Azure Cosmos DB account keys.
 
 > [!IMPORTANT] 
-> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will populate just the read-only keys.
+> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). This will populate just the read-only keys.
 
 The List Keys API returns the `DatabaseAccountListKeysResult` object. This type isn't defined in the C# libraries. The following code shows the implementation of this class:  
 

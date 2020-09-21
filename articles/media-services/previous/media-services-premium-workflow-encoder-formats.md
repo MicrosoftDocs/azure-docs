@@ -19,6 +19,8 @@ ms.reviewer: anilmur
 ---
 # Media Encoder Premium Workflow formats and codecs
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 

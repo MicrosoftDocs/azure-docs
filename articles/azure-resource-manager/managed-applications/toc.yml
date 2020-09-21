@@ -25,9 +25,6 @@
     href: powershell-samples.md
   - name: Managed application solutions
     href: sample-projects.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: View definition artifact
@@ -107,6 +104,8 @@
         href: microsoft-common-checkbox.md
       - name: DropDown
         href: microsoft-common-dropdown.md
+      - name: EditableGrid
+        href: microsoft-common-editablegrid.md
       - name: FileUpload
         href: microsoft-common-fileupload.md
       - name: InfoBox
@@ -155,6 +154,9 @@
         href: microsoft-storage-multistorageaccountcombo.md
       - name: StorageAccountSelector
         href: microsoft-storage-storageaccountselector.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -40,7 +40,9 @@ When a Key Vault certificate is created, it can be retrieved from the addressabl
 
 The addressable key becomes more relevant with non-exportable KV certificates. The addressable KV key's operations are mapped from *keyusage* field of the KV certificate policy used to create the KV Certificate.  
 
-Two types of key are supported – *RSA* or *RSA HSM* with certificates. Exportable is only allowed with RSA, not supported by RSA HSM.  
+ - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+   Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
+
 
 ## Certificate Attributes and Tags
 

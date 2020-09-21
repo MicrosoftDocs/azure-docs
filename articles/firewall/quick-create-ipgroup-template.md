@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create an Azure Firewall and IP Groups - Resource Manager template'
-description: Learn how to use an Azure Resource Manager template (ARM template) to create an Azure Firewall and IP Groups.
+description: In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to create an Azure Firewall and IP Groups.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/06/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 

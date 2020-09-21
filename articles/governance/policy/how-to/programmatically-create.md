@@ -274,7 +274,7 @@ example:
 ```
 
 For more information about how you can manage resource policies with Azure CLI, see
-[Azure CLI Resource Policies](/cli/azure/policy?view=azure-cli-latest).
+[Azure CLI Resource Policies](/cli/azure/policy).
 
 ## Next steps
 
@@ -282,6 +282,6 @@ Review the following articles for more information about the commands and querie
 
 - [Azure REST API Resources](/rest/api/resources/)
 - [Azure PowerShell Modules](/powershell/module/az.resources/#policies)
-- [Azure CLI Policy Commands](/cli/azure/policy?view=azure-cli-latest)
+- [Azure CLI Policy Commands](/cli/azure/policy)
 - [Azure Policy Insights resource provider REST API reference](/rest/api/policy-insights)
 - [Organize your resources with Azure management groups](../../management-groups/overview.md).

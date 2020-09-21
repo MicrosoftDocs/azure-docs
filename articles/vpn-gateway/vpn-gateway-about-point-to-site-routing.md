@@ -6,8 +6,8 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/24/2020
-ms.author: kumud
+ms.date: 09/03/2020
+ms.author: cherylmc
 
 ---
 # About Point-to-Site VPN routing

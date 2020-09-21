@@ -11,7 +11,7 @@ This article describes how the [Azure Backup service](./backup-overview.md) rest
 
 ## Concepts
 
-- **Recovery Point** (also known as **Restore Point**): A recovery point is a copy of the original data that is being backed up.
+- **Recovery Point** (also known as **Restore Point**): A recovery point is a copy of the original data that's being backed up.
 
 - **Tier (snapshot vs. vault)**:  Azure VM backup happens in two phases:
 

@@ -1,7 +1,7 @@
 ---
-title: Experiment Tracking and Deploy Models
+title: Experiment tracking and deploying models
 titleSuffix: Azure Data Science Virtual Machine 
-description: Learn how to track and log experiments from the DSVM with the Azure Machine learning Service and/or MLFlow.
+description: Learn how to track and log experiments from the Data Science Virtual Machine with Azure Machine Learning and/or MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 07/17/2020
 ---
 
-# Track Experiments and Deploy models in AzureML
+# Track experiments and deploy models in Azure Machine Learning
 
 Enhance the model creation process by tracking your experiments and monitoring run metrics. In this article, learn how to add logging code to your training script using the [MLflow](https://mlflow.org/) API and track the experiment in Azure Machine Learning.
 
@@ -22,7 +22,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 ## Prerequisites
 
-* You will need to [provision an Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* You'll need to [provision an Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
 
 ## Create a new notebook
 
@@ -32,11 +32,11 @@ The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science V
 
 ## Set up the workspace
 
-Go to the [Azure portal](https://portal.azure.com) and select the workspace you provisioned as part of the prerequisites. You will see __Download config.json__ (see below) - download the config and ensure it is stored in your working directory on the DSVM.
+Go to the [Azure portal](https://portal.azure.com) and select the workspace you provisioned as part of the prerequisites. You'll see __Download config.json__ (see below) - download the config and ensure It's stored in your working directory on the DSVM.
 
 ![Get config file](./media/how-to-track-experiments/experiment-tracking-2.png)
 
-The config contains information such as the workspace name, subscription, etc. and it means that you do not need to hard code these parameters.
+The config contains information such as the workspace name, subscription, etc. and it means that you don't need to hard code these parameters.
 
 ## Track DSVM runs
 
@@ -119,19 +119,19 @@ You should see the logged Mean Squared Error (MSE):
 
 ![MSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-If you click on the run you will see other details and also the pickled model in the __Outputs+logs__
+If you click on the run, You'll see other details and also the pickled model in the __Outputs+logs__
 
 ## Deploy model in Azure Machine Learning
 
-In this section we outline how to deploy models trained on a DSVM to Azure Machine Learning.
+In this section, we outline how to deploy models trained on a DSVM to Azure Machine Learning.
 
 ### Step 1: Create Inference Compute
 
-On the left-hand menu in [AzureML Studio](https://ml.azure.com) click on __Compute__ and then the __Inference clusters__ tab. Next, click on __+ New__ as articulated below:
+On the left-hand menu in [AzureML Studio](https://ml.azure.com) click on __Compute__ and then the __Inference clusters__ tab. Next, click on __+ New__ as discussed below:
 
 ![Create Inference Compute](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-In the __New Inference cluster__ pane fill in details for:
+In the __New Inference cluster__ pane fill details for:
 
 * Compute Name
 * Kubernetes Service - select create new
@@ -147,7 +147,7 @@ Next, click on __Create__.
 
 ### Step 2: Deploy no-code inference service
 
-When we registered the model in our code using `register_model` we specified the framework as sklearn. Azure Machine Learning supports no code deployments for the following frameworks:
+When we registered the model in our code using `register_model`, we specified the framework as sklearn. Azure Machine Learning supports no code deployments for the following frameworks:
 
 * scikit-learn
 * Tensorflow SaveModel format
@@ -163,19 +163,19 @@ Next, click on the __Deploy__ button in the model details pane:
 
 ![Deploy](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-We will deploy the model to the Inference Cluster (Azure Kubernetes Service) we created in step 1. Fill in the details below by providing a name for the service, and the name of the AKS compute cluster (created in step 1). We also recommend that you increase the __CPU reserve capacity__ to 1 (from 0.1) and the __Memory reserve capacity__ to 1 (from 0.5) - you can do this by clicking on __Advanced__ and filling in the details. Then click __Deploy__.
+We will deploy the model to the Inference Cluster (Azure Kubernetes Service) we created in step 1. Fill the details below by providing a name for the service, and the name of the AKS compute cluster (created in step 1). We also recommend that you increase the __CPU reserve capacity__ to 1 (from 0.1) and the __Memory reserve capacity__ to 1 (from 0.5) - you can make this increase by clicking on __Advanced__ and filling in the details. Then click __Deploy__.
 
 ![deploy details](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
 ### Step 3: Consume
 
-When the model has deployed successfully you should see the following (to get to this page click on Endpoints from the left-hand menu > then click on the name of deployed service):
+When the model has deployed successfully, you should see the following (to get to this page click on Endpoints from the left-hand menu > then click on the name of deployed service):
 
 ![Consume model](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-You should notice that the deployment state goes from __transitioning__ to __healthy__. In addition this details section provides the REST endpoint and Swagger URLs that an application developer can use to integrate your ML model into their apps.
+You should see that the deployment state goes from __transitioning__ to __healthy__. In addition, this details section provides the REST endpoint and Swagger URLs that an application developer can use to integrate your ML model into their apps.
 
-You can test the endpoint using [Postman](https://www.postman.com/), alternatively you can use the AzureML SDK:
+You can test the endpoint using [Postman](https://www.postman.com/), or you can use the AzureML SDK:
 
 ```python
 from azureml.core import Webservice
@@ -196,7 +196,7 @@ print(output)
 
 ### Step 4: Clean up
 
-You should delete the Inference Compute you created in Step 1 so that you do not incur ongoing compute charges. On the left-hand menu in the Azure Machine Learning Studio click on Compute > Inference Clusters > Select the compute > Delete.
+Delete the Inference Compute you created in Step 1 so that you don't incur ongoing compute charges. On the left-hand menu in the Azure Machine Learning Studio, click on Compute > Inference Clusters > Select the compute > Delete.
 
 ## Next Steps
 

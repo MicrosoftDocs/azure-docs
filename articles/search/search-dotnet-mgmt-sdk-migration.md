@@ -16,14 +16,14 @@ ms.date: 07/08/2020
 
 This article explains how to migrate to successive versions of the Azure Search .NET Management SDK, used to provision or deprovision search services, adjust capacity, and manage API keys.
 
-Management SDKs target a specific version of the Management REST API. For more information about concepts and operations, see [Search Management (REST)](https://docs.microsoft.com/rest/api/searchmanagement/).
+Management SDKs target a specific version of the Management REST API. For more information about concepts and operations, see [Search Management (REST)](/rest/api/searchmanagement/).
 
 ## Versions
 
 | SDK version | Corresponding REST API version | Feature addition or behavior change |
 |-------------|--------------------------------|-------------------------------------|
 | [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-version=2020-30-20 | Adds endpoint security (IP firewalls and integration with [Azure Private Link](../private-link/private-endpoint-overview.md)) |
-| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Usability improvements. Breaking change on [List Query Keys](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) (GET is discontinued). |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Usability improvements. Breaking change on [List Query Keys](/rest/api/searchmanagement/querykeys/listbysearchservice) (GET is discontinued). |
 | [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-version=2015-08-19  | First version |
 
 ## How to upgrade
@@ -44,15 +44,15 @@ Version 3.0 adds private endpoint protection by restricting access to IP ranges,
 
 | API | Category| Details |
 |-----|--------|------------------|
-| [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | IP firewall | Restrict access to a service endpoint to a list of allowed IP addresses. See [Configure IP firewall](service-configure-firewall.md) for concepts and portal instructions. |
-| [Shared Private Link Resource](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Create a shared private link resource to be used by a search service.  |
-| [Private Endpoint Connections](https://docs.microsoft.com/rest/api/searchmanagement/privateendpointconnections) | Private Link | Establish and manage connections to a search service through private endpoint. See [Create a private endpoint](service-create-private-endpoint.md) for concepts and portal instructions.|
-| [Private Link Resources](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Private Link | For a search service that has a private endpoint connection, get a list of all services used in the same virtual network. If your search solution includes indexers that pull from Azure data sources (Azure Storage, Cosmos DB, Azure SQL), or uses Cognitive Services or Key Vault, then all of those resources should have endpoints in the virtual network, and this API should return a list. |
-| [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | This is a property on Create or Update Service requests. When disabled, private link is the only access modality. |
+| [NetworkRuleSet](/rest/api/searchmanagement/services/createorupdate#networkruleset) | IP firewall | Restrict access to a service endpoint to a list of allowed IP addresses. See [Configure IP firewall](service-configure-firewall.md) for concepts and portal instructions. |
+| [Shared Private Link Resource](/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Create a shared private link resource to be used by a search service.  |
+| [Private Endpoint Connections](/rest/api/searchmanagement/privateendpointconnections) | Private Link | Establish and manage connections to a search service through private endpoint. See [Create a private endpoint](service-create-private-endpoint.md) for concepts and portal instructions.|
+| [Private Link Resources](/rest/api/searchmanagement/privatelinkresources/) | Private Link | For a search service that has a private endpoint connection, get a list of all services used in the same virtual network. If your search solution includes indexers that pull from Azure data sources (Azure Storage, Cosmos DB, Azure SQL), or uses Cognitive Services or Key Vault, then all of those resources should have endpoints in the virtual network, and this API should return a list. |
+| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | This is a property on Create or Update Service requests. When disabled, private link is the only access modality. |
 
 ### Breaking changes
 
-You can no longer use GET on a [List Query Keys](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) request. In previous releases you could use either GET or POST, in this release and in all releases moving forward, only POST is supported. 
+You can no longer use GET on a [List Query Keys](/rest/api/searchmanagement/querykeys/listbysearchservice) request. In previous releases you could use either GET or POST, in this release and in all releases moving forward, only POST is supported. 
 
 ## Upgrade to 2.0
 

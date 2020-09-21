@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Identity data storage for European customers in Azure Active Directory
-Identity data is stored by Azure AD in a geographical location  based on the address provided by your organization when subscribing for a Microsoft Online service such as  Office 365 and Azure. For information on where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Identity data is stored by Azure AD in a geographical location  based on the address provided by your organization when subscribing for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
 For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
@@ -26,11 +26,11 @@ For customers who provided an address in Europe, Azure AD keeps most of the iden
 - Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor specific services may also come into play and these services maybe outside Europe.
 - OATH codes are always validated in the U.S. 
 
-For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure MFA, see [Azure Multi-Factor Authentication user data collection](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure MFA, see [Azure Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
 
 ## Microsoft Azure Active Directory B2C (Azure AD B2C)
 
-Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters. These do not contain any user personal data. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
+Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters. These do not contain any user personal data. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](../../active-directory-b2c/user-flow-overview.md) article.
 
 ## Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
@@ -46,7 +46,7 @@ Azure AD DS stores user data in the same location as the customer-selected Azure
 - Approved Federated domains list for Application
 - Application’s token signing Public Key 
 
-For more info about federation in Microsoft Exchange server, see the [Federation: Exchange 2013 Help](https://docs.microsoft.com/exchange/federation-exchange-2013-help) article.
+For more info about federation in Microsoft Exchange server, see the [Federation: Exchange 2013 Help](/exchange/federation-exchange-2013-help) article.
 
 
 ## Other considerations
@@ -57,12 +57,12 @@ For more information about Microsoft services' data residency, see the [Where is
 
 ## Next steps
 For more information about any of the features and functionality described above, see these articles:
-- [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+- [What is Multi-Factor Authentication?](../authentication/concept-mfa-howitworks.md)
 
-- [Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+- [Azure AD self-service password reset](../authentication/concept-sspr-howitworks.md)
 
-- [What is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+- [What is Azure Active Directory B2C?](../../active-directory-b2c/overview.md)
 
-- [What is Azure AD B2B collaboration?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- [What is Azure AD B2B collaboration?](../external-identities/what-is-b2b.md)
 
-- [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)
+- [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md)

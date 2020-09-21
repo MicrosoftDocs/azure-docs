@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Get face detection data

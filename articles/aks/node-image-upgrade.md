@@ -16,6 +16,10 @@ If you're interested in learning about the latest images provided by AKS, see th
 
 For information on upgrading the Kubernetes version for your cluster, see [Upgrade an AKS cluster][upgrade-cluster].
 
+## Limitations
+
+* The AKS cluster must use virtual machine scale sets for the nodes.
+
 ## Install the AKS CLI Extension
 
 Before the next core CLI version is released, you need the *aks-preview* CLI extension to use node image upgrade. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:

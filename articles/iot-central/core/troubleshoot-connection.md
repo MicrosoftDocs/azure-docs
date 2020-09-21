@@ -54,7 +54,7 @@ az set account --subscription <your-subscription-id>
 To monitor the telemetry your device is sending, use the following command:
 
 ```cmd/bash
-az iot central app monitor-events --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 If the device has connected successfully to IoT Central, you see output similar to the following:
@@ -79,7 +79,7 @@ Filtering on device: device-001
 To monitor the property updates your device is exchanging with IoT Central, use the following preview command:
 
 ```cmd/bash
-az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 If the device successfully sends property updates, you see output similar to the following:
@@ -92,8 +92,6 @@ version : 32
 rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
 
-### Interpreting terminal output
-
 If you see data appear in your terminal, then the data is making it as far as your IoT Central application.
 
 If you don't see any data appear after a few minutes, try pressing the `Enter` or `return` key on your keyboard, in case the output is stuck.
@@ -105,7 +103,7 @@ If you're still not seeing any data appear on your terminal, it's likely that yo
 If your data is not appearing on the monitor, check the provisioning status of your device by running the following command:
 
 ```cmd/bash
-az iot central app device registration-info --app-id <app-id> --device-id <device-name>
+az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 The following output shows an example of a device that's blocked from connecting:
@@ -175,16 +173,14 @@ To detect which categories your issue is in, run the most appropriate command fo
 - To validate telemetry, use the preview command:
 
     ```cmd/bash
-    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - To validate property updates, use the preview command
 
     ```cmd/bash
-    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
-
-- If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
 
@@ -202,9 +198,9 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
 ```
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view":::
+If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
 
-### Interpreting terminal output
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view":::
 
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
@@ -212,9 +208,6 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ## Next steps
 
-If you are unable to troubleshoot and fix the issue using this guide, open a support ticket. Azure customers can create and manage support requests in the Azure portal:
-
-- [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-- [Azure portal for the United States government](https://portal.azure.us/)
+If you need more help, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
 For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).

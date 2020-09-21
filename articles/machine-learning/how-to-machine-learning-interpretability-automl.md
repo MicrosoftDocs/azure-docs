@@ -14,7 +14,7 @@ ms.date: 07/09/2020
 
 # Interpretability: model explanations in automated machine learning (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to get explanations for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand engineered feature importance. 
 
@@ -34,6 +34,14 @@ In this article, you learn how to:
 ## Interpretability during training for the best model
 
 Retrieve the explanation from the `best_run`, which includes explanations for engineered features.
+
+> [!Warning]
+> Interpretability, best model explanation, is not available for Auto ML forecasting experiments that recommend the following algorithms as the best model: 
+> * ForecastTCN
+> * Average 
+> * Naive
+> * Seasonal Average 
+> * Seasonal Naive
 
 ### Download engineered feature importance from artifact store
 
@@ -107,7 +115,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### Interpretability during inference
+## Interpretability during inference
 
 In this section, you learn how to operationalize an automated ML model with the explainer that was used to compute the explanations in the previous section.
 
