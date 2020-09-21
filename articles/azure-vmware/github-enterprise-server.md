@@ -175,7 +175,7 @@ To make this runner available to organizations in your enterprise, edit its orga
 
 Here we will make it available to all organizations, but you can also limit access to a subset of organizations, and even to specific repositories.
 
-## Configuring GitHub Connect
+## (Optional) Configuring GitHub Connect
 
 Although this step is optional, we recommend it if you plan to consume open source actions available on GitHub.com. This allows you to build on the work of others by referencing these reusable actions in your workflows.
 
