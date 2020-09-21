@@ -1,5 +1,5 @@
 ---
-title: Securing access to containers, directories, and files in Azure Data Lake Storage Gen2  | Microsoft Docs
+title: Configure access permission for Azure Data Lake Storage Gen2  | Microsoft Docs
 description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: jamsbak
 ---
 
-# Setup security
+# Configure access permission to containers, directories, and files in Azure Data Lake Storage Gen2
 
 Intro goes here.
 
@@ -31,6 +31,16 @@ Access key also works. This gives you 'super-user' access, meaning full access t
 ### Create security groups
 
 Set up groups. Point to guidance.
+
+## Best practice: set permissions on groups not individual users
+
+In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. There's a few reasons for this:
+
+The number of RBAC role assignments permitted in a subscription is limited. For the latest information about those limits, see [Role assignments](https://docs.microsoft.com/azure/role-based-access-control/overview#role-assignments).
+
+Changes to an ACL take time to propagate through the system if the number of affected files is large. Also, there's a limit of **32** ACL entries for each directory and file. 
+
+If group security principals together, you can change the access level of multiple security principals by changing only one ACL entry.
 
 If the security principal is a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), it's important to use the object ID of the service principal and not the object ID of the related app registration. 
 

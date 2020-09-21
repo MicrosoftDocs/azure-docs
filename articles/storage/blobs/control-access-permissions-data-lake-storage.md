@@ -1,5 +1,5 @@
 ---
-title: Controlling access to data in Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Access control model for Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace. 
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,7 +9,7 @@ ms.date: 09/16/2020
 ms.author: normesta
 ---
 
-# Controlling access to data in Azure Data Lake Storage Gen2
+# Access control model in Azure Data Lake Storage Gen2
 
 You can control access to the data in your account by using Azure role-based access control (RBAC) and access control lists (ACLs). This article describes both mechanisms, and how the system evaluates them together to make authorization decisions.  
 
@@ -80,60 +80,44 @@ The following table lists some common scenarios to help you understand which per
 | Read Data.txt            |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |  
 |                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
 |                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
-|                          |   None                           |   --x       |   --x       |  --x      | r--      |
+|                          |   None                           |   --X       |   --X       |  --X      | R--      |
 | Append to Data.txt       |   Storage Blob Data Owner        |   ---       |  ---        | ---       | ---      |
 |                          |   Storage Blob Data Contributor  |   ---       |  ---        | ---       | ---      |
-|                          |   Storage Blob Data Reader       |   --x       |  --x        | --x       | rw-      |
-|                          |   None                           |   ---       |  ---        | ---       | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |  ---        | ---       | -W-      |
+|                          |   None                           |   --X       |  --X        | --X       | RW-      |
+| Delete Data.txt          |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |   ---       |  -WX      | ---      |
+|                          |   None                           |   --X       |   --X       |  -WX      | ---      |
+| Create Data.txt          |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |   ---       |  -W-      | ---      |
+|                          |   None                           |   --X       |   --X       |  -WX      | ---      |
+| List /                   |   Storage Blob Data Owner        |   ----      |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Contributor  |  ---        |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
+|                          |   None                           |   R-X       |   ---       |  ---      | ---      |
+| List /Oregon/            |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |   --        |  ---      | ---      |
+|                          |   None                           |   --X       |   R-X       |  ---      | ---      |
+| List /Oregon/Portland/   |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
+|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
+|                          |   None                           |   --X       |   --X       |  R-X      | ---      |
 
-## Best practice: set permissions on groups not individual users
+Key takeaways:
 
-In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. There's a few reasons for this:
+- You need execute permissions (--X) on all directories leading to the desired content.
+- To list contents of a directory, that directory needs read and execute (R-X).
+- To read the contents of a file, the file needs read permission (R--.)
+- To use Azure Storage explorer to see container and files, you must give Read access to the root folder (R--).
+- To list all containers in the account, you need any of these:
+  - Super user access - Shared key or Storage Blob Data Owner.
+  - Reader role to see containers + appropriate ACL permissions to list directories or read files.
+  - Storage Blob Data Reader + appropriate ACL permissions to give write permissions if you want.
 
-The number of RBAC role assignments permitted in a subscription is limited. For the latest information about those limits, see [Role assignments](https://docs.microsoft.com/azure/role-based-access-control/overview#role-assignments).
+## Next steps
 
-Changes to an ACL take time to propagate through the system if the number of affected files is large. Also, there's a limit of **32** ACL entries for each directory and file. 
+Set up groups, assign RBAC roles, and apply ACLs. See [Configure access permission to containers, directories, and files in Azure Data Lake Storage Gen2](configure-data-lake-storage-security.md).
 
-If group security principals together, you can change the access level of multiple security principals by changing only one ACL entry.
-
-
-## Example scenarios
-
-Here's a few scenarios  - just add these to the scenario table.
-
-•	See containers in ASE
-•	List containers in a storage account
-•	List contents of directory but no access to files
-•	Read access to a specific file
-
-Scenario: You want to give access for users to use Storage Explorer to look through files
-
-Because of the way that ASE mounts containers, you must provide read access to the root folder of the container. From there, you can provide either execute only (if you want the user to be able to traverse the hierarchy to the desired file or B) Read access to directories if you want them to see files in directories but not read files or C) Read access to all items in directories.
-Good tip from James:
-"Regarding how the R permission is propagated to child directories, you need to consider the role of ‘default’ permissions (described in the same doc). 
-
-In this particular case, you may not want defaults to propagate from the root to top-level directories. You may want to manually set permissions (and defaults) on the top-level directories & not apply a default to the root. This will allow you, for instance, to grant Chris the ability to see all of the top-level directories, but not see any of the contents (except folder1) and as he clicks down the directory structure, he will only be able to click down where he has R permission (the other top-level directories he won’t have R)"
-
-Scenario: You want to enumerate the containers in a storage account
-
-List all containers in the account. You need to have either super user access or Blob Data Reader. If you don’t want folks to have read access of directories and files, you can give them “reader” access. Then use ACLs to control which directories and files they can see (if you want them to see any)
-ACL only – won’t work because it won’t grant access to view containers in the account.
-Option A: Grant “Reader” role if you just want folks to see containers.  Then grant ACLs beyond that for whatever read or list permission you want them to have.
-Option B: Grant “Data Reader” role and they can list and also read any file in the hierarchy. You can then give ACLs to provide write permissions wherever you want.
-
-Scenario: You want to provide the ability to list contents of a container without allowing read on blob data
-Read on root folder of container. 
-
-Scenario: You want to set the ACL of a file.
-
-Scenario: You want users to traverse through system but only see files in one folder
-
-Execute on all folders but not read on any of the folders that you don't want folks to see the files. Apply read only to the folder that you want users to see the files. Read on a folder lets you list files. Read on a file lets you read the file.
-
-## Get started
-
-If you're ready to get started, here's some guidance.
-
-## See also
-
-* [Overview of Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
