@@ -33,7 +33,7 @@ To view the built-in policy definitions related to Azure Machine Learning, use t
 
 From here, you can select policy definitions to view them. While viewing a definition, you can use the __Assign__ link to assign the policy to a specific scope, and configure the parameters for the policy. For more information, see [Assign a policy - portal](/azure/governance/policy/assign-policy-portal).
 
-You can also assign policies by using [Azure PowerShell](/azure/governance/policy/assign-policy-powershell), [Azure CLI](/azure/governance/assign-pollicy-azurecli), and [templates](/azure/governance/policy/assign-policy-template).
+You can also assign policies by using [Azure PowerShell](/azure/governance/policy/assign-policy-powershell), [Azure CLI](/azure/governance/policy/assign-policy-azurecli), and [templates](/azure/governance/policy/assign-policy-template).
 
 ## Workspaces encryption with customer-managed key
 
