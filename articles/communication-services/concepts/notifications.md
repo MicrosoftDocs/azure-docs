@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 The Azure Communication Services chat and calling client libraries create a real-time messaging channel that allows signaling messages to be pushed to connected clients in an efficient, reliable manner. This enables you to build rich, real-time communication functionality into your applications without the need to implement complicated HTTP polling logic. However, on mobile applications, this signaling channel only remains connected when your application is active in the foreground. If you want your users to receive incoming calls or chat messages while your application is in the background, you should use push notifications.
 
-Push notifications are a form of app-to-user communication where users of mobile apps are notified of certain desired information. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) and [Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview) that enable you to add push notifications to your apps.
+Push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) and [Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview) that enable you to add push notifications to your apps.
 
 ## Trigger push notifications via Azure Event Grid
 
@@ -29,7 +29,7 @@ Learn more about [event handling in Azure Communication Services](./event-handli
 
 ## Deliver push notifications via Azure Notification Hubs
 
-You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incomming call. You should used these push notifications to wake up your application from the background and display UI that let's the user accept or decline the call. 
+You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call. You should used these push notifications to wake up your application from the background and display UI that let's the user accept or decline the call. 
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notifications Hub.":::
 
@@ -41,9 +41,9 @@ To deliver notification to client devices using Notification Hubs, we need to cr
 
 To create notification hub, please follow [Create an Azure notification hub in the Azure portal](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) or [Create an Azure notification hub using the Azure CLI](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-azure-cli).
 
-The connection string should contain "Send" permissions. We recommend creating another access policy with "Send" only permissions specifically for your hub. Please see [Notification Hubs security](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security) to learn more about Azure Notification Hub access policy.
+The connection string should contain "Send" permissions. We recommend creating another access policy with "Send" only permissions specifically for your hub. See [Notification Hubs security](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security) to learn more about Azure Notification Hub access policy.
 
-To send VOIP notifications, configure a notification hub with the .voip app bundle ID. Please see [Use APNS VOIP through Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
+To send VOIP notifications, configure a notification hub with the `.voip` app bundle ID. See [Use APNS VOIP through Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
 
 #### Using the Azure Resource Manager client to configure the Notification Hub
 
