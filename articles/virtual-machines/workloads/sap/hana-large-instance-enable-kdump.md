@@ -18,6 +18,12 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
+# Kdump for SAP HANA on Azure Large Instances (HLI)
+
+Configuring and enabling kdump is a step that is needed to troubleshoot system crashes that do not have a clear cause.
+There are times when a system will unexpectedly crash that cannot be explained by a hardware or infrastructure problem.
+In these cases it can be an operating system or application problem and kdump will allow SUSE to determine why a system crashed.
+
 # Enable Kdump service
 
 This document describes the details on how to enable Kdump service on Azure HANA Large
@@ -61,6 +67,8 @@ Instance(**Type I and Type II**)
 ## Setup details
 
 - Script to enable Kdump can be found [here](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+> [!NOTE]
+> this script is made based on our lab setup and Customer is expected to contact OS vendor for any further tuning.
 
 - Run this script on HANA Large Instance using the below command
 
@@ -103,3 +111,6 @@ If the script fails with an error or Kdump isn't enabled, raise service request 
 * OS version
 
 * Kernel version
+
+## Related Documents
+- To know more on [configuring the kdump](https://www.suse.com/support/kb/doc/?id=3374462)
