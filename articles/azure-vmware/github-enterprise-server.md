@@ -220,7 +220,7 @@ Congratulations! You just completed your first Actions workflow on GitHub Enterp
 
 We are just scratching the surface of what you can do with GitHub Actions. For more inspiration, checkout the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
 
-## Review
+## Next steps
 
 In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. This is a great combination for a modern, collaborative, and secure software development experience. It builds on a solid foundation of Azure VMware Solution, allowing you to leverage cloud resources in a familiar setting.
 
