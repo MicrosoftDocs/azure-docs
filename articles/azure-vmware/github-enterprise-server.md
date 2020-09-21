@@ -193,7 +193,8 @@ In this basic workflow, we'll use `octokit/request-action` to just open an issue
 
 :::image type="content" source="media/github-enterprise-server/example-workflow.png" alt-text="Example workflow.":::
 
-Note, GitHub.com hosts the action, but when it runs on GitHub Enterprise Server, it will *automatically* use the GitHub Enterprise Server API.
+>[!NOTE]
+>GitHub.com hosts the action, but when it runs on GitHub Enterprise Server, it *automatically* uses the GitHub Enterprise Server API.
 
 If you chose to not enable GitHub Connect, you can use the following alternative workflow.
 
