@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/13/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -20,6 +20,10 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider (RP). Registering with the resource provider creates the **SQL virtual machine** _resource_ within your subscription, which is a separate resource from the virtual machine resource. Unregistering your SQL Server VM from the resource provider will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine. 
+
+This article teaches you to register a single SQL Server VM with the SQL VM resource provider. Alternatively, you can register all SQL Server VMs [automatically](sql-vm-resource-provider-automatic-registration.md) or [scripted in bulk](sql-vm-resource-provider-bulk-register.md).
+
+## Overview
 
 Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, you should register your SQL Server VM with the resource provider for:
 
@@ -53,7 +57,7 @@ To utilize the SQL VM resource provider, you must first [register your subscript
 To register your SQL Server VM with the resource provider, you'll need: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- An Azure Resource Model [SQL Server VM](create-sql-vm-portal.md) deployed to the public  or Azure Government cloud. 
+- An Azure Resource Model [Windows virtual machine](../../../virtual-machines/windows/quick-create-portal.md) with [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) deployed to the public or Azure Government cloud. 
 - The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## Management modes

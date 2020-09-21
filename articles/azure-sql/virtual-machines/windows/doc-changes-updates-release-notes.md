@@ -1,5 +1,5 @@
 ---
-title: Documentation changes for SQL Server on Azure Virtual Machines| Microsoft Docs
+title: Documentation changes for SQL Server on Azure Virtual Machines
 description: Learn about the new features and improvements for different releases of SQL Server on Azure Virtual Machines.
 services: virtual-machines-windows
 author: MashaMSFT
@@ -7,16 +7,22 @@ ms.author: mathoma
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
-
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
+ms.date: 09/21/2020
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## September 2020
+
+| Changes | Details |
+| --- | --- |
+| **Automatic RP registration** | You can now enable the [Automatic registration](sql-vm-resource-provider-automatic-registration.md) feature to automatically register all SQL Server VMs already deployed to your subscription, as well as any SQL Server VMs added in the future.  | 
+
 
 ## August 2020
 
