@@ -29,7 +29,7 @@ In this tutorial, you will connect to the analytical store so there is no impact
 2. Aggregate the results in a new dataframe
 3. Ingest the data into a SQL pool
 
-[![Diagram shows how an Azure Cosmos D B container is ingested into a Spark datafram, the results are aggregated, and ingested into a SQL pool.](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+[![Diagram shows how an Azure Cosmos D B container is ingested into a Spark datafram, the results are aggregated, and ingested into SQL pool.](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## Data
 In that example, we use an HTAP container called **RetailSales**. It is part of a linked service called **ConnectedData**, and has the following schema:
