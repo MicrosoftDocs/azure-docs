@@ -41,7 +41,7 @@ Advisor displays your category scores and your overall Advisor score as percenta
 
 **Advisor score calculation example**
 * Single subscription score: This is the simple mean of all Advisor category scores for your subscription. If the Advisor category scores are as - Cost = 73, Reliabilit = 85, Operational excellence = 77, Performance = 100; the **Advisor score** would be (73 + 85 + 77 + 100)/(4x100) = 0.84 or 84%.
-* Multiple subscriptions score: When multiple subscriptions are selected, the overall advisor score we generate are weighted aggregate category scores. Here, each Advisor category score is aggregated based on resources consumed by subscriptions. Once we have the weighted aggregated cateogry scores then we do a simple mean to give you overall score for subscriptions. 
+* Multiple subscriptions score: When multiple subscriptions are selected, the overall advisor score we generate are weighted aggregate category scores. Here, each Advisor category score is aggregated based on resources consumed by subscriptions. Once we have the weighted aggregated category scores then we do a simple mean to give you overall score for subscriptions. 
 
 
 ### Scoring methodology: 
