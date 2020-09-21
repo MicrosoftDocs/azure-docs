@@ -55,6 +55,7 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
   Add-on.
 - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't
   available for this [Resource Provider mode](./definition-structure.md#resource-provider-modes)
+  - If you use [Azure Active Directory pod identity][aad-pod-identity], you need to deploy this [custom resource definition exception][[aad-pod-identity-exception] to prevent authentication issues.
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 
@@ -332,6 +333,8 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[aad-pod-identity]: https://github.com/Azure/aad-pod-identity
+[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
 
 <!-- LINKS - internal -->
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md?#recommendations
