@@ -62,10 +62,10 @@ To "harden" your instance for production use, the following additional but optio
 
 1. Configure [high availability](https://help.github.com/enterprise/admin/guides/installation/configuring-github-enterprise-for-high-availability/) for protection against:
 
-  - Software crashes (OS or application level)
-  - Hardware failures (storage, CPU, RAM, and so on)
-  - Virtualization host system failures
-  - Logically or physically severed network
+    - Software crashes (OS or application level)
+    - Hardware failures (storage, CPU, RAM, and so on)
+    - Virtualization host system failures
+    - Logically or physically severed network
 
 2. [Configure](https://docs.github.com/en/enterprise/admin/configuration/configuring-backups-on-your-appliance) [backup-utilities](https://github.com/github/backup-utils), providing versioned snapshots for disaster recovery, hosted in availability that is separate from the primary instance.
 3. [Setup subdomain isolation](https://docs.github.com/en/enterprise/admin/configuration/enabling-subdomain-isolation), using a valid TLS certificate, to mitigate cross-site scripting and other related vulnerabilities.
