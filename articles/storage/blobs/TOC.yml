@@ -139,10 +139,10 @@
         items:
         - name: Encryption with customer-managed keys
           href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Encryption on the request with customer-provided keys
+          href: encryption-customer-provided-keys.md
         - name: Encryption scopes
           href: encryption-scope-overview.md
-        - name: Encryption on the request
-          href: encryption-customer-provided-keys.md
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
       - name: Advanced threat protection
