@@ -1,22 +1,22 @@
 ---
-title: CETAS in Synapse SQL
-description: Using CETAS with Synapse SQL
+title: CREATE EXTERNAL TABLE AS SELECT (CETAS) in Synapse SQL
+description: Using CREATE EXTERNAL TABLE AS SELECT (CETAS) with Synapse SQL
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
 # CETAS with Synapse SQL
 
-In either SQL pool or SQL on-demand (preview), you can use CREATE EXTERNAL TABLE AS SELECT (CETAS) to complete the  following tasks:  
+You can use CREATE EXTERNAL TABLE AS SELECT (CETAS) in SQL pool or SQL on-demand (preview) to complete the  following tasks:  
 
 - Create an external table
-- Export, in parallel, the results of a Transact-SQL SELECT statement to
+- Export, in parallel, the results of a Transact-SQL SELECT statement to:
 
   - Hadoop
   - Azure Storage Blob
@@ -28,7 +28,7 @@ For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT
 
 ## CETAS in SQL on-demand
 
-When using the SQL on-demand resource, CETAS is used to create an external table and export query results to Azure Storage Blob or Azure Data Lake Storage Gen2.
+When using SQL on-demand, CETAS is used to create an external table and export query results to Azure Storage Blob or Azure Data Lake Storage Gen2.
 
 ## Syntax
 
@@ -63,7 +63,7 @@ Specifies the name of the external data source object that contains the location
 
 FILE_FORMAT = *external_file_format_name*
 
-Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Only external file formats with FORMAT='PARQUET' are currently supported.
+Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Only external file formats with FORMAT_TYPE=PARQUET and FORMAT_TYPE=DELIMITEDTEXT are currently supported.
 
 WITH *<common_table_expression>*
 
@@ -74,11 +74,11 @@ SELECT <select_criteria>
 Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 > [!NOTE]
-> ORDER BY clause in SELECT part of CETAS is not supported.
+> ORDER BY clause in SELECT is not supported for CETAS.
 
 ## Permissions
 
-You need to have permissions to list folder content and write to LOCATION folder for CETAS to work.
+You need to have permissions to list folder content and write to the LOCATION folder for CETAS to work.
 
 ## Examples
 
@@ -89,7 +89,7 @@ This sample relies on the credential, data source, and external file format crea
 To save results to a different storage account, create and use a different data source for DATA_SOURCE argument.
 
 > [!NOTE]
-> The samples that follow  use a public Azure Open Data storage account. It is read-only. To execute these queries, you need to provide the data source for which you have write permissions.
+> The samples that follow use a public Azure Open Data storage account. It is read-only. To execute these queries, you need to provide the data source for which you have write permissions.
 
 ```sql
 -- use CETAS to export select statement with OPENROWSET result to  storage
@@ -107,7 +107,7 @@ FROM
 GROUP BY decennialTime, stateName
 GO
 
--- you can query created external table
+-- you can query the newly created external table
 SELECT * FROM population_by_year_state
 ```
 
@@ -127,7 +127,7 @@ FROM census_external_table
 GROUP BY decennialTime, stateName
 GO
 
--- you can query created external table
+-- you can query the newly created external table
 SELECT * FROM population_by_year_state
 ```
 
@@ -168,4 +168,4 @@ The following data types can't be used in SELECT part of CETAS:
 
 ## Next steps
 
-You can try querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).
+Try querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).

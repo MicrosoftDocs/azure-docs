@@ -13,9 +13,8 @@ ms.custom: troubleshooting, devx-track-python
 ---
 
 # Debug and troubleshoot machine learning pipelines
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to troubleshoot and debug [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) and [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer). Information is provided on how to:
 
 ## Troubleshooting tips
 
@@ -104,32 +103,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### Finding and reading pipeline log files
-
-The log file `70_driver_log.txt` contains: 
-
-* All printed statements during your script's execution
-* The stack trace for the script 
-
-To find this and other log files in the portal, first click on the pipeline run in your workspace.
-
-![Pipeline run list page](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Navigate to the pipeline run detail page.
-
-![Pipeline run detail page](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Click on the module for the specific step. Navigate to the **Logs** tab. Other logs include information about your environment image build process and step preparation scripts.
-
-![Pipeline run detail page log tab](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Runs for *published pipelines* can be found in the **Endpoints** tab in your workspace. 
-> Runs for *non-published pipelines* can be found in **Experiments** or **Pipelines**.
-
-For more information on logging and tracing from a `ParallelRunStep`, see [Debug and troubleshoot ParallelRunStep](how-to-debug-parallel-run-step.md).
-
-## Logging in Azure Machine Learning designer (preview)
+## Azure Machine Learning designer
 
 For pipelines created in the designer, you can find the **70_driver_log** file in either the authoring page, or in the pipeline run detail page.
 
