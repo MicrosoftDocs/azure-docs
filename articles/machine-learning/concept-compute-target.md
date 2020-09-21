@@ -28,7 +28,7 @@ Azure Machine Learning has varying support across different compute targets. A t
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Learn more about [using a compute target for model training](how-to-set-up-training-targets.md).
+Learn more about how to [submit a training run to a compute target](how-to-set-up-training-targets.md).
 
 ## <a name="deploy"></a>Deployment targets
 
@@ -36,17 +36,15 @@ The following compute resources can be used to host your model deployment.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
-
-
 ## Compute targets for inference
 
 When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in one of the following deployment scenarios:
 
 * As a __web service__ that is used for real-time inference. Web service deployments use one of the following compute targets:
 
-    * [Local computer](how-to-manage-compute-targets.md#local)
+    * [Local computer](how-to-attach-compute-targets.md#local)
     * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
-    * [Azure Container Instances](how-to-manage-compute-targets.md#aci)
+    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
     * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
     * Azure Functions (preview). Deployment to Azure Functions only relies on Azure Machine Learning to build the Docker container. From there, it is deployed using Azure Functions. For more information, see [Deploy a machine learning model to Azure Functions (preview)](how-to-deploy-functions.md).
 

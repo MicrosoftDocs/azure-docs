@@ -1,7 +1,7 @@
 ---
-title: Create training & deploy computes (Python)
+title: Set up training & inference compute targets
 titleSuffix: Azure Machine Learning
-description: Add  compute resources (compute targets) to your workspace to use for machine learning training and deployment
+description: Add  compute resources (compute targets) to your workspace to use for machine learning training and inference
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -12,15 +12,15 @@ ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ---
-# Create compute targets for model training and deployment
+# Set up compute targets for model training and deployment
 
-In this article,learn how to attach Azure compute resources you already have to your Azure Machine Learning workspace so you can use them for machine learning training and deployment [compute targets](concept-compute-target.md).  
+In this article, learn how to attach Azure compute resources to your Azure Machine Learning workspace.  Then you can use these resources as training and inference [compute targets](concept-compute-target.md) in your machine learning tasks.
 
 In this article, learn how to set up your workspace to use these compute resources:
 
 * Your [local computer](#local)
 * [Remote virtual machines](#vm)
-* [Azure HDInsight ](#hdinsight)
+* [Azure HDInsight](#hdinsight)
 * [Azure Batch](#azbatch)
 * [Azure Databricks](#databricks)
 * [Azure Data Lake Analytics](#adla)
@@ -28,7 +28,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 To use compute targets managed by Azure Machine Learning, see:
 
 * [Azure Container Instance](#aci)
-* [zure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
+* [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
 * [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
 * [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
 
@@ -42,7 +42,7 @@ To use compute targets managed by Azure Machine Learning, see:
 
 * **Do not create multiple, simultaneous attachments to the same compute** from your workspace. For example, attaching one Azure Kubernetes Service cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
 
-    If you want to re-attach a compute target, for example to change TLS or other cluster configuration setting, you must first remove the existing attachment.
+    If you want to reattach a compute target, for example to change TLS or other cluster configuration setting, you must first remove the existing attachment.
 
 
 ## What's a compute target?

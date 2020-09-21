@@ -242,7 +242,7 @@
           href: how-to-create-attach-kubernetes.md
         - name: Attach your own
           displayName: compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-          href: how-to-attach-compute.md
+          href: how-to-attach-compute-targets.md
         - name: Use studio
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
