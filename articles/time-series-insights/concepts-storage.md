@@ -22,7 +22,7 @@ When you create an Azure Time Series Insights Gen2 environment, you have the fol
 
 * Cold data storage:
    * Create a new Azure Storage resource in the subscription and region you’ve chosen for your environment.
-   * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resource Manager [template](https://docs.microsoft.com/en-us/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
+   * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resource Manager [template](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
 * Warm data storage:
    * A warm store is optional, and can be enabled or disabled during or after time of provisioning. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](./concepts-storage#Warm-store-behavior) section below to understand the expected behavior. The warm store data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
 
