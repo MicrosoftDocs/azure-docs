@@ -86,7 +86,7 @@ A good rule of thumb:
 * Store metadata in your Time Series Model.
 * Ensure that Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp property.
 
-For more information, read [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
+For more information and to understand how events will be flattened and stored, read the [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
