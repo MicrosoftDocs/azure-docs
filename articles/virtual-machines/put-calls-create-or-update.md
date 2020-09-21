@@ -39,7 +39,7 @@ However, for **update** operations when a property is left out or a *null* value
 
 This is important when sending update operations to a resource with the intention of removing an association. If that resource is a `Microsoft.Compute` resource, the corresponding property you want to remove needs to be explicitly called out and a value assigned. To achieve this, users can pass an empty string such as **" "**. This will instruct the platform to remove that association.
 
- [IMPORTANT]
+> [!IMPORTANT]
 > There is no support for "patching" an array element. Instead, the client has to do a PUT or PATCH request with the entire contents of the updated array. For example, to detach a data disk from a VM, do a GET request to get the current VM model, remove the disk to be detached from `properties.storageProfile.dataDisks`, and do a PUT request with the updated VM entity.
 
 ## Examples
