@@ -165,7 +165,7 @@ Copy the `config.sh` command and paste it into a session on your Actions runner 
 
 :::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="Actions runner.":::
 
-Now *run* the runner using the run.sh command:
+Use the run.sh command to *run* the runner:
 
 :::image type="content" source="media/github-enterprise-server/run-runner.png" alt-text="Run the runner.":::
 
