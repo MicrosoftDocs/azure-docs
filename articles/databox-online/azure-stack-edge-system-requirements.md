@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/15/2020
 ms.author: alkohli
 ---
 # Azure Stack Edge system requirements

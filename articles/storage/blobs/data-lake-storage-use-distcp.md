@@ -1,6 +1,6 @@
 ---
 title: Copy data into Azure Data Lake Storage Gen2 using DistCp| Microsoft Docs
-description: Use DistCp tool to copy data to and from Data Lake Storage Gen2
+description: Copy data to and from Azure Data Lake Storage Gen2 using the Apache Hadoop distributed copy tool (DistCp).
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage

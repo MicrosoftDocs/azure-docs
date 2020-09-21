@@ -4,6 +4,7 @@ description: Learn how to create and manage Virtual Network support for your Pre
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ---
@@ -14,8 +15,6 @@ Azure Cache for Redis has different cache offerings, which provide flexibility i
 > Azure Cache for Redis supports both classic and Resource Manager VNets.
 > 
 > 
-
-For information on other premium cache features, see [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md).
 
 ## Why VNet?
 [Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Cache for Redis, as well as subnets, access control policies, and other features to further restrict access.
@@ -231,9 +230,9 @@ Background information on user-defined routes is available in this [overview](..
 For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
 ## Next steps
-Learn how to use more premium cache features.
+Learn more about Azure Cache for Redis features.
 
-* [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md)
+* [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

@@ -18,7 +18,9 @@ In this tutorial, part one of three, you'll prepare your environment to create a
 
 ## Before you begin
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
 
 ### Verify your permissions
 
@@ -29,43 +31,31 @@ To create an Azure Red Hat OpenShift cluster, verify the following permissions o
 |**User Access Administrator**|X|X| |
 |**Contributor**|X|X|X|
 
-### Install the `az aro` extension
-The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
+### Register the resource providers
 
-Run the following command to install the `az aro` extension.
+1. If you have multiple Azure subscriptions, specify the relevant subscription ID:
 
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
 
-If you already have the extension installed, you can update by running the following command.
+1. Register the `Microsoft.RedHatOpenShift` resource provider:
 
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+    
+1. Register the `Microsoft.Compute` resource provider:
 
-### Register the resource provider
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+    
+1. Register the `Microsoft.Storage` resource provider:
 
-Next, you need to register the `Microsoft.RedHatOpenShift` resource provider in your subscription.
-
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Verify the extension is registered.
-
-```azurecli-interactive
-az -v
-```
-
-  You should get an output similar to the below.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
-```
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### Get a Red Hat pull secret (optional)
 
@@ -75,9 +65,9 @@ A Red Hat pull secret enables your cluster to access Red Hat container registrie
 
    You will need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
 
-2. **Click Download pull secret.**
+2. Go to the [**OpenShift product page**](https://developers.redhat.com/products/codeready-containers) if this is your first time creating a cluster. After registration, head to [**Red Hat OpenShift Cluster Manager page**](https://cloud.redhat.com/openshift/), where you can click **Download pull secret** and download a pull secret to be used with your ARO cluster.
 
-Keep the saved `pull-secret.txt` file somewhere safe - it will be used in each cluster creation.
+Keep the saved `pull-secret.txt` file somewhere safe. The file will be used in each cluster creation if you need to create a cluster that includes samples or operators for Red Hat or certified partners.
 
 When running the `az aro create` command, you can reference your pull secret using the `--pull-secret @pull-secret.txt` parameter. Execute `az aro create` from the directory where you stored your `pull-secret.txt` file. Otherwise, replace `@pull-secret.txt` with `@<path-to-my-pull-secret-file>`.
 
@@ -110,17 +100,22 @@ Next, you will create a virtual network containing two empty subnets.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Create a resource group.**
+2. **Create a resource group.**
 
-    An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) command.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command.
+    
+> [!NOTE] 
+> Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) for information on where Azure Red Hat OpenShift is supported.
 
-    ```azurecli-interactive
-    az group create --name $RESOURCEGROUP --location $LOCATION
-    ```
+```azurecli-interactive
+az group create \
+  --name $RESOURCEGROUP \
+  --location $LOCATION
+```
 
-    The following example output shows the resource group created successfully:
+The following example output shows the resource group created successfully:
 
-    ```json
+```json
     {
     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
     "location": "eastus",
@@ -131,24 +126,24 @@ Next, you will create a virtual network containing two empty subnets.
     },
     "tags": null
     }
-    ```
+```
 
-2. **Create a virtual network.**
+3. **Create a virtual network.**
 
-    Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
+Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
 
-    Create a new virtual network in the same resource group you created earlier:
+Create a new virtual network in the same resource group you created earlier:
 
-    ```azurecli-interactive
-    az network vnet create \
-    --resource-group $RESOURCEGROUP \
-    --name aro-vnet \
-    --address-prefixes 10.0.0.0/22
-    ```
+```azurecli-interactive
+az network vnet create \
+   --resource-group $RESOURCEGROUP \
+   --name aro-vnet \
+   --address-prefixes 10.0.0.0/22
+```
 
-    The following example output shows the virtual network created successfully:
+The following example output shows the virtual network created successfully:
 
-    ```json
+```json
     {
     "newVNet": {
         "addressSpace": {
@@ -164,9 +159,9 @@ Next, you will create a virtual network containing two empty subnets.
         "type": "Microsoft.Network/virtualNetworks"
     }
     }
-    ```
+```
 
-3. **Add an empty subnet for the master nodes.**
+4. **Add an empty subnet for the master nodes.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -177,7 +172,7 @@ Next, you will create a virtual network containing two empty subnets.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Add an empty subnet for the worker nodes.**
+5. **Add an empty subnet for the worker nodes.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -188,7 +183,7 @@ Next, you will create a virtual network containing two empty subnets.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Disable subnet private endpoint policies](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) on the master subnet.** This is required to be able to connect and manage the cluster.
+6. **[Disable subnet private endpoint policies](../private-link/disable-private-link-service-network-policy.md) on the master subnet.** This is required to be able to connect and manage the cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \

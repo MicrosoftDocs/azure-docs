@@ -3,9 +3,10 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
 ---
@@ -155,6 +156,10 @@ There are times when you need to download the data for further analysis, merge i
 
 If you need the full, unaggregated dataset, download it from the billing account. Then, from the list of services in the portal's left navigation pane, go to **Cost Management + Billing**. Select your billing account, if applicable. Go to **Usage + charges**, and then select the **Download** icon for the desired billing period.
 
+## Clean up resources
+
+- If you pinned a customized view for cost analysis and you no longer need it, go to the dashboard where you pinned it and and delete the pinned view.
+- If you downloaded usage data files and you no longer need them, be sure to delete them.
 
 ## Next steps
 

@@ -2,7 +2,8 @@
 title: "Quickstart: New policy assignment with Azure CLI"
 description: In this quickstart, you use Azure CLI to create an Azure Policy assignment to identify non-compliant resources.
 ms.date: 06/29/2020
-ms.topic: quickstart
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with Azure CLI
 

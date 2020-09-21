@@ -71,8 +71,8 @@ The term **Log Alert** describes alerts where a log query in [Log Analytics work
 1. Choose how often the alert runs in **Frequency**. 
 
     **Log Alerts** can be based on:
-    - [Number of Records](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): An alert is created if the count of records returned by the query is either greater than or less than the value provided.
-    - [Metric Measurement](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): An alert is created if each *aggregate value* in the results exceeds the threshold value provided and it is *grouped by* chosen value. The number of breaches for an alert is the number of times the threshold is exceeded in the chosen time period. You can specify Total breaches for any combination of breaches across the results set or Consecutive breaches to require that the breaches must occur in consecutive samples.
+    - [Number of Records](./alerts-unified-log.md#number-of-results-alert-rules): An alert is created if the count of records returned by the query is either greater than or less than the value provided.
+    - [Metric Measurement](./alerts-unified-log.md#metric-measurement-alert-rules): An alert is created if each *aggregate value* in the results exceeds the threshold value provided and it is *grouped by* chosen value. The number of breaches for an alert is the number of times the threshold is exceeded in the chosen time period. You can specify Total breaches for any combination of breaches across the results set or Consecutive breaches to require that the breaches must occur in consecutive samples.
 
 
 1. Click **Done**. 
@@ -94,7 +94,7 @@ The term **Log Alert** describes alerts where a log query in [Log Analytics work
     Some additional functionality is available to override the default Actions:
 
     - **Email Notification**: Overrides *e-mail subject* in the email sent via the Action Group. You cannot modify the body of the mail and this field is **not** for email address.
-    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups assuming the action group contains a webhook type. For more information on webhook formats, see [webhook action for Log Alerts](../../azure-monitor/platform/alerts-log-webhook.md). View Webhook option is provided to check format using sample JSON data.
+    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups assuming the action group contains a webhook type. For more information on webhook formats, see [webhook action for Log Alerts](./alerts-log-webhook.md). View Webhook option is provided to check format using sample JSON data.
 
         ![Action Overrides for Log Alerts](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -206,7 +206,7 @@ The sample json above can be saved as (say) sampleScheduledQueryRule.json for th
 
 ### Log alert with cross-resource query using Azure Resource Template
 
-The following is the structure for [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template using [cross-resource log search query](../../azure-monitor/log-query/cross-workspace-query.md) of [metric measurement type log alert](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules), with sample data set as variables.
+The following is the structure for [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template using [cross-resource log search query](../log-query/cross-workspace-query.md) of [metric measurement type log alert](./alerts-unified-log.md#metric-measurement-alert-rules), with sample data set as variables.
 
 ```json
 
@@ -313,7 +313,7 @@ Azure Monitor - [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : PowerShell cmdlet to create or update object specifying action parameters for a log alert. Used as input by [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) and [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell cmdlet to create or update object specifying action groups parameters for a log alert. Used as input by [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell cmdlet to create or update object specifying trigger condition parameters for log alert. Used as input by [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet to create or update object specifying metric trigger condition parameters for [metric measurement type log alert](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Used as input by [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet to create or update object specifying metric trigger condition parameters for [metric measurement type log alert](./alerts-unified-log.md#metric-measurement-alert-rules). Used as input by [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell cmdlet to list existing log alert rules or a specific log alert rule
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell cmdlet to enable or disable log alert rule
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet to delete an existing log alert rule
@@ -357,7 +357,8 @@ On successful operation, 201 will be returned to state new alert rule creation o
 
 ## Next steps
 
-* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
-* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
+* Learn about [Log Alerts in Azure Alerts](./alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](./alerts-log-webhook.md)
 * Learn more about [Application Insights](../log-query/log-query-overview.md)
 * Learn more about [log queries](../log-query/log-query-overview.md).
+

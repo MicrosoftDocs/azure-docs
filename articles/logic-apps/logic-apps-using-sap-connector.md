@@ -125,11 +125,11 @@ These prerequisites apply when your logic apps run in a Premium-level (not Devel
 
 ### SAP client library prerequisites
 
-* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Earlier versions can result in compatibility problems. For more information, see [SAP client library versions](#sap-library-versions).
+* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions can result in compatibility problems. For more information, see [SAP client library versions](#sap-library-versions).
 
 * By default, the SAP installer puts the assembly files in the default installation folder. You need to copy these assembly files to another location, based on your scenario as follows:
 
-  For logic apps that run in an ISE, follow the steps described in the [integration service environment prerequisites](#sap-ise). For logic apps that run in multi-tenant Azure and use the on-premises data gateway, copy the assembly files from the default installation folder to the data gateway installation folder. If you run into problems with the data gateway, review the following issues:
+  * For logic apps that run in an ISE, follow the steps described in the [integration service environment prerequisites](#sap-ise). For logic apps that run in multi-tenant Azure and use the on-premises data gateway, copy the assembly files from the default installation folder to the data gateway installation folder. If you run into problems with the data gateway, review the following issues:
 
   * You must install the 64-bit version for the SAP client library because the data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
 
@@ -404,7 +404,7 @@ This example uses a logic app that triggers when the app receives a message from
 
    Or, you can manually specify an action:
 
-   ![Manually enter SAP action](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Manually enter SAP action that you want to use](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Here's an example that shows how the action appears when you set up the trigger to receive more than one message.
 
@@ -441,7 +441,7 @@ When you set up the array filter, the trigger only receives messages from the sp
 
 Any SAP action filtering happens at the level of the SAP adapter for your on-premises data gateway. For more information, see [how to send test IDocs to Logic Apps from SAP](#send-idocs-from-sap).
 
-If you can't send IDoc packets from SAP to your logic app's trigger, see the Transactional RFC (tRFC) call rejection message in the SAP tRFC dialog box (T-code SM58). In the SAP interface, you might get the following error messages, which are clipped due to the sub-string limits on the **Status Text** field.
+If you can't send IDoc packets from SAP to your logic app's trigger, see the Transactional RFC (tRFC) call rejection message in the SAP tRFC dialog box (T-code SM58). In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
 * `The RequestContext on the IReplyChannel was closed without a reply being`: Unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
@@ -514,7 +514,7 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
 
 #### Create RFC destination
 
-1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-code) with the **/n** prefix .
+1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-code) with the **/n** prefix.
 
 1. Select **TCP/IP Connections** > **Create**.
 
@@ -542,7 +542,7 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
 
 1. Save your changes.
 
-1. To test your connection, select **Connection Test** .
+1. To test your connection, select **Connection Test**.
 
 #### Create receiver port
 
@@ -737,7 +737,10 @@ The following example is an RFC call with a table parameter that has an anonymou
 
 ```
 
-The following example includes prefixes for the namespaces. You can declare all prefixes at once, or you can declare any amount of prefixes as attributes of a node. The RFC namespace alias `ns0` is used as the root and parameters for the basic type. Note that complex types are declared under a different namespace for RFC types with the alias `ns3` instead of the regular RFC namespace with the alias `ns0`.
+The following example includes prefixes for the namespaces. You can declare all prefixes at once, or you can declare any number of prefixes as attributes of a node. The RFC namespace alias `ns0` is used as the root and parameters for the basic type.
+
+> [!NOTE]
+> complex types are declared under a different namespace for RFC types with the alias `ns3` instead of the regular RFC namespace with the alias `ns0`.
 
 ```xml
 
@@ -893,7 +896,7 @@ The following example is a sample data record with plain segments. This example 
 
 ```
 
-The following example is a data record with grouped segments. This includes a group parent node, `E2EDKT1002GRP`, and multiple child nodes, including `E2EDKT1002` and `E2EDKT2001`. 
+The following example is a data record with grouped segments. The record includes a group parent node, `E2EDKT1002GRP`, and multiple child nodes, including `E2EDKT1002` and `E2EDKT2001`. 
 
 ```xml
 
@@ -910,7 +913,7 @@ The following example is a data record with grouped segments. This includes a gr
 
 ```
 
-The recommended method is to create an IDoc identifier for use with tRFC. You can set this transaction identifier, `tid`, using the [Send IDoc operation](https://docs.microsoft.com/connectors/sap/#send-idoc) in the SAP connector API.
+The recommended method is to create an IDoc identifier for use with tRFC. You can set this transaction identifier, `tid`, using the [Send IDoc operation](/connectors/sap/#send-idoc) in the SAP connector API.
 
 The following example is an alternative method to set the transaction identifier, or `tid`. In this example, the last data record segment node and the IDoc data node are closed. Then, the GUID, `guid`, is used as the tRFC identifier to detect duplicates. 
 
@@ -1133,7 +1136,7 @@ When you connect to SAP from Logic Apps, the default language for the connection
 
 For example, you can send a request with the `Accept-Language` header to your logic app by using the **HTTP Request** trigger. All the actions in your logic app receive the header. Then, SAP uses the specified languages in its system messages, such as BAPI error messages.
 
-The SAP connection parameters for a logic app don't have a language property. So, if you use the `Accept-Language` header, you might get the following error : **Please check your account info and/or permissions and try again.** In this case, check the SAP component's error logs instead. The error actually happens in the SAP component that uses the header, so you might get one of these error messages:
+The SAP connection parameters for a logic app don't have a language property. So, if you use the `Accept-Language` header, you might get the following error: **Please check your account info and/or permissions and try again.** In this case, check the SAP component's error logs instead. The error actually happens in the SAP component that uses the header, so you might get one of these error messages:
 
 * `"SAP.Middleware.Connector.RfcLogonException: Select one of the installed languages"`
 * `"SAP.Middleware.Connector.RfcAbapMessageException: Select one of the installed languages"`

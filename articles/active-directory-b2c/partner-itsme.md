@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -100,7 +100,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. Select **New user flow**.
 
-3. Choose **sign up and sign in**.
+3. Select **Sign up and sign in**, select a version, and then select **Create**.
 
 4. Enter a **Name**.
 

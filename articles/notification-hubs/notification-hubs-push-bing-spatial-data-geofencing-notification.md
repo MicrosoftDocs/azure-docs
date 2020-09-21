@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
@@ -59,7 +59,7 @@ In this tutorial, you take the following steps:
 
     The pipe file represents this entity:
 
-    ![Screenshot of a ap of the San Francisco waterfront with a red polygon outlining an area of the piers.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Screenshot of a map of the San Francisco waterfront with a red polygon outlining an area of the piers.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. In the **Upload a data source** page, do the following actions:
    1. Select **pipe** for **Data format**.
    2. Browse and select the `NotificationHubGeofence.pipe` file that you created in the previous step.

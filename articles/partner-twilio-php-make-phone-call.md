@@ -101,7 +101,7 @@ In addition to making the call, **makecall.php** displays some call metadata, as
 ![Azure Call Response Using Twilio and PHP][twilio_php_response]
 
 ## Run the application
-The next step is to [deploy your application to Azure Web Apps with Git](app-service/app-service-web-get-started-php.md) (though not all the information there is relevant). 
+The next step is to [deploy your application to Azure Web Apps with Git](app-service/quickstart-php.md) (though not all the information there is relevant). 
 
 ## Next steps
 This code was provided to show you basic functionality using Twilio in PHP on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example:

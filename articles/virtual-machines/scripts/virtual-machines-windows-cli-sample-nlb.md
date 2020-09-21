@@ -15,7 +15,8 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
-ms.author: rclaus
+ms.author: rclaus 
+ms.custom: devx-track-azurecli
 ---
 
 # Use an Azure CLI sample script to load balance traffic between highly available virtual machines

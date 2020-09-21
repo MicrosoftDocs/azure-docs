@@ -4,6 +4,7 @@ description: Use the FabricClient APIs to deploy and remove applications in Serv
 
 ms.topic: conceptual
 ms.date: 01/19/2018
+ms.custom: devx-track-csharp
 ---
 # Deploy and remove applications using FabricClient
 > [!div class="op_single_selector"]

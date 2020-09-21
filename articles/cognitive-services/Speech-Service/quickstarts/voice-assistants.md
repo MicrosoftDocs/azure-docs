@@ -10,7 +10,8 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: travisw
-zone_pivot_groups: programming-languages-set-fifteen
+ms.custom: devx-track-csharp
+zone_pivot_groups: programming-languages-voice-assistants
 ---
 
 # Quickstart: Create a custom voice assistant

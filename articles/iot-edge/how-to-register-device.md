@@ -7,7 +7,8 @@ ms.author: kgremban
 ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
-ms.service: iot-edge
+ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 

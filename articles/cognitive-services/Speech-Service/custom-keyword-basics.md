@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Custom keyword basics

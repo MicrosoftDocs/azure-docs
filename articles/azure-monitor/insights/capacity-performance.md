@@ -37,9 +37,9 @@ The following table describes the connected sources that are supported by this s
 
 | Connected Source | Support | Description |
 |---|---|---|
-| [Windows agents](../../azure-monitor/platform/agent-windows.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
-| [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
-| [SCOM management group](../../azure-monitor/platform/om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
+| [Windows agents](../platform/agent-windows.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
+| [Linux agents](../learn/quick-collect-linux-computer.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
+| [SCOM management group](../platform/om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
 | [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage does not include capacity and performance data.|
 
 ## Prerequisites
@@ -51,7 +51,7 @@ The following table describes the connected sources that are supported by this s
 
 Perform the following step to add the Capacity and Performance solution to your workspace.
 
-- Add the Capacity and Performance solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+- Add the Capacity and Performance solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](./solutions.md).
 
 ## Management packs
 
@@ -68,7 +68,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 When the Capacity and Performance solution is updated, the version number will change.
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
+For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../platform/om-agents.md).
 
 ## Using the solution
 
@@ -125,4 +125,5 @@ The following table provides sample log searches for capacity and performance da
 
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed Capacity and Performance data.
+* Use [Log searches in Log Analytics](../log-query/log-query-overview.md) to view detailed Capacity and Performance data.
+

@@ -22,7 +22,7 @@ SQL pool supports many of the T-SQL features that are used in SQL Server. More i
 
 However, to maintain the scale and performance of SQL pool there are also some features and functionality that have behavioral differences and others that are not supported.
 
-## Introducing stored procedures
+## Stored procedures in SQL pool
 
 Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units; facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible.
 
@@ -57,7 +57,7 @@ If the second procedure then executes some dynamic SQL, the nest level increases
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
-EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
+EXEC sp_executesql N'SELECT ''another nest level'''  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```

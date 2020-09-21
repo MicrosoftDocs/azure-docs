@@ -27,7 +27,7 @@ To back up a SQL Server database and recover it from Azure:
   * MABS detects a failover and continues protection of the database.
   * MABS supports multi-site cluster configurations for an instance of SQL Server.
 * When you protect databases that use the AlwaysOn feature, MABS has the following limitations:
-  * MABS will honor the backup policy for availability groups that is set in SQL Server based on the backup preferences, as follows:
+  * MABS will honor the backup policy for availability groups that's set in SQL Server based on the backup preferences, as follows:
     * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. IF only the primary replica is available, then the backup should occur on the primary replica.
     * Secondary only - Backup shouldn't be performed on the primary replica. If the primary replica is the only one online, the backup shouldn't occur.
     * Primary - Backups should always occur on the primary replica.
@@ -44,7 +44,7 @@ To back up a SQL Server database and recover it from Azure:
 
 ## Before you start
 
-Before you begin, ensure that you have [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+Before you begin, ensure that you've [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 ## Create a backup policy
 

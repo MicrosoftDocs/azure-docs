@@ -43,9 +43,9 @@ Organizations must complete the steps to [Enable passwordless security key sign 
 
 Organizations must also meet the following software requirements.
 
-- Devices must be running Windows 10 Insider Build 18945 or newer.
+- Devices must be running Windows 10 version 2004 or newer.
 - You must have version 1.4.32.0 or later of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-  - For more information on the available Azure AD hybrid authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/fundamentals/choose-ad-authn.md) and [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
+  - For more information on the available Azure AD hybrid authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../hybrid/choose-ad-authn.md) and [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Your Windows Server domain controllers must have the following patches installed:
     - For Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
     - For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
@@ -54,7 +54,7 @@ Organizations must also meet the following software requirements.
 
 The scenario supports single sign-on (SSO) in both of the following scenarios:
 
-- For cloud resources like Office 365 and other SAML enabled applications.
+- For cloud resources like Microsoft 365 and other SAML enabled applications.
 - For on-premises resources, and Windows-Integrated authentication to web sites. The resources can include web sites and SharePoint sites that require IIS Authentication, and / or resources that use NTLM authentication.
 
 ### Unsupported scenarios

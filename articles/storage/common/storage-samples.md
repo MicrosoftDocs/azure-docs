@@ -7,7 +7,8 @@ ms.author: mhopkins
 ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: sample
+ms.topic: sample 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure Storage samples

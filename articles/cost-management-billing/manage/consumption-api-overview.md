@@ -4,6 +4,7 @@ description: Learn how Azure Consumption APIs give you programmatic access to co
 author: bandersmsft
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders

@@ -8,11 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/24/2020
 ms.author: aahi
 ---
 
 # Language and region support for the Ink Recognizer API
+
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 This article explains which languages are supported for the Ink Recognizer API. Digital ink content written in the following languages can be interpreted and processed by the API.
 

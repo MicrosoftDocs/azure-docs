@@ -19,11 +19,11 @@ Alternatively, you can simply run the Azure CLI or Azure PowerShell commands bel
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
 
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
+az keyvault create --name "<your-unique-keyvault-name>" -g "myResourceGroup"
 ```
 
 ```azurepowershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
-New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName "myResourceGroup" -Location "EastUS"
+New-AzKeyVault -Name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```

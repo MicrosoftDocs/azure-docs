@@ -728,7 +728,8 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 
 ## Next steps
 
-* Review the [Overview of Monitoring](../../azure-monitor/overview.md).
+* Review the [Overview of Monitoring](../overview.md).
 * View the [Supported metrics with Azure Monitor](metrics-supported.md).
 * Review the [Microsoft Azure Monitor REST API Reference](/rest/api/monitor/).
 * Review the [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100)).
+

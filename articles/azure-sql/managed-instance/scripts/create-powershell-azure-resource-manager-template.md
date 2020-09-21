@@ -5,7 +5,7 @@ description: Use this Azure PowerShell example script to create a managed instan
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: "seo-dt-2019"
+ms.custom: "seo-dt-2019, devx-track-azurepowershell"
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft

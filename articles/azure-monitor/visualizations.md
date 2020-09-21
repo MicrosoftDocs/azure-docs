@@ -15,7 +15,7 @@ This article provides a summary of the available methods to visualize log and me
 Visualizations such as charts and graphs can help you analyze your monitoring data to drill-down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
 
 ## Workbooks
-[Workbooks](../azure-monitor/platform/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
+[Workbooks](./platform/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
 
 ![Workbook](media/visualizations/workbook.png)
 
@@ -137,7 +137,7 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about the [data collected by Azure Monitor](platform/data-platform.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](platform/view-designer.md).
-- Learn about [Workbooks](../azure-monitor/platform/workbooks-overview.md).
-- Learn about [import log data into Power BI](../azure-monitor/platform/powerbi.md).
-- Learn about the [Grafana Azure Monitor data source plugin](../azure-monitor/platform/grafana-plugin.md).
+- Learn about [Workbooks](./platform/workbooks-overview.md).
+- Learn about [import log data into Power BI](./platform/powerbi.md).
+- Learn about the [Grafana Azure Monitor data source plugin](./platform/grafana-plugin.md).
 

@@ -7,6 +7,7 @@ author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
@@ -32,7 +33,7 @@ This tutorial shows how to run both front-end and back-end in an Azure cloud ser
 ## What you'll learn
 * How to enable your machine for Azure development by installing the Azure SDK.
 * How to create a Visual Studio cloud service project with an ASP.NET MVC web role and a worker role.
-* How to test the cloud service project locally, using the Azure storage emulator.
+* How to test the cloud service project locally, using the Azure Storage Emulator.
 * How to publish the cloud project to an Azure cloud service and test using an Azure storage account.
 * How to upload files and store them in the Azure Blob service.
 * How to use the Azure Queue service for communication between tiers.

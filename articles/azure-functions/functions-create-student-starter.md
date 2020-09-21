@@ -2,11 +2,9 @@
 title: Create a function using Azure for Students Starter 
 description: Learn how to create an Azure Function from within an Azure for Student Starter subscription
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
-author: alexkarcher-msft
 
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.author: alkarche
 
 
 ---

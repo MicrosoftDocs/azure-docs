@@ -32,7 +32,7 @@ Azure Monitor Logs provides monitoring, alerting, and alert remediation capabili
 
 ### Operating system
 
-For details about the supported Linux distributions, refer to the [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) article.
+For details about the supported Linux distributions, refer to the [Overview of Azure Monitor agents](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) article.
 
 ### Agent and VM Extension version
 The following table provides a mapping of the version of the Log Analytics VM extension and Log Analytics agent bundle for each release. A link to the release notes for the Log Analytics agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  

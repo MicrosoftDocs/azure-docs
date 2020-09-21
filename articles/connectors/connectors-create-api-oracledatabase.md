@@ -117,10 +117,11 @@ View any triggers and actions defined in the swagger, and also see any limits in
 
 ## Get some help
 
-The [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
+The [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
 
 You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## Next steps
 [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at [APIs list](apis-list.md).
+
