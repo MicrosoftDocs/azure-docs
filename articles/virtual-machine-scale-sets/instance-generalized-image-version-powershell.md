@@ -1,6 +1,6 @@
 ---
 title: Create a scale set from a generalized image with Azure PowerShell
-description: Create a scale set using a generalized image in a Shared Image Gallery.
+description: Create a scale set using a generalized image in a Shared Image Gallery using PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -11,7 +11,7 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ---
 
-# Create a scale set from a generalized image
+# Create a scale set from a generalized image using PowerShell 
 
 Create a VM from a generalized image version stored in a [Shared Image Gallery](shared-image-galleries.md). If want to create a scale set using a specialized image, see [Create scale set instances from a specialized image](instance-specialized-image-version-powershell.md).
 
