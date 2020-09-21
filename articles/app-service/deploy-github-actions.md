@@ -41,7 +41,7 @@ Azure App Service workflow files have three sections:
 
 The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
 
-Authenticate with Azure by saving your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets). You'll access the secret within your workflow. 
+Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
 
 # [Publish profile](#tab/applevel)
 
@@ -254,7 +254,7 @@ To deploy your code to an App Service app, use the `azure/webapps-deploy@v2` act
 |---------|---------|
 | **app-name** | (Required) Name of the App Service app | 
 | **publish-profile** | (Optional) Publish profile file contents with Web Deploy secrets |
-| **package** | (Optional) Path to package or folder. This includes *.zip, *.war, *.jar, or a folder to deploy |
+| **package** | (Optional) Path to package or folder. The path can include *.zip, *.war, *.jar, or a folder to deploy |
 | **slot-name** | (Optional) Enter an existing slot other than the production [slot](deploy-staging-slots.md) |
 
 
