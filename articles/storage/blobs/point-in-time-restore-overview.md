@@ -72,11 +72,9 @@ To initiate a restore operation, a client must have write permissions to all con
 
 Point-in-time restore for block blobs has the following limitations and known issues:
 
-- Only block blobs can be restored as part of a point-in-time restore operation. If you have deleted a container during the retention period, that container will not be restored with the point-in-time restore operation. To learn about protecting containers from deletion, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
-- Restoring premium block blobs is not supported.
-- For a subset of restore operations where append blobs are present, the restore operation will fail. Microsoft recommends that you do not perform a point-in-time restore if append blobs are present in the account.
-- Restoring blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier. To restore an archived blob, first move it out of the archive tier.
-- If a blob in the range to be restored has an active lease, the point-in-time restore operation will fail. Break any active leases prior to initiating the restore operation.
+- Only block blobs in a standard general-purpose v2 storage account can be restored as part of a point-in-time restore operation. Append blobs, page blobs, and premium block blobs are not restored. If you have deleted a container during the retention period, that container will not be restored with the point-in-time restore operation. To learn about protecting containers from deletion, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
+- Only block blobs in the hot or cool tiers can be restored in a point-in-time restore operation. Restoring block blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier. To restore an archived blob, first move it out of the archive tier.
+- If a block blob in the range to be restored has an active lease, the point-in-time restore operation will fail. Break any active leases prior to initiating the restore operation.
 - Restoring Azure Data Lake Storage Gen2 flat and hierarchical namespaces is not supported.
 
 ## Pricing and billing
