@@ -6,7 +6,6 @@ If you are developing for **constrained devices**, then you can use IoT Plug and
 
 ## Using the Embedded C SDK
 
-
 [Fill in with overview]
 
 ### Use a real device
@@ -34,8 +33,31 @@ The Embedded C SDK repository contains [several samples](https://github.com/Azur
 
 - [Getting started with IoT Plug and Play for Azure RTOS](https://github.com/azure-rtos/getting-started/blob/master/docs/plugandplay.md)
 
-### Use a real device
-
 For complete tutorials on how to get started on different devices with Azure RTOS and IoT Plug and Play, see the following samples:
 
-[fill in list of completed individual getting started guides]
+### Microchip ATSAME54-XPRO
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/Microchip/ATSAME54-XPRO)
+- [IAR](https://aks.ms/azrtos-sample/e54-iar)
+- [MPLAB](https://aks.ms/azrtos-sample/e54-mplab)
+
+### MXCHIP AZ3166
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
+
+### NXP MIMXRT1060-EVK
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK)
+- [IAR](https://aks.ms/azrtos-sample/rt1060-iar)
+- [MCUXpresso](https://aks.ms/azrtos-sample/rt1060-mcuxpresso)
+
+### STMicroelectronics 32F746GDISCOVERY
+- [IAR](https://aks.ms/azrtos-sample/f746g-iar)
+- [STM32Cube](https://aks.ms/azrtos-sample/f746g-cubeide)
+
+### STMicrelectronics B-L475E-IOT01
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B)
+- [IAR](https://aks.ms/azrtos-sample/l475-iar)
+- [STM32Cube](https://aks.ms/azrtos-sample/l475-cubeide)
+
+### STMicrelectronics B-L4S5I-IOT01
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B)
+
+
