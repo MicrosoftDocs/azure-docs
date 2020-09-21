@@ -23,8 +23,9 @@ This article contains the currently available enterprise application permissions
 Using this feature requires an Azure AD Premium P1 license for your Azure AD organization. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Enterprise application permissions by task
+For more information about how to use these permissions, see [Assign custom roles to manage enterprise apps](custom-enterprise-apps.md)
 
-### Assigning users or group to an application that can access [SAML single sign-on for on-premises applications](../manage-apps/application-proxy-configure-single-sign-on-on-premises-apps.md)
+### Assigning users or group to an application that can access SAML single sign-on applications
 
 To delegate the assignment of user and groups that can access SAML based single sign-on applications. Permissions required
 
