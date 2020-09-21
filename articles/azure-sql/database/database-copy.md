@@ -20,7 +20,10 @@ Azure SQL Database provides several methods for creating a copy of an existing [
 
 ## Overview
 
-A database copy is a transactionally consistent snapshot of the source database as of a point in time after the copy request is initiated. You can select the same server or a different server for the copy. Also you can choose to keep the service tier and compute size of the source database, or use a different compute size within the same or a different service tier. After the copy is complete, it becomes a fully functional, independent database. The logins, users, and permissions in the copied database are  managed independently from the source database. The copy is created using the geo-replication technology. Once replica seeding is complete, the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](active-geo-replication-overview.md) for details.
+A database copy is a transactionally consistent snapshot of the source database as of a point in time after the copy request is initiated. You can select the same server or a different server for the copy. Also you can choose to keep the backup redundancy, service tier and compute size of the source database, or use a different backup storage redundancy and/or compute size within the same or a different service tier. After the copy is complete, it becomes a fully functional, independent database. The logins, users, and permissions in the copied database are  managed independently from the source database. The copy is created using the geo-replication technology. Once replica seeding is complete, the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](active-geo-replication-overview.md) for details.
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only. In the preview, if the source database is created with locally-redundant or zone-redundant backup redundancy, dbcopy to a server in a different Azure region will not be supported. 
 
 ## Logins in the database copy
 
