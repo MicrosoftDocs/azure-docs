@@ -540,6 +540,8 @@
     items:
     - name: Knowledge mining
       href: resource-partners-knowledge-mining.md
+    - name: Full text search
+      href: 
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing
