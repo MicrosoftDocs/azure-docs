@@ -51,14 +51,14 @@ The following table lists some runbook execution tasks with the recommended exec
 |Use modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> WinSCP - dependency on winscp.exe </br> IIS administration - dependency on enabling or managing IIS|
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|
 |Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Azure sandboxes support .NET Framework 4.7.2, and upgrading to a different version is not supported.|
-|Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes don't allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) when running the command that requires elevation.|
+|Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes don't allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command) when running the command that requires elevation.|
 |Run scripts that require access to Windows Management Instrumentation (WMI)|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud can't access WMI provider. |
 
 ## Temporary storage in a sandbox
 
 If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you cannot use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows does checkpointing and the script could be retried in a different sandbox. 
 
-With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you should not use the temporary disk on [Windows](../virtual-machines/managed-disks-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#temporary-disk) or [Linux](../virtual-machines/managed-disks-overview?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#temporary-disk) for data that needs to be persisted.
+With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you should not use the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) on Windows or Linux for data that needs to be persisted.
 
 ## Resources
 
