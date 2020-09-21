@@ -330,8 +330,6 @@ The next example shows a list function that takes a parameter. In this case, the
 "sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
 
-For a listKeyValue example, see [Quickstart: Automated VM deployment with App Configuration and Resource Manager template](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
-
 ## pickZones
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
