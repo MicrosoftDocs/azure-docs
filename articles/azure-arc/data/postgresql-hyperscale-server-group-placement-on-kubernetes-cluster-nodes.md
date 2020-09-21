@@ -364,9 +364,9 @@ To benefit the most from the scalability and the performance of scaling Azure Ar
 - between all the PostgreSQL instances that constitute the Azure Arc enabled PostgreSQL Hyperscale server group
 
 You can achieve this in several ways:
-1. Scale out both Kubernetes and Azure Arc enabled Postgres Hyperscale: consider scaling horizontally the Kubernetes cluster the same way you are scaling the Azure Arc enabled PostgreSQL Hyperscale server group. Add a physical node to the cluster for each worker you add to the server group.
-2. Scale out Azure Arc enabled Postgres Hyperscale without scaling out Kubernetes: by setting the right resource constraints (request and limits on memory and vCore) on the workloads hosted in Kubernetes (Azure Arc enabled PostgreSQL Hyperscale included), you will enable the colocation of workloads on Kubernetes and reduce the risk of resource contention. You need to make sure that the physical characteristics of the physical nodes of the Kubernetes cluster can honor the resources constraints you define. You should also ensure that equilibrium remains as the workloads evolve over time or as more workloads are added in the Kubernetes cluster.
-3. Use the Kubernetes mechanisms (pod selector, affinity, anti-affinity) to influence the placement of the pods.
+- Scale out both Kubernetes and Azure Arc enabled Postgres Hyperscale: consider scaling horizontally the Kubernetes cluster the same way you are scaling the Azure Arc enabled PostgreSQL Hyperscale server group. Add a physical node to the cluster for each worker you add to the server group.
+- Scale out Azure Arc enabled Postgres Hyperscale without scaling out Kubernetes: by setting the right resource constraints (request and limits on memory and vCore) on the workloads hosted in Kubernetes (Azure Arc enabled PostgreSQL Hyperscale included), you will enable the colocation of workloads on Kubernetes and reduce the risk of resource contention. You need to make sure that the physical characteristics of the physical nodes of the Kubernetes cluster can honor the resources constraints you define. You should also ensure that equilibrium remains as the workloads evolve over time or as more workloads are added in the Kubernetes cluster.
+- Use the Kubernetes mechanisms (pod selector, affinity, anti-affinity) to influence the placement of the pods.
 
 ## Next steps
 
