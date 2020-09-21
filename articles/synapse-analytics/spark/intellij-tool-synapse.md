@@ -125,11 +125,11 @@ After creating a Scala application, you can remotely run it.
 
 1. Open **Run/Debug Configurations** window by selecting the icon.
 
-    ![The Submit Spark Application to HDInsight command](./media/intellij-tool-synapse/open-configuration-window.png)
+    ![The Submit Spark Application to HDInsight command 1](./media/intellij-tool-synapse/open-configuration-window.png)
 
 2. In the **Run/Debug Configurations** dialog window, select **+**, then select **Apache Spark on Synapse**.
 
-    ![The Submit Spark Application to HDInsight command](./media/intellij-tool-synapse/create-synapse-configuration02.png)
+    ![The Submit Spark Application to HDInsight command 2](./media/intellij-tool-synapse/create-synapse-configuration02.png)
 
 3. In the **Run/Debug Configurations** window, provide the following values, and then select **OK**:
 
@@ -147,13 +147,13 @@ After creating a Scala application, you can remotely run it.
     |Storage Key|Enter your storage key.|
     |Storage Container|Select your storage container from the drop-down list once **Storage Account** and **Storage Key** has been entered.|
 
-    ![The Spark Submission dialog box](./media/intellij-tool-synapse/create-synapse-configuration03.png)
+    ![The Spark Submission dialog box 1](./media/intellij-tool-synapse/create-synapse-configuration03.png)
 
 4. Select **SparkJobRun** icon to submit your project to the selected Spark pool. The **Remote Spark Job in Cluster** tab displays the job execution progress at the bottom. You can stop the application by selecting the red button.
 
     ![Apache Spark Submission window](./media/intellij-tool-synapse/remotely-run-synapse.png)
 
-    ![The Spark Submission dialog box](./media/intellij-tool-synapse/remotely-run-result.png)
+    ![The Spark Submission dialog box 2](./media/intellij-tool-synapse/remotely-run-result.png)
 
 ## Local Run/Debug Apache Spark applications
 
@@ -163,7 +163,7 @@ You can follow the instructions below to set up your local run and local debug f
 
 1. Open the **Run/Debug Configurations** dialog, select the plus sign (**+**). Then select the **Apache Spark on Synapse** option. Enter information for **Name**, **Main class name** to save.
 
-    ![Intellij Run debug configurations local run](./media/intellij-tool-synapse/local-run-synapse.png)
+    ![Intellij Run debug configurations local run 1](./media/intellij-tool-synapse/local-run-synapse.png)
 
     - Environment variables and WinUtils.exe Location are only for windows users.
     - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
@@ -171,18 +171,18 @@ You can follow the instructions below to set up your local run and local debug f
 
 2. Then select the local play button.
 
-    ![Intellij Run debug configurations local run](./media/intellij-tool-synapse/local-run-synapse01.png)
+    ![Intellij Run debug configurations local run 2](./media/intellij-tool-synapse/local-run-synapse01.png)
 
 3. Once local run completed, if script includes output, you can check the output file from **data** > **__default__**.
 
-    ![Intellij Project local run result](./media/intellij-tool-synapse/spark-local-run-result.png)
+    ![Intellij Project local run result 1](./media/intellij-tool-synapse/spark-local-run-result.png)
 
 ### Scenario 2: Do local debugging
 
 1. Open the **LogQuery** script, set breakpoints.
 2. Select **Local debug** icon to do local debugging.
 
-    ![Intellij Project local run result](./media/intellij-tool-synapse/local-debug-synapse.png)
+    ![Intellij Project local run result 2](./media/intellij-tool-synapse/local-debug-synapse.png)
 
 ## Access and manage Synapse Workspace
 
@@ -196,9 +196,9 @@ You can perform different operations in Azure Explorer within Azure Toolkit for 
 
 2. Right-click a workspace, then select **Launch workspace**, website will be opened.
 
-    ![Spark Job View Application details](./media/intellij-tool-synapse/launch-workspace-synapse.png)
+    ![Spark Job View Application details 1](./media/intellij-tool-synapse/launch-workspace-synapse.png)
 
-    ![Spark Job View Application details](./media/intellij-tool-synapse/launch-workspace-result.png)
+    ![Spark Job View Application details 2](./media/intellij-tool-synapse/launch-workspace-result.png)
 
 ## Spark console
 
