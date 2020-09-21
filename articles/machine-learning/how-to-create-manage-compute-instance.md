@@ -98,8 +98,7 @@ For information on creating a compute instance in the studio, see [Create comput
 
 ---
 
-
-You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). The template will allow you to use currently existing resource instances (Storage, Key Vault, App-Insights, and Azure Container Registry-ACR) when creating a new Workspace.
+You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
 
 ### Create on behalf of (preview)
 
