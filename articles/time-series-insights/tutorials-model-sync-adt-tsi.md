@@ -3,8 +3,8 @@ title: 'Model Synchronization Between ADT and TSI | Microsoft Docs'
 description: Best practices and tools used to translate asset model in ADT to asset model in Azure TSI
 ms.service: time-series-insights
 services: time-series-insights
-author: dpalled
-ms.author: deepakpalled
+author: msrsrinivasan
+ms.author: radhsrin
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
