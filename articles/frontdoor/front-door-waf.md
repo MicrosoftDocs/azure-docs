@@ -17,7 +17,7 @@ ms.author: duau
 
 Many web applications have experienced a rapid increase of traffic in recent weeks because of COVID-19. These web applications are also experiencing a surge in malicious traffic, including denial-of-service attacks. There's an effective way to both scale out for traffic surges and protect yourself from attacks: set up Azure Front Door with Azure WAF as an acceleration, caching, and security layer in front of your web app. This article provides guidance on how to quickly get Azure Front Door with Azure WAF set up for any web app that runs inside or outside of Azure. 
 
-We'll be using Azure CLI to set up the WAF in this tutorial. You can accomplish the same thing by using the Azure portal, Azure PowerShell, Azure Resource Manager, or the Azure REST APIs. 
+We'll be using the Azure CLI to set up the WAF in this tutorial. You can accomplish the same thing by using the Azure portal, Azure PowerShell, Azure Resource Manager, or the Azure REST APIs. 
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -31,12 +31,12 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- The instructions in this tutorial use Azure CLI. [View this guide](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) to get started with Azure CLI.
+- The instructions in this tutorial use the Azure CLI. [View this guide](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) to get started with the Azure CLI.
 
   > [!TIP] 
-  > An easy and quick way to get started on Azure CLI is with [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+  > An easy and quick way to get started on the Azure CLI is with [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
-- Ensure that the `front-door` extension is added to your Azure CLI:
+- Ensure that the `front-door` extension is added to the Azure CLI:
 
    ```azurecli-interactive 
    az extension add --name front-door
