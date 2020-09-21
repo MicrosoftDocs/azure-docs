@@ -14,9 +14,9 @@ ms.author: aahi
 
 # Migrate to the Read v3.x container
 
-If you're using version 2 of the Computer Vision Read container, this article will help you upgrade your application to use version 3.x. 
+If you're using version 2 of the Computer Vision Read container, Use this article to learn about upgrading your application to use version 3.x of the container. 
 
-Use this article to learn about 
+
 
 ## Configuration changes
 
