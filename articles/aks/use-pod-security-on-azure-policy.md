@@ -55,7 +55,6 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
   Add-on.
 - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't
   available for this [Resource Provider mode](./definition-structure.md#resource-provider-modes)
-- If you use [Azure Active Directory pod identity][aad-pod-identity], deploy this [Custom Resource Definition (CRD) exception][aad-pod-identity-exception] to prevent authentication issues.
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 
@@ -81,7 +80,20 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
 
 - Use system node pool with `CriticalAddonsOnly` taint to schedule Gatekeeper pods. For more
   information, see
-  [Using system node pools](use-system-pools.md#system-and-user-node-pools).
+  [Using system node pools](../../../aks/use-system-pools.md#system-and-user-node-pools).
+- Secure outband traffic from your AKS clusters. For more information, see
+  [Control egress traffic for cluster nodes](../../../aks/limit-egress-traffic.md).
+- If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes'
+  iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any
+  request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use
+  `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity`
+  that any requests to the Metadata endpoint originating from a pod that matches labels defined in
+  CRD should be proxied without any processing in NMI. The system pods with
+  `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
+  `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
+  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  To configure an exception, install the
+  [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 The Azure Policy add-on requires CPU and memory resources to operate. These requirements increase as the size of a cluster increases. See [Azure Policy recommendations][policy-recommendations] for general guidance for using the Azure Policy add-on.
 
