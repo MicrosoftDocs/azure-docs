@@ -24,12 +24,14 @@ In this example we are using an Azure Kubernetes Service (AKS) cluster that has 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/1_cluster_portal.png" alt-text="4 node AKS cluster in Azure portal":::
 
 List the physical nodes of the Kubernetes cluster by running the command:
+
 ```console
 kubectl get nodes
 ```
 
 Which shows the four physical nodes inside the Kubernetes cluster:
-```console
+
+```output
 NAME                                STATUS   ROLES   AGE   VERSION
 aks-agentpool-42715708-vmss000000   Ready    agent   11h   v1.17.9
 aks-agentpool-42715708-vmss000001   Ready    agent   11h   v1.17.9
