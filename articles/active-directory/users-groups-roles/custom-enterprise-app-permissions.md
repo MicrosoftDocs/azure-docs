@@ -22,10 +22,11 @@ This article contains the currently available enterprise application permissions
 
 Using this feature requires an Azure AD Premium P1 license for your Azure AD organization. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## Enterprise application permissions by task
+## Enterprise application permissions
+
 For more information about how to use these permissions, see [Assign custom roles to manage enterprise apps](custom-enterprise-apps.md)
 
-### Assigning users or group to an application that can access SAML single sign-on applications
+### Assigning users or groups to an application
 
 To delegate the assignment of user and groups that can access SAML based single sign-on applications. Permissions required
 
@@ -37,9 +38,9 @@ To delegate the creation of Azure AD Gallery applications such as ServiceNow, F5
 
 - microsoft.directory/applicationTemplates/instantiate
 
-### Configuring Basic SAML URLs
+### Configuring basic SAML URLs
 
-To delegate the update and read of Basic SAML Configurations for SAML based single sign-on applications. Permissions required:
+To delegate the update and read of basic SAML Configurations for SAML based single sign-on applications. Permissions required:
 
 - microsoft.directory/servicePrincipals/authentication/update
 - microsoft.directory/applications.myOrganization/authentication/update
@@ -57,9 +58,9 @@ To delegate the update of expiring sign-in certificates notification email addre
 - microsoft.directory/applications.myOrganization/authentication/update
 - microsoft.directory/applications.myOrganization/permissions/update
 - microsoft.directory/servicePrincipals/authentication/update
-= microsoft.directory/servicePrincipals/basic/update
+- microsoft.directory/servicePrincipals/basic/update
 
-### Manage SAML token signature and Sign-in algorithm 
+### Manage SAML token signature and Sign-in algorithm
 
 To delegate the update of the SAML token signature and sign-in algorithm for SAML based single sign-on applications. Permissions required:
 
@@ -75,13 +76,13 @@ To delegate the create, delete, and update of user attributes and claims for S
 - microsoft.directory/applications/authentication/update
 - microsoft.directory/servicePrincipals/policies/update
 
-### App provisioning permissions by task
+## App provisioning permissions
 
 Performing any write operation such as managing the job, schema, or credentials through the UI will also require the read permissions to view the provisioning page.
 
 Setting the scope to all users and groups or assigned users and groups currently requires both the synchronizationJob and synchronizationCredentials permissions.
 
-### Provisioning of jobs
+### Turn on or restart provisioning jobs
 
 To delegate ability to turn on, off and restart provisioning jobs. Permissions required:
 
