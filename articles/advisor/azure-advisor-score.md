@@ -41,7 +41,7 @@ Advisor displays your category scores and your overall Advisor score as percenta
 
 **Advisor score calculation example**
 * Single subscription score: This is the simple mean of all Advisor category scores for your subscription. If the Advisor category scores are as - Cost = 73, Reliabilit = 85, Operational excellence = 77, Performance = 100; the **Advisor score** would be (73 + 85 + 77 + 100)/(4x100) = 0.84 or 84%.
-* Multiple subscriptions score: When multiple subscriptions are selected, the overall advisor score we generate are weighted aggregate category scores. Here, each Advisor category score is aggregated based on resources consumed by subscriptions. Once we have the wighted aggregated cateogry scores then we do a simple mean to give you overall score for subscriptions. 
+* Multiple subscriptions score: When multiple subscriptions are selected, the overall advisor score we generate are weighted aggregate category scores. Here, each Advisor category score is aggregated based on resources consumed by subscriptions. Once we have the weighted aggregated cateogry scores then we do a simple mean to give you overall score for subscriptions. 
 
 
 ### Scoring methodology: 
@@ -50,9 +50,9 @@ The calculation of the Advisor score can be summarized in four steps:
 2. Advisor calculates the **retail cost of assessed resources**, which are the resources that are monitored by Advisor, whether they have any recommendations or not. 
 3. For each recommendation type, Advisor calculates the **healthy resource ratio**, which is the retail cost of impacted resources divided by the retail cost of assessed resources.
 4. Advisor applies three additional weights to the healthy resource ratio in each category:
-* Recommendations with greater impact are weighted heavier than those with lower impact.
-* Resources with long-standing recommendations will count more against your score.
-* Resources that you postpone or dismiss in Advisor are removed from your score calculation entirely. 
+  * Recommendations with greater impact are weighted heavier than those with lower impact.
+  * Resources with long-standing recommendations will count more against your score.
+  * Resources that you postpone or dismiss in Advisor are removed from your score calculation entirely. 
     
 Advisor applies this model at an Advisor category level (Security uses [Secure Score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) model), giving us Advisor score for each category and further a simple average produces the final Advisor score.
 
