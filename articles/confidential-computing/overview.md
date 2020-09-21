@@ -85,7 +85,7 @@ Ensure your workloads are secure through verification methods and hardware-bound
 ### Develop
 Start using developing enclave-aware applications and deploy confidential algorithms using the confidential inferencing framework.
 - Write applications to run on DCsv2 VMs: [Open-enclave SDK](https://github.com/openenclave/openenclave)
-- Confidential ML models in ONNX runtime: Confidential inferencing (beta)
+- Confidential ML models in ONNX runtime: [Confidential inferencing (beta)](https://aka.ms/confidentialinference)
 
 ## Next steps
 

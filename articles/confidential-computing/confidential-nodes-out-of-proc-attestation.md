@@ -43,7 +43,7 @@ When the SGX driver is up streamed into Linux kernel, there will be enforcement 
 
 The high-level design follows the model where the quote requestor and quote generation are executed separately, but on the same physical machine. The quote generation will be done in a centralized manner and serves requests for QUOTES from all entities. The interface needs to be properly defined and discoverable for any entity to request quotes.
 
-![sgx quote helper aesm](./media/platform-software-management/aesmmanager.png)
+![sgx quote helper aesm](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
 The above abstract model applies to confidential workload scenario, by taking advantage of already available AESM service. AESM is containerized and deployed as a daemonSet across the Kubernetes cluster. Kubernetes guarantees a single instance of an AESM service container, wrapped in a Pod, to be deployed on each agent node. The new SGX Quote daemonset will have a dependency on the sgx-device-plugin daemonset, since the AESM service container would request EPC memory from sgx-device-plugin for launching QE and PCE enclaves.
 

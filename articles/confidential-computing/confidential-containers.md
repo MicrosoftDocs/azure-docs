@@ -1,5 +1,5 @@
 ---
- title: Confidential Containers on AKS
+ title: Confidential Containers on Azure Kubernetes Service
  description: Unmodified containers support on confidential containers
  services: container-service
  author: agowdamsft
@@ -13,7 +13,7 @@
 
 ## Overview
 
-Enable developers to bring an **existing docker applications (new or existing)** and run them securely on AKS through confidential computing nodes support.
+Enable developers to bring an **existing docker application (new or existing)** and run it securely on Azure Kubernetes Service (AKS) through confidential computing nodes support.
 
 Confidential containers help protect:
 
@@ -27,7 +27,7 @@ Confidential containers help protect:
 
 A hardware based Trusted Execution Environment (TEE) is an important component that is used to provide strong assurances through hardware and software measurements from trusted computing base (TCB) components. Verifications of these measurements help with validation of the expected computation and verify any tampering of the container apps.
 
-Confidential containers support custom applications developed with **Python, Java, Node JS, etc. or packaged software applications like NGINX, Redis Cache, MemCache, etc.** to be run unmodified on AKS.
+Confidential containers support custom applications developed with **Python, Java, Node JS, etc. or packaged software applications like NGINX, Redis Cache, MemCache**,  and so on, to be run unmodified on AKS.
 
 Confidential containers are the fastest path to container confidentiality, including the container protection through encryption, enabling lift and shift with no/minimal changes to your business logic.
 
@@ -36,7 +36,7 @@ Confidential containers are the fastest path to container confidentiality, inclu
 
 ## Confidential Container Enablers
 
-To run an existing docker container application on confidential computing nodes requires an abstraction layer or SGX software to leverage the special CPU instruction set. The SGX software also enables your sensitive applications code to be protected and create a direct execution to CPU to remove the Guest OS, Host OS or Hypervisor. This reduces the overall surface attack areas and vulnerabilities with operating system or hypervisor layers.
+To run an existing docker container, applications on confidential computing nodes require an abstraction layer or SGX software to leverage the special CPU instruction set. The SGX software also enables your sensitive applications code to be protected and create a direct execution to CPU to remove the Guest OS, Host OS, or Hypervisor. This protection reduces the overall surface attack areas and vulnerabilities with operating system or hypervisor layers.
 
 Confidential containers are fully supported on AKS and enabled through Azure Partners and Open Source Software (OSS) projects. Developers can choose software providers based on the features, integration to Azure services and tooling support.
 
@@ -46,16 +46,16 @@ Confidential containers are fully supported on AKS and enabled through Azure Par
 
 ### Fortanix
 
-[Fortanix](https://www.fortanix.com/) offers developers a choice of a portal and CLI based experience to bring their containerized applications and covert them to SGX capable confidential containers without any need to modify or recompile the application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications. Users can start with [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/) to create confidential containers by following the [Quick Start](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) guide for Azure Kubernetes Service.
+[Fortanix](https://www.fortanix.com/) offers developers a choice of a portal and CLI-based experience to bring their containerized applications and covert them to SGX capable confidential containers without any need to modify or recompile the application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications. Users can start with [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/) to create confidential containers by following the [Quick Start](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) guide for Azure Kubernetes Service.
 
 ![Fortanix Deployment Process](./media/confidential-containers/fortanixconfidentialcontainersflow.png)
 
 ### Scone (Scontain)
 
-[SCONE](https://scontain.com/index.html?lang=en) supports security policies that can generate certificates, keys, and secrets, and ensures that these are only visible to attested services of an application. In this way, the services of an application automatically attest each other via TLS - without the need to modify the applications nor TLS. This is explained with the help of a simple
+[SCONE](https://scontain.com/index.html?lang=en) supports security policies that can generate certificates, keys, and secrets, and ensures they are only visible to attested services of an application. In this way, the services of an application automatically attest each other via TLS - without the need to modify the applications nor TLS. This is explained with the help of a simple
 Flask application here: https://sconedocs.github.io/flask_demo/  
 
-SCONE can convert existing most binaries into applications that run inside of enclaves without needing to change the application or to recompile that application. SCONE also protects interpreted languages like Python by encrypting both data files as well as Python code files. With the help of a SCONE security policy, one can protect the encrypted files against unauthorized accesses, modifications and rollbacks. How to "sconify" an existing Python application is explained [here](https://sconedocs.github.io/sconify_image/)
+SCONE can convert existing most binaries into applications that run inside of enclaves without needing to change the application or to recompile that application. SCONE also protects interpreted languages like Python by encrypting both data files as well as Python code files. With the help of a SCONE security policy, one can protect the encrypted files against unauthorized accesses, modifications, and rollbacks. How to "sconify" an existing Python application is explained [here](https://sconedocs.github.io/sconify_image/)
 
 ![Scontain Flow](./media/confidential-containers/sconeworkflow.png)
 
@@ -88,12 +88,12 @@ Occlum supports AKS deployments. Follow the deployment instructions with various
 ## Confidential Containers Demo
 View the confidential healthcare demo with confidential containers. Sample is available [here](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
 
-> [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
+> [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
 
 
 ## Get In Touch
 
-Have questions with your implementation or want to become an enabler? please reach out to acconaks@microsoft.com
+Have questions with your implementation or want to become an enabler? Send an email to acconaks@microsoft.com
 
 ## Reference Links
 
