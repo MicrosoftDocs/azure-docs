@@ -38,6 +38,8 @@ landingContent:
             url: ./create-management-group-azure-cli.md
           - text: Create a management group (Azure PowerShell)
             url: ./create-management-group-powershell.md
+          - text: Create a management group (JavaScript)
+            url: ./create-management-group-javascript.md
           - text: Create a management group (REST)
             url: ./create-management-group-rest-api.md
           - text: Deploy resources to management group (ARM templates)
