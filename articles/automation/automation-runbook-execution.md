@@ -3,7 +3,7 @@ title: Runbook execution in Azure Automation
 description: This article tells provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/14/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 
@@ -34,7 +34,7 @@ When runbooks are designed to authenticate and run against resources in Azure, t
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
 
 >[!NOTE]
->To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation). 
+>To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 The following table lists some runbook execution tasks with the recommended execution environment listed for each.
 
@@ -54,9 +54,15 @@ The following table lists some runbook execution tasks with the recommended exec
 |Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes don't allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) when running the command that requires elevation.|
 |Run scripts that require access to Windows Management Instrumentation (WMI)|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud can't access WMI provider. |
 
+## Temporary storage in Azure sandbox
+
+If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you cannot use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows does checkpointing and the script could be retried in a different sandbox. 
+
+With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you should not use the temporary disk on [Windows](../virtual-machines/managed-disks-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#temporary-disk) or [Linux](../virtual-machines/managed-disks-overview?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#temporary-disk) for data that needs to be persisted.
+
 ## Resources
 
-Your runbooks must include logic to deal with [resources](/rest/api/resources/resources), for example, VMs, the network, and resources on the network. Resources are tied to an Azure subscription, and runbooks require appropriate credentials to access any resource. For an example of handling resources in a runbook, see [Handle resources](manage-runbooks.md#handle-resources). 
+Your runbooks must include logic to deal with [resources](/rest/api/resources/resources), for example, VMs, the network, and resources on the network. Resources are tied to an Azure subscription, and runbooks require appropriate credentials to access any resource. For an example of handling resources in a runbook, see [Handle resources](manage-runbooks.md#handle-resources).
 
 ## Security
 
