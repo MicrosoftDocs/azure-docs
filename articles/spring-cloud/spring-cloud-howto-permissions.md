@@ -16,8 +16,7 @@ We will implement the following custom roles:
 
 * **Developer role**: Allowed to deploy, test, and restart apps. Can apply and make changes to the app config in the git repository. Can get the log stream.
 * **DevOps role**: Allows permissions to restart apps and see their log streams. Cannot make changes to apps or configuration.
-* **Azure Pipelines/Jenkins/Github Actions role**: Can perform create, read, update, delete operations.
-* **Provisioning pipelines role**: Can create and configure everything in Azure Spring Cloud and apps within service instance (Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates).
+* **Azure Pipelines/Jenkins/Github Actions role**: Can perform create, read, update, delete operations. Can create and configure everything in Azure Spring Cloud and apps within service instance (Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates).
 
 ## Define Developer role
 
@@ -59,7 +58,7 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 3. Click **Add**.
 
 
-## Define role to deploy, test, and restart apps
+## Define Ops engineer role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
@@ -96,6 +95,7 @@ From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 7. Click **Add**.
 
 ## Define DevOps role
+This role can deploy, test, and restart apps.
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
 
@@ -148,7 +148,7 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
 
 6. Click **Review and create**.
 
-## Provisioning pipelines role
+## Azure Pipelines/Jenkins/Github Actions role
  
 >Need permissions specs<
 
