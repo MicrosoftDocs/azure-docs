@@ -97,7 +97,7 @@ After a few seconds, a browser window will open and the app will appear in the b
 
 :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called ADT Explorer and contains boxes for a Query Explorer, Model View, Graph View, and Property Explorer. There is no onscreen data yet." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
-Hit the *Sign in* button at the top of the window to configure ADT Explorer to work with the instance you've set up. 
+Hit the *Sign in* button at the top of the window (shown in image below) to configure ADT Explorer to work with the instance you've set up. 
 
 :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
