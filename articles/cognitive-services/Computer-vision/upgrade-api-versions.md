@@ -1,5 +1,5 @@
 ---
-title: Upgrade to v3.0 of the Computer Vision API
+title: Upgrade to Read v3.0 of the Computer Vision API
 titleSuffix: Azure Cognitive Services
 description: Learn how to upgrade to Computer Vision v3.0 Read API from v2.0/v2.1.
 services: cognitive-services
@@ -15,38 +15,49 @@ ROBOTS: NOINDEX
 ---
 
 
-# Upgrade to Computer Vision v3.0 Read API from v2.0/v2.1
+# Upgrade from Read v2.x to Read v3.x
 
-This guide shows how to upgrade your existing Computer Vision v2.0 or v2.1 REST API code to v3.0 Read operations. 
+This guide shows how to upgrade your existing container or cloud API code from Read v2.0 or v2.1 to Read v3.x operations.
 
-## Upgrade `Batch Read File` to `Read`
+## Determine your API path fix
+Use the following table to determine the version part in the API path based on whether you are using the cloud API or container, and the Read 3.x version you are migrating to.
 
+|Product type| Version | Version part in 3.x API path |
+|:-----|:----|:----|
+|Cloud API | Read 3.0 | https://{endpoint}/vision/**v3.0**/read/...|
+|Container | Read 3.0 preview | https://{endpoint}/vision/**v3.0-preview.1**/read/...|
+|Container/Cloud| Read 3.1 preview | https://{endpoint}/vision/**v3.1-preview.2**/read/...|
 
-1. Change the API path for `Batch Read File` 2.x as follows:
+Next, use the following sections to narrow your operations and their API path fixes and related code including the API response handling code.
 
+## Cloud API and Containers
 
-    |Read 2.x |Read 3.0  |
-    |----------|-----------|
-    |https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/**v3.0/read/analyze**[?language]|
+### `Batch Read File`
+
+|Read 2.x |Read 3.x  |
+|----------|-----------|
+|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/**version part**/read/analyze[?language]|
     
-    A new optional _language_ parameter is available. If you do not know the language of your document, or it may be multilingual, don't include it. 
+A new optional _language_ parameter is available. If you do not know the language of your document, or it may be multilingual, don't include it. 
 
-2. Change the API path for `Get Read Results` in 2.x as follows:
+### `Get Read Results`
 
-    |Read 2.x |Read 3.0  |
-    |----------|-----------|
-    |https://{endpoint}/vision/**v2.0**/read/**operations**/{operationId}     |https://{endpoint}/vision/**v3.0**/read/**analyzeResults**/{operationId}|
+|Read 2.x |Read 3.x  |
+|----------|-----------|
+|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/**version part**/read/analyzeResults/{operationId}|
 
-3. Change the code for checking the json results from `Get Read Operation Result`. When the call to `Get Read Operation Result` is successful, it returns a status string field in the JSON body. The following values from v2.0 have been changed to better align with the other Cognitive Service REST APIs. 
+### `Get Read Operation Result` status flag
+
+When the call to `Get Read Operation Result` is successful, it returns a status string field in the JSON body.
  
-    |Read 2.x |Read 3.0  |
-    |----------|-----------|
-    |`"NotStarted"` |	`"notStarted"`|
-    |`"Running"` | `"running"`|
-    |`"Failed"` | `"failed"`|
-    |`"Succeeded"` | `"succeeded"`|
+|Read 2.x |Read 3.x  |
+|----------|-----------|
+|`"NotStarted"` |	`"notStarted"`|
+|`"Running"` | `"running"`|
+|`"Failed"` | `"failed"`|
+|`"Succeeded"` | `"succeeded"`|
     
-4. Change your code to interpret the final recognition result JSON from `Get Read Operation Result`. 
+### API response (JSON) 
 
     Note the following changes to the json:
     
@@ -156,41 +167,40 @@ This guide shows how to upgrade your existing Computer Vision v2.0 or v2.1 REST 
     }
     ```
 
-## Upgrade from `Recognize Text` to `Read`
+## Cloud only
+
+### `Recognize Text`
 `Recognize Text` is a *preview* operation which is being *deprecated in all versions of Computer Vision API*. You must migrate from `Recognize Text` to `Read` (v3.0) or `Batch Read File` (v2.0, v2.1). v3.0 of `Read` includes newer, better models for text recognition and additional features, so it is recommended. To upgrade from `Recognize Text` to `Read`:
 
-1. Change the API path for `Recognize Text` v2.x as follows:
-
-
-    |Recognize Text 2.x |Read 3.0  |
-    |----------|-----------|
-    |https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/**v3.0/read/analyze**[?language]|
+|Recognize Text 2.x |Read 3.x  |
+|----------|-----------|
+|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/**version part**/read/analyze[?language]|
     
-    The _mode_ parameter is not supported in `Read`. Both handwritten and printed text will automatically be supported.
+The _mode_ parameter is not supported in `Read`. Both handwritten and printed text will automatically be supported.
     
-    A new optional _language_ parameter is available in v3.0. If you do not know the language of your document, or it may be multilingual, don't include it. 
+A new optional _language_ parameter is available in v3.0. If you do not know the language of your document, or it may be multilingual, don't include it. 
 
-2. Change the API path for `Get Recognize Text Operation Result` v2.x as follows:
+### `Get Recognize Text Operation Result`
 
-    |Recognize Text 2.x |Read 3.0  |
-    |----------|-----------|
-    |https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/**v3.0/read/analyzeResults**/{operationId}|
+|Recognize Text 2.x |Read 3.x  |
+|----------|-----------|
+|https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/**version part**/read/analyzeResults/{operationId}|
 
-3. Change the code for checking the json results from `Get Recognize Text Operation Result`. When the call to `Get Read Operation Result` is successful, it returns a status string field in the JSON body. 
+### `Get Recognize Text Operation Result` status flags
+When the call to `Get Recognize Text Operation Result` is successful, it returns a status string field in the JSON body. 
  
-    |Recognize Text 2.x |Read 3.0  |
-    |----------|-----------|
-    |`"NotStarted"` |	`"notStarted"`|
-    |`"Running"` | `"running"`|
-    |`"Failed"` | `"failed"`|
-    |`"Succeeded"` | `"succeeded"`|
+|Recognize Text 2.x |Read 3.x  |
+|----------|-----------|
+|`"NotStarted"` |	`"notStarted"`|
+|`"Running"` | `"running"`|
+|`"Failed"` | `"failed"`|
+|`"Succeeded"` | `"succeeded"`|
 
-
-4. Change your code to interpret the final recognition result JSON from `Get Recognize Text Operation Result`to support `Get Read Operation Result`.
+### API response (JSON)
 
     Note the following changes to the json:    
 
-    - In v2.x, `"Get Read Operation Result"` will return the OCR recognition json when the status is `"Succeeded"`. In v3.0, this field is `"succeeded"`.
+    - In v2.x, `"Get Read Operation Result"` will return the OCR recognition json when the status is `"Succeeded"`. In v3.x, this field is `"succeeded"`.
     - To get the root for page array,  change the json hierarchy from `"recognitionResult"` to `"analyzeResult"`/`"readResults"`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
     -	The v3.0 API also introduces the following improvements you can optionally leverage. See the API reference for more details:
         -`"createdDateTime"` and `"lastUpdatedDateTime"` are added so you can track the duration of processing. See documentation for more details. 
@@ -242,7 +252,7 @@ This guide shows how to upgrade your existing Computer Vision v2.0 or v2.1 REST 
     }
     ```
     
-    In v3.0, it has been adjusted:
+    In v3.x, it has been adjusted:
     
     ```json
     {
@@ -291,7 +301,10 @@ This guide shows how to upgrade your existing Computer Vision v2.0 or v2.1 REST 
         
     }
     ```
-    
-## All other operations
+## Containers only
 
-There are no other breaking changes between v2.X and v3.0 of Computer Vision API. You may simply modify the API path to replace `v2.0` with `v3.0`.
+### `Synchronous Read`
+
+|Read 2.0 |Read 3.x  |
+|----------|-----------|
+|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/**version part**/read/syncAnalyze[?language]|
