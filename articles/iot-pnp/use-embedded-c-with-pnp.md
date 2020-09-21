@@ -32,28 +32,28 @@ Azure RTOS includes a lightweight layer that adds native connectivity to Azure I
 For complete tutorials on how to get started on different devices with Azure RTOS and IoT Plug and Play, see the following samples:
 
 ### Microchip ATSAME54-XPRO
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/Microchip/ATSAME54-XPRO)
-- [IAR](https://aks.ms/azrtos-sample/e54-iar)
-- [MPLAB](https://aks.ms/azrtos-sample/e54-mplab)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/Microchip/ATSAME54-XPRO) (Git)
+- [IAR](https://aks.ms/azrtos-sample/e54-iar) (zip)
+- [MPLAB](https://aks.ms/azrtos-sample/e54-mplab) (zip)
 
 ### MXCHIP AZ3166
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166) (Git)
 
 ### NXP MIMXRT1060-EVK
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK)
-- [IAR](https://aks.ms/azrtos-sample/rt1060-iar)
-- [MCUXpresso](https://aks.ms/azrtos-sample/rt1060-mcuxpresso)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK) (Git)
+- [IAR](https://aks.ms/azrtos-sample/rt1060-iar) (zip)
+- [MCUXpresso](https://aks.ms/azrtos-sample/rt1060-mcuxpresso) (zip)
 
 ### STMicroelectronics 32F746GDISCOVERY
-- [IAR](https://aks.ms/azrtos-sample/f746g-iar)
-- [STM32Cube](https://aks.ms/azrtos-sample/f746g-cubeide)
+- [IAR](https://aks.ms/azrtos-sample/f746g-iar) (zip)
+- [STM32Cube](https://aks.ms/azrtos-sample/f746g-cubeide) (zip)
 
 ### STMicrelectronics B-L475E-IOT01
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B)
-- [IAR](https://aks.ms/azrtos-sample/l475-iar)
-- [STM32Cube](https://aks.ms/azrtos-sample/l475-cubeide)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) (Git)
+- [IAR](https://aks.ms/azrtos-sample/l475-iar) (zip)
+- [STM32Cube](https://aks.ms/azrtos-sample/l475-cubeide) (zip)
 
 ### STMicrelectronics B-L4S5I-IOT01
-- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B)
+- [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) (Git)
 
 
