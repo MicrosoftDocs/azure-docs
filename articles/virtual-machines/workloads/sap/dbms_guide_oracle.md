@@ -353,7 +353,7 @@ To determine the right amount of space for the `tempfiles`, you can check the si
 ### Storage configuration
 Only single-instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system on Managed Disks (recommended) or on VHDs. These disks are mounted to the Azure VM and are based on [Azure page blob storage](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) or [Azure Managed Disks](../../managed-disks-overview.md). 
 
-Checkout the article [Azure Storage types for SAP workload](./planning-guide-storage.md) to get more details of the specific Azure block storage types suitable for DBMS workload.
+Check out the article [Azure Storage types for SAP workload](./planning-guide-storage.md) to get more details of the specific Azure block storage types suitable for DBMS workload.
 
 We strongly recommend using [Azure Managed Disks](../../managed-disks-overview.md). We also strongly recommend using [Azure premium storage or Azure Ultra disk](../../disks-types.md) for your Oracle Database deployments.
 
@@ -381,7 +381,7 @@ The minimum configuration is as follows:
 | Oracle Home, `saptrace`, ... | OS disk (Premium) | | Not needed |
 
 
-Disks selection for hosting online redo logs should be driven by IOPs requirements. It's possible to store all sapdata1...n (tablespaces) on one single mounted disk as long as the size, IOPS, and throughput satisfy the requirements. 
+Disks selection for hosting online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on one single mounted disk as long as the size, IOPS, and throughput satisfy the requirements. 
 
 The performance configuration is as follows:
 
