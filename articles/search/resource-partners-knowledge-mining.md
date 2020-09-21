@@ -16,18 +16,25 @@ Get expert help building an end-to-end solution that includes knowledge mining a
 
 ## General
 
-[**PriceWaterhouseCoopers (PwC)**](https://www.pwc.com/us/en/services/managed-services.html) is a multinational professional services network of firms headquartered in London, United Kingdom, operating as partnerships under the PwC brand.
+| Partner | Description and web site |
+|---------|--------------------------|
+| BIG LOGO | [**PriceWaterhouseCoopers (PwC)**](https://www.pwc.com/us/en/services/managed-services.html) is a multinational professional services network of firms headquartered in London, United Kingdom, operating as partnerships under the PwC brand. |
 
 ## Content analysis using AI
 
-[**Anzys**](https://www.anzyz.com/) uses proprietary algorithms and Microsoft Azure to analyze content for information and structure. The knowledge mining component of Azure Cognitive Search is one of the capabilities that Anzys can leverage in the solutions they build.
-
-[**Agolo**](https://www.agolo.com/) specializes in summarizing the contents of arbitrary files so that you can get an idea of what files contain without having to open and read them individually.
+| Partner | Description and web site |
+|---------|--------------------------|
+| BIG LOGO | [**Anzys**](https://www.anzyz.com/) uses proprietary algorithms and Microsoft Azure to analyze content for information and structure. The knowledge mining component of Azure Cognitive Search is one of the capabilities that Anzys can leverage in the solutions they build. |
+| BIG LOGO | [**Agolo**](https://www.agolo.com/) specializes in summarizing the contents of arbitrary files so that you can get an idea of what files contain without having to open and read them individually. |
 
 ## Contract management
 
-[**icertis**](https://www.icertis.com/) specializes in contract lifecycle management (CLM). Knowledge mining can crack and analyze documents for contract type and contract elements.
+| Partner | Description and web site |
+|---------|--------------------------|
+| BIG LOGO | [**icertis**](https://www.icertis.com/) specializes in contract lifecycle management (CLM). Knowledge mining can crack and analyze documents for contract type and contract elements. |
 
 ## IoT Asset management
 
-[**OrangeNXT**](https://orangenxt.com/) specializes in solutions for IoT scenarios. If your solution includes machine-generated data, OrangeNXT can help you use knowledge mining to identify, extract, and shape information from that data.
+| Partner | Description and web site |
+|---------|--------------------------|
+| BIG LOGO | [**OrangeNXT**](https://orangenxt.com/) specializes in solutions for IoT scenarios. If your solution includes machine-generated data, OrangeNXT can help you use knowledge mining to identify, extract, and shape information from that data. |
