@@ -33,17 +33,16 @@ You can connect an Azure Notification Hub to your Communication Services resourc
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notifications Hub.":::
 
-Communication Services uses [Direct Send](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) on Notification Hubs to send client notifications. When using [Direct Send](https://docs.microsoft.com/rest/api/notificationhubs/direct-send), Azure Notification Hubs is used solely as a pass-through service to communicate with the various platform-specific push notification services. This option has the smallest latency and is most reliable way of sending notifications.
+Communication Services uses Azure Notification Hub as a pass-through service to communicate with the various platform-specific push notification services using the [Direct Send](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) API. This allows you to reuse your existing Azure Notification Hub resources and configurations to deliver low latency, reliable calling notifications to your applications.
 
 ### Notification Hub provisioning 
 
-To deliver notification to client devices using Notification Hubs, we need to create a Notification Hub within the same subscription as your Communication Services resource. We'll then associate that hub to the Communication Services resource using the Azure Resource Manager Client or through the Azure portal.
+To deliver push notifications to client devices using Notification Hubs, [create a Notification Hub](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) within the same subscription as your Communication Services resource. Azure Notification Hubs must be configured for the Platform Notifications Service you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/ios-sdk-get-started) and select your target client platform from the drop-down list near the top of the page.
 
-To create notification hub, please follow [Create an Azure notification hub in the Azure portal](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) or [Create an Azure notification hub using the Azure CLI](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-azure-cli).
+Once your Notification hub is configured, you can associated it to your Communication Services resource by supplying a connections string for the hub using the Azure Resource Manager Client or through the Azure portal. The connection string should contain "Send" permissions. We recommend creating another access policy with "Send" only permissions specifically for your hub. Learn more about [Notification Hubs security and access policies](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
 
-The connection string should contain "Send" permissions. We recommend creating another access policy with "Send" only permissions specifically for your hub. See [Notification Hubs security](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security) to learn more about Azure Notification Hub access policy.
-
-To send VOIP notifications, configure a notification hub with the `.voip` app bundle ID. See [Use APNS VOIP through Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
+> NOTE: 
+> In order to enable Apple Push Notification Service VOIP notifications, you must set the name of your notification hub to be your application bundle ID with the the `.voip` suffix. See [Use APNS VOIP through Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
 
 #### Using the Azure Resource Manager client to configure the Notification Hub
 
@@ -67,7 +66,7 @@ In the portal, navigate to your Azure Communication Services resource. Inside th
 
 #### Device registration 
 
-Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn how to register your device handle with Communication Services. 
+Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn how to register your device handle with Communication Services.
 
 ## Next steps
 
