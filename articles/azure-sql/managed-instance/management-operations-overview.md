@@ -115,7 +115,7 @@ Management operations consist of multiple steps. With [Operations API introduced
 |Old SQL instance cleanup |Removing old SQL process from the virtual cluster |
 
 > [!NOTE]
-> If multiple instances are placed inside the same virtual cluster due to a create or update operation **shrinking the virtual cluster**, there is a scheduled job running every 60 minutes to remove unused virtual machines from the virtual cluster that can cause additional failover. 
+> As a result of scaling instances underlying virtual cluster will go through process of releasing unused capacity and possible capacity defragmentation, which could impact instances that did not participate in creation / scaling operations. 
 
 
 ## Management operations cross-impact
