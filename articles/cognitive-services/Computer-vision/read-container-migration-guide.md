@@ -31,7 +31,7 @@ The Read v3.x containers use version 3 of the Computer Vision API and have the f
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
 
-See the [Computer Vision v3 API migration guide](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) for detailed information on updating your applications. Note that sync operations are only supported in containers.
+See the [Computer Vision v3 REST API migration guide](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Note that sync operations are only supported in containers.
 
 ## Memory requirements
 
