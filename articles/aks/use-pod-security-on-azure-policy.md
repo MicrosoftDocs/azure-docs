@@ -55,7 +55,7 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
   Add-on.
 - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't
   available for this [Resource Provider mode](./definition-structure.md#resource-provider-modes)
-  - If you use [Azure Active Directory pod identity][aad-pod-identity], you need to deploy this [custom resource definition exception][[aad-pod-identity-exception] to prevent authentication issues.
+ - If you use [Azure Active Directory pod identity][aad-pod-identity], you must deploya [Custom Resource Definition (CRD) exception][aad-pod-identity-exception] to prevent authentication issues.
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 
