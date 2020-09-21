@@ -19,7 +19,7 @@ This article teaches you to enable the automatic registration feature. Alternati
 
 ## Overview
 
-The [SQL VM resource provider](sql-vm-resource-provider-register.md#overview) allows you to manage your SQL Server VM from the Azure. Additionally, the resource provider enables a robust feature set, including [automated patching](automated-patching.md), [automated backup](automated-backup.md), as well as monitoring and manageability capabilities. It also unlocks [licensing](licensing-model-azure-hybrid-benefit-ahb-change.md) and [edition](change-sql-server-edition.md) flexibility. Previously, these features were only available to SQL Server VM images deployed from Azure Marketplace. 
+The [SQL VM resource provider](sql-vm-resource-provider-register.md#overview) allows you to manage your SQL Server VM from the Azure portal. Additionally, the resource provider enables a robust feature set, including [automated patching](automated-patching.md), [automated backup](automated-backup.md), as well as monitoring and manageability capabilities. It also unlocks [licensing](licensing-model-azure-hybrid-benefit-ahb-change.md) and [edition](change-sql-server-edition.md) flexibility. Previously, these features were only available to SQL Server VM images deployed from Azure Marketplace. 
 
 The automatic registration feature allows customers to automatically register all current and future SQL Server VMs in their Azure subscription with the SQL VM resource provider. This is different from manual registration , which only focus on current SQL Server VMs. 
 
@@ -39,11 +39,13 @@ To enable automatic registration of your SQL Server VMs in the Azure portal, fol
 
 1. Sign into the [Azure portal](https://portal.azure.com)
 1. Navigate to the [**SQL virtual machines**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource page. 
-1. Select **Automatic SQL Server VM registration**. 
+1. Select **Automatic SQL Server VM registration** to open the **Automatic registration** page. 
+
+   :::image type="content" source="media/sql-vm-resource-provider-automatic-registration/automatic-registration.png" alt-text="Select Automatic SQL Server VM registration to open the automatic registration page":::
+
 1. Choose your subscription from the drop-down. 
 1. Read through the terms and if you agree, select **I accept**. 
-1. Select **Register** to enable the feature and automatically register all current and subsequent SQL Server VMs with the SQL VM resource provider. 
-
+1. Select **Register** to enable the feature and automatically register all current and future SQL Server VMs with the SQL VM resource provider. This will not restart the SQL Server service. 
 
 
 
