@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article tells how to run runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/26/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 # Run runbooks on a Hybrid Runbook Worker
@@ -90,6 +90,10 @@ Use the following procedure to specify a Run As account for a Hybrid Runbook Wor
 As part of your automated build process for deploying resources in Azure, you might require access to on-premises systems to support a task or set of steps in your deployment sequence. To provide authentication against Azure using the Run As account, you must install the Run As account certificate.
 
 The following PowerShell runbook, called **Export-RunAsCertificateToHybridWorker**, exports the Run As certificate from your Azure Automation account. The runbook downloads and imports the certificate into the local machine certificate store on a Hybrid Runbook Worker that is connected to the same account. Once it completes that step, the runbook verifies that the worker can successfully authenticate to Azure using the Run As account.
+
+>[!NOTE]
+>This PowerShell runbook is not designed or intended to be run outside of your Automation account as a script on the target machine.
+>
 
 ```azurepowershell-interactive
 <#PSScriptInfo
