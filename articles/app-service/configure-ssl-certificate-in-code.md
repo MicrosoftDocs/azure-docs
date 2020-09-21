@@ -143,7 +143,7 @@ The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates ac
 
 The certificate file names are the certificate thumbprints. 
 
-In addition, Windows containers also loads the certificates into the certificate store automatically, in **LocalMachine\My**.
+In addition, [Windows Server Core containers](configure-custom-container.md#supported-parent-images) load the certificates into the certificate store automatically, in **LocalMachine\My**. To load the certificates, follow the same pattern as [Load certificate in Windows apps](#load-certificate-in-windows-apps). For Windows Nano based containers, use the file paths provided above to [Load the certificate directly from file](#load-certificate-from-file).
 
 The following C# code shows how to load a public certificate in a Linux app.
 
