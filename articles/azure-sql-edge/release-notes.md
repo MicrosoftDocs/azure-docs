@@ -9,11 +9,36 @@ ms.subservice:
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/04/2020
+ms.date: 09/22/2020
 ---
 # Azure SQL Edge release notes 
 
 This article describes what is new and what has changed with every new build of Azure SQL Edge.
+
+## Azure SQL Edge - 1.0.0 (RTM)
+
+### SQL Engine build number - 15.0.2000.1549
+
+### What's new?
+1. Ubuntu 18.04 based container images. 
+2. Support for `IGNORE NULL` and `RESPECT NULL` syntax with `LAST_VALUE()` and `FIRST_VALUE()` functions. 
+3. Reliability improvements for PREDICT with ONNX.
+4. Support for Data Retention policy based cleanup.      
+   - Support for optimized cleanup for clustered columnstore indexes.
+5. New feature support 
+   - Fast Recovery
+   - Auto Tuning of queries
+
+### Fixes
+1. Additional error messages and details for troubleshooting TSQL Streaming operations. 
+2. Improvements to preserve Battery life in Idle mode. 
+3. TSQL Streaming engine fixes: 
+   - Cleanup for stopped streaming job 
+   - Fixes for localization and unicode handling improvements
+4. Data Retention policy based cleanup
+   - Fixes for retention policy creation and cleanup scenarios.
+5. Fixes for background timer tasks to improve power savings for low-power mode.
+
 
 ## CTP 2.3
 ### SQL Engine build number - 15.0.2000.1549
@@ -27,7 +52,7 @@ This article describes what is new and what has changed with every new build of 
 
 ### Fixes
 1. Additional error messages and details for troubleshooting TSQL Streaming operations. 
-2. Imporvements to preserve Battery life in Idle mode. 
+2. Improvements to preserve Battery life in Idle mode. 
 3. TSQL Streaming engine fixes: 
    - Fix stuck watermark issue with substreamed hopping window 
    - Fix framework exception handling to make sure it is collected as user actionable error
