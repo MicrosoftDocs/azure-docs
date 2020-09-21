@@ -34,7 +34,7 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
 
 3. Select **+ Add diagnostic setting**.
 
-    ![CDN diagnostic setting](./media/cdn-raw-logs/raw-logs-01.png)
+    ![Screenshot shows Diagnostics settings page for a C D N profile, where you can add a dianostic setting.](./media/cdn-raw-logs/raw-logs-01.png)
 
     > [!IMPORTANT]
     > Raw logs is only available in the profile level while aggregated http status code logs are available in the endpoint level.
@@ -51,7 +51,7 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
     * **Stream to an event hub**
         * Select the **Subscription**, **Event hub namespace**, **Event hub name (optional)**, and **Event hub policy name**.
 
-    ![CDN diagnostic setting](./media/cdn-raw-logs/raw-logs-02.png)
+    ![Screenshot shows Diagnostic settings with values.](./media/cdn-raw-logs/raw-logs-02.png)
 
 7. Select **Save**.
 
