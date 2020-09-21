@@ -67,10 +67,10 @@ In this command, you specify both the source (language to translate **from**), a
 
 ### Configuration files in the datastore
 
-The Speech CLI can read and write multiple settings in configuration files, which are stored in the Speech CLI datastore, and are named with a @ symbol.
-You set the `@key` and `@region` configuration files with your account details once, rather than specifying them with each command line call.
-You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime. The Speech CLI will also look in the current directory to find
-configuration files not found in the datastore.
+The Speech CLI can read and write multiple settings in configuration files, which are stored in the local Speech CLI datastore, and are named within Speech CLI calls using a @ symbol. Speech CLI attempts to save a new setting in a new `./spx/data` subdirectory it creates in the current working directory.
+When seeking a configuration value, Speech CLI looks in your current working directory, then in the `./spx/data` path.
+Previously, you used the datastore to save your `@key` and `@region` value, so you did not need to specify them with each command line call.
+You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime. This section shows use of a configuration file in the local datastore to store and fetch command settings using `spx config`, and store and fetch output from Speech CLI using the `--output` option.
 
 The following example clears the `@my.defaults` configuration file,
 adds key-value pairs for **key** and **region** in the file, and uses the configuration
