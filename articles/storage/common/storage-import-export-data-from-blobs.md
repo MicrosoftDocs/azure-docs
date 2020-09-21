@@ -123,7 +123,7 @@ The export is complete.
 
 Use the following command to unlock the drive:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from encryption blade in Azure portal> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Here is an example of the sample input.
 
