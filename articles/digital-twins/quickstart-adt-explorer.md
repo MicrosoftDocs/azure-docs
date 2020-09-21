@@ -6,7 +6,7 @@ description: Use the ADT Explorer sample to visualize and explore a pre-built sc
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 8/12/2020
-ms.topic: quickstarts
+ms.topic: quickstart
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
