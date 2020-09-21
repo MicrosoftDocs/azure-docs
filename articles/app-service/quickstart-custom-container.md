@@ -52,7 +52,7 @@ Create an ASP.NET web app by following these steps:
 
 1. If the _Dockerfile_ file isn't opened automatically, open it from the **Solution Explorer**.
 
-1. You need a [supported parent image](configure-custom-container#supported-parent-images). Change the parent image by replacing the `FROM` line with the following code and save the file:
+1. You need a [supported parent image](configure-custom-container.md#supported-parent-images). Change the parent image by replacing the `FROM` line with the following code and save the file:
 
    ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
