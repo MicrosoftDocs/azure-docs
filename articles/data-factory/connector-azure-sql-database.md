@@ -506,17 +506,19 @@ Best practices to load data with partition option:
 ### Sample query to check physical partition
 
 ```sql
-SELECT DISTINCT s.name AS SchemaName, t.name AS TableName, c.name AS ColumnName, CASE WHEN c.name IS NULL THEN 'no' ELSE 'yes' END AS HasPartition
+SELECT DISTINCT s.name AS SchemaName, t.name AS TableName, pf.name AS PartitionFuntionName, c.name AS ColumnName, iif(pf.name is null, 'no', 'yes') AS HasPartition
 FROM sys.tables AS t
 LEFT JOIN sys.objects AS o ON t.object_id = o.object_id
 LEFT JOIN sys.schemas AS s ON o.schema_id = s.schema_id
-LEFT JOIN sys.indexes AS i ON t.object_id = i.object_id
-LEFT JOIN sys.index_columns AS ic ON ic.partition_ordinal > 0 AND ic.index_id = i.index_id AND ic.object_id = t.object_id
-LEFT JOIN sys.columns AS c ON c.object_id = ic.object_id AND c.column_id = ic.column_id
-LEFT JOIN sys.types AS y ON c.system_type_id = y.system_type_id
+LEFT JOIN sys.indexes AS i ON t.object_id = i.object_id 
+LEFT JOIN sys.index_columns AS ic ON ic.partition_ordinal > 0 AND ic.index_id = i.index_id AND ic.object_id = t.object_id 
+LEFT JOIN sys.columns AS c ON c.object_id = ic.object_id AND c.column_id = ic.column_id 
+LEFT JOIN sys.partition_schemes ps ON i.data_space_id = ps.data_space_id 
+LEFT JOIN sys.partition_functions pf ON pf.function_id = ps.function_id 
 WHERE s.name='[your schema]' AND t.name = '[your table name]'
 ```
-If the table has physical partition, you would see the following result:
+
+If the table has physical partition, you would see "HasPartition" as "yes" like the following.
 
 ![Sql query result](./media/connector-azure-sql-database/sql-query-result.png)
 
