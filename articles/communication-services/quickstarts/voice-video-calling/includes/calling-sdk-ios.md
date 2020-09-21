@@ -72,7 +72,7 @@ The following classes and interfaces handle some of the major features of the Az
 | CommunicationIndentifier | The CommunicationIndentifier is used to represent the identity of the user which can be one of the following: CommunicationUser/PhoneNumber/CallingApplication. |
 
 > [!NOTE]
-> Due to a known limitation in our library, the application will need to hold a strong reference to the objects created by the library. For e.g. when a ACSRemoteParticipant object is returned by calling API on the library call.addParticipant, the application should hold the reference to the returned ACSRemoteParticipant object by the library.
+> When implementing event delegates, the application has to hold a strong reference to the objects that require event subscriptions. For example, when a `ACSRemoteParticipant` object is returned on invoking the `call.addParticipant` method and the application sets the delegate to listen on `ACSRemoteParticipantDelegate`, the application must hold a strong reference to the `ACSRemoteParticipant` object. Otherwise, if this object gets collected, the delegate will throw a fatal exception when the calling SDK tries to invoke the object.
 
 ## Initialize the ACSCallAgent
 
