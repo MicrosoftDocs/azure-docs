@@ -1,171 +1,98 @@
 ---
-title: ARM template for creating App Configuration store
+title: Create an Azure App Configuration store by using Azure Resource Manager template (ARM template)
 titleSuffix: Azure App Configuration
-description: This quickstart demonstrates how to use Azure Resource Manager templates to deploy an App Configuration store, set key-values to the configuration store and reference key-values from the configuration store.
+description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
 author: ZhijunZhao
-ms.author: lcozzens
-ms.date: 07/24/2020
+ms.author: zhijzhao
+ms.date: 08/18/2020
+ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.service: azure-app-configuration
-ms.custom: [mvc, subject-armqs]
+ms.custom: subject-armqs
 ---
 
-# Quickstart: ARM template for creating App Configuration store
+# Quickstart: Create an Azure App Configuration store by using an ARM template
 
-This quickstart shows you how to use Azure Resource Manager templates to deploy an Azure App Configuration store. Then you learn how to set key-values to the configuration store and reference key-values from the configuration store.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure App Configuration store with a key-value.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## Before you begin
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-* If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
-* This quickstart requires the Azure PowerShell module. Run `Get-InstalledModule -Name Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+## Prerequisites
 
-## Sign in to Azure
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Sign in to your Azure subscription with the `Connect-AzAccount` command, and enter your Azure credentials in the pop-up browser:
+## Review the template
+
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). It creates a new App Configuration store with two key-values inside. It then uses the `reference` function to output the value of the key. Reading the key's value in this way allows it to be used in other places in the template.
+
+> [!IMPORTANT]
+> This template requires App Configuration resource provider version `2020-07-01-preview` or later. This version uses the `reference` function to read key-values. The `listKeyValue` function is not available starting in version `2020-07-01-preview`.
+
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="61-75,80-81":::
+
+Two Azure resources are defined in the template:
+
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2019-10-01/configurationstores): create an App Configuration store.
+- Microsoft.AppConfiguration/configurationStores/keyValues: create a key-value inside the App Configuration store.
+
+> [!NOTE]
+> The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional. In the above example, the `keyValues` resource name is `myKey$myLabel`. To create the same key-value without a label, use a key-value resource name of `myKey`.
+>
+> Percent-encoding, also known as URL encoding, allows keys or labels to include characters that are not allowed in ARM template resource names. `%` is not an allowed character either, so `~` is used in its place. To correctly encode a name, follow these steps:
+>
+> 1. Apply URL encoding
+> 2. Replace `~` with `~7E`
+> 3. Replace `%` with `~`
+>
+> For example, to create a key-value pair with key name `AppName:DbEndpoint` and label name `Test`, the resource name should be `AppName~3ADbEndpoint$Test`.
+
+## Deploy the template
+
+Select the following image to sign in to Azure and open a template. The template creates an App Configuration store with a single key-value inside.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2F7543417ec6636f965d76aa457b421c8ff72ea4dc%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+
+You can also deploy the template by using the following PowerShell cmdlet.
 
 ```azurepowershell-interactive
-# Connect to your Azure account
-Connect-AzAccount
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-configuration-store-kv/azuredeploy.json"
+
+$resourceGroupName = "${projectName}rg"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
+
+Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-If you have more than one subscription, select the subscription you'd like to use for this quickstart by running the following cmdlets. Don't forget to replace `<your subscription name>` with the name of your subscription:
+## Review deployed resources
 
-```azurepowershell-interactive
-# List all available subscriptions.
-Get-AzSubscription
-
-# Select the Azure subscription you want to use to create the resource group and resources.
-Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubscription
-```
-
-## Create a resource group
-
-Create an Azure resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
-
-```azurepowershell-interactive
-$resourceGroup = "<your resource group name>"
-$location = "WestUS2"
-New-AzResourceGroup `
-    -Name $resourceGroup `
-    -Location $location
-```
-
-## Deploy the ARM template
-
-This section shows the content of the template and how to deploy it.
-
-1. Copy and paste the following json code into a new file named *appconfig.json*. Replace `<your App Configuration store name>` with a unique name for your App Configuration Store.
-
-   ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "configStoreName": {
-                "type": "string",
-                "defaultValue": "<your App Configuration store name>",
-                "metadata": {
-                    "description": "Specifies the name of the App Configuration store."
-                }
-            },
-            "keyValueName": {
-                "type": "string",
-                "defaultValue": "myKey$myLabel",
-                "metadata": {
-                    "description": "Specifies the name of the key-value resource. The name is a combination of key and label with $ as delimiter."
-                }
-            }
-        },
-        "resources": [
-            {
-                "name": "[parameters('configStoreName')]",
-                "type": "Microsoft.AppConfiguration/configurationStores",
-                "apiVersion": "2020-07-01-preview",
-                "location": "[resourceGroup().location]",
-                "sku": {
-                    "name": "standard"
-                },
-                "resources": [
-                    {
-                        "name": "[parameters('keyValueName')]",
-                        "type": "keyValues",
-                        "apiVersion": "2020-07-01-preview",
-                        "dependsOn": [
-                            "[parameters('configStoreName')]"
-                        ],
-                        "properties": {
-                            "value": "Hello World!",
-                            "contentType": "the-content-type",
-                            "tags": {
-                                "tag1": "tag-value-1",
-                                "tag2": "tag-value-2"
-                            }
-                        }
-                    }
-                    // Add multiple key-values to the new App Configuration store by defining additional keyValues resources here.
-                ]
-            }
-        ],
-        "outputs": {
-            "reference-value": {
-                "value": "[reference(resourceId('Microsoft.AppConfiguration/configurationStores/keyValues', parameters('configStoreName'), parameters('keyValueName')), '2020-07-01-preview').value]",
-                "type": "string"
-            }
-        }
-    }
-   ```
-
-1. In your PowerShell window, run the following command to deploy the App Configuration store. Replace `<path to appconfig.json>` with actual value.
-
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-       -ResourceGroupName $resourceGroup `
-       -TemplateFile "<path to appconfig.json>"
-   ```
-
-You've deployed a new App Configuration store with a single key-value inside.
-
-### Set key-values using the ARM template
-
-In the above template, there are two resource types.
-
-- `Microsoft.AppConfiguration/configurationStores` for creating the App Configuration store.
-- `Microsoft.AppConfiguration/configurationStores/keyValues` for creating key-values inside the App Configuration store.
-
-In an ARM template, each key-value is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource. The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional.
-
-In the above template, the key-value resource name is `myKey$myLabel`. This means the key is `myKey` and the label is `myLabel`. To create a key-value without a label, use a key-value resource name of `myKey`.
-
-Percent-encoding, also known as URL encoding, allows keys or labels to include characters that are not allowed in ARM template resource names. `%` is not an allowed character either, so `~` is used in its place. To correctly encode a name, follow these steps:
-
-1. Apply URL encoding
-2. Replace `~` with `~7E`
-3. Replace `%` with `~`
-
-For example, to create a key-value pair with key name `AppName:DbEndpoint` and label name `Test`, the resource name should be `AppName~3ADbEndpoint$Test`.
-
-### Reference key-values in the ARM template
-
-The ARM template function `reference` is supported by App Configuration. In the `outputs` section of the above template, the resource ID of the key-value is passed to the `reference` function, which returns the key-value object from the App Configuration store.
-
-> [!WARNING]
-> As the ARM template is executed outside of your virtual network, it will not be allowed to set or reference key-values in an App Configuration store that has Private Endpoint enabled but without allowing public network access.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. In the Azure portal search box, type **App Configuration**. Select **App Configuration** from the list.
+1. Select the newly created App Configuration resource.
+1. Under **Operations**, click **Configuration explorer.**
+1. Verify that a single key-value exists.
 
 ## Clean up resources
 
-If you aren't going to use the created resource group and App Configuration store, delete them by running the following cmdlet:
+When no longer needed, delete the resource group, the App Configuration store, and all related resources. If you're planning to use the App Configuration store in the future, you can skip deleting it. If you aren't going to continue to use this store, delete all resources created by this quickstart by running the following cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup `
-  -Name $resourceGroup
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ## Next steps
 
-To learn about creating an application with Azure App Configuration, continue to the following article:
+In this quickstart, you deployed a VM using an Azure Resource Manager template and key-values from Azure App Configuration.
+
+To learn about creating other applications with Azure App Configuration, continue to the following article:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
