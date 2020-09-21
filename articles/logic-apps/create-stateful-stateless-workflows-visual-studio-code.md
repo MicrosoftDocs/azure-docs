@@ -47,7 +47,9 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
 
     > [!NOTE]
-    > By default, a **Logic App (Preview)** resource has its [system-assigned identity](../logic-apps/create-managed-service-identity.md) automatically enabled to authenticate connections at runtime. 
+    > By default, a **Logic App (Preview)** resource has its 
+    > [system-assigned identity](../logic-apps/create-managed-service-identity.md) 
+    > automatically enabled to authenticate connections at runtime. 
     > This identity differs from the authentication credentials or connection string that you use 
     > when you create a connection. If you disable this identity, connections won't work at runtime.
 
@@ -56,6 +58,10 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 * Test your logic apps locally in the Visual Studio Code development environment.
 
 * Publish and deploy your logic apps from Visual Studio Code directly to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and [Docker containers](/dotnet/core/docker/introduction).
+
+> [!NOTE]
+> For information about current known issues, review the preview extension's 
+> [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="stateful-stateless"></a>
 
@@ -370,7 +376,12 @@ Before you try opening your workflow definition file in the designer, if Visual 
 
    ![Screenshot that shows Explorer pane and resource group name box.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. From the locations list, find and select the Azure region to use for your resource group and resources. This example uses **West Central US**.
+1. From the locations list, find and select an Azure region to use for creating your resource group and resources. This example uses **West Central US**.
+
+   > [!NOTE]
+   > Currently, not all regions are supported, although updates are underway. 
+   > For more information, review the preview extension's 
+   > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
    ![Screenshot that shows Explorer pane with locations list and "West Central US" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-region.png)
 
@@ -477,7 +488,8 @@ The logic app workflow in this example uses this trigger and these actions:
    > If you want to make any changes in the details pane on the **Settings**, **Run After**, 
    > or **Static Result** tab, make sure that you select **Done** to commit those changes 
    > before you switch tabs or change focus to the designer. Otherwise, Visual Studio Code 
-   > won't keep your changes. For more information, review the [Known Issues section](#known-issues).
+   > won't keep your changes. For more information, review the preview extension's 
+   > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 1. On the designer, select **Save**.
 
@@ -627,21 +639,20 @@ You can publish your logic app as a new resource, which automatically creates an
 
 1. On the Visual Studio Code toolbar, select the Azure icon.
 
-1. Under **Azure: Logic Apps (Preview)**, select the **Local Project (*your-project-name*)** folder. On the toolbar, select **Deploy to Logic App**.
+1. On the **Azure: Logic Apps (Preview)** pane toolbar, select **Deploy to Logic App**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with the "Local Project (<your-project-name>)" folder selected and pane's toolbar with "Deploy to Logic App" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and pane's toolbar with "Deploy to Logic App" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. From the list that Visual Studio Code opens, select from these options:
 
-   * **Create new Logic App (Preview) in Azure** (quick create)
-   * **Create new Logic App (Preview) in Azure - Advanced**
+   * **Create new Logic App (Preview) in Azure**
    * A previously deployed **Logic App (Preview)** resource, if any exist
 
-   This example selects the non-advanced **Create new Logic App (Preview) in Azure** option.
+   This example continues with **Create new Logic App (Preview) in Azure**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with a list that has quick and advanced creation options and also any existing logic apps to select instead.](./media/create-stateful-stateless-workflows-visual-studio-code/select-create-logic-app-options.png)
+   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with a list with "Create new Logic App (Preview) in Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-create-logic-app-options.png)
 
-1. If you choose to create a **Logic App (Preview)** resource, follow these steps:
+1. To create your new **Logic App (Preview)** resource, follow these steps:
 
    1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Preview)** resource.
 
@@ -661,7 +672,16 @@ You can publish your logic app as a new resource, which automatically creates an
 
    1. For optimal performance, find and select the same resource group as your project for the deployment.
 
-      Although you can create or use a different resource group, doing so might affect performance.
+      > [!NOTE]
+      > Although you can create or use a different resource group, doing so might affect performance. 
+      > If you create or choose a different resource group, but cancel after the confirmation prompt appears, 
+      > your deployment is also canceled.
+
+   1. For stateful workflows, select **Create new storage account** or an existing storage account.
+
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to create or select a storage account.](./media/create-stateful-stateless-workflows-visual-studio-code/create-storage-account.png)
+
+   1. If you have an Application Insights resource that you want to use, select that resource. Otherwise, select either **Skip for now** or **Create new Application Insights resource**. This example continues without Application Insights.
 
    When you're done, Visual Studio Code starts creating and deploying the resources necessary for publishing your logic app.
 
