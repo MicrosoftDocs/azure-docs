@@ -20,7 +20,7 @@ If you're using version 2 of the Computer Vision Read container, Use this articl
 
 ## Configuration changes
 
-* `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read container has a built Chron job that removes the results and metadata associated with a request after 48 hours.
+* `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
 * `Cache:Redis:Configuration` is no longer supported. The Cache is not used in the v3.x containers, so you do not need to set it.
 
 ## API changes
