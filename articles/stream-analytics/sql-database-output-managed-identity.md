@@ -140,7 +140,7 @@ Ensure you have created a table in your Azure Synapse database with the appropri
 
 1. Select **Add > Azure Synapse Analytics**. In the output properties window of the SQL Database output sink, select **Managed Identity** from the Authentication mode drop-down.
 
-1. Fill out the rest of the properties. To learn more about creating an Azure Synapse output, see [Azure Synapse Analytics output from Azure Stream Analytics](synapse-analytics-output.md). When you are finished, select **Save**.
+1. Fill out the rest of the properties. To learn more about creating an Azure Synapse output, see [Azure Synapse Analytics output from Azure Stream Analytics](azure-synapse-analytics-output.md). When you are finished, select **Save**.
 
 ---
 
@@ -148,4 +148,4 @@ Ensure you have created a table in your Azure Synapse database with the appropri
 
 * [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md)
-* [Azure Synapse Analytics output from Azure Stream Analytics](synapse-analytics-output.md)
+* [Azure Synapse Analytics output from Azure Stream Analytics](azure-synapse-analytics-output.md)
