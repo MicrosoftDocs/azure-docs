@@ -224,14 +224,14 @@ Now, select machines for migration.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 
-    ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
+    ![Screenshot of the Azure Migrate - Servers screen showing the Replicate button selected in Azure Migrate: Server Migration under Migration tools.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 4. In **Process Server**, select the name of the replication appliance.
 6. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
 
-    ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Screenshot of the Source settings tab in the Replicate screen with the Guest credentials field highlighted.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
 7. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 8. Check each VM you want to migrate. Then click **Next: Target settings**.
