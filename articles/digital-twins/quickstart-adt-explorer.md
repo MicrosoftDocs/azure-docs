@@ -80,9 +80,9 @@ Fill the configuration details as follows:
 
 Hit *Configure* to finish.
 
-Now you have a web configuration configured that ADT Explorer will use. The Authentication tab in the Azure portal should reflect this.
+Now you have a web configuration configured that ADT Explorer will use. The Authentication tab in the Azure portal should reflect this. After verifying the sections below, hit *Save*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Azure portal page of the Authentication details for an app registration. There are highlights around a Web platform section with a redirect URI of http://localhost:3000, and Implicit Grant being enabled for access tokens":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Azure portal page of the Authentication details for an app registration. There are highlights around a Web platform section with a redirect URI of http://localhost:3000, and Implicit Grant being enabled for access tokens. The Save button is also highlighted.":::
 
 ### Run and configure ADT Explorer
 
