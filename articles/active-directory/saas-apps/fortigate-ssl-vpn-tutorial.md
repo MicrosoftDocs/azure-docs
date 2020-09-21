@@ -61,9 +61,9 @@ You'll configure and test Azure AD SSO with FortiGate SSL VPN by using a test us
 
 To configure and test Azure AD SSO with FortiGate SSL VPN, you'll complete these high-level steps:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable the feature for your users.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
+    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable Azure AD single sign-on for that user.
 1. **[Configure FortiGate SSL VPN SSO](#configure-fortigate-ssl-vpn-sso)** on the application side.
     1. **Create a FortiGate SSL VPN test user** as a counterpart to the Azure AD representation of the user.
 1. **[Test SSO](#test-single-sign-on)** to verify that the configuration works.
@@ -87,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
     `https://<FQDN>/remote/saml/metadata`.
 
     c. In the **Reply URL** box, enter a URL in the pattern
-    `https://><FQDN/remote/saml/login`.
+    `https://<FQDN>/remote/saml/login`.
 
     d. In the **Logout URL** box, enter a URL in the pattern
     `https://<FQDN>/remote/saml/logout`.
@@ -177,7 +177,7 @@ After the certificate is uploaded, take note of its name under **System** > **Ce
 
 #### Complete FortiGate command-line configuration
 
-The following steps require that you configure the Azure logout URL. This URL contains a question mark (?). You need to take specific steps to successfully submit this character. You can't complete these steps from the FortiGate CLI Console. Instead, establish an SSH session to the FortiGate appliance by using a tool like PuTTY. If your FortiGate appliance is an Azure virtual machine, you can complete the following steps from the serial console for Azure virtual machines.
+The following steps require that you configure the Azure Logout URL. This URL contains a question mark character (?). You need to take specific steps to successfully submit this character. You can't complete these steps from the FortiGate CLI Console. Instead, establish an SSH session to the FortiGate appliance by using a tool like PuTTY. If your FortiGate appliance is an Azure virtual machine, you can complete the following steps from the serial console for Azure virtual machines.
 
 To complete these steps, you'll need the values you recorded earlier:
 
