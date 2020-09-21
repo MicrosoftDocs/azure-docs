@@ -78,7 +78,7 @@ Navigate to your registry in the Azure portal, then select **Access control (IAM
 
 In this example, two entities have been assigned the `AcrImageSigner` role: a service principal named "service-principal", and a user named "Azure User."
 
-![Enabling content trust for a registry in the Azure portal][content-trust-02-portal]
+![Grant ACR image signing permissions in the Azure portal][content-trust-02-portal]
 
 ### Azure CLI
 
