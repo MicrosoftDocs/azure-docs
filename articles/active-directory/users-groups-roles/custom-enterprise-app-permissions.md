@@ -22,50 +22,93 @@ This article contains the currently available enterprise application permissions
 
 Using this feature requires an Azure AD Premium P1 license for your Azure AD organization. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## App proxy permissions
+## Enterprise application permissions by task
 
-### Delegate app proxy connector management
+### Assigning users or group to an application that can access [SAML single sign-on for on-premises applications](../manage-apps/application-proxy-configure-single-sign-on-on-premises-apps.md)
 
-To delegate create, read, update and delete (CRUD) permissions for connector management. Permissions required:
+To delegate the assignment of user and groups that can access SAML based single sign-on applications. Permissions required
 
-- microsoft.directory/connectorGroups/allProperties/read
-- microsoft.directory/connectorGroups/allProperties/update
-- microsoft.directory/connectorGroups/create
-- microsoft.directory/connectorGroups/delete
-- microsoft.directory/connectors/allProperties/read
-- microsoft.directory/connectors/create
+- microsoft.directory/servicePrincipals/appRoleAssignedTo/update
 
-### Delegate app proxy settings management
+### Creating gallery applications
 
-To delegate create, read, update and delete (CRUD) permissions for app proxy properties on an app. Permissions required:
+To delegate the creation of Azure AD Gallery applications such as ServiceNow, F5, Salesforce, among others. Permissions required:
 
-- microsoft.directory/applications/applicationProxy/read
-- microsoft.directory/applications/applicationProxy/update
-- microsoft.directory/applications/applicationProxyAuthentication/update
-- microsoft.directory/applications/applicationProxySslCertificate/update
-- microsoft.directory/applications/applicationProxyUrlSettings/update
-- microsoft.directory/applications/basic/update
+- microsoft.directory/applicationTemplates/instantiate
+
+### Configuring Basic SAML URLs
+
+To delegate the update and read of Basic SAML Configurations for SAML based single sign-on applications. Permissions required:
+
+- microsoft.directory/servicePrincipals/authentication/update
+- microsoft.directory/applications.myOrganization/authentication/update
+
+### Rolling over or creating signing certs
+
+To delegate the management of signing certificates for SAML based single sign-on applications. Permissions required.
+
+microsoft.directory/applications/credentials/update
+
+### Update expiring sign-in cert notification email address
+
+To delegate the update of expiring sign-in certificates notification email addresses for SAML based single sign-on applications. Permissions required:
+
+- microsoft.directory/applications.myOrganization/authentication/update
+- microsoft.directory/applications.myOrganization/permissions/update
+- microsoft.directory/servicePrincipals/authentication/update
+= microsoft.directory/servicePrincipals/basic/update
+
+### Manage SAML token signature and Sign-in algorithm 
+
+To delegate the update of the SAML token signature and sign-in algorithm for SAML based single sign-on applications. Permissions required:
+
+- microsoft.directory/applicationPolicies/basic/update
 - microsoft.directory/applications/authentication/update
-- microsoft.directory/connectorGroups/allProperties/read
+- microsoft.directory/servicePrincipals/policies/update
 
-### Read App Proxy Settings for an app
+### Manage user attributes and claims
 
-To delegate Read permissions for app proxy properties on an app. Permissions required:
+To delegate the create, delete, and update of user attributes and claims for SAML based single sign-on applications. Permissions required:
 
-- microsoft.directory/applications/applicationProxy/read
-- microsoft.directory/connectorGroups/allProperties/read
-
-### Update URL configuration App Proxy settings for an app
-
-Read properties for app proxy properties on an app. Permissions required:
-
-- microsoft.directory/applications/applicationProxy/read
-- microsoft.directory/connectorGroups/allProperties/read
-- microsoft.directory/applications/basic/update
+- microsoft.directory/applicationPolicies/basic/update
 - microsoft.directory/applications/authentication/update
-- microsoft.directory/applications/applicationProxyAuthentication/update
-- microsoft.directory/applications/applicationProxySslCertificate/update
-- microsoft.directory/applications/applicationProxyUrlSettings/update
+- microsoft.directory/servicePrincipals/policies/update
+
+### App provisioning permissions by task
+
+Performing any write operation such as managing the job, schema, or credentials through the UI will also require the read permissions to view the provisioning page.
+
+Setting the scope to all users and groups or assigned users and groups currently requires both the synchronizationJob and synchronizationCredentials permissions.
+
+### Provisioning of jobs
+
+To delegate ability to turn on, off and restart provisioning jobs. Permissions required:
+
+- microsoft.directory/servicePrincipals/synchronizationJobs/manage  
+
+### Configure the provisioning schema  
+
+To delegate updates to attribute mapping. Permissions required:
+
+- microsoft.directory/servicePrincipals/synchronizationSchema/manage  
+
+## Read provisioning settings associated with the application object
+
+To delegate ability to read provisioning settings associated with the object. Permissions required:
+
+- microsoft.directory/applications/synchronization/standard/read
+
+### Read provisioning settings associated with your service principal
+
+To delegate ability to read provisioning settings associated with your service principal. Permissions required:
+
+- microsoft.directory/servicePrincipals/synchronization/standard/read
+
+### Authorize application access for provisioning  
+
+To delegate ability to authorize application access for provisioning. Example input Oauth bearer token. Permissions required:
+
+- microsoft.directory/servicePrincipals/synchronizationCredentials/manage
 
 ## Full list of permissions
 
@@ -111,18 +154,7 @@ microsoft.directory/servicePrincipals/tag/update | Update tags property on servi
 microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates.
 microsoft.directory/auditLogs/allProperties/read | Read audit logs.
 microsoft.directory/signInReports/allProperties/read | Read sign-in reports.
-microsoft.directory/applications/applicationProxy/read | Read all application proxy properties of all types of applications.
-microsoft.directory/applications/applicationProxy/update | Update all application proxy properties of all types of applications.
-microsoft.directory/applications/applicationProxyAuthentication/update | Update application proxy authentication properties of all types of applications.
-microsoft.directory/applications/applicationProxyUrlSettings/update | Update application proxy internal and external URLs of all types of applications.
-microsoft.directory/applications/applicationProxySslCertificate/update | Update application proxy custom domains of all types of applications.
 microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object.
-microsoft.directory/connectorGroups/create | Create application proxy connector groups.
-microsoft.directory/connectorGroups/delete | Delete application proxy connector groups.
-microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups.
-microsoft.directory/connectorGroups/allProperties/update | Update all properties of application proxy connector groups.
-microsoft.directory/connectors/create | Create application proxy connectors.
-microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors.
 microsoft.directory/servicePrincipals/synchronizationJobs/manage | Manage all aspects of job synchronization for service principal resources
 microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with service principals
 microsoft.directory/servicePrincipals/synchronizationSchema/manage | Manage all aspects of schema synchronization for service principal resources
