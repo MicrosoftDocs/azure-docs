@@ -44,8 +44,13 @@ Follow these steps to start defining a role.
 1. Open **Access control (IAM)**.
 1. Click **+ Add**.
 1. Click **Add custom role**.
+1. Click **Next**.
 
-   ![Open Access control (IAM)](media/spring-cloud-permissions/add-custom-role.png)
+   ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
+
+1. Click **Add permissions**.
+
+   ![Add permissions start](media/spring-cloud-permissions/add-permissions.png)
 
 ### Select the permissions:
 
@@ -76,21 +81,12 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
-1. In the **Create custom role** dialog add role name and description.
-1. Click **Next**.
-
-   ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
-
-3. Click **Add permissions**.
-
-   ![Add permissions start](media/spring-cloud-permissions/add-permissions.png)
-
-4. In the search box, search for *Microsoft.app*.
-5. Select *Microsoft Azure Spring Cloud*.
+1. In the search box, search for *Microsoft.app*.
+1. Select *Microsoft Azure Spring Cloud*.
 
    ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
-6. Select the permissions:
+1. Select the permissions:
 
 From **Microsoft.AppPlatform/Spring**, select:
 
