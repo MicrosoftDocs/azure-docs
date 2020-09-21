@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/16/2020
+ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: "devx-track-csharp, scenarios:getting-started, languages:aspnet-core"
 # Customer intent: As an application developer, I want to know how to write an ASP.NET Core web API that uses the Microsoft identity platform to authorize API requests from clients.
@@ -129,9 +129,9 @@ namespace webapi.Controllers
     public class WeatherForecastController : ControllerBase
 ```
 
-### Validate the scope from the controller action / Razor page method
+### Validate the scope in the controller
 
-The code in the API then validates the scopes of the token by using `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`
+The code in the API then verifies that the required scopes are in the token by using `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`
 
 ```csharp
 namespace webapi.Controllers
