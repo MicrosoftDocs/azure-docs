@@ -57,7 +57,22 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 |File level	| `Mounts:Shared` directory exists. |
 |Azure Blob	| `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
-For added redundancy the Read v3.x container uses an invisibility timer to ensure requests can be successfully processed in the event of a crash, when running in a multi-container set-up. 
+## Queue
+
+In v3 of the container, RabbitMQ is not currently not supported. The supported backing implementations are:
+
+| Implementation | Runtime Argument(s) | Intended use |
+|---------|---------|-------|
+| In Memory (default) | No runtime arguments required. | Development and testing |
+| Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Production |
+| RabbitMQ	| Not yet available | Production |
+
+
+
+
+
+
+For added redundancy the Read v3.x container uses a visibility timer to ensure requests can be successfully processed in the event of a crash, when running in a multi-container set-up. 
 
 Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which sets the time for a message to be invisible when another worker is processing it  
 
@@ -65,5 +80,12 @@ Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which set
 |---------|---------|
 | 30000 |	120000 |
 
-To avoid pages from being redundantly processed, we recommend setting the invisible timeout period to 120 seconds. The default value is 30 seconds.
+To avoid pages from being redundantly processed, we recommend setting the timeout period to 120 seconds. The default value is 30 seconds.
 
+## Next steps
+
+* Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
+* Review [Computer Vision overview](overview.md) to learn more about recognizing printed and handwritten text
+* Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
+* Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
