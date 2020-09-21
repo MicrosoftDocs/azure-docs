@@ -371,10 +371,10 @@ Make the script file executable
 chmod +x myuploadscript.sh
 ```
 
-Run the script every 2 minutes:
+Run the script every 20 minutes:
 
 ```console
-watch -n 120 ./myuploadscript.sh
+watch -n 1200 ./myuploadscript.sh
 ```
 
 You could also use a job scheduler like cron or Windows Task Scheduler or an orchestrator like Ansible, Puppet, or Chef.
@@ -383,5 +383,5 @@ You could also use a job scheduler like cron or Windows Task Scheduler or an orc
 
 CRUD (CReate, Update and Delete) operations on Azure Arc enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. Today, this happens nightly and this could change in future.  Hence, the general guidance is to upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.  
 
-For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you export the metrics at 2:00 PM and run the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes only data from 2:20 PM will be available in Azure Monitor which is a loss of 20 minutes of data. 
+For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes you may not see any data in the portal. 
 
