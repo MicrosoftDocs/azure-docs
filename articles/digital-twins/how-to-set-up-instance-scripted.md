@@ -118,9 +118,13 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 
 If you would like to verify the creation of your resources and permissions set up by the script, you can look at them in the [Azure portal](https://portal.azure.com).
 
+If you are unable to verify the success of any step, retry the step. You can perform the steps individually using the [Azure portal](how-to-set-up-instance-portal.md) or [CLI](how-to-set-up-instance-cli.md) instructions.
+
 ### Verify instance
 
 To verify that your instance was created, go to the [Azure Digital Twins page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) in the Azure portal. This page lists all your Azure Digital Twins instances. Look for the name of your newly-created instance in the list.
+
+If verification was unsuccessful, you can retry creating an instance using the [portal](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) or [CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
 ### Verify user role assignment
 
@@ -128,8 +132,8 @@ To verify that your instance was created, go to the [Azure Digital Twins page](h
 
 > [!NOTE]
 > Recall that the script currently assigns this required role to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
->
-> You can also use the portal or CLI to redo your own role assignment if there were any issues with scripted setup.
+
+If verification was unsuccessful, you can also redo your own role assignment using the [portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 ### Verify app registration
 
@@ -138,6 +142,8 @@ To verify that your instance was created, go to the [Azure Digital Twins page](h
 First, verify that the Azure Digital Twins permissions settings were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+
+If one or both of these verification steps is unsuccessful, retry creating the app registration using the [portal](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) or [CLI](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) instructions.
 
 ## Other possible steps for your organization
 
