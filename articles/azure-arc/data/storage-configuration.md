@@ -122,6 +122,9 @@ There are generally two types of storage:
 - **Local storage** - storage which is provisioned on local hard drives on a given node. This kind of storage can be ideal in terms of performance, but requires specifically designing for data redundancy by replicating the data across multiple nodes.
 - **Remote, shared storage** - storage which is provisioned on some remote storage device - e.g. a SAN, NAS, or cloud storage service like EBS or Azure Files. This kind of storage generally provides for data redundancy automatically, but is generally not as fast as local storage can be.
 
+> [!NOTE]
+> For now, if you are using NFS, you need to set allowRunAsRoot to true in your deployment profile file before deploying the Azure Arc data controller.
+
 ### Data controller storage configuration
 
 Some services in Azure Arc for data services depend upon being configured to use remote, shared storage because the services do not have an ability to replicate the data. These services are found in the collection of data controller pods:

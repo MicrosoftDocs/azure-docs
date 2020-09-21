@@ -137,12 +137,12 @@ Engine:
 
 ## Set custom values for the engine settings
 
-The below commands set the parameters of the Coordinator node and the Worker nodes of your Postgres Hyperscale to the same values. It is not yet possible to set parameters per role in your server group. That is, it is not yet possible to configure a given parameter to a specific on the Coordinator node and to another value for the Worker nodes.
+The below commands set the parameters of the Coordinator node and the Worker nodes of your PostgreSQL Hyperscale to the same values. It is not yet possible to set parameters per role in your server group. That is, it is not yet possible to configure a given parameter to a specific on the Coordinator node and to another value for the Worker nodes.
 
 ## Set a single parameter
 
 ```console
-azdata arc postgres server edit -n <server group name> -e <parameter name>=<parameter value>
+azdata arc server edit -n <server group name> -e <parameter name>=<parameter value>
 ```
 
 For example:
