@@ -2,8 +2,6 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-author: davidsmatlak
-ms.author: v-dasmat
 ms.date: 09/21/2020
 ---
 
@@ -194,11 +192,6 @@ For some resource types, you need to contact support to have the 800 instance li
 ## Microsoft.Storage
 
 * storageAccounts
-
-## Microsoft.StoragePool
-
-* diskPools
-* diskPools/iscsiTargets
 
 ## Microsoft.Web
 
