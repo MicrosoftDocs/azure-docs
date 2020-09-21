@@ -153,7 +153,7 @@ Next run:
 
 You should see output: "Blob Storage is healthy".
 
-Now that GitHub Actions is configured, let's enable it for our users. Sign in to your GitHub Enterprise Server instance as an administrator, and select the ![Rocket icon.](media/github-enterprise-server/rocket-icon.png) in the upper right corner of any page. In the left sidebar, select **Enterprise overview**, then **Policies**, **Actions**, and choose the option to **enable Actions for all organizations**.
+Now that GitHub Actions is configured, enable it for your users. Sign in to your GitHub Enterprise Server instance as an administrator, and select the ![Rocket icon.](media/github-enterprise-server/rocket-icon.png) in the upper right corner of any page. In the left sidebar, select **Enterprise overview**, then **Policies**, **Actions**, and select the option to **enable Actions for all organizations**.
 
 Next, configure your runner from the **Self-hosted runners** tab. Select **Add new** and then **New runner** from the drop-down.
 
