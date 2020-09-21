@@ -29,6 +29,9 @@ Before you enable and configure point-in-time restore, enable its prerequisites 
 - [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Enable and manage blob versioning](versioning-enable.md)
 
+> [!IMPORTANT]
+> Enabling soft delete, change feed, and blob versioning may result in additional charges. For more information, see [Soft delete for blobs](soft-delete-blob-overview.md), [Change feed support in Azure Blob Storage](storage-blob-change-feed.md), and [Blob versioning](versioning-overview.md).
+
 # [Azure portal](#tab/portal)
 
 To configure point-in-time restore with the Azure portal, follow these steps:
