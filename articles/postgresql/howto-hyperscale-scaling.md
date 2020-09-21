@@ -67,7 +67,7 @@ rebalancing](#rebalance-shards)) happens without interrupting queries.
 To add nodes, go to the **Compute + storage** tab in your Hyperscale (Citus) server
 group.  Dragging the slider for **Worker node count** changes the value.
 
-![Resource sliders](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 
 Click the **Save** button to make the changed value take effect.
 
