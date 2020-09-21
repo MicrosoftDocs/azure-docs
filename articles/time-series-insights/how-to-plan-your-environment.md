@@ -64,7 +64,7 @@ You can select up to three keys to uniquely differentiate your resources. For mo
 
 The **Timestamp** property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
-When left blank, the time when the event was enqueued into the IoT Hub or Event Hub is used as the event Timestamp. In general, users should opt to customize the Timestamp property and use the time when the sensor or tag generated the reading, rather than the hub enqueued time. For more information and to read about time zone offsets read [Event source timestamp](./concepts-streaming-ingestion-event-sources.md#Event-source-timestamp).
+When left blank, the time when the event was enqueued into the IoT Hub or Event Hub is used as the event Timestamp. In general, users should opt to customize the Timestamp property and use the time when the sensor or tag generated the reading, rather than the hub enqueued time. For more information and to read about time zone offsets read [Event source timestamp](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## Understand the Time Series Model
 
