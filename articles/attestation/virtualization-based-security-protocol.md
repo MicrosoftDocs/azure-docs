@@ -1,5 +1,5 @@
 ---
-title: Virtualization-based Security (VBS) attestation protocol 
+title: Virtualization-based Security (VBS) protocol for Azure Attestation
 description: VBS attestation protocol 
 services: attestation
 author: msmbaldwin
