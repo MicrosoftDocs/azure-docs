@@ -55,7 +55,7 @@ Below are some common issues that may occur during the process.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 
     Please ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and required for the user you are signing in with and for this scenario. For example, MFA could be:
-    - Always required for the user you are are signing in with
+    - Always required for the user you are signing in with
     - [Required for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Required for the type of administrator](../conditional-access/howto-conditional-access-policy-admin-mfa.md) you are signing in with.
 
@@ -222,7 +222,7 @@ This feature is not supported for Microsoft consumer accounts. Only applications
 
 ### InteractionRequired
 
-Occurs when multi-factor authenticaton has not been performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information.
+Occurs when multi-factor authentication has not been performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information.
 
 ## Next steps
 
