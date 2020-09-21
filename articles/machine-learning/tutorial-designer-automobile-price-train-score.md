@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Predict car prices with the designer (preview)'
+title: 'Tutorial: Predict car prices with the designer'
 titleSuffix: Azure Machine Learning
 description: Learn how to train, score, and deploy a machine learning model by using a drag-and-drop interface. This tutorial is part one of a two-part series on predicting automobile prices by using linear regression.
 
@@ -13,8 +13,8 @@ ms.date: 06/28/2020
 ms.custom: designer
 ---
 
-# Tutorial: Predict automobile price with the designer (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# Tutorial: Predict automobile price with the designer
+
 
 In this two-part tutorial, you learn how to use the Azure Machine Learning designer to train and deploy a machine learning model that predicts the price of any car. The designer is a drag-and-drop tool that lets you create machine learning models without a single line of code.
 
@@ -45,10 +45,6 @@ To create an Azure Machine Learning pipeline, you need an Azure Machine Learning
 ### Create a new workspace
 
 In order to use the designer, you first need an Azure Machine Learning workspace. The workspace is the top-level resource for Azure Machine Learning, it provides a centralized place to work with all the artifacts you create in Azure Machine Learning.
-
-If you have an Azure Machine Learning workspace with an Enterprise edition, [skip to the next section](#create-the-pipeline).
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### Create the pipeline
 

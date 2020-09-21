@@ -15,8 +15,6 @@ ms.custom: how-to, devx-track-python, contperfq1
 
 # Submit a training run to a compute target
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
 In this article, you learn how to use various training environments ([compute targets](concept-compute-target.md)) to train your machine learning model.
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning, you can run your script on various compute targets without having to change your training script.
