@@ -237,7 +237,6 @@ By contrast, ephemeral OS disks are stored only on the host machine, just like a
 
 Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you incur no additional storage costs.
 
-
 Register the `EnableEphemeralOSDiskPreview` feature:
 
 ```azurecli
