@@ -65,7 +65,7 @@ DevOps Starter creates a CI/CD workflow using GitHub actions. DevOps Starter als
        ![Enter_GH_details](_img/azure-devops-project-nodejs/gh_details.png)
 
 
-    After a few minutes, the DevOps Starter dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a GitHub workflow is triggered, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  GitHub workflow, and your application in Azure.
+    After a few minutes, the DevOps Starter dashboard is displayed in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a GitHub workflow is triggered, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  GitHub workflow, and your application in Azure.
    
 3. Select **Browse** to view your running application.
     
@@ -95,19 +95,19 @@ DevOps Starter creates a repository in GitHub. To view the repository and make c
 1. In your browser, go to the DevOps Starter dashboard.   
 You should now see a GitHub workflow build job in progress. The changes you just made are automatically built and deployed via a GitHub workflow.
 
-## Examine the GitHub workflow
+## View the GitHub workflow
 
 In the previous step, DevOps Starter automatically configured a full GitHub workflow. Explore and customize the workflow as needed. Take the following steps to familiarize yourself with the workflow.
 
 1. On the left of the DevOps Starter dashboard, select **GitHub workflow**. This link opens a browser tab and the GitHub workflow for your new project.
 > [!NOTE]
-> Do not rename the workflow file. The name of the worflow file should be **devops-starter-workflow.yml** for the dashboard to reflect the changes
+> Do not rename the workflow file. The name of the workflow file should be **devops-starter-workflow.yml** for the dashboard to reflect the changes
 
-1. The workflow yaml file contains all the GitHub Actions required to build and deploy the application. Click on **edit file** option to customize your worflow file.
+1. The workflow yaml file contains all the GitHub Actions required to build and deploy the application. Click on **edit file** option to customize your workflow file.
 
 1. Under the **Code** tab of the repo click on **commits**. This view shows code commits that are associated with the specific deployment.
 
-1. Under the **Actions** tab of the repo you can view the history of all the worflow runs of your repository.
+1. Under the **Actions** tab of the repo you can view the history of all the workflow runs of your repository.
 
 1. Select the **latest run** to view all the jobs that ran in the workflow.
 
@@ -121,7 +121,7 @@ You can delete Azure App Service and other related resources when you don't need
 
 ## Next steps
 
-When you configured your CI/CD process,GitHub worfflow was automatically created. You can modify this wrkflow to meet the needs of your team. To learn more about the GitHub Actions and workflow, see:
+When you configured your CI/CD process, GitHub workflow was automatically created. You can modify this workflow to meet the needs of your team. To learn more about the GitHub Actions and workflow, see:
 
 > [!div class="nextstepaction"]
 > [Customize GitHub workflow](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-and-managing-workflow-files-and-runs)
