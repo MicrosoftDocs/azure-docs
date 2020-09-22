@@ -587,7 +587,7 @@ Named Entities:
                 Score: 0.80,    Length: 9,      Offset: 34
 ```
 
-## Entity linking
+### Entity linking
 
 Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<LinkedEntityCollection>` object will contain the collection of detected entities `LinkedEntity`. If there was an error, it will throw a `RequestFailedException`. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -673,7 +673,7 @@ Linked Entities:
                 Offset: 116
 ```
 
-## Personally Identifiable Information recognition
+### Personally Identifiable Information recognition
 
 Create a new function called `RecognizePIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. The returned `PiiEntityCollection` represents the list of detected PII entities. If there was an error, it will throw a `RequestFailedException`.
 
@@ -746,7 +746,7 @@ Named Entities:
                 Score: 0.80
 ```
 
-## Entity linking
+### Entity linking
 
 Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<IReadOnlyCollection<LinkedEntity>>` represents the list of detected entities. If there was an error, it will throw a `RequestFailedException`. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
@@ -826,7 +826,7 @@ Create a new function called `RecognizeEntitiesExample()` that takes the client 
 --- 
 
 
-## Key phrase extraction
+### Key phrase extraction
 
 # [Version 3.1 preview](#tab/version-3-1)
 
