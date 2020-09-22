@@ -49,7 +49,7 @@ When the server is in the **Stopped** state, the server's compute is not billed.
 > [!IMPORTANT]
 > When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.
 
-During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [start the server](how-to-stop-start-server.md). Refer to the [stop/start limitations](./concepts-limitations.md#stopstart-operation).
+During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [start the server](how-to-stop-start-server.md).
 
 ### Limitations of Stop/start operation
 - Not supported with read replica configurations (both source and replicas).

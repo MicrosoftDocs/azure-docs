@@ -22,7 +22,7 @@ To complete this how-to guide, you need:
 -   You must have an Azure Database for MySQL Flexible Server.
 
 > [!NOTE]
-> Refer to the limitation of using [stop/start](concepts-servers.md)
+> Refer to the limitation of using [stop/start](concepts-servers.md#limitations-of-stopstart-operation)
 
 ## How to stop/start the Azure Database for MySQL using Azure portal
 
