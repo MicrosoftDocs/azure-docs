@@ -7,7 +7,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Service Bus trigger for Azure Functions
@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 Starting with extension version 3.1.0, you can trigger on a session-enabled queue or topic.
 
-For information on setup and configuration details, see the [overview](functions-bindings-service-bus-output.md).
+For information on setup and configuration details, see the [overview](functions-bindings-service-bus.md).
 
 ## Example
 
@@ -160,6 +160,7 @@ def main(msg: func.ServiceBusMessage):
         'time_to_live': msg.time_to_live,
         'to': msg.to,
         'user_properties': msg.user_properties,
+        'metadata' : msg.metadata
     })
 
     logging.info(result)

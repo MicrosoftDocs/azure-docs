@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services job (encoding and analyzing) error codes | Microsoft Docs
 description: This article links to job error codes reference topic and gives useful links to related topics.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,13 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/28/2019
-ms.author: juliako
+ms.topic: error-reference
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # Media Services job error codes
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This topic links to a REST reference document for detailed description of [Job](transforms-jobs-concept.md) error codes and messages.
 

@@ -1,6 +1,6 @@
 ---
 title: Understanding periodic backup configuration
-description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
+description: Use Service Fabric's periodic backup and restore feature to configure periodic backup of your Reliable stateful services or Reliable Actors.
 author: hrushib
 
 ms.topic: article

@@ -314,7 +314,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
     ### <a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos)
 
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=MigrateIndexingAsync)]
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
     For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
 

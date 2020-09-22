@@ -1,5 +1,5 @@
 ---
-title: Bing Autosuggest Go client library quickstart 
+title: Bing Autosuggest Go client library quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,7 +10,7 @@ ms.date: 05/06/2020
 ms.author: aahi
 ---
 
-Get started with the Bing Autosuggest client library for Go. Follow these steps to install the library and try out our examples for basic tasks. 
+Get started with the Bing Autosuggest client library for Go. Follow these steps to install the library and try out our examples for basic tasks.
 
 Use the Bing Autosuggest client library for Go to get search suggestions based on partial query strings.
 
@@ -18,7 +18,7 @@ Use the Bing Autosuggest client library for Go to get search suggestions based o
 
 ## Prerequisites
 
-* An Azure subscription. If you don't already have an Azure subscription, [you can create one for free](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't already have an Azure subscription, [you can create one for free](https://azure.microsoft.com/free/cognitive-services).
 * The latest version of [Go](https://golang.org/dl/).
 
 Begin using the Bing Autosuggest client library by creating an Azure resource. Choose the resource type below that's right for you:
@@ -28,12 +28,12 @@ Begin using the Bing Autosuggest client library by creating an Azure resource. C
 ## Create environment variables
 
 >[!NOTE]
-> The endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> The endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: The resource key for authenticating your requests.
-* `AUTOSUGGEST_ENDPOINT`: The resource endpoint for sending API requests. It should look like this: `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `AUTOSUGGEST_ENDPOINT`: The resource endpoint for sending API requests. It should look like this: `https://<your-custom-subdomain>.api.cognitive.microsoft.com`
 
 Use the instructions for your operating system.
 <!-- replace the below endpoint and key examples -->
@@ -69,7 +69,7 @@ After you add the environment variable, run `source .bash_profile` from your con
 
 ## Create a new Go project
 
-In a console window (cmd, PowerShell, Terminal, Bash), create a new workspace for your Go project and navigate to it. Your workspace will contain three folders: 
+In a console window (cmd, PowerShell, Terminal, Bash), create a new workspace for your Go project and navigate to it. Your workspace will contain three folders:
 
 * **src**: This directory contains source code and packages. Any packages installed with the `go get` command will reside here.
 * **pkg**: This directory contains the compiled Go package objects. These files all have an `.a` extension.
@@ -87,7 +87,7 @@ $ cd my-app
 
 ## Install the client library for Go
 
-Now, let's install the client library for Go: 
+Now, let's install the client library for Go:
 
 ```bash
 $ go get -u <library-location-or-url>
@@ -149,10 +149,10 @@ These code samples show you how to complete basic tasks using the Bing Autosugge
 
 ### Authenticate the client
 
-> [!NOTE] 
+> [!NOTE]
 > This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)  for your Bing autosuggest key, named `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, and one for your endpoint named `BING_AUTOSUGGEST_ENDPOINT`.
 
-In the `main()` function, instantiate a client with your endpoint and key. 
+In the `main()` function, instantiate a client with your endpoint and key.
 
 ```go
 // Get the context, which is required by the SDK methods.

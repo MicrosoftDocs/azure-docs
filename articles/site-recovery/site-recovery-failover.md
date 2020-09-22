@@ -41,7 +41,7 @@ Run the recovery plan failover as follows:
 1. In the Site Recovery vault, select **Recovery Plans** > *recoveryplan_name*.
 2. Click **Failover**.
 
-    ![Failover](./media/site-recovery-failover/Failover.png)
+    ![Screenshot shows the ADRP pane with Failover selected from the More menu.](./media/site-recovery-failover/Failover.png)
 
 3. In **Failover** > **Failover direction**, leave the default if you're replicating to Azure.
 4. In **Failover**, select a **Recovery Point** to which to fail over.

@@ -107,8 +107,6 @@ For more information, see the article: [Upgrade HDInsight cluster to a new versi
 
 ## Patch cluster operating systems
 
-As a managed Hadoop service, HDInsight takes care of patching the OS of the VMs used by HDInsight clusters.
-
 For more information, see the article: [OS patching for HDInsight](../hdinsight-os-patching.md).
 
 ## Post-Migration

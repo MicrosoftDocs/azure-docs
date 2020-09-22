@@ -21,22 +21,52 @@ Customers will be notified via email and in the Azure portal well in advance of 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
-### September 2020
+### October 2020
 
-New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on 10 September 2020:
+New SQL Gateways are being added to the following regions:
+
+- Germany West Central : 51.116.240.0, 51.116.248.0
+
+These SQL Gateways shall start accepting customer traffic on 12 October 2020. 
+
+### September 2020
+New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on **15 September 2020**:
+
+- Australia Southeast : 13.77.48.10
+- Canada East : 40.86.226.166, 52.242.30.154
+- UK South : 51.140.184.11, 51.105.64.0
+
+Existing SQL Gateways will start accepting traffic in the following regions. These SQL Gateways shall start accepting customer traffic on **15 September 2020** :
+
+- Australia Southeast : 191.239.192.109 and 13.73.109.251
+- Central US : 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, and 104.208.21.1
+- East Asia : 191.234.2.139, 52.175.33.150, and 13.75.32.4
+- East US : 40.121.158.30, 40.79.153.12, 191.238.6.43, and 40.78.225.32
+- East US 2 : 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, and 104.208.150.3
+- France Central : 40.79.137.0 and 40.79.129.1
+- Japan West: 104.214.148.156, 40.74.100.192, 191.238.68.11, and 40.74.97.10
+- North Central US : 23.96.178.199, 23.98.55.75, and 52.162.104.33
+- Southeast Asia : 104.43.15.0, 23.100.117.95, and 40.78.232.3
+- West US: 104.42.238.205, 23.99.34.75, and 13.86.216.196
+
+New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on **10 September 2020**:
 
 - West Central US : 13.78.248.43 
 - South Africa North : 102.133.120.2  
 
-New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on 1 September 2020:
+New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on **1 September 2020**:
 
 - North Europe : 13.74.104.113 
 - West US2 : 40.78.248.10 
 - West Europe : 52.236.184.163 
 - South Central US : 20.45.121.1, 20.49.88.1 
 
-Existing SQL Gateways will start accepting traffic in the following regions. These SQL Gateways shall start accepting customer traffic on 1 September 2020. :
+Existing SQL Gateways will start accepting traffic in the following regions. These SQL Gateways shall start accepting customer traffic on **1 September 2020** :
 - Japan East : 40.79.184.8, 40.79.192.5
+
+# [Completed](#tab/completed-ip)
+
+The following gateway migrations are complete: 
 
 ### August 2020
 
@@ -47,10 +77,6 @@ New SQL Gateways are being added to the following regions:
 - West US 2 : 40.78.240.8
 
 These SQL Gateways shall start accepting customer traffic on 10 August 2020. 
-
-# [Completed](#tab/completed-ip)
-
-The following gateway migrations are complete: 
 
 ### October 2019
 - Brazil South

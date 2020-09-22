@@ -4,6 +4,7 @@ description: Learn how a reservation discount is applied to Azure Database for P
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ---

@@ -40,7 +40,7 @@ Use the **Delete** button to permanently delete your IoT Central application. Th
 
 IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. You can use these packages to create, list, update, or delete IoT Central applications. The packages include helpers to manage authentication and error handling.
 
-You can find examples of how to use the Azure Resource Manager SDKs at [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
+You can find examples of how to use the Azure Resource Manager SDKs at [https://github.com/Azure-Samples/azure-iot-central-arm-sdk-samples](https://github.com/Azure-Samples/azure-iot-central-arm-sdk-samples).
 
 To learn more, see the following GitHub repositories and packages:
 

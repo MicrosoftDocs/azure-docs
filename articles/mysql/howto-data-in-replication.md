@@ -100,15 +100,15 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel. Then click on **Add Account**. 
  
-   ![Users and Privileges](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Users and Privileges":::
 
    Type in the username into the **Login Name** field. 
 
-   ![Sync user](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Sync user":::
  
    Click on the **Administrative Roles** panel and then select **Replication Slave** from the list of **Global Privileges**. Then click on **Apply** to create the replication role.
 
-   ![Replication Slave](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replication Slave":::
 
 1. Set the master server to read-only mode
 
@@ -128,7 +128,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```
    The results should be like following. Make sure to note the binary file name as it will be used in later steps.
 
-   ![Master Status Results](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Master Status Results":::
  
 ## Dump and restore master server
 
@@ -199,9 +199,11 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 1. Filtering 
  
-   If you want to skip replicating some tables from your master, update the `replicate_wild_ignore_table` server parameter on your replica server. Review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) to learn more about this parameter.
+   If you want to skip replicating some tables from your master, update the `replicate_wild_ignore_table` server parameter on your replica server. You can provide more than one table pattern using a comma-separated list.
+
+   Review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) to learn more about this parameter. 
     
-    To update the parameter, you can use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
+   To update the parameter, you can use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 1. Start replication
 

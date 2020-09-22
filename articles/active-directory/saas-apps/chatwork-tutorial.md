@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Chatwork | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Chatwork.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 0982ee1d-7ae2-415b-9e47-cfc72e1885ca
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Chatwork
@@ -85,7 +79,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.chatwork.com/s/<TENANT_NAME>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Chatwork Client support team](mailto:info@support.chatwork.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the private login URL which you set after **Chatwork SSO configuration**.
+
+1. Chatwork application expects the value of **Unique User Identifier** attribute matches the email address registered in Chatwork. The attribute is mapped to **user.principalname** by default. If the principalname is different from the email address, map  **Unique User Identifier** to **user.mail**.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -127,11 +123,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Chatwork SSO
 
-To configure single sign-on on **Chatwork** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Chatwork support team](mailto:info@support.chatwork.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Chatwork** side, please read the [Chatwork Admin Guide](https://download.chatwork.com/Chatwork_AdminGuide.pdf) and configure a Chatwork setting.
 
 ### Create Chatwork test user
 
-In this section, you create a user called B.Simon in Chatwork. Work with [Chatwork support team](mailto:info@support.chatwork.com) to add the users in the Chatwork platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Chatwork. Access the [Chatwork Admin Guide](https://download.chatwork.com/Chatwork_AdminGuide.pdf) and add the user in the Chatwork platform.
 
 ## Test SSO 
 

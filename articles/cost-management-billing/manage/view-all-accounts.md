@@ -4,8 +4,9 @@ description: Learn how to view your billing accounts in the Azure portal. See sc
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 

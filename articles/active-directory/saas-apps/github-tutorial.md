@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with GitHub | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and GitHub.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 08/07/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub
@@ -42,7 +36,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * GitHub supports **SP** initiated SSO
 
 * GitHub supports [**Automated** user provisioning (organization invitations)](github-provisioning-tutorial.md)
-* Once you configure GitHub you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure GitHub you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding GitHub from the gallery
 
@@ -138,8 +132,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. If you're expecting any role value in the SAML assertion, in the **Select a role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+
+    ![user role](./media/github-tutorial/user-role.png)
+
+    > [!NOTE]
+    > **Select a role** option will be disabled and default role is USER for selected user.
+
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure GitHub SSO
 
@@ -147,11 +147,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Navigate to **Settings** and click **Security**
 
-    ![Settings](./media/github-tutorial/tutorial_github_config_github_03.png)
+    ![Settings](./media/github-tutorial/security.png)
 
 3. Check the **Enable SAML authentication** box, revealing the Single Sign-on configuration fields. perform the following steps:
 
-    ![Settings](./media/github-tutorial/tutorial_github_config_github_13.png)
+    ![Settings](./media/github-tutorial/saml-sso.png)
 
     a. Copy **single sign-on URL** value and paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** in the Azure portal.
     
@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Configure the following fields:
 
-    ![Settings](./media/github-tutorial/tutorial_github_config_github_051.png)
+    ![Settings](./media/github-tutorial/configure.png)
 
     a. In the **Sign on URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
 
@@ -175,7 +175,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. Click on **Test SAML configuration** to confirm that no validation failures or errors during SSO.
 
-    ![Settings](./media/github-tutorial/tutorial_github_config_github_06.png)
+    ![Settings](./media/github-tutorial/test.png)
 
 6. Click **Save**
 
@@ -192,21 +192,21 @@ The objective of this section is to create a user called Britta Simon in GitHub.
 
 2. Click **People**.
 
-    ![People](./media/github-tutorial/tutorial_github_config_github_08.png "People")
+    ![Screenshot shows the GitHub site with People selected.](./media/github-tutorial/people.png "People")
 
 3. Click **Invite member**.
 
-    ![Invite Users](./media/github-tutorial/tutorial_github_config_github_09.png "Invite Users")
+    ![Invite Users](./media/github-tutorial/invite-member.png "Invite Users")
 
 4. On the **Invite member** dialog page, perform the following steps:
 
     a. In the **Email** textbox, type the email address of Britta Simon account.
 
-    ![Invite People](./media/github-tutorial/tutorial_github_config_github_10.png "Invite People")
+    ![Invite People](./media/github-tutorial/email-box.png "Invite People")
 
     b. Click **Send Invitation**.
 
-    ![Invite People](./media/github-tutorial/tutorial_github_config_github_11.png "Invite People")
+    ![Invite People](./media/github-tutorial/send-invitation.png "Invite People")
 
     > [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.

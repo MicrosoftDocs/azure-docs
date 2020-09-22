@@ -5,7 +5,7 @@ summary: Docker is a popular container management and imaging platform that allo
 
 metadata:
   title: Docker on Azure documentation
-  description: Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows. Learn how to leverage Docker on Azure.
+  description: Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.
   services: multiple
   ms.service: multiple
   ms.topic: landing-page
@@ -32,7 +32,7 @@ landingContent:
           - text: Run a Python (Django) web app with PostgreSQL in Azure App Service
             url: ../app-service/tutorial-python-postgresql-app.md
           - text: Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
-            url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+            url: /azure/developer/jenkins/pipeline-with-github-and-docker
 
   # Card
   - title: Resources

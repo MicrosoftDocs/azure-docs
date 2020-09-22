@@ -3,14 +3,14 @@ title: Azure Front Door - Frequently Asked Questions
 description: This page provides answers to frequently asked questions about Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
-ms.author: sohamnc
+ms.author: duau
 ---
 
 # Frequently asked questions for Azure Front Door
@@ -94,6 +94,31 @@ To lock down your application to accept traffic only from your specific Front Do
     > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
 
 -    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. In the API call, look for `frontdoorID` field. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. You can also find `Front Door ID` value under the Overview section from Front Door portal page. 
+
+- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value.
+
+  Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+
+	``` xml
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+		<system.webServer>
+			<rewrite>
+				<rules>
+					<rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+						<match url="*" />
+						<conditions>
+							<add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+						</conditions>
+						<action type="AbortRequest" />
+					</rule>
+				</rules>
+			</rewrite>
+		</system.webServer>
+	</configuration>
+	```
+
+
 
 ### Can the anycast IP change over the lifetime of my Front Door?
 

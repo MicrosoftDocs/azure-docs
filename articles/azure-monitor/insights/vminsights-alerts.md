@@ -18,8 +18,8 @@ Azure Monitor has [different types of alert rules](../platform/alerts-overview.m
 
 There are two types of log alerts in Azure Monitor:
 
-- [Number of results alerts](../platform/alerts-unified-log.md#number-of-results-alert-rules) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../platform/log-analytics-agent.md) or for analyzing performance trends across multiple computers.
-- [Metric measurement alerts](../platform/alerts-unified-log.md#metric-measurement-alert-rules) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for performance data collected by Azure Monitor for VMs since they can create individual alerts for each computer.
+- [Number of results alerts](../platform/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../platform/log-analytics-agent.md) or for analyzing performance trends across multiple computers.
+- [Metric measurement alerts](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for performance data collected by Azure Monitor for VMs since they can create individual alerts for each computer.
 
 
 ## Alert rule walkthrough

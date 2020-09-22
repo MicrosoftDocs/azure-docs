@@ -1,13 +1,13 @@
 ---
 title: 'ExpressRoute: Move circuits from classic to Azure Resource Manager'
-description: Overview of bridging the classic and the Resource Manager deployment models.
+description: Learn about what it means to move an Azure ExpressRoute circuit from the classic to the Azure Resource Manager deployment model.
 services: expressroute
-author: ganesr
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.author: ganesr
+ms.author: duau
 
 ---
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model

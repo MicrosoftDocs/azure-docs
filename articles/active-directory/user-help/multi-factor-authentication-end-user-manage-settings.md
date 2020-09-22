@@ -27,10 +27,10 @@ After you set up your security verification methods for your work or school acco
 
 ## Using the Additional security verification page
 
-If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions first. Otherwise, you can get to your security verification method settings from the [Additional security verification](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time) page.
+If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions first. Otherwise, you can get to your security verification method settings from the [Additional security verification](./multi-factor-authentication-end-user-first-time.md) page.
 
 >[!Note]
->If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the **Security info (preview)** experience or that your organization has provided your own custom portal. For more information about the new security info experience, see [Security info (preview) overview](user-help-security-info-overview.md). For more information about your organization's custom portal, you must contact your organization's Help desk.
+>If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the **Security info (preview)** experience or that your organization has provided your own custom portal. For more information about the new security info experience, see [Security info (preview) overview](./security-info-setup-signin.md). For more information about your organization's custom portal, you must contact your organization's Help desk.
 
 ### To get to the Additional security verification page
 

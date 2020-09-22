@@ -20,7 +20,7 @@ When you let App Service manage your TLS/SSL certificates, you can maintain the 
 
 To follow this how-to guide:
 
-- [Create an App Service app](/azure/app-service/)
+- [Create an App Service app](./index.yml)
 - [Add a certificate to your app](configure-ssl-certificate.md)
 
 ## Find the thumbprint
@@ -160,4 +160,4 @@ To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Ja
 * [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [FAQ : App Service Certificates](./faq-configuration-and-management.md)

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Origami | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Origami.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a28bb0ba-b564-46ba-accc-e587699295d4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Origami
 
