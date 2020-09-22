@@ -269,14 +269,6 @@ public int getServerPort()
 
 To disable this feature, create an Application Setting named `WEBSITE_AUTH_SKIP_PRINCIPAL` with a value of `1`. To disable all servlet filters added by App Service, create a setting named `WEBSITE_SKIP_FILTERS` with a value of `1`.
 
-::: zone pivot="platform-linux"
-
-#### JBoss EAP
-
-TODO
-
-::: zone-end
-
 ### Configure TLS/SSL
 
 Follow the instructions in the [Secure a custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
