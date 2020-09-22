@@ -12,9 +12,7 @@ ms.date: 04/24/2020
 
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 
-[!INCLUDE [selector](../../includes/hdinsight-hadoop-use-data-lake-storage-gen2-selector.md)]
-
-[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is a cloud storage service dedicated to big data analytics, built on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The resulting service offers features from Azure Data Lake Storage Gen1. These features include: file system semantics, directory-level and file-level security, and adaptability. Along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
+[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is a cloud storage service dedicated to big data analytics, built on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The resulting service offers features from Azure Data Lake Storage Gen1 including: file system semantics, directory-level and file-level security, and adaptability. Along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
 
 For a full comparison of cluster creation options using Data Lake Storage Gen2, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 
@@ -27,9 +25,13 @@ Data Lake Storage Gen2 is available as a storage option for almost all Azure HDI
 > [!Note]  
 > After you select Data Lake Storage Gen2 as your **primary storage type**, you cannot select a Data Lake Storage Gen1 account as additional storage.
 
-## Create a cluster with Data Lake Storage Gen2 through Azure PowerShell
+## Create HDInsight clusters using Data Lake Storage Gen2
 
-Using PowerShell to create an HDInsight cluster with Azure Data Lake Storage Gen2 isn't currently supported.
+Use the following links for detailed instructions on how to create HDInsight clusters with access to Data Lake Storage Gen2.
+
+* [Using Portal](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-portal.md)
+* [Using Azure CLI](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md)
+* PowerShell isn't currently supported for creating an HDInsight cluster with Azure Data Lake Storage Gen2.
 
 ## Access control for Data Lake Storage Gen2 in HDInsight
 
@@ -39,7 +41,7 @@ Data Lake Storage Gen2 uses an access control model that supports both role-base
 
 RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure Storage accounts). For Azure Storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
 
- For more information about file permissions with RBAC, see [Azure role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+For more information about file permissions with RBAC, see [Azure role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
 For more information about file permissions with ACLs, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

@@ -1,5 +1,5 @@
 ---
-title: Create Azure HDInsight clusters using Azure Data Lake Storage Gen2 from Azure CLI
+title: Create Azure HDInsight - Azure Data Lake Storage Gen2 - Azure CLI
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters using Azure CLI.
 author: guyhay
 ms.author: guyhay
@@ -10,9 +10,7 @@ ms.custom: hdinsightactive,seoapr2020
 ms.date: 09/17/2020
 ---
 
-# Create a cluster with Data Lake Storage Gen2 through the Azure CLI
-
-[!INCLUDE [selector](../../includes/hdinsight-hadoop-use-data-lake-storage-gen2-selector.md)]
+# Create a cluster with Data Lake Storage Gen2 using Azure CLI
 
 To create an HDInsight cluster that uses Data Lake Storage Gen3 for storage, follow these steps.
 

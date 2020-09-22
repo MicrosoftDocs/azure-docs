@@ -92,7 +92,7 @@ Spark clusters in HDInsight offer a rich support for building real-time analytic
 
 ## Next Steps
 
-You can use the following articles to learn more about Apache Spark in HDInsight:
+In this overview, you've got a basic understanding of Apache Spark in Azure HDInsight.  You can use the following articles to learn more about Apache Spark in HDInsight, and you can create an HDInsight Spark cluster and further run some sample Spark queries:
 
 * [Quickstart: Create an Apache Spark cluster in HDInsight and run interactive query using Jupyter](./apache-spark-jupyter-spark-sql-use-portal.md)
 * [Tutorial: Load data and run queries on an Apache Spark job using Jupyter](./apache-spark-load-data-run-query.md)
