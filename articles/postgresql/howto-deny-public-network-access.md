@@ -28,13 +28,13 @@ Follow these steps to set PostgreSQL Single server Deny Public Network Access:
 
 1. In **Deny Public Network Access**, select **Yes** to enable deny public access for your PostgreSQL Single server.
 
-    ![Azure Database for PostgreSQL Single server Deny network access](./media/howto-deny-public-network-access/deny-public-network-access.PNG)
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access.PNG" alt-text="Azure Database for PostgreSQL Single server Deny network access":::
 
 1. Click **Save** to save the changes.
 
 1. A notification will confirm that connection security setting was successfully enabled.
 
-    ![Azure Database for PostgreSQL Single server Deny network access success](./media/howto-deny-public-network-access/deny-public-network-access-success.png)
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Azure Database for PostgreSQL Single server Deny network access success":::
 
 ## Next steps
 
