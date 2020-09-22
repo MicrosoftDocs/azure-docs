@@ -308,6 +308,8 @@
         href: platform/delete-workspace.md
       - name: Move a workspace
         href: platform/move-workspace.md
+      - name: Export data from a workspace
+        href: platform/logs-data-export.md
       - name: Design for service providers
         href: platform/service-providers.md
       - name: Manage access
