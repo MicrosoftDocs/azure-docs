@@ -2,7 +2,7 @@
 
 ## Overview
 
-If you are developing for **constrained devices**, then you can use IoT Plug and Play with the [Embedded C SDK](https://aka.ms/embeddedcsdk) or with Azure RTOS. This page serves as a landing page for samples showcasing Azure IoT Plug and Play for these constrained scenarios. 
+If you are developing for **constrained devices**, then you can use IoT Plug and Play with the [Embedded C SDK](https://aka.ms/embeddedcsdk) or with [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/). This page serves as a landing page for samples showcasing Azure IoT Plug and Play for these constrained scenarios. 
 
 ## Using the Embedded C SDK
 
