@@ -194,12 +194,12 @@ ingress:
 
 To learn more about networking and how requests are routed in Azure Dev Spaces see [How routing works with Azure Dev Spaces][how-it-works-routing].
 
-To learn more about using Azure Dev Spaces for rapidly iterating and developing, see [How Local Process with Kubernetes works][how-it-works-local-process-kubernetes] and [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
+To learn more about rapidly iterating and developing with Kubernetes, see [How Bridge to Kubernetes works][how-it-works-bridge-to-kubernetes] and [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
 
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

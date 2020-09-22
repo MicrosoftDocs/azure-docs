@@ -206,7 +206,9 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        
+        - name: Audit and manage compliance
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
         
     - name: Responsible ML
       items: 
@@ -294,12 +296,15 @@
               href: how-to-designer-import-data.md
         - name: Access data
           items: 
-            - name: Connect to Azure Storage
+            - name: Connect to Azure storage (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
-            - name: Get data from a datastore
+            - name: Get data from a datastore (Python)
               displayName: data, data set, register, access data
               href: how-to-create-register-datasets.md
+            - name: Connect to data (UI)
+              displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
+              href: how-to-connect-data-ui.md
         - name: Manage & consume data
           items: 
             - name: Train with datasets
