@@ -78,11 +78,11 @@ export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
 Run this command to assign the service principal to the 'Monitoring Metrics Publisher' role on the subscription where your database instance resources are located:
 
 ```console
-az role assignment create --assignee <appId value from output above> --role 'Monitoring Metrics Publisher' --scope subscriptions/<sub ID>
+az role assignment create --assignee <appId value from output above> --role "Monitoring Metrics Publisher" --scope subscriptions/<sub ID>
 az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
 
 #Example:
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Monitoring Metrics Publisher' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 #az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 ```
 
@@ -109,10 +109,10 @@ Next, execute these commands to create a Log Analytics Workspace and set the acc
 > Skip this step if you already have a workspace.
 
 ```console
-az monitor log-analytics workspace create --resource-group <resource group name> --name <some name you choose>
+az monitor log-analytics workspace create --resource-group <resource group name> --workspace-name <some name you choose>
 
 #Example:
-#az monitor log-analytics workspace create --resource-group MyResourceGroup --name MyLogsWorkpace
+#az monitor log-analytics workspace create --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Example output:
@@ -157,7 +157,7 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 This command will print the access keys required to connect to your log analytics workspace:
 
 ```console
-az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --name MyLogsWorkpace
+az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Example output:
