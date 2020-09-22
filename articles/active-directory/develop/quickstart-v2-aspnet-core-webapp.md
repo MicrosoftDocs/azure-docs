@@ -93,18 +93,18 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 >       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >       - If your application supports **All Microsoft account users**, leave this value as `common`
 >
-> For this quickstart, do not alter any other values in the *appsettings.json* file.
+> For this quickstart, don't change any other values in the *appsettings.json* file.
 >
 > #### Step 4: Build and run the application
-> 
+>
 > Build and run the app in Visual Studio by selecting the **Debug** menu > **Start Debugging**, or by pressing the `F5` key.
-> 
+>
 > You're prompted for your credentials, and then asked to consent to the permissions your app requires. Select **Accept** on the consent prompt.
-> 
+>
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-01-consent.png" alt-text="Consent dialog showing the permissions the app is requesting from the > user":::
-> 
+>
 > After consenting to the requested permissions, the app displays that you've successfully logged in using your Azure Active Directory credentials.
-> 
+>
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Web browser displaying the running web app and the user signed in":::
 
 ## More information
