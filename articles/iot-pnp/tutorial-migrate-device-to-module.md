@@ -3,43 +3,82 @@ title: Convert an IoT Plug and Play device to a Generic Module | Microsoft Docs
 description: Use C# PnP device code and convert it to a module.
 author: ericmitt
 ms.author: ericmitt
-ms.date: 9/17/2020
+ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
+
+# As a device builder, I want to learn how to implement a module that works with IoT Plug and Play.
 ---
-# Tutorial: How to convert a PnP Device to a PnP Module (C#)
 
-In this article we are going to migrate an Azure IoT PnP Device to an Azure IoT PnP Module.
+# Tutorial: How to convert an IoT Plug and Play device to a module (C#)
 
-As described in the PnP developer guide, a device become a PnP device once it publishes its DTDL ModelId and implements the properties and methods described in this DTDL Model. The same apply for modules.
+This tutorial shows you how to convert IoT Plug and Play device code to run as a generic module.
 
-We are going to transform the **Thermostat** C# device sample into a generic module.
+A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](concepts-developer-guide.md). Modules use model IDs and DTDL models in the same way.
+
+To demonstrate how to implement an IoT Plug and Play module, this tutorial shows you how to convert the thermostat C# device sample into a generic module.
 
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
-## getting started
+To complete this tutorial on Windows, install the following software on your local Windows environment:
 
-- Clone the CSharp SDK Repo
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
+* [Git](https://git-scm.com/download/).
+
+## Download the code
+
+If you haven't already done so, clone the Azure IoT Hub Device C# SDK GitHub repository to your local machine:
+
+Open a command prompt in a folder of your choice. Use the following command to clone the [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
 ```cmd
 git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
-- Navigate to the pnp sample:  <yourclone>\azure-iot-sdk-csharp\iothub\device\samples\PnpDeviceSamples\Thermostat
+## Prepare the project
 
-- Open the  **Thermostat** project in Visual Studio.
+To open and prepare the sample project:
 
-## Change the code to communicate the modelId at the connection time
+1. Open the *azure-iot-sdk-csharp\iothub\device\samples\DigitalTwinDeviceSamples\Thermostat\Thermostat.csproj"* project file in Visual Studio 2019.
 
-Open **Program.cs**:
+1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
 
-- Change the env variable to be used for the module:
-```csharp
-private static readonly string s_hubConnectionString = Environment.GetEnvironmentVariable("IOTHUB_CONNECTION_STRING");
-```
+    | Name | Value |
+    | ---- | ----- |
+    | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
+    | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
+    | IOTHUB_DEVICE_DPS_ID_SCOPE | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
+    | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
+    | IOTHUB_DEVICE_DPS_DEVICE_KEY | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
+
+    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/samples/readme.md).
+
+## Modify the code
+
+To modify the code to work as a module instead of a device:
+
+1. In Visual Studio, open *Program.cs* and find the `InitializeDeviceClient` method.
+
+1. Change the code to use the **ModuleClient** class instead of the **DeviceClient** class as follows:
+
+    ```csharp
+    private static ModuleClient InitializeDeviceClient(string deviceConnectionString)
+    {
+        ...
+        var deviceClient = ModuleClient.CreateFromConnectionString(deviceConnectionString, TransportType.Mqtt, options);
+        ...
+    }
+    ```
+
+1. Find the `SetupDeviceClientAsync` method and modify the code as follows:
+
+    ```csharp
+    
+    ```
+
 - change the deviceclient to ModuleClient as type (Ideally we should rename this variable, but let this sample short as possible):
 
 ```csharp
