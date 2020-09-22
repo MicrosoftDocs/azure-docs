@@ -25,6 +25,8 @@ An [Azure Resource Manager template](update-mgmt-enable-template.md) is availabl
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
 
+To download and install available *Critical* and *Security* patches automatically on your Azure VM, review [Automatic VM guest patching](../../virtual-machines/windows/automatic-vm-guest-patching.md) for Windows VMs.
+
 ## About Update Management
 
 Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
@@ -228,7 +230,7 @@ For Linux, Update Management can distinguish between critical updates and securi
 sudo yum -q --security check-update
 ```
 
-There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this feature on their own.
+There's currently no supported method to enable native classification-data availability on CentOS. At this time, limited support is provided to customers who might have enabled this feature on their own.
 
 To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 

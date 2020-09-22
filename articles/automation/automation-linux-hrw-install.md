@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ---
 # Deploy a Linux Hybrid Runbook Worker
@@ -69,6 +69,12 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
+
+## Supported Linux hardening
+
+The following are not yet supported:
+
+* CIS
 
 ## Supported runbook types
 

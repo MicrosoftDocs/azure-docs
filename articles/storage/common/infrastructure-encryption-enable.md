@@ -17,7 +17,7 @@ ms.subservice: common
 
 Azure Storage automatically encrypts all data in a storage account at the service level using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. In this scenario, the additional layer of encryption continues to protect your data.
 
-Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key Vault. Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key. For more information about key management with Azure Storage encryption, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
+Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key Vault or Key Vault Managed Hardware Security Model (HSM) (preview). Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key. For more information about key management with Azure Storage encryption, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 
 To doubly encrypt your data, you must first create a storage account that is configured for infrastructure encryption. This article describes how to create a storage account that enables infrastructure encryption.
 
@@ -211,4 +211,4 @@ N/A
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
-- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](encryption-customer-managed-keys.md)
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
