@@ -9,11 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
+ms.custom: references_regions
 ---
 
-# Manage and find data on Azure Blob storage with blob index (preview)
+# Manage and find Azure Blob data with blob index (preview)
 
-As datasets get larger and larger, finding a specific object in a sea of data can be difficult and frustrating. Blob index provides data management and discovery capabilities using key-value index tag attributes, which allow you to categorize and find objects within a single container or across all containers in your storage account. Later, as the requirements of data changes, objects can be dynamically recategorized by updating their index tags while remaining in-place with their current container organization. Utilizing blob index can simplify development by consolidating your blob data and associated index attributes on the same service; allowing you to build efficient and scalable applications using native features.
+As datasets get larger and larger, finding a specific object in a sea of data can be difficult and frustrating. Blob index provides data management and discovery capabilities using key-value index tag attributes, which allow you to categorize and find objects within a single container or across all containers in your storage account. Later, as the requirements of data changes, objects can be dynamically categorized by updating their index tags while remaining in-place with their current container organization. Utilizing blob index can simplify development by consolidating your blob data and associated index attributes on the same service; allowing you to build efficient and scalable applications using native features.
 
 Blob index lets you:
 
@@ -48,16 +49,15 @@ Blob index tags are key-value attributes that can be applied to new or existing 
 Consider the following examples tags that can be set
 
 You can apply a single tag on your blob to describe when your data was finished processing.
->
-> "processedDate" = '2020-01-01'
->
+
+> "processedDate" = '2020-01-01'  
+
 You can apply multiple tags on your blob to be more descriptive of the data.
->
-> "Project" = 'Contoso'
-> "Classified" = 'True'
-> "Status" = 'Unprocessed'
-> "Priority" = '01'
->
+
+> "Project" = 'Contoso'  
+> "Classified" = 'True'  
+> "Status" = 'Unprocessed'  
+> "Priority" = '01'  
 
 To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time or eTag (entity tag). You can create or modify index tags for all current base blobs and previous versions; however tags on snapshots or soft deleted blobs cannot be modified.
 
@@ -108,7 +108,6 @@ The below table shows all the valid operators for FindBlobsByTags:
 > - Numbers are sorted before letters. Numbers are sorted based on the first digit.
 > - Uppercase letters are sorted before lowercase letters.
 > - Symbols are not standard. Some symbols are sorted before numeric values. Other symbols are sorted before or after letters.
->
 
 ## Conditional blob operations with blob index tags
 In REST versions 2019-10-10 and higher, most [blob service APIs](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) now support a conditional header, x-ms-if-tags, such that the operation will only succeed if the specified blob index condition is met. If the condition is not met, you will get `error 412: The condition specified using HTTP conditional header(s) is not met`.
