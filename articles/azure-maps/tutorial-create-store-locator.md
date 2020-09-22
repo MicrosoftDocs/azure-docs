@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-javascript
 # Tutorial: Create a store locator by using Azure Maps
 
 This tutorial guides you through the process of creating a simple store locator by using Azure Maps. Store locators are common. Many of the concepts that are used in this type of application are applicable to many other types of applications. Offering a store locator to customers is a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
-    
+
 > [!div class="checklist"]
 > * Create a new webpage by using the Azure Map Control API.
 > * Load custom data from a file and display it on a map.
@@ -24,7 +24,7 @@ This tutorial guides you through the process of creating a simple store locator 
 > * Cluster data points.  
 > * Add zoom controls to the map.
 
-<a id="Intro"></a> 
+<a id="Intro"></a>
 
 Jump ahead to the [live store locator example](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) or [source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator).
 

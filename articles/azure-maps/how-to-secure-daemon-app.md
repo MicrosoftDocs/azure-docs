@@ -14,7 +14,7 @@ manager: timlt
 # Secure a daemon application
 
 The following guide is for background processes, timers, and jobs which are hosted in a trusted and secured environment. Examples include Azure Web Jobs, Azure Function Apps, Windows Services, and any other reliable background service.
- 
+
 > [!Tip]
 > Microsoft recommends implementing Azure Active Directory (Azure AD) and Azure role-based access control (Azure RBAC) for production applications. For an overview of concepts, see [Azure Maps Authentication](./azure-maps-authentication.md).
 
