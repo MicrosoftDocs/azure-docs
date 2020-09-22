@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Form Recognizer client library for Java"
-description: In this quickstart, get started with the Form Recognizer client library for Java.
+description: Use the Form Recognizer client library for Java to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -127,7 +127,8 @@ With Form Recognizer, you can create two different client types. The first, `For
 - Managing models created in your account.
 - Copying a custom model from one Form Recognizer resource to another.
 
-Note that models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## Code examples
 

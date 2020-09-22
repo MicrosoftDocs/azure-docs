@@ -1,7 +1,7 @@
 ---
 title: What is Form Recognizer?
 titleSuffix: Azure Cognitive Services
-description: The Azure Cognitive Services Form Recognizer allows you to identify and extract key/value pairs and table data from form documents.
+description: The Azure Form Recognizer service allows you to identify and extract key/value pairs and table data from your form documents, as well as extract major information from sales receipts and business cards.
 author: PatrickFarley
 manager: nitinme
 
@@ -11,6 +11,7 @@ ms.topic: overview
 ms.date: 09/21/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
+keywords: automated data processing, document processing, automated data entry, forms processing
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
 
@@ -18,18 +19,18 @@ ms.custom: cog-serv-seo-aug-2020
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract text, key/value pairs and table data from form documents. It ingests text from forms and outputs structured data that includes the relationships in the original file. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Form Recognizer is comprised of custom models, the prebuilt receipt model, and the layout API. You can call Form Recognizer models by using a REST API to reduce complexity and integrate it into your workflow or application.
+Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs and table data from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications.
+
+Form Recognizer is comprised of custom document processing models, the prebuilt receipt and business card models, and the layout API. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
 
 Form Recognizer is made up of the following services:
-* **Custom models** - Extract key/value pairs and table data from forms. These models are trained with your own data, so they're tailored to your forms.
-* **Prebuilt models** - Extract data from unique form types using prebuilt models. Currently available are prebuilt models for sales receipts and business cards in English.
-* **Layout API** - Extract text and table structures, along with their bounding box coordinates, from documents.
-
-<!-- add diagram -->
+* **[Custom models](#custom-models)** - Extract key/value pairs and table data from forms. These models are trained with your own data, so they're tailored to your forms.
+* **[Prebuilt models](#prebuilt-models)** - Extract data from unique form types using prebuilt models. Currently available are prebuilt models for sales receipts and business cards in English.
+* **[Layout API](#layout-api)** - Extract text and table structures, along with their bounding box coordinates, from documents.
 
 ## Custom models
 
-Form Recognizer custom models train to your own data, and you only need five sample input forms to start. A trained model can output structured data that includes the relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+Form Recognizer custom models train to your own data, and you only need five sample input forms to start. A trained document processing model can output structured data that includes the relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
 You have the following options when you train custom models: training with labeled data and without labeled data.
 
@@ -45,14 +46,16 @@ Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes a
 
 ## Prebuilt models
 
-Form Recognizer also includes Prebuilt models for unique form types.
+Form Recognizer also includes Prebuilt models for automated data processing of unique form types.
 
 ### Prebuilt Receipt model
+
 The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. 
 
 ![sample receipt](./media/contoso-receipt-small.png)
 
 ### Prebuilt Business Cards model
+
 The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. 
 
 ![sample business card](./media/business-card-english.jpg)
@@ -65,7 +68,7 @@ Form Recognizer can also extract text and table structure (the row and column nu
 
 Follow a quickstart to get started extracting data from your forms. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-* [Client library quickstart](./quickstarts/client-library.md) (all languages, multiple scenarios)
+* [Client library quickstarts](./quickstarts/client-library.md) (all languages, multiple scenarios)
 * Web UI quickstarts
   * [Train with labels - sample labeling tool](quickstarts/label-tool.md)
 * REST quickstarts
@@ -101,9 +104,9 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### Prebuilt
+### Prebuilt models
 
-The input requirements for the receipt model are slightly different.
+The input requirements for the prebuilt models are slightly different.
 
 * Format must be JPEG, PNG, PDF (text or scanned) or TIFF.
 * File size must be less than 20 MB.
@@ -117,4 +120,4 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/curl-train-extract.md) to get started with the [Form Recognizer APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+Complete a [client library quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer.
