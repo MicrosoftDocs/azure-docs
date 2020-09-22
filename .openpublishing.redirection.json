@@ -43262,6 +43262,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/container-insights-health.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-health-monitors-config.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/advisor/advisor-alerts.md",
       "redirect_url": "/azure/advisor/advisor-alerts-portal",
       "redirect_document_id": false
