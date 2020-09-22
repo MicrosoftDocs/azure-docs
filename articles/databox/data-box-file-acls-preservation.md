@@ -1,6 +1,6 @@
 ---
-title: Preserving ACLs and metadata on files in Azure Data Box and Azure Files 
-description: Describes metadata preserved (file ACLs, timestamps, attributes) when copying data to Azure Data Box and Azure Files and requirements for metadata transfer.  
+title: Preserving file ACLs/metadata in Azure Data Box and Azure Files 
+description: Metadata preserved - file ACLs, timestamps, attributes - during data copy via SMB to Azure Data Box. Steps for transferring metadata with Windows- and Linux-based data.  
 services: databox
 author: alkohli
 
@@ -11,26 +11,26 @@ ms.date: 09/22/2019
 ms.author: alkohli
 ---
 
-# Preserving ACLs and metadata on files in Azure Data Box and Azure Files
+# Preserving file ACLs and metadata with Azure Data Box
 
-This article describes metadata (ACLs, timestamps, and attributes) that you can preserve when copying data to Azure Data Box and Azure Files, and requirements for transferring the metadata. Steps for copying metadata with Windows-based and Linux-based data are provided.
+This article describes metadata, such as ACLs, timestamps, and attributes for your files, that you can preserve when copying data via SMB to Azure Data Box. This metadata is then transferred when the data from the Data Box is uploaded to Azure Files. Steps for copying metadata with Windows-based and Linux-based data are provided.
 
-## Supported source data
+## Supported metadata in source data
 
-Supported:
+When using Data Box to copy data from your source data servers, some of the metadata is preserved.
+
+Depending on the data source, the following metadata is preserved:
 - For Windows, metadata and ACLs are fully supported.
 - For Linux, when transferring data over SMB, only Windows NT ACLs are supported.
 
-Not supported (for all data transferred via Data Box):
-- Read-only attributes on directories (applies to Windows and Linux)
-- ACLs on data transferred over NFS
-- ACLs and metadata on data copied using the data copy service 
+Regardless of the data source, for all data transferred over SMB, the following metadata is not preserved in the following situations:
+- Read-only attributes on directories.
+- ACLs on data transferred over NFS.
+- When using the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs. 
 
-  The data copy service reads data directly from your shares. It can't read ACLs. 
+## Transferred metadata
 
-## Transported metadata
-
-The following metadata for data transferred over SMB.
+The following metadata is transferred when data from the Data Box is uploaded to Azure Files.
 
 - Timestamps:
   - CreationTime
@@ -40,9 +40,9 @@ The following metadata for data transferred over SMB.
   - LastWriteTime
   - LastWriteTimeUtc
 
-- File attributes:<!--Identify these as NTFS file attributes, as in the original draft?-->
+- File attributes:<!--Identify as NTFS file attributes, as in original draft?-->
 
-  Supported:
+  The following file attributes are transferred:
   - FILE_ATTRIBUTE_READONLY (file only)
   - FILE_ATTRIBUTE_HIDDEN
   - FILE_ATTRIBUTE_SYSTEM
@@ -51,33 +51,30 @@ The following metadata for data transferred over SMB.
   - FILE_ATTRIBUTE_TEMPORARY (file only)
   - FILE_ATTRIBUTE_NO_SCRUB_DATA
 
-  Not supported:
+  The following file attributes are not transferred:
   - FILE_ATTRIBUTE_OFFLINE
   - FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
 
-- ACLs
+- ACLs: The share ACLs for directories and files copied to your Data Box over SMB are all copied and transferred.
 
-  Share ACLs for the directories and files that are copied to your Data Box over SMB are all copied and transported. 
+  The ACLs contain security descriptors that have the following properties: ACLs, Owner, Group, SACL (system access control list).
 
-  The ACLs contain security descriptors, and these have the following properties: ACLs, Owner, Group, SACL.<!--Does the following note become a release note INSTEAD of staying here?-->
+  Transfer of ACLs is enabled by default. You might want to disable this setting by accessing the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
+
+  If the tool used to copy data to the Data Box does not copy ACLs, the default ACLs on the directories and files are present and<!--Is "are present" needed?--> are transferred to Azure Files. The default ACLs have permissions for Built-in Administrators, System, and the SMB Share user account that was used to mount and copy data. <!--This seemed buried in "Detailed steps." I think we decided to move it back to "ACLs."-->
 
   > [!NOTE]
-  > A known issue exists for files with ACLs containing conditional access control entry (ACE) strings, causing the files not to be copied. Until this issue is fixed, you need to copy these files to the Azure Files share manually, by mounting the share and using a copy tool that supports copying ACLs.
-
-  By default, transport of the ACLs is enabled. You might want to disable this setting by accessing the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
+  > Files with ACLs containing conditional access control entry (ACE) strings are not copied. This is a known issue. To work around this, copy these files to the Azure Files share manually by mounting the share and then using a copy tool that supports copying ACLs.
 
 ## Detailed steps
 
+To ensure that metadata is transferred along with the data that's copied, use the following steps.
+
 ### For Window-based source data
 
-To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as robocopy.
+To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as robocopy. The following sample command copies all files and directories.
 
-If the tool used to copy data to the Data Box does not copy ACLs, the default ACLs on the directories and files are present and are transported to Azure Files. The default ACLs have permissions for Built-in Administrators, System, and the SMB Share user account that was used to mount and copy data. <!--This seems buried in this section. The info about default ACLs pertains to supported ACLs?-->
-
-The following sample command copies all files and directories.
-
-> [!NOTE]
-> The copyall command <!--command or switch?-->requires Backup Operator privileges. These are enabled by default. Before using copyall commands, make sure these privileges are not disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md). 
+When using the /copyall option, make sure the required Backup Operator privileges are not disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md). 
 
 ```console
 robocopy <Source> <Target> * /copyall /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
@@ -85,7 +82,7 @@ robocopy <Source> <Target> * /copyall /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 
 
 where
 
-|Parameter |Description |
+|Option |Description |
 |------------------- | ----- |
 |/copyall |Copies all files.|
 |/e      |Copies subdirectories, including empty directories.         |
@@ -103,7 +100,9 @@ For more information on these robocopy parameters, see [Tutorial: Copy data to A
 
 ### For Linux-based source data
 
-Copy Linux-based source data using a tool such as rsync, which does not preserve metadata. After you copy the data, you can transfer the metadata using a tool such as SMBCACL or CIFSACL. The following sample commands copy the data using rsync. 
+Copy Linux-based source data using a tool such as rsync, which does not preserve metadata. After you copy the data, you can transfer the metadata using a tool such as SMBCACL or CIFSACL. 
+
+The following sample commands copy the data using rsync.
 
 ```console
 cp -aR /etc /opt/ 
