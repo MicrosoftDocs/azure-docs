@@ -146,7 +146,7 @@ To create a virtual network, follow these steps.
 
 To create a private endpoint, follow these steps.
 
-1. In the Azure Portal, search for **Azure Cache for Redis** and press enter or select it from the search suggestions.
+1. In the Azure portal, search for **Azure Cache for Redis** and press enter or select it from the search suggestions.
 
     :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Search for Azure Cache for Redis.":::
 
