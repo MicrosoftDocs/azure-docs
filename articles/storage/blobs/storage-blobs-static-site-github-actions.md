@@ -1,6 +1,6 @@
 ---
 title: Use GitHub Actions to deploy a static site to Azure Storage
-description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.
+description: Azure Storage static website hosting with GitHub Actions
 author: juliakm
 ms.service: storage
 ms.topic: how-to
@@ -12,9 +12,9 @@ ms.custom: devx-track-javascript, github-actions-azure
 
 ---
 
-# Set up a GitHub Action to deploy your static website in Azure Storage
+# Set up a GitHub Actions workflow to deploy your static website in Azure Storage
 
-You can deploy a static site to an Azure Storage blog using [GitHub Actions](https://docs.github.com/en/actions). Once you have set up a GitHub Actions workflow, you will be able to automatically deploy your site to Azure from GitHub when you make changes to your site's code. 
+Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy a static site to an Azure storage blob. Once you have set up a GitHub Actions workflow, you will be able to automatically deploy your site to Azure from GitHub when you make changes to your site's code. 
 
 > [!NOTE]
 > If you are using [App Service Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/), then you do not need to manually set up a GitHub Actions workflow.
@@ -25,8 +25,8 @@ You can deploy a static site to an Azure Storage blog using [GitHub Actions](htt
 An Azure subscription and GitHub account. 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A GitHub account with your static website code. If you don't have a GitHub account, sign up for [free](https://github.com/join).  
-- A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). You static website should include an [Azure CDN](static-website-content-delivery-network.md).
+- A GitHub account with your static website code. If you don't have a GitHub account, [sign up for free](https://github.com/join).  
+- A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). Your static website should include an [Azure CDN](static-website-content-delivery-network.md).
 
 ## Generate deployment credentials
 
@@ -55,21 +55,23 @@ In the example above, replace the placeholders with your subscription ID and res
 
 ## Configure the GitHub secret
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+1. In [GitHub](https://github.com/), browse your repository.
 
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+1. Select **Settings > Secrets > Add a new secret**.
 
-When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
+1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
 
-```yaml
-- uses: azure/login@v1
-  with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}
-```
+    When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
+
+    ```yaml
+    - uses: azure/login@v1
+    with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    ```
 
 ## Add your workflow
 
-1. Go to **Actions**. 
+1. Go to **Actions** for your GitHub repository. 
 
     :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
 
@@ -87,7 +89,7 @@ When you configure the workflow file later, you use the secret for the input `cr
         branches: [ master ]
     ```
 
-1. Add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier. 
+1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier. 
 
     ```yml
     name: Blob storage website CI
@@ -108,7 +110,7 @@ When you configure the workflow file later, you use the secret for the input `cr
           creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. You'll use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group.
+1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group.
 
     ```yaml
         - name: Upload to blob storage
@@ -128,7 +130,7 @@ When you configure the workflow file later, you use the secret for the input `cr
 1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. 
 
     ```yaml
-    name: Static Site CI
+    name: Blob storage website CI
 
     on:
     push:
@@ -173,7 +175,7 @@ When you configure the workflow file later, you use the secret for the input `cr
 
 ## Clean up resources
 
-When your Azure static site and repository is no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository. 
+When your Azure static site and repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository. 
 
 ## Next steps
 
