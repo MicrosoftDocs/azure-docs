@@ -30,5 +30,4 @@ The following diagram illustrates the complete OPC Vault architecture.
 
 Now that you have learned about OPC Vault and its uses, here is the suggested next step:
 
-> [!div class="nextstepaction"]
-> [OPC Vault architecture](overview-opc-vault-architecture.md)
+[OPC Vault architecture](overview-opc-vault-architecture.md)
