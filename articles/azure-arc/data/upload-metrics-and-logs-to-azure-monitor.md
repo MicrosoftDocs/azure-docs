@@ -1,6 +1,6 @@
 ---
-title: Upload usage data, metrics and logs to Azure Monitor
-description: Upload resource inventory, usage data, metrics and logs to Azure Monitor
+title: Upload usage data, metrics, and logs to Azure Monitor
+description: Upload resource inventory, usage data, metrics, and logs to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Upload usage data, metrics and logs to Azure Monitor
+# Upload usage data, metrics, and logs to Azure Monitor
 
 Monitoring is one of the many built-in capabilities that Azure Arc enabled data services brings with it. 
 
@@ -45,11 +45,11 @@ This command creates a `usage.json` file with all the Azure Arc enabled data res
 
 ## Upload metrics and logs
 
-With Azure Arc data services you can optionally upload your metrics and logs to Azure Monitor so you can aggregate and analyze metrics, logs, raise alerts, send notifications or trigger automated actions. 
+With Azure Arc data services, you can optionally upload your metrics and logs to Azure Monitor so you can aggregate and analyze metrics, logs, raise alerts, send notifications, or trigger automated actions. 
 
 Sending your data to Azure Monitor also allows you to store monitoring and logs data off-site and at huge scale enabling long-term storage of the data for advanced analytics.
 
-If you have multiple sites which have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
+If you have multiple sites that have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
 
 ### Before you begin
 
@@ -98,7 +98,7 @@ To save the appId and tenant values with PowerShell, follow this example:
     $Env:SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
     ```
 
-Alternatively, on Linux or macOS, you can savethe appId and tenant values with this example:
+Alternatively, on Linux or macOS, you can save the appId and tenant values with this example:
 
    ```console
    export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
@@ -307,7 +307,7 @@ and verify if the `allowNodeMetricsCollection` and `allowPodMetricsCollection` p
 
 ## View the metrics in the Portal
 
-Once your metrics are uploaded you should be able to visualize them from the Azure portal.
+Once your metrics are uploaded, you can view them from the Azure portal.
 > [!NOTE]
 > Please note that it can take a couple of minutes for the uploaded data to be processed before you can view the metrics in the portal.
 
@@ -361,12 +361,12 @@ Once your logs are uploaded, you should be able to query them using the log quer
 5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL'.
 6. Click the 'eye' icon next to the table name
 7. Click the 'View in query editor' button
-8. You'll now have a query in the query editor which will show the most recent 10 events in the log
+8. You'll now have a query in the query editor that will show the most recent 10 events in the log
 9. From here, you can experiment with querying the logs using the query editor, set alerts, etc.
 
-## Automating metrics and logs uploads (optional)
+## Automating uploads (optional)
 
-If you want to upload metrics and logs on a scheduled basis, you can create a script and run it on a timer every few minutes.  Below is an example of automating the uploads using a Linux shell script.
+If you want to upload metrics and logs on a scheduled basis, you can create a script and run it on a timer every few minutes. Below is an example of automating the uploads using a Linux shell script.
 
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
@@ -391,9 +391,11 @@ You could also use a job scheduler like cron or Windows Task Scheduler or an orc
 
 ## General guidance on exporting and uploading usage, metrics
 
-Create, read, update, and delete (CRUD) operations on Azure Arc enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. Today, this happens nightly and this could change in future.  Hence, the general guidance is to upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
+Create, read, update, and delete (CRUD) operations on Azure Arc enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
 
-For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes you may not see any data in the portal. 
+During preview, this process happens nightly. The general guidance is to upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
+
+For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
 ## Next steps
 
