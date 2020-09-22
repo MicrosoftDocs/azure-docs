@@ -51,7 +51,7 @@ You can use the `az mysql flexible-server` command to create the flexible server
 > Using this command will delegate the subnet to **Microsoft.DBforMySQL/flexibleServers**. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet.
 >
 
-Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. For example, in the below commands you can optionally specify the resource group.
+Refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters. For example, in the below commands you can optionally specify the resource group.
 
 - Create a flexible server using default virtual network, subnet with default address prefix
     ```azurecli-interactive
@@ -72,7 +72,7 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
     ```-->
-Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters.
+Refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters.
 
 
 ## Next steps
