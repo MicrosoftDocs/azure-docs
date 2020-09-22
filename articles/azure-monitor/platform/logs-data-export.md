@@ -24,6 +24,9 @@ Log Analytics data export allows you to continuously export data of selected tab
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
 
+## Cost
+There are currently no additional charges for the preview feature Data export.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using Data export after the notice period, you will be billed at the applicable rate. 
+
 ## Prerequisites
 
 - The storage account and event hub must already be created and must be in the same region as the Log Analytics workspace.
@@ -40,9 +43,50 @@ Once data export is configured for your workspace, any new data sent to the sele
 
 There is no a way to filter data or to limit the export to certain events. For example, when you configure a data export rule for *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
 
-When exporting to Storage, each table is kept under a separate container – example: “am-SecurityEvent”. Similarly, when exporting to Event Hub, each table is exported to a new Event Hub instance – for example: am-securityevent. 
 
 ## Regions
 The Log Analytics workspace and destination storage account and event hub must be located in the same region. If you need to replicate your data to other storage accounts, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md).  
 
+Log Analytics continuous export is supported in the following regions:
 
+  
+- Register resource provider
+- Allow trusted services
+- Create data export rule
+
+## Register resource provider
+
+The following Azure resource providers need to registered for your subscription to enable Azure Monitor for VMs guest health.
+
+- Microsoft.Insights
+
+You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../..azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using PowerShell to make authenticated call to ARM:
+
+```PowerShell
+Register-AzResourceProvider -ProviderNamespace Microsoft.insights
+```
+
+## Allow trusted Microsoft services
+If you have configured your Storage Account to allow access from selected networks, you need to add an exception to allow Azure Monitor to write to the account. From **Firewalls and virtual networks** for your storage account, select **Allow trusted Microsoft services to access this storage account**.
+
+[![Storage account firewalls and virtual networks](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
+
+## Create data export rule
+A data export defines data to be exported to a single storage account, a single event hub, or both. If you need to send to multiple destinations of the same type, then you can create multiple rules. A single rule can specify all tables or a certain set of tables to be sent to each destination.
+
+### Storage account details
+
+The export creates a container for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*. 
+
+
+
+
+
+
+
+
+
+
+
+
+When exporting to Storage, each table is kept under a separate container – example: “am-SecurityEvent”. Similarly, when exporting to Event Hub, each table is exported to a new Event Hub instance – for example: am-securityevent. 
