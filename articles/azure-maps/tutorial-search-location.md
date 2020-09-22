@@ -21,44 +21,14 @@ This tutorial shows how to set up an account with Azure Maps, then use the Maps 
 > * Create a new web page using the map control API
 > * Use the Maps search service to find a nearby point of interest
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com).
+## Prerequisites
 
 <a id="createaccount"></a>
-
-## Create an account with Azure Maps
-
-Create a new Maps account with the following steps:
-
-1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
-2. In the *Search the Marketplace* box, type **Maps**.
-3. From the *Results*, select **Maps**. Click **Create** button that appears below the map.
-4. On the **Create Maps Account** page, enter the following values:
-    * The *Subscription* that you want to use for this account.
-    * The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
-    * The *Name* of your new account.
-    * The *Pricing tier* for this account.
-    * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
-    * Click the **Create** button.
-
-![Create Azure Maps account in Azure portal](./media/tutorial-search-location/create-account.png)
-
 <a id="getkey"></a>
 
-## Get the primary key for your account
-
-Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs. We recommend using your account's primary key as the subscription key when calling Azure Maps services.
-
-1. Open your Maps account in the portal.
-2. In the settings section, select **Authentication**.
-3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
-
-![Get Primary Key in Azure portal](./media/tutorial-search-location/get-key.png)
-
-For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -270,17 +240,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
     ![Azure Map Control and Search Service](./media/tutorial-search-location/popup-map.png)
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create an account with Azure Maps
-> * Get the primary key for your account
-> * Create new web page using Map Control API
-> * Use Search Service to find nearby point of interest
-
-[View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-[View live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+To view the full code for this tutorial, click [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). To view the live sample, click [here](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 ## Next steps
 
