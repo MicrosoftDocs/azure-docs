@@ -15,39 +15,39 @@ You can use Azure Stream Analytics Tools for Visual Studio Code to test your Str
 
 * Install the [.NET Core SDK](https://dotnet.microsoft.com/download) and restart Visual Studio Code.
 
-* Use [this quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job by using Visual Studio Code.
+* Use [this quickstart](quick-create-visual-studio-code.md) to learn how to create a Stream Analytics job by using Visual Studio Code.
 
 ## Define a live stream input
 
 1. Right-click the **Inputs** folder in your Stream Analytics project. Then select **ASA: Add Input** from the context menu.
 
-   ![Add input from the Inputs folder](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
+   ![Add input from the Inputs folder](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
    You can also select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
 
-   ![Add Stream Analytics input in Visual Studio Code](./media/quick-create-vs-code/add-input.png)
+   ![Add Stream Analytics input in Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Choose an input source type from the drop-down list.
 
-   ![Select IoT hub as the input option](./media/quick-create-vs-code/iot-hub.png)
+   ![Select IoT hub as the input option](./media/quick-create-visual-studio-code/iot-hub.png)
 
 3. If you added the input from the command palette, choose the Stream Analytics query script that will use the input. It should be automatically populated with the file path to **myASAproj.asaql**.
 
-   ![Select a Stream Analytics script in Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
+   ![Select a Stream Analytics script in Visual Studio Code](./media/quick-create-visual-studio-code/asa-script.png)
 
 4. Choose **Select from your Azure Subscriptions** from the drop-down menu.
 
-    ![Select from subscriptions](./media/quick-create-vs-code/add-input-select-subscription.png)
+    ![Select from subscriptions](./media/quick-create-visual-studio-code/add-input-select-subscription.png)
 
 5. Configure the newly generated JSON file. You can use the CodeLens feature to help you enter a string, select from a drop-down list, or change the text directly in the file. The following screenshot shows **Select from your Subscriptions** as an example.
 
-   ![Configure input in Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+   ![Configure input in Visual Studio Code](./media/quick-create-visual-studio-code/configure-input.png)
 
 ## Preview input
 
 To make sure that the input data is coming, select **Preview data** in your live input configuration file from the top line. Some input data comes from an IoT hub and is shown in the preview window. The preview might take a few seconds to appear.
 
- ![Preview live input](./media/quick-create-vs-code/preview-live-input.png)
+ ![Preview live input](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## Run queries locally
 

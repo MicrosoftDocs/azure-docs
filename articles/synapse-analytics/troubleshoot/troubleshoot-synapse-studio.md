@@ -26,7 +26,7 @@ This trouble-shooting guide provides instruction on what information to provide 
 
 Running the query with "SQL on-demand" gives you the "Failed to establish connection to server" error message.
 
-![symptom2](media/troubleshooting-synapse-studio/symptom2.png)
+![Screenshot shows a Failed to establish connection to server message.](media/troubleshooting-synapse-studio/symptom2.png)
 
 ## Troubleshooting steps
 
@@ -49,7 +49,7 @@ Make sure "Disable cache" in "Network" panel is checked.
 
 Retry the operation you performed in Azure Synapse Studio. You may see new items shown in the "Network" list in "Developer Tools". Note your current system time to provide in the support ticket.
 
-![network-panel](media/troubleshooting-synapse-studio/network-panel.png)
+![Screenshot shows DevTools window with Network and Disable cache Online selected.](media/troubleshooting-synapse-studio/network-panel.png)
 
 Find the item whose Url column matches the following pattern:
 
@@ -61,7 +61,7 @@ If either one of them has something other than "20x" and:
 
 - status starts with "(failed)", either widen the "Status" column or hover your pointer over the status text to see the complete text. Include the text and/or screenshot when opening the support ticket.
 
-    ![status-text](media/troubleshooting-synapse-studio/status-text.png)
+    ![Screenshot shows results, including a failed value in the Status column.](media/troubleshooting-synapse-studio/status-text.png)
 
     - If you see ERR_NAME_NOT_RESOLVED and you created your workspace within 10 minutes, wait for 10 minutes and retry to see whether the problem still exists.
     - If you see ERR_INTERNET_DISCONNECTED or ERR_NETWORK_CHANGED, it may indicate your PC network connection is having issues. Check your network connection and retry the operation.
@@ -78,21 +78,21 @@ If the response header contains one of the above values, it means we should have
 
 If you can't see the header, or the header does not have one of the values listed above, attach a screenshot of the item details when you open the ticket.
 
-![item-details](media/troubleshooting-synapse-studio/item-details.png)
+![Screenshot shows DevTools window with a U R L highlighted in the Response Headers.](media/troubleshooting-synapse-studio/item-details.png)
 
 If the steps above do not solve your issue, you may need to open a support ticket. When submitting your support ticket, include the "Session ID" or "Diagnostic Info" downloaded at the beginning of this guide.
 
 When reporting the issue, you may optionally take a screenshot of your "Console" tab in the "Developer Tools" and attach it to the support ticket. Scroll the content and take more than one screenshot if necessary to capture the entire message.
 
-![developer-tool-console](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![Screenshot shows DevTools window, sized to show the whole message for a possible screenshot.](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
 If you're attaching screenshots, provide the time (or an estimated time range) of when you took the screenshots. It will help us when looking into the problem.
 
 Certain browsers support showing timestamps in the "Console" tab. For Chromium Edge/Chrome, open the "Settings" dialog in "Developer Tools", and check "Show timestamps" in "Preferences" tab.
 
-![developer-tool-console-settings](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![Screenshot shows the DevTools window with Settings selected in a contextual menu.](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![show-time-stamp](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![Screenshot shows the DevTools window Preferences with Show timestamps selected.](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## Next steps
 If the previous steps don't help to resolve your issue [Create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

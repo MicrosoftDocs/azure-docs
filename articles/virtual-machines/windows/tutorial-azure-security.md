@@ -33,7 +33,7 @@ To access the Security Center dashboard, in the Azure portal, on the menu, selec
 
 Security Center goes beyond data discovery to provide recommendations for issues that it detects. For example, if a VM was deployed without an attached network security group, Security Center displays a recommendation, with remediation steps you can take. You get automated remediation without leaving the context of Security Center.  
 
-![Recommendations](./media/tutorial-azure-security/recommendations.png)
+![Screenshot shows Recommendations page, which includes a description, resource, state, and severity of recommendations.](./media/tutorial-azure-security/recommendations.png)
 
 ## Set up data collection
 

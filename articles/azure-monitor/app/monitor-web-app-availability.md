@@ -74,7 +74,7 @@ Availability test results can be visualized with both line and scatter plot view
 
 After a few minutes, click **Refresh** to see your test results.
 
-![Line view](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Screenshot shows the Availability page with the Refresh button highlighted.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 The scatterplot view shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test, test name, and location.
 
