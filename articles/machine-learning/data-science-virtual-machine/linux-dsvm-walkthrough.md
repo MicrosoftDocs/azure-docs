@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: laobri
+author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
