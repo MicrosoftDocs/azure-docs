@@ -17,20 +17,20 @@ ROBOTS: NOINDEX
 
 # Upgrade from Read v2.x to Read v3.x
 
-This guide shows how to upgrade your existing container or cloud API code from Read v2.0 or v2.1 to Read v3.x operations.
+This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.0 and v3.1 preview.
 
-## Determine your API path fix
+## Determine your API path
 Use the following table to determine the **version string** in the API path based on the Read 3.x version you are migrating to.
 
 |Product type| Version | Version string in 3.x API path |
 |:-----|:----|:----|
-|Cloud | Read 3.0 | **v3.0** |
+|Service | Read 3.0 | **v3.0** |
 |Container | Read 3.0 preview | **v3.0** |
-|Cloud/Container | Read 3.1 preview | **v3.1-preview.2** |
+|Service/Container | Read 3.1 preview | **v3.1-preview.2** |
 
 Next, use the following sections to narrow your operations and replace the **version string** in your API path with the value from the table. For example, for **Read v3.1 preview** cloud and container versions, update the API path to **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]**.
 
-## Cloud API and Containers
+## Service/Container
 
 ### `Batch Read File`
 
@@ -167,7 +167,7 @@ In v3.0, it has been adjusted:
     }
     ```
 
-## Cloud only
+## Service only
 
 ### `Recognize Text`
 `Recognize Text` is a *preview* operation which is being *deprecated in all versions of Computer Vision API*. You must migrate from `Recognize Text` to `Read` (v3.0) or `Batch Read File` (v2.0, v2.1). v3.0 of `Read` includes newer, better models for text recognition and additional features, so it is recommended. To upgrade from `Recognize Text` to `Read`:
@@ -301,7 +301,7 @@ In v3.x, it has been adjusted:
         
     }
     ```
-## Containers only
+## Container only
 
 ### `Synchronous Read`
 
