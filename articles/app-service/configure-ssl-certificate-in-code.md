@@ -2,7 +2,7 @@
 title: Use a TLS/SSL certificate in code
 description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
 
