@@ -107,11 +107,17 @@ When the creation process is completed, you can run inference, or model scoring,
 
 ## Private AKS cluster
 
+> [!WARNING]
+> You cannot use both a private AKS cluster and internal AKS load balancer at the same time on a cluster. Use one or the other, but not both.
+
 By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
 After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-create-attach-kubernetes.md) to use with Azure Machine Learning.
 
 ## Internal AKS load balancer
+
+> [!WARNING]
+> You cannot use both a private AKS cluster and internal AKS load balancer at the same time on a cluster. Use one or the other, but not both.
 
 By default, AKS deployments use a [public load balancer](../aks/load-balancer-standard.md). In this section, you learn how to configure AKS to use an internal load balancer. An internal (or private) load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network
 
