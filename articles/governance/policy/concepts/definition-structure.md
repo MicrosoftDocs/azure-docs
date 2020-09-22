@@ -740,6 +740,18 @@ The following functions are only available in policy rules:
     This value is the API version that was used in the PUT/PATCH request for evaluations on resource
     creation/update. The latest API version is always used during compliance evaluation on existing
     resources.
+- `policy()`
+  - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId: "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### Policy function example
 

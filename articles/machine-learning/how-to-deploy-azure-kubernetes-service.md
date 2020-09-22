@@ -321,6 +321,11 @@ print(token)
 >
 > To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) command.
 
+
+### Vulnerability scanning
+
+Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Azure Security Center to scan your resources and follow its recommendations. For more, see [Azure Kubernetes Services integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+
 ## Next steps
 
 * [Secure inferencing environment with Azure Virtual Network](how-to-secure-inferencing-vnet.md)
