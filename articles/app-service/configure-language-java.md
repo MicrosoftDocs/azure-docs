@@ -686,6 +686,12 @@ To confirm that the datasource was added to the JBoss server, SSH into your weba
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
+## Choosing a Java runtime version
+
+App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, as well as the minor version, such as 1.8.0_232 or 11.0.5. You can also choose to have the minor version automatically updated as new minor versions become available. In most cases, production sites should use pinned minor JVM versions. This will prevent unnanticipated outages during a minor version auto-update.
+
+If you choose to pin the minor version, you will need to periodically update the JVM minor version on the site. To ensure that your application runs on the newer minor version, create a staging slot and increment the minor version on the staging site. Once you have confirmed the application runs correctly on the new minor version, you can swap the staging and production slots.
+
 ## Java runtime statement of support
 
 ### JDK versions and maintenance
