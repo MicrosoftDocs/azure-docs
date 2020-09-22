@@ -27,7 +27,7 @@ The Operations Management Suite (OMS) portal is being [deprecated](../azure-moni
 
 3. In your Automation account, click **Update Management**.
 
-    ![Update Management](media/migrate-oms-update-deployments/azure-automation.png)
+    :::image type="content" source="media/migrate-oms-update-deployments/azure-automation.png" alt-text="Screenshot of the Update management page.":::
 
 4. In the Azure portal, select **Automation Accounts** under **All services**. 
 
@@ -37,7 +37,7 @@ The Operations Management Suite (OMS) portal is being [deprecated](../azure-moni
 
 All update deployments created in the OMS portal have a [saved search](../azure-monitor/platform/computer-groups.md) also known as a computer group, with the same name as the update deployment that exists. The saved search contains the list of machines that were scheduled in the update deployment.
 
-![Update Management](media/migrate-oms-update-deployments/oms-deployment.png)
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot of the Update Deployments page with the Name and Servers fields highlighted.":::
 
 To use this existing saved search, follow these steps:
 
