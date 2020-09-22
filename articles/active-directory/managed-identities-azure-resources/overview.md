@@ -61,9 +61,8 @@ To learn how to use managed identities to access different Azure resources, try 
 > [!NOTE]
 > Check out the [Implementing Managed Identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) course for more information about managed identities, including detailed video walkthroughs of several supported scenarios.
 
-
-|-----------|----------|---------|
 | Windows VM | Linux VM | Azure services |
+|-----------|----------|---------|
 | [Access Azure Data Lake Store](tutorial-windows-vm-access-datalake.md) | [Access Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md) | [Azure App Service](../../app-service/overview-managed-identity.md) |
 | [Access Azure Resource Manager](tutorial-windows-vm-access-arm.md) |[Access Azure Data Lake Store](tutorial-linux-vm-access-datalake.md) | [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md) |
 | [Access Azure SQL](tutorial-windows-vm-access-sql.md) | [Access Azure Resource Manager](tutorial-linux-vm-access-arm.md) | [Azure Container Instances](../../container-instances/container-instances-managed-identity.md) |
