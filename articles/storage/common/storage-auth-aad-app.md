@@ -31,14 +31,14 @@ The first step in using Azure AD to authorize access to storage resources is reg
 
 To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). The following image shows common settings for registering a web application:
 
-![Screenshot showing how to register your storage application with Azure AD](./media/storage-auth-aad-app/app-registration.png)
+:::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Screenshot showing how to register your storage application with Azure AD":::
 
 > [!NOTE]
 > If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. For native applications, this value does not have to be a real URL. For web applications, the redirect URI must be a valid URI, because it specifies the URL to which tokens are provided.
 
 After you've registered your application, you'll see the application ID (or client ID) under **Settings**:
 
-![Screenshot showing the client ID](./media/storage-auth-aad-app/app-registration-client-id.png)
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot showing the client ID":::
 
 For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
 
@@ -51,13 +51,13 @@ Next, grant your application permissions to call Azure Storage APIs. This step e
 1. On **Request API permissions** pane, under **What type of permissions does your application require?**, observe that the available permission type is **Delegated permissions**. This option is selected for you by default.
 1. Under **Permissions**, select the checkbox next to **user_impersonation**, then select the **Add permissions** button.
 
-    ![Screenshot showing permissions for storage](media/storage-auth-aad-app/registered-app-permissions-1.png)
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot showing permissions for storage API":::
 
 1. Next, grant admin consent for these permissions by clicking **Grant admin consent for Default Directory**.
 
 The **API permissions** pane now shows that your registered Azure AD application has access to both the Microsoft Graph and Azure Storage APIs, and that consent is granted for the default directory. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
 
-![Screenshot showing API permissions for registered app](media/storage-auth-aad-app/registered-app-permissions-2.png)
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot showing API permissions for registered app":::
 
 ## Create a client secret
 
@@ -278,7 +278,7 @@ To run the sample, you may need to configure the implicit grant flow for your ap
 1. In the **Manage** section, select the **Authentication** setting.
 1. In the **Implicit grant** section, select the check box to enable ID tokens, as shown in the following image:
 
-    ![Screenshot showing how to enable settings for implicit grant flow](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot showing how to enable settings for implicit grant flow":::
 
 ### Update the port used by localhost
 
@@ -288,7 +288,7 @@ When you run the sample, you may find that you need to update the redirect URI s
 1. In the **Manage** section, select the **Authentication** setting.
 1. Locate your platform configuration, and then under **Redirect URIs**, edit the port to match that used by the sample application, as shown in the following image:
 
-    ![Screenshot showing redirect URIs for app registration](media/storage-auth-aad-app/redirect-uri.png)
+    :::image type="content" source="media/storage-auth-aad-app/redirect-uri.png" alt-text="Screenshot showing redirect URIs for app registration":::
 
 ## Next steps
 
