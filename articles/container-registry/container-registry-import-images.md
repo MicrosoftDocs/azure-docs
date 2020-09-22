@@ -23,7 +23,7 @@ Image import into an Azure container registry has the following benefits over us
 
 * When you import multi-architecture images (such as official Docker images), images for all architectures and platforms specified in the manifest list get copied.
 
-* Access to the source and target registries doesn't have to use the registries' public endpoints.
+* Access to the target registry doesn't have to use the registry's public endpoint.
 
 To import container images, this article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
@@ -31,9 +31,10 @@ To import container images, this article requires that you run the Azure CLI in 
 > If you need to distribute identical container images across multiple Azure regions, Azure Container Registry also supports [geo-replication](container-registry-geo-replication.md). By geo-replicating a registry (Premium service tier required), you can serve multiple regions with identical image and tag names from a single registry.
 >
 
-> [!IMPORTANT]
-> Effective March 15, 2021, image import from a network-restricted Azure container registry will require the source registry to have the [**Allow trusted services**](allow-access-trusted-services.md) option enabled. If the option isn't enabled, import from the network-restricted source registry will fail. This is a breaking change to secure access to networked Azure container regitries.
-
+> [!CAUTION]
+> Breaking changes to image import are introduced in API version XXX:
+> * image import is now a feature of the **Premium** service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+> * import to or from a network-restricted Azure container registry requires the restricted registry to enable [**trusted services**](allow-access-trusted-services.md) to access the network. If the option isn't enabled, import will fail. This change to secure access to networked Azure container registries affects only newly created registries.
 
 ## Prerequisites
 
@@ -91,6 +92,8 @@ You can import an image from another Azure container registry using integrated A
 * The registry can be in the same or a different Azure subscription in the same Active Directory tenant.
 
 * [Public access](container-registry-access-selected-networks.md#disable-public-network-access) to the source registry may be disabled. If public access is disabled, specify the source registry by resource ID instead of by registry login server name.
+
+* If the source registry and/or the target registry has a private endpoint or registry firewall rules are applied, configure the restricted registry to [allow trusted services](allow-access-trusted-services.md) to access the network.
 
 ### Import from a registry in the same subscription
 

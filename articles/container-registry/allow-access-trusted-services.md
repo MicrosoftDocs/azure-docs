@@ -29,12 +29,14 @@ A user or service attempting to access a registry from outside those sources wil
 
 ## Trusted services
 
-The following services are allowed to access a network-restricted container registry when the **Allow trusted services** option is enabled. Additional services will be supported over time.
+The following services are allowed to access a network-restricted container registry when the **Allow trusted services** option is enabled. More services will be added over time.
 
 
 |Trusted service  |Supported usage scenarios  |
 |---------|---------|
-|[ACR Tasks](container-registry-tasks-overview.md)     | Access a registry in an ACR Task        |
+|ACR Tasks     | [Access a registry in an ACR Task](container-registry-tasks-cross-registry-authentication.md)       |
+|Machine Learning | [Deploy model from a workspace]() | [Deploy](../machine-learning/how-to-deploy-custom-docker-image/.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image |
+|Azure Container Registry | [Import images from another Azure container registry](container-registry-import-images.md#import-from-another-azure-container-registry) | 
 
 
 ### Non-trusted services
@@ -44,7 +46,6 @@ Instances of the following managed Azure services are *not* allowed access to a 
 * Azure Security Center
 * Container Instances
 * App Service
-* Machine Learning
 
 ## Allow trusted services - CLI
 
