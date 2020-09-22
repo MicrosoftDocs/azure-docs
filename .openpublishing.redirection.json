@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/sa-upload-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/sa-upload-vhd",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sa-copy-generalized.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-copy-generalized",
       "redirect_document_id": false
