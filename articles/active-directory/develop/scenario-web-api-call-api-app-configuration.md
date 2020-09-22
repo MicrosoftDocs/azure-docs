@@ -26,7 +26,7 @@ The code that you use to configure your web API so that it calls downstream web 
 
 ## Client secrets or client certificates
 
-Given that your web API now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file.
+Given that your web API now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that describes the URL where the downstream web API will be called, and the scopes that I required to call it (in this example below the section is named "GraphBeta")
 
 ```JSON
 {
@@ -39,7 +39,11 @@ Given that your web API now calls a downstream web API, you need to provide a cl
    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
    "ClientCertificates": [
   ]
- }
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
 }
 ```
 
@@ -59,8 +63,12 @@ Instead of a client secret, you can provide a client certificate. The following 
         "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
         "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
       }
-  ]
- }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
 }
 ```
 
@@ -68,28 +76,78 @@ Microsoft.Identity.Web provides several ways to describe certificates, both by c
 
 ## Startup.cs
 
-Using Microsoft.Identity.Web, if you want your web API to call downstream web APIs, add the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`, and then choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
+Using Microsoft.Identity.Web, if you want your web API to call downstream web APIs, you have three possibilities. This will depend on the API you want to call (Microsoft Graph or not), and how you'll want to call it from your controller actions or pages:
 
-```csharp
-using Microsoft.Identity.Web;
+1. In any case, your web API will need to acquire a token for the downstream API. You specify that this is the case by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`. This line exposes the ITokenAcquisition service, that you can use in your controller/pages actions. However, as you'll see in the next two bullet points, you can do even simpler. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
 
-public class Startup
-{
-  ...
-  public void ConfigureServices(IServiceCollection services)
-  {
-   // ...
-    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
-                .EnableTokenAcquisitionToCallDownstreamApi()
-                .AddInMemoryTokenCaches();
-  // ...
-  }
-  // ...
-}
-```
+   ```csharp
+   using Microsoft.Identity.Web;
 
-As with web apps, you can choose various token cache implementations. For details, see [Microsoft identity web wiki - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi()
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+2. If you want to call Microsoft Graph, Microsoft.Identity.Web enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph, you need to add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()`. `.AddMicrosoftGraph()` has several overrides. Using the override taking a configuration section, the code becomes:
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi()
+                  .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+3. When you want to call another Web API, Microsoft.Identity.Web offers a wrapper that requests access tokens and calls the downstream web API.
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+               .EnableTokenAcquisitionToCallDownstreamApi()
+                  .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+As with web apps, you can choose various token cache implementations. For details, see [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
+
+The following picture recaps the various possiblities of Microsoft.Identity.Web and their impact on the `Startup.cs` file:
+
+![When creating a web api, you can choose to call a downstream api, including Microsoft Graph, as well as token cache implementations](media/scenarios/microsoft-identity-web-startup-cs.svg)
 
 # [Java](#tab/java)
 

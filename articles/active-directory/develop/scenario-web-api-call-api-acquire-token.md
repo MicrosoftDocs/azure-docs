@@ -24,7 +24,9 @@ After you've built a client application object, use it to acquire a token that y
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Here's an example of code using Microsoft.Identity.Web that's called in the actions of the API controllers. It calls a downstream API named *todolist*. 
+Microsoft.Identity.Web exposes convenience services to call Microsoft Graph or a downstream web API. This is explained in details in the following article [A web API that calls web APIs: Call an API](scenario-web-api-call-api-call-api.md). Therefore you don't really need to acquire a token yourself.
+
+However, in the case you want to acquire a token yourself, here's an example of code using Microsoft.Identity.Web that's called in the actions of the API controllers. It calls a downstream API named *todolist*.
 To get a token to call the downstream API, you inject the `ITokenAcquisition` service by dependency injection in your controller's constructor (or your page constructor if you use Blazor), and you use it in your controller actions, getting a token for the user (`GetAccessTokenForUserAsync`) or for the application itself (`GetAccessTokenForAppAsync`) in the case of a daemon scenario.
 
 ```csharp
