@@ -46,30 +46,10 @@ During security principal-based authorization, permissions are evaluated in the 
 
 Based on this model, choose RBAC roles that provide a basic minimal level of access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you cannot use an ACL to restrict access that has already been granted by a role assignment. The system evaluates RBAC role assignments before it evaluates ACLs. If the assignment grants sufficient access permission, ACLs are ignored. 
 
-### Example: Request to list directory contents
-
-If the security principal has been assigned the role of **Storage Blob Data Owner**, **Storage Blob Data Contributor**, or **Storage Blob Data Reader**, access is granted. Otherwise, the system checks the ACL. If an ACL entry gives the security principal read and execute permission to the directory, and execute permission on all parent directories in the hierarchy, access is granted.  
+The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
 > [!div class="mx-imgBorder"]
-> ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow-list.png)
-
-### Example: Request to read a file
-
-If the security principal has been assigned the role of **Storage Blob Data Owner**, **Storage Blob Data Contributor**, or **Storage Blob Data Reader**, access is granted. Otherwise, the system checks the ACL. If an ACL entry gives the security principal read permission to the file and execute permission to the directory and all parent directories in the hierarchy, access is granted.  
-
-> [!div class="mx-imgBorder"]
-> ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow-read-file.png)
-
-### Example: Request to create or a delete a file
-
-If the security principal has been assigned the role of **Storage Blob Data Owner** or **Storage Blob Data Contributor**, access is granted. 
-
-If the security principal has been assigned the role of **Storage Blob Data Reader**, the system checks the ACL. If an ACL entry gives the security principal write and execute permission to the directory, then access is granted. 
-
-If the security principal doesn't have any of these roles assigned to it, the system checks the ACL. If an ACL entry gives the security principal write and execute permission to the directory and execute permission to the directory and all parent directories in the hierarchy, access is granted.  
-
-> [!div class="mx-imgBorder"]
-> ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow-create-delete-file.png)
+> ![data lake storage permission flow example](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-example.png)
 
 ## Combining RBAC role assignments with ACL entries
 
