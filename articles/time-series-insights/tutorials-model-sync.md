@@ -8,15 +8,13 @@ ms.author: radhsrin
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ms.custom: dpalled
 ---
 
 # Model synchronization between Azure Digital Twins and Time Series Insights Gen2
 
-## Introduction
-
-This article explains best practices and tools used to translate asset model in Azure Digital Twins (ADT) to asset model in Azure Time Series Insights (TSI).  This article is the second part of a two-part tutorial series explaining the integration of Azure Digital Twins (ADT) with Azure Time Series Insights (TSI). Integration of ADT with TSI enables archival and tracking the history of telemetries and calculated properties of Digital Twins. This series of tutorials are aimed at developers working to integrate TSI with ADT. Part 1 explains  [Establishing data pipeline that brings in the actual time series data from ADT to TSI](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) and this, second part of the tutorial series explains Asset model synchronization between ADT and TSI.This tutorial explains the best practices in choosing  and establishing naming convention for Time Series ID (TS ID) and manually establishing hierarchies in Time Series Model (TSM).
+This article explains best practices and tools used to translate asset model in Azure Digital Twins (ADT) to asset model in Azure Time Series Insights (TSI).  This article is the second part of a two-part tutorial series explaining the integration of Azure Digital Twins with Azure Time Series Insights. Integration of ADT with TSI enables archival and tracking the history of telemetries and calculated properties of Digital Twins. This series of tutorials are aimed at developers working to integrate TSI with ADT. Part 1 explains  [Establishing data pipeline that brings in the actual time series data from ADT to TSI](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) and this, second part of the tutorial series explains Asset model synchronization between ADT and TSI.This tutorial explains the best practices in choosing  and establishing naming convention for Time Series ID (TS ID) and manually establishing hierarchies in Time Series Model (TSM).
 
 ## Choosing a Time Series ID
 
