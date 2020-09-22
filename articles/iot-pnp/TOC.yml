@@ -49,6 +49,8 @@
     href: tutorial-use-mqtt.md
   - name: Interact with an MXChip device (Sample)
     href: https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
+  - name: Migrate a device to a PnP Module
+    href: tutorial-migrate-device-to-PnP-Module.md
 - name: Concepts
   items:
   - name: Architecture
