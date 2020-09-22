@@ -15,6 +15,9 @@ This tutorial shows you how to use Virtual WAN to connect to your resources in A
 
 The steps in this article help you create a **Barracuda CloudGen WAN** Network Virtual Appliance in the Virtual WAN hub. To complete this exercise, you must have a Barracuda Cloud Premise Device (CPE) and a license for the Barracuda CloudGen WAN appliance that you deploy into the hub before you begin.
 
+For deployment documentation of **Cisco SD-WAN** within Azure Virtual WAN, please send email to Cisco at the following email address: vwan_public_preview@cisco.com.
+
+
 ## Before you begin
 
 Verify that you have met the following criteria before beginning your configuration:

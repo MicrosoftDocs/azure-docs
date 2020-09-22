@@ -7,7 +7,7 @@ author: erjosito
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
 
