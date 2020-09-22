@@ -28,9 +28,44 @@ An Azure subscription and GitHub account.
 - A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md).
 - A GitHub repository with your static website code. 
 
-## Sign in to GitHub and add your secret
+## Generate deployment credentials
 
-1. Sign in to GitHub and open your GitHub repository. 
+You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+
+```azurecli-interactive
+   az ad sp create-for-rbac --name "myStorageApp" --role contributor \
+                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                            --sdk-auth
+```
+
+In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
+
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
+
+> [!IMPORTANT]
+> It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
+
+## Configure the GitHub secret
+
+In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+
+To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+
+When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
+
+```yaml
+- uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+```
 
 ## Add your workflow
 
@@ -52,4 +87,20 @@ An Azure subscription and GitHub account.
         branches: [ master ]
     ```
 
-1. Search the Marketplace for `Azure Static Website Deploy`. You can view the action here.  
+1. Add the checkout action. 
+
+    ```yml
+    name: Blob storage website CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:            
+        - uses: actions/checkout@v2
+    ```
