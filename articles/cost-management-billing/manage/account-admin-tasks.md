@@ -178,4 +178,4 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.
 
 ## Next steps
-- Learn more about [analyzing and preventing unexpected costs the Azure portal](getting-started.md)
+- Learn more about [analyzing unexpected charges](../understand/analyze-unexpected-charges.md)
