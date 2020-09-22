@@ -42,81 +42,77 @@ Telemetry sent from a multiple component device must add `$.sub` as a message pr
 
 A device or module can send any valid JSON that follows the DTDL v2 rules.
 
-:::row:::
-   :::column span="":::
-      **DTDL**
+DTDL:
 
-      ```json
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:example: Thermostat;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Property",
-          "name": "temperature",
-          "schema": "double"
-        }
-      ]
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Sample payload**
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:example: Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "temperature",
+      "schema": "double"
+    }
+  ]
+}
+```
 
-      ```json
-      "reported" :
-      {
-        "temperature" : 21.3
-      }
-      ```
-   :::column-end:::
-:::row-end:::
+Sample reported property payload:
+
+```json
+"reported" :
+{
+  "temperature" : 21.3
+}
+```
 
 ### Sample multiple components read-only property
 
 The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
-:::row:::
-   :::column span="":::
-      **DTDL**
+DTDL:
 
-      ```json
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:TemperatureController;1",
-      "@type": "Interface",
-      "displayName": "Temperature Controller",
-      "contents": [
-        {
-          "@type" : "Component",
-          "schema": "dtmi:com:example:Thermostat;1",
-          "name": "thermostat1"
-        }
-      ]
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "contents": [
+    {
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat1"
+    }
+  ]
+}
 
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:Thermostat;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Property",
-          "name": "temperature",
-          "schema": "double"
-        }
-      ]
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Reported property**
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "temperature",
+      "schema": "double"
+    }
+  ]
+}
+```
 
-      ```json
-      "reported": {
-        "thermostat1": {
-          "__t": "c",
-          "temperature": 21.3
-        }
-      }
-      ```
-   :::column-end:::
-:::row-end:::
+Sample reported property payload:
+
+```json
+"reported": {
+  "thermostat1": {
+    "__t": "c",
+    "temperature": 21.3
+  }
+}
+```
 
 ## Writable properties
 
@@ -124,127 +120,175 @@ The device or module should confirm that it received the property by sending a r
 
 - `value` - the actual value of the property (typically the received value, but the device may decide to report a different value).
 - `ac` - an acknowledgment code that uses an HTTP status code.
-- `av` - an acknowledgment version that refers to the `$version` of the desired property.
+- `av` - an acknowledgment version that refers to the `$version` of the desired property. You can find this value in the desired property JSON payload.
 - `ad` - an optional acknowledgment description.
+
+When a device starts up, it should check for updates to writable properties. If the version of a writable property increased while the device was offline, the device should confirm that it received the property by sending a reported property.
+
+When a device starts up for the first time, it can send an initial value for a reported property if it doesn't receive an initial desired property from the hub. In this case, the device should set `av` to `1`. For example:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 20.0,
+    "ac": 200,
+    "av": 1,
+    "ad": "initialize"
+  }
+}
+```
+
+A device can use the reported property to provide other information to the hub. For example, the device could respond with a series of in-progress messages such as:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 35.0,
+    "ac": 202,
+    "av": 3,
+    "ad": "In-progress - reporting current temperature"
+  }
+}
+```
+
+When the device reaches the target temperature it sends the following message:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 20.0,
+    "ac": 200,
+    "av": 3,
+    "ad": "Reached target temperature"
+  }
+}
+```
+
+A device could report an error such as:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 120.0,
+    "ac": 500,
+    "av": 3,
+    "ad": "Target temperature out of range. Valid range is 10 to 99."
+  }
+}
+```
 
 ### Sample no component writable property
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 
-:::row:::
-   :::column span="":::
-      **DTDL**
+DTDL:
 
-      ```json
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:example: Thermostat;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Property",
-          "name": "targetTemperature",
-          "schema": "double",
-          "writable": true
-        }
-      ]
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Desired property**
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:example: Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    }
+  ]
+}
+```
 
-      ```json
-      "desired" :
-      {
-        "targetTemperature" : 21.3
-      },
-      "$version" : 3
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Reported property**
+Sample desired property payload:
 
-      ```json
-      "reported": {
-        "targetTemperature": {
-          "value": 21.3,
-          "ac": 200,
-          "av": 3,
-          "ad": "complete"
-       }
-     }
-      ```
-   :::column-end:::
-:::row-end:::
+```json
+"desired" :
+{
+  "targetTemperature" : 21.3
+},
+"$version" : 3
+```
+
+Sample reported property payload:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 21.3,
+    "ac": 200,
+    "av": 3,
+    "ad": "complete"
+  }
+}
+```
 
 ### Sample multiple components writable property
 
 The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
-The marker is sent only for component level updates, so devices mustn't check for this flag.
+The marker is sent only for updates to properties defined in a component. Updates to properties defined in the main interface don't include the marker, see [Sample no component writable property](#sample-no-component-writable-property)
 
 The device or module should confirm that it received the property by sending a reported property:
 
-:::row:::
-   :::column span="":::
-      **DTDL**
+DTDL:
 
-      ```json
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:TemperatureController;1",
-      "@type": "Interface",
-      "displayName": "Temperature Controller",
-      "contents": [
-        {
-          "@type" : "Component",
-          "schema": "dtmi:com:example:Thermostat;1",
-          "name": "thermostat1"
-        }
-      ]
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "contents": [
+    {
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat1"
+    }
+  ]
+}
 
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:Thermostat;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Property",
-          "name": "targetTemperature",
-          "schema": "double",
-          "writable": true
-        }
-      ]
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Desired property**
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    }
+  ]
+}
+```
 
-      ```json
-      "desired": {
-        "thermostat1": {
-          "__t": "c",
-          "targetTemperature": 21.3
-        }
-      },
-      "$version" : 3
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Reported property**
+Sample desired property payload:
 
-      ```json
-      "reported": {
-        "thermostat1": {
-          "__t": "c",
-          "targetTemperature": {
-            "value": 23,
-            "ac": 200,
-            "av": 3,
-            "ad": "complete"
-          }
-        }
-      }
-      ```
-   :::column-end:::
-:::row-end:::
+```json
+"desired": {
+  "thermostat1": {
+    "__t": "c",
+    "targetTemperature": 21.3
+  }
+},
+"$version" : 3
+```
+
+Sample reported property payload:
+
+```json
+"reported": {
+  "thermostat1": {
+    "__t": "c",
+    "targetTemperature": {
+      "value": 23,
+      "ac": 200,
+      "av": 3,
+      "ad": "complete"
+    }
+  }
+}
+```
 
 ## Commands
 
