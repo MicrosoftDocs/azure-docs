@@ -22,6 +22,10 @@ ms.reviewer: tasharm, assafi, sumeh
 
 [Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
+# [Version 2.1](#tab/version-2)
+
+This article only describes version 3.x of the API.
+
 ---
 
 ## Prerequisites
@@ -95,6 +99,25 @@ public class TextAnalyticsSamples {
 
 Add the following main method to the class. You will define the methods called here later.
 
+# [Version 3.1 (Preview)](#tab/version-3-1)
+
+```java
+public static void main(String[] args) {
+    //You will create these methods later in the quickstart.
+    TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
+
+    sentimentAnalysisExample(client);
+    sentimentAnalysisWithOpinionMiningExample(client)
+    detectLanguageExample(client);
+    recognizeEntitiesExample(client);
+    recognizeLinkedEntitiesExample(client);
+    recognizePiiEntitiesExample(client);
+    extractKeyPhrasesExample(client);
+}
+```
+
+# [Version 3.0](#tab/version-3)
+
 ```java
 public static void main(String[] args) {
     //You will create these methods later in the quickstart.
@@ -107,6 +130,12 @@ public static void main(String[] args) {
     extractKeyPhrasesExample(client);
 }
 ```
+
+# [Version 2.1](#tab/version-2)
+
+This article only describes version 3.x of the API.
+
+---
 
 
 ## Object model
@@ -124,7 +153,7 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 
 ## Authenticate the client
 
-Create a method to instantiate the `TextAnalyticsClient` object with the key and endpoint for your Text Analytics resource.
+Create a method to instantiate the `TextAnalyticsClient` object with the key and endpoint for your Text Analytics resource. This example is the same for versions 3.0 and 3.1 of the API.
 
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
@@ -152,36 +181,32 @@ Create a new function called `sentimentAnalysisWithOpinionMiningExample()` that 
 ```java
 static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
 {
-    // The text that need be analyzed.
-    String text = "Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.";
+    // The Document that needs be analyzed.
+    String document = "Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.";
+
+    System.out.printf("Document = %s%n", document);
 
     AnalyzeSentimentOptions options = new AnalyzeSentimentOptions().setIncludeOpinionMining(true);
-    DocumentSentiment documentSentiment = client.analyzeSentiment(document, "en", options);
-
+    final DocumentSentiment documentSentiment = client.analyzeSentiment(document, "en", options);
+    SentimentConfidenceScores scores = documentSentiment.getConfidenceScores();
     System.out.printf(
-        "Recognized document sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
-        documentSentiment.getSentiment(),
-        documentSentiment.getConfidenceScores().getPositive(),
-        documentSentiment.getConfidenceScores().getNeutral(),
-        documentSentiment.getConfidenceScores().getNegative());
+            "\tRecognized document sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
+            documentSentiment.getSentiment(), scores.getPositive(), scores.getNeutral(), scores.getNegative());
 
-    for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
-        System.out.printf(
-            "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
-            sentenceSentiment.getSentiment(),
-            sentenceSentiment.getConfidenceScores().getPositive(),
-            sentenceSentiment.getConfidenceScores().getNeutral(),
-            sentenceSentiment.getConfidenceScores().getNegative());
-            sentenceSentiment.getMinedOpinions().forEach(minedOpinions -> {
-                AspectSentiment aspectSentiment = minedOpinions.getAspect();
-                System.out.printf("\t\tAspect sentiment: %s, aspect text: %s%n", aspectSentiment.getSentiment(),
-                        aspectSentiment.getText());
-                for (OpinionSentiment opinionSentiment : minedOpinions.getOpinions()) {
-                    System.out.printf("\t\t\t'%s' opinion sentiment because of \"%s\". Is the opinion negated: %s.%n",
-                            opinionSentiment.getSentiment(), opinionSentiment.getText(), opinionSentiment.isNegated());
+    documentSentiment.getSentences().forEach(sentenceSentiment -> {
+        SentimentConfidenceScores sentenceScores = sentenceSentiment.getConfidenceScores();
+        System.out.printf("\t\tSentence sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
+                sentenceSentiment.getSentiment(), sentenceScores.getPositive(), sentenceScores.getNeutral(), sentenceScores.getNegative());
+        sentenceSentiment.getMinedOpinions().forEach(minedOpinions -> {
+            AspectSentiment aspectSentiment = minedOpinions.getAspect();
+            System.out.printf("\t\t\tAspect sentiment: %s, aspect text: %s%n", aspectSentiment.getSentiment(),
+                    aspectSentiment.getText());
+            for (OpinionSentiment opinionSentiment : minedOpinions.getOpinions()) {
+                System.out.printf("\t\t\t\t'%s' opinion sentiment because of \"%s\". Is the opinion negated: %s.%n",
+                        opinionSentiment.getSentiment(), opinionSentiment.getText(), opinionSentiment.isNegated());
             }
-        }
-    }
+        });
+    });
 }
 ```
 
@@ -189,15 +214,15 @@ static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 
 ```console
 Text = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
-Recognized document sentiment: negative, positive score: 0.010000, neutral score: 0.140000, negative score: 0.850000.
-	Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
-		Aspect sentiment: negative, aspect text: atmosphere
-			'negative' opinion sentiment because of "bad". Is the opinion negated: false.
-	Sentence sentiment: negative, positive score: 0.020000, neutral score: 0.440000, negative score: 0.540000.
-	Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
-		Aspect sentiment: negative, aspect text: Staff
-			'negative' opinion sentiment because of "friendly". Is the opinion negated: true.
-			'negative' opinion sentiment because of "helpful". Is the opinion negated: true.
+	Recognized document sentiment: negative, positive score: 0.010000, neutral score: 0.140000, negative score: 0.850000.
+		Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
+			Aspect sentiment: negative, aspect text: atmosphere
+				'negative' opinion sentiment because of "bad". Is the opinion negated: false.
+		Sentence sentiment: negative, positive score: 0.020000, neutral score: 0.440000, negative score: 0.540000.
+		Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
+			Aspect sentiment: negative, aspect text: Staff
+				'negative' opinion sentiment because of "friendly". Is the opinion negated: true.
+				'negative' opinion sentiment because of "helpful". Is the opinion negated: true.
 
 Process finished with exit code 0
 ```
@@ -248,7 +273,7 @@ This article only describes version 3.x of the API.
 
 ## Language detection
 
-Create a new function called `detectLanguageExample()` that takes the client that you created earlier, and call its `detectLanguage()` function. The returned `DetectLanguageResult` object will contain a primary language detected, a list of other languages detected if successful, or an `errorMessage` if not.
+Create a new function called `detectLanguageExample()` that takes the client that you created earlier, and call its `detectLanguage()` function. The returned `DetectLanguageResult` object will contain a primary language detected, a list of other languages detected if successful, or an `errorMessage` if not. This example is the same for versions 3.0 and 3.1 of the API.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""`. To set a different default, set the `TextAnalyticsClientOptions.DefaultCountryHint` property and pass it during the client's initialization.
@@ -314,6 +339,7 @@ Recognized entity: last week, entity category: DateTime, entity sub-category: Da
 ### Entity linking
 
 Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its `recognizeLinkedEntities()` function. The returned `LinkedEntityCollection` object will contain a list of `LinkedEntity` if successful, or an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
+
 
 ```java
 static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
@@ -496,7 +522,7 @@ This article only describes version 3.x of the API.
 
 ## Key phrase extraction
 
-Create a new function called `extractKeyPhrasesExample()` that takes the client that you created earlier, and call its `extractKeyPhrases()` function. The returned `ExtractKeyPhraseResult` object will contain a list of key phrases if successful, or an `errorMessage` if not.
+Create a new function called `extractKeyPhrasesExample()` that takes the client that you created earlier, and call its `extractKeyPhrases()` function. The returned `ExtractKeyPhraseResult` object will contain a list of key phrases if successful, or an `errorMessage` if not. This example is the same for version 3.0 and 3.1 of the API.
 
 ```java
 static void extractKeyPhrasesExample(TextAnalyticsClient client)
