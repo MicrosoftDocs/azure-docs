@@ -106,7 +106,6 @@ public static void main(String[] args) {
     //You will create these methods later in the quickstart.
     TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
 
-    sentimentAnalysisExample(client);
     sentimentAnalysisWithOpinionMiningExample(client)
     detectLanguageExample(client);
     recognizeEntitiesExample(client);
@@ -176,7 +175,7 @@ In your program's `main()` method, call the authentication method to instantiate
 > * Sentiment Analysis includes Opinion Mining analysis which is optional flag. 
 > * Opinion Mining contains aspect and opinion level sentiment. 
 
-Create a new function called `sentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function with setting option object `AnalyzeSentimentOptions`. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
+To perform sentiment analysis with opinion mining, create a new function called `sentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function with setting option object `AnalyzeSentimentOptions`. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
 
 ```java
 static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
