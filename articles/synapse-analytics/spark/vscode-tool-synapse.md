@@ -253,7 +253,7 @@ You can perform different operations in Azure Explorer within Spark & Hive tools
 
      - Click on **Copy Full Path**, the Primary ADLS Gen2 account URL will be copied, you can paste it where you need。
 
-     - ClicK on **Open in Synapse Studio**, the Primary Storage Account will be opened in Synapse Studio.
+     - Click on **Open in Synapse Studio**, the Primary Storage Account will be opened in Synapse Studio.
 
      ![default storage in synapse studio](./media/vscode-tool-synapse/default-storage-in-synapse-studio.png)
 
@@ -264,7 +264,7 @@ You can perform different operations in Azure Explorer within Spark & Hive tools
      ![expand storage pool](./media/vscode-tool-synapse/expand-storage-pool.png)
 
 
-## Known Issues
+## Known issues
 
 ### ms-python >=2020.5.78807 version is not supported on this extention 
 
