@@ -10,6 +10,8 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: August 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/
     - name: July 2020 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/
     - name: June 2020 new and updated features
@@ -107,7 +109,7 @@
           href: howto-run-a-job.md
     - name: Transform
       items:
-        - name: Export data to cloud destinations (preview)
+        - name: Export data to cloud destinations
           href: howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: howto-export-data-legacy.md

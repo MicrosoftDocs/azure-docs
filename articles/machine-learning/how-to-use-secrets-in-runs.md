@@ -14,13 +14,13 @@ ms.custom: how-to
 ---
 
 # Use authentication credential secrets in Azure Machine Learning training runs
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to use secrets in training runs securely. Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote run context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
 
 Instead, your Azure Machine Learning workspace has an associated resource called a [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Use this Key Vault to pass secrets to remote runs securely through a set of APIs in the Azure Machine Learning Python SDK.
 
-The basic flow for using secrets is:
+The standard flow for using secrets is:
  1. On local computer, log in to Azure and connect to your workspace.
  2. On local computer, set a secret in Workspace Key Vault.
  3. Submit a remote run.
