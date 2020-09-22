@@ -70,7 +70,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     df -h /mountpoint
     ```
 
-    ![scenarioa-check-fs](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
+    ![scenarioa-check-fs1](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
 
 2. Verify that the VG has enough space to increase the LV
 
@@ -198,7 +198,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     lsbk
     ```
 
-    ![scenariob-check-lsblk1](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)
+    ![scenariob-check-lsblk12](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)
 
 8. Create a new PV on top of the new Data Disk
 
@@ -495,7 +495,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![scenarioe-check-newdisk02](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
+    ![scenarioe-check-newdisk002](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
 
     Add a new disk either with PowerShell, the Azure CLI, or the Azure portal. Check how to [attach a disk](attach-disk-portal.md) for reference on adding disks to a VM.
 
@@ -513,7 +513,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![scenarioe-check-newdisk03](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk03.png)
+    ![scenarioe-check-newdisk003](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk03.png)
 
 5. Create a filesystem on top of the recently added disk
 
@@ -706,7 +706,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvs
     ```
 
-    ![scenariof-pvs](./media/disk-encryption/resize-lvm/041-resize-lvm-scenariof-pvs.png)
+    ![scenariof-pvs1](./media/disk-encryption/resize-lvm/041-resize-lvm-scenariof-pvs.png)
 
 3. Check your vg information
 
