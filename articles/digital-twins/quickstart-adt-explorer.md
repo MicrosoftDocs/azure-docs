@@ -70,6 +70,8 @@ Fill the configuration details as follows:
 * **Redirect URIs**: Add a redirect URI of *http://localhost:3000*.
 * **Implicit grant**: Check the box for *Access tokens*.
 
+Hit *Configure* to finish.
+
 :::row:::
     :::column:::
         :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="The Configure platforms page, highlighting the info described above onscreen":::
@@ -77,8 +79,6 @@ Fill the configuration details as follows:
     :::column:::
     :::column-end:::
 :::row-end:::
-
-Hit *Configure* to finish.
 
 Now you have a web configuration configured that ADT Explorer will use. The Authentication tab in the Azure portal should reflect this. After verifying the sections below, hit *Save*.
 

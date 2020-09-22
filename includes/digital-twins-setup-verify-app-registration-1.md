@@ -11,6 +11,6 @@ To check whether the permissions have been configured correctly, navigate to the
 
 Switch to the *All applications* tab to see all the app registrations that have been created in your subscription.
 
-:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/app-registrations.png" alt-text="App registrations page in the Azure portal":::
-
 You should see the app registration you just created in the list. Select it to open up its details.
+
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/app-registrations.png" alt-text="App registrations page in the Azure portal":::
