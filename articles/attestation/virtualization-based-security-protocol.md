@@ -186,7 +186,7 @@ VBS example
       ],
       "service_context": "<BASE64URL(SERVICECONTEXT)>"
     },
-    "vsm_report": "<BASE64URL(REPORT)>"
+    "vbs_report": "<BASE64URL(REPORT)>"
   }
 }
 ``` 
