@@ -10,10 +10,9 @@ ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
 
 ---
-# Timer trigger for Azure Functions 
+# Timer trigger for Azure Functions
 
-This article explains how to work with timer triggers in Azure Functions. 
-A timer trigger lets you run a function on a schedule. 
+This article explains how to work with timer triggers in Azure Functions. A timer trigger lets you run a function on a schedule.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -110,7 +109,7 @@ module.exports = function (context, myTimer) {
 
 # [Python](#tab/python)
 
-The following example uses a timer trigger binding whose configuration is described in the *function.json* file. The actual [Python function](functions-reference-python.md) that uses the binding is described in the *__init__.py* file. The object passed into the function is of type [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). The function logic writes to the logs indicating whether the current invocation is due to a missed schedule occurrence. 
+The following example uses a timer trigger binding whose configuration is described in the *function.json* file. The actual [Python function](functions-reference-python.md) that uses the binding is described in the *__init__.py* file. The object passed into the function is of type [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). The function logic writes to the logs indicating whether the current invocation is due to a missed schedule occurrence.
 
 Here's the binding data in the *function.json* file:
 
@@ -226,7 +225,7 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> We recommend against setting **runOnStartup** to `true` in production. Using this setting makes code execute at highly unpredictable times. In certain production settings, these extra executions can result in significantly higher costs for apps hosted in Consumption plans. For example, with **runOnStartup** enabled the trigger is invoked whenever your function app is scaled. Make sure you fully understand the production behavior of your functions before enabling **runOnStartup** in production.   
+> We recommend against setting **runOnStartup** to `true` in production. Using this setting makes code execute at highly unpredictable times. In certain production settings, these extra executions can result in significantly higher costs for apps hosted in Consumption plans. For example, with **runOnStartup** enabled the trigger is invoked whenever your function app is scaled. Make sure you fully understand the production behavior of your functions before enabling **runOnStartup** in production.
 
 ## Usage
 
@@ -247,8 +246,7 @@ When a timer trigger function is invoked, a timer object is passed into the func
 
 The `IsPastDue` property is `true` when the current function invocation is later than scheduled. For example, a function app restart might cause an invocation to be missed.
 
-
-## NCRONTAB expressions 
+## NCRONTAB expressions
 
 Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret NCRONTAB expressions. An NCRONTAB expression is similar to a CRON expression except that it includes an additional sixth field at the beginning to use for time precision in seconds:
 
@@ -297,12 +295,12 @@ Unlike a CRON expression, a `TimeSpan` value specifies the time interval between
 
 Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less than 24. When the first two digits are 24 or greater, the format is `dd:hh:mm`. Here are some examples:
 
-|Example |When triggered  |
-|---------|---------|
-|"01:00:00" | every hour        |
-|"00:01:00"|every minute         |
-|"24:00:00" | every 24 days        |
-|"1.00:00:00" | every day        |
+| Example      | When triggered |
+|--------------|----------------|
+| "01:00:00"   | every hour     |
+| "00:01:00"   | every minute   |
+| "24:00:00"   | every 24 days  |
+| "1.00:00:00" | every day      |
 
 ## Scale-out
 
