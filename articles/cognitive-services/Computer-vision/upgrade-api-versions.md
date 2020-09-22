@@ -36,7 +36,7 @@ Next, use the following sections to narrow your operations and replace the **ver
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/**version string**/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**version string**>/read/analyze[?language]|
     
 A new optional _language_ parameter is available. If you do not know the language of your document, or it may be multilingual, don't include it. 
 
@@ -44,7 +44,7 @@ A new optional _language_ parameter is available. If you do not know the languag
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/**version string**/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<**version string**>/read/analyzeResults/{operationId}|
 
 ### `Get Read Operation Result` status flag
 
@@ -174,7 +174,7 @@ In v3.0, it has been adjusted:
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/**version string**/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/<**version string**>/read/analyze[?language]|
     
 The _mode_ parameter is not supported in `Read`. Both handwritten and printed text will automatically be supported.
     
@@ -184,7 +184,7 @@ A new optional _language_ parameter is available in v3.0. If you do not know the
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/**version string**/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/<**version string**>/read/analyzeResults/{operationId}|
 
 ### `Get Recognize Text Operation Result` status flags
 When the call to `Get Recognize Text Operation Result` is successful, it returns a status string field in the JSON body. 
@@ -308,4 +308,4 @@ In v3.x, it has been adjusted:
 
 |Read 2.0 |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/**version string**/read/syncAnalyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/<**version string**>/read/syncAnalyze[?language]|
