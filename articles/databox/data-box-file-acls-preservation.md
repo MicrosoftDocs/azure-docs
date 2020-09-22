@@ -15,18 +15,22 @@ ms.author: alkohli
 
 Data Box lets you transfer your files to Azure Files and Azure Files Sync in an offline fashion, and is especially suited to situations when your bandwidth is limited and your data set is large. This article explains how you can use Data Box to transfer files into Azure Files with your metadata (ACLs, timestamps, and attributes) preserved. This article also goes on to enumerate the steps that you can take to work with Azure Files Sync.
 
-Source share types:
-
-- Read-only attributes on directories are not preserved in the Data Box. 
+## Source share types
 
 | Source data type | Supported metadata |
 | ------------------- | ----- |
 |Window-based | Metadata and ACLs fully supported. |
-|Unix/Linux-based | Only NT ACLs supported. <break> Windows NT ACLs alone supported, and they must be ingested into the Data Box over SMB. (Transfer of ACLs is not supported over NFS.)
+|Unix/Linux-based | Only NT ACLs supported. <break> Windows NT ACLs alone supported, and they must be ingested into the Data Box over SMB.| 
+
+Limitations:
+
+- Read-only attributes on directories are not preserved in the Data Box.
+
+- Transfer of ACLs is not supported over NFS.
 
 ## Preserve metadata in Azure Data Box
 
-All the file, directory, and share ACLs for the directories and files that are copied to your Data Box over SMB are transported to Azure Files Share. Create time and Last Write time are preserved and copied to Azure Files. 
+All the file, directory, and share ACLs for the directories and files that are copied to your Data Box over SMB are transported to the Azure Files share. Create time and Last Write time also are copied to the share. 
 
 The following file attributes can be transported to Azure Files:
 
@@ -41,9 +45,9 @@ The following file attributes can be transported to Azure Files:
 | FILE_ATTRIBUTE_NO_SCRUB_DATA | |
 
 > [!NOTE]
-> A known issue exists for files which contains ACLs with conditional-ace-types, where the file will fail to be copied. Until this issue is fixed, these files will need to be copied to the Azure File share manually, by mounting the share and using a copy tool that supports copying ACLs.
+> A known issue exists for files with ACLs containing conditional access control entry (ACE) strings, causing the files not to be copied. Until this issue is fixed, you need to copy these files to the Azure Files share manually, by mounting the share and using a copy tool that supports copying ACLs.
 
-If the tool used to copy data to the Data Box does not also copy ACLs, the default ACLs will be present on the directories and files and will be transported to Azure Files. The default ACLs have permissions for Built-in Administrators, System, and the SMB Share user account that was used to mount and copy data.
+If the tool used to copy data to the Data Box does not copy ACLs, the default ACLs on the directories and files are present and are transported to Azure Files. The default ACLs have permissions for Built-in Administrators, System, and the SMB Share user account that was used to mount and copy data.
 
 By default, the supported attributes, ACLs, and timestamps on directories and files copied to a Data Box are transported to Azure during the data copy. To enable or disable metadata transport, change the Enable ACLs for Azure Files setting in the local web UI. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
 
@@ -57,7 +61,8 @@ The following metadata can be transported to Azure Files:
 |Attributes |   |
 |Timestamps |LastWriteTime, CreationTime (but not ChangeTime) |
 
-## Transfer data via data copy service
+### Transfer data via data copy service
+
 When you ingest data using the data copy service running in Data Box, you can only transfer data, not metadata. The data copy service reads data directly from your shares. It can't read ACLs.
 
 ## Detailed steps
@@ -72,9 +77,7 @@ robocopy <Source> <Target> * /copyall /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 
 
 where
 
-|Attribute  |Description  |
-|---------|---------|
-|copyall |Copies all files.
+|copyall |Copies all files.|
 |/e      |Copies subdirectories, including empty directories.         |
 |/r:3    |Specifies 3 retries on failed copies.         |
 |/w:60   |Specifies a wait time of 60 seconds between retries.         |
@@ -88,7 +91,7 @@ where
 
 ### Copy metadata via NFS
 
-Linux tools for copying data, such as rsync, do not preserve metadata. The following sample commands will copy metadata when using rsync for the data copy.
+Linux tools for copying data, such as rsync, do not preserve metadata. The following sample commands will copy metadata when using rsync for a data copy.
 
 ```console
 cp -aR /etc /opt/ 
