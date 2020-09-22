@@ -84,6 +84,8 @@
   items:
   - name: Run Apache Spark applications
     href: ./spark/intellij-tool-synapse.md
+  - name: Run PySpark applications for Spark pools
+    href: ./spark/vscode-tool-synapse.md
   - name: Spark job definitions
     href: ./spark/apache-spark-job-definitions.md 
   - name: Power BI Desktop

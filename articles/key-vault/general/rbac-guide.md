@@ -46,6 +46,8 @@ More about Azure Key Vault management guidelines, see:
 - [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations (preview)
+> [!NOTE]
+> `Key Vault Contributor` role is for management plane operations to manage key vaults. It does not allow access to keys, secrets and certificates.
 
 | Built-in role | Description | ID |
 | --- | --- | --- |

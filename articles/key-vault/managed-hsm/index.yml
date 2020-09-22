@@ -4,7 +4,7 @@ title: Azure Key Vault Managed HSM documentation
 summary: Learn how to use Managed HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
 
 metadata:
-  title: Azure Manage HSM documentation
+  title: Azure Managed HSM documentation
   description: Learn how to use u to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   services: key-vault
   ms.service: key-vault

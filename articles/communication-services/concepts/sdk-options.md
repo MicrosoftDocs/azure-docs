@@ -23,7 +23,7 @@ Azure Communication Services capabilities are conceptually organized into six ar
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Open            | Azure.ResourceManager.Communication | Provision and manage Communication Services resources             |
 | Common                 | REST | Open               | Azure.Communication.Common          | Provides base types for other client libraries |
-| Administration         | REST |                | Azure.Communication.Administration  | Manage users, access tokens, and phone numbers, allocate standards-compliant STUN and TURN servers |
+| Administration         | REST | Open               | Azure.Communication.Administration  | Manage users, access tokens, and phone numbers, allocate standards-compliant STUN and TURN servers |
 | Chat                   | REST with proprietary signalling | Open with closed source signalling package    | Azure.Communication.Chat            | Add real-time text based chat to your applications  |
 | SMS                    | REST | Open              | Azure.Communication.SMS             | Send and receive SMS messages |
 | Calling                | Proprietary transport | Closed |Azure.Communication.Calling         | Leverage voice, video, screen-sharing, and other real-time data communication capabilities          |
