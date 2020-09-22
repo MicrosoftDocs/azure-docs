@@ -313,7 +313,7 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than or equal'', @end_time);
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
     SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 
@@ -323,7 +323,7 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than or equal'', @end_time);
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
     SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 4. Click on the **Sink** tab of the **Copy** activity and click **Open** to edit the dataset properties. Click on the **Parameters** tab and add a new parameter called **triggerStart**    
