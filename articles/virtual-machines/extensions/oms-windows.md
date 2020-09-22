@@ -32,7 +32,7 @@ The following table provides a mapping of the version of the Windows Log Analyti
 
 | Log Analytics Windows agent bundle version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 10.20.18038 | 1.0.18040.2 | August 2020   | <ul><li>Resolves an issue on Azure Arc</li></ul> |
+| 10.20.18040 | 1.0.18040.2 | August 2020   | <ul><li>Resolves an issue on Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | April 2020   | <ul><li>Enables connectivity over Private Link using Azure Monitor Private Link Scopes</li><li>Adds ingestion throttling to avoid a sudden, accidental influx in ingestion to a workspace</li><li>Adds support for additional Azure Government clouds and regions</li><li>Resolves a bug where HealthService.exe crashed</li></ul> |
 | 10.20.18029 | 1.0.18029 | March 2020   | <ul><li>Adds SHA-2 code signing support</li><li>Improves VM extension installation and management</li><li>Resolves a bug in Azure Arc for Servers integration</li><li>Adds a built-in troubleshooting tool for customer support</li><li>Adds support for additional Azure Government regions</li> |
 | 10.20.18018 | 1.0.18018 | October 2019 | <ul><li> Minor bug fixes and stabilization improvements </li></ul> |
