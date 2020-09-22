@@ -21,8 +21,8 @@ landingContent:
       links:
         - text: What is IoT Plug and Play?
           url: overview-iot-plug-and-play.md
-        - text: Preview Refresh updates 2020
-          url: overview-iot-plug-and-play-preview-updates.md
+        - text: What's in the current release
+          url: overview-iot-plug-and-play-current-release.md
   - title: Build devices
     linkLists:
     - linkListType: quickstart
