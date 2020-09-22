@@ -15,7 +15,6 @@ ms.custom: how-to, contperfq4, tracking-python
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
 
@@ -169,8 +168,6 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 To use Azure Container Registry inside a virtual network, you must meet the following requirements:
 
-* Your Azure Machine Learning workspace must be Enterprise edition. For information on upgrading, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
-
 * Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 
 * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
@@ -178,6 +175,8 @@ To use Azure Container Registry inside a virtual network, you must meet the foll
 * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute).
 
     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+
+* Before using ACR with Azure Machine Learning in a virtual network, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 Once those requirements are fulfilled, use the following steps to enable Azure Container Registry.
 
@@ -252,8 +251,8 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
             "type": "SystemAssigned"
         },
         "sku": {
-            "tier": "enterprise",
-            "name": "enterprise"
+            "tier": "basic",
+            "name": "basic"
         },
         "properties": {
             "sharedPrivateLinkResources":

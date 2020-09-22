@@ -99,7 +99,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 4. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 5. Under **LOGS**, select **NSG flow logs**, as shown in the following picture:
 
-    ![NSGs](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+    ![Screenshot shows the Network Watcher NSG flow logs.](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. From the list of NSGs, select the NSG named **myVm-nsg**.
 7. Under **Flow logs settings**, select **On**.

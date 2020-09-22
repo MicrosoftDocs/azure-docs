@@ -35,7 +35,7 @@ After you connect to the virtual machine using the [Azure portal ](https://porta
 
    ![tool palette](./media/bastion-vm-manage/left.png)
 
-   ![clipboard](./media/bastion-vm-manage/clipboard.png)
+   ![Screenshot shows a clipboard for text copied in Bastion.](./media/bastion-vm-manage/clipboard.png)
 1. Typically, the copied text automatically shows on the Bastion copy paste palette. If your text is not there, then paste the text in the text area on the palette.
 1. Once the text is in the text area, you can paste it to the remote session.
 

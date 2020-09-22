@@ -106,6 +106,8 @@ landingContent:
             url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
           - text: Python
             url: /python/api/azure-mgmt-managedservices
+          - text: Terraform
+            url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
   
   - title: Reference - Downloads
     linkLists:
