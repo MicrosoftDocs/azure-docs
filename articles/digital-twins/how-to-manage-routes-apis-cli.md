@@ -45,7 +45,7 @@ To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or 
 
 ### Create an Event Grid endpoint
 
-The following example shows how to create an event grid-type endpoint using the Azure CLI. You can use [Azure Cloud Shell](https://shell.azure.com), or [install the CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+The following example shows how to create an event grid-type endpoint using the Azure CLI. You can use [Azure Cloud Shell](https://shell.azure.com), or [install the CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 First, create an event grid topic. You can use the following command, or view the steps in more detail by visiting [the *Create a custom topic* section](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) of the Event Grid *Custom events* quickstart.
 
