@@ -103,7 +103,7 @@ A run configuration defines how a script should be run in a specified compute ta
 
 A run configuration can be persisted into a file inside the directory that contains your training script.   Or it can be constructed as an in-memory object and used to submit a run.
 
-For example run configurations, see [Use a compute target to train your model](how-to-set-up-training-targets.md).
+For example run configurations, see [Configure a training run](how-to-set-up-training-targets.md).
 
 ### Snapshots
 
@@ -123,7 +123,7 @@ There are multiple ways to view your logs: monitoring run status in real time, o
 
 ### Git tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using a script run configuration or ML pipeline. It also works for runs submitted from the SDK or Machine Learning CLI.
 
 For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
