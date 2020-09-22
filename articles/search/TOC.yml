@@ -156,7 +156,7 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Import Azure-only data
+  - name: Import Azure data (indexers)
     items:
     - name: Work with indexers
       items:
@@ -168,6 +168,16 @@
         href: search-howto-schedule-indexers.md
       - name: Map fields
         href: search-indexer-field-mappings.md
+    - name: Connect with managed identities
+      items:
+      - name: Managed identities overview
+        href: search-howto-managed-identities-data-sources.md
+      - name: Azure Storage
+        href: search-howto-managed-identities-storage.md
+      - name: Azure Cosmos DB
+        href: search-howto-managed-identities-cosmos-db.md
+      - name: SQL Database
+        href: search-howto-managed-identities-sql.md
     - name: Azure Blobs
       items:      
       - name: Search over blobs
@@ -188,22 +198,12 @@
       href: search-howto-index-cosmosdb.md
     - name: Azure Data Lake Storage Gen2
       href: search-howto-index-azure-data-lake-storage.md
-    - name: SQL Database
+    - name: Azure SQL Databases
       href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-    - name: SQL Managed Instances
+    - name: Azure SQL Managed Instances
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-    - name: SQL Server VMs
+    - name: Azure SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-    - name: Connect using managed identities
-      items:
-      - name: Managed identities overview
-        href: search-howto-managed-identities-data-sources.md
-      - name: Azure Storage
-        href: search-howto-managed-identities-storage.md
-      - name: Azure Cosmos DB
-        href: search-howto-managed-identities-cosmos-db.md
-      - name: SQL Database
-        href: search-howto-managed-identities-sql.md
   - name: Use skills (AI)
     items:
     - name: Attach a Cognitive Services resource
