@@ -210,7 +210,7 @@ $resourceGroup = "<yourResourceGroup>"
 $vmName = "<yourVMName>"
 $diskName = "<yourDiskName>"
 $lun = 1
-Login-AzureRMAccount -SubscriptionId $subscription
+Connect-AzAccount -SubscriptionId $subscription
 $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 $disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
@@ -349,7 +349,7 @@ $resourceGroup = "<yourResourceGroup>"
 $vmName = "<yourVMName>"
 $diskName = "<yourDiskName>"
 $lun = 1
-Login-AzureRMAccount -SubscriptionId $subscription
+Connect-AzAccount -SubscriptionId $subscription
 $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 $disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
