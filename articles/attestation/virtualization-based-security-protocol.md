@@ -252,7 +252,7 @@ Azure Attestation -> Client
 
 Network calls between the enclave and the Azure Attestation are actually made from VTL0 (unprotected). The figure does not show that detail for simplification. However, the attestation protocol is guaranteed to be protected even on untrusted transport mechanisms so it is not a problem that a VTL0 process is sending/receiving the data.
 
-Messages shown in the protocol diagram and ensuing description are just a simple representation for simplification. The actual message formats are detailed in [PROTOCOL MESSAGES](# protocol-messages) section.
+Messages shown in the protocol diagram and ensuing description are just a simple representation for simplification. The actual message formats are detailed in protocol messages section.
 
 1. Enclave starts the protocol by requesting a challenge from the service (shown as the Init message)
 2. Azure Attestation generates a random challenge and creates a session context which contains such challenge and a timestamp. The session context is encrypted and signed using    K-Context **ENC_SIGN(K-Context)[Timestamp || Challenge]**.  Context is opaque to the client
