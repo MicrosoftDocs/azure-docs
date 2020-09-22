@@ -108,7 +108,7 @@ If your project is of type "Object Identification (Bounding Boxes)," you'll spec
 1. Select the **Rectangular box** tool ![Rectangular box tool](./media/how-to-label-images/rectangular-box-tool.png) or select "R."
 3. Click and drag diagonally across your target to create a rough bounding box. To adjust the bounding box, drag the edges or corners.
 
-![A screenshot shows basic bounding box creation.](./media/how-to-label-images/bounding-box-sequence.png)
+![Bounding box creation](./media/how-to-label-images/bounding-box-sequence.png)
 
 To delete a bounding box, click the X-shaped target that appears next to the bounding box after creation.
 
