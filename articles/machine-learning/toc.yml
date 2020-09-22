@@ -548,6 +548,9 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
+    - name: Curated environments
+      displayName: environments, curated environments
+      href: resource-curated-environments.md         
 - name: Resources
   items: 
     - name: Release notes
@@ -573,7 +576,4 @@
       href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
-      href: designer-accessibility.md
-    - name: Curated Environments
-      displayName: environments, curated environments
-      href: resource-curated-environments.md      
+      href: designer-accessibility.md   
