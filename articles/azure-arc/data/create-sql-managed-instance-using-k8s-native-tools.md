@@ -76,7 +76,7 @@ A Kubernetes secret is stored as a base64 encoded string - one for the username 
 
 > [!NOTE]
 > For optimum security, using the value 'sa' is not allowed for the login .
-> Follow the [password complexity policy](https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver15#password-complexity).
+> Follow the [password complexity policy](/sql/relational-databases/security/password-policy#password-complexity).
 
 You can use an online tool to base64 encode your desired username and password or you can use built in CLI tools depending on your platform.
 
