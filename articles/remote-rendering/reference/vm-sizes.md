@@ -18,7 +18,7 @@ Remote Rendering with `Standard` size server has a maximum scene size of 20 mill
 
 When the renderer on on a 'Standard' server size hits this limitation, it switches rendering to a checkerboard background:
 
-![Checkerboard](media/checkerboard.png)
+![Screenshot shows a grid of black and white squares with a Tools menu.](media/checkerboard.png)
 
 ## Specify the server size
 

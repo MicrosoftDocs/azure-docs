@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: douglas, carlrab
+ms.reviewer:
 ms.date: 07/11/2019
 ---
 # SQL Server instance migration to Azure SQL Managed Instance
@@ -192,7 +192,7 @@ Even if you don't make some changes in managed instance during the migration, th
 
 For instance, you don’t have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. SQL Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](../database/recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability, as [high availability](../database/high-availability-sla.md) is built in.
 
-To strengthen security, consider using [Azure Active Directory Authentication](../database/security-overview.md), [auditing](auditing-configure.md), [threat detection](../database/advanced-data-security.md), [row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and [dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+To strengthen security, consider using [Azure Active Directory Authentication](../database/security-overview.md), [auditing](auditing-configure.md), [threat detection](../database/azure-defender-for-sql.md), [row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and [dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 
 In addition to advanced management and security features, a managed instance provides a set of advanced tools that can help you to [monitor and tune your workload](../database/monitor-tune-overview.md). [Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) enables you to monitor a large set of managed instances and centralize monitoring of a large number of instances and databases. [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues.
 
