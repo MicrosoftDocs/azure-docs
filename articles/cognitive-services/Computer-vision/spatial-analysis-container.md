@@ -64,9 +64,9 @@ In this article, you will download and install the following software packages. 
 | Linux OS | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) must be installed on the host computer.  |
 
 
-## Request access to the spatial analysis functionality
+## Request approval to run the container
 
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
+Fill out and submit the [request form](https://aka.ms/cognitivegate) to request approval to run the container. 
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
 
@@ -203,7 +203,8 @@ sudo systemctl restart docker
 ## Enable NVIDIA MPS on the host computer
 
 > [!TIP]
-> Run the MPS instructions from a terminal window on the host computer. Not inside your Docker container instance.
+> * Don't install MPS if your GPU compute capability is less than 7.x (pre Volta). See [CUDA Compatability](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#support-title) for reference. 
+> * Run the MPS instructions from a terminal window on the host computer. Not inside your Docker container instance.
 
 For best performance and utilization, configure the host computer's GPU(s) for [NVIDIA Multiprocess Service (MPS)](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf). Run the MPS instructions from a terminal window on the host computer.
 
@@ -258,6 +259,8 @@ If the host computer isn't an Azure Stack Edge device, you will need to install 
 Ubuntu Server 18.04:
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+```
+
 Copy the generated list.
 
 ```bash
@@ -332,7 +335,8 @@ Once you update the sample [DeploymentManifest.json](https://go.microsoft.com/fw
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
+
 ```
 
 |Parameter  |Description  |

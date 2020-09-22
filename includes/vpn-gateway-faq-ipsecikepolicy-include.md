@@ -25,7 +25,7 @@ The following table lists the supported cryptographic algorithms and key strengt
 | ---              | ---                                                                           |
 | IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                             |
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
-| DH Group         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
+| DH Group         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None  |
 | IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
 | IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
@@ -93,6 +93,9 @@ Yes, you can apply custom policy on both IPsec cross-premises connections or VNe
 
 ### Do I need to specify the same policy on both VNet-to-VNet connection resources?
 Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one for each direction. Make sure both connection resources have the same policy, otherwise the VNet-to-VNet connection won't establish.
+
+### What is the default DPD timeout value? Can I specify a different DPD timeout?
+The default DPD timeout is 45 seconds. You can specify a different DPD timeout value on each IPsec or VNet-to-VNet connection between 9 seconds to 3600 seconds.
 
 ### Does custom IPsec/IKE policy work on ExpressRoute connection?
 No. IPsec/IKE policy only works on S2S VPN and VNet-to-VNet connections via the Azure VPN gateways.
