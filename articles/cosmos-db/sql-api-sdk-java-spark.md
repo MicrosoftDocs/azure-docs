@@ -51,7 +51,7 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 
 | Resource | Link |
 |---|---|
-| **SDK download** | [Download latest jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
+| **SDK download** | [Download latest .jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**API documentation** | [Spark Connector reference]() |
 |**Contribute to the SDK** | [Azure Cosmos DB Connector for Apache Spark on GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
 |**Get started** | [Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
@@ -60,11 +60,11 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 
 ### 3.3.0
 #### New features
-- Adds a new config option "changefeedstartfromdatetime" that can be used to specify from when the changefeed should be processed. See [Config options](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references) for details.
+- Adds a new config option, `changefeedstartfromdatetime`, which can be used to specify the start time for when the changefeed should be processed. For more information, see [Config options](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references).
 
 ### 3.2.0
 #### Key bug fixes
-- Fixes a regression that caused excessive memory consumption on the executors for large result sets (for example with millions of rows) ultimately resulting in an error "java.lang.OutOfMemoryError: GC overhead limit exceeded"
+- Fixes a regression that caused excessive memory consumption on the executors for large result sets (for example, with millions of rows), ultimately resulting in the error `java.lang.OutOfMemoryError: GC overhead limit exceeded`.
 
 ### 3.1.1
 #### Key bug fixes
