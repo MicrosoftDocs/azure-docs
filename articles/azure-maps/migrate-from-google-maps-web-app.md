@@ -1548,12 +1548,7 @@ Both Azure and Google maps can import and render KML, KMZ and GeoRSS data on the
 
 Running this code in a browser will display a map that looks like the following image:
 
-<<<<<<< HEAD
 ![Google Maps KML](media/migrate-google-maps-web-app/google-maps-kml.png)
-=======
-
-![Google Maps image overlay](media/migrate-google-maps-web-app/google-maps-kml.png)
->>>>>>> 18eac1f25737d63b90e9bc430c3d2cdf623037d3
 
 #### After: Azure Maps
 
