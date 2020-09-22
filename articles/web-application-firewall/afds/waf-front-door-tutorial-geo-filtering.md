@@ -1,6 +1,6 @@
 ---
 title: Configure geo-filtering web application firewall policy for Azure Front Door service
-description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Front Door frontend host
+description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Front Door frontend host.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
