@@ -98,6 +98,8 @@ You can also use the optional `domain=phi` parameter to detect health (`PHI`) in
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
 
+Please note the addition of the `redactedText` property in the response JSON which contains the modified input text where the detected PII entities are replaced by an * for each character of the entities.
+
 [Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
 
 ---
