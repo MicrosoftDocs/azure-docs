@@ -255,7 +255,7 @@ The legacy method for sending the Activity log into a Log Analytics workspace is
 1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
 1. Click the subscription you want to connect.
 
-    ![Workspaces](media/activity-log-collect/workspaces.png)
+    ![Screenshot shows Log Analytics workspace with an Azure Activity log selected.](media/activity-log-collect/workspaces.png)
 
 1. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to another workspace, click **Disconnect** first to disconnect it.
 

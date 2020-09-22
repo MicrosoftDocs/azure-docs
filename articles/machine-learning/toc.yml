@@ -15,21 +15,28 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Python SDK
+    - name: "Python (day 1)"
       expanded: true
-      items: 
-        - name: Create first ML experiment
-          items: 
-            - name: 1. Set up workspace & dev environment
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Train your first model
-              href: tutorial-1st-experiment-sdk-train.md
+      items:
+        - name: 1. Set up local computer
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: 2. Hello world
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Train a model
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Bring your own data
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Jupyter Notebooks
+      expanded: true
+      items:
         - name: Image classification (MNIST data)
           items: 
-            - name: 1. Train a model
+            - name: 1. Set up compute instance
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Train a model
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. Deploy a model
+            - name: 3. Deploy a model
               href: tutorial-deploy-models-with-aml.md
         - name: Regression with Automated ML (NYC Taxi data)
           items: 
@@ -92,8 +99,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concepts
   items: 
-    - name: Enterprise vs. Basic editions
-      href: concept-editions.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -201,7 +206,9 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        
+        - name: Audit and manage compliance
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
         
     - name: Responsible ML
       items: 
@@ -289,12 +296,15 @@
               href: how-to-designer-import-data.md
         - name: Access data
           items: 
-            - name: Connect to Azure Storage
+            - name: Connect to Azure storage (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
-            - name: Get data from a datastore
+            - name: Get data from a datastore (Python)
               displayName: data, data set, register, access data
               href: how-to-create-register-datasets.md
+            - name: Connect to data (UI)
+              displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
+              href: how-to-connect-data-ui.md
         - name: Manage & consume data
           items: 
             - name: Train with datasets
@@ -450,6 +460,9 @@
       - name: Profile models
         displayName: profile resource requirement
         href: how-to-deploy-profile-model.md
+      - name: Deploy designer models
+        displayName: designer, studio
+        href: how-to-deploy-model-designer.md
       - name: (Preview) No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
