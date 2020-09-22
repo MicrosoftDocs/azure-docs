@@ -26,7 +26,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
     + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
   + **azureml-contrib-notebook**
-    +  Pin nbcovert dependency to < 6 since azureml-contrib-notebook uses Papermill 1.
+    + Pin nbcovert dependency to < 6 so that papermill 1.x continues to work.
   + **azureml-core**
     + Added additional parameters to the ScriptRunConfig constructor to enable a more clear and streamlined initialization of the class attributes without requiring the user to set each individual attribute on the ScriptRunConfig's RunConfiguration property.
     + Pin the version of azure-mgmt-resource to fix the authentication error.
