@@ -36,7 +36,7 @@ The following are prerequisites required for completing this tutorial
 - A test environment with Azure AD Connect sync version 1.4.32.0 or later
 - An OU or group that is in scope of sync and can be used the pilot. We recommend starting with a small set of objects.
 - A server running Windows Server 2012 R2 or later that will host the provisioning agent.  This cannot be the same server as the Azure AD Connect server.
-- Source anchor for AAD Connect sync should be either *objectGuid* or *ms-ds-consistencyGUID*
+- Source anchor for Azure AD Connect sync should be either *objectGuid* or *ms-ds-consistencyGUID*
 
 ## Update Azure AD Connect
 
@@ -50,7 +50,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 3.  Run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
 >[!NOTE] 
->If you are running your own custom scheduler for AAD Connect sync, then please disable the scheduler. 
+>If you are running your own custom scheduler for Azure AD Connect sync, then please disable the scheduler. 
 
 ## Create custom user inbound rule
 
@@ -96,7 +96,7 @@ Same steps need to be followed for all object types (user, group and contact). R
 
     **Name:** Give the rule a meaningful name<br>
     **Description:** Add a meaningful description<br>
-    **Connected System:** Choose the AAD connector that you are writing the custom sync rule for<br>
+    **Connected System:** Choose the Azure AD connector that you are writing the custom sync rule for<br>
     **Connected System Object Type:** User<br>
     **Metaverse Object Type:** Person<br>
     **Link Type:** JoinNoFlow<br>

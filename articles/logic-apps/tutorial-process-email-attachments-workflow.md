@@ -392,7 +392,7 @@ This step adds your previously created Azure function to your logic app and pass
 
    ![Inside "If true", add action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. In the search box, find "azure functions", and select this action: **Choose an Azure function - Azure Functions**
+1. In the search box, find "Azure functions", and select this action: **Choose an Azure function - Azure Functions**
 
    ![Select action for "Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 

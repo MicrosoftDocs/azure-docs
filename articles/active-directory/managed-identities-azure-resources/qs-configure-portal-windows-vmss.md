@@ -1,5 +1,5 @@
 ---
-title: Configure managed identities on Azure VMSS - Azure AD
+title: Configure managed identities on VMSS - Azure AD
 description: Step by step instructions for configuring managed identities for Azure resources on a virtual machine scale set using the Azure portal.
 services: active-directory
 documentationcenter: ''
