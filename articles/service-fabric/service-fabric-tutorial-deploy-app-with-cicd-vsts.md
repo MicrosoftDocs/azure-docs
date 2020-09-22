@@ -60,7 +60,7 @@ Create a new local Git repo for your project by selecting **Add to Source Contro
 
 In the **Push** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps**.
 
-![Screenshot of the Push to Azure DevOps settings with the Email, Account, Repository name, and Publish Repository button highlighted.][push-git-repo]
+![Screenshot of the Team Explorer - Synchronization window in Visual Studio. The Publish to Git Repo button is highlighted under Push to Azure DevOps.][push-git-repo]
 
 Verify your email and select your account in the **Azure DevOps Domain** drop-down. Enter your repository name and select **Publish repository**.
 

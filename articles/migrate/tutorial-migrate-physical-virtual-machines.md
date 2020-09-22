@@ -260,9 +260,9 @@ Now, select machines for migration.
     - **Availability Set**: Specify the Availability Set to use.
 
 > [!NOTE]
->If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
+> If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
-    ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
+   ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
 13. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
