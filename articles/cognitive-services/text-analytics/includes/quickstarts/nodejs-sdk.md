@@ -145,7 +145,7 @@ The response object is a list containing the analysis information for each docum
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner)
 * [Entity linking](#entity-linking)
-* [Personally Identifiable Information](#pii-recognition)
+* Personally Identifiable Information
 * [Key phrase extraction](#key-phrase-extraction)
 
 ## Client Authentication
