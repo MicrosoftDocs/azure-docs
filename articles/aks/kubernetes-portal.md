@@ -4,7 +4,7 @@ description: Learn how to interact with Kubernetes resources to manage an Azure 
 services: container-service
 author: laurenhughes
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: lahugh
 ---
 
@@ -69,6 +69,9 @@ This section addresses common problems and troubleshooting steps.
 ### Unauthorized access
 
 To access the Kubernetes resources, you must have access to the AKS cluster, the Kubernetes API, and the Kubernetes objects. Ensure that you're either a cluster administrator or a user with the appropriate permissions to access the AKS cluster. For more information on cluster security, see [Access and identity options for AKS][concepts-identity].
+
+>[!NOTE]
+> The kubernetes resource view in the Azure Portal is only supported by [managed-AAD enabled clusters](managed-aad.md) or non-AAD enabled clusters. If you are using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the kubernetes API, in addition to the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
 
 ### Enable resource view
 

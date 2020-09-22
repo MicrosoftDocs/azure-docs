@@ -166,7 +166,7 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
-2. You will also need to create a client secret for signing in. Follow the guide here to [Upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in).
+2. You will also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 3. Record the following from your application registration. It should be available from your **Overview** pane:
     - **Application ID**
