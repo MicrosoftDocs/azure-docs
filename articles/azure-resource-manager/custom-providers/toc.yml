@@ -9,6 +9,8 @@
   items:
   - name: Create a custom resource provider
     href: create-custom-provider.md
+  - name: Create a custom resource provider - Azure PowerShell
+    href: create-custom-provider-quickstart-powershell.md
 - name: Tutorials
   items:
   - name: Get started with custom providers
@@ -45,6 +47,8 @@
     href: /rest/api/customproviders/
   - name: Azure CLI
     href: /cli/azure/ext/custom-providers/custom-providers/
+  - name: Azure PowerShell
+    href: /powershell/module/Az.CustomProviders/
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
