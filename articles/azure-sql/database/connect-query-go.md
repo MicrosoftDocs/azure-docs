@@ -194,8 +194,10 @@ Get the connection information you need to connect to the database. You'll need 
            return -1, err
        }
 
-       tsql := "INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location); "
-       tsql += select isNull(SCOPE_IDENTITY(), -1);"
+       tsql := `
+         INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location);
+         select isNull(SCOPE_IDENTITY(), -1);
+       `
 
        stmt, err := db.Prepare(tsql)
        if err != nil {

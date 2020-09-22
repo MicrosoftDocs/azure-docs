@@ -15,8 +15,6 @@ ms.custom: how-to, devx-track-python
 
 # Deploy models with Azure Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
 Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
 
 The workflow is similar no matter where you deploy your model:
