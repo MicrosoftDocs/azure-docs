@@ -50,7 +50,9 @@ Consider the following examples tags that can be set
 
 You can apply a single tag on your blob to describe when your data was finished processing.
 
-> "processedDate" = '2020-01-01'  
+```xml
+"processedDate" = '2020-01-01'  
+```
 
 You can apply multiple tags on your blob to be more descriptive of the data.
 
@@ -201,14 +203,13 @@ Blob index tags are a sub-resource to the blob data. A user with permissions or 
 ### Role-based access control
 Callers using an [AAD identity](../common/storage-auth-aad.md) may be granted the following permissions to operate on blob index tags.
 
-|   Blob operations   |  RBAC action   |
-|---------------------|----------------|
-| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
+|   Blob operations  |  RBAC action   |
+|--------------------|----------------|
+| Find Blobs by Tags | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 | Set Blob Tags      | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write |
 | Get Blob Tags      | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read |
 
-Additional permissions separate from the underlying blob data are required to operate over the tags.
-The Storage Blob Data Contributor role will be granted all three of these permissions. The Storage Blob Data Reader will be granted the only Find Blobs by Tags and Get Blob Tags permissions.
+Additional permissions separate from the underlying blob data are required to operate over the tags. The Storage Blob Data Owner role will be granted all three of these permissions. The Storage Blob Data Reader will be granted the only Find Blobs by Tags and Get Blob Tags permissions.
 
 ### SAS permissions
 Callers using a [shared access signature (SAS)](../common/storage-sas-overview.md) may be granted scoped permissions to operate on blob tags.
