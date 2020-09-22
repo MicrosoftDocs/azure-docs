@@ -20,15 +20,15 @@ Monitoring is one of the many built-in capabilities that Azure Arc enabled data 
 Usage information such as inventory and resource usage can be uploaded to Azure in the following two-step way:
 
 1. Export the usage data using ```azdata export``` command, as follows:
-  
-```console
-#login to the data controller and enter the values at the prompt
-azdata login
 
-#run the export command
-azdata arc dc export --type usage --path usage.json
-```
-This command creates a `usage.json` file with all the Azure Arc enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #run the export command
+   azdata arc dc export --type usage --path usage.json
+   ```
+   This command creates a `usage.json` file with all the Azure Arc enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
 
 2. Upload the usage data using ```azdata upload``` command
 
@@ -266,30 +266,33 @@ To upload metrics for your Azure arc enabled SQL managed instances and Azure Arc
 
 1. Export all metrics to the specified file:
 
-```console
-#login to the data controller and enter the values at the prompt
-azdata login
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
 
-#export the metrics
-azdata arc dc export --type metrics --path metrics.json
-```
+   #export the metrics
+   azdata arc dc export --type metrics --path metrics.json
+   ```
 
 2. Upload metrics to Azure monitor:
 
-```console
-#login to the data controller and enter the values at the prompt
-azdata login
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
 
-#upload the metrics
-azdata arc dc upload --path metrics.json
-```
-> [!NOTE]
-> 1. Please wait for at least 30 mins after the Azure Arc enabled data instances are created for the first upload
-> 2. Make sure ```upload``` the metrics right away after ```export``` as Azure Monitor only accepts metrics for the last 30 minutes. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api#troubleshooting)
+   #upload the metrics
+   azdata arc dc upload --path metrics.json
+   ```
+
+   >[!NOTE]
+   >Wait for at least 30 mins after the Azure Arc enabled data instances are created for the first upload
+   >
+   >Make sure `upload` the metrics right away after `export` as Azure Monitor only accepts metrics for the last 30 minutes. [Learn more](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
 
 
 If you see any errors indicating "Failure to get metrics" during export, check if data collection is set to ```true``` by running the following command:
-```
+
+```console
 azdata arc dc config show
 ```
 
@@ -303,7 +306,8 @@ and look under "security section"
       "allowRunAsRoot": false
     },
 ```
-and verify if the `allowNodeMetricsCollection` and `allowPodMetricsCollection` properties are set to `true`.
+
+Verify if the `allowNodeMetricsCollection` and `allowPodMetricsCollection` properties are set to `true`.
 
 ## View the metrics in the Portal
 
