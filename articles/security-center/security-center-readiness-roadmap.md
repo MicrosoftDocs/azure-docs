@@ -25,8 +25,8 @@ Azure Security Center provides unified security management and advanced threat p
 Use the following resources to get started with Security Center.
 
 Articles
-- [Introduction to Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- [Azure Security Center quickstart guide](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introduction to Azure Security Center](security-center-introduction.md)
+- [Azure Security Center quickstart guide](security-center-get-started.md)
 
 Videos
 - [Quick Introduction Video](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -38,7 +38,7 @@ To take full advantage of Security Center, it is important to understand how dif
 
 Use the following resources to assist you during the planning and operations processes.
 
-- [Azure Security Center planning and operations guide](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md)
 
 
 ### Onboarding computers to Security Center
