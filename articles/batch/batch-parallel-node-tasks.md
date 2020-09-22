@@ -44,12 +44,12 @@ By using the [CloudPool.TaskSchedulingPolicy][task_schedule] property, you can s
 As an example of how this feature is valuable, consider the pool of [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) nodes (in the example above) that is configured with a [CloudPool.TaskSlotsPerNode][maxtasks_net] value of 16. If the [CloudPool.TaskSchedulingPolicy][task_schedule] is configured with a [ComputeNodeFillType][fill_type] of *Pack*, it would maximize usage of all 16 cores of each node and allow an [autoscaling pool](batch-automatic-scaling.md) to prune unused nodes from the pool (nodes without any tasks assigned). This minimizes resource usage and saves money.
 
 ## Variable slots per task
-Task can be defined with [CloudTask.RequiredSlots][taskslots_net] property to specify how many slots it requires to run on a compute node, with default value as 1. You can set variable task slots if your task have different weight regarding to resource usage on compute node, so each compute node can have reasonable number of concurrent running tasks without overwhelming system resources like CPU or memory.
+Task can be defined with [CloudTask.RequiredSlots][taskslots_net] property to specify how many slots it requires to run on a compute node, with default value as 1. You can set variable task slots if your tasks have different weights regarding to resource usage on compute node, so each compute node can have reasonable number of concurrent running tasks without overwhelming system resources like CPU or memory.
 
 For example, for a pool with property `taskSlotsPerNode = 8`, you can submit multi-cores required CPU intensive tasks with `requiredSlots = 8`, while other tasks with `requiredSlots = 1`. When this mixed workload is scheduled to the pool, the CPU intensive tasks will run exclusively on compute node, while other tasks can run concurrently (up to eight tasks) on other nodes. This will help you to balance your workload across compute nodes and improve resource usage efficiency.
 
 > [!TIP]
-> When using variable task slots, it's possible that large tasks with more required slots can temporarily fail to be scheduled because not enough slots available on any compute node, even when there is still idle slots on some nodes. You can raise job priority for these tasks to increase their chance to compete for available slots on nodes.
+> When using variable task slots, it's possible that large tasks with more required slots can temporarily fail to be scheduled because of not enough slots available on any compute node, even when there is still idle slots on some nodes. You can raise job priority for these tasks to increase their chance to compete for available slots on nodes.
 >
 > Batch service also emits [TaskScheduleFailEvent](batch-task-schedule-fail-event.md) when it fails to schedule a task to run, while keeps retrying the scheduling until required slots become available. You can listen to that event to detect potential task scheduling stuck issue, and do your mitigation accordingly.
 >
@@ -151,7 +151,8 @@ This C# console application uses the [Batch .NET][api_net] library to create a p
 ```
 Nodes: 1
 Node size: large
-Max tasks per node: 1
+Task slots per node: 1
+Max slots per task: 1
 Tasks: 32
 Duration: 00:30:01.4638023
 ```
@@ -161,7 +162,8 @@ The first execution of the sample application shows that with a single node in t
 ```
 Nodes: 1
 Node size: large
-Max tasks per node: 4
+Task slots per node: 4
+Max slots per task: 1
 Tasks: 32
 Duration: 00:08:48.2423500
 ```
