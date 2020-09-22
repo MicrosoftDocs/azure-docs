@@ -15,19 +15,18 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: "Python (day 1)"
+    - name: "Python Day 1 get started"
       expanded: true
       items:
         - name: 1. Set up local computer
           href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: 2. Hello world
+        - name: '2. "Hello world"'
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. Train a model
+        - name: 3. Train your model
           href: tutorial-1st-experiment-sdk-train.md
         - name: 4. Bring your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
-      expanded: true
       items:
         - name: Image classification (MNIST data)
           items: 
