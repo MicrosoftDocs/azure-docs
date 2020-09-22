@@ -83,7 +83,7 @@ Create an identity for a search service in Azure Active Directory, then use RBAC
 | [**IP rules for in-bound firewall support (preview)**](service-configure-firewall.md) | Security | Limit access to a search service endpoint to specific IP addresses. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. |  Public preview using api-version=2019-10-01-Preview.  |
 | [**Azure Private Link for a private search endpoint (preview)**](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Public preview using api-version=2019-10-01-Preview.  |
 
-## Feature announcements in 2019
+## Features in 2019
 
 ### December 2019
 
