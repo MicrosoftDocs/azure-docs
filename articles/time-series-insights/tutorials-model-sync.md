@@ -1,5 +1,5 @@
 ---
-title: 'Model Synchronization Between ADT and TSI | Microsoft Docs'
+title: 'Model synchronization between Azure Digital Twins and Time Series Insights | Microsoft Docs'
 description: Best practices and tools used to translate asset model in ADT to asset model in Azure TSI
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,7 +12,7 @@ ms.date: 09/21/2020
 ms.custom: dpalled
 ---
 
-# Model synchronization between ADT and TSI Gen2
+# Model synchronization between Azure Digital Twins and Time Series Insights Gen2
 
 ## Introduction
 
@@ -20,9 +20,9 @@ This article explains best practices and tools used to translate asset model in 
 
 ## Choosing a Time Series ID
 
-Time Series ID is a unique identifier used to identify assets in Time Series Insights. Time series data (telemetries from the field, which are Time-value pairs) is represented using variables listed under TS ID. In ADT, twin properties and telemetries are used to represent state of a twin and measurements produced by the twin respectively. As of the current design of TSM, TSIDs need to be unique. Using twin IDs of the twinds in ADT or combined with property or telemetry name will always make unique TS ID in TSM. In a typical case, the **_`<Twin ID>`_** will be the TSID, and the property and telemetry names will be the variables in TSM. However there are use cases where it is preferred that asset hierarchies in TSI be flattened using composite keys format, such as **_`<Twin ID>+ <Delimiter of Choice> + <Name of the Property or Telemetry>`_**. Let’s take an example to explain the later case. Consider a room in a building modeled as a twin and has twin ID Room22. Its temperature setting property is to be translated as **_TSID Room22_TempSetting_** and temperature measurement to be translated to **_Room22_TempMea_** in TSM.
+Time Series ID is a unique identifier used to identify assets in Time Series Insights. Time series data (telemetries from the field, which are Time-value pairs) is represented using variables listed under TS ID. In ADT, twin properties and telemetries are used to represent state of a twin and measurements produced by the twin respectively. As of the current design of TSM, TSIDs need to be unique. Using twin IDs of the twins in ADT or combined with property or telemetry name will always make unique TS ID in TSM. In a typical case, the **_`<Twin ID>`_** will be the TSID, and the property and telemetry names will be the variables in TSM. However there are use cases where it is preferred that asset hierarchies in TSI be flattened using composite keys format, such as **_`<Twin ID>+ <Delimiter of Choice> + <Name of the Property or Telemetry>`_**. Let’s take an example to explain the later case. Consider a room in a building modeled as a twin and has twin ID Room22. Its temperature setting property is to be translated as **_TSID Room22_TempSetting_** and temperature measurement to be translated to **_Room22_TempMea_** in TSM.
 
-[![Choosing a Time Series ID](media/tutorials-model-sync-adt-tsi/choosing-tsid.png)](media/tutorials-model-sync-adt-tsi/choosing-tsid.png#lightbox)
+[![Choosing a Time Series ID](media/tutorials-model-sync/choosing-tsid.png)](media/tutorials-model-sync/choosing-tsid.png#lightbox)
 
 ## Contextualizing Time Series
 
@@ -30,7 +30,7 @@ Contextualization of data (mostly spatial in nature) in TSI is achieved through 
 
 In Azure Digital Twins, connection among assets are expressed using twin relationships. Twin relationships are simply a graph of connected assets. However in Time Series Insight, relationships between assets are hierarchical in nature. That is, assets share a parent-child kind od relationship and is represented using a tree structure. To translate relationship information from ADT into TSI hierarchies, we need to choose relevant hierarchical relationships from ADT. ADT uses an open standard, modeling language called Digital Twin Definition Language (DTDL). In DTDL models are described using a variant of JSON called JSON-LD. Refer to [DTDL documentation](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for full details on the specification.
 
-[![Connection between assets](media/tutorials-model-sync-adt-tsi/asset-connection.png)](media/tutorials-model-sync-adt-tsi/asset-connection.png#lightbox)
+[![Connection between assets](media/tutorials-model-sync/asset-connection.png)](media/tutorials-model-sync/asset-connection.png#lightbox)
 
 ## Translating graph representation in ADT to tree structure in TSI
 
@@ -55,9 +55,9 @@ Given the current limitation in TSI that one asset cannot be represented in mult
 
 It is the most common type of relationship among the twins. modeling pure parent-child relationship is explained in the following illustration. Instance fields and TSID are derived from twin ids as shown below. While instance fields could be manually updated using TSI explorer, the section below named “Updating Instance Fields using APIs” explains listening to model changes in ADT and updating instance fields in TSI using Azure functions.
 
-[![Mapping twin IDs](media/tutorials-model-sync-adt-tsi/mapping-twin-ids.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids.png#lightbox)
+[![Mapping twin IDs](media/tutorials-model-sync/mapping-twin-ids.png)](media/tutorials-model-sync/mapping-twin-ids.png#lightbox)
 
-[![Mapping twin IDs 2](media/tutorials-model-sync-adt-tsi/mapping-twin-ids2.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids2.png#lightbox)
+[![Mapping twin IDs 2](media/tutorials-model-sync/mapping-twin-ids2.png)](media/tutorials-model-sync/mapping-twin-ids2.png#lightbox)
 
 ## Case 2: Circular relationship
 
@@ -67,13 +67,13 @@ Given that TSID must be unique and can only be represented in one hierarchy, thi
 
 The following screenshot shows manually mapping twin IDs in ADT to Instance field in TSM and the resulting hierarchy in TSI.
 
-[![Mapping twin IDs in ADT](media/tutorials-model-sync-adt-tsi/mapping-twin-ids-adt.png)](media/tutorials-model-sync-adt-tsi/mapping-twin-ids-adt.png#lightbox)
+[![Mapping twin IDs in ADT](media/tutorials-model-sync/mapping-twin-ids-adt.png)](media/tutorials-model-sync/mapping-twin-ids-adt.png#lightbox)
 
 ### Circular relationship in ADT to multiple hierarchies in TSI, using duplicates
 
 Part 1 of the tutorial explains how a client program (an Azure function) helps transferring telemetry data from IoT Hub or other event sources to ADT. This approach suggests using the same client program to make updates to relevant properties of the parent twins. In the given example, while reading the FlowMtr telemetry from IoT Hub and updating the property “Flow” in FlowMtr twin, the program can also update corresponding properties in all possible parent twins of the source. In our example, it would be “outflowmea” (identified using the ‘outflow’ relationship) property of Room21 and “inflowmea” property of Room22.  Below screenshot shows the final user experience in TSI explorer. It must be noted that we have data duplicates by taking this approach.
 
-[![Time Series Insights Explorer](media/tutorials-model-sync-adt-tsi/tsi-explorer.png)](media/tutorials-model-sync-adt-tsi/tsi-explorer.png#lightbox)
+[![Time Series Insights Explorer](media/tutorials-model-sync/tsi-explorer.png)](media/tutorials-model-sync/tsi-explorer.png#lightbox)
 
 Code snippet below shows how the client application was able to navigate the twin relationship by using ADT APIs.
 
