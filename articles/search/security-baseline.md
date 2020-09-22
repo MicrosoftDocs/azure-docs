@@ -564,7 +564,7 @@ Streamline this process by creating diagnostic settings for Azure AD user accoun
 
 - [How to create a private endpoint for Cognitive Search](service-create-private-endpoint.md)
 
-**Azure Security Center monitoring**: Not available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -607,7 +607,7 @@ Microsoft manages the underlying platform and treats all customer content as sen
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Not applicable.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -791,7 +791,7 @@ Use tagging, management groups, and separate subscriptions where appropriate, to
 
 **Guidance**: Define a list of approved Azure resources related to indexing and skillset processing in Cognitive Search.
 
-**Azure Security Center monitoring**: Not applicable.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
