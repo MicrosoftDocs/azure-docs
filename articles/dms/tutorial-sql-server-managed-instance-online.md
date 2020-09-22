@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 > [!IMPORTANT]
 > For online migrations from SQL Server to SQL Managed Instance using Azure Database Migration Service,  you must provide the full database backup and subsequent log backups in the SMB network share that the service can use to migrate your databases. Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
-> Be sure that you take [backups using the WITH CHECKSUM option](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Also, make sure not to append multiple backups (i.e. full and t-log) into a single backup media; take each backup on a separate backup file. Finally, you can use compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
+> Be sure that you take [backups using the WITH CHECKSUM option](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017&preserve-view=true). Also, make sure not to append multiple backups (i.e. full and t-log) into a single backup media; take each backup on a separate backup file. Finally, you can use compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 
 > [!NOTE]
 > Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
@@ -240,7 +240,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     You can further expand the databases and logins categories to monitor the migration status of the respective server objects.
 
-   ![Migration activity in progress](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
+   ![Migration activity status](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## Performing migration cutover
 
@@ -259,7 +259,7 @@ After the full database backup is restored on the target instance of SQL Managed
     ![Preparing to complete cutover](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information see [Management operations duration](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
+    > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information see [Management operations duration](../azure-sql/managed-instance/management-operations-overview.md#duration).
 
 5. When the database migration status shows **Completed**, connect your applications to the new target instance of SQL Managed Instance.
 
