@@ -392,10 +392,30 @@ await client.SetMethodHandlerAsync("start", (MethodRequest req, object ctx) =>
 
 IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
 
-To use an IoT Plug and Play device that's connected to your IoT hub, use either the IoT Hub REST API or one of the IoT language SDKs. The following examples use the IoT Hub REST API. The current version of the API is `2020-05-31-preview`. Append `?api-version=2020-05-31` to your REST PI calls.
+To use an IoT Plug and Play device that's connected to your IoT hub, use either one of the IoT service SDKs or the IoT Hub REST API:
+
+### Service SDKs
+
+Use the Azure IoT Service SDKs in your solution to interact with devices and modules. For example, you can use the service SDKs to read and update twin properties and invoke commands. Supported languages include C#, Java, Node.js, and Python.
+
+The service SDKs let you access device information from a solution, such as a desktop or web application. The service SDKs include two namespaces and object models that you can use to retrieve the model ID:
+
+- Iot Hub service client.
+- Digital Twins service client.
+
+| Language | IoT Hub service client | Digital Twins service client |
+| -------- | ---------------------- | ---------------------------- |
+| C#       | [Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet-preview#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/pnp-preview-refresh/iothub/service/samples/PnpServiceSamples/Thermostat/Program.cs)| Not available |
+| Java     | [Documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-java/blob/pnp-preview-refresh/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java)| Not available |
+| Node.js  | [Documentation](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) |
+| Python   | [Documentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/pnp-preview-refresh/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) |
+
+### REST API
+
+The following examples use the IoT Hub REST API to interact with a connected IoT Plug and Play device. The current version of the API is `2020-05-31-preview`. Append `?api-version=2020-05-31` to your REST PI calls.
 
 > [!NOTE]
-> IoT Edge module twins are not currently supported by the `digitalTwins` API.
+> Module twins are not currently supported by the `digitalTwins` API.
 
 If your thermostat device is called `t-123`, you get the all the properties on all the interfaces implemented by your device with a REST API GET call:
 

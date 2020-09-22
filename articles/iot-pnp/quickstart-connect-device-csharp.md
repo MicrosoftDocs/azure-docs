@@ -21,17 +21,16 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
-To complete this quickstart on Windows, install the following software on your local Windows environment:
+To complete this quickstart on Windows, you need the following software installed on your development machine:
 
 * [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
 * [Git](https://git-scm.com/download/).
-* [CMake](https://cmake.org/download/).
 
 ## Download the code
 
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C# SDK.
 
-Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
+Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
 ```cmd
 git clone https://github.com/Azure/azure-iot-sdk-csharp.git
@@ -39,13 +38,25 @@ git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 
 ## Build the code
 
-Open the *azure-iot-sdk-csharp/iothub/device/samples/PnpDeviceSamples/Thermostat/Thermostat.csproj* project file in Visual Studio 2019.
+You can now build the sample in Visual Studio and run it in debug mode.
+
+1. Open the *azure-iot-sdk-csharp\iothub\device\samples\DigitalTwinDeviceSamples\Thermostat\Thermostat.csproj"* project file in Visual Studio 2019.
+
+1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
+
+    | Name | Value |
+    | ---- | ----- |
+    | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
+    | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
+    | IOTHUB_DEVICE_DPS_ID_SCOPE | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
+    | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
+    | IOTHUB_DEVICE_DPS_DEVICE_KEY | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
+
+    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/samples/readme.md).
 
 You can now build the sample in Visual Studio and run it in debug mode.
 
 ## Run the device sample
-
-Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 
 To trace the code execution in Visual Studio on Windows, add a break point to the `main` function in the program.cs file.
 

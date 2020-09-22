@@ -79,10 +79,11 @@ Create four environment variables to configure the samples in the quickstarts an
 * **IOTHUB_DEVICE_DPS_DEVICE_ID**: the value `"my-pnp-device"`.
 * **IOTHUB_DEVICE_DPS_DEVICE_KEY**: the enrollment primary key you made a note of previously.
 
-The service samples need the following environment variable to identify the hub and device to connect to:
+The service samples need the following environment variables to identify the hub and device to connect to:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
-* ***IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **DEVICE_ID**: `"my-pnp-device"`.
 
 For example, in a Linux bash shell:
 

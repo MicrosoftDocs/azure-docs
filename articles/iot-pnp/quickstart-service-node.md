@@ -32,7 +32,7 @@ node --version
 
 ### Clone the SDK repository with the sample code
 
-You will need to clone the samples from a [the Node SDK repository](https://github.com/Azure/azure-iot-sdk-node). Open a terminal window in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository:
+Clone the samples from a [the Node SDK repository](https://github.com/Azure/azure-iot-sdk-node). Open a terminal window in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository:
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-node
@@ -67,7 +67,7 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
-* ***IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device you just set up.
 
