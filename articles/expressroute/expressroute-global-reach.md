@@ -5,8 +5,9 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/18/2020
 ms.author: duau
+ms.custom: references_regions
 
 
 ---
@@ -27,10 +28,27 @@ ExpressRoute Global Reach is designed to complement your service provider’s WA
 ![Diagram that shows a use case for Express Route Global Reach.][3]
 
 ## Availability 
-ExpressRoute Global Reach is supported in most regions where ExpressRoute is currently supported. You can refer to [ExpressRoute connectivity providers](expressroute-locations-providers.md#partners) for current supported regions. 
+ExpressRoute Global Reach is supported in the following places. 
 
 > [!NOTE] 
 > To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations-providers.md#locations), your circuits must be **Premium SKU**.
+
+* Australia
+* Canada
+* France
+* Germany
+* Hong Kong SAR
+* Ireland
+* Japan
+* Korea
+* Netherlands
+* New Zealand
+* Norway
+* Singapore
+* Sweden
+* Switzerland
+* United Kingdom
+* United States
 
 ## Next steps
 - View the [Global Reach FAQ](expressroute-faqs.md#globalreach).

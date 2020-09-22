@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 # Azure Policy assignment structure
@@ -79,9 +79,13 @@ to _DoNotEnforce_.
 
 The **scope** of the assignment includes all child resource containers and child resources. If a
 child resource container or child resource shouldn't have the definition applied, each can be
-excluded from evaluation by setting **notScopes**. This property is an array to enable excluding one
-or more resource containers or resources from evaluation. **notScopes** can be added or updated
+_excluded_ from evaluation by setting **notScopes**. This property is an array to enable excluding
+one or more resource containers or resources from evaluation. **notScopes** can be added or updated
 after creation of the initial assignment.
+
+> [!NOTE]
+> An _excluded_ resource is different from an _exempted_ resource. For more information, see
+> [Understand scope in Azure Policy](./scope.md).
 
 ## Policy definition ID
 
