@@ -60,17 +60,17 @@ When the call to `Get Read Operation Result` is successful, it returns a status 
 ### API response (JSON) 
 
 Note the following changes to the json:
+* In v2.x, `Get Read Operation Result` will return the OCR recognition json when the status is `Succeeded"`. In v3.0, this field is `succeeded`.
+* To get the root for page array,  change the json hierarchy from `recognitionResults` to `analyzeResult`/`readResults`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
+* The page angle `clockwiseOrientation` has been renamed to `angle` and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to makes changes as most math functions can handle either range.
+
+The v3.0 API also introduces the following improvements you can optionally leverage:
+* `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. See documentation for more details. 
+* `version` tells you the version of the API used to generate results
+* A per-word `confidence` has been added. This value is calibrated so that a value 0.95 means that there is a 95% chance the recognition is correct. The confidence score can be used to select which text to send to human review. 
     
-    - In v2.x, `"Get Read Operation Result"` will return the OCR recognition json when the status is `"Succeeded"`. In v3.0, this field is `"succeeded"`.
-    - To get the root for page array,  change the json hierarchy from `"recognitionResults"` to `"analyzeResult"`/`"readResults"`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
-    -	The page angle `"clockwiseOrientation"` has been renamed to `"angle"` and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to makes changes as most math functions can handle either range.
-    -	The v3.0 API also introduces the following improvements you can optionally leverage:
-        -`"createdDateTime"` and `"lastUpdatedDateTime"` are added so you can track the duration of processing. See documentation for more details. 
-        - `"version"` tells you the version of the API used to generate results
-        - A per-word `"confidence"` has been added. This value is calibrated so that a value 0.95 means that there is a 95% chance the recognition is correct. The confidence score can be used to select which text to send to human review. 
     
-    
-        In 2.X, the output format is as follows: 
+In 2.X, the output format is as follows: 
     
     ```json
     {
@@ -199,20 +199,20 @@ When the call to `Get Recognize Text Operation Result` is successful, it returns
 ### API response (JSON)
 
 Note the following changes to the json:    
+* In v2.x, `Get Read Operation Result` will return the OCR recognition json when the status is `Succeeded`. In v3.x, this field is `succeeded`.
+* To get the root for page array,  change the json hierarchy from `recognitionResult` to `analyzeResult`/`readResults`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
 
-    - In v2.x, `"Get Read Operation Result"` will return the OCR recognition json when the status is `"Succeeded"`. In v3.x, this field is `"succeeded"`.
-    - To get the root for page array,  change the json hierarchy from `"recognitionResult"` to `"analyzeResult"`/`"readResults"`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
-    -	The v3.0 API also introduces the following improvements you can optionally leverage. See the API reference for more details:
-        -`"createdDateTime"` and `"lastUpdatedDateTime"` are added so you can track the duration of processing. See documentation for more details. 
-        - `"version"` tells you the version of the API used to generate results
-        - A per-word `"confidence"` has been added. This value is calibrated so that a value 0.95 means that there is a 95% chance the recognition is correct. The confidence score can be used to select which text to send to human review. 
-        - `"angle"` general orientation of the text in clockwise direction, measured in degrees between (-180, 180].
-        -  `"width"` and `"height"` give you the dimensions of your document, and `"unit"` provides the unit of those dimensions (pixels or inches, depending on document type.)
-        - `"page"` multipage documents are supported
-        - `"language"` the input language of the document (from the optional _language_ parameter.)
+The v3.0 API also introduces the following improvements you can optionally leverage. See the API reference for more details:
+* `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. See documentation for more details. 
+* `version` tells you the version of the API used to generate results
+* A per-word `confidence` has been added. This value is calibrated so that a value 0.95 means that there is a 95% chance the recognition is correct. The confidence score can be used to select which text to send to human review. 
+* `angle` general orientation of the text in clockwise direction, measured in degrees between (-180, 180].
+* `width` and `"height"` give you the dimensions of your document, and `"unit"` provides the unit of those dimensions (pixels or inches, depending on document type.)
+* `page` multipage documents are supported
+* `language` the input language of the document (from the optional _language_ parameter.)
 
 
-    In 2.X, the output format is as follows: 
+In 2.X, the output format is as follows: 
     
     ```json
     {
