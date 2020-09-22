@@ -105,7 +105,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-and-where.md).
 
-## Secure AKS traffic
+## Secure AKS
 
 There are two approaches to isolate traffic to and from the AKS cluster to the virtual network:
 
