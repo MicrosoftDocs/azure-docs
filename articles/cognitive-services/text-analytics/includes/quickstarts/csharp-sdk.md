@@ -165,36 +165,16 @@ Replace the application's `Main` method. You will define the methods called here
 
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
-If you're using version `3.0` of the service, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country/region hint). You can also authenticate using an Azure Active Directory token. 
+If you're using version `3.x` of the service, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country/region hint). You can also authenticate using an Azure Active Directory token. 
 
 ## Code examples
 
-# [Version 3.1 preview](#tab/version-3-1)
-
-* [Sentiment analysis](#sentiment-analysis)
-* [Language detection](#language-detection)
-* [Named Entity Recognition](#named-entity-recognition-ner)
-* [Entity linking](#entity-linking)
-* [Personally Identifiable Information Recognition](#personally-identifiable-information-recognition)
-* [Key phrase extraction](#key-phrase-extraction)
-
-# [Version 3.0](#tab/version-3)
-
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Named Entity Recognition](#named-entity-recognition-ner)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
-# [Version 2.1](#tab/version-2)
-
-* [Sentiment analysis](#sentiment-analysis)
-* [Language detection](#language-detection)
-* [Named Entity Recognition](#named-entity-recognition-ner)
-* [Entity linking](#entity-linking)
-* [Key phrase extraction](#key-phrase-extraction)
-
----
 
 ## Authenticate the client
 
