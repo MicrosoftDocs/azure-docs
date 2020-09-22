@@ -15,7 +15,7 @@ ms.custom: contperfq1
 
 The cloud resource infrastructure that you've built for your organization is likely complex. Many Azure resource types can have different types of charges. Azure resources might be owned by different teams in your organization and they might have different billing model types that apply to various resources. To gain a better understanding of the charges, begin your analysis using one or more of the strategies in the following sections.
 
-## Review your invoice and identify the resource that is responsible for the charge
+## Review invoice for resource responsible for charge
 
 How you purchase your Azure services helps you determine the methodology and tools that are available to you as you identify the resource associated with a charge. To determine which methodology applies to you, first [determine your Azure offer type](../costs/understand-cost-mgt-data.md#determine-your-offer-type). Then, identify your customer category in the list of [supported Azure offers](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
 
@@ -48,7 +48,7 @@ Sometimes you might not know what recent costs resulted in changes to your bille
 
 ![Example showing costs over time in cost analysis](./media/analyze-unexpected-charges/costs-over-time.png)
 
-## Determine resource pricing and understand its billing model
+## Determine resource pricing and billing model
 
 A single resource can accrue charges across multiple Azure products and services. View the [Azure pricing by product](https://azure.microsoft.com/pricing/#product-pricing) page to learn more about the pricing for each Azure service. For example, a single virtual machine (VM) created in Azure can have the following meters created to track its usage. Each might have different pricing.
 
@@ -65,7 +65,7 @@ A single resource can accrue charges across multiple Azure products and services
 
 When the VM is created, each meter begins emitting usage records. The usage and the meter's price are tracked in the Azure metering system. You can see the meters that were used to calculate your bill in the usage CSV file.
 
-## Find the people responsible for the resource and engage them
+## Find people responsible for the resource and engage
 
 Oftentimes, the team responsible for a given resource will know about changes that were made for a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team may have recently created the resource, updated its SKU (thereby changing the resource rate) or increased the load on the resource due to code changes. Continue reading the following sections for more techniques to determine who owns a resource.
 
