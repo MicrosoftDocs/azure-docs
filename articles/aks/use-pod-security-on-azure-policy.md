@@ -13,8 +13,8 @@ To improve the security of your AKS cluster, you can control what functions pods
 
 ## Before you begin
 
->[!Important]
-The general availability (GA) of Azure Policy on AKS is actively releasing across all regions. The expected global completion of the GA release is 9/29/2020. Usage in regions without the GA release requires preview registration steps. However, this will be automatically updated to the GA release when available in the region.
+> [!Important]
+> The general availability (GA) of Azure Policy on AKS is actively releasing across all regions. The expected global completion of the GA release is 9/29/2020. Usage in regions without the GA release requires preview registration steps. However, this will be automatically updated to the GA release when available in the region.
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
