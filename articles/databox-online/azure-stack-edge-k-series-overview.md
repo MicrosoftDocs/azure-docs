@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # What is the Azure Stack Edge Mini R?
 
-Azure Stack Edge Mini R is an ultra portable, rugged, edge computing device designed for use in harsh environments. Azure Stack Edge Mini R is delivered asa hardware-as-a-service solution. Microsoft ships you a cloud-managed device that acts as network storage gateway and has a built-in Vision Processing Unit (VPU) that enables accelerated AI-inferencing.
+Azure Stack Edge Mini R is an ultra portable, rugged, edge computing device designed for use in harsh environments. Azure Stack Edge Mini R is delivered as a hardware-as-a-service solution. Microsoft ships you a cloud-managed device that acts as network storage gateway and has a built-in Vision Processing Unit (VPU) that enables accelerated AI-inferencing.
 
 This article provides you an overview of the Azure Stack Edge Mini R solution, key capabilities, and the scenarios where you can deploy this device.
 
