@@ -16,7 +16,6 @@ ms.custom: contperfq4, tracking-python
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning.
 
