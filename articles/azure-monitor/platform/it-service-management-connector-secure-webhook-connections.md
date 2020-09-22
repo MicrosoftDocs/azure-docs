@@ -109,7 +109,7 @@ The following sections provide details about how to connect your BMC Helix produ
 Ensure that you've met the following prerequisites:
 
 * Azure AD is registered.
-* You have the supported version of BMC Helix Multi-Cloud Service Management (version 20.02 or later).
+* You have the supported version of BMC Helix Multi-Cloud Service Management (version 19.08 or later).
 
 ### Configure the BMC Helix connection
 
@@ -135,4 +135,4 @@ Ensure that you've met the following prerequisites:
 
 ## Next steps
 
-* [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+* [Create ITSM work items from Azure alerts](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)
