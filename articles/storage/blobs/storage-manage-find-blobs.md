@@ -50,9 +50,7 @@ Consider the following examples tags that can be set
 
 You can apply a single tag on your blob to describe when your data was finished processing.
 
-```xml
-"processedDate" = '2020-01-01'  
-```
+> "processedDate" = '2020-01-01'  
 
 You can apply multiple tags on your blob to be more descriptive of the data.
 
