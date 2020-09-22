@@ -22,6 +22,7 @@ You can check the links in this section for more information about services offe
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[FortiGate and Microsoft Azure Virtual WAN Integration deployment guide](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf),[Routing Scenario Blog ](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
 | [NetFoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Netfoundry Support Hub: Azure Virtual WAN](https://support.netfoundry.io/hc/en-us/articles/360018137891-Introduction-to-Azure-Virtual-WAN-sites)|
 |[Nuage/Nokia (Provided through British Telecom only)](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|* |
+|[Open Systems]( https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Open Systems and Azure Virtual WAN Deployment Guide](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |
 |[Silver-Peak]( https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[EdgeConnect and Microsoft Azure Virtual WAN Integration Guide](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
