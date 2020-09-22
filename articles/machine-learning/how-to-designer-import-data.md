@@ -1,7 +1,7 @@
 ---
-title: Import data into the designer (preview)
+title: Import data into the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to import data into Azure Machine Learning designer (preview) from various data sources.
+description: Learn how to import data into Azure Machine Learning designer from various data sources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: how-to, designer
 ---
 
-# Import data into Azure Machine Learning designer (preview)
+# Import data into Azure Machine Learning designer
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
@@ -102,4 +102,4 @@ If your workspace is in a virtual network, you must perform additional configura
 
 ## Next steps
 
-Learn the basics of the designer with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
