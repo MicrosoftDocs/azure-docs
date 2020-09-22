@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -24,6 +24,8 @@ An [Azure Resource Manager template](update-mgmt-enable-template.md) is availabl
 
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
+
+To download and install available *Critical* and *Security* patches automatically on the VM, you can review [Automatic VM guest patching](../virtual-machines/windows/automatic-vm-guest-patching.md) for Windows VMs.
 
 ## About Update Management
 
