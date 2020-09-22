@@ -588,10 +588,11 @@ You can publish your logic app as a new resource, which automatically creates an
 
 1. From the list that Visual Studio Code opens, select from these options:
 
-   * **Create new Logic App (Preview) in Azure**
+   * **Create new Logic App (Preview) in Azure** (quick)
+   * **Create new Logic App (Preview) in Azure Advanced**
    * A previously deployed **Logic App (Preview)** resource, if any exist
 
-   This example continues with **Create new Logic App (Preview) in Azure**.
+   This example continues with **Create new Logic App (Preview) in Azure Advanced**.
 
    ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with a list with "Create new Logic App (Preview) in Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-create-logic-app-options.png)
 
