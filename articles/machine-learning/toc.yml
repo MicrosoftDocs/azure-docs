@@ -15,19 +15,18 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: "Python (day 1)"
+    - name: "Python Day 1 get started"
       expanded: true
       items:
         - name: 1. Set up local computer
           href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: 2. Hello world
+        - name: '2. "Hello world"'
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. Train a model
+        - name: 3. Train your model
           href: tutorial-1st-experiment-sdk-train.md
         - name: 4. Bring your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
-      expanded: true
       items:
         - name: Image classification (MNIST data)
           items: 
@@ -553,6 +552,9 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
+    - name: Curated environments
+      displayName: environments, curated environments
+      href: resource-curated-environments.md         
 - name: Resources
   items: 
     - name: Release notes
@@ -578,7 +580,4 @@
       href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
-      href: designer-accessibility.md
-    - name: Curated Environments
-      displayName: environments, curated environments
-      href: resource-curated-environments.md      
+      href: designer-accessibility.md   
