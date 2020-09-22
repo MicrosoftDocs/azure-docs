@@ -167,23 +167,7 @@ For more information about the pricing models that apply to this new resource ty
 
 ### Storage requirements
 
-Based on the operating system where you are running Visual Studio Code, set up the corresponding storage requirement.
-
-#### Mac OS
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and [create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for Azure Functions](../azure-functions/storage-considerations.md).
-
-1. [Find and copy the storage account's connection string](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys), for example:
-
-   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
-
-   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
-
-1. Save the string somewhere safe so that you can later add the string to the **local.settings.json** files in the project that you use for creating your logic app in Visual Studio Code.
-
-When you later try to open the Logic App Designer for your logic app, you get a message that the `Workflow design time could not be started`. After this message appears, you have to add the storage account's connection string to the two **local.settings.json** files in the project, and retry opening the designer again.
-
-#### Windows or other OS
+Currently, creating the new **Logic App (Preview)** resource is [not available on Mac OS](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md). However, for Windows or other OS, such as Linux, set up this storage requirement.
 
 1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
@@ -291,51 +275,13 @@ Next, open the **workflow.json** file in the Logic App Designer.
 
 ### Open the workflow definition file in Logic App Designer
 
-Before you try opening your workflow definition file in the designer, if Visual Studio Code is running on a non-Mac OS, such as Windows or Linux, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites).
+Before you try opening your workflow definition file in the designer, if Visual Studio Code is running on Windows or Linux, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites).
 
 1. Expand the project folder for your workflow. Open the **workflow.json** file's shortcut menu, and select **Open in Designer**.
 
    ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
-   If you get the error message that the `Workflow design time could not be started`, follow these steps based on the operating system that you use:
-
-   **Mac OS**
-
-   1. In your project, find and open the **local.settings.json** files, which are in your project's root folder and the **workflow-designtime** folder.
-
-      ![Screenshot that shows Explorer pane and 'local.settings.json' files in your project.](./media/create-stateful-stateless-workflows-visual-studio-code/local-settings-json-files.png)
-
-   1. In each file, find the `AzureWebJobsStorage` property, for example:
-
-      ```json
-      {
-        "IsEncrypted": false,
-        "Values": {
-          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-          "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-        }
-      }
-      ```
-
-   1. Replace the `AzureWebJobsStorage` property value with the connection string that you saved earlier from your storage account, for example:
-
-      ```json
-      {
-        "IsEncrypted": false,
-        "Values": {
-          "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
-          "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-        }
-      }
-      ```
-
-   1. Save your changes, and try reopening the **workflow.json** file in the designer.
-
-   **Windows or another OS**
-
-   * Make sure that the Azure Storage Emulator is running.
-
-   **Additional troubleshooting**
+   If you get the error message that the `Workflow design time could not be started`, make sure that the Azure Storage Emulator is running. Otherwise, try these other troubleshooting suggestions:
 
    In Visual Studio Code, check the output from the preview extension.
 
@@ -907,21 +853,6 @@ If you are working on and running the stateless logic app workflow locally in Vi
 
 1. Add the `Workflow.<yourWorkflowName>.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
 
-   **Mac OS**
-
-   ```json
-   {
-      "IsEncrypted": false,
-      "Values": {
-         "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
-         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-         "Workflow.<yourWorkflowName>.OperationOptions": "WithStatelessRunHistory"
-      }
-   }
-   ```
-
-   **Windows or other OS**
-
    ```json
    {
       "IsEncrypted": false,
@@ -1003,9 +934,11 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
 
 <a name="unsupported"></a>
 
-## Unsupported capabilities
+## Unsupported or unavailable capabilities
 
-For this public preview, these capabilities are not supported:
+For this public preview, these capabilities are not supported or are not available:
+
+* Creating the new **Logic App (Preview)** resource is currently unavailable on Mac OS. For more information, see the Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md). 
 
 * Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview.
 
