@@ -169,7 +169,7 @@ Unfortunately, there isn't one service that offers all of these equivalent capab
 
 #### Migrate to Azure Active Directory
 
-A path to consider is integrating your apps and services directly with Azure AD. Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Office 365, Azure, and much more. It provides similar federated authentication capabilities to Access Control, but doesn't support all Access Control features. 
+A path to consider is integrating your apps and services directly with Azure AD. Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Microsoft 365, Azure, and much more. It provides similar federated authentication capabilities to Access Control, but doesn't support all Access Control features. 
 
 The primary example is federation with social identity providers, such as Facebook, Google, and Yahoo. If your users sign in with these types of credentials, Azure AD is not the solution for you. 
 
@@ -312,7 +312,7 @@ Service identities in Access Control are typically used to implement server-to-s
 
 #### Migrate to Azure Active Directory
 
-Our recommendation for this type of authentication flow is to migrate to [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Office 365, Azure, and much more. 
+Our recommendation for this type of authentication flow is to migrate to [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Microsoft 365, Azure, and much more. 
 
 You can also use Azure AD for server-to-server authentication by using the Azure AD implementation of the OAuth client credentials grant. The following table compares the capabilities of Access Control in server-to-server authentication with those that are available in Azure AD.
 

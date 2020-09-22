@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 09/09/2020
 ms.author: jeedes
 ---
 
@@ -35,7 +35,7 @@ To get started, you need the following items:
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment to verify that:
 
-* DocuSign supports service provider (SP)-initiated SSO.
+* DocuSign supports service provider **SP** initiated SSO.
 
 * DocuSign supports **just-in-time** user provisioning.
 

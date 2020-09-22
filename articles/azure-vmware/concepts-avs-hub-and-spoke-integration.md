@@ -95,7 +95,7 @@ A second level of traffic segmentation using the network security groups within 
 
 Azure Application Gateway V1 and V2 have been tested with web apps that run on Azure VMware Solution VMs as a backend pool. Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs to the internet. It can also expose the apps to internal users securely.
 
-Review Azure VMware Solution specific article on [Application Gateway](./protect-avs-web-apps-with-app-gateway.md) for the details and requirements.
+Review Azure VMware Solution-specific article on [Application Gateway](./protect-avs-web-apps-with-app-gateway.md) for the details and requirements.
 
 :::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Second level of traffic segmentation using the Network Security Groups" border="false":::
 
@@ -104,7 +104,7 @@ Review Azure VMware Solution specific article on [Application Gateway](./protect
 
 Access Azure VMware Solution environment with Jumpbox, which is a Windows 10 or Windows Server VM deployed in the shared service subnet within the Hub virtual network.
 
-As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.yml) service within the Hub virtual network. Azure Bastion provides seamless RDP and SSH access to VMs deployed on Azure without the need to provision public IP addresses to those resources. Once you provision the Azure Bastion service, you can access the selected VM from the Azure portal. After establishing the connection, a new tab opens, showing the Jumpbox desktop, and from that desktop, you can access the Azure VMware Solution private cloud management plane.
+As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.yml) service within the Hub virtual network. Azure Bastion provides seamless RDP and SSH access to VMs deployed on Azure without the need to provision public IP addresses to those resources. Once you provision the Azure Bastion service, you can access the selected VM from the Azure portal. After establishing the connection, a new tab opens, showing the Jumpbox desktop where you can access the Azure VMware Solution private cloud management plane.
 
 > [!IMPORTANT]
 > Do not give a public IP address to the Jumpbox VM or expose 3389/TCP port to the public internet. 
@@ -137,7 +137,7 @@ On-premises and Azure VMware Solution servers can be configured with conditional
 
 ## Identity considerations
 
-For identity purposes, the best approach is to deploy at least one AD domain controller on the Hub, using the shared service subnet, ideally two of them in zone-distributed fashion or a VM availability set. See [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) for extending your on-premises AD domain to Azure.
+For identity purposes, the best approach is to deploy at least one AD domain controller on the Hub, using the shared service subnet. Ideally two of them in zone-distributed fashion or a VM availability set. See [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) for extending your on-premises AD domain to Azure.
 
 Additionally, deploy another domain controller on the Azure VMware Solution side to act as identity and DNS source within the vSphere environment.
 
