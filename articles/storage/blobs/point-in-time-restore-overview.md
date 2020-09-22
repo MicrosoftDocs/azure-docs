@@ -77,6 +77,9 @@ Point-in-time restore for block blobs has the following limitations and known is
 - If a block blob in the range to be restored has an active lease, the point-in-time restore operation will fail. Break any active leases prior to initiating the restore operation.
 - Restoring Azure Data Lake Storage Gen2 flat and hierarchical namespaces is not supported.
 
+> [!IMPORTANT]
+> If you restore block blobs to a point that is earlier than September 22, 2020, preview limitations for point-in-time restore will be in effect. Microsoft recommends that you choose a restore point that is equal to or later than September 22, 2020 to take advantage of the generally available point-in-time restore feature.
+
 ## Pricing and billing
 
 Billing for point-in-time restore depends on the amount of data processed to perform the restore operation. The amount of data processed is based on the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
