@@ -55,10 +55,10 @@ You can scope the agent to synchronize specific users and groups by using on-pre
  8. Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
 ## Attribute mapping
-Azure AD Connect cloud provisioning allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  For more information see [attribute mapping](how-to-attribute-mapping.md)
+Azure AD Connect cloud provisioning allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  For more information see [attribute mapping](how-to-attribute-mapping.md).
 
 ## On-demand provisioning
-Azure AD Connect cloud provisioning allows you to test configuration changes, by applying these changes to a single user or group.  You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  For more information see [on-demand provisioning](how-to-on-demand-provision.md)
+Azure AD Connect cloud provisioning allows you to test configuration changes, by applying these changes to a single user or group.  You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  For more information see [on-demand provisioning](how-to-on-demand-provision.md).
 
 ## Restart provisioning 
 If you don't want to wait for the next scheduled run, trigger the provisioning run by using the **Restart provisioning** button. 
