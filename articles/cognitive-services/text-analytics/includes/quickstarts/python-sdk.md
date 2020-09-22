@@ -511,7 +511,7 @@ Named Entities:
         Confidence Score:        0.8    Length:          9      Offset:          34
 ```
 
-## Entity Linking
+### Entity Linking
 
 Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
@@ -599,7 +599,7 @@ Linked Entities:
                 Length: 11
 ```
 
-## Personally Identifiable Information recognition
+### Personally Identifiable Information recognition
 
 Create a new function called `pii_recognition_example` that takes the client as an argument, then calls the `recognize_pii_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
 
@@ -679,7 +679,7 @@ Named Entities:
         Confidence Score:        0.8
 ```
 
-## Entity Linking
+### Entity Linking
 
 Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
@@ -799,7 +799,7 @@ Document ID: 2
 
 ---
 
-## Key phrase extraction
+### Key phrase extraction
 
 # [Version 3.1 preview](#tab/version-3-1)
 

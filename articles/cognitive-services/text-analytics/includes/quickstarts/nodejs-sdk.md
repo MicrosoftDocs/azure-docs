@@ -493,7 +493,7 @@ Document ID: 1
         Score: 0.25
 ```
 
-## Entity Linking
+### Entity Linking
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeLinkedEntities()` method and get the `RecognizeLinkedEntitiesResult` object. Iterate through the list of results, and print the entity name, ID, data source, url, and matches. Every object in `matches` array will contain offset, length, and score for that match.
 
@@ -547,7 +547,7 @@ Document ID: 0
                 Text: BASIC     Score: 0.33
 ```
 
-## PII Recognition
+### Personally Identifying Information (PII) Recognition
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `RecognizePIIEntitiesResult` object. Iterate through the list of results, and print the entity name, type, and score.
 
@@ -635,7 +635,7 @@ Document ID: 1
         Score: 0.25
 ```
 
-## Entity Linking
+### Entity Linking
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeLinkedEntities()` method and get the `RecognizeLinkedEntitiesResult` object. Iterate through the list of results, and print the entity name, ID, data source, url, and matches. Every object in `matches` array will contain offset, length, and score for that match.
 
