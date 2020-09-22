@@ -38112,7 +38112,12 @@
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-configure-api.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-configure-api",
+      "redirect_url": "/graph/application-provisioning-configure-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-configure-api.md",
+      "redirect_url": "/graph/application-provisioning-configure-api",
       "redirect_document_id": false
     },
     {
