@@ -1,6 +1,6 @@
 ---
-title: Create VM images for your Azure Stack Edge GPU device
-description: Describes how to create linux or Windows VM images to use with your Azure Stack Edge GPU device.
+title: Create VM images for your Azure Stack Edge Pro GPU device
+description: Describes how to create linux or Windows VM images to use with your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
@@ -9,20 +9,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge device so that I can deploy VMs on the device.
+#Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
 
-# Create custom VM images for your Azure Stack Edge device
+# Create custom VM images for your Azure Stack Edge Pro device
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-To deploy VMs on your Azure Stack Edge device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps required to create Linux or Windows VM custom images that you can use to deploy VMs on your Azure Stack Edge device.
+To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps required to create Linux or Windows VM custom images that you can use to deploy VMs on your Azure Stack Edge Pro device.
 
 ## VM image workflow
 
-The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the VHD corresponding to that VM. This generalized VHD is uploaded to Azure Stack Edge, managed disk is created from that VHD, image is created from managed disk, and finally VMs are created from that image.   
+The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the VHD corresponding to that VM. This generalized VHD is uploaded to Azure Stack Edge Pro, managed disk is created from that VHD, image is created from managed disk, and finally VMs are created from that image.   
 
-For more information, go to [Deploy a VM on your Azure Stack Edge device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
 
 
 ## Create a Windows custom VM image
@@ -41,7 +41,7 @@ Do the following steps to create a Windows VM image.
    
        You can also refer to [Sysprep (system preparation) overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Use this VHD to now create and deploy a VM on your Azure Stack Edge device.
+Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device.
 
 ## Create a Linux custom VM image
 
@@ -66,7 +66,7 @@ Do the following steps to create a Linux VM image.
 
 1. [Download existing OS disk](../virtual-machines/linux/download-vhd.md).
 
-Use this VHD to now create and deploy a VM on your Azure Stack Edge device. You can use the following two Azure Marketplace images to create Linux custom images:
+Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device. You can use the following two Azure Marketplace images to create Linux custom images:
 
 |Item name  |Description  |Publisher  |
 |---------|---------|---------|
@@ -78,4 +78,4 @@ For a full list of Azure Marketplace images that could work (presently not teste
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge device](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
