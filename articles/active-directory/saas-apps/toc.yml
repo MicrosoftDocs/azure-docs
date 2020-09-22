@@ -1434,6 +1434,8 @@
         href: samlssojira-tutorial.md
       - name: Azure AD SAML Toolkit
         href: saml-toolkit-tutorial.md
+      - name: Samsara
+        href: samsara-tutorial.md
       - name: Sansan
         href: sansan-tutorial.md
       - name: SAP Business ByDesign
