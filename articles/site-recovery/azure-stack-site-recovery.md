@@ -158,13 +158,13 @@ Set up the configuration server machine, register it in the vault, and discover 
 1. Click **Prepare Infrastructure** > **Source**.
 2. In **Prepare source**, click **+Configuration server**.
 
-    ![Set up source](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Screenshot of the +Configuration Server dialog with the message "Click on +Configuration Server in the command bar above to setup one…".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
 5. Download the Site Recovery Unified Setup installation file.
 6. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
-    ![Set up source](./media/azure-stack-site-recovery/set-source2.png)
+    ![Screenshot of the Add Server dialog with Server Type set to Configuration Server and the Download the vault registration key button highlighted.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### Run Azure Site Recovery Unified Setup
