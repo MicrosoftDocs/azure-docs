@@ -30,7 +30,7 @@ Named Entity Recognition (NER) is the ability to identify different entities in 
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Feature                                                         | NER v3.0 | NER v3.1-preview.1 |
+| Feature                                                         | NER v3.0 | NER v3.1-preview.2 |
 |-----------------------------------------------------------------|--------|----------|
 | Methods for single, and batch requests                          | X      | X        |
 | Expanded entity recognition across several categories           | X      | X        |
@@ -43,7 +43,7 @@ See [language support](../language-support.md) for information.
 
 Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
-Named Entity Recognition v3.1-preview.1 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.1/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
+Named Entity Recognition v3.1-preview.2 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.2/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
 
 
 ## Sending a REST API request
@@ -74,21 +74,21 @@ Entity linking
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-#### [Version 3.1-preview.1](#tab/version-3-preview)
+#### [Version 3.1-preview.2](#tab/version-3-preview)
 
-Named Entity Recognition `v3.1-preview.1` uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+Named Entity Recognition `v3.1-preview.2` uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
 
 Entity linking
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
 
 NER
-* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/general`
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
 
-* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii`
+* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
 
 ---
 
