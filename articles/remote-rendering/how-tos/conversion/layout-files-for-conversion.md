@@ -26,7 +26,7 @@ If the paths are stored as relative paths and the relative location between the 
 
 > [!Note]
 > Prefer to create assets which carry relative paths.
-> The tutorial on [setting up materials for 3ds Max](3dsmax-material-setup.md) gives a 3ds Max example of how to ensure an asset uses relative paths.
+> The tutorial on [setting up materials for 3ds Max](../../tutorials/modeling/3dsmax-material-setup.md) gives a 3ds Max example of how to ensure an asset uses relative paths.
 
 ## Finding textures
 

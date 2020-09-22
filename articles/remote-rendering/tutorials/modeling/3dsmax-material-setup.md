@@ -17,7 +17,8 @@ In this tutorial, you'll learn how to:
 > * Handle instancing of objects and materials.
 > * Export a scene to FBX format, and select important options.
 
->[!Note] The procedure described in this tutorial works in 3ds Max 2019 and 3ds Max 2020.
+> [!Note]
+> The procedure described in this tutorial works in 3ds Max 2019 and 3ds Max 2020.
 > A change in how 3ds Max 2021 exports bump maps means that normal maps will not be found by the conversion service.
 
 Creating [physically based rendering (PBR) materials](../../overview/features/pbr-materials.md) in 3ds Max is a straightforward task. It's similar in many ways to PBR setup in other content-creation apps like Maya. This tutorial is a guide to basic PBR shader setup and FBX export for Azure Remote Rendering projects.
