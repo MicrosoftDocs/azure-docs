@@ -73,7 +73,6 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 ...
 ```
 
-
 ## Solution 3 - Azure portal
 
 To determine which SKUs are available in a region, use the [portal](https://portal.azure.com). Sign in to the portal, and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You don't need to complete the deployment.

@@ -22,7 +22,7 @@ An Azure Stream Analytics script is used to transform input data to output data.
 
 ### Start local testing
 
-Use this [Quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using Visual Studio Code or [export an existing job to a local project](visual-studio-code-explore-jobs.md). Credentials for inputs and outputs are automatically populated for exported jobs.
+Use this [Quickstart](quick-create-visual-studio-code.md) to learn how to create a Stream Analytics job using Visual Studio Code or [export an existing job to a local project](visual-studio-code-explore-jobs.md). Credentials for inputs and outputs are automatically populated for exported jobs.
 
 If you want to test the query with local input data, follow these [instructions](visual-studio-code-local-run.md). If you want to test with live input, [configure your input](stream-analytics-add-inputs.md) move to the next step. 
 
@@ -54,7 +54,7 @@ In this section, you explore the metrics available for each part of the diagram.
 3. Select the name of the input data source from the dropdown to see input metrics. The input source in the screenshot below is called *quotes*. For more information about input metrics, see [Understand Stream Analytics job monitoring and how to monitor queries](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
-   > ![Job diagram metrics](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
+   > ![Job diagram input metrics](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
 
 4. Select a query step from the job diagram or select the step name from the dropdown to see step level metrics. Watermark delay is the only available step metric.
 
@@ -103,7 +103,7 @@ Select **Job Summary** at the top-right of the job diagram to see properties and
 
 ## Next steps
 
-* [Quickstart: Create a Stream Analytics job using Visual Studio Code](quick-create-vs-code.md)
+* [Quickstart: Create a Stream Analytics job using Visual Studio Code](quick-create-visual-studio-code.md)
 * [Explore Azure Stream Analytics with Visual Studio Code](visual-studio-code-explore-jobs.md)
 * [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 * [Test Azure Stream Analytics jobs locally with live input using Visual Studio Code](visual-studio-code-local-run-live-input.md)
