@@ -35,7 +35,7 @@ Follow the [installation instructions](https://docs.microsoft.com/cli/azure/inst
 
 ### Step 2 - Install IoT extension
 
-[The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-iot`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-iot` to see details about the IoT extension. At the time of writing, the extension version  number is `0.9.7`.
+[The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-iot`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-iot` to see details about the IoT extension. At the time of writing, the extension version  number is `0.10.0`.
 
 To remove the extension, you can use `az extension remove --name azure-iot`.
 
