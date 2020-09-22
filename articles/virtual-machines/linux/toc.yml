@@ -372,6 +372,8 @@
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
     href: /azure/architecture/
+  - name: Azure Hybrid Benefit
+    href: azure-hybrid-benefit-linux.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -619,7 +621,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (AAD)
+      - name: Disk encryption - previous version (Azure AD)
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -691,7 +693,7 @@
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
-      displayName: AAD
+      displayName: Azure AD
       items:
       - name: Red Hat Enterprise Linux
         href: ../../active-directory-domain-services/join-rhel-linux-vm.md
@@ -717,7 +719,7 @@
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
-  - name: Platform maintenance
+  - name: Maintenance control
     items:
     - name: Maintenance notifications
       items:
@@ -729,7 +731,7 @@
         href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: PowerShell
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Maintenance control
+    - name: Platform maintenance
       items:
       - name: Overview
         href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -741,6 +743,16 @@
         href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Scheduled events
       href: scheduled-events.md
+    - name: Virtual machine scale set OS image upgrades
+      items:
+      - name: Automatic OS upgrades
+        href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Maintenance control
+        items:
+        - name: Overview (Preview)
+          href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: PowerShell (Preview)
+          href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Monitor VMs
     items:
     - name: Agents
@@ -945,6 +957,8 @@
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
+    - name: Change disk tier
+      href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with ARM template

@@ -71,14 +71,24 @@ azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## Delete a private cloud (Azure portal)
+## Delete an Azure VMware Solution private cloud
 
-If you have an Azure VMware Solution private cloud that you no longer need, you can delete it. When you delete a private cloud, all clusters, along with all their components, are deleted.
-
-To do so, navigate to your private cloud in the Azure portal, and select **Delete**. On the confirmation page, confirm with the name of the private cloud and select **Yes**.
+If you have an Azure VMware Solution private cloud that you no longer need, you can delete it. An Azure VMware Solution private cloud includes an isolated network domain, one or more vSphere clusters provisioned on dedicated server nodes, and typically many virtual machines. When a private cloud is deleted, all of the virtual machines, their data, and clusters are deleted. The dedicated bare-metal nodes are securely wiped and returned to the free pool. The network domain provisioned for the customer is deleted.  
 
 > [!CAUTION]
-> Deleting the private cloud is an irreversible operation. Once the private cloud is deleted, the data cannot be recovered as it terminates all running workloads, components and destroys all private cloud data and configuration settings, including public IP addresses. 
+> Deleting the private cloud is an irreversible operation. Once the private cloud is deleted, the data cannot be recovered, as it terminates all running workloads and components and destroys all private cloud data and configuration settings, including public IP addresses.
+
+### Prerequisites
+
+Once a private cloud is deleted, there is no way to recover the virtual machines and their data. If the virtual machine data will be required later, the admin must first back up all of the data before deleting the private cloud.
+
+### Steps to delete an Azure VMware Solution private cloud
+
+1. Access the Azure VMware Solutions page in the Azure portal.
+
+2. Select the private cloud to be deleted.
+ 
+3. Enter the name of the private cloud and select **Yes**. In a few hours the deletion process will complete.  
 
 ## Next steps
 
@@ -86,7 +96,8 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create an Azure VMware Solution private cloud
-> * Verified the Private Cloud deployed
+> * Verify the private cloud deployed
+> * Delete an Azure VMware Solution private cloud
 
 Continue to the next tutorial to learn how to create a virtual network for use with your private cloud as part of setting up local management for your private cloud clusters.
 
