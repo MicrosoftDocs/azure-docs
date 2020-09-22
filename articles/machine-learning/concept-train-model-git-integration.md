@@ -29,15 +29,15 @@ We recommend that you clone the repository into your users directory so that oth
 
 You can clone any Git repository you can authenticate to (GitHub, Azure Repos, BitBucket, etc.)
 
-For a guide on how to use the Git CLI, read here [here](https://guides.github.com/introduction/git-handbook/).
+For more information about cloning, see the guide on [how to use Git CLI](https://guides.github.com/introduction/git-handbook/).
 
-## Authenticating your Git Account with SSH
-### Generating a new SSH key
-1) Open [Terminal](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) in the Azure Machine Learning Notebook Tab.
+## Authenticate your Git Account with SSH
+### Generate a new SSH key
+1) [Open the terminal window](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) in the Azure Machine Learning Notebook Tab.
 
 2) Paste the text below, substituting in your email address.
 
-```
+```bash
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
@@ -49,50 +49,58 @@ This creates a new ssh key, using the provided email as a label.
 
 3) When you're prompted to "Enter a file in which to save the key" press Enter. This accepts the default file location.
 
+4) Verify that the default location is '/home/azureuser/.ssh' and press enter. Otherwise specify the location '/home/azureuser/.ssh'.
+
 > [!TIP]
-> Make sure the SSH key is saved in '/home/azureuser/.ssh'. This file is saved on the Compute Instance is only accessible by the owner of the Compute Instance
+> Make sure the SSH key is saved in '/home/azureuser/.ssh'. This file is saved on the compute instance is only accessible by the owner of the Compute Instance
 
 ```
 > Enter a file in which to save the key (/home/azureuser/.ssh/id_rsa): [Press enter]
 ```
 
-4) At the prompt, type a secure passphrase. We recommend you add a password to your SSH key for added security
+5) At the prompt, type a secure passphrase. We recommend you add a passphrase to your SSH key for added security
 
 ```
 > Enter passphrase (empty for no passphrase): [Type a passphrase]
 > Enter same passphrase again: [Type passphrase again]
 ```
 
-### Adding the public key to Git Account.
+### Add the public key to Git Account
 1) In your terminal window, copy the contents of your public key file. If you renamed the key, replace id_rsa.pub with the public key file name.
 
-```
+```bash
 cat ~/.ssh/id_rsa.pub
 ```
 > [!TIP]
 > **Copy and Paste in Terminal**
 > * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
-> * FireFox/IE may not support clipboard permissions properly.
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
+> * FireFox/IE may not support clipboard permissions properly.
 
 2) Select and copy the key output in the clipboard.
 
-+ If you are using **GitHub**, [follow these instructions](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
++ [GitHub](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
-+ If you are using **GitLab**, [follow these instructions](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
++ [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ If you are using **Azure DevOps**, [follow these instructions](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Start at **Step 2**.
++ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Start at **Step 2**.
 
-+ If you are using **BitBucket**, [follow these instructions](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Start at **Step 4**.
++ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Start at **Step 4**.
 
 ### Clone the Git repository with SSH
 
 1) Copy the SSH Git clone URL from the Git repo.
 
-2) Paste the text below, substituting in your SSH Git repo URL. should look like:
-```
+2) Paste the url into the `git clone` command below, to use your SSH Git repo URL. This will look something like:
+
+```bash
 git clone git@example.com:GitUser/azureml-example.git
 Cloning into 'azureml-example'...
+```
+
+You will see a response like:
+
+```bash
 The authenticity of host 'example.com (192.30.255.112)' can't be established.
 RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
 Are you sure you want to continue connecting (yes/no)? yes
