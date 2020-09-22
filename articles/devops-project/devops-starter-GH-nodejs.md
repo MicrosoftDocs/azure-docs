@@ -54,7 +54,7 @@ DevOps Starter creates a CI/CD workflow using GitHub actions. DevOps Starter als
 
    1. Click on the **Authorize** button. 
    
-   1. Sign in to GitHub. If you don't have a GitHub account you can sign-up here as well.
+   1. Sign in to GitHub. If you don't have a GitHub account, you can sign up here as well.
 
 2. Choose an existing **GitHub organization**. 
    
@@ -93,7 +93,7 @@ DevOps Starter creates a repository in GitHub. To view the repository and make c
 1. Select **Commit**, and then save your changes.
 
 1. In your browser, go to the DevOps Starter dashboard.   
-You should now see a GitHub workflow build job in progress. The changes you just made are automatically built and deployed via a GitHub workflow.
+You should now see a GitHub workflow build job in progress. The changes you made are automatically built and deployed via a GitHub workflow.
 
 ## View the GitHub workflow
 
@@ -107,7 +107,7 @@ In the previous step, DevOps Starter automatically configured a full GitHub work
 
 1. Under the **Code** tab of the repo click on **commits**. This view shows code commits that are associated with the specific deployment.
 
-1. Under the **Actions** tab of the repo you can view the history of all the workflow runs of your repository.
+1. Under the **Actions** tab of the repo, you can view the history of all the workflow runs of your repository.
 
 1. Select the **latest run** to view all the jobs that ran in the workflow.
 
