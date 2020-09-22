@@ -23,7 +23,6 @@ In this article, use the Azure Machine Learning Python SDK to create and manage 
 
 
 ## Prerequisites
-?view=azure-ml-py&preserve-view=true)
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
@@ -282,7 +281,7 @@ Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for 
    # myenv.docker.base_image = azureml.core.runconfig.DEFAULT_GPU_IMAGE
    
    # Configure the run configuration with the Linux DSVM as the compute target and the environment defined above
-   run_config = ScriptRunConfig(source_directory=".", script="train.py", compute_target=compute, environment=myenv) 
+   src = ScriptRunConfig(source_directory=".", script="train.py", compute_target=compute, environment=myenv) 
    ```
 
 Now that you've attached the compute and configured your run, the next step is to [submit the training run](how-to-set-up-training-targets.md).
@@ -487,7 +486,7 @@ See these notebooks for examples of training with various compute targets:
 
 ## Next steps
 
-* Use the compute resource to [submit a training run](how-to-set-up-training-targets.md).
+* Use the compute resource to [configure and submit a training run](how-to-set-up-training-targets.md).
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
