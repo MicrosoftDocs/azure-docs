@@ -1,7 +1,7 @@
 ---
 title: Create and manage a compute instance
 titleSuffix: Azure Machine Learning
-description: Learn how to create and manage a compute instance in your Azure Machine Learning workspace. Use the compute instance as your development environment, or for training and inferencing dev/test purposes.
+description: Learn how to create and manage a compute instance in your Azure Machine Learning workspace. Use the compute instance as your development environment, or for training and inference dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,9 +15,9 @@ ms.date: 09/17/2020
 
 # Create and manage an Azure Machine Learning compute instance
 
-Learn how to create and manage a compute instance in your Azure Machine Learning workspace.
+Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace.
 
-Use a compute instance as your fully configured and managed development environment in the cloud for machine learning. Or use the instance as a compute target for training and inferencing for development and testing purposes. A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance cannot be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud. Or use the instance as a compute target for training and inferencing for development and testing purposes. A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance cannot be shared with other users in your workspace.
 
 In this article, you learn how to:
 
@@ -35,7 +35,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 * The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
-## Create 
+## Create
 
 **Time estimate**: Approximately 5 minutes.
 
