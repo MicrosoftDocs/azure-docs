@@ -37,7 +37,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
    * **Ingress Traffic from Azure Bastion control plane:** For control plane connectivity, enable port 443 inbound from **GatewayManager** service tag. This enables the control plane, that is, Gateway Manager to be able to talk to Azure Bastion.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Inbound":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Screenshot shows inbound security rules for Azure Bastion connectivity.":::
 
 * **Egress Traffic:**
 
@@ -45,7 +45,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
    * **Egress Traffic to other public endpoints in Azure:** Azure Bastion needs to be able to connect to various public endpoints within Azure (for example, for storing diagnostics logs and metering logs). For this reason, Azure Bastion needs outbound to 443 to **AzureCloud** service tag.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Outbound":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Screenshot shows outbound security rules for Azure Bastion connectivity.":::
 
 ### Target VM Subnet
 This is the subnet that contains the target virtual machine that you want to RDP/SSH to.
