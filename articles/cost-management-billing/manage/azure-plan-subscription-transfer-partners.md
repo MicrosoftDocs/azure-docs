@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: mcville
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: banders
 ---
 
@@ -19,7 +19,7 @@ Access to existing users, groups, or service principals that were assigned using
 
 Consequently, it's important that you remove Azure RBAC access for the old partner and add access for the new partner. For more information about giving your new partner access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) For more information about removing your previous partner's RBAC access, see [Remove a role assignment](../../role-based-access-control/role-assignments-portal.md#remove-a-role-assignment).
 
-Additionally, your new partner doesn't automatically get [Admin on Behalf Of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) access to your subscriptions. AOBO is necessary for your partner to manage the Azure subscriptions on your behalf. For more information about how to give your new partner AOBO access, see [Transfer billing ownership of an Azure subscription account to another account](billing-subscription-transfer.md).
+Additionally, your new partner doesn't automatically get [Admin on Behalf Of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) access to your subscriptions. AOBO is necessary for your partner to manage the Azure subscriptions on your behalf. For more information about Azure privileges, see [Obtain permissions to manage a customer's service or subscription](/partner-center/customers-revoke-admin-privileges).
 
 ## Stop a transfer
 
@@ -34,4 +34,4 @@ You can also seek help, report misconduct, or suspicious activity using any of t
 ## Next steps
 
 - To give your new partner RBAC access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
-- To give your new partner AOBO access, see [Transfer billing ownership of an Azure subscription account to another account](billing-subscription-transfer.md).
+- [Obtain permissions to manage a customers service or subscription](/partner-center/customers-revoke-admin-privileges).
