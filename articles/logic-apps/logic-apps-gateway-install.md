@@ -39,7 +39,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
   * When you install the gateway, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. You can't link the same gateway installation across multiple Azure accounts or Azure AD tenants.
 
-  * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that links to your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, your Azure account can link to different gateway installations that are each associated with a Azure gateway resource. Your logic apps can then use this gateway resource in triggers and actions that can access on-premises data sources.
+  * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that links to your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, your Azure account can link to different gateway installations that are each associated with an Azure gateway resource. Your logic apps can then use this gateway resource in triggers and actions that can access on-premises data sources.
 
 * Here are requirements for your local computer:
 
