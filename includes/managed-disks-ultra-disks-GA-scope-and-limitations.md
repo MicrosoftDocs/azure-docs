@@ -18,7 +18,7 @@ The following table outlines the regions ultra disks are available in, as well a
 > [!NOTE]
 > If a region in the following list has no ultra disk capable availability zones, then VMs in that region must be deployed without any infrastructure redundancy options in order to attach an ultra disk.
 
-|Regions  |Redundancy Options  |
+|Regions  |Redundancy options  |
 |---------|---------|
 |Brazil South     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Central India     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
